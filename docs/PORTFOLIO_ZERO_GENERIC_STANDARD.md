@@ -79,6 +79,36 @@ Toda criação ou redesign material deve produzir Creative Composition Brief e c
 
 Se as direções forem apenas variações do mesmo esqueleto, devem ser regeneradas.
 
+### 5.1 Divergência de jornada e papéis — não basta mudar a estética
+
+As três direções também precisam divergir em **como a página ajuda o visitante
+a decidir**, quando o negócio permitir alternativas legítimas.
+
+Antes do layout, produzir a matriz de papéis definida em
+`PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` e identificar quais papéis podem ser
+integrados, antecipados, aprofundados, convertidos em ferramenta ou removidos.
+
+Sinais de falso redesign:
+
+- mesma jornada `hero → serviços → benefícios → prova → FAQ → CTA`, com copy nova;
+- serviços, provas, endereço e FAQ sempre ocupando o mesmo papel e a mesma posição;
+- toda mídia presa ao mesmo grid/card, mesmo quando produto, processo e localidade
+  pedem tratamentos diferentes;
+- interação limitada ao mesmo botão/funil apesar de existir incerteza que poderia
+  ser resolvida por catálogo, comparação, seletor, estimativa, disponibilidade,
+  diagnóstico, cobertura, galeria ou outra ajuda factual;
+- mobile apenas empilha o desktop e preserva a mesma monotonia estrutural.
+
+Não é obrigatório criar widget interativo. É obrigatório decidir se a jornada
+possui uma necessidade funcional própria e, quando houver, permitir que ela
+mude a composição.
+
+Quando o usuário fornecer um site de referência, executar a decomposição
+`ROLE_MATRIX + COMPOSITION_MATRIX + RHYTHM_MEDIA_MATRIX + ANTI_COPY_MATRIX`
+antes da direção final. A referência serve para ampliar repertório, nunca para
+substituir o trabalho autoral.
+
+
 ## 6. Layout engineering obrigatório
 
 Flexbox, Grid, intrinsic sizing e responsive flow são ferramentas de engenharia, não uma estética. Toda página deve avaliar conscientemente:
