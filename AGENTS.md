@@ -17,6 +17,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
 | Pesquisa pública exaustiva e ingestão/versionamento de fotos, produtos, posts e reels | `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md` |
 | Cliente com rede social / últimas 6 publicações reais com permalink e mídia | `docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md` |
+| Encerramento de frente, validação final e limpeza de Git/Vercel | `docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md` |
 | Pipeline autônomo nome + localização (R1 pesquisa → R2 composição factual → mídia/QA) | `.agents/skills/0web-portfolio-autonomous-pipeline/SKILL.md` · `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
@@ -63,6 +64,7 @@ Antes de criar ou publicar qualquer novo `/portfolio/:slug`, seguir
 obrigatoriamente `docs/PORTFOLIO_PROJECT_LIFECYCLE.md` (documento mestre).
 Um projeto novo não é considerado concluído enquanto o readiness gate
 (`bun run check:portfolio-project-readiness`) não estiver aprovado.
+Nenhuma frente de portfolio é considerada encerrada nem entra em limpeza de Git/Vercel antes de cumprir `docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md`.
 Dado ausente pode ser aceitável; pesquisa não realizada, não.
 
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
