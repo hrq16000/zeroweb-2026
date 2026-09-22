@@ -622,7 +622,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
-      ? "Centro Mega em São José dos Pinhais: amostra de loja virtual com celulares, acessórios, tênis, bonés, calçados e oportunidades de outlet organizadas a partir de conteúdo público e categorias confirmadas."
+      ? "Centro Mega em São José dos Pinhais: loja virtual de celulares, acessórios, moda e outlet, com produtos com mídia real, conteúdo social oficial, seleção de itens e pedido pelo funil da loja."
       : isAutoSocorroDentinho
       ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
