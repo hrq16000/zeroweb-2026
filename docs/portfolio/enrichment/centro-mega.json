@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T07:45:00Z",
+  "lastResearchAt": "2026-09-22T08:30:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -51,6 +51,21 @@
           "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
         ],
         "rule": "Os embeds oficiais conhecidos permanecem ativos. Bloqueio da leitura direta não encerra a pesquisa de novos shortcodes; usar conector social autorizado ou novas fontes públicas quando disponíveis."
+      },
+      "latestSix": {
+        "required": true,
+        "requiredCount": 6,
+        "resolvedOfficialPermalinks": 5,
+        "status": "SOCIAL_LATEST_6_INCOMPLETE",
+        "officialProfileUrl": "https://www.instagram.com/centro.mega/",
+        "permalinks": [
+          "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+          "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
+          "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+          "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+          "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
+        ],
+        "note": "Cinco permalinks oficiais estão resolvidos e incorporados. O sexto permalink recente ainda não pôde ser resolvido de forma verificável porque a leitura direta do Instagram está bloqueada neste ambiente. Não usar perfil genérico ou mirror como se fosse o sexto post."
       }
     },
     "facebook": {
@@ -309,5 +324,6 @@
   },
   "mediaIngestionPolicy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
   "projectMode": "FUNCTIONAL_SOCIAL_COMMERCE_STORE",
-  "orderFlow": "produto/seleção → funil individual → WhatsApp exclusivo Centro Mega; estoque/preço final confirmados no atendimento"
+  "orderFlow": "produto/seleção → funil individual → WhatsApp exclusivo Centro Mega; estoque/preço final confirmados no atendimento",
+  "socialPublicationGate": "SOCIAL_LATEST_6_INCOMPLETE"
 }
