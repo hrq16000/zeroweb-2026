@@ -53,16 +53,17 @@ describe("Centro Mega — Store Concept", () => {
     expect(enrichment.ownerSuppliedAssortment).toContain("calçados");
   });
 
-  test("contrato do portfolio muda para pedido e mantém lead-only seguro", () => {
+  test("contrato do portfolio muda para pedido e usa destino isolado", () => {
     const client = clients.find((item: any) => item.clientKey === "centro-mega");
     const catalogItem = catalog.find((item: any) => item.slug === "centro-mega");
 
     expect(client?.ctaMode).toBe("ordering");
     expect(client?.funnelType).toBe("pedido");
     expect(client?.contactMode).toBe("funnelOnly");
+    expect(client?.funnelRecipientConfigured).toBe(true);
     expect(catalogItem?.segment).toBe("comercios");
     expect(funnelContext["centro-mega"].intent).toBe("pedido");
-    expect(whatsapp.contacts["centro-mega"].whatsapp).toBeNull();
+    expect(whatsapp.contacts["centro-mega"].whatsapp).toBe("5541998589419");
   });
 
   test("SEO e discovery refletem loja sem criar Product/Offer de estoque", () => {

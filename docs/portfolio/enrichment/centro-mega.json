@@ -191,7 +191,6 @@
     "catálogo completo atual",
     "cobertura atual de envio/entrega",
     "conteúdo dos posts/reels do Instagram que não ficou legível",
-    "destino operacional de WhatsApp do portfolio",
     "endereço único canônico para todas as unidades"
   ],
   "publicationRules": [
@@ -205,5 +204,13 @@
     "Xiaomi Mi Box S",
     "Controle PlayStation 4 Original Sony",
     "Suporte de celular para Moto & Bike Renux 5203"
-  ]
+  ],
+  "operational": {
+    "whatsappStatus": "VERIFIED",
+    "contactMode": "funnelOnly",
+    "funnelType": "pedido",
+    "source": "OFFICIAL_LINKTREE+PUBLIC_BUSINESS_SITE+PUBLIC_SOCIAL_INDEX",
+    "verifiedAt": "2026-09-21",
+    "note": "Destino exclusivo do client_key centro-mega; sem fallback institucional ou cross-client."
+  }
 }

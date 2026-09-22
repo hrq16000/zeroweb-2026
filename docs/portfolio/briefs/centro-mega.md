@@ -113,7 +113,7 @@ Regras:
 - `contactMode = funnelOnly`
 - itens selecionados seguem em `orderContext.order_items`
 - nenhum número de outro cliente ou 0WEB entra como fallback
-- `portfolio-whatsapp.json` permanece `null` para Centro Mega até destino operacional próprio ser configurado com evidência suficiente
+- destino operacional próprio da Centro Mega revalidado e versionado exclusivamente por `client_key=centro-mega`; nenhum fallback cross-client
 
 ## SEO / entity
 

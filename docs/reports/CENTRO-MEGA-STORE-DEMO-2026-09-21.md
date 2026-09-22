@@ -131,9 +131,10 @@ O visitante não precisa redigitar aquilo que já selecionou na vitrine.
 - `ctaMode=ordering`;
 - `funnelType=pedido`;
 - `contactMode=funnelOnly`;
-- `portfolio-whatsapp.json` continua com `null`.
-
-Isso significa que a amostra pode salvar o lead/pedido sem cair em número de outro cliente. Um destino operacional da Centro Mega só deve ser configurado quando houver decisão/evidência canônica para o portfolio.
+- o destino operacional exclusivo da Centro Mega foi revalidado por Linktree oficial, VHSYS público e presença social indexada;
+- `portfolio-whatsapp.json` resolve somente o `client_key=centro-mega`;
+- não existe fallback institucional ou cross-client;
+- o contato continua server-side e não é exposto como `wa.me`, `tel:` ou `mailto:` na landing.
 
 ## Motion / visual
 

@@ -260,6 +260,18 @@
         "Divergência registrada: a home oficial também exibe um telefone fixo; nenhum número foi inferido ou substituído automaticamente.",
         "Destino versionado exclusivamente para client_key autoescola-aptos, sem fallback cross-client."
       ]
+    },
+    "centro-mega": {
+      "status": "VERIFIED",
+      "source": "PUBLIC_OFFICIAL_CHANNELS+BUSINESS_SITE",
+      "confidence": 96,
+      "verifiedAt": "2026-09-21",
+      "evidence": [
+        "Linktree oficial @centro.mega lista Centro Mega - SAC, Centro Mega Outlet - São José Dos Pinhais e demais unidades/canais da marca.",
+        "VHSYS público da Centro Mega exibe o telefone 41 99858-9419 na seção Fale Conosco junto ao CNPJ 17.991.627/0001-54.",
+        "Presença social pública indexada exibe +55 41 99858-9419 para Centro Mega em São José dos Pinhais.",
+        "Destino versionado exclusivamente para client_key centro-mega; sem fallback institucional ou cross-client."
+      ]
     }
   }
 }
