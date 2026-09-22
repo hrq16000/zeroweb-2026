@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T06:30:00Z",
+  "lastResearchAt": "2026-09-22T07:33:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -87,7 +87,7 @@
       "resolved": true,
       "verified": true,
       "status": "PUBLIC_REAL_PRODUCT_MEDIA_INGESTED",
-      "note": "Mídia real de produtos foi resolvida no catálogo público do seller Centro Mega no Magazine Luiza e versionada em CDN com source URL preservada. Instagram oficial permanece também como mídia viva via embed público.",
+      "note": "Mídia de produto já inclui assets do próprio catálogo seller Centro Mega e referências externas de modelo quando a evidência Centro Mega existe mas a foto original não é ingerível de forma estável. Cada referência externa permanece explicitamente classificada e com origem preservada.",
       "assets": [
         {
           "product": "Xiaomi Mi Box S",
@@ -103,6 +103,27 @@
           "product": "Suporte Renux 5203",
           "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
           "sourceUrl": "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/"
+        },
+        {
+          "product": "Poco X5 Pro 8GB / 256GB",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062389/centro-mega-poco-x5-pro-reference.jpg",
+          "sourceUrl": "https://www.olx.ro/electronice-si-electrocasnice/q-poco-x5/",
+          "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Tênis Dunk Low Pro",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062368/centro-mega-dunk-low-pro-reference.png",
+          "sourceUrl": "https://chilangoskate.com/products/tenis-nike-sb-dunk-low-pro-white-and-black",
+          "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Controle PlayStation 4 · Sony",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062373/centro-mega-ps4-controller-reference.jpg",
+          "sourceUrl": "https://www.zeusgames.com.br/manete-ps4-preta",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
         }
       ]
     },
