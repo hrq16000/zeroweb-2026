@@ -934,7 +934,7 @@
       "socialVersion": "ff04b464"
     },
     "maximos-cabeleireiros": {
-      "icon": "/images/maximos-cabeleireiros/logo.png",
+      "icon": "https://res.cloudinary.com/dqnwlodjs/image/upload/c_limit,w_1024/f_webp/q_auto/v1790096636/maximos-cabeleireiros-logo.webp",
       "socialImage": "/images/maximos-cabeleireiros/social-og.jpg",
       "proof": {
         "eyebrow": "Maximos Cabeleireiros",
