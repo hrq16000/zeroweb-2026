@@ -129,6 +129,8 @@ describe("Centro Mega — Store Concept", () => {
   test("SEO e discovery refletem loja sem criar Product/Offer de estoque", () => {
     expect(route).toContain('additionalType: "https://schema.org/ElectronicsStore"');
     expect(route).toContain('name: "Centro Mega"');
+    expect(route).toContain("Centro Mega em São José dos Pinhais: loja virtual");
+    expect(route).not.toContain("Centro Mega em São José dos Pinhais: amostra de loja virtual");
     expect(route).toContain('"Celulares e smartphones"');
     expect(route).toContain('"Outlet"');
     expect(discovery.projects["centro-mega"].products).toContain("Poco X5 Pro 8GB 256GB");
