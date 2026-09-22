@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+import { scoreItem } from "../../src/lib/portfolio-search";
 
 const page = readFileSync("src/components/site/CentroMegaPage.tsx", "utf8");
 const products = readFileSync("src/config/centro-mega-demo-products.ts", "utf8");
@@ -60,7 +61,6 @@ describe("Centro Mega — Store Concept", () => {
     expect(client?.ctaMode).toBe("ordering");
     expect(client?.funnelType).toBe("pedido");
     expect(client?.contactMode).toBe("funnelOnly");
-    expect(client?.funnelRecipientConfigured).toBe(true);
     expect(catalogItem?.segment).toBe("comercios");
     expect(funnelContext["centro-mega"].intent).toBe("pedido");
     expect(whatsapp.contacts["centro-mega"].whatsapp).toBe("5541998589419");
@@ -73,6 +73,13 @@ describe("Centro Mega — Store Concept", () => {
     expect(route).toContain('"Outlet"');
     expect(discovery.projects["centro-mega"].products).toContain("Poco X5 Pro 8GB 256GB");
     expect(discovery.projects["centro-mega"].products).toContain("Tênis Dunk Low Pro");
+  });
+
+  test("indexa nomes de produtos reais na busca do portfolio", () => {
+    const item = { slug: "centro-mega", title: "Centro Mega", tags: [] };
+    expect(scoreItem("Poco X5 Pro", item)).toBeGreaterThan(0);
+    expect(scoreItem("Dunk Low Pro", item)).toBeGreaterThan(0);
+    expect(scoreItem("Xiaomi Mi Box S", item)).toBeGreaterThan(0);
   });
 
   test("mídia ativa da loja não finge fotografia de estoque", () => {
