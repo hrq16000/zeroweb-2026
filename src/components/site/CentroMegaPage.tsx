@@ -668,7 +668,7 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <div className="mt-10">
+                <div className="mt-10 lg:col-span-2">
                   <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
                     <div>
                       <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-300">Instagram oficial · mídia real</p>
@@ -684,7 +684,7 @@ export function CentroMegaPage() {
                     </a>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                     {CENTRO_MEGA_SOCIAL_SOURCES.filter(
                       (source) => source.kind === "Instagram" && /\/(?:p|reel)\//.test(source.href),
                     ).map((source) => {
