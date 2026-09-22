@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+import { scoreItem } from "../../src/lib/portfolio-search";
 
 const page = readFileSync("src/components/site/CentroMegaPage.tsx", "utf8");
 const products = readFileSync("src/config/centro-mega-demo-products.ts", "utf8");
@@ -72,6 +73,26 @@ describe("Centro Mega — Store Concept", () => {
     expect(route).toContain('"Outlet"');
     expect(discovery.projects["centro-mega"].products).toContain("Poco X5 Pro 8GB 256GB");
     expect(discovery.projects["centro-mega"].products).toContain("Tênis Dunk Low Pro");
+  });
+
+  test("busca do catálogo encontra produtos reais da Centro Mega", () => {
+    const client = clients.find((item: any) => item.clientKey === "centro-mega");
+    const searchable = {
+      slug: "centro-mega",
+      clientKey: "centro-mega",
+      title: client?.siteName ?? "Centro Mega",
+      subtitle: "Loja virtual demo · celulares, acessórios e outlet",
+      location: "São José dos Pinhais — PR",
+      city: "São José dos Pinhais",
+      state: "PR",
+      segment: "comercios",
+      summary: "Amostra de loja virtual da Centro Mega",
+      tags: [] as string[],
+    };
+
+    expect(scoreItem("Poco X5 Pro", searchable)).toBeGreaterThan(0);
+    expect(scoreItem("Dunk Low Pro", searchable)).toBeGreaterThan(0);
+    expect(scoreItem("Xiaomi Mi Box S", searchable)).toBeGreaterThan(0);
   });
 
   test("mídia ativa da loja não finge fotografia de estoque", () => {
