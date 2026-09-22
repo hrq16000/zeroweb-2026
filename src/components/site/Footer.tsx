@@ -30,7 +30,6 @@ const empresaCol: { label: string; to: string }[] = [
 
 const suporteCol: { label: string; to?: string; href?: string }[] = [
   { label: "FAQ", to: "/faq" },
-  { label: "Contato", to: "/contato" },
   { label: "Mapa do Site", href: "/mapa-do-site" },
   { label: "Política de Privacidade", to: "/politica-privacidade" },
   { label: "Termos de Uso", to: "/termos" },
@@ -136,6 +135,22 @@ export function Footer() {
           <div className="lg:col-span-3 sm:col-span-1">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-background/75">Suporte</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
+              {!isLojaArea && (
+                <li>
+                  <FunnelCTAButton
+                    intent={{
+                      purpose: "commercial",
+                      source: "footer_support",
+                      pagePath: pathname,
+                      placement: "footer",
+                    }}
+                    label="Contato"
+                    location="footer_support"
+                    showArrow={false}
+                    className="inline-flex p-0 text-background/90 hover:text-accent transition bg-transparent shadow-none"
+                  />
+                </li>
+              )}
               {suporteCol.map((l) => (
                 <li key={l.label}>
                   {l.to ? (
