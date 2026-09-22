@@ -686,49 +686,49 @@ export function CentroMegaPage() {
 
                   <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                     {CENTRO_MEGA_SOCIAL_SOURCES.filter(
-                      (source) =>
-                        source.kind === "Instagram" &&
-                        /\/(?:p|reel)\//.test(source.href) &&
-                        "mediaUrl" in source &&
-                        Boolean(source.mediaUrl),
-                    ).map((source) => (
-                      <a
-                        key={source.href}
-                        href={source.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04] transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
-                      >
-                        <div className="relative aspect-[4/5] overflow-hidden bg-white">
-                          <PortfolioImage
-                            src={source.mediaUrl}
-                            alt={source.mediaAlt}
-                            width={1080}
-                            height={1350}
-                            loading="lazy"
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
-                          />
-                          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent px-4 pb-4 pt-14">
-                            <div className="flex items-center justify-between gap-3">
-                              <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-black uppercase tracking-[.14em] text-white">
-                                {source.label}
-                              </span>
-                              <ExternalLink className="h-4 w-4 text-white/80" aria-hidden="true" />
+                      (source) => source.kind === "Instagram" && /\/(?:p|reel)\//.test(source.href),
+                    ).map((source) => {
+                      if (!("mediaUrl" in source) || !("mediaAlt" in source) || !source.mediaUrl) return null;
+
+                      return (
+                        <a
+                          key={source.href}
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04] transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
+                        >
+                          <div className="relative aspect-[4/5] overflow-hidden bg-white">
+                            <PortfolioImage
+                              src={source.mediaUrl}
+                              alt={source.mediaAlt}
+                              width={1080}
+                              height={1350}
+                              loading="lazy"
+                              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent px-4 pb-4 pt-14">
+                              <div className="flex items-center justify-between gap-3">
+                                <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-black uppercase tracking-[.14em] text-white">
+                                  {source.label}
+                                </span>
+                                <ExternalLink className="h-4 w-4 text-white/80" aria-hidden="true" />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="border-t border-white/10 px-4 py-4">
-                          <p className="text-xs leading-5 text-white/55">
-                            {"provenance" in source ? source.provenance : "Instagram oficial @centro.mega"}
-                          </p>
-                          {"shortcode" in source && (
-                            <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em] text-fuchsia-200/75">
-                              {source.shortcode}
+                          <div className="border-t border-white/10 px-4 py-4">
+                            <p className="text-xs leading-5 text-white/55">
+                              {"provenance" in source ? source.provenance : "Instagram oficial @centro.mega"}
                             </p>
-                          )}
-                        </div>
-                      </a>
-                    ))}
+                            {"shortcode" in source && (
+                              <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em] text-fuchsia-200/75">
+                                {source.shortcode}
+                              </p>
+                            )}
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
