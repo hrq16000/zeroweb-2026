@@ -2,7 +2,7 @@
 
 Contrato: v2 · Slug: `centro-mega` · Client key: `centro-mega`
 
-> Evolução material de 21/09/2026: a presença deixa de ser apenas assistência/acessórios e passa a funcionar como **amostra de loja virtual social-commerce**, sem assumir estoque, preço ou disponibilidade atuais sem evidência.
+> Evolução material de 21/09/2026: a presença deixa de ser apenas assistência/acessórios e passa a funcionar como **loja virtual social-commerce funcional**, sem assumir estoque, preço ou disponibilidade atuais sem evidência.
 
 ## Business truth
 
@@ -13,7 +13,7 @@ Postagens públicas indexadas encontradas:
 - 25/01/2024 — Poco X5 Pro, 8 GB RAM / 256 GB; publicação exibia de R$ 2.399,00 por R$ 1.899,00;
 - 08/11/2023 — Tênis Dunk Low Pro; espelhos públicos mostram faixas de tamanho conflitantes (34–39 e 34–43), portanto a landing não transforma nenhuma delas em estoque atual.
 
-O responsável da 0WEB informou também mix de bonés, calçados, tênis e outros itens de outlet publicados diretamente nas redes. Esses itens entram como **categorias demonstrativas**, não como produtos com preço/estoque inventado.
+O responsável da 0WEB informou também mix de bonés, calçados, tênis e outros itens de outlet publicados diretamente nas redes. Esses itens entram como **categorias dinâmicas da loja**, não como produtos com preço/estoque inventado.
 
 ## Creative DNA
 
@@ -22,7 +22,7 @@ O responsável da 0WEB informou também mix de bonés, calçados, tênis e outro
 - singleGoal: transformar interesse em produto/categoria numa solicitação de compra contextualizada pelo funil da Centro Mega.
 - brandPersonality: energética, tecnológica, varejista, rápida, popular-premium, visualmente ousada.
 - visualMetaphor: **feed social se transformando em loja neon navegável**.
-- layoutTopology: macrocomposição de social-commerce com hero imersivo, vitrine pesquisável, categorias, outlet mode, feed de fontes, mapa de canais e sacola demonstrativa.
+- layoutTopology: macrocomposição de social-commerce com hero imersivo, vitrine pesquisável, categorias, outlet mode, feed de fontes, mapa de canais e sacola de seleção.
 - heroArchetype: monolítico tipográfico + mockup de produtos em neon; sem hero split institucional.
 - navigationArchetype: sticky commerce bar com Vitrine / Outlet / Redes / Lojas e contador de seleção.
 - sectionRhythm: impacto escuro → vitrine → atmosfera outlet → social feed → presença multicanal → sacola/CTA.
@@ -31,7 +31,7 @@ O responsável da 0WEB informou também mix de bonés, calçados, tênis e outro
 - imageStrategy: mídia real pública do próprio negócio/produto em primeiro lugar — Instagram/Facebook oficiais, seller/marketplace e demais fontes resolvidas; assets acessíveis são versionados com provenance. CSS/DOM e geração ficam como apoio/fallback, nunca como desculpa para ignorar foto real disponível.
 - iconStrategy: Lucide como glyph funcional e fallback explícito apenas para item/categoria ainda sem mídia real resolvida; produto concreto com foto pública disponível usa a foto real.
 - motionGrammar: `IMMERSIVE` com layered hero, stagger, hover depth, glows e crossing depth; sempre fail-open e reduzido em mobile/reduced-motion.
-- interactionSignature: filtros de categoria + busca + sacola demonstrativa + carryover dos itens selecionados para o funil.
+- interactionSignature: filtros de categoria + busca + sacola de seleção + carryover dos itens selecionados para o funil.
 - conversionNarrative: post social → produto/categoria → seleção → consulta → confirmação de preço/estoque → atendimento.
 - proofStrategy: Linktree oficial, loja/contato pública, postagens públicas indexadas e links sociais já versionados.
 - nearestPortfolioRisks: evitar parecer assistência técnica, marketplace genérico, dashboard ou clone de e-commerce institucional.
@@ -86,8 +86,8 @@ Regra de mídia desta revisão: `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.
 | Fotos reais de produtos | USED | catálogo público do seller Centro Mega no Magalu pesquisado; Mi Box S, Earbuds Basic 2 e Renux 5203 têm mídia real versionada em CDN com provenance |
 | Bonés/calçados/outlet | USED_AS_CATEGORY | fornecido pelo responsável; sem SKU/preço inventado |
 | Busca e filtros | USED | reduz custo de descobrir produto |
-| Sacola demonstrativa | USED | lista de interesse, não checkout |
-| Checkout/pagamento real | REJECTED | amostra não possui catálogo/estoque/preço transacional confiável |
+| Sacola de seleção | USED | seleção real enviada ao funil de pedido; pagamento não é processado dentro da landing |
+| Checkout/pagamento real | REJECTED | o fechamento comercial exige confirmação de estoque/preço e segue pelo funil/WhatsApp; checkout financeiro próprio não está habilitado |
 | Countdown/urgência | REJECTED | não há condição temporal comprovada |
 | Ratings/depoimentos | REJECTED | não necessários e não há prova canônica |
 | Motion imersivo | USED | serve à metáfora feed → commerce; primitives existentes |
@@ -105,7 +105,7 @@ Regras:
 1. preço antigo só aparece como “preço da postagem histórica”;
 2. estoque, tamanho e cor são sempre “consultar”;
 3. posts não legíveis não viram SKU inventado;
-4. categorias informadas podem aparecer como amostra, claramente classificadas;
+4. categorias informadas podem aparecer como categorias dinâmicas, sem SKU/preço inventado;
 5. uma futura loja real pode substituir esse dataset por catálogo/estoque/checkout.
 
 ## Conversão
@@ -119,7 +119,7 @@ Regras:
 
 ## SEO / entity
 
-A landing deve se posicionar como amostra de loja virtual da Centro Mega em São José dos Pinhais / Curitiba e região, sem inventar estoque, preço, endereço adicional, review ou disponibilidade.
+A landing deve se posicionar como loja virtual funcional da Centro Mega em São José dos Pinhais / Curitiba e região, sem inventar estoque, preço, endereço adicional, review ou disponibilidade.
 
 ## Fontes públicas consultadas em 21/09/2026
 
@@ -132,7 +132,7 @@ A landing deve se posicionar como amostra de loja virtual da Centro Mega em São
 
 ## Critério visual
 
-A amostra pode ser deliberadamente mais exuberante que uma landing institucional, porque seu objetivo é vender a visão de uma loja virtual. O exagero visual só passa se:
+A loja pode ser deliberadamente mais exuberante que uma landing institucional, porque seu objetivo é vender a visão de uma loja virtual. O exagero visual só passa se:
 
 - continuar legível;
 - não esconder CTA;
