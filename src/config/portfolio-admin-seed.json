@@ -640,8 +640,8 @@
       "subtitle": "Loja virtual demo · celulares, acessórios e outlet",
       "image": "/images/centro-mega/hero.png",
       "icon": "/images/centro-mega/logo.png",
-      "socialImage": "/images/centro-mega/social-og.jpg",
-      "socialVersion": "9e729e85",
+      "socialImage": "/og-default.jpg",
+      "socialVersion": "bd9ad555",
       "componentFile": "src/components/site/CentroMegaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/centro-mega",
@@ -651,9 +651,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/centro-mega/hero.png",
-        "/images/centro-mega/logo.png",
-        "/images/centro-mega/social-og.jpg",
-        "/images/centro-mega/social.png"
+        "/images/centro-mega/logo.png"
       ],
       "shareCopy": "📱✨ A Centro Mega ganhou uma amostra de loja virtual!\n\nCelulares, acessórios e oportunidades de outlet agora aparecem em uma vitrine organizada, com busca, categorias e seleção de produtos.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/centro-mega\n\n🛍️ Explore a loja, monte sua seleção e consulte disponibilidade pelo próprio site.\n\n#CentroMega #LojaVirtual #Celulares #Outlet #SaoJoseDosPinhais #0WEB",
       "published": true,

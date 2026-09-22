@@ -215,3 +215,13 @@ Não existe `Product` com preço/availability em JSON-LD porque a amostra não p
 - reduced motion.
 
 A publicação só é encerrada depois do head final passar pelos gates executáveis disponíveis e preview final ficar pronto.
+
+
+## Finalização pós-review
+
+Após o review da primeira publicação, dois pontos residuais foram corrigidos sem alterar outros portfolios:
+
+- **Busca do catálogo:** os nomes dos cinco produtos documentados da Centro Mega passaram também para `keywords`, campo efetivamente consumido pelo mecanismo atual de busca do `/portfolio`. O teste dedicado cobre buscas por `Poco X5 Pro`, `Dunk Low Pro` e `Xiaomi Mi Box S`.
+- **OG/social seguro:** a antiga imagem social legada da Centro Mega não é mais referenciada pela Store Concept nem pelo seed administrativo. Enquanto um novo binário próprio não for incorporado pelo pipeline de assets, o share usa `/og-default.jpg`, já versionado no repositório, evitando expor telefone, endereço ou linguagem da versão antiga de assistência técnica.
+
+A correção mantém `clientKey=centro-mega`, `contactMode=funnelOnly` e destino WhatsApp não confirmado (`null`). Nenhum fallback cross-client foi introduzido.
