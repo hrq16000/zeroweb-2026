@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T15:21:00Z",
+  "lastResearchAt": "2026-09-22T16:05:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -61,11 +61,11 @@
         "permalinks": [
           "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
           "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
-          "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
           "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+          "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
           "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
         ],
-        "note": "Cinco permalinks oficiais estão com a própria mídia recuperada e versionada em CDN; o frontend não usa mais iframe do Instagram. O sexto permalink recente continua pendente de descoberta verificável.",
+        "note": "Cinco permalinks oficiais estão com mídia real versionada e agora ordenados por recência usando o timestamp codificado no media ID/shortcode. O reel DV8haszkdOy resulta em 16/03/2026, data também observada no índice público da Centro Mega. O sexto permalink recente continua pendente de descoberta verificável.",
         "mediaResolved": 5,
         "mediaAssets": [
           {
@@ -104,7 +104,36 @@
             "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
           }
         ],
-        "renderStrategy": "VERSIONED_REAL_MEDIA_NO_IFRAME"
+        "renderStrategy": "VERSIONED_REAL_MEDIA_NO_IFRAME",
+        "orderStatus": "FIVE_RESOLVED_SORTED_DESCENDING",
+        "orderingMethod": "INSTAGRAM_SHORTCODE_MEDIA_ID_TIMESTAMP",
+        "verifiedChronology": [
+          {
+            "shortcode": "DV8haszkdOy",
+            "publishedAtUtc": "2026-03-16T12:40:24.896Z",
+            "permalink": "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/"
+          },
+          {
+            "shortcode": "DHzjkeutEKu",
+            "publishedAtUtc": "2025-03-30T01:46:32.630Z",
+            "permalink": "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/"
+          },
+          {
+            "shortcode": "DGjBSGIPSKO",
+            "publishedAtUtc": "2025-02-26T19:07:41.673Z",
+            "permalink": "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/"
+          },
+          {
+            "shortcode": "DDPCypWxVZZ",
+            "publishedAtUtc": "2024-12-06T11:21:53.030Z",
+            "permalink": "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/"
+          },
+          {
+            "shortcode": "DCt4G0HxLRu",
+            "publishedAtUtc": "2024-11-23T14:13:34.824Z",
+            "permalink": "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
+          }
+        ]
       }
     },
     "facebook": {
