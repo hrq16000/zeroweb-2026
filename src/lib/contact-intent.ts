@@ -48,7 +48,7 @@ export type ContactIntent = {
 
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,80}$/;
 const SOURCE_RE = /^[a-z0-9_\-.:/]{1,120}$/i;
-const PAGE_PATH_RE = /^\/[a-z0-9\-_/.$]{0,200}$/i;
+const PAGE_PATH_RE = /^\/(?!\/)[a-z0-9\-_/.$]{0,200}$/i;
 const MAX_LEN = 120;
 
 const PURPOSES: readonly ContactPurpose[] = [
