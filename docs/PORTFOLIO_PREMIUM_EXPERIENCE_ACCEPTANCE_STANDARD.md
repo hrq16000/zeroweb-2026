@@ -414,6 +414,12 @@ O media plan escolhe **função por asset**:
 `HERO` · `GALLERY` · `PROOF` · `PROCESS` · `BACKGROUND` · `COVER` ·
 `OG` · `BRAND_REFERENCE` · `EVIDENCE_ONLY`.
 
+### 12.1 Últimas 6 publicações
+
+Cliente com Instagram oficial público ativo deve ter uma seção social baseada nas seis publicações mais recentes verificáveis, com links reais e mídia real. Aplicar `PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md`.
+
+Esse requisito é conteúdo/provenance, não template visual. O design da seção continua autoral por cliente.
+
 ## 13. Padrão de vídeo
 
 Vídeo público do próprio cliente pode elevar muito a landing quando houver acesso e direito de uso.
@@ -481,6 +487,9 @@ Um novo projeto não deve ser considerado visualmente concluído com qualquer um
 
 - `REAL_MEDIA_RESEARCH_NOT_RUN`
 - `SOCIAL_MEDIA_RESEARCH_NOT_RUN`
+- `SOCIAL_LATEST_6_NOT_RESEARCHED`
+- `SOCIAL_LATEST_6_INCOMPLETE`
+- `SOCIAL_POST_REAL_MEDIA_MISSING`
 - `OFFICIAL_BRAND_RESEARCH_NOT_RUN`
 - `GENERIC_GENERATED_LOGO`
 - `LOGO_MISSING`
@@ -507,7 +516,7 @@ Um novo projeto não deve ser considerado visualmente concluído com qualquer um
 Um novo portfolio só pode ser apresentado como entrega visual final quando:
 
 1. pesquisa de entidade completa;
-2. pesquisa de redes e mídia completa;
+2. pesquisa de redes e mídia completa, incluindo latest-six quando houver Instagram público;
 3. mídia real aproveitável usada quando existe;
 4. identidade oficial encontrada ou conceito autoral devidamente classificado;
 5. logo/brand system coerentes;
