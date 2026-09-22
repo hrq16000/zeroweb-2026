@@ -147,9 +147,19 @@ EntityEnrichment
 ```
 
 Falha de um provider não interrompe os demais; ela é registrada com status
-`UNAVAILABLE`. Proibido raspar HTML de Google, Instagram ou Facebook como
-arquitetura oficial. Quando a API não estiver disponível, registrar a URL/Place
-ID confirmados para enriquecimento posterior.
+`UNAVAILABLE`. Seguir também `PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`.
+
+Não contornar login, autenticação, paywall, token, conteúdo privado ou proteção
+de acesso. Porém, bloqueio de API/fetch direto de Google, Instagram ou Facebook
+**não autoriza encerrar a pesquisa**. O pipeline deve continuar por fontes
+públicas legítimas: site oficial, embeds/oEmbed públicos, Linktree/hubs,
+marketplace/seller, mecanismos de busca, busca de imagens, diretórios e
+mirrors/indexadores públicos, sempre resolvendo a origem e preservando
+provenance/atribuição. `PROVIDER_BLOCKED` ≠ `NO_MEDIA`.
+
+Somente após a escada aplicável ter sido executada pode existir
+`PUBLIC_MEDIA_FALLBACK_EXHAUSTED`; ainda assim, a fonte descoberta permanece
+registrada para revalidação posterior.
 
 ## 5. Google: atribuição e cache
 
@@ -173,6 +183,11 @@ Conflito nunca é resolvido em silêncio: registrar em `conflicts[]` com os valo
 e as fontes.
 
 ## 7. Media enrichment
+
+Para negócios com presença visual pública, a pesquisa de mídia é uma obrigação
+de produto, não uma etapa opcional. Loja/catálogo com mídia real de produto
+resolvível não pode encerrar com cards de ícone/placeholder. O gate
+`COMMERCE_PRODUCT_MEDIA_MISSING` reprova essa condição.
 
 ```ts
 type MediaCandidate = {
