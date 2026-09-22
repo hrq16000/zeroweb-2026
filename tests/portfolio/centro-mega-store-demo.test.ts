@@ -13,6 +13,7 @@ const discovery = JSON.parse(readFileSync("src/config/portfolio-discovery.json",
 const mediaPlan = JSON.parse(readFileSync("docs/portfolio/media-plans/centro-mega.json", "utf8"));
 const enrichment = JSON.parse(readFileSync("docs/portfolio/enrichment/centro-mega.json", "utf8"));
 const publicMediaStandard = readFileSync("docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md", "utf8");
+const socialLatestSixStandard = readFileSync("docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md", "utf8");
 
 describe("Centro Mega — Store Concept", () => {
   test("transforma a landing em vitrine selecionável sem contato direto", () => {
@@ -127,6 +128,24 @@ describe("Centro Mega — Store Concept", () => {
     expect(scoreItem("Poco X5 Pro", item)).toBeGreaterThan(0);
     expect(scoreItem("Dunk Low Pro", item)).toBeGreaterThan(0);
     expect(scoreItem("Xiaomi Mi Box S", item)).toBeGreaterThan(0);
+  });
+
+  test("hero mantém largura intrínseca e não colapsa os cards de produto", () => {
+    expect(page).toContain("mega-hero-drift relative mx-auto w-full min-w-0 max-w-2xl");
+    expect(page).toContain("relative grid min-w-0 gap-4 sm:grid-cols-2");
+    expect(page).toContain("CENTRO_MEGA_DEMO_PRODUCTS.slice(0, 2)");
+    expect(page).toContain("Foto pública versionada");
+    expect(page).not.toContain('absolute left-0 top-5 w-[68%]');
+    expect(page).not.toContain('absolute bottom-2 right-0 w-[68%]');
+  });
+
+  test("latest-six social é obrigatório e a Centro Mega registra o sexto post pendente", () => {
+    expect(socialLatestSixStandard).toContain("6 publicações públicas mais recentes verificáveis");
+    expect(socialLatestSixStandard).toContain("SOCIAL_LATEST_6_INCOMPLETE");
+    expect(enrichment.researchLedger.instagram.latestSix.requiredCount).toBe(6);
+    expect(enrichment.researchLedger.instagram.latestSix.resolvedOfficialPermalinks).toBe(5);
+    expect(enrichment.researchLedger.instagram.latestSix.status).toBe("SOCIAL_LATEST_6_INCOMPLETE");
+    expect(mediaPlan.socialLatestSixGate).toBe("SOCIAL_LATEST_6_INCOMPLETE");
   });
 
   test("hero gráfico não substitui mídia real da vitrine", () => {
