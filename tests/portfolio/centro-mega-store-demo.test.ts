@@ -53,12 +53,20 @@ describe("Centro Mega — Store Concept", () => {
     expect(products).toContain("centro-mega-mi-box-s.jpg");
     expect(products).toContain("centro-mega-earbuds-basic-2.jpg");
     expect(products).toContain("centro-mega-suporte-renux-01.jpg");
+    expect(products).toContain("centro-mega-poco-x5-pro-reference.jpg");
+    expect(products).toContain("centro-mega-dunk-low-pro-reference.png");
+    expect(products).toContain("centro-mega-ps4-controller-reference.jpg");
     expect(products).toContain("Foto do catálogo público · Centro Mega no Magalu");
     expect(page).toContain("CENTRO_MEGA_SOCIAL_SOURCES");
     expect(page).toContain("<iframe");
     expect(page).toContain("embed/");
     expect(page).toContain("Instagram oficial · mídia real");
-    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(3);
+    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(6);
+    expect(
+      mediaPlan.inventory.realProductMedia.filter(
+        (item: any) => item.classification === "EXTERNAL_PRODUCT_REFERENCE",
+      ).length,
+    ).toBeGreaterThanOrEqual(3);
     expect(enrichment.researchLedger.photos.found).toBe(true);
     expect(enrichment.researchLedger.photos.status).toBe("PUBLIC_REAL_PRODUCT_MEDIA_INGESTED");
   });
