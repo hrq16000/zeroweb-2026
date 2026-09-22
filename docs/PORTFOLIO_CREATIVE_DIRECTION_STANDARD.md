@@ -153,6 +153,88 @@ Não usar automaticamente:
 Essa ordem só é permitida se o briefing justificar cada bloco e a composição
 resultante continuar materialmente distinta do portfólio existente.
 
+## 4.1 Matriz de papéis da experiência — antes do wireframe
+
+Além do Creative DNA, toda landing nova deve transformar conteúdo bruto em uma
+**matriz de papéis** antes de escolher seções ou componentes:
+
+| Campo | Pergunta |
+|---|---|
+| `role` | Qual função este conteúdo cumpre na decisão? |
+| `visitorQuestion` | Qual pergunta real do visitante ele responde? |
+| `priority` | É essencial na primeira dobra, cedo, no meio, perto do fechamento ou apenas complementar? |
+| `evidence` | Qual fato, mídia ou fonte sustenta o bloco? |
+| `visualTreatment` | Que linguagem espacial faz sentido para este papel e esta marca? |
+| `mediaRole` | A mídia demonstra produto, trabalho, processo, localidade, identidade, contexto ou prova? |
+| `interaction` | Precisa ser leitura, seleção, comparação, filtro, galeria, simulador, diagnóstico, formulário ou nenhuma interação? |
+| `mobileTranslation` | Como a composição muda no mobile sem virar desktop simplesmente empilhado? |
+
+Papéis possíveis incluem: orientação, descoberta de oferta, conversão rápida,
+demonstração de valor, inventário/catálogo, redução de risco, apoio à decisão,
+prova, localidade/viabilidade, processo, educação e continuidade pós-ação.
+
+**Papéis não são seções obrigatórias.** Podem ser combinados, fragmentados,
+movidos ou incorporados à navegação, hero, mídia, prova e fechamento.
+
+## 4.2 Matriz de ritmo, mídia e silhueta
+
+Antes do JSX, desenhar a cadência macro com pelo menos estes eixos:
+
+`density | mediaWeight | containment | contrast | interaction | proofLevel`
+
+Exemplos de estados: `AIRY/DENSE`, `MEDIA_DOMINANT/TEXT_DOMINANT/BALANCED`,
+`FULL_BLEED/CONTAINED/OVERLAPPED`, `QUIET/CONTRASTED`,
+`STATIC/INTERACTIVE`.
+
+A intenção não é alternar mecanicamente os estados. É impedir que a página seja
+uma fila de regiões com o mesmo container, mesma largura, mesmo card, mesma
+relação imagem/texto e o mesmo encerramento.
+
+Três ou mais capítulos principais com combinação perceptiva praticamente
+idêntica exigem justificativa explícita no brief. Se a silhueta continuar igual
+a um vizinho depois de remover marca/copy/assets, a composição deve ser refeita.
+
+### Papéis narrativos de mídia
+
+Toda imagem dominante recebe uma função: `IDENTITY`, `PRODUCT`, `CRAFT`,
+`PROCESS`, `PLACE`, `PROOF`, `CONTEXT`, `EDITORIAL` ou `CLOSING`.
+
+Repetir “imagem retangular + texto ao lado” como tratamento universal não
+satisfaz estratégia de mídia. A mesma landing pode combinar, quando fizer
+sentido, imagem editorial singular, full bleed, recorte sobreposto, mosaico,
+product shelf, mídia atravessando capítulos, galeria, prova visual junto da
+claim e imagem física de localidade.
+
+## 4.3 Referência auditada — FFIX (2026-09-22)
+
+Fonte pública estudada: `https://ffix.com.br/` e rotas internas públicas
+relacionadas a assistência, TV, aparelhos usados, proteção de tela e notebooks.
+
+A referência foi absorvida como **gramática de decisão e composição**, nunca
+como layout a copiar:
+
+| Contexto observado | O que muda na arquitetura | Lição para 0WEB |
+|---|---|---|
+| Home multioferta | orçamento/configuração aparece cedo; catálogo, oficina real, usados, processo, diagnóstico, prova social e loja física recebem pesos diferentes | misturar descoberta, utilidade, prova e conversão em ritmos distintos |
+| Serviço específico | explicação do problema e taxonomia do serviço ganham precedência | o conteúdo específico deve alterar os primeiros capítulos da página |
+| Estoque de usados | vitrine/availability domina; depois entram busca, segurança da compra, inspeção e troca/venda | intenção de produto exige jornada de produto, não skeleton de serviço |
+| Reparo de TV | a dúvida “consertar ou trocar?” vira apoio à decisão | transformar objeção importante em módulo decisório no ponto certo |
+| Oferta com garantia forte | a garantia sobe na hierarquia | diferenciais reais podem reordenar a composição |
+
+Padrões de mídia absorvidos: oficina real como prova de ofício, foto de produto
+como centro da vitrine, loja física como prova de localidade e mídia de CTA
+apenas quando fortalece o fechamento. A regra resultante é **mídia por função**,
+não “uma foto por seção”.
+
+Quando uma referência externa for fornecida pelo usuário, registrar no brief:
+`referenceUrl`, `reviewedRoutes`, `rolePatterns`, `mediaPatterns`,
+`rhythmPatterns`, `interactionPatterns`, `decisionPatterns`,
+`transferablePrinciples`, `doNotCopy` e `projectSpecificTranslation`.
+
+Se o agente apenas reproduzir a ordem, silhueta ou composição distintiva da
+referência, isso é `REFERENCE_USED_AS_TEMPLATE` e reprova a direção.
+
+
 ## 5. Tipografia e tokens do cliente
 
 Os tokens globais existem para a plataforma. Dentro de um site de cliente,
