@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
@@ -8,10 +7,10 @@ import {
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { trackEvent, trackConversion } from "@/lib/analytics";
-import { InstitutionalDiagnosticQuizModal } from "@/components/site/InstitutionalDiagnosticQuiz";
+import { trackEvent } from "@/lib/analytics";
 import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
 const DESC =
@@ -134,7 +133,6 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
 });
 
 function GMBPage() {
-  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -325,25 +323,23 @@ function GMBPage() {
                 do perfil no Google e o formato de site que sustenta essa presença — sem compromisso.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                trackConversion("diagnostic_open", { source: "gmb_page" });
-                setQuizOpen(true);
+            <FunnelCTAButton
+              pageType="service"
+              serviceSlug="google-meu-negocio"
+              intent={{
+                purpose: "proposal",
+                source: "gmb_diagnostic",
+                pagePath: typeof window === "undefined" ? "/servicos/google-meu-negocio" : window.location.pathname,
+                placement: "section",
+                serviceSlug: "google-meu-negocio",
               }}
+              label="Receber orientação"
+              location="gmb_diagnostic"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-bold px-7 py-4 hover:scale-[1.02] transition"
-            >
-              Agende seu diagnóstico agora <ArrowRight className="w-4 h-4" />
-            </button>
+            />
           </div>
         </div>
       </section>
-      <InstitutionalDiagnosticQuizModal
-        open={quizOpen}
-        onClose={() => setQuizOpen(false)}
-        source="google-meu-negocio"
-      />
-
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
@@ -370,7 +366,7 @@ function GMBPage() {
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 items-center">
               <div>
                 <p className="text-amber-400 font-semibold uppercase tracking-wider text-xs flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5" /> Clique em “Saiba Mais” e fale conosco no WhatsApp
+                  <Phone className="w-3.5 h-3.5" /> Escolha um plano ou peça orientação pelo funil
                 </p>
                 <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
                   Mais visibilidade. Mais confiança. <span className="text-amber-400">Mais clientes!</span>
