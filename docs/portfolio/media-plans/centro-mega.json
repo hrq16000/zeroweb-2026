@@ -1,7 +1,7 @@
 {
-  "doc": "Media plan canônico da amostra de loja virtual Centro Mega.",
+  "doc": "Media plan canônico da loja virtual Centro Mega.",
   "slug": "centro-mega",
-  "status": "DEMO_STORE_WITH_OWNER_ASSETS_AND_GRAPHIC_COMMERCE_MEDIA",
+  "status": "STORE_WITH_PUBLIC_REAL_PRODUCT_MEDIA_AND_OFFICIAL_SOCIAL_EMBEDS",
   "inventory": {
     "realBusinessPhotos": [],
     "officialBrandAssets": [
@@ -10,16 +10,49 @@
         "classification": "OWNER_SUPPLIED_BRAND_ASSET",
         "purpose": "logo/header/footer",
         "documentary": true,
-        "notes": "Asset já versionado e usado na presença anterior da Centro Mega."
+        "notes": "Asset oficial já versionado."
+      }
+    ],
+    "realProductMedia": [
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058183/centro-mega-mi-box-s.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Xiaomi Mi Box S",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
+        "notes": "Foto pública do catálogo do seller Centro Mega, versionada com provenance."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058494/centro-mega-earbuds-basic-2.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Xiaomi Mi True Wireless Earbuds Basic 2",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega",
+        "notes": "Foto pública do catálogo do seller Centro Mega, versionada com provenance."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Suporte de celular para Moto & Bike Renux 5203",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+        "notes": "Foto principal e dois detalhes públicos do seller Centro Mega versionados com provenance."
       }
     ],
     "externalMedia": [
       {
-        "classification": "SOCIAL_SOURCE_LINKS",
-        "purpose": "research-and-discovery",
+        "classification": "OFFICIAL_SOCIAL_MEDIA",
+        "purpose": "live-social-feed",
         "documentary": true,
-        "usageMode": "LINK_ONLY",
-        "notes": "Links Facebook/Instagram são preservados como fontes. Imagens dos posts não foram copiadas quando não houve ingestão segura."
+        "usageMode": "OFFICIAL_PUBLIC_EMBED",
+        "sourceUrl": "https://www.instagram.com/centro.mega/",
+        "notes": "Posts e reels públicos oficiais são incorporados na loja; bloqueio de download direto não encerra o uso da mídia."
       }
     ],
     "licensedMedia": [],
@@ -29,8 +62,7 @@
         "classification": "LEGACY_CONTEXTUAL_MEDIA",
         "purpose": "legacy-reference",
         "documentary": false,
-        "usageMode": "NOT_RENDERED_IN_STORE_HERO",
-        "notes": "A Store Concept atual prefere composição CSS/DOM para reduzir peso e não criar falsa fotografia de produto."
+        "usageMode": "NOT_RENDERED_IN_STORE_HERO"
       },
       {
         "asset": "public/images/centro-mega/social-og.jpg",
@@ -51,22 +83,20 @@
         "classification": "DOM_CSS_GRAPHIC_COMPOSITION",
         "purpose": "active-store-hero",
         "documentary": false,
-        "notes": "Grid, glow, neon, glyphs e cards são composição autoral renderizada em CSS/DOM."
+        "notes": "Hero continua autoral em CSS/DOM; a vitrine usa mídia real."
       },
       {
         "asset": null,
         "classification": "FUNCTIONAL_PRODUCT_GLYPHS",
-        "purpose": "product-card-placeholder",
+        "purpose": "fallback-only",
         "documentary": false,
-        "notes": "Ícones deixam claro que não se trata de fotografia atual do estoque."
+        "notes": "Ícones são fallback apenas para item/categoria ainda sem mídia real resolvida; nunca substituem foto pública disponível."
       }
     ],
     "missingMedia": [
-      "fotos atuais dos celulares em estoque",
-      "fotos atuais dos itens de outlet",
-      "fotos atuais de bonés/calçados/tênis",
-      "fotos atuais das unidades",
-      "vídeos/reels ingeríveis com provenance confirmado"
+      "fotos atuais dos itens de outlet ainda não resolvidos individualmente",
+      "fotos atuais de bonés/calçados/tênis ainda não resolvidas individualmente",
+      "fotos atuais das unidades"
     ]
   },
   "sections": [
@@ -77,9 +107,9 @@
     },
     {
       "section": "vitrine",
-      "resolution": "PRODUCT_DATA_PLUS_FUNCTIONAL_GLYPHS",
+      "resolution": "VERSIONED_REAL_PRODUCT_MEDIA_PLUS_EXPLICIT_FALLBACK",
       "status": "complete",
-      "notes": "Produtos sociais verificados recebem nome/dado real; demais cards são categorias explicitamente demonstrativas."
+      "notes": "Produtos concretos com mídia pública resolvida usam foto real versionada; fallback fica restrito ao que ainda não foi resolvido."
     },
     {
       "section": "outlet",
@@ -88,8 +118,9 @@
     },
     {
       "section": "social-feed",
-      "resolution": "SOURCE_LINK_CARDS",
-      "status": "complete"
+      "resolution": "OFFICIAL_INSTAGRAM_PUBLIC_EMBEDS_PLUS_SOURCE_LINKS",
+      "status": "complete",
+      "notes": "Posts/reels oficiais são mídia viva incorporada com link para a origem."
     },
     {
       "section": "locations",
@@ -106,14 +137,15 @@
     "asset": "public/images/centro-mega/social-og.jpg",
     "strategy": "EXISTING_BRAND_COMPOSITION",
     "approved": false,
-    "notes": "Mantido para não bloquear a evolução; uma futura capa específica da Store Concept deve ser criada/revisada em tarefa de mídia dedicada."
+    "notes": "Mantida; futura capa específica da Store Concept continua tarefa de mídia dedicada."
   },
   "performance": {
     "activeHeroRaster": false,
     "heavyVideo": false,
     "webgl": false,
     "newDependencies": false,
-    "decision": "Exagero visual foi construído com CSS, gradientes, blur, shadows, grids e primitives existentes; nenhum pacote pesado foi adicionado."
+    "decision": "Mídia real de produto é servida via CDN e embeds sociais usam lazy loading; nenhum pacote pesado foi adicionado."
   },
-  "lastUpdatedAt": "2026-09-21"
+  "policy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
+  "lastUpdatedAt": "2026-09-22"
 }
