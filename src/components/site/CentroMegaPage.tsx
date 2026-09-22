@@ -34,6 +34,7 @@ import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocia
 import {
   CENTRO_MEGA_DEMO_PRODUCTS,
   CENTRO_MEGA_SOCIAL_FEED,
+  CENTRO_MEGA_SOCIAL_SOURCES,
   CENTRO_MEGA_STORE_SOURCES,
   type CentroMegaDemoProduct,
 } from "@/config/centro-mega-demo-products";
@@ -127,10 +128,37 @@ const accentStyles = {
 function ProductVisual({ product, compact = false }: { product: CentroMegaDemoProduct; compact?: boolean }) {
   const style = accentStyles[product.accent];
   const iconClass = compact ? "h-9 w-9" : "h-20 w-20 sm:h-24 sm:w-24";
+  const heightClass = compact ? "h-24" : "h-56 sm:h-64";
+
+  if (product.imageUrl) {
+    return (
+      <div className={"relative overflow-hidden bg-white " + heightClass}>
+        <PortfolioImage
+          src={product.imageUrl}
+          alt={product.imageAlt ?? product.name}
+          width={720}
+          height={720}
+          loading={compact ? "lazy" : undefined}
+          className="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.04]"
+        />
+        {!compact && product.imageSourceUrl && (
+          <a
+            href={product.imageSourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="absolute bottom-3 left-3 right-3 inline-flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-white/90 px-3 py-2 text-[10px] font-black uppercase tracking-[.12em] text-[#071022] shadow-lg backdrop-blur transition hover:bg-white"
+          >
+            <span className="truncate">{product.imageSourceLabel ?? "Mídia pública verificada"}</span>
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          </a>
+        )}
+      </div>
+    );
+  }
 
   if (product.visual === "phone") {
     return (
-      <div className={"relative grid place-items-center " + (compact ? "h-24" : "h-56 sm:h-64")}>
+      <div className={"relative grid place-items-center " + heightClass}>
         <div className={"absolute inset-7 rounded-full bg-gradient-to-br blur-3xl " + style.glow} />
         <div className="mega-product-float relative h-[72%] aspect-[.5] rounded-[1.8rem] border border-white/20 bg-gradient-to-br from-white/15 to-white/[.03] p-2 shadow-[0_35px_80px_rgba(0,0,0,.45)]">
           <div className="h-full rounded-[1.35rem] border border-white/10 bg-[#05070d] p-3">
@@ -154,7 +182,7 @@ function ProductVisual({ product, compact = false }: { product: CentroMegaDemoPr
           : PackageOpen;
 
   return (
-    <div className={"relative grid place-items-center overflow-hidden " + (compact ? "h-24" : "h-56 sm:h-64")}>
+    <div className={"relative grid place-items-center overflow-hidden " + heightClass}>
       <div className={"absolute inset-7 rounded-full bg-gradient-to-br blur-3xl " + style.glow} />
       <div className="mega-product-float relative grid aspect-square h-[72%] place-items-center rounded-[2rem] border border-white/15 bg-white/[.055] shadow-[0_35px_80px_rgba(0,0,0,.35)]">
         <Icon className={iconClass + " " + style.icon} strokeWidth={1.25} />
@@ -624,6 +652,54 @@ export function CentroMegaPage() {
                     </a>
                   ))}
                 </MotionStagger>
+
+                <div className="mt-10">
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-300">Instagram oficial · mídia real</p>
+                      <h3 className="mt-2 text-3xl font-black tracking-[-.04em] sm:text-4xl">Posts e reels da própria Centro Mega.</h3>
+                    </div>
+                    <a
+                      href={CENTRO_MEGA_STORE_SOURCES.instagram}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full border border-fuchsia-300/30 px-4 text-xs font-black uppercase tracking-[.12em] text-fuchsia-100 transition hover:bg-fuchsia-300/10"
+                    >
+                      Abrir perfil <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    {CENTRO_MEGA_SOCIAL_SOURCES.filter(
+                      (source) => source.kind === "Instagram" && /\/(?:p|reel)\//.test(source.href),
+                    ).map((source) => (
+                      <article
+                        key={source.href}
+                        className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04]"
+                      >
+                        <iframe
+                          src={`${source.href.replace(/\/?$/, "/")}embed/`}
+                          title={`${source.label} · Centro Mega no Instagram`}
+                          loading="lazy"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allow="encrypted-media; picture-in-picture"
+                          className="h-[560px] w-full border-0 bg-white"
+                        />
+                        <div className="flex items-center justify-between gap-3 border-t border-white/10 px-4 py-3">
+                          <span className="text-xs font-bold text-white/55">{source.label}</span>
+                          <a
+                            href={source.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 text-xs font-black text-fuchsia-200 hover:text-white"
+                          >
+                            Fonte <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                          </a>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -770,6 +846,28 @@ export function CentroMegaPage() {
               <div className="grid md:grid-cols-[.85fr_1.15fr]">
                 <div className="border-b border-white/10 bg-white/[.025] md:border-b-0 md:border-r">
                   <ProductVisual product={activeProduct} />
+                  {activeProduct.gallery && activeProduct.gallery.length > 1 && (
+                    <div className="grid grid-cols-3 gap-2 p-3">
+                      {activeProduct.gallery.slice(0, 3).map((image) => (
+                        <a
+                          key={image.url}
+                          href={image.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="overflow-hidden rounded-xl border border-white/10 bg-white"
+                          title="Abrir fonte pública da imagem"
+                        >
+                          <PortfolioImage
+                            src={image.url}
+                            alt={image.alt}
+                            width={320}
+                            height={320}
+                            className="aspect-square h-full w-full object-contain p-1"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 sm:p-8">
                   <h2 className="text-3xl font-black tracking-[-.04em]">{activeProduct.name}</h2>
