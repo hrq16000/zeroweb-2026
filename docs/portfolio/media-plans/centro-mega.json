@@ -76,6 +76,48 @@
         "evidenceSourceUrl": "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
         "sourceUrl": "https://www.zeusgames.com.br/manete-ps4-preta",
         "notes": "O seller Centro Mega no Magalu comprova o item; a imagem é referência externa do mesmo tipo de produto."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062624/centro-mega-bone-category-reference.webp",
+        "classification": "EXTERNAL_CATEGORY_REFERENCE",
+        "product": "Bonés · seleção Outlet",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.tlaco.com.br/produtos/bone-dad-hat-preto-classico-1xmol/",
+        "notes": "Referência visual externa da categoria Bonés; não representa modelo, marca, cor ou estoque atual da Centro Mega."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062643/centro-mega-calcados-category-reference.jpg",
+        "classification": "EXTERNAL_CATEGORY_REFERENCE",
+        "product": "Calçados · oportunidades",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.lojasrenner.com.br/p/tenis-old-urban-star-os21-090-/-/A-7010704185132-br.lr",
+        "notes": "Referência visual externa da categoria Calçados; não representa modelo, marca, tamanho ou estoque atual da Centro Mega."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062669/centro-mega-xbox360-battery-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Bateria + cabo para controle Xbox 360",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.magazineluiza.com.br/bateria-para-controle-360-com-carregador-e-cabo-1-4m-lehmox/p/edbf2239e0/ga/otga/?seller_id=centromega",
+        "sourceUrl": "https://www.rihappy.com.br/bateria-recarregavel---cabo-carregador-para-controle-wireless-de-xbox-360-12000mah-1002800430/p",
+        "notes": "O seller Centro Mega comprova o item; a imagem é referência externa do tipo de produto."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062652/centro-mega-philips-aa-2450-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Pilha recarregável Philips · 4x 2450mAh",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.magazineluiza.com.br/pilha-recarregavel-philips-c-4-2450-mah/p/fd8k1dkaj6/me/ilha/?seller_id=centromega",
+        "sourceUrl": "https://itekcanada.com/products/philips_multilife_nimh_rechargeable_aa_batteries_2450mah_4pk_clamshell",
+        "notes": "O seller Centro Mega comprova o item; a imagem é referência externa do mesmo produto."
       }
     ],
     "externalMedia": [
@@ -127,8 +169,8 @@
       }
     ],
     "missingMedia": [
-      "fotos atuais dos itens de outlet ainda não resolvidos individualmente",
-      "fotos atuais de bonés/calçados/tênis ainda não resolvidas individualmente",
+      "fotos próprias/atuais de bonés da Centro Mega para substituir a referência visual externa de categoria",
+      "fotos próprias/atuais de calçados da Centro Mega para substituir a referência visual externa de categoria",
       "fotos atuais das unidades"
     ]
   },
@@ -142,7 +184,7 @@
       "section": "vitrine",
       "resolution": "VERSIONED_REAL_PRODUCT_MEDIA_PLUS_EXPLICIT_FALLBACK",
       "status": "complete",
-      "notes": "Produtos concretos com mídia pública resolvida usam foto real versionada; fallback fica restrito ao que ainda não foi resolvido."
+      "notes": "Todos os 10 cards têm mídia: produto real do seller, referência externa de produto com evidência Centro Mega ou referência externa explícita de categoria. Ícone deixa de ser necessário na vitrine atual."
     },
     {
       "section": "outlet",
