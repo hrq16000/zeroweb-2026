@@ -13,7 +13,7 @@ describe("portfolio WhatsApp data", () => {
   });
 
   it("migra os destinos atuais e preserva o comprovado na PR", () => {
-    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(68);
+    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(69);
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
     expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");
