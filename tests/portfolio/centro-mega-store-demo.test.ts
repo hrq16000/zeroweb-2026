@@ -17,7 +17,7 @@ const publicMediaStandard = readFileSync("docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_
 describe("Centro Mega — Store Concept", () => {
   test("transforma a landing em vitrine selecionável sem contato direto", () => {
     expect(page).toContain('data-client-slug="centro-mega"');
-    expect(page).toContain("Amostra de loja virtual");
+    expect(page).toContain("Loja virtual Centro Mega");
     expect(page).toContain("Minha seleção");
     expect(page).toContain('funnelIntent="pedido"');
     expect(page).toContain("orderContext");
@@ -70,7 +70,7 @@ describe("Centro Mega — Store Concept", () => {
     expect(publicMediaStandard).toContain("Ícone Lucide, SVG genérico ou bloco abstrato não pode substituir");
   });
 
-  test("categorias demonstrativas não são promovidas a SKU com preço", () => {
+  test("categorias dinâmicas não são promovidas a SKU com preço", () => {
     expect(products).toContain('name: "Bonés · seleção Outlet"');
     expect(products).toContain('name: "Calçados · oportunidades"');
     expect(products).toContain('sourceType: "OWNER_SUPPLIED_ASSORTMENT"');
