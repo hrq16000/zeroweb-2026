@@ -13,6 +13,15 @@ export type CentroMegaDemoProduct = {
   sourceLabel: string;
   sourceUrl?: string;
   sourceDate?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageSourceUrl?: string;
+  imageSourceLabel?: string;
+  gallery?: Array<{
+    url: string;
+    alt: string;
+    sourceUrl: string;
+  }>;
   historicalPrice?: {
     before?: string;
     after: string;
@@ -25,6 +34,92 @@ export type CentroMegaDemoProduct = {
 };
 
 export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
+  {
+    id: "mi-box-s-xiaomi",
+    name: "Xiaomi Mi Box S",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Streaming box Xiaomi identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
+    badge: "Catálogo público",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058183/centro-mega-mi-box-s.jpg",
+    imageAlt: "Xiaomi Mi Box S anunciada pelo seller Centro Mega no Magazine Luiza",
+    imageSourceUrl:
+      "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
+    imageSourceLabel: "Foto do catálogo público · Centro Mega no Magalu",
+    detail: "Mi Box S · entrada HDMI · item listado pelo seller Centro Mega",
+    availabilityNote: "Preço e estoque podem mudar no marketplace; consulte as condições atuais.",
+    visual: "accessory",
+    accent: "blue",
+  },
+  {
+    id: "xiaomi-earbuds-basic-2",
+    name: "Xiaomi Mi True Wireless Earbuds Basic 2",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Fone Bluetooth Xiaomi identificado no Magazine Luiza como vendido pela Centro Mega. A foto real do anúncio foi versionada com a origem preservada.",
+    badge: "Foto real de catálogo",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058494/centro-mega-earbuds-basic-2.jpg",
+    imageAlt: "Xiaomi Mi True Wireless Earbuds Basic 2 anunciado pelo seller Centro Mega",
+    imageSourceUrl:
+      "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega",
+    imageSourceLabel: "Foto do catálogo público · Centro Mega no Magalu",
+    detail: "Bluetooth 5.0 · estojo de carregamento · item listado pelo seller Centro Mega",
+    availabilityNote: "Preço e estoque são temporais e devem ser confirmados na oferta atual ou com a loja.",
+    visual: "accessory",
+    accent: "cyan",
+  },
+  {
+    id: "suporte-celular-moto-bike-renux",
+    name: "Suporte de celular para Moto & Bike · Renux",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Suporte para smartphone identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
+    badge: "Achado tech",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+    imageAlt: "Suporte de celular Renux 5203 anunciado pelo seller Centro Mega",
+    imageSourceUrl:
+      "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+    imageSourceLabel: "Foto do catálogo público · Centro Mega no Magalu",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+        alt: "Suporte de celular Renux 5203",
+        sourceUrl: "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+      },
+      {
+        url: "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058268/centro-mega-suporte-renux-02.jpg",
+        alt: "Detalhe do suporte de celular Renux 5203",
+        sourceUrl: "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+      },
+      {
+        url: "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058273/centro-mega-suporte-renux-03.jpg",
+        alt: "Outro ângulo do suporte de celular Renux 5203",
+        sourceUrl: "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+      },
+    ],
+    detail: "Suporte para celular · Moto & Bike · Renux 5203",
+    availabilityNote: "Preço e estoque são temporais e precisam ser conferidos na oferta atual.",
+    visual: "accessory",
+    accent: "amber",
+  },
   {
     id: "poco-x5-pro-8-256",
     name: "Poco X5 Pro · 8GB / 256GB",
@@ -67,23 +162,6 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     accent: "violet",
   },
   {
-    id: "mi-box-s-xiaomi",
-    name: "Xiaomi Mi Box S",
-    category: "Acessórios",
-    eyebrow: "Catálogo público do seller Centro Mega",
-    description:
-      "Streaming box Xiaomi identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
-    badge: "Catálogo público",
-    sourceType: "MARKETPLACE_SELLER",
-    sourceLabel: "Magazine Luiza · seller Centro Mega",
-    sourceUrl:
-      "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
-    detail: "Mi Box S · entrada HDMI · item listado pelo seller Centro Mega",
-    availabilityNote: "Preço e estoque podem mudar no marketplace; consulte as condições atuais.",
-    visual: "accessory",
-    accent: "blue",
-  },
-  {
     id: "controle-ps4-original-sony",
     name: "Controle PlayStation 4 · Sony",
     category: "Acessórios",
@@ -99,23 +177,6 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     availabilityNote: "Preço, cor, garantia e estoque devem ser confirmados na oferta atual do marketplace ou com a loja.",
     visual: "accessory",
     accent: "violet",
-  },
-  {
-    id: "suporte-celular-moto-bike-renux",
-    name: "Suporte de celular para Moto & Bike · Renux",
-    category: "Acessórios",
-    eyebrow: "Catálogo público do seller Centro Mega",
-    description:
-      "Suporte para smartphone identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
-    badge: "Achado tech",
-    sourceType: "MARKETPLACE_SELLER",
-    sourceLabel: "Magazine Luiza · seller Centro Mega",
-    sourceUrl:
-      "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
-    detail: "Suporte para celular · Moto & Bike · Renux 5203",
-    availabilityNote: "Preço e estoque são temporais e precisam ser conferidos na oferta atual.",
-    visual: "accessory",
-    accent: "amber",
   },
   {
     id: "bones-outlet",
