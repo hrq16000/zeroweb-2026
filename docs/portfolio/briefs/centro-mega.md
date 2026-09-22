@@ -28,8 +28,8 @@ O responsável da 0WEB informou também mix de bonés, calçados, tênis e outro
 - sectionRhythm: impacto escuro → vitrine → atmosfera outlet → social feed → presença multicanal → sacola/CTA.
 - typePairing: sans pesada de varejo tecnológico para títulos + sans legível para suporte.
 - colorRoles: ink quase preto, ciano elétrico para ação, violeta para profundidade, lime para seleção, pink para outlet/social.
-- imageStrategy: logo oficial existente + composição gráfica CSS/DOM + fontes sociais verificáveis; não fabricar fotos de estoque, equipe, loja ou produto real.
-- iconStrategy: Lucide como glyph funcional; produto social real recebe nome/dado da fonte, não uma falsa foto documental.
+- imageStrategy: mídia real pública do próprio negócio/produto em primeiro lugar — Instagram/Facebook oficiais, seller/marketplace e demais fontes resolvidas; assets acessíveis são versionados com provenance. CSS/DOM e geração ficam como apoio/fallback, nunca como desculpa para ignorar foto real disponível.
+- iconStrategy: Lucide como glyph funcional e fallback explícito apenas para item/categoria ainda sem mídia real resolvida; produto concreto com foto pública disponível usa a foto real.
 - motionGrammar: `IMMERSIVE` com layered hero, stagger, hover depth, glows e crossing depth; sempre fail-open e reduzido em mobile/reduced-motion.
 - interactionSignature: filtros de categoria + busca + sacola demonstrativa + carryover dos itens selecionados para o funil.
 - conversionNarrative: post social → produto/categoria → seleção → consulta → confirmação de preço/estoque → atendimento.
@@ -72,6 +72,8 @@ A seleção de produto altera o funil de verdade; não é interação decorativa
 
 ## Resource Effort Ledger
 
+Regra de mídia desta revisão: `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`. Bloqueio de fetch direto de rede social não autoriza concluir “sem imagens”; a pesquisa continua por embeds públicos, marketplace/seller, busca e mirrors/indexadores.
+
 | Recurso | Estado | Evidência / decisão |
 |---|---|---|
 | Linktree oficial | USED | `https://linktr.ee/centro.mega` |
@@ -80,8 +82,8 @@ A seleção de produto altera o funil de verdade; não é interação decorativa
 | Loja/contato VHSYS | USED | CNPJ/endereço/canais públicos |
 | Post Poco X5 Pro | USED | indexação pública; preço sempre histórico |
 | Post Dunk Low Pro | USED | indexação pública; tamanhos conflitantes tratados como “consultar” |
-| Posts Instagram sem conteúdo legível | ATTEMPTED_BLOCKED | links preservados como fonte; produto não inferido |
-| Fotos reais de produtos/estoque | ATTEMPTED_BLOCKED | não houve ingestão confiável nesta rodada |
+| Posts/reels Instagram | USED_AS_PUBLIC_EMBED | URLs oficiais incorporadas como mídia viva; produto não é inferido sem evidência factual |
+| Fotos reais de produtos | USED | catálogo público do seller Centro Mega no Magalu pesquisado; Mi Box S, Earbuds Basic 2 e Renux 5203 têm mídia real versionada em CDN com provenance |
 | Bonés/calçados/outlet | USED_AS_CATEGORY | fornecido pelo responsável; sem SKU/preço inventado |
 | Busca e filtros | USED | reduz custo de descobrir produto |
 | Sacola demonstrativa | USED | lista de interesse, não checkout |
@@ -91,7 +93,7 @@ A seleção de produto altera o funil de verdade; não é interação decorativa
 | Motion imersivo | USED | serve à metáfora feed → commerce; primitives existentes |
 | 3D/WebGL pesado | REJECTED | custo não justificado para demonstrar a loja |
 | Funil individual | USED | `clientKey=centro-mega`, intent `pedido` |
-| WhatsApp direto público | REJECTED | mantém política de funil; registro operacional atual está `null` |
+| WhatsApp direto público | REJECTED | mantém política de funil; destino operacional está configurado server-side por `client_key=centro-mega` e não é exposto no bundle |
 | Browser/runtime QA | PENDING_PREVIEW | obrigatório antes do merge |
 
 ## Produto social x produto atual
@@ -126,6 +128,7 @@ A landing deve se posicionar como amostra de loja virtual da Centro Mega em São
 - https://www.facebook.com/CentroMega.com.br/
 - https://www.vhsys.net/centromega/contato/
 - https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega
+- https://www.magazineluiza.com.br/lojista/centromega/ — seller público Centro Mega; fonte de produtos e mídia real de catálogo
 
 ## Critério visual
 
