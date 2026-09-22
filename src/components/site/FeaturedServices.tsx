@@ -77,6 +77,19 @@ export function FeaturedServices({
                 <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
                   {s.description}
                 </p>
+                {typeof s.price === "number" && s.price > 0 ? (
+                  <p className="mt-3 text-sm font-semibold text-foreground">
+                    A partir de{" "}
+                    <span className="text-primary">
+                      {s.price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                        minimumFractionDigits: s.price % 1 === 0 ? 0 : 2,
+                      })}
+                      {s.pricePeriod ? `/${s.pricePeriod}` : ""}
+                    </span>
+                  </p>
+                ) : null}
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
                   Ver detalhes <ArrowRight className="w-3 h-3" />
                 </span>
