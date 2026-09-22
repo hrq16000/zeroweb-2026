@@ -14,7 +14,7 @@
       "PUBLIC_BUSINESS_REGISTRY_MIRROR",
       "PUBLIC_SOCIAL_POST_INDEX"
     ],
-    "notes": "Linktree @centro.mega, página pública de contato/loja VHSYS e CNPJ público convergem para a mesma operação Centro Mega em São José dos Pinhais. Endereços públicos apresentam pequenas variações de numeração/galeria em fontes distintas; a amostra privilegia cidade/unidade e não promove um único endereço completo como verdade canônica nova."
+    "notes": "Linktree @centro.mega, página pública de contato/loja VHSYS e CNPJ público convergem para a mesma operação Centro Mega em São José dos Pinhais. Endereços públicos apresentam pequenas variações de numeração/galeria em fontes distintas; a loja privilegia cidade/unidade e não promove um único endereço completo como verdade canônica nova."
   },
   "researchLedger": {
     "linktree": {
@@ -129,7 +129,7 @@
         "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega",
         "Pen Drive 64GB SanDisk e pilhas Philips aparecem em páginas públicas vinculadas ao seller Centro Mega"
       ],
-      "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na amostra."
+      "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na loja."
     }
   },
   "verifiedProductEvidence": [
@@ -216,8 +216,8 @@
   ],
   "publicationRules": [
     "Preço de postagem antiga deve ser rotulado explicitamente como histórico.",
-    "Produto social verificado pode virar card de demonstração, mas não estoque atual.",
-    "Categoria fornecida pelo responsável pode virar categoria de amostra sem SKU/preço inventado.",
+    "Produto social verificado pode virar card da loja, mas não estoque atual.",
+    "Categoria fornecida pelo responsável pode virar categoria dinâmica da loja sem SKU/preço inventado.",
     "Post social não legível não autoriza inferir nome/modelo/preço; usar embed oficial e continuar a pesquisa por outras fontes públicas.",
     "Foto real pública resolvida do produto deve ser usada na vitrine; ícone é fallback somente quando a escada de mídia não resolveu o asset.",
     "Toda mídia ingerida preserva URL de origem/provenance."
@@ -238,5 +238,7 @@
     "verifiedAt": "2026-09-21",
     "note": "Destino exclusivo do client_key centro-mega; sem fallback institucional ou cross-client."
   },
-  "mediaIngestionPolicy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md"
+  "mediaIngestionPolicy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
+  "projectMode": "FUNCTIONAL_SOCIAL_COMMERCE_STORE",
+  "orderFlow": "produto/seleção → funil individual → WhatsApp exclusivo Centro Mega; estoque/preço final confirmados no atendimento"
 }
