@@ -215,3 +215,80 @@ Record material choices as `USED`, `REJECTED`, `ATTEMPTED_BLOCKED` or
 `NOT_APPLICABLE`. The art director's job is not to activate everything; it is to
 make sure useful resources are not ignored and irrelevant ones do not pollute the
 experience.
+
+## 11. External reference decomposition — mandatory when a URL is supplied
+
+A reference site is a **research specimen**, never a layout source file. The job
+is to extract the design logic that makes it effective, then translate that logic
+through the client's own truth, media, offer and brand.
+
+Before JSX, inspect the reference home plus relevant internal routes when they
+exist and produce these four matrices:
+
+### A. Experience-role matrix
+
+For every meaningful chapter or interaction record:
+
+`role | visitorQuestion | decisionJob | priority | evidence | conversionEffect`
+
+Roles may include orientation, offer discovery, quick conversion, product
+browsing, risk reduction, decision support, proof, locality, process,
+education and post-action continuity. A role is **not a section name** and may
+be merged into another region.
+
+### B. Composition matrix
+
+For each selected role record:
+
+`spatialTreatment | mediaTreatment | textMediaRatio | density | containment |
+overlap/layering | interaction | mobileTranslation`
+
+This forces the agent to reason about silhouette and geometry instead of
+defaulting to centered container + repeated cards.
+
+### C. Rhythm/media matrix
+
+Map the page as a sequence of perceptual states, for example:
+
+`AIRY/DENSE | MEDIA_DOMINANT/TEXT_DOMINANT/BALANCED |
+STATIC/INTERACTIVE | FULL_BLEED/CONTAINED/OVERLAPPED |
+QUIET/CONTRASTED`
+
+The final project must derive its own cadence. Do not reproduce the reference's
+exact order or proportions.
+
+### D. Anti-copy matrix
+
+Separate:
+
+- **transferable principle** — e.g. move a decision aid near the uncertainty it
+  resolves; use real workshop/store imagery as credibility evidence;
+- **project-specific translation** — how that principle fits this client;
+- **do not copy** — exact section order, distinctive composition, assets, copy,
+  brand devices, proprietary interaction, measurements or visual identity.
+
+When the user supplied a reference and no decomposition was produced,
+`REFERENCE_DECOMPOSITION_MISSING` is a blocker.
+
+### FFIX audit — 2026-09-22
+
+Public reference: `https://ffix.com.br/`. This audit is an example of
+**principle extraction**, not a template.
+
+| Observed route/job | Public structural pattern | Principle absorbed |
+|---|---|---|
+| Multi-offer home | trust-led opening → early quote/configuration → service discovery → real workshop media → secondary inventory → benefits/process → brands/locality → diagnostic/status utilities → reviews/store/location → education/FAQ | mix commercial, editorial, physical-proof and utility chapters instead of repeating one component family |
+| Device/service route | concise offer/trust → quote capture → problem-specific explanation → service taxonomy → process/local feasibility → CTA/FAQ | make the first explanatory chapter specific to the decision, not a reusable “about/services” filler |
+| Used-device inventory | availability/gallery first → request/search → assurance → inspection/process → risk reduction → sell/trade path → CTA | product-led intent needs browsing and availability mechanics, not a service-page skeleton |
+| High-risk repair (TV) | repair content plus a “repair or replace?” decision aid near the uncertainty | place decision support where doubt occurs rather than reserving every objection for FAQ |
+| Offer-defining guarantee (screen protection) | differentiating guarantee receives early visual/commercial weight | allow the strongest real differentiator to reorder the page instead of forcing the standard section sequence |
+
+Media lessons from the same reference: real workshop imagery appears where craft
+and credibility need proof; product imagery dominates inventory; store imagery
+supports locality; CTA imagery is used selectively near a closing decision.
+Images therefore have **narrative jobs** and do not all live inside the same
+card/grid treatment.
+
+The 0WEB translation must preserve this adaptive logic while producing a
+different client-specific composition, silhouette, media cadence and journey.
+
