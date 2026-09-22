@@ -109,6 +109,8 @@ Proibido:
 
 Se a rede estiver descoberta mas tecnicamente inacessível, o estado correto é `SOCIAL_MEDIA_PRESENT_BUT_NOT_INGESTABLE`, nunca “não existe mídia”.
 
+Esse estado não encerra a busca. O agente continua pela escada de `PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`: embeds públicos, site/hubs, marketplace/seller, busca pública e mirrors/indexadores. Para comércio, a existência de mídia real resolvível torna inadequado encerrar a experiência com ícones de produto.
+
 ## 4. Identidade: logo é gate, não detalhe
 
 Antes de criar marca:
@@ -488,6 +490,8 @@ Um novo projeto não deve ser considerado visualmente concluído com qualquer um
 - `HERO_GENERIC`
 - `MEDIA_STARVATION`
 - `REAL_MEDIA_IGNORED`
+- `COMMERCE_PRODUCT_MEDIA_MISSING`
+- `PUBLIC_MEDIA_RESEARCH_STOPPED_EARLY`
 - `SHARED_VISUAL_SKELETON`
 - `REPEATED_MOTION_GRAMMAR`
 - `NO_SIGNATURE_MOMENT`

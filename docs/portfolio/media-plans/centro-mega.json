@@ -1,7 +1,7 @@
 {
-  "doc": "Media plan canônico da amostra de loja virtual Centro Mega.",
+  "doc": "Media plan canônico da loja virtual Centro Mega.",
   "slug": "centro-mega",
-  "status": "DEMO_STORE_WITH_OWNER_ASSETS_AND_GRAPHIC_COMMERCE_MEDIA",
+  "status": "STORE_WITH_PUBLIC_REAL_PRODUCT_MEDIA_AND_OFFICIAL_SOCIAL_EMBEDS",
   "inventory": {
     "realBusinessPhotos": [],
     "officialBrandAssets": [
@@ -10,16 +10,124 @@
         "classification": "OWNER_SUPPLIED_BRAND_ASSET",
         "purpose": "logo/header/footer",
         "documentary": true,
-        "notes": "Asset já versionado e usado na presença anterior da Centro Mega."
+        "notes": "Asset oficial já versionado."
+      }
+    ],
+    "realProductMedia": [
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058183/centro-mega-mi-box-s.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Xiaomi Mi Box S",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
+        "notes": "Foto pública do catálogo do seller Centro Mega, versionada com provenance."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058494/centro-mega-earbuds-basic-2.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Xiaomi Mi True Wireless Earbuds Basic 2",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega",
+        "notes": "Foto pública do catálogo do seller Centro Mega, versionada com provenance."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+        "classification": "MARKETPLACE_SELLER_MEDIA",
+        "product": "Suporte de celular para Moto & Bike Renux 5203",
+        "purpose": "product-card/gallery",
+        "documentary": true,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+        "notes": "Foto principal e dois detalhes públicos do seller Centro Mega versionados com provenance."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062389/centro-mega-poco-x5-pro-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Poco X5 Pro 8GB / 256GB",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+        "sourceUrl": "https://www.olx.ro/electronice-si-electrocasnice/q-poco-x5/",
+        "notes": "A postagem Centro Mega comprova o produto; a imagem é referência externa do modelo e não fotografia do estoque Centro Mega."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062368/centro-mega-dunk-low-pro-reference.png",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Tênis Dunk Low Pro",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+        "sourceUrl": "https://chilangoskate.com/products/tenis-nike-sb-dunk-low-pro-white-and-black",
+        "notes": "A postagem Centro Mega comprova Dunk Low Pro; a imagem é referência visual externa do modelo, sem afirmar cor/grade do estoque atual."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062373/centro-mega-ps4-controller-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Controle PlayStation 4 · Sony",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+        "sourceUrl": "https://www.zeusgames.com.br/manete-ps4-preta",
+        "notes": "O seller Centro Mega no Magalu comprova o item; a imagem é referência externa do mesmo tipo de produto."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062624/centro-mega-bone-category-reference.webp",
+        "classification": "EXTERNAL_CATEGORY_REFERENCE",
+        "product": "Bonés · seleção Outlet",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.tlaco.com.br/produtos/bone-dad-hat-preto-classico-1xmol/",
+        "notes": "Referência visual externa da categoria Bonés; não representa modelo, marca, cor ou estoque atual da Centro Mega."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062643/centro-mega-calcados-category-reference.jpg",
+        "classification": "EXTERNAL_CATEGORY_REFERENCE",
+        "product": "Calçados · oportunidades",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "sourceUrl": "https://www.lojasrenner.com.br/p/tenis-old-urban-star-os21-090-/-/A-7010704185132-br.lr",
+        "notes": "Referência visual externa da categoria Calçados; não representa modelo, marca, tamanho ou estoque atual da Centro Mega."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062669/centro-mega-xbox360-battery-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Bateria + cabo para controle Xbox 360",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.magazineluiza.com.br/bateria-para-controle-360-com-carregador-e-cabo-1-4m-lehmox/p/edbf2239e0/ga/otga/?seller_id=centromega",
+        "sourceUrl": "https://www.rihappy.com.br/bateria-recarregavel---cabo-carregador-para-controle-wireless-de-xbox-360-12000mah-1002800430/p",
+        "notes": "O seller Centro Mega comprova o item; a imagem é referência externa do tipo de produto."
+      },
+      {
+        "asset": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062652/centro-mega-philips-aa-2450-reference.jpg",
+        "classification": "EXTERNAL_PRODUCT_REFERENCE",
+        "product": "Pilha recarregável Philips · 4x 2450mAh",
+        "purpose": "product-card",
+        "documentary": false,
+        "usageMode": "VERSIONED_CDN",
+        "evidenceSourceUrl": "https://www.magazineluiza.com.br/pilha-recarregavel-philips-c-4-2450-mah/p/fd8k1dkaj6/me/ilha/?seller_id=centromega",
+        "sourceUrl": "https://itekcanada.com/products/philips_multilife_nimh_rechargeable_aa_batteries_2450mah_4pk_clamshell",
+        "notes": "O seller Centro Mega comprova o item; a imagem é referência externa do mesmo produto."
       }
     ],
     "externalMedia": [
       {
-        "classification": "SOCIAL_SOURCE_LINKS",
-        "purpose": "research-and-discovery",
+        "classification": "OFFICIAL_SOCIAL_MEDIA",
+        "purpose": "live-social-feed",
         "documentary": true,
-        "usageMode": "LINK_ONLY",
-        "notes": "Links Facebook/Instagram são preservados como fontes. Imagens dos posts não foram copiadas quando não houve ingestão segura."
+        "usageMode": "OFFICIAL_PUBLIC_EMBED",
+        "sourceUrl": "https://www.instagram.com/centro.mega/",
+        "notes": "Posts e reels públicos oficiais são incorporados na loja; bloqueio de download direto não encerra o uso da mídia."
       }
     ],
     "licensedMedia": [],
@@ -29,8 +137,7 @@
         "classification": "LEGACY_CONTEXTUAL_MEDIA",
         "purpose": "legacy-reference",
         "documentary": false,
-        "usageMode": "NOT_RENDERED_IN_STORE_HERO",
-        "notes": "A Store Concept atual prefere composição CSS/DOM para reduzir peso e não criar falsa fotografia de produto."
+        "usageMode": "NOT_RENDERED_IN_STORE_HERO"
       },
       {
         "asset": "public/images/centro-mega/social-og.jpg",
@@ -51,22 +158,20 @@
         "classification": "DOM_CSS_GRAPHIC_COMPOSITION",
         "purpose": "active-store-hero",
         "documentary": false,
-        "notes": "Grid, glow, neon, glyphs e cards são composição autoral renderizada em CSS/DOM."
+        "notes": "Hero continua autoral em CSS/DOM; a vitrine usa mídia real."
       },
       {
         "asset": null,
         "classification": "FUNCTIONAL_PRODUCT_GLYPHS",
-        "purpose": "product-card-placeholder",
+        "purpose": "fallback-only",
         "documentary": false,
-        "notes": "Ícones deixam claro que não se trata de fotografia atual do estoque."
+        "notes": "Ícones são fallback apenas para item/categoria ainda sem mídia real resolvida; nunca substituem foto pública disponível."
       }
     ],
     "missingMedia": [
-      "fotos atuais dos celulares em estoque",
-      "fotos atuais dos itens de outlet",
-      "fotos atuais de bonés/calçados/tênis",
-      "fotos atuais das unidades",
-      "vídeos/reels ingeríveis com provenance confirmado"
+      "fotos próprias/atuais de bonés da Centro Mega para substituir a referência visual externa de categoria",
+      "fotos próprias/atuais de calçados da Centro Mega para substituir a referência visual externa de categoria",
+      "fotos atuais das unidades"
     ]
   },
   "sections": [
@@ -77,9 +182,9 @@
     },
     {
       "section": "vitrine",
-      "resolution": "PRODUCT_DATA_PLUS_FUNCTIONAL_GLYPHS",
+      "resolution": "VERSIONED_REAL_PRODUCT_MEDIA_PLUS_EXPLICIT_FALLBACK",
       "status": "complete",
-      "notes": "Produtos sociais verificados recebem nome/dado real; demais cards são categorias explicitamente demonstrativas."
+      "notes": "Todos os 10 cards têm mídia: produto real do seller, referência externa de produto com evidência Centro Mega ou referência externa explícita de categoria. Ícone deixa de ser necessário na vitrine atual."
     },
     {
       "section": "outlet",
@@ -88,8 +193,9 @@
     },
     {
       "section": "social-feed",
-      "resolution": "SOURCE_LINK_CARDS",
-      "status": "complete"
+      "resolution": "OFFICIAL_INSTAGRAM_PUBLIC_EMBEDS_PLUS_SOURCE_LINKS",
+      "status": "complete",
+      "notes": "Posts/reels oficiais são mídia viva incorporada com link para a origem."
     },
     {
       "section": "locations",
@@ -106,14 +212,15 @@
     "asset": "public/images/centro-mega/social-og.jpg",
     "strategy": "EXISTING_BRAND_COMPOSITION",
     "approved": false,
-    "notes": "Mantido para não bloquear a evolução; uma futura capa específica da Store Concept deve ser criada/revisada em tarefa de mídia dedicada."
+    "notes": "Mantida; futura capa específica da Store Concept continua tarefa de mídia dedicada."
   },
   "performance": {
     "activeHeroRaster": false,
     "heavyVideo": false,
     "webgl": false,
     "newDependencies": false,
-    "decision": "Exagero visual foi construído com CSS, gradientes, blur, shadows, grids e primitives existentes; nenhum pacote pesado foi adicionado."
+    "decision": "Mídia real de produto é servida via CDN e embeds sociais usam lazy loading; nenhum pacote pesado foi adicionado."
   },
-  "lastUpdatedAt": "2026-09-21"
+  "policy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
+  "lastUpdatedAt": "2026-09-22"
 }

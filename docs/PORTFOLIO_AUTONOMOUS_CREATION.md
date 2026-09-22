@@ -24,7 +24,9 @@ Pesquisa em escada:
 3. enrichment completo quando a entidade resolve com confiança;
 4. fallback Google Web quando não existe ficha local;
 5. buscas direcionadas para Instagram, Facebook e TikTok;
-6. ledger compacto em `source_snapshot.autonomous_research`.
+6. escada de mídia pública: site → redes oficiais → embeds públicos → marketplace/seller → busca pública → mirrors/indexadores; bloqueio de um provider não encerra a pesquisa;
+7. ingestão/versionamento de mídia real resolvida com provenance quando tecnicamente possível;
+8. ledger compacto em `source_snapshot.autonomous_research`.
 
 Saída sempre `draft`. Telefone público nunca vira WhatsApp automaticamente.
 `NONE` (nenhuma presença digital) é resultado válido; `PROVIDER_BLOCKED`
@@ -40,9 +42,14 @@ e remover do texto qualquer alegação que dependa de evidência ausente.
 ### R3 — Direção criativa + mídia autônoma
 
 Classificar mídia real encontrada, direitos/proveniência e adequação de hero.
-Quando faltar mídia utilizável, gerar automaticamente hero/capa/OG/editoriais
-contextuais pela infraestrutura de imagem existente. Nunca gerar “foto falsa da
-loja”; mídia gerada representa o segmento/ocasião, não evidência do negócio.
+Seguir `PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`: antes de declarar falta de
+mídia, esgotar as fontes públicas aplicáveis, inclusive redes oficiais, embeds,
+marketplaces/seller, busca e mirrors/indexadores. `PROVIDER_BLOCKED` não equivale
+a ausência de mídia. Versionar assets acessíveis de forma estável e preservar a
+origem. Para loja/catálogo, foto real de produto é obrigatória quando resolvível.
+Somente depois dessa escada, quando faltar mídia utilizável, gerar hero/capa/OG/
+editoriais contextuais. Nunca gerar “foto falsa da loja”; mídia gerada representa
+o segmento/ocasião, não evidência do negócio.
 
 ### R4 — Composição autoral automática
 

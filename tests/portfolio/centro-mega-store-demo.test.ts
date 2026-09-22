@@ -12,11 +12,12 @@ const funnelContext = JSON.parse(readFileSync("src/config/portfolio-funnel-conte
 const discovery = JSON.parse(readFileSync("src/config/portfolio-discovery.json", "utf8"));
 const mediaPlan = JSON.parse(readFileSync("docs/portfolio/media-plans/centro-mega.json", "utf8"));
 const enrichment = JSON.parse(readFileSync("docs/portfolio/enrichment/centro-mega.json", "utf8"));
+const publicMediaStandard = readFileSync("docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md", "utf8");
 
 describe("Centro Mega — Store Concept", () => {
   test("transforma a landing em vitrine selecionável sem contato direto", () => {
     expect(page).toContain('data-client-slug="centro-mega"');
-    expect(page).toContain("Amostra de loja virtual");
+    expect(page).toContain("Loja virtual Centro Mega");
     expect(page).toContain("Minha seleção");
     expect(page).toContain('funnelIntent="pedido"');
     expect(page).toContain("orderContext");
@@ -40,13 +41,54 @@ describe("Centro Mega — Store Concept", () => {
   test("catálogo complementar do seller é rastreável sem congelar preço atual", () => {
     expect(products).toContain('sourceType: "MARKETPLACE_SELLER"');
     expect(products).toContain("Xiaomi Mi Box S");
+    expect(products).toContain("Xiaomi Mi True Wireless Earbuds Basic 2");
     expect(products).toContain("Controle PlayStation 4 · Sony");
     expect(products).toContain("Suporte de celular para Moto & Bike · Renux");
     expect(enrichment.marketplaceProducts).toContain("Xiaomi Mi Box S");
     expect(enrichment.researchLedger.marketplaceSeller.verified).toBe(true);
   });
 
-  test("categorias demonstrativas não são promovidas a SKU com preço", () => {
+  test("vitrine usa mídia real pública e incorpora o Instagram oficial", () => {
+    expect(products).toContain("res.cloudinary.com/dqnwlodjs/image/upload");
+    expect(products).toContain("centro-mega-mi-box-s.jpg");
+    expect(products).toContain("centro-mega-earbuds-basic-2.jpg");
+    expect(products).toContain("centro-mega-suporte-renux-01.jpg");
+    expect(products).toContain("centro-mega-poco-x5-pro-reference.jpg");
+    expect(products).toContain("centro-mega-dunk-low-pro-reference.png");
+    expect(products).toContain("centro-mega-ps4-controller-reference.jpg");
+    expect(products).toContain("Foto do catálogo público · Centro Mega no Magalu");
+    expect(page).toContain("CENTRO_MEGA_SOCIAL_SOURCES");
+    expect(page).toContain("<iframe");
+    expect(page).toContain("embed/");
+    expect(page).toContain("Instagram oficial · mídia real");
+    expect((products.match(/imageUrl:/g) ?? []).length).toBe(10);
+    expect(products).toContain("centro-mega-bone-category-reference.webp");
+    expect(products).toContain("centro-mega-calcados-category-reference.jpg");
+    expect(products).toContain("centro-mega-xbox360-battery-reference.jpg");
+    expect(products).toContain("centro-mega-philips-aa-2450-reference.jpg");
+    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(10);
+    expect(
+      mediaPlan.inventory.realProductMedia.filter(
+        (item: any) => item.classification === "EXTERNAL_PRODUCT_REFERENCE",
+      ).length,
+    ).toBeGreaterThanOrEqual(5);
+    expect(
+      mediaPlan.inventory.realProductMedia.filter(
+        (item: any) => item.classification === "EXTERNAL_CATEGORY_REFERENCE",
+      ).length,
+    ).toBeGreaterThanOrEqual(2);
+    expect(enrichment.researchLedger.photos.found).toBe(true);
+    expect(enrichment.researchLedger.photos.status).toBe("PUBLIC_REAL_PRODUCT_MEDIA_INGESTED");
+  });
+
+  test("política global impede desistir de mídia após bloqueio de provider", () => {
+    expect(publicMediaStandard).toContain("PROVIDER_BLOCKED");
+    expect(publicMediaStandard).toContain("não encerram a pesquisa");
+    expect(publicMediaStandard).toContain("COMMERCE_PRODUCT_MEDIA_MISSING");
+    expect(publicMediaStandard).toContain("Ícone Lucide, SVG genérico ou bloco abstrato não pode substituir");
+  });
+
+  test("categorias dinâmicas não são promovidas a SKU com preço", () => {
     expect(products).toContain('name: "Bonés · seleção Outlet"');
     expect(products).toContain('name: "Calçados · oportunidades"');
     expect(products).toContain('sourceType: "OWNER_SUPPLIED_ASSORTMENT"');
@@ -82,12 +124,17 @@ describe("Centro Mega — Store Concept", () => {
     expect(scoreItem("Xiaomi Mi Box S", item)).toBeGreaterThan(0);
   });
 
-  test("mídia ativa da loja não finge fotografia de estoque", () => {
+  test("hero gráfico não substitui mídia real da vitrine", () => {
     const activeHero = mediaPlan.inventory.graphicMedia.find(
       (item: any) => item.purpose === "active-store-hero",
     );
+    const fallbackGlyphs = mediaPlan.inventory.graphicMedia.find(
+      (item: any) => item.purpose === "fallback-only",
+    );
     expect(activeHero?.classification).toBe("DOM_CSS_GRAPHIC_COMPOSITION");
     expect(activeHero?.documentary).toBe(false);
+    expect(fallbackGlyphs?.purpose).toBe("fallback-only");
+    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(10);
     expect(mediaPlan.performance.heavyVideo).toBe(false);
     expect(mediaPlan.performance.newDependencies).toBe(false);
   });

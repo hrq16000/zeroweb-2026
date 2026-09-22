@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-21T23:50:00Z",
+  "lastResearchAt": "2026-09-22T07:38:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -14,7 +14,7 @@
       "PUBLIC_BUSINESS_REGISTRY_MIRROR",
       "PUBLIC_SOCIAL_POST_INDEX"
     ],
-    "notes": "Linktree @centro.mega, página pública de contato/loja VHSYS e CNPJ público convergem para a mesma operação Centro Mega em São José dos Pinhais. Endereços públicos apresentam pequenas variações de numeração/galeria em fontes distintas; a amostra privilegia cidade/unidade e não promove um único endereço completo como verdade canônica nova."
+    "notes": "Linktree @centro.mega, página pública de contato/loja VHSYS e CNPJ público convergem para a mesma operação Centro Mega em São José dos Pinhais. Endereços públicos apresentam pequenas variações de numeração/galeria em fontes distintas; a loja privilegia cidade/unidade e não promove um único endereço completo como verdade canônica nova."
   },
   "researchLedger": {
     "linktree": {
@@ -38,7 +38,7 @@
       "resolved": true,
       "verified": true,
       "url": "https://www.instagram.com/centro.mega/",
-      "note": "Perfil oficial resolvido via Linktree. Links de reels/posts já estavam versionados no componente anterior; o conteúdo individual não ficou legível com segurança nesta rodada, portanto nenhum SKU foi inferido a partir desses links."
+      "note": "Perfil oficial resolvido via Linktree. Posts e reels públicos conhecidos passam a ser incorporados pela URL oficial; bloqueio de download direto não encerra a pesquisa nem elimina a mídia."
     },
     "facebook": {
       "searched": true,
@@ -46,7 +46,7 @@
       "resolved": true,
       "verified": true,
       "url": "https://www.facebook.com/CentroMega.com.br/",
-      "note": "Página pública resolvida; a leitura direta de posts ficou limitada. Conteúdo de produto foi usado apenas quando também aparecia em índice público rastreável."
+      "note": "Página pública resolvida. Quando leitura direta de post falhar, o pipeline continua por índice público, busca e outras fontes conforme o padrão de ingestão."
     },
     "publicStore": {
       "searched": true,
@@ -83,17 +83,83 @@
     },
     "photos": {
       "searched": true,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "note": "Não houve ingestão confiável de fotos atuais de produtos/estoque a partir de Facebook/Instagram. A amostra usa composição gráfica e ícones, evitando fingir fotografia de estoque real."
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "PUBLIC_MEDIA_VITRINE_10_OF_10",
+      "note": "Os 10 cards da vitrine possuem mídia resolvida. Mídia própria/seller é preferida; quando não há ingestão estável, referência externa de produto ou categoria é explicitamente rotulada e nunca apresentada como fotografia do estoque Centro Mega.",
+      "assets": [
+        {
+          "product": "Xiaomi Mi Box S",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058183/centro-mega-mi-box-s.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/"
+        },
+        {
+          "product": "Xiaomi Mi True Wireless Earbuds Basic 2",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058494/centro-mega-earbuds-basic-2.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega"
+        },
+        {
+          "product": "Suporte Renux 5203",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/"
+        },
+        {
+          "product": "Poco X5 Pro 8GB / 256GB",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062389/centro-mega-poco-x5-pro-reference.jpg",
+          "sourceUrl": "https://www.olx.ro/electronice-si-electrocasnice/q-poco-x5/",
+          "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Tênis Dunk Low Pro",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062368/centro-mega-dunk-low-pro-reference.png",
+          "sourceUrl": "https://chilangoskate.com/products/tenis-nike-sb-dunk-low-pro-white-and-black",
+          "evidenceSourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Controle PlayStation 4 · Sony",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062373/centro-mega-ps4-controller-reference.jpg",
+          "sourceUrl": "https://www.zeusgames.com.br/manete-ps4-preta",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Bonés · seleção Outlet",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062624/centro-mega-bone-category-reference.webp",
+          "sourceUrl": "https://www.tlaco.com.br/produtos/bone-dad-hat-preto-classico-1xmol/",
+          "classification": "EXTERNAL_CATEGORY_REFERENCE"
+        },
+        {
+          "product": "Calçados · oportunidades",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062643/centro-mega-calcados-category-reference.jpg",
+          "sourceUrl": "https://www.lojasrenner.com.br/p/tenis-old-urban-star-os21-090-/-/A-7010704185132-br.lr",
+          "classification": "EXTERNAL_CATEGORY_REFERENCE"
+        },
+        {
+          "product": "Bateria + cabo para controle Xbox 360",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062669/centro-mega-xbox360-battery-reference.jpg",
+          "sourceUrl": "https://www.rihappy.com.br/bateria-recarregavel---cabo-carregador-para-controle-wireless-de-xbox-360-12000mah-1002800430/p",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/bateria-para-controle-360-com-carregador-e-cabo-1-4m-lehmox/p/edbf2239e0/ga/otga/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Pilha recarregável Philips · 4x 2450mAh",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062652/centro-mega-philips-aa-2450-reference.jpg",
+          "sourceUrl": "https://itekcanada.com/products/philips_multilife_nimh_rechargeable_aa_batteries_2450mah_4pk_clamshell",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/pilha-recarregavel-philips-c-4-2450-mah/p/fd8k1dkaj6/me/ilha/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        }
+      ]
     },
     "videos": {
       "searched": true,
       "found": true,
-      "resolved": false,
-      "verified": false,
-      "note": "Reels públicos foram identificados por URL, mas não tiveram conteúdo individual interpretado com segurança; permanecem como links de descoberta."
+      "resolved": true,
+      "verified": true,
+      "status": "OFFICIAL_PUBLIC_EMBED",
+      "note": "Reels públicos oficiais identificados por URL entram na página via embed público do Instagram; conteúdo não é inventado nem reclassificado como SKU sem leitura factual."
     },
     "marketplaceSeller": {
       "searched": true,
@@ -105,10 +171,12 @@
       "evidence": [
         "seller Centro Mega com CNPJ 17.991.627/0001-54",
         "Xiaomi Mi Box S listado como vendido por Centro Mega",
+        "Xiaomi Mi True Wireless Earbuds Basic 2 listado como vendido por Centro Mega",
         "Controle PlayStation 4 Sony listado como vendido por Centro Mega",
-        "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega"
+        "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega",
+        "Pen Drive 64GB SanDisk e pilhas Philips aparecem em páginas públicas vinculadas ao seller Centro Mega"
       ],
-      "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na amostra."
+      "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na loja."
     }
   },
   "verifiedProductEvidence": [
@@ -195,15 +263,21 @@
   ],
   "publicationRules": [
     "Preço de postagem antiga deve ser rotulado explicitamente como histórico.",
-    "Produto social verificado pode virar card de demonstração, mas não estoque atual.",
-    "Categoria fornecida pelo responsável pode virar categoria de amostra sem SKU/preço inventado.",
-    "Post social não legível não autoriza inferir nome/modelo/preço.",
-    "Nenhuma mídia gerada ou ícone pode ser apresentado como foto real de estoque."
+    "Produto social verificado pode virar card da loja, mas não estoque atual.",
+    "Categoria fornecida pelo responsável pode virar categoria dinâmica da loja sem SKU/preço inventado.",
+    "Post social não legível não autoriza inferir nome/modelo/preço; usar embed oficial e continuar a pesquisa por outras fontes públicas.",
+    "Foto real pública resolvida do produto deve ser usada na vitrine; ícone é fallback somente quando a escada de mídia não resolveu o asset.",
+    "Toda mídia ingerida preserva URL de origem/provenance."
   ],
   "marketplaceProducts": [
     "Xiaomi Mi Box S",
+    "Xiaomi Mi True Wireless Earbuds Basic 2",
     "Controle PlayStation 4 Original Sony",
-    "Suporte de celular para Moto & Bike Renux 5203"
+    "Suporte de celular para Moto & Bike Renux 5203",
+    "Pen Drive 64GB SanDisk Cruzer Blade",
+    "Pilha recarregável Philips",
+    "Bateria para controle Xbox 360 com cabo 1,4 m",
+    "Pilha recarregável Philips 2450mAh c/4"
   ],
   "operational": {
     "whatsappStatus": "VERIFIED",
@@ -212,5 +286,8 @@
     "source": "OFFICIAL_LINKTREE+PUBLIC_BUSINESS_SITE+PUBLIC_SOCIAL_INDEX",
     "verifiedAt": "2026-09-21",
     "note": "Destino exclusivo do client_key centro-mega; sem fallback institucional ou cross-client."
-  }
+  },
+  "mediaIngestionPolicy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
+  "projectMode": "FUNCTIONAL_SOCIAL_COMMERCE_STORE",
+  "orderFlow": "produto/seleção → funil individual → WhatsApp exclusivo Centro Mega; estoque/preço final confirmados no atendimento"
 }

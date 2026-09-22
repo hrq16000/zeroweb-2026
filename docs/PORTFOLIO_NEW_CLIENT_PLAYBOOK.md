@@ -124,12 +124,19 @@ Pesquisa/conteúdo pode usar skills especializadas selecionadas no discovery, ma
 
 ## 5. Imagens
 
+Seguir obrigatoriamente `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`.
+
 Prioridade:
 
 1. logo/marca oficial;
 2. fotos/produtos/trabalhos oficiais;
-3. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir ser equipe, sede, cliente ou serviço executado;
-4. composição abstrata/typographic brand art.
+3. posts/reels públicos do próprio negócio, mídia pública de seller/marketplace e outros assets reais ligados à entidade;
+4. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir ser equipe, sede, cliente ou serviço executado;
+5. composição abstrata/typographic brand art.
+
+A pesquisa deve percorrer site, Instagram, Facebook, Google/Business quando disponível, Linktree/hubs, marketplaces/seller, busca pública e mirrors/indexadores reputáveis. `PROVIDER_BLOCKED`, `CACHE_MISS`, login obrigatório ou anti-bot em uma fonte não encerram a pesquisa; muda-se de provider/fonte sem contornar controles de acesso.
+
+Para loja, catálogo ou social-commerce, cards de produto devem usar foto real quando houver mídia pública resolvível. Ícone/placeholder não é substituto aceitável para produto real disponível publicamente. `COMMERCE_PRODUCT_MEDIA_MISSING` é bloqueante.
 
 Usar `PortfolioImage`, dimensões explícitas, LCP controlado e lazy loading nas imagens abaixo da dobra. Gerar derivados WebP/AVIF quando útil sem apagar originais importantes do cliente.
 
@@ -218,6 +225,8 @@ Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Bluepri
 A mesma política vale para todo projeto legado sempre que houver manutenção material, redesign, troca de hero/capa, correção estrutural, alteração de navegação, nova campanha/variante ou republicação visual relevante.
 
 Projeto antigo pode permanecer online enquanto entra na fila de remediação, mas **legado não é sinônimo de aprovado**. `HIGH_SIMILARITY`, `ATTENTION`, capa fraca, mídia insuficiente, hero genérico e ausência de assinatura devem ser priorizados até o catálogo inteiro convergir para `ZERO_GENERIC_TOLERANCE`.
+
+Loja/catálogo legado com ícones, placeholders ou composições abstratas no lugar de fotos reais disponíveis entra em remediação imediata. A manutenção deve reexecutar a escada de mídia pública e versionar/atribuir os assets encontrados.
 
 
 ### Inteligência de decisão R3
