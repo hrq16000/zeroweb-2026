@@ -48,7 +48,31 @@ jobs:
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
 
-          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
+          # Troca isolada de OG social + cache-bust não altera o DOM visível.
+          # Esses casos continuam cobertos pelos gates de link preview/head e
+          # não devem disparar regressão visual/Lighthouse de todos os projetos.
+          SOCIAL_PREVIEW_ONLY=true
+          if [ -z "$FILES" ]; then
+            SOCIAL_PREVIEW_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              public/images/*/social-og.jpg|src/config/portfolio-assets.json|src/config/portfolio-admin-seed.json) ;;
+              *) SOCIAL_PREVIEW_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$SOCIAL_PREVIEW_ONLY" = true ]; then
+            CONFIG_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- src/config/portfolio-assets.json src/config/portfolio-admin-seed.json \
+              | grep -E '^[+-]' \
+              | grep -Ev '^(---|\+\+\+)' \
+              | grep -Ev '^[+-][[:space:]]*"socialVersion":' || true)"
+            if [ -n "$CONFIG_DIFF" ]; then
+              SOCIAL_PREVIEW_ONLY=false
+            fi
+          fi
+
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
