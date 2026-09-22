@@ -17,9 +17,8 @@ describe("Maximos Cabeleireiros — logo otimizado", () => {
     expect(page).toContain("c_limit,w_1024/f_webp/q_auto");
   });
 
-  test("asset index usa a mesma versão WebP otimizada", () => {
+  test("asset index preserva o logo canônico local exigido pelo gate", () => {
     const icon = assets.clients["maximos-cabeleireiros"].icon;
-    expect(icon).toContain("res.cloudinary.com/dqnwlodjs/");
-    expect(icon).toContain("maximos-cabeleireiros-logo.webp");
+    expect(icon).toBe("/images/maximos-cabeleireiros/logo.png");
   });
 });
