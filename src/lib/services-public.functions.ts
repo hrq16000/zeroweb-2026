@@ -9,6 +9,9 @@ import blogMarketingCover from "@/assets/blog-marketing.webp";
 import blogAutomacaoCover from "@/assets/blog-automacao-leads.jpg";
 import blogChatbotCover from "@/assets/blog-ia-whatsapp.jpg";
 import blogSocialCover from "@/assets/blog-meta-ads.jpg";
+import blogSitesCover from "@/assets/blog-sites.webp";
+import blogRoiTrafegoCover from "@/assets/blog-roi-trafego.jpg";
+import heroDashboardCover from "@/assets/hero-dashboard.webp";
 import coverLocal from "@/assets/cover-local.jpg";
 import coverSeo from "@/assets/cover-seo.jpg";
 import coverSiteExpress from "@/assets/cover-site-express.jpg";
@@ -310,6 +313,10 @@ const RECOVERED_COVERS: Record<string, string> = {
   // Capas já recuperadas de ativos históricos do portal.
   "site-profissional-197": "/images/services/site-profissional-197.png",
   "site-express": coverSiteExpress,
+  "criacao-de-sites": blogSitesCover,
+  "landing-pages": blogRoiTrafegoCover,
+  "landing-page": blogRoiTrafegoCover,
+  "loja-virtual": heroDashboardCover,
   "trafego-pago": coverTrafegoPago,
   "trafego-pago-local": coverLocal,
   "google-ads-299": googleAds299Cover.url,
@@ -452,7 +459,11 @@ export const listServicesStorefront = createServerFn({ method: "GET" }).handler(
           signedCover ??
           canonicalServiceCoverUrl(row.slug) ??
           RECOVERED_COVERS[row.slug] ??
-          generatedServiceCover(row.slug, row.name, row.category);
+          null;
+
+        // Contrato da vitrine: produto sem capa real/canônica não recebe
+        // placeholder nem ocupa espaço em /servicos.
+        if (!imageUrl) return null;
 
         return {
           slug: row.slug,
