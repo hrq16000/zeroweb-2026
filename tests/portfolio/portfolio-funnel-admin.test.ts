@@ -2,11 +2,19 @@ import { describe, expect, it } from "vitest";
 import {
   buildPortfolioProvisionQuestions,
   canonicalPortfolioFunnelSlug,
+  portfolioFunnelLookupSlugs,
 } from "@/lib/portfolio-funnel-admin.functions";
 
 describe("portfolio funnel admin", () => {
   it("preserva o slug canônico já usado pelos funis individuais", () => {
     expect(canonicalPortfolioFunnelSlug("autoescola-aptos")).toBe("funnel-autoescola-aptos");
+  });
+
+  it("reconhece o alias legado sem criar um segundo namespace canônico", () => {
+    expect(portfolioFunnelLookupSlugs("autoescola-aptos")).toEqual([
+      "funnel-autoescola-aptos",
+      "portfolio-autoescola-aptos",
+    ]);
   });
 
   it("gera perguntas próprias a partir da configuração do portfolio", () => {
