@@ -3,9 +3,9 @@ import { IntentLanding, buildHead } from "@/components/site/IntentLanding";
 import { absUrl } from "@/lib/seo";
 
 const URL = absUrl("/servicos/site-pro");
-const TITLE = "Site Pro · 10+ páginas com meta de ranking Google 1–5 · 0WEB";
+const TITLE = "Site Pro · 10+ páginas com SEO técnico e estratégia orgânica · 0WEB";
 const DESC =
-  "Site profissional com 10+ páginas custom, SEO técnico + on-page e estratégia de palavras-chave com meta de ranqueamento entre as posições 1 e 5 do Google. Inclui hospedagem, SSL, anti-DDoS e 6 meses de suporte.";
+  "Site profissional com 10+ páginas custom, SEO técnico + on-page e estratégia de palavras-chave para ampliar relevância orgânica. Inclui hospedagem, SSL, proteção anti-DDoS e 6 meses de suporte." ;
 
 export const Route = createFileRoute("/servicos/site-pro")({
   head: () => buildHead({ title: TITLE, description: DESC, url: URL }),
@@ -19,8 +19,8 @@ function SiteProPage() {
       serviceSlug="site-pro"
       intent="site-pro"
       eyebrow="Plano Site Pro · a partir de R$ 7.900"
-      headline="Site Pro: 10+ páginas com meta de Google posição 1–5"
-      subheadline="Para quem quer ranquear de verdade. Site profissional completo, estratégia de palavras-chave, SEO técnico + on-page e auditoria mensal de posição até atingir o top 5 do Google."
+      headline="Site Pro: 10+ páginas com estratégia de crescimento orgânico"
+      subheadline="Para quem quer construir presença orgânica com método. Site profissional completo, estratégia de palavras-chave, SEO técnico + on-page e acompanhamento mensal de posicionamento."
       offerSlug="site-pro"
       ctaLabel="Quero o Site Pro"
       whatsappMessage="Olá! Quero um orçamento do plano Site Pro (10+ páginas + ranqueamento Google)."
@@ -32,14 +32,14 @@ function SiteProPage() {
             "Cada página desenhada do zero para a sua marca — sem template, sem WordPress. Estrutura semântica, design premium e copy estratégico.",
         },
         {
-          title: "Meta de ranking 1–5 no Google",
+          title: "Estratégia de posicionamento no Google",
           description:
-            "Trabalhamos palavras-chave selecionadas em conjunto com você e perseguimos as primeiras 5 posições. Você recebe relatório mensal de posicionamento.",
+            "Trabalhamos palavras-chave selecionadas em conjunto com você, acompanhando evolução, concorrência e oportunidades. Você recebe relatório mensal de posicionamento.",
         },
         {
           title: "SEO técnico + on-page incluso",
           description:
-            "Schema.org em todas as páginas, core web vitals 95+, sitemap, canonicals, internal linking e meta tags otimizadas. Sem custo extra.",
+            "Schema.org, sitemap, canonicals, internal linking e meta tags, com implementação orientada a Core Web Vitals e boas práticas técnicas. Sem custo extra.",
         },
         {
           title: "Estratégia de palavras-chave",
@@ -49,7 +49,7 @@ function SiteProPage() {
         {
           title: "Infraestrutura empresarial",
           description:
-            "Cloudflare Edge (300+ PoPs), SSL grátis, proteção anti-DDoS, 100% de uptime garantido e backup automático.",
+            "Infraestrutura distribuída, SSL, proteção anti-DDoS, alta disponibilidade e backup automático.",
         },
         {
           title: "6 meses de suporte incluso",
@@ -59,12 +59,12 @@ function SiteProPage() {
       ]}
       faq={[
         {
-          q: "Quanto tempo até aparecer no Google posição 1–5?",
-          a: "O ranqueamento depende da concorrência das palavras-chave escolhidas. Termos locais e de cauda longa costumam atingir o top 5 em 60–120 dias; termos genéricos competitivos podem levar 4–8 meses. Definimos juntos um conjunto realista de palavras-chave no kickoff.",
+          q: "Em quanto tempo posso perceber evolução no Google?",
+          a: "O ranqueamento depende da concorrência, autoridade do domínio, conteúdo e intenção de busca. Definimos metas e palavras-chave realistas no kickoff e acompanhamos a evolução mensalmente, sem prometer posição específica.",
         },
         {
-          q: "Qual a diferença para o Site Express (R$ 1.500)?",
-          a: "O Site Express entrega 1 landing page em 24h, focada em campanhas de tráfego pago. O Site Pro é um site institucional completo de 10+ páginas com estratégia de SEO orgânico e meta de ranqueamento auditada mês a mês. São produtos para objetivos diferentes.",
+          q: "Qual a diferença para o Site Express (a partir de R$ 499)?",
+          a: "O Site Express é a opção enxuta e turnkey, a partir de R$ 499. O Site Pro é um projeto institucional de 10+ páginas com arquitetura de conteúdo, pesquisa de palavras-chave e acompanhamento de SEO orgânico. São produtos para objetivos diferentes.",
         },
         {
           q: "O que está incluso no preço a partir de R$ 7.900?",
@@ -72,7 +72,7 @@ function SiteProPage() {
         },
         {
           q: "Vocês usam WordPress ou template?",
-          a: "Não. Todo Site Pro é hand-coded sob medida em TanStack/React, otimizado para Core Web Vitals 95+. Você recebe um painel próprio para editar conteúdo sem depender de plugin.",
+          a: "Não. Todo Site Pro é desenvolvido sob medida em TanStack/React e otimizado para boas práticas de performance e Core Web Vitals. Você recebe um painel próprio para editar conteúdo sem depender de plugin.",
         },
         {
           q: "Posso adicionar mais páginas depois?",
