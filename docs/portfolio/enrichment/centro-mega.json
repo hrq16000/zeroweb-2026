@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T07:33:00Z",
+  "lastResearchAt": "2026-09-22T07:38:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -86,8 +86,8 @@
       "found": true,
       "resolved": true,
       "verified": true,
-      "status": "PUBLIC_REAL_PRODUCT_MEDIA_INGESTED",
-      "note": "Mídia de produto já inclui assets do próprio catálogo seller Centro Mega e referências externas de modelo quando a evidência Centro Mega existe mas a foto original não é ingerível de forma estável. Cada referência externa permanece explicitamente classificada e com origem preservada.",
+      "status": "PUBLIC_MEDIA_VITRINE_10_OF_10",
+      "note": "Os 10 cards da vitrine possuem mídia resolvida. Mídia própria/seller é preferida; quando não há ingestão estável, referência externa de produto ou categoria é explicitamente rotulada e nunca apresentada como fotografia do estoque Centro Mega.",
       "assets": [
         {
           "product": "Xiaomi Mi Box S",
@@ -123,6 +123,32 @@
           "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062373/centro-mega-ps4-controller-reference.jpg",
           "sourceUrl": "https://www.zeusgames.com.br/manete-ps4-preta",
           "evidenceSourceUrl": "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Bonés · seleção Outlet",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062624/centro-mega-bone-category-reference.webp",
+          "sourceUrl": "https://www.tlaco.com.br/produtos/bone-dad-hat-preto-classico-1xmol/",
+          "classification": "EXTERNAL_CATEGORY_REFERENCE"
+        },
+        {
+          "product": "Calçados · oportunidades",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062643/centro-mega-calcados-category-reference.jpg",
+          "sourceUrl": "https://www.lojasrenner.com.br/p/tenis-old-urban-star-os21-090-/-/A-7010704185132-br.lr",
+          "classification": "EXTERNAL_CATEGORY_REFERENCE"
+        },
+        {
+          "product": "Bateria + cabo para controle Xbox 360",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062669/centro-mega-xbox360-battery-reference.jpg",
+          "sourceUrl": "https://www.rihappy.com.br/bateria-recarregavel---cabo-carregador-para-controle-wireless-de-xbox-360-12000mah-1002800430/p",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/bateria-para-controle-360-com-carregador-e-cabo-1-4m-lehmox/p/edbf2239e0/ga/otga/?seller_id=centromega",
+          "classification": "EXTERNAL_PRODUCT_REFERENCE"
+        },
+        {
+          "product": "Pilha recarregável Philips · 4x 2450mAh",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062652/centro-mega-philips-aa-2450-reference.jpg",
+          "sourceUrl": "https://itekcanada.com/products/philips_multilife_nimh_rechargeable_aa_batteries_2450mah_4pk_clamshell",
+          "evidenceSourceUrl": "https://www.magazineluiza.com.br/pilha-recarregavel-philips-c-4-2450-mah/p/fd8k1dkaj6/me/ilha/?seller_id=centromega",
           "classification": "EXTERNAL_PRODUCT_REFERENCE"
         }
       ]
@@ -249,7 +275,9 @@
     "Controle PlayStation 4 Original Sony",
     "Suporte de celular para Moto & Bike Renux 5203",
     "Pen Drive 64GB SanDisk Cruzer Blade",
-    "Pilha recarregável Philips"
+    "Pilha recarregável Philips",
+    "Bateria para controle Xbox 360 com cabo 1,4 m",
+    "Pilha recarregável Philips 2450mAh c/4"
   ],
   "operational": {
     "whatsappStatus": "VERIFIED",
