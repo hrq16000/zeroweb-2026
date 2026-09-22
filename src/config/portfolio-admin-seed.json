@@ -647,7 +647,7 @@
       "assetsDir": "public/images/centro-mega",
       "ctaMode": "ordering",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/centro-mega/hero.png",
