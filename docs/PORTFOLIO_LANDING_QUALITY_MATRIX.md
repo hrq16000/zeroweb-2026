@@ -129,6 +129,31 @@ graphic`. Evitar landing 100% stock ou 100% gerada quando existe material real
 utilizável — e evitar o inverso, usar fotos reais ruins em toda posição só
 porque são reais (ver lifecycle §7.1).
 
+### 6.4 Experience-role / rhythm review
+
+Para projetos novos e para redesign material, avaliar também:
+
+`roleGraph · mediaCadence · interactionLoci · decisionAidPlacement ·
+densityRhythm · mobileCompositionStrategy`.
+
+Quando o usuário forneceu um site de referência, anexar ao brief a decomposição:
+
+`ROLE_MATRIX · COMPOSITION_MATRIX · RHYTHM_MEDIA_MATRIX · ANTI_COPY_MATRIX`.
+
+A revisão editorial deve responder:
+
+- os papéis da página mudaram a arquitetura ou apenas preencheram o mesmo skeleton?
+- oferta, prova, localidade, processo e objeções receberam peso conforme a decisão real?
+- a mídia tem funções diferentes ou repete o mesmo card/crop?
+- existe uma ajuda de decisão específica quando a incerteza do visitante pede isso?
+- a página mantém variedade de densidade, contenção, contraste e relação mídia/texto?
+- no mobile a composição foi redesenhada, não apenas empilhada?
+- a referência externa foi traduzida em princípios, sem reprodução de silhueta?
+
+`SAME_JOURNEY_DIFFERENT_COPY`, `MEDIA_RHYTHM_REUSED` ou
+`REFERENCE_USED_AS_TEMPLATE` tornam `editorialPass = false`.
+
+
 ## 7. Hero matrix
 
 Avaliado separadamente: `brandMatch · segmentMatch · visualImpact ·
