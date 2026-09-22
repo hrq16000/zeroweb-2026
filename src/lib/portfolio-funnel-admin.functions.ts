@@ -245,7 +245,7 @@ const provisionSchema = z.object({
 
 export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => provisionSchema.parse(data))
+  .validator((data: unknown) => provisionSchema.parse(data))
   .handler(async ({ data, context }) => {
     const admin = await assertAdmin(context.userId);
     const project = findProject(data.clientKey);
@@ -323,7 +323,7 @@ export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
 
 export const setPortfolioFunnelStatus = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       clientKey: z.string().trim().min(2).max(80).regex(/^[a-z0-9][a-z0-9-]+$/),
       status: z.enum(["draft", "published"]),
