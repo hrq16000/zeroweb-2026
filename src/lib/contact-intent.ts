@@ -49,6 +49,7 @@ export type ContactIntent = {
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,80}$/;
 const SOURCE_RE = /^[a-z0-9_\-.:/]{1,120}$/i;
 const PAGE_PATH_RE = /^\/[a-z0-9\-_/.$]{0,200}$/i;
+const MAX_LEN = 120;
 
 const PURPOSES: readonly ContactPurpose[] = [
   "commercial",
@@ -122,6 +123,23 @@ const ALLOWED_FUNNELS = new Set([
 ]);
 
 /**
+ * Runtime guard for CTA context. Institutional/shared callers may have been
+ * rendered on the server with "/" as pagePath; on the client the actual
+ * pathname is authoritative for telemetry and funnel context.
+ *
+ * Invalid/external paths are ignored, so callers cannot use this helper to
+ * smuggle URLs or PII into ContactIntent.
+ */
+export function withRuntimePagePath(
+  intent: ContactIntent,
+  runtimePath: string,
+): ContactIntent {
+  if (!PAGE_PATH_RE.test(runtimePath)) return intent;
+  const pagePath = runtimePath.slice(0, MAX_LEN);
+  return intent.pagePath === pagePath ? intent : { ...intent, pagePath };
+}
+
+/**
  * Resolve which funnel slug should be opened for a given intent.
  *
  * The resolver is intentionally narrow: purpose (plus the mere presence of a
@@ -178,8 +196,6 @@ const FIELDS: readonly (keyof ContactIntent)[] = [
   "contentSlug",
   "campaign",
 ];
-
-const MAX_LEN = 120;
 
 /** Serialize intent into a compact, URL-safe search-param bag. */
 export function serializeContactIntent(intent: ContactIntent): Record<string, string> {
