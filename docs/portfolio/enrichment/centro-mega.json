@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T07:38:00Z",
+  "lastResearchAt": "2026-09-22T07:45:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -38,7 +38,20 @@
       "resolved": true,
       "verified": true,
       "url": "https://www.instagram.com/centro.mega/",
-      "note": "Perfil oficial resolvido via Linktree. Posts e reels públicos conhecidos passam a ser incorporados pela URL oficial; bloqueio de download direto não encerra a pesquisa nem elimina a mídia."
+      "note": "Perfil oficial resolvido via Linktree. Posts e reels públicos conhecidos passam a ser incorporados pela URL oficial; bloqueio de download direto não encerra a pesquisa nem elimina a mídia.",
+      "latestRefresh": {
+        "attemptedAt": "2026-09-22",
+        "profileUrl": "https://www.instagram.com/centro.mega/",
+        "directProviderStatus": "PROVIDER_BLOCKED",
+        "knownOfficialEmbeds": [
+          "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+          "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
+          "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+          "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+          "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
+        ],
+        "rule": "Os embeds oficiais conhecidos permanecem ativos. Bloqueio da leitura direta não encerra a pesquisa de novos shortcodes; usar conector social autorizado ou novas fontes públicas quando disponíveis."
+      }
     },
     "facebook": {
       "searched": true,
@@ -68,10 +81,17 @@
       "verified": true,
       "url": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
       "evidence": [
+        "30/08/2026 — conteúdo recente indexado: “Ótimo Domingo ❤️❤️❤️❤️”; índice confirma data/publicação, mas não atribui com segurança o item a Instagram ou Facebook.",
         "25/01/2024 — Poco X5 Pro 8GB RAM / 256GB; postagem exibia R$ 2.399,00 → R$ 1.899,00",
         "08/11/2023 — Tênis Dunk Low Pro; espelhos públicos mostram numerações conflitantes 34–39 e 34–43"
       ],
-      "freshnessRule": "Produtos e preços das postagens são evidência histórica de mix; não representam estoque, preço ou numeração atuais sem confirmação."
+      "freshnessRule": "Produtos e preços das postagens são evidência histórica de mix; não representam estoque, preço ou numeração atuais sem confirmação.",
+      "latestIndexedSignal": {
+        "date": "2026-08-30",
+        "text": "Ótimo Domingo ❤️❤️❤️❤️",
+        "sourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+        "platformAttribution": "UNRESOLVED"
+      }
     },
     "businessRegistryMirror": {
       "searched": true,
