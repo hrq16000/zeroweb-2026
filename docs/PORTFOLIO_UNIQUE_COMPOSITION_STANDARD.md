@@ -74,6 +74,30 @@ Trocar classes CSS mantendo o mesmo DOM é skin swap = FAIL. O gate observa quan
 
 Cada projeto declara: `heroGeometry`, `headerTreatment`, `sectionGraph`, `contentOrder`, `gridTopology`, `mediaDistribution`, `backgroundRhythm`, `proofPlacement`, `ctaDistribution`, `navigationPattern`, `motionSignature`, `closingStructure`. Comparado contra os projetos recentes antes de READY e em toda manutenção material.
 
+### 10.1 Experience-role fingerprint
+
+O fingerprint passa a registrar também **como a página funciona**, não só como
+ela se parece:
+
+`roleGraph` · `mediaCadence` · `interactionLoci` ·
+`decisionAidPlacement` · `densityRhythm` · `mobileCompositionStrategy`.
+
+- `roleGraph`: papéis de decisão presentes, ordem relativa e quais foram
+  fundidos no mesmo capítulo;
+- `mediaCadence`: onde mídia domina, apoia, comprova ou desaparece para dar
+  respiro;
+- `interactionLoci`: pontos em que o visitante escolhe, compara, filtra,
+  diagnostica, configura ou converte;
+- `decisionAidPlacement`: onde incertezas importantes são resolvidas;
+- `densityRhythm`: alternância deliberada de densidade, contraste e contenção;
+- `mobileCompositionStrategy`: transformações reais de composição no mobile.
+
+Dois projetos com cores, textos e assets distintos, mas com
+`roleGraph + mediaCadence + interactionLoci` essencialmente equivalentes, devem
+ser tratados como risco de `SAME_JOURNEY_DIFFERENT_COPY` e passar por revisão
+autoral antes de READY.
+
+
 ## 11. Comparação perceptual
 
 Metadata não basta. Antes de READY ou de considerar uma manutenção visual concluída: screenshots em 390px, 768px e 1440px, comparação com os projetos recentes e NO-BRAND/GREYSCALE TEST do §1.

@@ -10,6 +10,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Discovery contínuo em LobeHub/AwesomeSkill/fontes originais | `.agents/skills/0web-skill-discovery/SKILL.md` · `.agents/skills/lobehub-skills-search-engine/SKILL.md` · `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` |
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
+| Site de referência / extração em matrizes sem copiar layout | `.agents/skills/0web-portfolio-art-direction/SKILL.md` §11 · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.1–§4.3 · `docs/PORTFOLIO_CAPABILITY_PALETTE.md` §2.1–§2.2 |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Uso obrigatório de recursos relevantes / Resource Utilization Gate | `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
