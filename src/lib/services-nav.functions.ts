@@ -15,6 +15,8 @@ export type NavService = {
   imageUrl: string | null;
   imageAlt: string | null;
   description: string;
+  price: number | null;
+  pricePeriod: string | null;
 };
 
 type Row = {
@@ -30,6 +32,7 @@ type Row = {
   show_in_sitemap: boolean | null;
   is_solution: boolean | null;
   price: number | string | null;
+  price_period: string | null;
   display_order: number;
 };
 
@@ -46,7 +49,7 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
     const { data, error } = await sbPublic
       .from("services")
       .select(
-        "slug,name,category,description,image_path,image_alt,show_in_menu,show_in_footer,show_in_home_featured,show_in_sitemap,is_solution,price,display_order",
+        "slug,name,category,description,image_path,image_alt,show_in_menu,show_in_footer,show_in_home_featured,show_in_sitemap,is_solution,price,price_period,display_order",
       )
       .eq("is_active", true)
       .order("display_order", { ascending: true });
@@ -89,6 +92,8 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
       description: r.description,
       imageUrl: signedMap.get(r.slug) ?? canonicalServiceCoverUrl(r.slug),
       imageAlt: r.image_alt,
+      price: r.price == null || !Number.isFinite(Number(r.price)) ? null : Number(r.price),
+      pricePeriod: r.price_period,
     });
 
     return {
