@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -62,18 +62,37 @@
     "noBrandTestRequired": true,
     "neighborComparisonRequired": true,
     "compositionFingerprintRequired": true,
-    "signatureMomentRequired": true
+    "signatureMomentRequired": true,
+    "experienceRoleMatrixRequired": true,
+    "rhythmMediaMatrixRequired": true,
+    "journeyDivergenceRequired": true,
+    "referenceDecompositionRequiredWhenReferenceSupplied": true,
+    "referenceMustNotDefineFinalSilhouette": true
   },
   "mediaPolicy": {
-    "purposeSlots": ["hero", "catalogCover", "socialOg", "preview"],
+    "purposeSlots": [
+      "hero",
+      "catalogCover",
+      "socialOg",
+      "preview"
+    ],
     "mediaStrategyRequired": true,
     "generatedContextualMediaAllowed": true,
     "fabricatedEvidenceForbidden": true,
     "mediaStarvationIsFailure": true
   },
   "layoutPolicy": {
-    "requiredAssessment": ["flexbox", "css-grid", "intrinsic-sizing", "responsive-flow"],
-    "viewports": [390, 768, 1440],
+    "requiredAssessment": [
+      "flexbox",
+      "css-grid",
+      "intrinsic-sizing",
+      "responsive-flow"
+    ],
+    "viewports": [
+      390,
+      768,
+      1440
+    ],
     "semanticOrderRequired": true,
     "horizontalOverflowForbidden": true
   },
@@ -117,7 +136,13 @@
     "REDUCED_MOTION_BROKEN",
     "NO_BRAND_TEST_FAIL",
     "HIGH_SIMILARITY_UNRESOLVED",
-    "VISUAL_QA_MISSING"
+    "VISUAL_QA_MISSING",
+    "REFERENCE_DECOMPOSITION_MISSING",
+    "REFERENCE_USED_AS_TEMPLATE",
+    "SAME_JOURNEY_DIFFERENT_COPY",
+    "SECTION_ROLE_MONOTONY",
+    "MEDIA_RHYTHM_REUSED",
+    "FUNCTIONAL_DIVERSITY_MISSING"
   ],
   "legacyPolicy": {
     "grandfatheredAsComplete": false,
@@ -130,5 +155,27 @@
       "generic-hero",
       "missing-signature"
     ]
+  },
+  "referenceDecompositionPolicy": {
+    "requiredWhenReferenceSupplied": true,
+    "matrices": [
+      "ROLE_MATRIX",
+      "COMPOSITION_MATRIX",
+      "RHYTHM_MEDIA_MATRIX",
+      "ANTI_COPY_MATRIX"
+    ],
+    "requiredOutputs": [
+      "referenceUrl",
+      "reviewedRoutes",
+      "rolePatterns",
+      "mediaPatterns",
+      "rhythmPatterns",
+      "interactionPatterns",
+      "decisionPatterns",
+      "transferablePrinciples",
+      "doNotCopy",
+      "projectSpecificTranslation"
+    ],
+    "principle": "ABSORB_GRAMMAR_NEVER_COPY_SILHOUETTE"
   }
 }
