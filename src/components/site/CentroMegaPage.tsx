@@ -471,32 +471,48 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <div className="mega-hero-drift relative mx-auto min-h-[34rem] max-w-2xl">
-                    <div className="absolute inset-8 rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.02] to-violet-400/10 shadow-[0_50px_140px_rgba(0,0,0,.55)]">
-                      <div className="absolute inset-0 overflow-hidden rounded-[3rem]">
-                        <div className="mega-scan absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/10 to-transparent" />
-                      </div>
-                    </div>
-
-                    <div className="absolute left-0 top-5 w-[68%] rotate-[-5deg] rounded-[2rem] border border-white/15 bg-[#0a1020]/90 p-5 shadow-2xl">
-                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[0]} compact />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-cyan-300">Social drop</p>
-                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[0].name}</p>
-                    </div>
-
-                    <div className="absolute bottom-2 right-0 w-[68%] rotate-[5deg] rounded-[2rem] border border-violet-300/20 bg-[#0d0a19]/90 p-5 shadow-2xl">
-                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[1]} compact />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-violet-300">Outlet drop</p>
-                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[1].name}</p>
-                    </div>
-
-                    <div className="mega-glow absolute left-[42%] top-[42%] grid h-28 w-28 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_80px_rgba(34,211,238,.25)]">
-                      <div className="text-center">
-                        <Zap className="mx-auto h-7 w-7 text-cyan-200" />
-                        <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em]">Loja online</p>
-                      </div>
-                    </div>
+                <div className="mega-hero-drift relative mx-auto w-full min-w-0 max-w-2xl overflow-hidden rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.025] to-violet-400/10 p-4 shadow-[0_50px_140px_rgba(0,0,0,.55)] sm:p-7">
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[3rem]">
+                    <div className="mega-scan absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/10 to-transparent" />
+                    <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
+                    <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-cyan-400/15 blur-3xl" />
                   </div>
+
+                  <div className="relative grid min-w-0 gap-4 sm:grid-cols-2">
+                    {CENTRO_MEGA_DEMO_PRODUCTS.slice(0, 2).map((product, index) => (
+                      <article
+                        key={product.id}
+                        className={
+                          "group min-w-0 overflow-hidden rounded-[2rem] border bg-[#080d18]/92 p-4 shadow-2xl " +
+                          (index === 0 ? "border-cyan-300/25 sm:translate-y-4" : "border-violet-300/25 sm:-translate-y-2")
+                        }
+                      >
+                        <div className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-white">
+                          <ProductVisual product={product} compact />
+                        </div>
+                        <p className={"mt-4 text-[10px] font-black uppercase tracking-[.18em] " + (index === 0 ? "text-cyan-300" : "text-violet-300")}>
+                          {index === 0 ? "Social drop" : "Outlet drop"}
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-lg font-black leading-tight text-white sm:text-xl">
+                          {product.name}
+                        </p>
+                        <p className="mt-2 text-xs leading-5 text-white/50">
+                          Foto pública versionada · consulte preço e estoque atuais
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="relative mt-4 flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-[1.6rem] border border-white/10 bg-black/25 px-4 py-3 backdrop-blur">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-black uppercase tracking-[.18em] text-cyan-200">Loja online</p>
+                      <p className="truncate text-sm font-bold text-white/70">Produtos reais + últimas publicações sociais</p>
+                    </div>
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 bg-white/10 shadow-[0_0_50px_rgba(34,211,238,.2)]">
+                      <Zap className="h-5 w-5 text-cyan-200" />
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
