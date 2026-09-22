@@ -597,8 +597,8 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   },
   {
     slug: "centro-mega",
-    vertical: "prestadores-de-servicos",
-    siteName: "Centro Mega · Assistência Técnica & Acessórios",
+    vertical: "comercios",
+    siteName: "Centro Mega Store · Celulares, Acessórios & Outlet",
     kind: "prototype",
     indexable: true,
   },

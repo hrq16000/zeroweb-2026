@@ -415,6 +415,43 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: formato desejado, referência de unha, cílios, comprimento do cabelo ou disponibilidade."
   },
+  "centro-mega": {
+    "services": [
+      "Celular / smartphone",
+      "Tênis e calçados",
+      "Bonés / outlet",
+      "Acessórios",
+      "Assistência técnica",
+      "Quero consultar outro produto"
+    ],
+    "experienceOptions": [
+      "Vi um produto nesta loja-demo",
+      "Vi uma oferta nas redes sociais",
+      "Quero comparar algumas opções",
+      "Preciso de orientação da loja"
+    ],
+    "periodOptions": [
+      "São José dos Pinhais",
+      "Curitiba",
+      "Quero combinar retirada / entrega",
+      "Ainda vou decidir"
+    ],
+    "timingOptions": [
+      "Quero consultar agora",
+      "Ainda nesta semana",
+      "Estou pesquisando",
+      "Sem pressa — quero conhecer as opções"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você quer consultar?",
+      "experience": "Como você chegou nesta seleção?",
+      "period": "Qual região faz mais sentido para você?",
+      "timing": "Quando pretende avançar?",
+      "note": "Quer acrescentar algum detalhe?"
+    },
+    "notePlaceholder": "Modelo, cor, tamanho, faixa de preço ou outra preferência."
+  },
   "clinica-integrada": {
     "stepTitles": {
       "service": "Qual especialidade você procura?",

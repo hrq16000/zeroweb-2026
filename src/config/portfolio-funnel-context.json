@@ -122,10 +122,10 @@
     "theme": "pink"
   },
   "centro-mega": {
-    "intent": "contato",
-    "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
-    "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
-    "primaryCtaLabel": "Falar com a equipe",
+    "intent": "pedido",
+    "nextStepTitle": "Sua seleção pode seguir para a equipe sem perder o contexto.",
+    "nextStepBody": "Escolha os produtos ou categorias na loja-demo; a equipe confirma preço, estoque, tamanho, cor e forma de atendimento antes da compra.",
+    "primaryCtaLabel": "Consultar minha seleção",
     "theme": "navy"
   },
   "clinica-integrada": {

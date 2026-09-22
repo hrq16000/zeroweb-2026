@@ -1,5 +1,19 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — Centro Mega Store Concept · social commerce autônomo
+
+- **Escopo:** evolução material de `/portfolio/centro-mega` para amostra de loja virtual tecnológica + outlet.
+- **Pesquisa:** Linktree oficial, Instagram/Facebook, loja/contato pública, índice público de postagens e apoio cadastral foram revalidados; posts não legíveis não viraram SKU inventado.
+- **Produtos sociais:** Poco X5 Pro 8GB/256GB e Tênis Dunk Low Pro foram convertidos em cards com provenance. O preço do Poco é rotulado como histórico de 25/01/2024; estoque/preço/tamanho atuais permanecem sob consulta.
+- **Categorias:** celulares, acessórios, tênis, bonés, calçados e outlet; categorias fornecidas pelo responsável entram como demonstração sem preço/estoque fictício.
+- **Experiência:** hero neon imersivo, busca, filtros, vitrine, Outlet Mode, cards de fontes sociais, canais/unidades e “Minha seleção”.
+- **Carryover:** itens selecionados seguem em `initialAnswers` + `orderContext.order_items`; o funil usa intent `pedido`.
+- **Isolamento:** `contactMode=funnelOnly`; WhatsApp operacional da Centro Mega permanece `null`, portanto nenhum fallback cross-client foi criado.
+- **Motion:** perfil próprio `IMMERSIVE / NEON_COMMERCE`, usando CSS/primitives existentes, sem nova biblioteca pesada.
+- **SEO:** schema específico `Store + ElectronicsStore`, sem Product/Offer com estoque/preço não verificável.
+- **Documentação:** brief, enrichment, media plan, relatório e teste dedicado foram adicionados/atualizados.
+- **Regra SOME:** evolução soma Store Concept à identidade existente; nenhuma prova histórica foi reclassificada como condição atual.
+
 ## 2026-09-21 — conhecimento aditivo · Landing Page Premium 0WEB
 
 - **Origem:** documentação fornecida pelo responsável e incorporada como conhecimento complementar, sem alterar páginas públicas nesta rodada.

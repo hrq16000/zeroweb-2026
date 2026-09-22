@@ -1071,11 +1071,19 @@
     "routeFile": "src/routes/portfolio.$slug.tsx",
     "componentFile": "src/components/site/CentroMegaPage.tsx",
     "assetsDir": "public/images/centro-mega",
-    "ctaMode": "proposal",
+    "ctaMode": "ordering",
     "socialProofRequired": false,
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
-    "creativeBriefFile": "docs/portfolio/briefs/centro-mega.md"
+    "creativeBriefFile": "docs/portfolio/briefs/centro-mega.md",
+    "funnelType": "pedido",
+    "contactMode": "funnelOnly",
+    "provenance": {
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "Linktree oficial + Instagram/Facebook oficiais + posts públicos indexados + dados fornecidos pelo responsável em 21/09/2026",
+      "reference": "https://linktr.ee/centro.mega"
+    },
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "pastelaria-route-66",

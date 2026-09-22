@@ -622,7 +622,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
-      ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
+      ? "Centro Mega em São José dos Pinhais: amostra de loja virtual com celulares, acessórios, tênis, bonés, calçados e oportunidades de outlet organizadas a partir de conteúdo público e categorias confirmadas."
       : isAutoSocorroDentinho
       ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
@@ -813,7 +813,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isJklDecor
+          content: eff.keywords ?? (isCentroMega
+            ? "Centro Mega, celulares São José dos Pinhais, smartphones SJP, acessórios para celular, Centro Mega Outlet, tênis outlet, bonés, calçados, loja virtual, Instagram Centro Mega, Facebook Centro Mega"
+            : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
             : isAutoescolaAptos
             ? "Autoescola APTOS, autoescola São José dos Pinhais, primeira habilitação, carro automático autoescola, moto automática, categoria A, categoria B, categoria AB, reteste, renovação CNH, reciclagem, curso online"
@@ -968,7 +970,37 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         })),
                       },
                     ]
-                  : [
+                  : isCentroMega
+                    ? [
+                        {
+                          "@type": "Store",
+                          additionalType: "https://schema.org/ElectronicsStore",
+                          "@id": `${url}#store`,
+                          name: "Centro Mega",
+                          description,
+                          url,
+                          image: socialImage,
+                          logo: absUrl("/images/centro-mega/logo.png"),
+                          sameAs: [
+                            "https://linktr.ee/centro.mega",
+                            "https://www.instagram.com/centro.mega/",
+                            "https://www.facebook.com/CentroMega.com.br/",
+                          ],
+                          areaServed: [
+                            { "@type": "City", name: "São José dos Pinhais" },
+                            { "@type": "City", name: "Curitiba" },
+                          ],
+                          knowsAbout: [
+                            "Celulares e smartphones",
+                            "Acessórios para tecnologia",
+                            "Outlet",
+                            "Tênis",
+                            "Bonés",
+                            "Calçados",
+                          ],
+                        },
+                      ]
+                    : [
                       {
                         ...serviceNode({
                           slug: vertical.slug,
