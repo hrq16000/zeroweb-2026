@@ -61,12 +61,22 @@ describe("Centro Mega — Store Concept", () => {
     expect(page).toContain("<iframe");
     expect(page).toContain("embed/");
     expect(page).toContain("Instagram oficial · mídia real");
-    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(6);
+    expect((products.match(/imageUrl:/g) ?? []).length).toBe(10);
+    expect(products).toContain("centro-mega-bone-category-reference.webp");
+    expect(products).toContain("centro-mega-calcados-category-reference.jpg");
+    expect(products).toContain("centro-mega-xbox360-battery-reference.jpg");
+    expect(products).toContain("centro-mega-philips-aa-2450-reference.jpg");
+    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(10);
     expect(
       mediaPlan.inventory.realProductMedia.filter(
         (item: any) => item.classification === "EXTERNAL_PRODUCT_REFERENCE",
       ).length,
-    ).toBeGreaterThanOrEqual(3);
+    ).toBeGreaterThanOrEqual(5);
+    expect(
+      mediaPlan.inventory.realProductMedia.filter(
+        (item: any) => item.classification === "EXTERNAL_CATEGORY_REFERENCE",
+      ).length,
+    ).toBeGreaterThanOrEqual(2);
     expect(enrichment.researchLedger.photos.found).toBe(true);
     expect(enrichment.researchLedger.photos.status).toBe("PUBLIC_REAL_PRODUCT_MEDIA_INGESTED");
   });
@@ -124,7 +134,7 @@ describe("Centro Mega — Store Concept", () => {
     expect(activeHero?.classification).toBe("DOM_CSS_GRAPHIC_COMPOSITION");
     expect(activeHero?.documentary).toBe(false);
     expect(fallbackGlyphs?.purpose).toBe("fallback-only");
-    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(3);
+    expect(mediaPlan.inventory.realProductMedia.length).toBeGreaterThanOrEqual(10);
     expect(mediaPlan.performance.heavyVideo).toBe(false);
     expect(mediaPlan.performance.newDependencies).toBe(false);
   });
