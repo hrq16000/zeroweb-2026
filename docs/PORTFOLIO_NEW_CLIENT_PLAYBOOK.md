@@ -144,6 +144,23 @@ Cada projeto precisa distinguir finalidade dos assets. `hero`, `catalogCover`, `
 
 `MEDIA_STARVATION` é falha: falta de foto real não autoriza publicar uma página vazia de mídia. Deve-se usar composição de marca, ilustração/editorial/contextual ou outro tratamento seguro sem fabricar evidência.
 
+## 5.1 Social recente obrigatório
+
+Se o cliente possuir Instagram público ativo, aplicar `docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md`.
+
+Antes de publicar ou declarar a landing pronta:
+
+- resolver as 6 publicações públicas mais recentes verificáveis do perfil oficial;
+- usar permalink real de cada post/reel;
+- renderizar imagem/vídeo real por embed oficial ou asset versionado com provenance;
+- ordenar por data real quando verificável;
+- preservar link para a publicação original;
+- não substituir post por link de perfil, screenshot solto, mídia stock ou arte gerada;
+- se a conta tiver menos de 6 posts públicos, usar todos e registrar esse estado;
+- se não for possível resolver 6 por bloqueio de provider, continuar por API/conector autorizado, embed, busca, índices e mirrors públicos sem contornar controles de acesso.
+
+`SOCIAL_LATEST_6_INCOMPLETE` impede marcar o projeto como 100% pronto em revisão material.
+
 ## 6. Layout engineering
 
 Seguir `docs/LAYOUT_ENGINEERING_STANDARD.md`.

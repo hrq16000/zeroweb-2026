@@ -16,6 +16,7 @@ referenciados aqui, nunca duplicados.
 PORTFOLIO_PROJECT_LIFECYCLE
 ├── Entity Enrichment ....... docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md
 ├── Media Enrichment ........ docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md (§ mídia) + docs/PORTFOLIO_COVER_STANDARD.md
+├── Social Latest Six ........ docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md
 ├── Landing Blueprint ....... docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md + docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md
 ├── Resource Utilization ..... docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md
 ├── Search Discovery ........ src/config/portfolio-discovery.json + src/lib/portfolio-search.ts
@@ -264,6 +265,7 @@ fabricada ou seção incompleta são P0 e reprovam com qualquer score.
 - [ ] conflitos tratados
 - [ ] serviços confirmados
 - [ ] mídia inventariada
+- [ ] se houver Instagram público: 6 publicações mais recentes verificáveis com permalink e mídia real
 - [ ] plano visual executado
 - [ ] capa aprovada
 - [ ] landing enriquecida

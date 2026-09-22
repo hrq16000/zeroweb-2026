@@ -16,6 +16,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Inteligência de decisão/CRO baseada em 34 LPs + sites oficiais revalidados | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` |
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
 | Pesquisa pública exaustiva e ingestão/versionamento de fotos, produtos, posts e reels | `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md` |
+| Cliente com rede social / últimas 6 publicações reais com permalink e mídia | `docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md` |
 | Pipeline autônomo nome + localização (R1 pesquisa → R2 composição factual → mídia/QA) | `.agents/skills/0web-portfolio-autonomous-pipeline/SKILL.md` · `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
@@ -146,6 +147,7 @@ recolorir não é.
 - Assets: diretório próprio; mídia gerada pode apoiar a marca, mas não fingir
   equipe, sede, cliente, obra executada ou resultado real.
 - Mídia pública real: seguir `PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`; bloqueio de uma rede/provider não encerra a pesquisa. Site, Instagram, Facebook, marketplace/seller, busca pública, embeds e mirrors/indexadores devem ser percorridos conforme aplicável. Em loja/catálogo, foto real de produto tem precedência sobre ícone/placeholder quando houver mídia pública resolvível.
+- Social recente obrigatório: se o cliente possuir Instagram público ativo, seguir `PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md` e resolver as 6 publicações mais recentes com permalink real + mídia real + provenance. Perfil genérico, screenshot sem permalink ou post antigo escolhido por conveniência não satisfazem o gate.
 - Tipografia/paleta: podem e devem ser escopadas ao cliente quando a identidade
   pedir; Space Grotesk/Inter e tokens 0WEB não são skin obrigatória do portfolio.
 

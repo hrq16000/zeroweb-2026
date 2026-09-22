@@ -177,8 +177,9 @@
   "sections": [
     {
       "section": "hero",
-      "resolution": "CSS_DOM_NEON_COMMERCE",
-      "status": "complete"
+      "resolution": "INTRINSIC_WIDTH_REAL_PRODUCT_MEDIA",
+      "status": "complete",
+      "notes": "Hero corrigido para composição intrínseca responsiva; cards não dependem mais de filhos absolutos percentuais e usam fotos versionadas de produtos."
     },
     {
       "section": "vitrine",
@@ -193,9 +194,9 @@
     },
     {
       "section": "social-feed",
-      "resolution": "OFFICIAL_INSTAGRAM_PUBLIC_EMBEDS_PLUS_SOURCE_LINKS",
-      "status": "complete",
-      "notes": "Posts/reels oficiais são mídia viva incorporada com link para a origem."
+      "resolution": "OFFICIAL_INSTAGRAM_EMBEDS_PLUS_LATEST_PUBLIC_SIGNAL",
+      "status": "in-progress",
+      "notes": "Cinco permalinks oficiais do Instagram estão resolvidos. Latest-six permanece SOCIAL_LATEST_6_INCOMPLETE até resolver o sexto permalink recente verificável."
     },
     {
       "section": "locations",
@@ -222,5 +223,6 @@
     "decision": "Mídia real de produto é servida via CDN e embeds sociais usam lazy loading; nenhum pacote pesado foi adicionado."
   },
   "policy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
-  "lastUpdatedAt": "2026-09-22"
+  "lastUpdatedAt": "2026-09-22",
+  "socialLatestSixGate": "SOCIAL_LATEST_6_INCOMPLETE"
 }
