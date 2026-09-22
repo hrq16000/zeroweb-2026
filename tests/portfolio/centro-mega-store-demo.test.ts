@@ -61,6 +61,11 @@ describe("Centro Mega — Store Concept", () => {
     expect(page).toContain("<iframe");
     expect(page).toContain("embed/");
     expect(page).toContain("Instagram oficial · mídia real");
+    expect(products).toContain("30/08/2026");
+    expect(products).toContain("Ótimo Domingo");
+    expect(products).toContain("LATEST_PUBLIC_SOCIAL_SIGNAL");
+    expect(enrichment.researchLedger.instagram.latestRefresh.directProviderStatus).toBe("PROVIDER_BLOCKED");
+    expect(enrichment.researchLedger.instagram.latestRefresh.knownOfficialEmbeds.length).toBeGreaterThanOrEqual(5);
     expect((products.match(/imageUrl:/g) ?? []).length).toBe(10);
     expect(products).toContain("centro-mega-bone-category-reference.webp");
     expect(products).toContain("centro-mega-calcados-category-reference.jpg");
@@ -78,7 +83,7 @@ describe("Centro Mega — Store Concept", () => {
       ).length,
     ).toBeGreaterThanOrEqual(2);
     expect(enrichment.researchLedger.photos.found).toBe(true);
-    expect(enrichment.researchLedger.photos.status).toBe("PUBLIC_REAL_PRODUCT_MEDIA_INGESTED");
+    expect(enrichment.researchLedger.photos.status).toBe("PUBLIC_MEDIA_VITRINE_10_OF_10");
   });
 
   test("política global impede desistir de mídia após bloqueio de provider", () => {
