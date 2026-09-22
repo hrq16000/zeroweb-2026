@@ -59,6 +59,10 @@ function legacyPortfolioFunnelSlug(clientKey: string): string {
   return `portfolio-${clientKey}`;
 }
 
+export function portfolioFunnelLookupSlugs(clientKey: string): [string, string] {
+  return [canonicalPortfolioFunnelSlug(clientKey), legacyPortfolioFunnelSlug(clientKey)];
+}
+
 function safeOptionValue(label: string, index: number): string {
   const value = label
     .normalize("NFD")
@@ -161,16 +165,17 @@ export const listPortfolioFunnels = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }): Promise<PortfolioFunnelAdminRow[]> => {
     const admin = await assertAdmin(context.userId);
+    const allowedFormSlugs = CATALOG.flatMap((project) =>
+      portfolioFunnelLookupSlugs(project.clientKey ?? project.slug),
+    );
     const { data: forms, error } = await admin
       .from("dynamic_forms")
       .select("id, slug, name, status, created_at, updated_at")
+      .in("slug", allowedFormSlugs)
       .order("updated_at", { ascending: false });
     if (error) throw new Error(error.message);
 
-    const relevant = (forms ?? []).filter((form: any) =>
-      typeof form.slug === "string" &&
-      (form.slug.startsWith("funnel-") || form.slug.startsWith("portfolio-")),
-    );
+    const relevant = forms ?? [];
     const ids = relevant.map((form: any) => form.id);
 
     const questionCounts = new Map<string, number>();
@@ -247,8 +252,7 @@ export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
     if (!project) throw new Error("Projeto não encontrado no catálogo.");
 
     const clientKey = project.clientKey ?? project.slug;
-    const canonical = canonicalPortfolioFunnelSlug(clientKey);
-    const alias = legacyPortfolioFunnelSlug(clientKey);
+    const [canonical, alias] = portfolioFunnelLookupSlugs(clientKey);
 
     const { data: existingRows, error: existingError } = await admin
       .from("dynamic_forms")
@@ -331,7 +335,7 @@ export const setPortfolioFunnelStatus = createServerFn({ method: "POST" })
     if (!project) throw new Error("Projeto não encontrado no catálogo.");
 
     const clientKey = project.clientKey ?? project.slug;
-    const slugs = [canonicalPortfolioFunnelSlug(clientKey), legacyPortfolioFunnelSlug(clientKey)];
+    const slugs = portfolioFunnelLookupSlugs(clientKey);
     const { data: rows, error: lookupError } = await admin
       .from("dynamic_forms")
       .select("id, slug")
@@ -339,6 +343,17 @@ export const setPortfolioFunnelStatus = createServerFn({ method: "POST" })
     if (lookupError) throw new Error(lookupError.message);
     const form = (rows ?? []).find((row: any) => row.slug === slugs[0]) ?? rows?.[0];
     if (!form) throw new Error("Crie o funil individual antes de alterar o status.");
+
+    if (data.status === "published") {
+      const { count, error: countError } = await admin
+        .from("dynamic_form_questions")
+        .select("id", { count: "exact", head: true })
+        .eq("form_id", form.id);
+      if (countError) throw new Error(countError.message);
+      if (!count) {
+        throw new Error("Não é possível publicar um funil sem perguntas.");
+      }
+    }
 
     const { error } = await admin
       .from("dynamic_forms")
