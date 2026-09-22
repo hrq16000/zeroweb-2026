@@ -1,176 +1,205 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import {
   ArrowRight,
-  BadgePercent,
   Check,
+  ChevronRight,
+  CreditCard,
   Facebook,
   Footprints,
   Headphones,
   Instagram,
-  PackageOpen,
+  MapPin,
+  PackageCheck,
+  Plus,
   Search,
+  ShieldCheck,
   ShoppingBag,
   ShoppingCart,
   Smartphone,
   Sparkles,
-  Store,
-  X,
+  Tag,
   Zap,
 } from "lucide-react";
 import {
+  MotionCard,
+  MotionParallax,
   MotionReveal,
   MotionScope,
   MotionStagger,
+  MotionSwap,
   MotionTextReveal,
 } from "@/components/motion";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import {
-  centroMegaInstagramPosts,
-  centroMegaOfficialLinks,
-  centroMegaStoreCategories,
-  centroMegaStoreProducts,
-  type CentroMegaStoreProduct,
-} from "@/config/centro-mega-store-products";
 
-const quizConfig = {
+const links = {
+  instagram: "https://www.instagram.com/centro.mega/",
+  facebook: "https://www.facebook.com/CentroMega.com.br/",
+  linktree: "https://linktr.ee/centro.mega",
+  store: "https://www.vhsys.net/centromega/contato/",
+};
+
+const socialPosts = [
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/"],
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/"],
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"],
+] as const;
+
+type Product = {
+  id: string;
+  name: string;
+  category: "tech" | "outlet" | "acessorios";
+  eyebrow: string;
+  description: string;
+  evidence: "SOCIAL_POST" | "OWNER_CONTEXT" | "OFFICIAL_CHANNEL";
+  historicalPrice?: string;
+  historicalFrom?: string;
+  publishedAt?: string;
+  sourceLabel: string;
+  sourceHref: string;
+  accent: string;
+  Icon: typeof Smartphone;
+};
+
+const products: Product[] = [
+  {
+    id: "poco-x5-pro",
+    name: "Poco X5 Pro · 8GB / 256GB",
+    category: "tech",
+    eyebrow: "Produto visto nas redes",
+    description:
+      "Smartphone citado em publicação pública indexada da Centro Mega. A postagem histórica informava 8GB de RAM e 256GB de armazenamento.",
+    evidence: "SOCIAL_POST",
+    historicalPrice: "R$ 1.899",
+    historicalFrom: "R$ 2.399",
+    publishedAt: "25/01/2024",
+    sourceLabel: "Publicação histórica indexada",
+    sourceHref: links.facebook,
+    accent: "from-cyan-400 via-sky-500 to-blue-700",
+    Icon: Smartphone,
+  },
+  {
+    id: "dunk-low-pro",
+    name: "Tênis Dunk Low Pro",
+    category: "outlet",
+    eyebrow: "Produto visto nas redes",
+    description:
+      "Modelo divulgado em postagens públicas da marca. As publicações históricas mostravam grades 34–39 e 34–43; disponibilidade atual precisa ser consultada.",
+    evidence: "SOCIAL_POST",
+    publishedAt: "08/11/2023",
+    sourceLabel: "Publicação histórica indexada",
+    sourceHref: links.facebook,
+    accent: "from-fuchsia-500 via-violet-500 to-indigo-700",
+    Icon: Footprints,
+  },
+  {
+    id: "bones-outlet",
+    name: "Bonés · Outlet",
+    category: "outlet",
+    eyebrow: "Categoria da amostra",
+    description:
+      "Categoria adicionada à amostra a partir do mix comercial informado pelo responsável. Modelos, marcas, cores e preços dependem do estoque atual.",
+    evidence: "OWNER_CONTEXT",
+    sourceLabel: "Mix informado para a amostra",
+    sourceHref: "#social",
+    accent: "from-amber-300 via-orange-500 to-rose-600",
+    Icon: Tag,
+  },
+  {
+    id: "calcados-outlet",
+    name: "Calçados · Achadinhos",
+    category: "outlet",
+    eyebrow: "Categoria da amostra",
+    description:
+      "Vitrine para calçados e oportunidades de outlet. A proposta visual permite alimentar novos itens a partir das próximas postagens sociais.",
+    evidence: "OWNER_CONTEXT",
+    sourceLabel: "Mix informado para a amostra",
+    sourceHref: "#social",
+    accent: "from-lime-300 via-emerald-500 to-teal-700",
+    Icon: Footprints,
+  },
+  {
+    id: "acessorios-celular",
+    name: "Acessórios para celular",
+    category: "acessorios",
+    eyebrow: "Categoria oficial",
+    description:
+      "Área de vitrine para acessórios e soluções de tecnologia já associados à presença digital da Centro Mega.",
+    evidence: "OFFICIAL_CHANNEL",
+    sourceLabel: "Canais oficiais da Centro Mega",
+    sourceHref: links.linktree,
+    accent: "from-sky-300 via-cyan-400 to-teal-600",
+    Icon: Headphones,
+  },
+  {
+    id: "novidades-social",
+    name: "Novidades das redes",
+    category: "tech",
+    eyebrow: "Coleção viva",
+    description:
+      "Espaço demonstrativo para transformar posts e reels em produtos consultáveis sem prometer estoque ou preço desatualizado.",
+    evidence: "OFFICIAL_CHANNEL",
+    sourceLabel: "Instagram oficial",
+    sourceHref: links.instagram,
+    accent: "from-pink-500 via-fuchsia-500 to-violet-700",
+    Icon: Sparkles,
+  },
+];
+
+const quiz: PortfolioQuizConfig = {
   services: [
     "Celular / smartphone",
-    "Tênis / calçado",
-    "Boné / moda outlet",
     "Acessório para celular",
-    "Quero consultar novidades",
+    "Tênis / calçado",
+    "Boné / outlet",
+    "Quero consultar outro item",
   ],
   experienceOptions: [
-    "Quero comprar para mim",
-    "Estou pesquisando presente",
+    "Vi um item nesta vitrine",
+    "Vi uma oferta nas redes sociais",
     "Quero comparar opções",
-    "Só quero saber o que está disponível",
+    "Quero saber o que está disponível hoje",
   ],
   periodOptions: [
     "São José dos Pinhais",
     "Curitiba",
-    "Outra cidade / consultar envio",
-    "Prefiro confirmar depois",
+    "Outra cidade / região",
+    "Quero confirmar retirada ou envio",
   ],
   timingOptions: [
-    "Quero ver disponibilidade agora",
-    "Ainda nesta semana",
-    "Estou só pesquisando",
-    "Quero acompanhar próximas ofertas",
+    "Quero comprar agora",
+    "Ainda hoje",
+    "Nesta semana",
+    "Só estou pesquisando",
   ],
   stepTitles: {
-    service: "O que você quer encontrar?",
-    experience: "Qual é a sua intenção de compra?",
+    service: "O que você quer consultar?",
+    experience: "Como chegou até esse produto?",
     period: "Onde você está?",
     timing: "Quando pretende comprar?",
+    note: "Quer deixar algum detalhe?",
   },
-  notePlaceholder:
-    "Se quiser, informe modelo, numeração, cor, faixa de preço ou outro detalhe.",
-  proposalKind: "service" as const,
+  notePlaceholder: "Modelo, cor, numeração, memória, marca ou qualquer detalhe que ajude a loja a localizar o item.",
+  proposalKind: "service",
 };
 
-function money(value: number) {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    maximumFractionDigits: 2,
-  }).format(value);
-}
-
-function ProductVisual({ product }: { product: CentroMegaStoreProduct }) {
-  const base =
-    "relative isolate grid aspect-[4/3] place-items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d1023]";
-
-  if (product.visual === "phone") {
-    return (
-      <div className={base}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_24%,rgba(0,239,255,.28),transparent_28%),radial-gradient(circle_at_28%_72%,rgba(255,0,119,.25),transparent_28%)]" />
-        <div className="mega-float relative h-44 w-24 rotate-[10deg] rounded-[1.7rem] border-4 border-[#11162a] bg-[linear-gradient(145deg,#0ef,#5d3df5_48%,#ff247c)] p-2 shadow-[0_28px_80px_rgba(0,239,255,.28)]">
-          <div className="h-full rounded-[1.2rem] border border-white/20 bg-[radial-gradient(circle_at_50%_15%,#fff6,transparent_20%),linear-gradient(160deg,#161a34,#42137d_42%,#0ddbd0)]">
-            <div className="mx-auto mt-2 h-1.5 w-8 rounded-full bg-black/60" />
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-black tracking-[.2em] text-white/85">
-              POCO
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.18em] text-cyan-200 backdrop-blur">
-          visual editorial
-        </div>
-      </div>
-    );
-  }
-
-  if (product.visual === "sneaker" || product.visual === "footwear") {
-    return (
-      <div className={base}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_28%,rgba(255,221,0,.22),transparent_24%),radial-gradient(circle_at_78%_68%,rgba(255,0,119,.23),transparent_28%)]" />
-        <div className="mega-float relative h-28 w-56 -rotate-[8deg] rounded-[48%_55%_32%_40%] border-[5px] border-white bg-[linear-gradient(135deg,#f8f8f8_0_52%,#171717_52%_66%,#f8f8f8_66%)] shadow-[0_30px_80px_rgba(255,0,119,.22)]">
-          <div className="absolute bottom-0 left-0 h-4 w-full rounded-b-[3rem] bg-[#e8e8e8]" />
-          <div className="absolute left-16 top-10 h-5 w-24 -rotate-[20deg] rounded-full bg-[#121212]" />
-          <div className="absolute left-8 top-5 text-[11px] font-black tracking-[.2em] text-black/45">
-            {product.visual === "sneaker" ? "DUNK" : "OUTLET"}
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.18em] text-fuchsia-200 backdrop-blur">
-          visual editorial
-        </div>
-      </div>
-    );
-  }
-
-  if (product.visual === "cap") {
-    return (
-      <div className={base}>
-        <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,rgba(0,239,255,.15),rgba(255,0,119,.2),rgba(255,221,0,.15),rgba(0,239,255,.15))]" />
-        <div className="mega-float relative h-28 w-40 rounded-t-[5rem] rounded-bl-[2rem] bg-[linear-gradient(145deg,#0de0ff,#29309d)] shadow-[0_28px_70px_rgba(0,239,255,.25)]">
-          <div className="absolute -right-14 bottom-0 h-10 w-24 -rotate-6 rounded-[100%_20%_80%_20%] bg-[#ffdd00]" />
-          <div className="absolute inset-x-0 top-8 text-center text-xs font-black tracking-[.22em] text-white">
-            MEGA
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (product.visual === "accessory") {
-    return (
-      <div className={base}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(67,255,170,.24),transparent_36%)]" />
-        <Headphones className="mega-float h-32 w-32 text-emerald-300 drop-shadow-[0_22px_35px_rgba(67,255,170,.28)]" strokeWidth={1.25} />
-      </div>
-    );
-  }
-
-  return (
-    <div className={base}>
-      <div className="mega-scan absolute inset-0 bg-[linear-gradient(115deg,transparent_0_35%,rgba(255,255,255,.12)_48%,transparent_61%)]" />
-      <PackageOpen className="mega-float h-32 w-32 text-[#ffdd00] drop-shadow-[0_24px_36px_rgba(255,221,0,.18)]" strokeWidth={1.2} />
-      <Sparkles className="absolute right-8 top-8 h-8 w-8 text-cyan-300" />
-    </div>
-  );
-}
-
-function StoreCTA({
+function ShopCTA({
   children,
-  selectedProducts,
+  selected,
   className,
 }: {
-  children: React.ReactNode;
-  selectedProducts?: CentroMegaStoreProduct[];
+  children: ReactNode;
+  selected?: Product[];
   className?: string;
 }) {
-  const names = selectedProducts?.map((item) => item.name) ?? [];
-  const orderItems = names.join(" | ");
-  const service =
-    names.length > 0
-      ? names.length === 1
-        ? names[0]
-        : `Seleção da vitrine: ${names.join(" + ")}`
-      : undefined;
-
+  const labels = selected?.map((item) => item.name) ?? [];
+  const selectedText = labels.join(" + ");
   return (
     <PortfolioCTAQuiz
       clientKey="centro-mega"
@@ -179,15 +208,15 @@ function StoreCTA({
       theme="navy"
       mode="proposal"
       funnelIntent="pedido"
-      quizConfig={quizConfig}
-      initialAnswers={service ? { service } : undefined}
-      skipPrefilledSteps={Boolean(service)}
+      quizConfig={quiz}
+      initialAnswers={selectedText ? { service: selectedText } : undefined}
+      skipPrefilledSteps={Boolean(selectedText)}
       orderContext={
-        names.length
+        selectedText
           ? {
-              order_items: orderItems,
+              order_items: selectedText,
               customer_note:
-                "Seleção criada na amostra de loja virtual. Confirmar disponibilidade, preço e condições atuais.",
+                "Consulta originada na amostra de loja virtual Centro Mega. Confirmar estoque, preço e condições atuais antes de fechar.",
             }
           : undefined
       }
@@ -198,26 +227,38 @@ function StoreCTA({
   );
 }
 
+function ProductVisual({ product }: { product: Product }) {
+  const Icon = product.Icon;
+  return (
+    <div className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-gradient-to-br ${product.accent} p-6`}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,.48),transparent_28%),linear-gradient(120deg,transparent_42%,rgba(255,255,255,.22)_50%,transparent_58%)] opacity-80" />
+      <div className="mega-shine absolute -inset-y-20 -left-1/3 w-1/3 rotate-12 bg-white/25 blur-xl" />
+      <div className="absolute right-5 top-5 rounded-full border border-white/30 bg-black/15 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-white backdrop-blur">
+        {product.evidence === "SOCIAL_POST" ? "post real" : product.evidence === "OWNER_CONTEXT" ? "amostra" : "coleção"}
+      </div>
+      <div className="relative flex h-full items-center justify-center">
+        <div className="mega-float relative grid h-36 w-36 place-items-center rounded-[2rem] border border-white/30 bg-black/20 shadow-2xl backdrop-blur-xl sm:h-44 sm:w-44">
+          <div className="absolute inset-3 rounded-[1.4rem] border border-white/20" />
+          <Icon className="h-16 w-16 text-white drop-shadow-[0_14px_24px_rgba(0,0,0,.35)] sm:h-20 sm:w-20" aria-hidden="true" />
+        </div>
+      </div>
+      <span className="absolute bottom-5 left-5 text-[10px] font-black uppercase tracking-[.2em] text-white/80">
+        visual ilustrativo da amostra
+      </span>
+    </div>
+  );
+}
+
 export function CentroMegaPage() {
-  const [category, setCategory] = useState<(typeof centroMegaStoreCategories)[number]["id"]>("todos");
-  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<"all" | Product["category"]>("all");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-  const visibleProducts = useMemo(() => {
-    const normalized = query.trim().toLowerCase();
-    return centroMegaStoreProducts.filter((product) => {
-      const categoryMatches = category === "todos" || product.category === category;
-      const queryMatches =
-        !normalized ||
-        product.name.toLowerCase().includes(normalized) ||
-        product.description.toLowerCase().includes(normalized) ||
-        product.badges?.some((badge) => badge.toLowerCase().includes(normalized));
-      return categoryMatches && queryMatches;
-    });
-  }, [category, query]);
-
+  const visibleProducts = useMemo(
+    () => (filter === "all" ? products : products.filter((product) => product.category === filter)),
+    [filter],
+  );
   const selectedProducts = useMemo(
-    () => centroMegaStoreProducts.filter((product) => selectedIds.includes(product.id)),
+    () => products.filter((product) => selectedIds.includes(product.id)),
     [selectedIds],
   );
 
@@ -227,44 +268,44 @@ export function CentroMegaPage() {
     );
   };
 
+  const filters = [
+    ["all", "Tudo"],
+    ["tech", "Celulares"],
+    ["acessorios", "Acessórios"],
+    ["outlet", "Outlet"],
+  ] as const;
+
   return (
     <MotionScope intensity="EXPRESSIVE">
+      <style>{`
+        @keyframes megaTicker { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+        @keyframes megaFloat { 0%,100% { transform: translate3d(0,-4px,0) rotate(-2deg); } 50% { transform: translate3d(0,7px,0) rotate(2deg); } }
+        @keyframes megaShine { 0% { transform: translate3d(-180%,0,0) rotate(12deg); } 65%,100% { transform: translate3d(520%,0,0) rotate(12deg); } }
+        .mega-ticker { animation: megaTicker 22s linear infinite; }
+        .mega-float { animation: megaFloat 5.2s ease-in-out infinite; }
+        .mega-shine { animation: megaShine 4.8s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) {
+          .mega-ticker,.mega-float,.mega-shine { animation: none !important; }
+        }
+      `}</style>
+
       <div
         data-client-slug="centro-mega"
-        className="min-h-dvh overflow-x-hidden bg-[#060711] text-white selection:bg-[#ffdd00] selection:text-black"
+        className="min-h-dvh overflow-hidden bg-[#050611] text-white selection:bg-fuchsia-400 selection:text-black"
         style={
           {
-            "--mega-cyan": "#1EE7FF",
-            "--mega-pink": "#FF257E",
-            "--mega-lime": "#A8FF35",
-            "--mega-gold": "#FFDD00",
-            "--mega-violet": "#725BFF",
+            "--mega-ink": "#050611",
+            "--mega-panel": "#0b1020",
+            "--mega-cyan": "#2ee6ff",
+            "--mega-lime": "#c8ff45",
+            "--mega-pink": "#ff3cac",
+            "--mega-violet": "#7a5cff",
           } as React.CSSProperties
         }
       >
-        <style>{`
-          @keyframes mega-float {
-            0%,100% { transform: translate3d(0,0,0) rotate(var(--mega-rotate,0deg)); }
-            50% { transform: translate3d(0,-10px,0) rotate(var(--mega-rotate,0deg)); }
-          }
-          @keyframes mega-scan {
-            0% { transform: translateX(-55%); }
-            100% { transform: translateX(55%); }
-          }
-          @keyframes mega-marquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-          }
-          @media (prefers-reduced-motion: no-preference) {
-            .mega-float { animation: mega-float 5s ease-in-out infinite; }
-            .mega-scan { animation: mega-scan 4.5s linear infinite; }
-            .mega-marquee-track { animation: mega-marquee 22s linear infinite; }
-          }
-        `}</style>
-
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#060711]/82 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-10">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050611]/80 px-4 py-3 backdrop-blur-xl lg:px-8">
           <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4">
-            <a href="#inicio" className="flex min-w-0 items-center gap-3" aria-label="Centro Mega Store — início">
+            <a href="#inicio" aria-label="Centro Mega Store — início" className="flex items-center gap-3">
               <PortfolioImage
                 src="/images/centro-mega/logo.png"
                 alt="Centro Mega"
@@ -274,526 +315,479 @@ export function CentroMegaPage() {
                 managedField="logoUrl"
                 className="h-11 w-11 rounded-xl object-cover ring-1 ring-white/15"
               />
-              <div className="min-w-0">
-                <p className="truncate text-sm font-black uppercase tracking-[.08em]">Centro Mega Store</p>
-                <p className="truncate text-[10px] font-black uppercase tracking-[.18em] text-cyan-300">
-                  amostra de loja virtual
-                </p>
+              <div className="hidden sm:block">
+                <p className="text-sm font-black uppercase tracking-[.14em]">Centro Mega</p>
+                <p className="text-[10px] font-bold uppercase tracking-[.2em] text-cyan-300">Store Sample</p>
               </div>
             </a>
 
-            <nav className="hidden items-center gap-6 text-xs font-black uppercase tracking-[.14em] text-white/70 lg:flex">
-              <a href="#vitrine" className="transition hover:text-white">Vitrine</a>
-              <a href="#outlet" className="transition hover:text-white">Outlet</a>
-              <a href="#redes" className="transition hover:text-white">Drops</a>
-              <a href="#lojas" className="transition hover:text-white">Presença</a>
+            <nav aria-label="Navegação da amostra" className="hidden items-center gap-7 text-xs font-black uppercase tracking-[.16em] text-white/65 lg:flex">
+              <a href="#vitrine" className="transition hover:text-cyan-300">Vitrine</a>
+              <a href="#outlet" className="transition hover:text-fuchsia-300">Outlet</a>
+              <a href="#social" className="transition hover:text-lime-300">Redes</a>
+              <a href="#lojas" className="transition hover:text-white">Lojas</a>
             </nav>
 
-            <div className="flex items-center gap-2">
-              <a
-                href="#vitrine"
-                className="hidden min-h-11 items-center gap-2 rounded-full border border-white/15 px-4 text-xs font-black sm:inline-flex"
-              >
-                <Search className="h-4 w-4" aria-hidden="true" />
-                Explorar
-              </a>
-              <StoreCTA
-                selectedProducts={selectedProducts}
-                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--mega-gold)] px-4 text-xs font-black text-black transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                <ShoppingBag className="h-4 w-4" aria-hidden="true" />
-                {selectedIds.length ? `Seleção (${selectedIds.length})` : "Consultar"}
-              </StoreCTA>
-            </div>
+            <ShopCTA
+              selected={selectedProducts}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-black text-[#070816] shadow-[0_0_32px_rgba(46,230,255,.15)] transition hover:-translate-y-0.5 hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            >
+              <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+              {selectedProducts.length ? `Consultar ${selectedProducts.length}` : "Consultar produtos"}
+            </ShopCTA>
           </div>
         </header>
 
         <main>
-          <section id="inicio" className="relative isolate overflow-hidden px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pb-24 lg:pt-16">
-            <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_12%_8%,rgba(30,231,255,.18),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(255,37,126,.22),transparent_30%),radial-gradient(circle_at_66%_82%,rgba(114,91,255,.18),transparent_30%)]" />
-            <div className="absolute inset-0 -z-20 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.045)_1px,transparent_1px)] [background-size:48px_48px]" />
-            <div className="absolute left-[8%] top-20 -z-10 h-64 w-64 rounded-full bg-cyan-400/15 blur-[90px]" />
-            <div className="absolute right-[4%] top-10 -z-10 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-[110px]" />
+          <section id="inicio" className="relative isolate min-h-[92svh] overflow-hidden px-5 py-14 lg:px-8 lg:py-20">
+            <div className="absolute inset-0 -z-40 bg-[radial-gradient(circle_at_78%_18%,rgba(122,92,255,.34),transparent_28%),radial-gradient(circle_at_15%_78%,rgba(255,60,172,.22),transparent_28%),linear-gradient(135deg,#03040b_10%,#091027_48%,#050611_100%)]" />
+            <div className="absolute inset-0 -z-30 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:54px_54px]" />
+            <div className="absolute -right-24 top-20 -z-20 h-[30rem] w-[30rem] rounded-full bg-cyan-400/20 blur-[100px]" />
+            <div className="absolute left-[8%] top-[18%] -z-20 h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/15 blur-[110px]" />
 
-            <div className="mx-auto grid max-w-[90rem] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-              <div>
-                <MotionReveal>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[10px] font-black uppercase tracking-[.22em] text-cyan-200">
-                    <Zap className="h-4 w-4" aria-hidden="true" />
-                    Centro Mega · Store Concept
-                  </div>
-                </MotionReveal>
-
-                <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,8vw,8.4rem)] font-black uppercase leading-[.82] tracking-[-.065em]">
-                  <MotionTextReveal text="Tech." className="block text-white" />
-                  <MotionTextReveal text="Outlet." className="block text-[var(--mega-cyan)]" />
-                  <MotionTextReveal text="Achados." className="block text-[var(--mega-pink)]" />
-                </h1>
-
-                <MotionReveal delay={180}>
-                  <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68 sm:text-xl">
-                    Uma amostra de loja virtual inspirada no que a Centro Mega já publica:
-                    celulares, acessórios e oportunidades de outlet em uma experiência muito mais
-                    visual, navegável e pronta para transformar postagem em interesse de compra.
-                  </p>
-                </MotionReveal>
-
-                <MotionReveal delay={260}>
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a
-                      href="#vitrine"
-                      className="inline-flex min-h-13 items-center gap-2 rounded-full bg-white px-6 py-3.5 font-black text-black transition hover:-translate-y-1 hover:bg-[var(--mega-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                    >
-                      Entrar na vitrine
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                    <StoreCTA
-                      selectedProducts={selectedProducts}
-                      className="inline-flex min-h-13 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 font-black text-white backdrop-blur transition hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                    >
-                      Montar pedido
-                      <ShoppingCart className="h-4 w-4" aria-hidden="true" />
-                    </StoreCTA>
-                  </div>
-                </MotionReveal>
-
-                <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
-                  {[
-                    ["Celulares", "Produtos publicados"],
-                    ["Outlet", "Tênis + moda"],
-                    ["Acessórios", "Tech diária"],
-                    ["Drops", "Redes oficiais"],
-                  ].map(([title, subtitle]) => (
-                    <div key={title} className="rounded-2xl border border-white/10 bg-white/[.035] p-4 backdrop-blur">
-                      <p className="text-sm font-black">{title}</p>
-                      <p className="mt-1 text-xs text-white/45">{subtitle}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative min-h-[34rem] lg:min-h-[42rem]">
-                <div className="absolute left-[4%] top-[10%] w-[58%] rotate-[-7deg]">
-                  <ProductVisual product={centroMegaStoreProducts[0]} />
-                </div>
-                <div className="absolute bottom-[7%] right-[0%] w-[56%] rotate-[6deg]">
-                  <ProductVisual product={centroMegaStoreProducts[1]} />
-                </div>
-                <div className="absolute right-[4%] top-[4%] rounded-2xl border border-white/15 bg-black/55 px-4 py-3 text-right shadow-2xl backdrop-blur">
-                  <p className="text-[10px] font-black uppercase tracking-[.18em] text-[var(--mega-gold)]">
-                    vitrine social
-                  </p>
-                  <p className="mt-1 text-sm font-black">Posts viram produtos</p>
-                </div>
-                <div className="absolute bottom-[14%] left-[2%] rounded-2xl border border-fuchsia-300/20 bg-fuchsia-500/10 px-4 py-3 backdrop-blur">
-                  <p className="text-xs font-black uppercase tracking-[.14em] text-fuchsia-200">
-                    disponibilidade sob consulta
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="overflow-hidden border-y border-white/10 bg-[var(--mega-gold)] py-3 text-black">
-            <div className="mega-marquee-track flex w-max gap-10 whitespace-nowrap text-xs font-black uppercase tracking-[.22em]">
-              {Array.from({ length: 2 }).flatMap((_, loop) =>
-                ["Celulares", "Outlet", "Tênis", "Bonés", "Calçados", "Acessórios", "Novidades"].map(
-                  (item) => (
-                    <span key={`${loop}-${item}`} className="inline-flex items-center gap-10">
-                      {item}
-                      <span aria-hidden="true">✦</span>
-                    </span>
-                  ),
-                ),
-              )}
-            </div>
-          </section>
-
-          <section id="vitrine" className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
             <div className="mx-auto max-w-[90rem]">
-              <div className="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 text-[10px] font-black uppercase tracking-[.2em] text-white/55">
+                <span className="inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-cyan-300" /> amostra de loja virtual</span>
+                <span>produtos das redes + outlet + tecnologia</span>
+              </div>
+
+              <div className="grid min-h-[74svh] items-center gap-10 py-10 lg:grid-cols-[1.02fr_.98fr]">
+                <div className="relative z-10">
+                  <MotionReveal variant="mask" intensity="EXPRESSIVE">
+                    <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-cyan-200 backdrop-blur">
+                      <Zap className="h-4 w-4" aria-hidden="true" />
+                      Centro Mega · Tech + Outlet
+                    </p>
+                  </MotionReveal>
+
+                  <h1 className="max-w-5xl font-black uppercase leading-[.82] tracking-[-.065em] text-[clamp(4rem,10vw,9rem)]">
+                    <MotionTextReveal text="Achou." as="span" intensity="EXPRESSIVE" className="block" />
+                    <span className="block bg-gradient-to-r from-cyan-300 via-white to-lime-300 bg-clip-text text-transparent">
+                      Curtiu.
+                    </span>
+                    <span className="block text-fuchsia-400">Consultou.</span>
+                  </h1>
+
+                  <MotionReveal variant="up" delay={100}>
+                    <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68 sm:text-xl">
+                      Uma loja virtual demonstrativa para transformar os posts da Centro Mega em uma vitrine navegável de celulares, acessórios, tênis, bonés, calçados e oportunidades de outlet.
+                    </p>
+                  </MotionReveal>
+
+                  <MotionReveal variant="up" delay={180}>
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      <a
+                        href="#vitrine"
+                        className="inline-flex min-h-13 items-center gap-3 rounded-full bg-gradient-to-r from-cyan-300 to-lime-300 px-7 py-3.5 font-black text-[#050611] shadow-[0_0_48px_rgba(46,230,255,.25)] transition hover:-translate-y-1 hover:shadow-[0_0_68px_rgba(200,255,69,.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        Explorar vitrine <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <ShopCTA
+                        selected={selectedProducts}
+                        className="inline-flex min-h-13 items-center gap-3 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 font-black text-white backdrop-blur transition hover:-translate-y-1 hover:border-fuchsia-300 hover:bg-fuchsia-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300"
+                      >
+                        Montar consulta <ShoppingCart className="h-4 w-4" />
+                      </ShopCTA>
+                    </div>
+                  </MotionReveal>
+
+                  <div className="mt-8 flex flex-wrap gap-5 text-xs font-bold uppercase tracking-[.12em] text-white/45">
+                    <span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-cyan-300" /> estoque a confirmar</span>
+                    <span className="inline-flex items-center gap-2"><CreditCard className="h-4 w-4 text-lime-300" /> condições atuais na consulta</span>
+                  </div>
+                </div>
+
+                <MotionParallax speed={30} className="relative">
+                  <div className="relative mx-auto max-w-2xl">
+                    <div className="absolute -inset-5 rounded-[3rem] bg-gradient-to-br from-cyan-300/25 via-violet-500/20 to-fuchsia-500/25 blur-2xl" />
+                    <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/[.06] p-4 shadow-[0_30px_100px_rgba(0,0,0,.45)] backdrop-blur-xl">
+                      <PortfolioImage
+                        src="/images/centro-mega/hero.png"
+                        alt="Composição visual da Centro Mega"
+                        width={1600}
+                        height={900}
+                        priority
+                        managedField="heroImageUrl"
+                        className="aspect-video w-full rounded-[1.8rem] object-cover"
+                      />
+                      <div className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/15 bg-[#050611]/70 p-4 backdrop-blur-xl">
+                        <div className="flex items-center justify-between gap-4">
+                          <div>
+                            <p className="text-[10px] font-black uppercase tracking-[.2em] text-cyan-300">Vitrine social</p>
+                            <p className="mt-1 text-lg font-black">Posts viram produtos consultáveis.</p>
+                          </div>
+                          <div className="grid h-12 w-12 place-items-center rounded-full bg-fuchsia-500 text-white shadow-[0_0_30px_rgba(255,60,172,.35)]">
+                            <ShoppingBag className="h-5 w-5" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mega-float absolute -left-5 -top-6 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 px-4 py-3 text-xs font-black uppercase tracking-[.14em] text-cyan-100 backdrop-blur-xl">
+                      celulares
+                    </div>
+                    <div className="mega-float absolute -bottom-5 right-4 rounded-2xl border border-fuchsia-200/25 bg-fuchsia-400/10 px-4 py-3 text-xs font-black uppercase tracking-[.14em] text-fuchsia-100 backdrop-blur-xl [animation-delay:900ms]">
+                      outlet
+                    </div>
+                  </div>
+                </MotionParallax>
+              </div>
+            </div>
+
+            <div className="absolute inset-x-0 bottom-0 overflow-hidden border-y border-white/10 bg-white/[.035] py-3 backdrop-blur">
+              <div className="mega-ticker flex w-max whitespace-nowrap text-xs font-black uppercase tracking-[.18em] text-white/60">
+                {[0, 1].map((group) => (
+                  <div key={group} className="flex items-center gap-8 pr-8">
+                    <span className="text-cyan-300">celulares</span><span>•</span>
+                    <span className="text-lime-300">acessórios</span><span>•</span>
+                    <span className="text-fuchsia-300">tênis</span><span>•</span>
+                    <span>bonés</span><span>•</span>
+                    <span className="text-violet-300">calçados</span><span>•</span>
+                    <span>outlet</span><span>•</span>
+                    <span className="text-cyan-300">novidades das redes</span><span>•</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="vitrine" className="relative bg-[#f4f5f7] px-5 py-20 text-[#080b14] lg:px-8 lg:py-28">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+            <div className="mx-auto max-w-[90rem]">
+              <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-300">
-                    Vitrine experimental
-                  </p>
-                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] tracking-[-.04em] sm:text-7xl">
-                    Produtos que já nasceram nas redes.
+                  <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-600">Vitrine construída a partir das redes</p>
+                  <h2 className="mt-4 max-w-3xl text-5xl font-black uppercase leading-[.9] tracking-[-.045em] sm:text-7xl">
+                    Produto de post não precisa morrer no feed.
                   </h2>
                 </div>
-                <div className="max-w-2xl lg:justify-self-end">
-                  <p className="text-lg leading-8 text-white/62">
-                    Dois produtos abaixo vieram de publicações públicas indexadas da Centro Mega.
-                    Os demais mostram como categorias reais da operação podem virar uma loja viva sem
-                    inventar estoque, preço ou marca.
+                <div className="lg:justify-self-end">
+                  <p className="max-w-2xl text-lg leading-8 text-slate-600">
+                    Itens identificados em publicações entram como produtos históricos; categorias informadas pelo responsável entram como amostra. Preço, estoque, cor e grade nunca são tratados como atuais sem confirmação.
                   </p>
+                  <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filtrar produtos da vitrine">
+                    {filters.map(([key, label]) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setFilter(key)}
+                        aria-pressed={filter === key}
+                        className={[
+                          "min-h-11 rounded-full px-5 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500",
+                          filter === key ? "bg-[#080b14] text-white" : "border border-slate-300 bg-white text-slate-700 hover:border-slate-500",
+                        ].join(" ")}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="flex flex-wrap gap-2">
-                  {centroMegaStoreCategories.map((item) => {
-                    const active = category === item.id;
+              <MotionSwap swapKey={filter} variant="fade" className="mt-12">
+                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                  {visibleProducts.map((product, index) => {
+                    const selected = selectedIds.includes(product.id);
                     return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => setCategory(item.id)}
-                        className={[
-                          "rounded-full border px-4 py-2.5 text-xs font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
-                          active
-                            ? "border-white bg-white text-black"
-                            : "border-white/12 bg-white/[.035] text-white/68 hover:border-white/30 hover:text-white",
-                        ].join(" ")}
-                      >
-                        {item.label}
-                      </button>
+                      <MotionCard key={product.id} index={index}>
+                        <article className="group flex h-full flex-col rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_16px_55px_rgba(12,17,29,.07)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(12,17,29,.14)]">
+                          <ProductVisual product={product} />
+                          <div className="flex flex-1 flex-col px-2 pb-2 pt-6">
+                            <div className="flex items-start justify-between gap-4">
+                              <div>
+                                <p className="text-[10px] font-black uppercase tracking-[.2em] text-fuchsia-600">{product.eyebrow}</p>
+                                <h3 className="mt-2 text-2xl font-black leading-tight">{product.name}</h3>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => toggleProduct(product.id)}
+                                aria-pressed={selected}
+                                aria-label={selected ? `Remover ${product.name} da consulta` : `Adicionar ${product.name} à consulta`}
+                                className={[
+                                  "grid h-11 w-11 shrink-0 place-items-center rounded-full border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500",
+                                  selected ? "border-[#080b14] bg-[#080b14] text-white" : "border-slate-300 bg-white text-[#080b14] hover:border-fuchsia-400 hover:bg-fuchsia-50",
+                                ].join(" ")}
+                              >
+                                {selected ? <Check className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
+                              </button>
+                            </div>
+
+                            <p className="mt-4 flex-1 leading-7 text-slate-600">{product.description}</p>
+
+                            {product.historicalPrice ? (
+                              <div className="mt-5 rounded-2xl bg-slate-100 p-4">
+                                <p className="text-[10px] font-black uppercase tracking-[.18em] text-slate-500">
+                                  preço da postagem histórica · {product.publishedAt}
+                                </p>
+                                <div className="mt-2 flex items-end gap-3">
+                                  {product.historicalFrom ? <span className="text-sm font-bold text-slate-400 line-through">{product.historicalFrom}</span> : null}
+                                  <span className="text-3xl font-black">{product.historicalPrice}</span>
+                                </div>
+                                <p className="mt-2 text-xs font-semibold text-amber-700">Não representa preço atual. Consulte antes de comprar.</p>
+                              </div>
+                            ) : product.publishedAt ? (
+                              <div className="mt-5 rounded-2xl bg-slate-100 p-4 text-xs font-bold text-slate-600">
+                                Publicação histórica identificada em {product.publishedAt}. Estoque e condições atuais a confirmar.
+                              </div>
+                            ) : null}
+
+                            <div className="mt-5 flex items-center justify-between gap-4 border-t border-slate-200 pt-4">
+                              <a
+                                href={product.sourceHref}
+                                target={product.sourceHref.startsWith("http") ? "_blank" : undefined}
+                                rel={product.sourceHref.startsWith("http") ? "noreferrer" : undefined}
+                                className="text-xs font-black uppercase tracking-[.12em] text-slate-500 transition hover:text-fuchsia-600"
+                              >
+                                {product.sourceLabel}
+                              </a>
+                              <button
+                                type="button"
+                                onClick={() => toggleProduct(product.id)}
+                                className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#080b14] px-4 text-xs font-black text-white transition hover:bg-fuchsia-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500"
+                              >
+                                {selected ? "Na consulta" : "Quero consultar"} <ChevronRight className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+                        </article>
+                      </MotionCard>
                     );
                   })}
                 </div>
-                <label className="relative block min-w-0 lg:w-80">
-                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" aria-hidden="true" />
-                  <span className="sr-only">Buscar na vitrine</span>
-                  <input
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Buscar na vitrine..."
-                    className="min-h-12 w-full rounded-full border border-white/12 bg-white/[.035] pl-11 pr-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60"
-                  />
-                </label>
+              </MotionSwap>
+
+              <div className="mt-8 flex flex-col gap-5 rounded-[2rem] bg-[#080b14] p-6 text-white shadow-2xl sm:flex-row sm:items-center sm:justify-between lg:p-8">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-cyan-300">Sua consulta</p>
+                  <p className="mt-2 text-xl font-black">
+                    {selectedProducts.length
+                      ? `${selectedProducts.length} ${selectedProducts.length === 1 ? "item selecionado" : "itens selecionados"}`
+                      : "Selecione produtos para montar uma consulta."}
+                  </p>
+                  {selectedProducts.length ? (
+                    <p className="mt-2 max-w-3xl text-sm leading-6 text-white/60">
+                      {selectedProducts.map((item) => item.name).join(" · ")}
+                    </p>
+                  ) : null}
+                </div>
+                <ShopCTA
+                  selected={selectedProducts}
+                  className="inline-flex min-h-13 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-300 to-lime-300 px-7 py-3.5 font-black text-[#050611] transition hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  Consultar seleção <ShoppingCart className="h-4 w-4" />
+                </ShopCTA>
+              </div>
+            </div>
+          </section>
+
+          <section id="outlet" className="relative overflow-hidden bg-[#070816] px-5 py-20 lg:px-8 lg:py-28">
+            <div className="absolute -left-20 top-1/3 h-96 w-96 rounded-full bg-fuchsia-500/20 blur-[120px]" />
+            <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-violet-500/20 blur-[120px]" />
+            <div className="mx-auto grid max-w-[90rem] gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-300">Centro Mega Outlet</p>
+                <h2 className="mt-4 text-5xl font-black uppercase leading-[.86] tracking-[-.05em] sm:text-7xl">
+                  Tecnologia de um lado. <span className="text-fuchsia-400">Achadinhos do outro.</span>
+                </h2>
+                <p className="mt-6 max-w-xl text-lg leading-8 text-white/65">
+                  O Linktree oficial identifica uma frente Centro Mega Outlet em São José dos Pinhais. Nesta amostra, o outlet ganha linguagem própria para tênis, bonés, calçados e outras oportunidades de giro rápido.
+                </p>
+                <a
+                  href={links.linktree}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full border border-fuchsia-300/30 bg-fuchsia-400/10 px-6 font-black text-fuchsia-100 transition hover:-translate-y-1 hover:bg-fuchsia-400/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300"
+                >
+                  Ver canais oficiais <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
 
-              <MotionStagger className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {visibleProducts.map((product) => {
-                  const selected = selectedIds.includes(product.id);
+              <MotionStagger className="grid gap-4 sm:grid-cols-2" variant="scale">
+                {[
+                  ["Tênis", "Drops, numerações e novidades entram na vitrine a partir dos posts.", Footprints, "bg-fuchsia-500"],
+                  ["Bonés", "Uma categoria pronta para receber modelos do estoque social.", Tag, "bg-amber-400"],
+                  ["Calçados", "Espaço para oportunidades e giro rápido de outlet.", ShoppingBag, "bg-violet-500"],
+                  ["Tech", "Celulares e acessórios convivem com o outlet sem perder clareza.", Smartphone, "bg-cyan-400"],
+                ].map(([title, body, Icon, bg]) => {
+                  const IconComponent = Icon as typeof Smartphone;
                   return (
-                    <article
-                      key={product.id}
-                      className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.035] p-3 transition duration-300 hover:-translate-y-2 hover:border-white/25 hover:bg-white/[.055]"
-                    >
-                      <ProductVisual product={product} />
-                      <div className="p-3 pt-5">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded-full bg-white/7 px-2.5 py-1 text-[9px] font-black uppercase tracking-[.16em] text-cyan-200">
-                            {product.kicker}
-                          </span>
-                          {product.sampleOnly ? (
-                            <span className="rounded-full border border-white/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[.16em] text-white/45">
-                              demonstração
-                            </span>
-                          ) : null}
-                        </div>
-
-                        <h3 className="mt-4 text-2xl font-black leading-tight">{product.name}</h3>
-                        <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-white/55">
-                          {product.description}
-                        </p>
-
-                        {product.historicalPrice ? (
-                          <div className="mt-5 rounded-2xl border border-[var(--mega-gold)]/20 bg-[var(--mega-gold)]/8 p-4">
-                            {product.historicalPrice.from ? (
-                              <p className="text-xs text-white/38 line-through">
-                                {money(product.historicalPrice.from)}
-                              </p>
-                            ) : null}
-                            <p className="mt-1 text-3xl font-black text-[var(--mega-gold)]">
-                              {money(product.historicalPrice.to)}
-                            </p>
-                            <p className="mt-1 text-[10px] font-bold uppercase tracking-[.12em] text-white/40">
-                              {product.historicalPrice.label} · não é preço atual garantido
-                            </p>
-                          </div>
-                        ) : (
-                          <div className="mt-5 flex min-h-[5.7rem] items-center rounded-2xl border border-white/8 bg-white/[.025] p-4">
-                            <p className="text-sm font-black text-white/66">Preço e disponibilidade sob consulta</p>
-                          </div>
-                        )}
-
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {product.badges?.map((badge) => (
-                            <span key={badge} className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-bold text-white/50">
-                              {badge}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="mt-5 flex gap-2">
-                          <button
-                            type="button"
-                            onClick={() => toggleProduct(product.id)}
-                            aria-pressed={selected}
-                            className={[
-                              "inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full px-4 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
-                              selected
-                                ? "bg-[var(--mega-lime)] text-black"
-                                : "bg-white text-black hover:bg-[var(--mega-gold)]",
-                            ].join(" ")}
-                          >
-                            {selected ? <Check className="h-4 w-4" aria-hidden="true" /> : <ShoppingCart className="h-4 w-4" aria-hidden="true" />}
-                            {selected ? "Na seleção" : "Adicionar"}
-                          </button>
-                          <a
-                            href={product.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="grid min-h-12 min-w-12 place-items-center rounded-full border border-white/12 text-white/60 transition hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                            aria-label={`Abrir fonte de ${product.name}`}
-                            title={product.sourceLabel}
-                          >
-                            <ArrowRight className="h-4 w-4 -rotate-45" aria-hidden="true" />
-                          </a>
-                        </div>
-
-                        <p className="mt-4 text-[10px] leading-5 text-white/32">
-                          {product.sourceNote}
-                        </p>
+                    <article key={String(title)} className="group min-h-60 rounded-[2rem] border border-white/10 bg-white/[.05] p-7 backdrop-blur transition hover:-translate-y-2 hover:border-white/25 hover:bg-white/[.08]">
+                      <div className={`grid h-12 w-12 place-items-center rounded-2xl ${String(bg)} text-[#070816] shadow-[0_0_30px_rgba(255,255,255,.08)]`}>
+                        <IconComponent className="h-5 w-5" />
                       </div>
+                      <h3 className="mt-10 text-3xl font-black uppercase">{String(title)}</h3>
+                      <p className="mt-3 leading-7 text-white/60">{String(body)}</p>
                     </article>
                   );
                 })}
               </MotionStagger>
-
-              {visibleProducts.length === 0 ? (
-                <div className="mt-10 rounded-[2rem] border border-dashed border-white/15 p-10 text-center">
-                  <PackageOpen className="mx-auto h-10 w-10 text-white/30" aria-hidden="true" />
-                  <p className="mt-4 font-black">Nada encontrado nesta combinação.</p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setQuery("");
-                      setCategory("todos");
-                    }}
-                    className="mt-4 text-sm font-black text-cyan-300 underline underline-offset-4"
-                  >
-                    Limpar filtros
-                  </button>
-                </div>
-              ) : null}
             </div>
           </section>
 
-          <section id="outlet" className="relative overflow-hidden bg-white px-4 py-20 text-black sm:px-6 lg:px-10 lg:py-28">
-            <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-fuchsia-400/25 blur-[120px]" />
-            <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-cyan-300/30 blur-[120px]" />
-            <div className="relative mx-auto max-w-[90rem]">
-              <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <section id="social" className="bg-gradient-to-b from-[#10162a] to-[#070816] px-5 py-20 lg:px-8 lg:py-28">
+            <div className="mx-auto max-w-[90rem]">
+              <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-[10px] font-black uppercase tracking-[.2em] text-white">
-                    <BadgePercent className="h-4 w-4 text-[var(--mega-gold)]" aria-hidden="true" />
-                    Outlet Mode
-                  </div>
-                  <h2 className="mt-5 max-w-4xl text-5xl font-black uppercase leading-[.86] tracking-[-.05em] sm:text-7xl">
-                    Uma loja que muda conforme as oportunidades aparecem.
+                  <p className="text-xs font-black uppercase tracking-[.22em] text-lime-300">Radar social</p>
+                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.88] tracking-[-.05em] sm:text-7xl">
+                    O feed vira <span className="text-cyan-300">estoque editorial.</span>
                   </h2>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
-                    A proposta não é congelar um catálogo. É transformar as postagens recorrentes da
-                    Centro Mega em uma vitrine digital com origem, data, categoria e CTA de consulta.
+                </div>
+                <p className="max-w-2xl text-lg leading-8 text-white/60 lg:justify-self-end">
+                  A amostra preserva os links sociais já identificados no projeto. Quando uma postagem trouxer produto, preço, grade ou condição, o dado entra com data e status histórico — nunca como estoque atual automático.
+                </p>
+              </div>
+
+              <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {socialPosts.map(([kind, href], index) => (
+                  <MotionCard key={href} index={index}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group relative block min-h-56 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.05] p-6 transition hover:-translate-y-2 hover:border-cyan-300/40 hover:bg-white/[.08]"
+                    >
+                      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-gradient-to-br from-fuchsia-500/30 to-cyan-400/20 blur-3xl transition group-hover:scale-125" />
+                      <div className="relative">
+                        <div className="flex items-center justify-between">
+                          <span className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-cyan-200">
+                            {kind} · social #{index + 1}
+                          </span>
+                          <Instagram className="h-5 w-5 text-fuchsia-300" />
+                        </div>
+                        <p className="mt-16 text-2xl font-black">Abrir publicação</p>
+                        <p className="mt-2 text-sm leading-6 text-white/50">Fonte social já vinculada ao projeto Centro Mega.</p>
+                        <span className="mt-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.14em] text-lime-300">
+                          Ver no Instagram <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                        </span>
+                      </div>
+                    </a>
+                  </MotionCard>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-[2rem] border border-amber-300/20 bg-amber-300/10 p-6 text-sm leading-7 text-amber-50">
+                <strong className="font-black">Transparência da amostra:</strong> a captura direta do conteúdo de Facebook/Instagram pode ser limitada pela própria plataforma. Por isso, produtos só entram como “postado” quando existe texto público/indexado suficiente; demais itens aparecem como categoria ou coleção de demonstração até nova evidência.
+              </div>
+            </div>
+          </section>
+
+          <section id="lojas" className="relative bg-white px-5 py-20 text-[#080b14] lg:px-8 lg:py-28">
+            <div className="mx-auto max-w-[90rem]">
+              <div className="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[.22em] text-sky-600">Presença comercial</p>
+                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] tracking-[-.045em] sm:text-7xl">
+                    Loja virtual conectada com loja real.
+                  </h2>
+                  <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                    O Linktree oficial lista SAC, Centro Mega Outlet em São José dos Pinhais, Galeria Di Brunno, Shopping Cidade, Pinheirinho e Instagram.
                   </p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   {[
-                    ["01", "Post entra", "A publicação é verificada e ganha origem/data."],
-                    ["02", "Produto nasce", "Nome, categoria e detalhes publicados viram card."],
-                    ["03", "Estoque não é inventado", "Preço, grade e disponibilidade recebem tratamento de freshness."],
-                    ["04", "Interesse continua", "A seleção segue para o funil individual da Centro Mega."],
-                  ].map(([n, title, body], index) => (
-                    <MotionReveal key={n} delay={index * 90}>
-                      <article className="min-h-52 rounded-[2rem] border-2 border-black p-6 shadow-[8px_8px_0_#ffdd00]">
-                        <p className="text-sm font-black text-fuchsia-600">{n}</p>
-                        <h3 className="mt-8 text-2xl font-black uppercase">{title}</h3>
-                        <p className="mt-3 text-sm leading-6 text-black/58">{body}</p>
+                    ["Outlet São José dos Pinhais", "frente oficial no Linktree", MapPin],
+                    ["Galeria Di Brunno", "canal oficial no Linktree", ShoppingBag],
+                    ["Shopping Cidade", "canal oficial no Linktree", ShoppingBag],
+                    ["Pinheirinho", "canal oficial no Linktree", MapPin],
+                  ].map(([title, body, Icon]) => {
+                    const IconComponent = Icon as typeof MapPin;
+                    return (
+                      <article key={String(title)} className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+                        <IconComponent className="h-6 w-6 text-fuchsia-600" />
+                        <h3 className="mt-8 text-xl font-black">{String(title)}</h3>
+                        <p className="mt-2 text-sm text-slate-500">{String(body)}</p>
                       </article>
-                    </MotionReveal>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="redes" className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
-            <div className="mx-auto max-w-[90rem]">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-fuchsia-300">
-                    Social commerce
-                  </p>
-                  <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[.9] tracking-[-.045em] sm:text-7xl">
-                    A rede social vira a fila de abastecimento da loja.
-                  </h2>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    href={centroMegaOfficialLinks.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-black hover:border-fuchsia-300/60"
-                  >
-                    <Instagram className="h-4 w-4" aria-hidden="true" />
-                    @centro.mega
-                  </a>
-                  <a
-                    href={centroMegaOfficialLinks.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-black hover:border-cyan-300/60"
-                  >
-                    <Facebook className="h-4 w-4" aria-hidden="true" />
-                    Facebook
-                  </a>
+                    );
+                  })}
                 </div>
               </div>
 
-              <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {centroMegaInstagramPosts.map((href, index) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group relative min-h-40 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,37,126,.12),rgba(30,231,255,.06))] p-6 transition hover:-translate-y-1 hover:border-white/25"
-                  >
-                    <div className="mega-scan absolute inset-0 bg-[linear-gradient(115deg,transparent_0_35%,rgba(255,255,255,.08)_48%,transparent_61%)]" />
-                    <div className="relative">
-                      <p className="text-[10px] font-black uppercase tracking-[.2em] text-fuchsia-200">
-                        publicação oficial {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <p className="mt-12 flex items-center justify-between text-lg font-black">
-                        Abrir no Instagram
-                        <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true" />
-                      </p>
+              <div className="mt-12 grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
+                <div className="rounded-[2.5rem] bg-[#080b14] p-8 text-white lg:p-12">
+                  <div className="flex flex-wrap items-start justify-between gap-8">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[.2em] text-cyan-300">Próximo passo</p>
+                      <h2 className="mt-4 max-w-3xl text-4xl font-black uppercase leading-[.95] sm:text-6xl">
+                        Escolha o que chamou atenção. A loja confirma o que existe hoje.
+                      </h2>
                     </div>
-                  </a>
-                ))}
-              </div>
-
-              <p className="mt-6 max-w-3xl text-xs leading-6 text-white/38">
-                Os links oficiais são preservados como fonte. Quando o conteúdo da postagem não está
-                acessível ao crawler, a loja não inventa produto, preço ou descrição: o item só entra
-                após resolução verificável.
-              </p>
-            </div>
-          </section>
-
-          <section id="lojas" className="border-y border-white/10 bg-[#0c0e1d] px-4 py-20 sm:px-6 lg:px-10">
-            <div className="mx-auto grid max-w-[90rem] gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[.24em] text-[var(--mega-lime)]">
-                  Presença real
-                </p>
-                <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] sm:text-7xl">
-                  O digital aponta para uma operação que já existe.
-                </h2>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
-                  O Linktree público da Centro Mega lista SAC e frentes como Outlet São José dos
-                  Pinhais, Galeria Di Brunno, Shopping Cidade e Pinheirinho. A amostra usa essa
-                  presença como contexto, sem transformar canais externos em atalhos que quebrem o
-                  funil do portfolio.
-                </p>
-              </div>
-
-              <div className="grid gap-3">
-                {[
-                  "Centro Mega Outlet · São José dos Pinhais",
-                  "Centro Mega · Galeria Di Brunno",
-                  "Centro Mega · Shopping Cidade",
-                  "Centro Mega · Pinheirinho",
-                  "SAC · canais oficiais",
-                ].map((item, index) => (
-                  <div
-                    key={item}
-                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[.035] p-5"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="grid h-9 w-9 place-items-center rounded-full bg-white/5 text-xs font-black text-cyan-200">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="font-black">{item}</span>
+                    <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-cyan-300 to-lime-300 text-[#080b14]">
+                      <PackageCheck className="h-7 w-7" />
                     </div>
-                    <Store className="h-5 w-5 text-white/30" aria-hidden="true" />
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
-            <div className="mx-auto max-w-[90rem] rounded-[2.5rem] border border-white/10 bg-[radial-gradient(circle_at_18%_20%,rgba(30,231,255,.16),transparent_26%),radial-gradient(circle_at_78%_80%,rgba(255,37,126,.18),transparent_30%),#0c0e1d] p-7 sm:p-10 lg:p-14">
-              <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-[var(--mega-gold)]">
-                    Sua seleção
-                  </p>
-                  <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[.88] sm:text-7xl">
-                    Gostou? Leve os produtos escolhidos para o atendimento.
-                  </h2>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
-                    A amostra não fecha compra com preço antigo. Ela preserva o que você escolheu e
-                    entrega esse contexto ao funil para confirmar estoque, valor e próximo passo.
-                  </p>
-                </div>
-                <StoreCTA
-                  selectedProducts={selectedProducts}
-                  className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[var(--mega-gold)] px-7 py-4 text-sm font-black text-black transition hover:-translate-y-1 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                >
-                  <ShoppingBag className="h-5 w-5" aria-hidden="true" />
-                  {selectedIds.length ? `Consultar ${selectedIds.length} item(ns)` : "Consultar produtos"}
-                </StoreCTA>
-              </div>
-
-              {selectedProducts.length ? (
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {selectedProducts.map((product) => (
-                    <button
-                      key={product.id}
-                      type="button"
-                      onClick={() => toggleProduct(product.id)}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[.04] px-3 py-2 text-xs font-bold text-white/70 hover:border-white/25"
-                      aria-label={`Remover ${product.name} da seleção`}
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <ShopCTA
+                      selected={selectedProducts}
+                      className="inline-flex min-h-13 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-black text-[#080b14] transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
                     >
-                      {product.name}
-                      <X className="h-3.5 w-3.5" aria-hidden="true" />
-                    </button>
-                  ))}
+                      {selectedProducts.length ? "Consultar minha seleção" : "Consultar produtos"} <ArrowRight className="h-4 w-4" />
+                    </ShopCTA>
+                    <a
+                      href={links.instagram}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-13 items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-black transition hover:border-fuchsia-300 hover:text-fuchsia-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300"
+                    >
+                      <Instagram className="h-4 w-4" /> Ver Instagram
+                    </a>
+                  </div>
                 </div>
-              ) : null}
+
+                <div className="rounded-[2.5rem] border border-slate-200 bg-gradient-to-br from-cyan-50 via-white to-fuchsia-50 p-8 lg:p-10">
+                  <Search className="h-7 w-7 text-sky-600" />
+                  <h3 className="mt-8 text-3xl font-black">Não achou o item?</h3>
+                  <p className="mt-4 leading-7 text-slate-600">
+                    Use o funil para descrever modelo, marca, numeração ou categoria. A consulta continua no contexto da Centro Mega.
+                  </p>
+                  <ShopCTA className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#080b14] px-6 py-3 font-black text-white transition hover:bg-fuchsia-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500">
+                    Procurar outro produto <Search className="h-4 w-4" />
+                  </ShopCTA>
+                </div>
+              </div>
             </div>
           </section>
         </main>
 
-        {selectedProducts.length ? (
-          <div className="fixed inset-x-0 bottom-4 z-50 px-4 sm:bottom-6">
-            <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 rounded-full border border-white/12 bg-black/80 p-2 pl-5 shadow-[0_25px_90px_rgba(0,0,0,.45)] backdrop-blur-xl">
-              <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase tracking-[.18em] text-cyan-200">
-                  sacola de interesse
-                </p>
-                <p className="truncate text-sm font-black">
-                  {selectedProducts.length} item(ns) selecionado(s)
-                </p>
-              </div>
-              <StoreCTA
-                selectedProducts={selectedProducts}
-                className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-white px-5 text-sm font-black text-black transition hover:bg-[var(--mega-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-              >
-                Continuar
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </StoreCTA>
-            </div>
-          </div>
-        ) : null}
-
-        <footer className="border-t border-white/10 bg-[#03040a] px-4 py-8 sm:px-6 lg:px-10">
-          <div className="mx-auto flex max-w-[90rem] flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <footer className="border-t border-white/10 bg-[#03040a] px-5 py-10 lg:px-8">
+          <div className="mx-auto flex max-w-[90rem] flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-lg font-black uppercase">Centro Mega Store</p>
-              <p className="mt-1 text-xs text-white/40">
-                Amostra de loja virtual · produtos e disponibilidade sujeitos a confirmação.
-              </p>
+              <div className="flex items-center gap-3">
+                <PortfolioImage
+                  src="/images/centro-mega/logo.png"
+                  alt="Centro Mega"
+                  width={500}
+                  height={500}
+                  managedField="logoUrl"
+                  className="h-11 w-11 rounded-xl object-cover"
+                />
+                <div>
+                  <p className="font-black uppercase tracking-[.12em]">Centro Mega</p>
+                  <p className="text-xs text-white/45">Amostra de loja virtual · tecnologia + outlet</p>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm text-white/55">
+                <a href={links.instagram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white"><Instagram className="h-4 w-4" /> Instagram</a>
+                <a href={links.facebook} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white"><Facebook className="h-4 w-4" /> Facebook</a>
+                <a href={links.linktree} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white"><ShoppingBag className="h-4 w-4" /> Linktree</a>
+              </div>
             </div>
-            <PortfolioHostCredit linkClassName="text-white/60 underline underline-offset-4" />
+            <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" />
           </div>
         </footer>
 
+        <PortfolioSocialProofPopup
+          clientKey="centro-mega"
+          eyebrow="Centro Mega Store"
+          title="Viu algo nas redes? Agora dá para transformar o post em consulta."
+          description="Selecione o item, preserve o contexto e confirme estoque e condições atuais com a loja."
+          ctaLabel="Explorar vitrine"
+          ctaHref="#vitrine"
+          delayMs={11000}
+          className="border-cyan-300/25 bg-[#080b14]/95 text-white"
+          accentClassName="text-cyan-300"
+        />
         <PortfolioUpsellPopup pageName="portfolio-centro-mega" />
       </div>
     </MotionScope>
