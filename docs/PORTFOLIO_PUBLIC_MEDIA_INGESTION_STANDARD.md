@@ -116,6 +116,19 @@ Quando Instagram/Facebook são canais comerciais ativos do negócio:
 
 Um projeto com dezenas de produtos publicados nas redes não pode ser encerrado visualmente como “sem mídia” apenas porque um provider bloqueou scraping direto.
 
+### 6.1 Instagram — latest six obrigatório
+
+Para qualquer cliente com Instagram oficial público ativo, a ingestão social só é considerada completa quando as **6 publicações mais recentes verificáveis** estiverem resolvidas com permalink real e mídia real, seguindo `PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md`.
+
+Não confundir:
+
+- perfil oficial ≠ post;
+- mirror ≠ permalink oficial;
+- link conhecido antigo ≠ “últimos 6”;
+- screenshot ≠ mídia social resolvida.
+
+Se a leitura direta estiver bloqueada, continuar por conector/API autorizada, embed/oEmbed oficial, busca e índices/mirrors públicos. Se ainda assim não houver seis itens resolvidos, registrar `SOCIAL_LATEST_6_INCOMPLETE`.
+
 ## 7. Projetos atuais
 
 Esta norma vale retroativamente.
