@@ -56,7 +56,7 @@ A partir do mix informado pelo responsável e da atividade pública/cadastral da
 - calçados;
 - outlet.
 
-Bonés e calçados entram como **categorias demonstrativas**, sem SKU, foto, preço ou estoque fabricado.
+Bonés e calçados entram como **categorias dinâmicas**, sem SKU, preço ou estoque fabricado; referências visuais externas permanecem explicitamente identificadas quando não há foto própria resolvida.
 
 
 
