@@ -530,7 +530,7 @@ export const listServicesPublic = createServerFn({ method: "GET" }).handler(asyn
 
 
 export const getServicePublic = createServerFn({ method: "GET" })
-  .inputValidator((data: unknown) => z.object({ slug: z.string().min(1).max(120) }).parse(data))
+  .validator((data: unknown) => z.object({ slug: z.string().min(1).max(120) }).parse(data))
   .handler(async ({ data }) => {
     try {
       const sbPublic = getSupabasePublicServer();
