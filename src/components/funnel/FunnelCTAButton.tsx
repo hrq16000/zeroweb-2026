@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useFunnel, type FunnelPageType } from "@/hooks/useFunnel";
 import { FunnelModalWrapper } from "./FunnelModalWrapper";
 import { trackEvent } from "@/lib/analytics";
-import { buildContactFallbackHref, type ContactIntent } from "@/lib/contact-intent";
+import { buildContactFallbackHref, withRuntimePagePath, type ContactIntent } from "@/lib/contact-intent";
 
 type LegacyProps = {
   pageType: FunnelPageType;
@@ -74,7 +74,7 @@ export function FunnelCTAButton({
     clientKey ??
     (currentPath.includes("/portfolio/marido-de-aluguel") ? "marido-de-aluguel" : undefined);
   const effectiveIntent =
-    intent ??
+    (intent ? withRuntimePagePath(intent, currentPath) : undefined) ??
     (portfolioCompany
       ? {
           purpose: "proposal" as const,
@@ -148,9 +148,9 @@ export function FunnelCTAButton({
       label: "funnel_cta",
       location: location ?? `${resolvedPageType}_${serviceSlug ?? "page"}`,
       funnel: funnelSlug,
-      purpose: intent?.purpose,
-      placement: intent?.placement,
-      surface: intent?.pagePath,
+      purpose: runtimeIntent.purpose,
+      placement: runtimeIntent.placement,
+      surface: runtimeIntent.pagePath,
     });
     openFunnel();
   };
