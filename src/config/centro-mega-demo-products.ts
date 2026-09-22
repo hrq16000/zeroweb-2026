@@ -133,6 +133,12 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceUrl:
       "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
     sourceDate: "2024-01-25",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062389/centro-mega-poco-x5-pro-reference.jpg",
+    imageAlt: "POCO X5 Pro 5G usado como referência visual do modelo publicado pela Centro Mega",
+    imageSourceUrl:
+      "https://www.olx.ro/electronice-si-electrocasnice/q-poco-x5/",
+    imageSourceLabel: "Referência visual externa · produto publicado pela Centro Mega",
     historicalPrice: {
       before: "R$ 2.399,00",
       after: "R$ 1.899,00",
@@ -156,6 +162,12 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceUrl:
       "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
     sourceDate: "2023-11-08",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062368/centro-mega-dunk-low-pro-reference.png",
+    imageAlt: "Nike SB Dunk Low Pro usado como referência visual do modelo publicado pela Centro Mega",
+    imageSourceUrl:
+      "https://chilangoskate.com/products/tenis-nike-sb-dunk-low-pro-white-and-black",
+    imageSourceLabel: "Referência visual externa · modelo publicado pela Centro Mega",
     detail: "Numeração da postagem variava entre 34–39 e 34–43 · confirmar disponibilidade atual",
     availabilityNote: "Numeração, preço e estoque atuais precisam ser confirmados pela loja.",
     visual: "sneaker",
@@ -173,6 +185,12 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceLabel: "Magazine Luiza · seller Centro Mega",
     sourceUrl:
       "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+    imageUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790062373/centro-mega-ps4-controller-reference.jpg",
+    imageAlt: "Controle Sony DualShock 4 usado como referência visual do item vendido pela Centro Mega",
+    imageSourceUrl:
+      "https://www.zeusgames.com.br/manete-ps4-preta",
+    imageSourceLabel: "Referência visual externa · item confirmado no seller Centro Mega",
     detail: "Controle PS4 Original Sony · listagem pública do seller Centro Mega",
     availabilityNote: "Preço, cor, garantia e estoque devem ser confirmados na oferta atual do marketplace ou com a loja.",
     visual: "accessory",
