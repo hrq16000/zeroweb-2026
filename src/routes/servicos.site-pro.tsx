@@ -23,7 +23,6 @@ function SiteProPage() {
       subheadline="Para quem quer ranquear de verdade. Site profissional completo, estratégia de palavras-chave, SEO técnico + on-page e auditoria mensal de posição até atingir o top 5 do Google."
       offerSlug="site-pro"
       ctaLabel="Quero o Site Pro"
-      whatsappMessage="Olá! Quero um orçamento do plano Site Pro (10+ páginas + ranqueamento Google)."
       breadcrumbName="Site Pro"
       benefits={[
         {
