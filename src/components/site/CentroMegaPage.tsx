@@ -23,11 +23,9 @@ import {
 } from "lucide-react";
 import {
   MotionOverlay,
-  MotionParallax,
   MotionReveal,
   MotionScope,
   MotionStagger,
-  MotionSwap,
 } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -158,7 +156,7 @@ function ProductVisual({ product, compact = false }: { product: CentroMegaDemoPr
   return (
     <div className={"relative grid place-items-center overflow-hidden " + (compact ? "h-24" : "h-56 sm:h-64")}>
       <div className={"absolute inset-7 rounded-full bg-gradient-to-br blur-3xl " + style.glow} />
-      <div className="mega-product-float relative grid aspect-square h-[72%] place-items-center rounded-[2rem] border border-white/15 bg-white/[.055] shadow-[0_35px_80px_rgba(0,0,0,.35)] backdrop-blur">
+      <div className="mega-product-float relative grid aspect-square h-[72%] place-items-center rounded-[2rem] border border-white/15 bg-white/[.055] shadow-[0_35px_80px_rgba(0,0,0,.35)]">
         <Icon className={iconClass + " " + style.icon} strokeWidth={1.25} />
         <span className="absolute bottom-4 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[10px] font-black uppercase tracking-[.2em] text-white/60">
           {product.category}
@@ -327,32 +325,27 @@ export function CentroMegaPage() {
       >
         <style>{`
           @keyframes megaMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-          @keyframes megaGridPulse { 0%,100% { opacity:.16; } 50% { opacity:.34; } }
           @keyframes megaFloat { 0%,100% { transform: translate3d(0,0,0) rotate(-1deg); } 50% { transform: translate3d(0,-10px,0) rotate(1deg); } }
           @keyframes megaScan { from { transform: translateY(-120%); } to { transform: translateY(620%); } }
-          @keyframes megaGlow { 0%,100% { filter: saturate(1) brightness(1); } 50% { filter: saturate(1.3) brightness(1.12); } }
+          @keyframes megaHeroDrift { 0%,100% { transform: translate3d(0,0,0) rotate(.25deg); } 50% { transform: translate3d(0,-8px,0) rotate(-.25deg); } }
           .mega-marquee { animation: megaMarquee 28s linear infinite; width: max-content; }
-          .mega-grid-pulse { animation: megaGridPulse 5s ease-in-out infinite; }
+          .mega-hero-drift { animation: megaHeroDrift 10s ease-in-out infinite; }
           .mega-product-float { animation: megaFloat 5.6s ease-in-out infinite; }
           .mega-scan { animation: megaScan 4.2s linear infinite; }
-          .mega-glow { animation: megaGlow 4s ease-in-out infinite; }
           @media (prefers-reduced-motion: reduce) {
-            .mega-marquee,.mega-grid-pulse,.mega-product-float,.mega-scan,.mega-glow { animation: none !important; }
+            .mega-marquee,.mega-hero-drift,.mega-product-float,.mega-scan { animation: none !important; }
           }
         `}</style>
 
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05070c]/88 px-4 py-3 backdrop-blur-2xl lg:px-8">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05070c]/94 px-4 py-3 backdrop-blur-md lg:px-8">
           <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-4">
             <a href="#inicio" className="flex min-w-0 items-center gap-3" aria-label="Centro Mega Store — início">
-              <PortfolioImage
-                src="/images/centro-mega/logo.png"
-                alt="Centro Mega"
-                width={500}
-                height={500}
-                priority
-                managedField="logoUrl"
-                className="h-11 w-11 shrink-0 rounded-xl object-cover ring-1 ring-white/15"
-              />
+              <span
+                aria-hidden="true"
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(34,211,238,.22),rgba(168,85,247,.18))] text-[11px] font-black tracking-[-.08em] text-white shadow-[0_0_28px_rgba(34,211,238,.12)]"
+              >
+                CM
+              </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-black uppercase tracking-[.16em]">Centro Mega</p>
                 <p className="truncate text-[10px] font-bold uppercase tracking-[.22em] text-cyan-300">Store Demo · Tech + Outlet</p>
@@ -381,7 +374,7 @@ export function CentroMegaPage() {
 
         <main>
           <section id="inicio" className="relative isolate overflow-hidden px-4 pb-18 pt-14 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28">
-            <div className="mega-grid-pulse absolute inset-0 -z-30 bg-[linear-gradient(rgba(34,211,238,.16)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,.16)_1px,transparent_1px)] bg-[size:54px_54px]" />
+            <div className="absolute inset-0 -z-30 opacity-25 bg-[linear-gradient(rgba(34,211,238,.16)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,.16)_1px,transparent_1px)] bg-[size:54px_54px]" />
             <div className="absolute left-[-12rem] top-[-10rem] -z-20 h-[34rem] w-[34rem] rounded-full bg-cyan-400/20 blur-[110px]" />
             <div className="absolute right-[-8rem] top-[8rem] -z-20 h-[32rem] w-[32rem] rounded-full bg-violet-500/20 blur-[120px]" />
             <div className="absolute bottom-[-12rem] left-[35%] -z-20 h-[30rem] w-[30rem] rounded-full bg-fuchsia-500/10 blur-[120px]" />
@@ -450,34 +443,32 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <MotionParallax speed={20}>
-                  <div className="relative mx-auto min-h-[34rem] max-w-2xl">
-                    <div className="absolute inset-8 rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.02] to-violet-400/10 shadow-[0_50px_140px_rgba(0,0,0,.55)] backdrop-blur">
+                <div className="mega-hero-drift relative mx-auto min-h-[34rem] max-w-2xl">
+                    <div className="absolute inset-8 rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.02] to-violet-400/10 shadow-[0_50px_140px_rgba(0,0,0,.55)]">
                       <div className="absolute inset-0 overflow-hidden rounded-[3rem]">
                         <div className="mega-scan absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/10 to-transparent" />
                       </div>
                     </div>
 
-                    <div className="absolute left-0 top-5 w-[68%] rotate-[-5deg] rounded-[2rem] border border-white/15 bg-[#0a1020]/90 p-5 shadow-2xl backdrop-blur-xl">
+                    <div className="absolute left-0 top-5 w-[68%] rotate-[-5deg] rounded-[2rem] border border-white/15 bg-[#0a1020]/90 p-5 shadow-2xl">
                       <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[0]} compact />
                       <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-cyan-300">Social drop</p>
                       <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[0].name}</p>
                     </div>
 
-                    <div className="absolute bottom-2 right-0 w-[68%] rotate-[5deg] rounded-[2rem] border border-violet-300/20 bg-[#0d0a19]/90 p-5 shadow-2xl backdrop-blur-xl">
+                    <div className="absolute bottom-2 right-0 w-[68%] rotate-[5deg] rounded-[2rem] border border-violet-300/20 bg-[#0d0a19]/90 p-5 shadow-2xl">
                       <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[1]} compact />
                       <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-violet-300">Outlet drop</p>
                       <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[1].name}</p>
                     </div>
 
-                    <div className="mega-glow absolute left-[42%] top-[42%] grid h-28 w-28 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_80px_rgba(34,211,238,.25)] backdrop-blur-xl">
+                    <div className="mega-glow absolute left-[42%] top-[42%] grid h-28 w-28 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_80px_rgba(34,211,238,.25)]">
                       <div className="text-center">
                         <Zap className="mx-auto h-7 w-7 text-cyan-200" />
                         <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em]">Store demo</p>
                       </div>
                     </div>
                   </div>
-                </MotionParallax>
               </div>
             </div>
           </section>
@@ -550,7 +541,7 @@ export function CentroMegaPage() {
                 ))}
               </div>
 
-              <MotionSwap swapKey={category + search} variant="up" className="mt-10">
+              <div className="mt-10">
                 {filteredProducts.length ? (
                   <MotionStagger className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" variant="up" step={85}>
                     {filteredProducts.map((product) => (
@@ -570,7 +561,7 @@ export function CentroMegaPage() {
                     <p className="mt-2 text-white/45">Tente outra categoria ou limpe o termo pesquisado.</p>
                   </div>
                 )}
-              </MotionSwap>
+              </div>
 
               <div className="mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/[.06] px-5 py-4 text-sm leading-6 text-amber-50/70">
                 <strong className="text-amber-200">Amostra inteligente:</strong> preços históricos aparecem apenas quando a própria publicação indexada trouxe o valor. Estoque, preço atual, cor, grade, garantia e condição comercial devem ser confirmados antes da compra.
@@ -740,6 +731,7 @@ export function CentroMegaPage() {
                 width={500}
                 height={500}
                 managedField="logoUrl"
+                loading="lazy"
                 className="h-12 w-12 rounded-xl object-cover ring-1 ring-white/10"
               />
               <div>
