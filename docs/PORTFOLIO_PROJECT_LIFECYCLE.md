@@ -25,6 +25,7 @@ PORTFOLIO_PROJECT_LIFECYCLE
 ├── Cover ................... docs/PORTFOLIO_COVER_STANDARD.md + docs/PORTFOLIO_COVER_STATUS_CONTRACT.md
 ├── QA ...................... docs/design/ACCESSIBILITY.md · RESPONSIVE.md · MOTION.md
 └── Publication ............. docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md + docs/0WEB_EXECUTION_CONTRACT.md
+    └── Finalization/Cleanup . docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md
 ```
 
 ## 1. Princípio
@@ -279,6 +280,8 @@ fabricada ou seção incompleta são P0 e reprovam com qualquer score.
 - [ ] analytics/tracking validado
 - [ ] quality matrix aprovada (technical + editorial)
 - [ ] gates aprovados
+
+Depois de `READY/PUBLISH`, o encerramento operacional e qualquer limpeza de branch/deployment seguem obrigatoriamente `docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md`.
 
 `build PASS`, `TypeScript PASS` e `route PASS` **não** significam pronto:
 faltam ENTITY, CONTENT, MEDIA, DISCOVERY, DESIGN, SEO, FUNNEL, COVER e QA.
