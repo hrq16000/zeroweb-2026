@@ -730,12 +730,6 @@ export function CentroMegaPage() {
                       </a>
                     ))}
                   </div>
-
-                  <div className="mt-5 rounded-[1.5rem] border border-dashed border-fuchsia-300/25 bg-fuchsia-300/[.045] px-5 py-4">
-                    <p className="text-sm font-bold text-white/75">
-                      5 publicações oficiais já estão com mídia real recuperada e versionada. O sexto permalink recente continua em pesquisa; ele não vira bloco vazio nem placeholder na página.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
