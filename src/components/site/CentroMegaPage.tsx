@@ -644,30 +644,29 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <MotionStagger className="grid gap-4 sm:grid-cols-2" variant="up" step={90}>
-                  {CENTRO_MEGA_SOCIAL_FEED.map((post) => (
-                    <a
-                      key={post.href + post.title}
-                      href={post.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group rounded-[1.75rem] border border-white/10 bg-white/[.04] p-6 transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-white/55">
-                          {post.platform}
-                        </span>
-                        <ExternalLink className="h-4 w-4 text-white/25 transition group-hover:text-fuchsia-200" />
-                      </div>
-                      <p className="mt-8 text-2xl font-black tracking-[-.03em]">{post.title}</p>
-                      <p className="mt-3 text-sm leading-6 text-white/50">{post.description}</p>
-                      <div className="mt-6 flex items-center justify-between gap-4 text-[10px] font-black uppercase tracking-[.16em] text-white/35">
-                        <span>{post.date ?? "canal oficial"}</span>
-                        <span>{post.status}</span>
-                      </div>
-                    </a>
-                  ))}
-                </MotionStagger>
+                <div className="rounded-[2rem] border border-white/10 bg-white/[.035] p-5 sm:p-6">
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-white/35">Atividade pública confirmada</p>
+                  <div className="mt-4 divide-y divide-white/10">
+                    {CENTRO_MEGA_SOCIAL_FEED.slice(0, 3).map((post) => (
+                      <a
+                        key={post.href + post.title}
+                        href={post.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-start justify-between gap-4 py-4 first:pt-0 last:pb-0"
+                      >
+                        <div className="min-w-0">
+                          <p className="text-xs font-black uppercase tracking-[.14em] text-fuchsia-200/70">
+                            {post.platform} · {post.date ?? "canal oficial"}
+                          </p>
+                          <p className="mt-1 text-lg font-black tracking-[-.02em] text-white">{post.title}</p>
+                          <p className="mt-1 line-clamp-2 text-sm leading-6 text-white/45">{post.description}</p>
+                        </div>
+                        <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-white/25 transition group-hover:text-fuchsia-200" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
 
                 <div className="mt-10">
                   <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
