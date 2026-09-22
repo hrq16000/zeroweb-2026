@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-21T23:50:00Z",
+  "lastResearchAt": "2026-09-22T06:30:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -38,7 +38,7 @@
       "resolved": true,
       "verified": true,
       "url": "https://www.instagram.com/centro.mega/",
-      "note": "Perfil oficial resolvido via Linktree. Links de reels/posts já estavam versionados no componente anterior; o conteúdo individual não ficou legível com segurança nesta rodada, portanto nenhum SKU foi inferido a partir desses links."
+      "note": "Perfil oficial resolvido via Linktree. Posts e reels públicos conhecidos passam a ser incorporados pela URL oficial; bloqueio de download direto não encerra a pesquisa nem elimina a mídia."
     },
     "facebook": {
       "searched": true,
@@ -46,7 +46,7 @@
       "resolved": true,
       "verified": true,
       "url": "https://www.facebook.com/CentroMega.com.br/",
-      "note": "Página pública resolvida; a leitura direta de posts ficou limitada. Conteúdo de produto foi usado apenas quando também aparecia em índice público rastreável."
+      "note": "Página pública resolvida. Quando leitura direta de post falhar, o pipeline continua por índice público, busca e outras fontes conforme o padrão de ingestão."
     },
     "publicStore": {
       "searched": true,
@@ -83,17 +83,36 @@
     },
     "photos": {
       "searched": true,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "note": "Não houve ingestão confiável de fotos atuais de produtos/estoque a partir de Facebook/Instagram. A amostra usa composição gráfica e ícones, evitando fingir fotografia de estoque real."
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "PUBLIC_REAL_PRODUCT_MEDIA_INGESTED",
+      "note": "Mídia real de produtos foi resolvida no catálogo público do seller Centro Mega no Magazine Luiza e versionada em CDN com source URL preservada. Instagram oficial permanece também como mídia viva via embed público.",
+      "assets": [
+        {
+          "product": "Xiaomi Mi Box S",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058183/centro-mega-mi-box-s.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/"
+        },
+        {
+          "product": "Xiaomi Mi True Wireless Earbuds Basic 2",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058494/centro-mega-earbuds-basic-2.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/fone-de-ouvido-bluetooth-xiaomi-mi-true-wirelles-earbuds-basic-2-preto/p/aka3d82998/ea/fobt/?seller_id=centromega"
+        },
+        {
+          "product": "Suporte Renux 5203",
+          "url": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790058263/centro-mega-suporte-renux-01.jpg",
+          "sourceUrl": "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/"
+        }
+      ]
     },
     "videos": {
       "searched": true,
       "found": true,
-      "resolved": false,
-      "verified": false,
-      "note": "Reels públicos foram identificados por URL, mas não tiveram conteúdo individual interpretado com segurança; permanecem como links de descoberta."
+      "resolved": true,
+      "verified": true,
+      "status": "OFFICIAL_PUBLIC_EMBED",
+      "note": "Reels públicos oficiais identificados por URL entram na página via embed público do Instagram; conteúdo não é inventado nem reclassificado como SKU sem leitura factual."
     },
     "marketplaceSeller": {
       "searched": true,
@@ -105,8 +124,10 @@
       "evidence": [
         "seller Centro Mega com CNPJ 17.991.627/0001-54",
         "Xiaomi Mi Box S listado como vendido por Centro Mega",
+        "Xiaomi Mi True Wireless Earbuds Basic 2 listado como vendido por Centro Mega",
         "Controle PlayStation 4 Sony listado como vendido por Centro Mega",
-        "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega"
+        "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega",
+        "Pen Drive 64GB SanDisk e pilhas Philips aparecem em páginas públicas vinculadas ao seller Centro Mega"
       ],
       "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na amostra."
     }
@@ -197,13 +218,17 @@
     "Preço de postagem antiga deve ser rotulado explicitamente como histórico.",
     "Produto social verificado pode virar card de demonstração, mas não estoque atual.",
     "Categoria fornecida pelo responsável pode virar categoria de amostra sem SKU/preço inventado.",
-    "Post social não legível não autoriza inferir nome/modelo/preço.",
-    "Nenhuma mídia gerada ou ícone pode ser apresentado como foto real de estoque."
+    "Post social não legível não autoriza inferir nome/modelo/preço; usar embed oficial e continuar a pesquisa por outras fontes públicas.",
+    "Foto real pública resolvida do produto deve ser usada na vitrine; ícone é fallback somente quando a escada de mídia não resolveu o asset.",
+    "Toda mídia ingerida preserva URL de origem/provenance."
   ],
   "marketplaceProducts": [
     "Xiaomi Mi Box S",
+    "Xiaomi Mi True Wireless Earbuds Basic 2",
     "Controle PlayStation 4 Original Sony",
-    "Suporte de celular para Moto & Bike Renux 5203"
+    "Suporte de celular para Moto & Bike Renux 5203",
+    "Pen Drive 64GB SanDisk Cruzer Blade",
+    "Pilha recarregável Philips"
   ],
   "operational": {
     "whatsappStatus": "VERIFIED",
@@ -212,5 +237,6 @@
     "source": "OFFICIAL_LINKTREE+PUBLIC_BUSINESS_SITE+PUBLIC_SOCIAL_INDEX",
     "verifiedAt": "2026-09-21",
     "note": "Destino exclusivo do client_key centro-mega; sem fallback institucional ou cross-client."
-  }
+  },
+  "mediaIngestionPolicy": "docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md"
 }
