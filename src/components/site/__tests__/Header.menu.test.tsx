@@ -36,6 +36,13 @@ describe("Header menu", () => {
     expect(headerSrc).toMatch(/addEventListener\("touchstart"/);
     expect(headerSrc).toMatch(/e\.key === "Escape"/);
   });
+
+  test("contato mobile não navega para fallback e funil preserva pathname real", () => {
+    const mobileNavBlock = headerSrc.split("const mobileNav")[1]?.split("];")[0] ?? "";
+    expect(mobileNavBlock).not.toMatch(/to:\s*"\/contato"/);
+    expect(headerSrc).toContain('source: "header", pagePath: pathname');
+    expect(headerSrc).toContain('source: "mobile_menu", pagePath: pathname');
+  });
 });
 
 describe("Footer service links", () => {
@@ -43,6 +50,13 @@ describe("Footer service links", () => {
     resolve(__dirname, "../Footer.tsx"),
     "utf8",
   );
+
+  test("Contato do footer usa funnel-service em vez de navegar para /contato", () => {
+    expect(footerSrc).not.toMatch(/label:\s*"Contato",\s*to:\s*"\/contato"/);
+    expect(footerSrc).toContain('source: "footer_support"');
+    expect(footerSrc).toContain('pagePath: pathname');
+    expect(footerSrc).toContain('label="Contato"');
+  });
 
   test("todos os links de Soluções/Tecnologia usam /servicos/{slug}", () => {
     // Extrai os links via regex simples.
