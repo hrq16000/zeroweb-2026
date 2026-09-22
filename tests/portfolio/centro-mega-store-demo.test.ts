@@ -59,8 +59,6 @@ describe("Centro Mega — Store Concept", () => {
     expect(products).toContain("centro-mega-ps4-controller-reference.jpg");
     expect(products).toContain("Foto do catálogo público · Centro Mega no Magalu");
     expect(page).toContain("CENTRO_MEGA_SOCIAL_SOURCES");
-    expect(page).toContain("<iframe");
-    expect(page).toContain("embed/");
     expect(page).toContain("Instagram oficial · mídia real");
     expect(page).not.toContain("<iframe");
     expect(page).not.toContain("embed/");
@@ -119,6 +117,11 @@ describe("Centro Mega — Store Concept", () => {
     expect(client?.funnelType).toBe("pedido");
     expect(client?.contactMode).toBe("funnelOnly");
     expect(catalogItem?.segment).toBe("comercios");
+    expect(catalogItem?.projectType).toBe("catalog");
+    expect(catalogItem?.subtitle).toBe("Loja virtual · celulares, acessórios, moda e outlet");
+    expect(catalogItem?.badge).toBe("Loja virtual ativa");
+    expect(catalogItem?.summary).not.toContain("Amostra");
+    expect(catalogItem?.summary).not.toContain("demo");
     expect(funnelContext["centro-mega"].intent).toBe("pedido");
     expect(whatsapp.contacts["centro-mega"].whatsapp).toBe("5541998589419");
   });
@@ -126,6 +129,8 @@ describe("Centro Mega — Store Concept", () => {
   test("SEO e discovery refletem loja sem criar Product/Offer de estoque", () => {
     expect(route).toContain('additionalType: "https://schema.org/ElectronicsStore"');
     expect(route).toContain('name: "Centro Mega"');
+    expect(route).toContain("Centro Mega em São José dos Pinhais: loja virtual");
+    expect(route).not.toContain("Centro Mega em São José dos Pinhais: amostra de loja virtual");
     expect(route).toContain('"Celulares e smartphones"');
     expect(route).toContain('"Outlet"');
     expect(discovery.projects["centro-mega"].products).toContain("Poco X5 Pro 8GB 256GB");

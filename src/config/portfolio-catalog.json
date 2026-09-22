@@ -1900,7 +1900,7 @@
     "clientKey": "centro-mega",
     "title": "Centro Mega",
     "segment": "comercios",
-    "projectType": "landing",
+    "projectType": "catalog",
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
@@ -1916,13 +1916,13 @@
       "sao-jose-dos-pinhais"
     ],
     "live": true,
-    "subtitle": "Loja virtual demo · celulares, acessórios e outlet",
+    "subtitle": "Loja virtual · celulares, acessórios, moda e outlet",
     "location": "São José dos Pinhais · Curitiba — PR",
-    "badge": "Amostra de loja virtual",
+    "badge": "Loja virtual ativa",
     "image": "/images/centro-mega/hero.png",
     "fallbackImage": "/images/centro-mega/social-og.jpg",
-    "metrics": "Produtos sociais + seleção inteligente",
-    "summary": "Amostra de loja virtual da Centro Mega com celulares, acessórios e categorias de outlet, convertendo publicações sociais em uma vitrine pesquisável com seleção de itens e funil próprio."
+    "metrics": "10 produtos com mídia + social commerce",
+    "summary": "Loja virtual da Centro Mega em São José dos Pinhais, com celulares, acessórios, moda e outlet, produtos com mídia real, conteúdo social oficial, seleção de itens e funil próprio de pedido."
   },
   {
     "slug": "pastelaria-route-66",
