@@ -327,6 +327,15 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
 
 export const CENTRO_MEGA_SOCIAL_FEED = [
   {
+    platform: "Social público indexado",
+    title: "Ótimo Domingo ❤️",
+    description:
+      "Conteúdo recente da Centro Mega localizado em índice público em 30/08/2026. O índice confirma a publicação e a data, mas não permite atribuir com segurança esse item específico a Instagram ou Facebook.",
+    date: "30/08/2026",
+    href: "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+    status: "LATEST_PUBLIC_SOCIAL_SIGNAL",
+  },
+  {
     platform: "Facebook",
     title: "Poco X5 Pro 8GB / 256GB",
     description: "Oferta pública indexada: de R$ 2.399,00 por R$ 1.899,00 na publicação de 25/01/2024.",
