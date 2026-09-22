@@ -96,7 +96,7 @@ describe("Centro Mega — Store Concept", () => {
 
   test("política global impede desistir de mídia após bloqueio de provider", () => {
     expect(publicMediaStandard).toContain("PROVIDER_BLOCKED");
-    expect(publicMediaStandard).toContain("não encerram a pesquisa");
+    expect(publicMediaStandard).toContain("não encerra a pesquisa");
     expect(publicMediaStandard).toContain("COMMERCE_PRODUCT_MEDIA_MISSING");
     expect(publicMediaStandard).toContain("Ícone Lucide, SVG genérico ou bloco abstrato não pode substituir");
   });
