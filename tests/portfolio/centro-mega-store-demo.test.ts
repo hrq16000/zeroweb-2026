@@ -161,6 +161,19 @@ describe("Centro Mega — Store Concept", () => {
     expect(enrichment.researchLedger.instagram.latestSix.requiredCount).toBe(6);
     expect(enrichment.researchLedger.instagram.latestSix.resolvedOfficialPermalinks).toBe(5);
     expect(enrichment.researchLedger.instagram.latestSix.status).toBe("SOCIAL_LATEST_6_INCOMPLETE");
+    expect(enrichment.researchLedger.instagram.latestSix.orderStatus).toBe("FIVE_RESOLVED_SORTED_DESCENDING");
+    expect(enrichment.researchLedger.instagram.latestSix.orderingMethod).toBe("INSTAGRAM_SHORTCODE_MEDIA_ID_TIMESTAMP");
+    expect(enrichment.researchLedger.instagram.latestSix.verifiedChronology.map((item: any) => item.shortcode)).toEqual([
+      "DV8haszkdOy",
+      "DHzjkeutEKu",
+      "DGjBSGIPSKO",
+      "DDPCypWxVZZ",
+      "DCt4G0HxLRu",
+    ]);
+    expect(products.indexOf("DV8haszkdOy")).toBeLessThan(products.indexOf("DHzjkeutEKu"));
+    expect(products.indexOf("DHzjkeutEKu")).toBeLessThan(products.indexOf("DGjBSGIPSKO"));
+    expect(products.indexOf("DGjBSGIPSKO")).toBeLessThan(products.indexOf("DDPCypWxVZZ"));
+    expect(products.indexOf("DDPCypWxVZZ")).toBeLessThan(products.indexOf("DCt4G0HxLRu"));
     expect(mediaPlan.socialLatestSixGate).toBe("SOCIAL_LATEST_6_INCOMPLETE");
   });
 
