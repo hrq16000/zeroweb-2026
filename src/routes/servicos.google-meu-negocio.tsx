@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
-  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck, Star,
+  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck,
   TrendingUp, Sparkles, Flame, ArrowRight,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
@@ -171,13 +171,15 @@ function GMBPage() {
               </a>
             </div>
 
-            <div className="mt-6 flex items-center gap-2 text-sm text-white/70">
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <span className="ml-1">+520 empresas atendidas · 20 anos de mercado</span>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/70">
+              <span className="inline-flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                Marketing digital desde 2006
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-amber-400" />
+                Estratégia de presença local no Google
+              </span>
             </div>
           </motion.div>
 
