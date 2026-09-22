@@ -171,6 +171,12 @@ Páginas inteiramente estáticas são permitidas somente quando a direção deli
 - `NO_BRAND_TEST_FAIL`
 - `HIGH_SIMILARITY_UNRESOLVED`
 - `VISUAL_QA_MISSING`
+- `REFERENCE_DECOMPOSITION_MISSING` — referência fornecida sem matriz de princípios/anti-cópia
+- `REFERENCE_USED_AS_TEMPLATE` — ordem, silhueta ou composição distintiva reproduzida
+- `SAME_JOURNEY_DIFFERENT_COPY` — mesma jornada funcional com nova marca/conteúdo
+- `SECTION_ROLE_MONOTONY` — papéis diferentes renderizados repetidamente com o mesmo tratamento
+- `MEDIA_RHYTHM_REUSED` — distribuição/tratamento de mídia substancialmente igual ao vizinho
+- `FUNCTIONAL_DIVERSITY_MISSING` — necessidade decisória específica ignorada em favor do skeleton padrão
 
 Build verde sem resolver esses estados não transforma a página em entrega aprovada.
 
