@@ -297,6 +297,7 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
     label: "Reel oficial",
     href: "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
     shortcode: "DV8haszkdOy",
+    publishedAtUtc: "2026-03-16T12:40:24.896Z",
     mediaType: "REEL_POSTER",
     mediaUrl:
       "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090448/centro-mega-instagram-DV8haszkdOy.jpg",
@@ -308,6 +309,7 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
     label: "Reel oficial",
     href: "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
     shortcode: "DHzjkeutEKu",
+    publishedAtUtc: "2025-03-30T01:46:32.630Z",
     mediaType: "REEL_POSTER",
     mediaUrl:
       "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090453/centro-mega-instagram-DHzjkeutEKu.jpg",
@@ -317,19 +319,9 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
   {
     kind: "Instagram",
     label: "Post oficial",
-    href: "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
-    shortcode: "DDPCypWxVZZ",
-    mediaType: "IMAGE",
-    mediaUrl:
-      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090398/centro-mega-instagram-DDPCypWxVZZ.jpg",
-    mediaAlt: "Imagem real do post oficial da Centro Mega DDPCypWxVZZ",
-    provenance: "Instagram oficial @centro.mega · mídia recuperada do permalink e versionada em CDN",
-  },
-  {
-    kind: "Instagram",
-    label: "Post oficial",
     href: "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
     shortcode: "DGjBSGIPSKO",
+    publishedAtUtc: "2025-02-26T19:07:41.673Z",
     mediaType: "IMAGE",
     mediaUrl:
       "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090407/centro-mega-instagram-DGjBSGIPSKO.jpg",
@@ -339,8 +331,21 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
   {
     kind: "Instagram",
     label: "Post oficial",
+    href: "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+    shortcode: "DDPCypWxVZZ",
+    publishedAtUtc: "2024-12-06T11:21:53.030Z",
+    mediaType: "IMAGE",
+    mediaUrl:
+      "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090398/centro-mega-instagram-DDPCypWxVZZ.jpg",
+    mediaAlt: "Imagem real do post oficial da Centro Mega DDPCypWxVZZ",
+    provenance: "Instagram oficial @centro.mega · mídia recuperada do permalink e versionada em CDN",
+  },
+  {
+    kind: "Instagram",
+    label: "Post oficial",
     href: "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/",
     shortcode: "DCt4G0HxLRu",
+    publishedAtUtc: "2024-11-23T14:13:34.824Z",
     mediaType: "IMAGE",
     mediaUrl:
       "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090412/centro-mega-instagram-DCt4G0HxLRu.jpg",
