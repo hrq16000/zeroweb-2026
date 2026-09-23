@@ -295,6 +295,11 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - product-state demo;
 - campaign fast path.
 
+- service-mode selector — padrão/emergencial/agendado/domicílio/remoto quando a escolha muda logística, prazo, disponibilidade ou contexto;
+- category→location selector — categoria/equipamento antes de unidade/cobertura quando isso reduz erro de encaminhamento;
+- symptom→service-mode — sintoma conduz à modalidade/caminho adequado sem exigir que o visitante conheça o nome técnico do serviço;
+- service+commerce continuity — separar reparo, peça/produto, instalação e acompanhamento sem misturar tudo numa única grade.
+
 ### Derived motion candidates
 
 These may be designed when the client metaphor justifies them, but must never be
