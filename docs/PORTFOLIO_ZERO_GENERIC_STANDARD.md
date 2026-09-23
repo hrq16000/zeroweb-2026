@@ -194,6 +194,21 @@ O backlog deve convergir todos os projetos atuais para a política zero-generic 
 
 Não usar "legado" como justificativa para manter template perceptível indefinidamente.
 
+### 11.1 Legado é conjunto congelado, não categoria aberta
+
+O conjunto histórico sem manifesto está listado em
+`src/config/portfolio-legacy-baseline.json`. Esse arquivo registra a dívida
+existente na data de corte; ele não é um mecanismo para isentar projetos novos.
+
+Qualquer novo slug fora desse baseline precisa de manifesto/lifecycle e entra
+nos gates fortes desde o nascimento. Se um projeto legado for migrado para
+manifesto, ele passa a ser gerenciado normalmente; o objetivo é reduzir o
+baseline progressivamente.
+
+`NEW_UNMANAGED_PORTFOLIO` é falha de governança: projeto novo não pode nascer
+como “legado”.
+
+
 ## 12. Critério de aceite
 
 Uma entrega de portfolio só pode receber estado visual equivalente a `DONE/PASS/PUBLISHED_QUALITY` quando existir evidência de:
