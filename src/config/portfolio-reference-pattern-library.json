@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -12,7 +12,10 @@
       "USE",
       "ADAPT",
       "REJECT"
-    ]
+    ],
+    "primaryExperienceEngineRequired": true,
+    "counterpointEngineMaximum": 1,
+    "segmentDefaultEngineForbidden": true
   },
   "clusters": [
     "DIAGNOSTIC_LED",
@@ -253,6 +256,188 @@
         "job_based_feature_chapters"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.4irefrigeracao.com.br/",
+      "label": "4I Refrigeração",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "PHYSICAL_PROOF_LED",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "authorized_brand_credential",
+        "brand_catalog_breadth",
+        "commercial_residential_industrial_scope",
+        "technical_service_taxonomy"
+      ],
+      "reject": [
+        "generic_superlative_claims_without_evidence"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://proautoservice.com.br/",
+      "label": "Pro Auto Service Imports",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "appointment_form_early",
+        "imported_diesel_specialization",
+        "service_taxonomy",
+        "technical_story"
+      ],
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "FOUNDER_OR_SPECIALIST_TRUST"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://centroautomotivofera.com.br/",
+      "label": "Fera Auto Center",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "locality_and_hours_early",
+        "vehicle_system_taxonomy",
+        "warranty_transparency",
+        "service_breadth"
+      ],
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://impactoprime.com.br/",
+      "label": "Impacto Prime",
+      "clusters": [
+        "MULTI_LOCATION_LED",
+        "PRODUCTIZED_SERVICE",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "USE",
+      "signals": [
+        "nearest_store",
+        "five_step_tire_finder",
+        "network_scale",
+        "product_category_navigation",
+        "audience_specific_service"
+      ],
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "LOCATION_AND_NETWORK"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.azmotorsoficina.com.br/",
+      "label": "AZ Motors",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "high_risk_specialization",
+        "service_video_transparency",
+        "preventive_maintenance",
+        "physical_shop_proof",
+        "specialist_positioning"
+      ],
+      "reject": [
+        "unverified_rating_style_metrics"
+      ],
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.rdstation.com/blog/marketing/exemplos-de-landing-pages/",
+      "label": "RD Station — Landing Page Examples",
+      "clusters": [
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "USE",
+      "signals": [
+        "conversion_goal_drives_depth",
+        "form_friction_by_offer",
+        "cta_focus",
+        "offer_specific_content"
+      ],
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+    },
+    {
+      "url": "https://unbounce.com/landing-page-examples/best-landing-page-examples/",
+      "label": "Unbounce — Landing Page Examples",
+      "clusters": [
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "USE",
+      "signals": [
+        "dominant_conversion_mechanism",
+        "short_form_when_low_friction",
+        "jump_links_when_long",
+        "people_vs_product_choice",
+        "material_statistic_as_proof"
+      ],
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+    },
+    {
+      "url": "https://www.hostinger.com/br/criador-de-sites-com-ia",
+      "label": "Hostinger AI Website Builder",
+      "clusters": [
+        "PRODUCT_DEMO_LED",
+        "PRODUCTIZED_SERVICE",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "use_case_switching",
+        "plan_comparison",
+        "feature_catalog",
+        "productized_configuration"
+      ],
+      "experienceEngine": [
+        "PLAN_OR_SCOPE_CONFIGURATION",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "motionObserved": "NOT_VERIFIED"
     }
+  ],
+  "experienceEngines": [
+    "PROBLEM_TO_DIAGNOSIS",
+    "CRAFT_AND_PHYSICAL_PROOF",
+    "LOCATION_AND_NETWORK",
+    "PRODUCT_OR_SERVICE_FINDER",
+    "PROCESS_AND_TRANSPARENCY",
+    "PLAN_OR_SCOPE_CONFIGURATION",
+    "FOUNDER_OR_SPECIALIST_TRUST",
+    "INVENTORY_OR_PRODUCT_BROWSING",
+    "URGENT_FAST_PATH",
+    "EDUCATION_AND_RISK_REDUCTION"
   ]
 }

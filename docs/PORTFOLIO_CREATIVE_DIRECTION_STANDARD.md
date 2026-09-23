@@ -38,6 +38,10 @@ proofStrategy:
 nearestPortfolioRisks:
 antiTemplateDecisions:
 resourceEffortLedger:
+experienceEnginePrimary:
+experienceEngineCounterpoint:
+experienceEngineEvidence:
+experienceEngineRejected:
 ```
 
 Para projeto publicado, nenhum campo pode permanecer como `[PREENCHER]`.
@@ -308,6 +312,64 @@ Cada padrão selecionado precisa puxar competências correspondentes. Exemplos:
 
 O objetivo é impedir que referências virem apenas “prints bonitos” sem alterar a
 qualidade do processo de criação.
+
+## 4.6 EXPERIENCE_ENGINE_MATRIX — motor dominante da experiência
+
+Depois de selecionar referências e antes do wireframe final, todo projeto novo
+deve declarar **qual lógica governa a experiência**. Isso existe para impedir o
+anti-padrão “usar todas as boas práticas” e terminar novamente em uma landing
+completa/genérica.
+
+Campos obrigatórios:
+
+`primaryEngine | counterpointEngine | visitorJob | decisiveUncertainty |
+evidence | compositionConsequence | mediaAnchor | interactionLocus |
+motionCandidate | mobileExpression | rejectedEngines | reason`
+
+Motores disponíveis no corpus machine-readable:
+
+- `PROBLEM_TO_DIAGNOSIS`;
+- `CRAFT_AND_PHYSICAL_PROOF`;
+- `LOCATION_AND_NETWORK`;
+- `PRODUCT_OR_SERVICE_FINDER`;
+- `PROCESS_AND_TRANSPARENCY`;
+- `PLAN_OR_SCOPE_CONFIGURATION`;
+- `FOUNDER_OR_SPECIALIST_TRUST`;
+- `INVENTORY_OR_PRODUCT_BROWSING`;
+- `URGENT_FAST_PATH`;
+- `EDUCATION_AND_RISK_REDUCTION`.
+
+### Regra primary + counterpoint
+
+1. declarar **um** motor primário;
+2. usar no máximo **um** contraponto forte quando houver razão decisória;
+3. capacidades adicionais permanecem subordinadas;
+4. o motor precisa alterar ordem narrativa, composição, mídia ou interação;
+5. não escolher motor pelo rótulo do segmento;
+6. se a página final continuar com a mesma silhueta/jornada de um vizinho, o
+   campo declarado não vale como evidência.
+
+Exemplos válidos são combinações de gramáticas, não presets:
+
+- especialista técnico de alto risco:
+  `FOUNDER_OR_SPECIALIST_TRUST + PROCESS_AND_TRANSPARENCY`;
+- rede com produto compatível por veículo:
+  `PRODUCT_OR_SERVICE_FINDER + LOCATION_AND_NETWORK`;
+- assistência com laboratório forte:
+  `CRAFT_AND_PHYSICAL_PROOF + PROBLEM_TO_DIAGNOSIS`;
+- campanha para defeito específico:
+  `URGENT_FAST_PATH + PROBLEM_TO_DIAGNOSIS`.
+
+Falhas:
+
+- `ENGINELESS_COMPLETE_SITE` — página contém tudo, mas nada governa;
+- `ENGINE_STACKING` — três ou mais motores competem com o mesmo peso;
+- `SEGMENT_ENGINE_DEFAULT` — escolha baseada só em “é oficina/assistência/etc.”;
+- `ENGINE_DECORATIVE_ONLY` — motor existe no brief, mas não muda a página.
+
+O ledger de pesquisa R2 está em
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md`.
+
 
 
 
