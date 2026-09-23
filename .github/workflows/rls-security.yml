@@ -1,0 +1,47 @@
+name: RLS Security Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "supabase/**"
+      - "tests/rls/**"
+      - "src/integrations/supabase/**"
+      - ".github/workflows/rls-security.yml"
+  schedule:
+    - cron: "17 11 * * *"
+
+jobs:
+  rls-security:
+    name: RLS real — isolamento e tabelas sensíveis
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Verificar credencial obrigatória do gate
+        shell: bash
+        run: |
+          if [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "::error title=RLS BLOCKED_MISSING_SECRET::O secret SUPABASE_SERVICE_ROLE_KEY não está configurado no GitHub Actions. RLS NÃO foi validado."
+            echo "Configure o secret no repositório e execute novamente este workflow."
+            exit 1
+          fi
+          echo "Credencial do gate presente. O valor não será exibido."
+
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+
+      - name: RLS — tabelas sensíveis
+        run: bun tests/rls/sensitive_tables.test.ts
+
+      - name: RLS — isolamento entre portais
+        run: bun tests/rls/portal_isolation.test.ts
