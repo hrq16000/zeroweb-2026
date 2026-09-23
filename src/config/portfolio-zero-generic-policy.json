@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -67,7 +67,18 @@
     "rhythmMediaMatrixRequired": true,
     "journeyDivergenceRequired": true,
     "referenceDecompositionRequiredWhenReferenceSupplied": true,
-    "referenceMustNotDefineFinalSilhouette": true
+    "referenceMustNotDefineFinalSilhouette": true,
+    "compositionContractCurrent": 2,
+    "compositionContractV1Grandfathered": true,
+    "compositionContractV2Fields": [
+      "roleGraph",
+      "mediaCadence",
+      "interactionLoci",
+      "decisionAidPlacement",
+      "densityRhythm",
+      "mobileCompositionStrategy"
+    ],
+    "sameJourneyDifferentCopyIsFailure": true
   },
   "mediaPolicy": {
     "purposeSlots": [
