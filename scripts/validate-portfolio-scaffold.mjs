@@ -21,6 +21,15 @@ const errors = [];
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
 const lifecycleManifests =
   JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
+const legacyBaselineRaw = JSON.parse(read("src/config/portfolio-legacy-baseline.json") || "{}");
+const legacyBaseline = new Set(legacyBaselineRaw.slugs ?? []);
+
+if (legacyBaselineRaw.mode !== "FROZEN_LEGACY_BASELINE") {
+  errors.push("baseline legado ausente ou inválido (src/config/portfolio-legacy-baseline.json)");
+}
+if (Number(legacyBaselineRaw.count ?? -1) !== legacyBaseline.size) {
+  errors.push("baseline legado inconsistente: count não corresponde ao total de slugs congelados");
+}
 const blueprintRegistrySource = read("src/components/portfolio/blueprint/registry.ts");
 // Projetos novos entram no registry de composição autoral; o Blueprint segue
 // congelado nos três pilotos (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md).
@@ -76,6 +85,18 @@ for (const client of clients) {
   const catalogProject = catalogBySlug.get(client.slug);
   const isPublished = catalogProject?.status === "published";
   const isCreativeV2 = Number(client.creativeContractVersion ?? 0) >= 2;
+  const isManaged = Boolean(lifecycleManifests[client.slug]);
+  const isFrozenLegacy = legacyBaseline.has(client.slug);
+
+  // LEGACY GROWTH GATE:
+  // Os 90 slugs existentes em 2026-09-22 ficam congelados como dívida histórica.
+  // Qualquer slug novo precisa nascer gerenciado pelo lifecycle/manifests.
+  // Isso impede "novo projeto que nasce legado" e escapa dos gates de qualidade.
+  if (!isManaged && !isFrozenLegacy) {
+    errors.push(
+      `${label} novo portfolio sem manifesto: todo slug fora do baseline congelado precisa nascer gerenciado pelo scaffold canônico`,
+    );
+  }
 
   if (!client.clientKey || !client.siteName) errors.push(`${label} registro incompleto`);
 
@@ -120,7 +141,7 @@ for (const client of clients) {
 
   // --- Pipeline oficial de projetos NOVOS (lifecycle gerenciado) ---------
   // Legado protegido: só vale para slugs com manifesto de ciclo de vida.
-  if (lifecycleManifests[client.slug]) {
+  if (isManaged) {
     if (client.contactMode !== "funnelOnly") {
       errors.push(`${label} projeto gerenciado sem contactMode="funnelOnly"`);
     }
