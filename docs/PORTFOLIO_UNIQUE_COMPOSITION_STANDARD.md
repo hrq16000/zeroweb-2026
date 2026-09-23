@@ -74,6 +74,36 @@ Trocar classes CSS mantendo o mesmo DOM é skin swap = FAIL. O gate observa quan
 
 Cada projeto declara: `heroGeometry`, `headerTreatment`, `sectionGraph`, `contentOrder`, `gridTopology`, `mediaDistribution`, `backgroundRhythm`, `proofPlacement`, `ctaDistribution`, `navigationPattern`, `motionSignature`, `closingStructure`. Comparado contra os projetos recentes antes de READY e em toda manutenção material.
 
+#### Composition Contract v2 — projetos criados após 2026-09-22
+
+O scaffold atual emite `compositionContract: 2`. Além dos 12 campos visuais
+originais, projetos v2 obrigatoriamente declaram:
+
+`roleGraph` · `mediaCadence` · `interactionLoci` ·
+`decisionAidPlacement` · `densityRhythm` ·
+`mobileCompositionStrategy`.
+
+Esses campos tornam verificável a diferença entre **mudar a aparência** e
+**mudar a experiência**:
+
+- `roleGraph`: sequência/fusão dos papéis de orientação, oferta, prova,
+  decisão, risco, localidade e conversão;
+- `mediaCadence`: alternância de mídia dominante, apoio, prova e respiro;
+- `interactionLoci`: pontos reais de escolha, comparação, filtro, diagnóstico,
+  configuração ou conversão;
+- `decisionAidPlacement`: onde a principal incerteza é resolvida;
+- `densityRhythm`: cadência perceptiva entre densidade, contraste e espaço;
+- `mobileCompositionStrategy`: como o mobile é recomposto em vez de apenas
+  empilhar o desktop.
+
+Projetos já publicados com `compositionContract: 1` permanecem válidos e não
+recebem migração automática. V2 é aplicado prospectivamente.
+
+O gate v2 reprova `SAME_JOURNEY_DIFFERENT_COPY` quando aparência/estrutura
+mudam, mas `roleGraph + mediaCadence + interactionLoci` permanecem
+substancialmente iguais a outro projeto.
+
+
 ### 10.1 Experience-role fingerprint
 
 O fingerprint passa a registrar também **como a página funciona**, não só como
