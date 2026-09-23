@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -142,7 +142,8 @@
     "SAME_JOURNEY_DIFFERENT_COPY",
     "SECTION_ROLE_MONOTONY",
     "MEDIA_RHYTHM_REUSED",
-    "FUNCTIONAL_DIVERSITY_MISSING"
+    "FUNCTIONAL_DIVERSITY_MISSING",
+    "NEW_UNMANAGED_PORTFOLIO"
   ],
   "legacyPolicy": {
     "grandfatheredAsComplete": false,
@@ -154,7 +155,11 @@
       "weak-media-cover",
       "generic-hero",
       "missing-signature"
-    ]
+    ],
+    "baselineFile": "src/config/portfolio-legacy-baseline.json",
+    "baselineFrozen": true,
+    "newProjectsMustBeManaged": true,
+    "legacyCountMayOnlyDecrease": true
   },
   "referenceDecompositionPolicy": {
     "requiredWhenReferenceSupplied": true,
