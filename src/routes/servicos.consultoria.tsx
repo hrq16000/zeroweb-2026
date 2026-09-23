@@ -20,7 +20,6 @@ export const Route = createFileRoute("/servicos/consultoria")({
       headline="Estratégia digital com método"
       subheadline="Sessões de planejamento e execução guiada para crescer com previsibilidade."
       ctaLabel="Quero o planejamento"
-      whatsappMessage="Quero contratar consultoria estratégica com a 0WEB."
       benefits={[
         { title: "Diagnóstico completo", description: "Funil, canais, ofertas, posicionamento." },
         { title: "Roadmap 90 dias", description: "Quinzenas com entregas mensuráveis." },
