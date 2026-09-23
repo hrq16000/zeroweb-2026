@@ -294,6 +294,24 @@ different client-specific composition, silhouette, media cadence and journey.
 
 ## 12. Multi-source reference corpus — R1 2026-09-23
 
+### R2 automotive / operational decision extension
+
+Also consult
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_AUTOMOTIVE_2026-09-23.md`
+when the client involves automotive, repair, inspection, scheduling,
+compatibility, recurring maintenance, physical workshop proof or an analogous
+technical operation.
+
+Do not start from an “automotive layout”. First test whether the real operation
+supports one or more of:
+
+`VEHICLE_CONFIGURATOR_LED | INSPECTION_REPORT_LED |
+PROCESS_TRANSPARENCY_LED | CALCULATOR_DECISION_LED | APPOINTMENT_LED |
+AUDIENCE_CONTEXT_LED | COMMERCE_SERVICE_HYBRID | LEGACY_AUTHORITY_LED`.
+
+An operational mechanism should beat decorative cards when it removes a real
+decision barrier.
+
 FFIX is no longer the only reference example. Before using an external site,
 consult:
 
