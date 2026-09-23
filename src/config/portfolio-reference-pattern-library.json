@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -426,6 +426,137 @@
         "PRODUCT_OR_SERVICE_FINDER"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://bryytech.com.br/",
+      "label": "Bryy Tech",
+      "clusters": [
+        "DIAGNOSTIC_LED",
+        "SPECIALIST_SINGLE_JOB",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "standard_emergency_scheduled_home_service_modes",
+        "repair_board_specialization",
+        "diagnostic_before_service",
+        "home_service_curitiba_sjp"
+      ],
+      "interactionSignatures": [
+        "SERVICE_MODE_SELECTOR",
+        "SYMPTOM_TO_SERVICE_MODE"
+      ],
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.eletronicafast.com.br/",
+      "label": "Eletro Fast",
+      "clusters": [
+        "MULTI_LOCATION_LED",
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "equipment_category_split",
+        "five_curitiba_units",
+        "service_process_transparency",
+        "online_parts_store",
+        "residential_premium_service"
+      ],
+      "interactionSignatures": [
+        "CATEGORY_THEN_LOCATION",
+        "SERVICE_PLUS_COMMERCE_CONTINUITY"
+      ],
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://grupordmcuritiba.com.br/",
+      "label": "Grupo RDM / Rei do Microondas",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "DIAGNOSTIC_LED",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "microondas_specialization",
+        "local_store",
+        "budget_fast_path",
+        "symptom_education"
+      ],
+      "interactionSignatures": [
+        "SYMPTOM_TO_SERVICE_MODE"
+      ],
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "URGENT_FAST_PATH"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.rssolution.com.br/",
+      "label": "RS Solution",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "repair_installation_parts_contracts",
+        "residential_business_condo_service",
+        "brand_and_appliance_taxonomy"
+      ],
+      "interactionSignatures": [
+        "SERVICE_PLUS_COMMERCE_CONTINUITY"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://infocaseinformatica.com.br/",
+      "label": "Infocase Informática",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "fiscal_software",
+        "equipment_sales",
+        "onsite_remote_phone_email_support",
+        "two_locations"
+      ],
+      "interactionSignatures": [
+        "SERVICE_MODE_SELECTOR"
+      ],
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://aiconbr.com.br/",
+      "label": "Aicon Informática",
+      "clusters": [],
+      "use": "ADAPT",
+      "signals": [
+        "computers_notebooks_cells_assistance_sjp"
+      ],
+      "evidenceStatus": "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN",
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -439,5 +570,16 @@
     "INVENTORY_OR_PRODUCT_BROWSING",
     "URGENT_FAST_PATH",
     "EDUCATION_AND_RISK_REDUCTION"
+  ],
+  "interactionSignatures": [
+    "SERVICE_MODE_SELECTOR",
+    "CATEGORY_THEN_LOCATION",
+    "SYMPTOM_TO_SERVICE_MODE",
+    "SERVICE_PLUS_COMMERCE_CONTINUITY"
+  ],
+  "researchLedgers": [
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md"
   ]
 }
