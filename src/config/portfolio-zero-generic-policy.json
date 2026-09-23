@@ -195,5 +195,7 @@
     "staleDecisionDataForbidden": true,
     "fakeLiveAvailabilityForbidden": true,
     "volatileClaimsRequireSourceAndVerifiedAt": true
-  }
+  },
+  "referenceGovernanceDoc": "docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md",
+  "referenceGovernanceStatus": "CANONICAL_ADDITIVE_REQUIRED"
 }
