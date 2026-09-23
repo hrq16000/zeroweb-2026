@@ -21,6 +21,13 @@ describe("Google Meu Negócio funnel contract", () => {
     expect(src).toContain("peça orientação pelo funil");
   });
 
+  test("não publica rating ou volume de clientes sem fonte", () => {
+    expect(src).not.toContain("+520 empresas atendidas");
+    expect(src).not.toContain("Star className");
+    expect(src).toContain("Marketing digital desde 2006");
+    expect(src).toContain("Estratégia de presença local no Google");
+  });
+
   test("preserva os dois produtos comerciais atuais", () => {
     expect(src).toContain("price: 397");
     expect(src).toContain("price: 247");
