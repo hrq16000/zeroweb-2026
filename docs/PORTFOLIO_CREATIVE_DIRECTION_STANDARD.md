@@ -284,7 +284,8 @@ site de assistência”). Selecionar pelas necessidades reais:
 Registrar no brief:
 
 `referenceClusters | referenceUseClasses | interactionEvidence |
-motionEvidence | rejectedReferencePatterns | skillTranslation`
+selectedInteractionSignatures | motionEvidence | rejectedReferencePatterns |
+skillTranslation`
 
 ### REFERENCE_SIGNAL_MATRIX
 
@@ -369,6 +370,13 @@ Falhas:
 
 O ledger de pesquisa R2 está em
 `docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md`.
+
+O ledger R3 de interaction signatures está em
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md`.
+
+Interaction signature não substitui experience engine. Ela deve resolver uma
+incerteza específica dentro do motor dominante e pode ser rejeitada quando não
+há capacidade operacional ou evidência suficiente.
 
 
 
