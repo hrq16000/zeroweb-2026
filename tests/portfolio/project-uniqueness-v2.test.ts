@@ -71,12 +71,26 @@ describe("PROJECT_UNIQUENESS_GATE compositionContract v2", () => {
     const peer = {
       slug: "peer",
       fingerprint: {
-        ...v2Fingerprint,
+        // Todo o fingerprint visual/estrutural antigo é diferente.
         heroGeometry: "technical diagonal stage",
         headerTreatment: "compact top bar",
-        sectionGraph: "stage→catalog→process→close",
-        contentOrder: ["offer", "catalog", "process", "conversion"],
-        gridTopology: "broken grid",
+        sectionGraph: "stage→catalog→process→utility→close",
+        contentOrder: ["offer", "catalog", "process", "utility", "conversion"],
+        gridTopology: "broken modular grid",
+        mediaDistribution: "catalog rail + technical diagram + local proof",
+        backgroundRhythm: "paper→signal-yellow→graphite→paper",
+        proofPlacement: "embedded inside utility checkpoint",
+        ctaDistribution: "catalog item + sticky utility + closing dock",
+        navigationPattern: "compact anchor dock",
+        motionSignature: "drawn path + horizontal rail",
+        closingStructure: "utility dock with compact conversion",
+        // Somente a jornada/ritmo v2 coincide.
+        roleGraph: [...v2Fingerprint.roleGraph],
+        mediaCadence: [...v2Fingerprint.mediaCadence],
+        interactionLoci: [...v2Fingerprint.interactionLoci],
+        decisionAidPlacement: [...v2Fingerprint.decisionAidPlacement],
+        densityRhythm: [...v2Fingerprint.densityRhythm],
+        mobileCompositionStrategy: v2Fingerprint.mobileCompositionStrategy,
       },
     };
 
