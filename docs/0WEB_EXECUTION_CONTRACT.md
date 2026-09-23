@@ -26,6 +26,13 @@ segurança, conversão/WhatsApp, SEO local e legibilidade por mecanismos de busc
 e LLMs. Capacidades só entram quando resolvem uma necessidade real; não há
 template visual obrigatório.
 
+Para qualquer nova landing, redesign material ou tarefa que receba site de
+referência, também é obrigatória a leitura de
+`docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md`. Referências devem
+ser decompostas em matrizes de papel/composição/ritmo/anti-cópia; limites reais
+e dados voláteis devem passar por truth/freshness. O resultado nunca pode ser
+uma reprodução de silhueta nem a mesma jornada com nova marca/conteúdo.
+
 ### Empenho obrigatório em recursos relevantes
 
 Em portfolio, “usar o máximo de recursos” significa obrigatoriamente descobrir,
