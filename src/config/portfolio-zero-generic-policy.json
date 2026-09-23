@@ -143,7 +143,12 @@
     "SECTION_ROLE_MONOTONY",
     "MEDIA_RHYTHM_REUSED",
     "FUNCTIONAL_DIVERSITY_MISSING",
-    "NEW_UNMANAGED_PORTFOLIO"
+    "NEW_UNMANAGED_PORTFOLIO",
+    "SCOPE_OVERCLAIM",
+    "MATERIAL_LIMIT_HIDDEN",
+    "STALE_DECISION_DATA",
+    "FAKE_LIVE_AVAILABILITY",
+    "VOLATILE_CLAIM_WITHOUT_SOURCE"
   ],
   "legacyPolicy": {
     "grandfatheredAsComplete": false,
@@ -182,5 +187,13 @@
       "projectSpecificTranslation"
     ],
     "principle": "ABSORB_GRAMMAR_NEVER_COPY_SILHOUETTE"
+  },
+  "truthPolicy": {
+    "scopeTruthMatrixRequired": true,
+    "freshnessMatrixRequiredForVolatileDecisionData": true,
+    "limitsMustBeVisibleBeforeConversionWhenMaterial": true,
+    "staleDecisionDataForbidden": true,
+    "fakeLiveAvailabilityForbidden": true,
+    "volatileClaimsRequireSourceAndVerifiedAt": true
   }
 }

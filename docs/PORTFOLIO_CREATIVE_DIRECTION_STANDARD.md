@@ -234,6 +234,29 @@ Quando uma referência externa for fornecida pelo usuário, registrar no brief:
 Se o agente apenas reproduzir a ordem, silhueta ou composição distintiva da
 referência, isso é `REFERENCE_USED_AS_TEMPLATE` e reprova a direção.
 
+## 4.4 Truth/freshness pass — obrigatório antes de fechar a narrativa
+
+Depois da matriz de papéis e antes do wireframe final, revisar:
+
+1. **Escopo** — o que o negócio faz, não faz e faz somente sob condição;
+2. **Volatilidade** — quais claims podem envelhecer;
+3. **Consequência visual** — onde limite, disponibilidade ou incerteza precisam
+   aparecer para ajudar a decisão;
+4. **Fallback** — o que a página mostra quando o dado atual não está disponível.
+
+Registrar no brief:
+
+`scopeTruthMatrix` · `freshnessMatrix` · `volatileClaims` ·
+`staleFallbacks`.
+
+Isso pode alterar a composição. Exemplo: inventário mutável pode pedir vitrine +
+“consultar disponibilidade”; atendimento por região pode pedir coverage checker;
+serviço com exclusões relevantes pode pedir comparação de escopo; orçamento
+dependente de diagnóstico pode pedir fluxo de triagem em vez de preço falso.
+
+Não transformar transparência em bloco padrão. A forma continua autoral.
+
+
 
 ## 5. Tipografia e tokens do cliente
 
