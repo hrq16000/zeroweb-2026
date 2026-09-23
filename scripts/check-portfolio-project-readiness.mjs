@@ -290,6 +290,7 @@ function evaluate(slug, manifest) {
         fingerprint: manifest.compositionFingerprint ?? null,
         perceptualReview: manifest.perceptualReview ?? null,
         contentFacts: manifest.contentFacts ?? null,
+        compositionContract: manifest.compositionContract ?? 0,
       },
       compositionPeers,
     );
