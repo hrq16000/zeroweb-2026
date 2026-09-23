@@ -293,7 +293,13 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - repair-vs-replace / upgrade-vs-new decision aid;
 - progressive briefing with context carryover;
 - product-state demo;
-- campaign fast path.
+- campaign fast path;
+- `SERVICE_MODE_SELECTOR` — padrão/emergencial/agendado/domicílio/retirada quando reais;
+- `CATEGORY_THEN_LOCATION` — categoria/equipamento antes de unidade/modalidade;
+- `WARRANTY_ELIGIBILITY_TRIAGE` — elegibilidade, modelo, NF/serial e contexto mínimo necessário;
+- `PRODUCT_IDENTITY_CAPTURE` — categoria/marca/modelo/sintoma/foto de etiqueta quando útil;
+- `SERVICE_PLUS_PARTS_HANDOFF` — separar reparo/instalação de compra/encomenda sem misturar fluxos;
+- `SYMPTOM_TO_SERVICE_MODE` — sintoma primeiro, modalidade/logística depois.
 
 ### Derived motion candidates
 
