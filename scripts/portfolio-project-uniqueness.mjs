@@ -6,7 +6,10 @@
  * projetos com `compositionContract >= 1`; legados viram baseline/warning.
  */
 
+/** Menor contrato que ativa o gate; v1 publicado continua protegido. */
 export const COMPOSITION_CONTRACT_VERSION = 1;
+/** Contrato emitido pelo scaffold atual. */
+export const CURRENT_COMPOSITION_CONTRACT_VERSION = 2;
 
 export const UNIQUENESS_DIMENSIONS = [
   "CONTENT_UNIQUENESS",
@@ -17,6 +20,13 @@ export const UNIQUENESS_DIMENSIONS = [
   "MOTION_UNIQUENESS",
   "CONVERSION_PRESENTATION_UNIQUENESS",
   "PERCEPTUAL_UNIQUENESS",
+];
+
+export const V2_UNIQUENESS_DIMENSIONS = [
+  "JOURNEY_UNIQUENESS",
+  "MEDIA_CADENCE_UNIQUENESS",
+  "INTERACTION_UNIQUENESS",
+  "MOBILE_COMPOSITION_UNIQUENESS",
 ];
 
 export const FINGERPRINT_FIELDS = [
@@ -32,6 +42,15 @@ export const FINGERPRINT_FIELDS = [
   "navigationPattern",
   "motionSignature",
   "closingStructure",
+];
+
+export const FINGERPRINT_FIELDS_V2 = [
+  "roleGraph",
+  "mediaCadence",
+  "interactionLoci",
+  "decisionAidPlacement",
+  "densityRhythm",
+  "mobileCompositionStrategy",
 ];
 
 const norm = (value) =>
@@ -68,9 +87,9 @@ export function textSimilarity(a, b) {
 }
 
 /** Compara dois fingerprints campo a campo. */
-export function compareFingerprints(a, b) {
+export function compareFingerprints(a, b, fields = FINGERPRINT_FIELDS) {
   const perField = {};
-  for (const field of FINGERPRINT_FIELDS) {
+  for (const field of fields) {
     const va = a?.[field];
     const vb = b?.[field];
     perField[field] = Array.isArray(va) || Array.isArray(vb)
@@ -114,6 +133,11 @@ export function evaluateProjectUniqueness(project, peers = []) {
   const results = {};
   const details = [];
   const fingerprint = project.fingerprint ?? null;
+  const contractVersion = Number(project.compositionContract ?? 1);
+  const requiredFields =
+    contractVersion >= CURRENT_COMPOSITION_CONTRACT_VERSION
+      ? [...FINGERPRINT_FIELDS, ...FINGERPRINT_FIELDS_V2]
+      : FINGERPRINT_FIELDS;
 
   if (!fingerprint) {
     for (const dimension of UNIQUENESS_DIMENSIONS) results[dimension] = "FAIL";
@@ -125,7 +149,7 @@ export function evaluateProjectUniqueness(project, peers = []) {
     };
   }
 
-  const missing = FINGERPRINT_FIELDS.filter((field) => {
+  const missing = requiredFields.filter((field) => {
     const value = fingerprint[field];
     if (Array.isArray(value)) return value.length === 0;
     return !value || String(value).includes("[PREENCHER]");
@@ -142,6 +166,18 @@ export function evaluateProjectUniqueness(project, peers = []) {
 
   const fieldWorst = (field) =>
     comparisons.reduce((max, item) => Math.max(max, item.perField[field] ?? 0), 0);
+
+  const v2Comparisons =
+    contractVersion >= CURRENT_COMPOSITION_CONTRACT_VERSION
+      ? peers
+          .filter((peer) => peer.slug !== project.slug && peer.fingerprint)
+          .map((peer) => ({
+            slug: peer.slug,
+            ...compareFingerprints(fingerprint, peer.fingerprint, FINGERPRINT_FIELDS_V2),
+          }))
+      : [];
+  const fieldWorstV2 = (field) =>
+    v2Comparisons.reduce((max, item) => Math.max(max, item.perField[field] ?? 0), 0);
 
   results.COMPOSITION_UNIQUENESS =
     missing.length === 0 && (worst?.overall ?? 0) < THRESHOLDS.COMPOSITION_UNIQUENESS
@@ -165,6 +201,18 @@ export function evaluateProjectUniqueness(project, peers = []) {
       : "FAIL";
   results.CONTENT_UNIQUENESS = project.contentFacts?.ownSourcedContent ? "PASS" : "FAIL";
 
+  if (contractVersion >= CURRENT_COMPOSITION_CONTRACT_VERSION) {
+    results.JOURNEY_UNIQUENESS = fieldWorstV2("roleGraph") < 0.9 ? "PASS" : "FAIL";
+    results.MEDIA_CADENCE_UNIQUENESS =
+      Math.max(fieldWorstV2("mediaCadence"), fieldWorstV2("densityRhythm")) < 0.9 ? "PASS" : "FAIL";
+    results.INTERACTION_UNIQUENESS =
+      Math.max(fieldWorstV2("interactionLoci"), fieldWorstV2("decisionAidPlacement")) < 0.9
+        ? "PASS"
+        : "FAIL";
+    results.MOBILE_COMPOSITION_UNIQUENESS =
+      fieldWorstV2("mobileCompositionStrategy") < 0.9 ? "PASS" : "FAIL";
+  }
+
   const review = project.perceptualReview ?? null;
   results.PERCEPTUAL_UNIQUENESS =
     review?.screenshots?.["390"] &&
@@ -185,6 +233,22 @@ export function evaluateProjectUniqueness(project, peers = []) {
       );
       results.COMPOSITION_UNIQUENESS = "FAIL";
       results.STRUCTURAL_UNIQUENESS = "FAIL";
+    }
+  }
+  if (contractVersion >= CURRENT_COMPOSITION_CONTRACT_VERSION) {
+    for (const comparison of v2Comparisons) {
+      const sameJourney =
+        (comparison.perField.roleGraph ?? 0) >= 0.9 &&
+        (comparison.perField.mediaCadence ?? 0) >= 0.9 &&
+        (comparison.perField.interactionLoci ?? 0) >= 0.9;
+      if (sameJourney) {
+        details.push(
+          `SAME_JOURNEY_DIFFERENT_COPY vs ${comparison.slug}: roleGraph/mediaCadence/interactionLoci >= 90%`,
+        );
+        results.JOURNEY_UNIQUENESS = "FAIL";
+        results.MEDIA_CADENCE_UNIQUENESS = "FAIL";
+        results.INTERACTION_UNIQUENESS = "FAIL";
+      }
     }
   }
   if (!review) details.push("comparação perceptual ausente (screenshots 390/1440 + NO-BRAND TEST).");
