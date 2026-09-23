@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { type NavService } from "@/lib/services-nav.functions";
 import { servicesNavQuery } from "@/lib/services-nav-query";
-import { serviceCoverFallback } from "@/lib/service-cover-fallback";
 
 type Props = {
   title?: string;
@@ -27,7 +26,9 @@ export function FeaturedServices({
   limit = 4,
 }: Props) {
   const { data } = useQuery(servicesNavQuery);
-  const items = (data?.homeFeatured ?? []).slice(0, limit);
+  const items = (data?.homeFeatured ?? [])
+    .filter((service) => typeof service.price === "number" && service.price > 0 && Boolean(service.imageUrl))
+    .slice(0, limit);
   if (items.length === 0) return null;
 
 
@@ -60,7 +61,7 @@ export function FeaturedServices({
             >
               <div className="aspect-video overflow-hidden bg-muted">
                 <img
-                  src={s.imageUrl || serviceCoverFallback(s.slug, s.category)}
+                  src={s.imageUrl!}
                   alt={s.imageAlt || `Ilustração do serviço ${s.name}`}
                   width={1280}
                   height={720}
