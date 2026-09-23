@@ -48,6 +48,13 @@ export type CompositionFingerprint = {
   navigationPattern: string;
   motionSignature: string;
   closingStructure: string;
+  /** V2 — jornada/ritmo, obrigatórios para novos projetos compositionContract >= 2. */
+  roleGraph?: string[];
+  mediaCadence?: string[];
+  interactionLoci?: string[];
+  decisionAidPlacement?: string[];
+  densityRhythm?: string[];
+  mobileCompositionStrategy?: string;
 };
 
 /** Contrato de infraestrutura entregue à composição autoral. */
@@ -64,6 +71,7 @@ export type PortfolioComposition = {
 };
 
 export const COMPOSITION_CONTRACT_VERSION = 1;
+export const COMPOSITION_CONTRACT_LATEST_VERSION = 2;
 
 /** Marcador de projeto sem direção criativa — bloqueia READY e publicação. */
 export const COMPOSITION_BRIEF_REQUIRED = "COMPOSITION_BRIEF_REQUIRED";
