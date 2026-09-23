@@ -177,6 +177,12 @@ Páginas inteiramente estáticas são permitidas somente quando a direção deli
 - `SECTION_ROLE_MONOTONY` — papéis diferentes renderizados repetidamente com o mesmo tratamento
 - `MEDIA_RHYTHM_REUSED` — distribuição/tratamento de mídia substancialmente igual ao vizinho
 - `FUNCTIONAL_DIVERSITY_MISSING` — necessidade decisória específica ignorada em favor do skeleton padrão
+- `SCOPE_OVERCLAIM` — página comunica capacidade maior que a comprovada
+- `MATERIAL_LIMIT_HIDDEN` — limitação relevante escondida até depois da conversão
+- `STALE_DECISION_DATA` — preço/estoque/prazo/agenda/condição vencidos apresentados como atuais
+- `FAKE_LIVE_AVAILABILITY` — aparência de dado “ao vivo” sem fonte/atualização real
+- `VOLATILE_CLAIM_WITHOUT_SOURCE` — claim variável sem provenance/freshness
+
 
 Build verde sem resolver esses estados não transforma a página em entrega aprovada.
 
