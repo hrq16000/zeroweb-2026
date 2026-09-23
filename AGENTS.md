@@ -40,6 +40,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
 | Narrativa e originalidade de conversão em `/portfolio` | `docs/PORTFOLIO_CONVERSION_NARRATIVE_STANDARD.md` |
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
+| RLS / isolamento Supabase / evidência de segurança no CI | `docs/RLS_CI_SECURITY_GATE.md` · `.github/workflows/rls-security.yml` |
 | Baseline congelado, política de regressão e manutenção do `/portfolio` | `docs/reports/PORTFOLIO-EXPERIENCE-FINAL-2026-09-05.md` §11 MAINTENANCE MODE |
 | Stack técnica, motion, performance e briefing de novos projetos | `docs/PORTFOLIO_TECH_STACK_PARAMETRIZATION.md` |
 | Contrato obrigatório de execução, SEO/LLM e publicação Git | `docs/0WEB_EXECUTION_CONTRACT.md` · `docs/BRAND_ASSET_POLICY.md` |
