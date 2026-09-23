@@ -37,6 +37,14 @@ Antes de criar JSX visual, executar:
 
 Criar e preencher `docs/portfolio/briefs/<slug>.md` conforme `PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`.
 
+O scaffold atual cria `compositionContract: 2`. Portanto, além do fingerprint
+visual clássico, o brief novo precisa preencher `roleGraph`,
+`mediaCadence`, `interactionLoci`, `decisionAidPlacement`,
+`densityRhythm` e `mobileCompositionStrategy`. Esses campos são obrigatórios
+antes de READY e fazem a jornada comercial participar do
+`PROJECT_UNIQUENESS_GATE`.
+
+
 O resultado do discovery precisa ser registrado: skills usadas, rejeitadas, `NOT_APPLICABLE`, fonte original quando resolvida e motivo. **Instalar todas as skills encontradas não é objetivo; cobrir todas as competências relevantes é.**
 
 ## 1. Camadas — quem garante o quê
