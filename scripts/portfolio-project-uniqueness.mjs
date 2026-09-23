@@ -98,7 +98,7 @@ export function compareFingerprints(a, b, fields = FINGERPRINT_FIELDS) {
   }
   const values = Object.values(perField);
   const overall = values.reduce((sum, value) => sum + value, 0) / (values.length || 1);
-  const identical = FINGERPRINT_FIELDS.filter((field) => perField[field] >= 0.95);
+  const identical = fields.filter((field) => perField[field] >= 0.95);
   return { perField, overall, identicalFields: identical };
 }
 
@@ -140,7 +140,11 @@ export function evaluateProjectUniqueness(project, peers = []) {
       : FINGERPRINT_FIELDS;
 
   if (!fingerprint) {
-    for (const dimension of UNIQUENESS_DIMENSIONS) results[dimension] = "FAIL";
+    const dimensions =
+      contractVersion >= CURRENT_COMPOSITION_CONTRACT_VERSION
+        ? [...UNIQUENESS_DIMENSIONS, ...V2_UNIQUENESS_DIMENSIONS]
+        : UNIQUENESS_DIMENSIONS;
+    for (const dimension of dimensions) results[dimension] = "FAIL";
     return {
       slug: project.slug,
       status: "FAIL",
@@ -151,8 +155,24 @@ export function evaluateProjectUniqueness(project, peers = []) {
 
   const missing = requiredFields.filter((field) => {
     const value = fingerprint[field];
-    if (Array.isArray(value)) return value.length === 0;
-    return !value || String(value).includes("[PREENCHER]");
+    if (Array.isArray(value)) {
+      return (
+        value.length === 0 ||
+        value.some(
+          (item) =>
+            typeof item !== "string" ||
+            !item.trim() ||
+            item.includes("[PREENCHER]") ||
+            item.includes("COMPOSITION_BRIEF_REQUIRED"),
+        )
+      );
+    }
+    return (
+      typeof value !== "string" ||
+      !value.trim() ||
+      value.includes("[PREENCHER]") ||
+      value.includes("COMPOSITION_BRIEF_REQUIRED")
+    );
   });
 
   const comparisons = peers
