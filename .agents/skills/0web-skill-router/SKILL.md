@@ -9,6 +9,8 @@ Canonical entry point for agent work in this repository. Run this before impleme
 
 For anything under the `/portfolio` ecosystem, also read `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md`. Its mode is `ZERO_GENERIC_TOLERANCE` and applies to all current/future client pages plus card/capa, preview/modal/viewer, OG/social, mobile/tablet/desktop, reduced-motion, variants/campaigns and own-domain derivatives.
 
+For any new `/portfolio/:slug`, material redesign, or task with an external reference URL, also read `docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md`. It is the formal consolidation of reference decomposition, composition/rhythm matrices, anti-copy rules, scope truth and freshness requirements.
+
 ## Step 1 — Classify the task
 
 Pick every label that applies:
