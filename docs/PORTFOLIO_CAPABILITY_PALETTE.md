@@ -272,6 +272,50 @@ Traduzir referências genéricas para a stack atual:
 
 ## 10. Performance
 
+## 9.1 Reference-corpus media/interaction roles
+
+The reference corpus adds selectable roles; these are not new mandatory blocks:
+
+### Media roles
+- `CRAFT_MACRO` — close technical craft, bench, microscope, tool detail;
+- `PLACE_CONFIRMATION` — storefront/location as physical-presence proof;
+- `NETWORK_LOCATION` — branch-specific media tied to route/hours;
+- `PRODUCT_UI` — real product/app interface used as demonstration;
+- `FOUNDER_ACCOUNTABILITY` — person who performs/owns the delivery;
+- `LOGISTICS_PROOF` — pickup/delivery/vehicle/route evidence;
+- `OFFER_CONFIGURATION` — visual state for plans/packages/options;
+- `RISK_EXPLANATION` — diagram/media that supports a decision;
+- `SOCIAL_SOURCE_PROOF` — review/testimonial only with provenance.
+
+### Interaction signatures
+- symptom triage;
+- nearest-unit/location selector;
+- scope/plan configurator;
+- legitimate self-segmentation;
+- repair-vs-replace / upgrade-vs-new decision aid;
+- progressive briefing with context carryover;
+- product-state demo;
+- campaign fast path.
+
+### Derived motion candidates
+
+These may be designed when the client metaphor justifies them, but must never be
+reported as observed in a reference without visual evidence:
+
+- diagnostic scan/progress;
+- macro focus reveal;
+- route/location focus;
+- progress-line chapters;
+- product-state transition;
+- masked horizontal rail;
+- portrait-to-proof reveal;
+- selection/price recalculation transition.
+
+All remain subject to performance budget, keyboard access and
+`prefers-reduced-motion`.
+
+
+
 Princípios:
 
 - animar preferencialmente `transform`, `opacity` e `clip-path`;
