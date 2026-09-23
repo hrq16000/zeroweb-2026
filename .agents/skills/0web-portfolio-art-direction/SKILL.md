@@ -272,7 +272,27 @@ When the user supplied a reference and no decomposition was produced,
 
 ### FFIX audit — 2026-09-22
 
-### Multi-source reference corpus — R1 2026-09-23
+Public reference: `https://ffix.com.br/`. This audit is an example of
+**principle extraction**, not a template.
+
+| Observed route/job | Public structural pattern | Principle absorbed |
+|---|---|---|
+| Multi-offer home | trust-led opening → early quote/configuration → service discovery → real workshop media → secondary inventory → benefits/process → brands/locality → diagnostic/status utilities → reviews/store/location → education/FAQ | mix commercial, editorial, physical-proof and utility chapters instead of repeating one component family |
+| Device/service route | concise offer/trust → quote capture → problem-specific explanation → service taxonomy → process/local feasibility → CTA/FAQ | make the first explanatory chapter specific to the decision, not a reusable “about/services” filler |
+| Used-device inventory | availability/gallery first → request/search → assurance → inspection/process → risk reduction → sell/trade path → CTA | product-led intent needs browsing and availability mechanics, not a service-page skeleton |
+| High-risk repair (TV) | repair content plus a “repair or replace?” decision aid near the uncertainty | place decision support where doubt occurs rather than reserving every objection for FAQ |
+| Offer-defining guarantee (screen protection) | differentiating guarantee receives early visual/commercial weight | allow the strongest real differentiator to reorder the page instead of forcing the standard section sequence |
+
+Media lessons from the same reference: real workshop imagery appears where craft
+and credibility need proof; product imagery dominates inventory; store imagery
+supports locality; CTA imagery is used selectively near a closing decision.
+Images therefore have **narrative jobs** and do not all live inside the same
+card/grid treatment.
+
+The 0WEB translation must preserve this adaptive logic while producing a
+different client-specific composition, silhouette, media cadence and journey.
+
+## 12. Multi-source reference corpus — R1 2026-09-23
 
 FFIX is no longer the only reference example. Before using an external site,
 consult:
@@ -296,26 +316,3 @@ forms/tabs/selectors/carousels and state changes; it cannot verify timing/easing
 or scroll choreography. Without visual evidence, set
 `motionObserved=NOT_VERIFIED` and record only a project-specific
 `derivedMotionCandidate`.
-
-
-
-Public reference: `https://ffix.com.br/`. This audit is an example of
-**principle extraction**, not a template.
-
-| Observed route/job | Public structural pattern | Principle absorbed |
-|---|---|---|
-| Multi-offer home | trust-led opening → early quote/configuration → service discovery → real workshop media → secondary inventory → benefits/process → brands/locality → diagnostic/status utilities → reviews/store/location → education/FAQ | mix commercial, editorial, physical-proof and utility chapters instead of repeating one component family |
-| Device/service route | concise offer/trust → quote capture → problem-specific explanation → service taxonomy → process/local feasibility → CTA/FAQ | make the first explanatory chapter specific to the decision, not a reusable “about/services” filler |
-| Used-device inventory | availability/gallery first → request/search → assurance → inspection/process → risk reduction → sell/trade path → CTA | product-led intent needs browsing and availability mechanics, not a service-page skeleton |
-| High-risk repair (TV) | repair content plus a “repair or replace?” decision aid near the uncertainty | place decision support where doubt occurs rather than reserving every objection for FAQ |
-| Offer-defining guarantee (screen protection) | differentiating guarantee receives early visual/commercial weight | allow the strongest real differentiator to reorder the page instead of forcing the standard section sequence |
-
-Media lessons from the same reference: real workshop imagery appears where craft
-and credibility need proof; product imagery dominates inventory; store imagery
-supports locality; CTA imagery is used selectively near a closing decision.
-Images therefore have **narrative jobs** and do not all live inside the same
-card/grid treatment.
-
-The 0WEB translation must preserve this adaptive logic while producing a
-different client-specific composition, silhouette, media cadence and journey.
-
