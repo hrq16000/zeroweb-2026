@@ -154,6 +154,30 @@ A revisão editorial deve responder:
 `REFERENCE_USED_AS_TEMPLATE` tornam `editorialPass = false`.
 
 
+### 6.5 Experience engine review
+
+Para projeto novo, revisar a `EXPERIENCE_ENGINE_MATRIX` declarada no creative
+brief.
+
+Perguntas obrigatórias:
+
+- existe um `primaryEngine` sustentado por evidência do cliente/jornada?
+- o contraponto, quando existe, realmente cria contraste útil?
+- a página evita três ou mais motores disputando a mesma hierarquia?
+- o motor alterou ao menos dois eixos entre ordem narrativa, composição, mídia,
+  interação, CTA ou tradução mobile?
+- o motor foi escolhido pela decisão real, e não pelo segmento?
+- removendo logo/cor/copy, ainda é possível perceber a lógica dominante?
+
+Falhas bloqueantes:
+
+`ENGINELESS_COMPLETE_SITE` · `ENGINE_STACKING` ·
+`SEGMENT_ENGINE_DEFAULT` · `ENGINE_DECORATIVE_ONLY`.
+
+Essas falhas tornam `editorialPass = false`, mesmo quando todos os blocos
+isoladamente parecem “bons”.
+
+
 ## 7. Hero matrix
 
 Avaliado separadamente: `brandMatch · segmentMatch · visualImpact ·
