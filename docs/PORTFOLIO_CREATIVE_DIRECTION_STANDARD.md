@@ -312,6 +312,34 @@ qualidade do processo de criação.
 
 
 
+## 4.6 Corpus R2 — operação real pode virar interface
+
+For automotive and analogous technical-service projects, evaluate before layout:
+
+`vehicleCompatibilityNeeded | inspectionBeforeQuote | appointmentValue |
+processTransparencyNeed | physicalWorkshopStrength | multiLocation |
+productPlusService | accessibilityNeed | b2bFleetNeed | calculatorPotential |
+verifiedLegacyAuthority | verifiedReviewSource`
+
+Relevant clusters introduced by R2:
+
+- `VEHICLE_CONFIGURATOR_LED`;
+- `INSPECTION_REPORT_LED`;
+- `PROCESS_TRANSPARENCY_LED`;
+- `CALCULATOR_DECISION_LED`;
+- `APPOINTMENT_LED`;
+- `AUDIENCE_CONTEXT_LED`;
+- `COMMERCE_SERVICE_HYBRID`;
+- `LEGACY_AUTHORITY_LED`.
+
+The creative direction must ask whether an actual business operation can become
+a useful interface. If the answer is yes, do not replace it with another static
+benefit/service card section.
+
+Examples: check-up may become checklist + report + approval; tire choice may
+become vehicle fitment; GNV may use an honest economy calculator; service
+transparency may use documented work/status rather than the word “transparency”.
+
 ## 5. Tipografia e tokens do cliente
 
 Os tokens globais existem para a plataforma. Dentro de um site de cliente,
