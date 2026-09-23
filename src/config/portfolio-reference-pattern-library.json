@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -426,6 +426,145 @@
         "PRODUCT_OR_SERVICE_FINDER"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.eletronicafast.com.br/",
+      "label": "Eletro Fast",
+      "clusters": [
+        "MULTI_LOCATION_LED",
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "equipment_category_first",
+        "five_locations",
+        "service_plus_parts_store",
+        "diagnosis_before_execution",
+        "residential_premium_path"
+      ],
+      "interactionSignatures": [
+        "CATEGORY_THEN_LOCATION",
+        "SERVICE_PLUS_PARTS_HANDOFF",
+        "PRODUCT_IDENTITY_CAPTURE"
+      ],
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.rssolution.com.br/",
+      "label": "RS Solution",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED",
+        "SPECIALIST_SINGLE_JOB"
+      ],
+      "use": "USE",
+      "signals": [
+        "authorized_brand_routing",
+        "multibrand_service",
+        "parts_supply",
+        "warranty_form",
+        "product_model_voltage_invoice_capture",
+        "appointment_window"
+      ],
+      "interactionSignatures": [
+        "WARRANTY_ELIGIBILITY_TRIAGE",
+        "PRODUCT_IDENTITY_CAPTURE",
+        "SERVICE_PLUS_PARTS_HANDOFF"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "reject": [
+        "direct_contact_pattern_not_for_0web_funnel",
+        "testimonial_without_visible_provenance_must_not_be_imported"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://grupordmcuritiba.com.br/sjp/",
+      "label": "Grupo RDM — SJP",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "DIAGNOSTIC_LED",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "single_job_urgency",
+        "home_store_pickup_delivery_modes",
+        "neighborhood_coverage",
+        "repair_vs_replace_faq",
+        "brand_taxonomy"
+      ],
+      "interactionSignatures": [
+        "SYMPTOM_TO_SERVICE_MODE",
+        "SERVICE_MODE_SELECTOR"
+      ],
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "PROBLEM_TO_DIAGNOSIS"
+      ],
+      "reject": [
+        "time_or_price_claim_without_freshness",
+        "generic_superlatives_without_evidence"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://vendas.infocaseinformatica.com.br/",
+      "label": "Infocase — Gestão Fiscal",
+      "clusters": [
+        "PRODUCTIZED_SERVICE",
+        "PRODUCT_DEMO_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "operation_pain_to_capability",
+        "fiscal_feature_taxonomy",
+        "human_support_positioning",
+        "b2b_support_and_maintenance",
+        "client_logo_proof"
+      ],
+      "interactionSignatures": [
+        "PRODUCT_IDENTITY_CAPTURE"
+      ],
+      "experienceEngine": [
+        "EDUCATION_AND_RISK_REDUCTION",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "reject": [
+        "scale_metrics_without_source_should_not_be_imported"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://aiconbr.com.br/",
+      "label": "Aicon Informática",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "DIAGNOSTIC_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "pf_pj_positioning",
+        "device_specialization",
+        "diagnostic_and_quote"
+      ],
+      "reject": [
+        "testimonial_snippets_without_visible_provenance",
+        "generic_claims_without_source"
+      ],
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "FOUNDER_OR_SPECIALIST_TRUST"
+      ],
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -439,5 +578,30 @@
     "INVENTORY_OR_PRODUCT_BROWSING",
     "URGENT_FAST_PATH",
     "EDUCATION_AND_RISK_REDUCTION"
+  ],
+  "interactionSignatures": [
+    "SERVICE_MODE_SELECTOR",
+    "CATEGORY_THEN_LOCATION",
+    "WARRANTY_ELIGIBILITY_TRIAGE",
+    "PRODUCT_IDENTITY_CAPTURE",
+    "SERVICE_PLUS_PARTS_HANDOFF",
+    "SYMPTOM_TO_SERVICE_MODE"
+  ],
+  "unresolvedSources": [
+    {
+      "url": "https://irepair.com.br/",
+      "status": "UNRESOLVED_CURRENT_CRAWL",
+      "rule": "DO_NOT_SUBSTITUTE_SIMILAR_DOMAIN"
+    },
+    {
+      "url": "https://assistencia-rose.vercel.app/",
+      "status": "UNRESOLVED_CURRENT_CRAWL",
+      "rule": "DO_NOT_INFER"
+    },
+    {
+      "url": "https://novageracaoinformatica.com.br/?page_id=9",
+      "status": "UNRESOLVED_CURRENT_CRAWL",
+      "rule": "DO_NOT_SUBSTITUTE_SIMILAR_DOMAIN"
+    }
   ]
 }
