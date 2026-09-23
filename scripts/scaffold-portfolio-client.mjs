@@ -171,6 +171,12 @@ export const composition: PortfolioComposition = {
       navigationPattern: "[PREENCHER]",
       motionSignature: "[PREENCHER]",
       closingStructure: "[PREENCHER]",
+      roleGraph: ["[PREENCHER]"],
+      mediaCadence: ["[PREENCHER]"],
+      interactionLoci: ["[PREENCHER]"],
+      decisionAidPlacement: ["[PREENCHER]"],
+      densityRhythm: ["[PREENCHER]"],
+      mobileCompositionStrategy: "[PREENCHER]",
     },
   },
 };
@@ -196,7 +202,7 @@ export function ${componentName}() {
 
 const creativeBriefSource = `# Creative Composition Brief — ${siteName}
 
-Contrato: composição v1 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
+Contrato: composição v2 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
 Norma: docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md
 
 > Preencher ANTES de escrever qualquer JSX. Nenhum campo pode permanecer como
@@ -232,6 +238,19 @@ Norma: docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md
 - navigationPattern: [PREENCHER]
 - motionSignature: [PREENCHER]
 - closingStructure: [PREENCHER]
+- roleGraph: [PREENCHER]
+- mediaCadence: [PREENCHER]
+- interactionLoci: [PREENCHER]
+- decisionAidPlacement: [PREENCHER]
+- densityRhythm: [PREENCHER]
+- mobileCompositionStrategy: [PREENCHER]
+
+## Matrizes de composição v2
+
+- ROLE_MATRIX: [PREENCHER]
+- COMPOSITION_MATRIX: [PREENCHER]
+- RHYTHM_MEDIA_MATRIX: [PREENCHER]
+- ANTI_COPY_MATRIX: [PREENCHER]
 
 ## Base editorial
 
@@ -557,8 +576,8 @@ if (existsSync(manifestPath)) {
         motionProfile: null,
       },
       structuralOriginalityReview: { approved: false, reviewedAt: null, notes: null },
-      /** PROJECT_UNIQUENESS_GATE — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md */
-      compositionContract: 1,
+      /** PROJECT_UNIQUENESS_GATE v2 — inclui jornada/ritmo além da silhueta. */
+      compositionContract: 2,
       compositionFingerprint: null,
       perceptualReview: {
         screenshots: { 390: null, 1440: null },
