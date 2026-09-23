@@ -292,3 +292,27 @@ card/grid treatment.
 The 0WEB translation must preserve this adaptive logic while producing a
 different client-specific composition, silhouette, media cadence and journey.
 
+## 12. Multi-source reference corpus — R1 2026-09-23
+
+FFIX is no longer the only reference example. Before using an external site,
+consult:
+
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md`
+- `src/config/portfolio-reference-pattern-library.json`
+
+Select references by **decision mode**, not by segment name. Combine
+complementary grammars where useful: diagnostic-led, physical-proof-led,
+multi-location, founder-led, productized-service, profession-risk-led,
+product-demo-led, specialist-single-job or multi-offer ecosystem.
+
+Every extracted signal is `USE`, `ADAPT` or `REJECT`.
+
+Do not treat visually impressive but factually weak elements as inspiration:
+unverified metrics/reviews, fake urgency, stale prices, zero-state counters and
+generic testimonials belong in `REJECT`.
+
+For animation research, separate interaction from motion. A crawl can verify
+forms/tabs/selectors/carousels and state changes; it cannot verify timing/easing
+or scroll choreography. Without visual evidence, set
+`motionObserved=NOT_VERIFIED` and record only a project-specific
+`derivedMotionCandidate`.

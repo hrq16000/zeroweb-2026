@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-23",
+  "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
+  "principles": {
+    "absorbGrammarNeverCopySilhouette": true,
+    "selectByDecisionModeNotSegment": true,
+    "multipleComplementaryReferencesPreferred": true,
+    "motionRequiresVisualEvidence": true,
+    "interactionsMayBeConfirmedFromDOM": true,
+    "referenceUseClasses": [
+      "USE",
+      "ADAPT",
+      "REJECT"
+    ]
+  },
+  "clusters": [
+    "DIAGNOSTIC_LED",
+    "PHYSICAL_PROOF_LED",
+    "MULTI_LOCATION_LED",
+    "SPECIALIST_SINGLE_JOB",
+    "FOUNDER_LED",
+    "PRODUCTIZED_SERVICE",
+    "PROFESSION_RISK_LED",
+    "PRODUCT_DEMO_LED",
+    "MULTI_OFFER_ECOSYSTEM"
+  ],
+  "sources": [
+    {
+      "url": "https://ffix.com.br/",
+      "label": "FFIX",
+      "clusters": [
+        "DIAGNOSTIC_LED",
+        "PHYSICAL_PROOF_LED",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "USE",
+      "signals": [
+        "early_quote_configuration",
+        "real_workshop_proof",
+        "used_inventory",
+        "symptom_diagnostic",
+        "status_continuity",
+        "decision_aid_repair_vs_replace",
+        "scope_limits"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.especell.com.br/",
+      "label": "Especell",
+      "clusters": [
+        "MULTI_LOCATION_LED",
+        "PHYSICAL_PROOF_LED",
+        "DIAGNOSTIC_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "five_location_network",
+        "location_cards",
+        "free_evaluation",
+        "process_before_price",
+        "physical_store_proof"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://serviceonesjp.com.br/",
+      "label": "Service One",
+      "clusters": [
+        "PHYSICAL_PROOF_LED",
+        "MULTI_OFFER_ECOSYSTEM",
+        "SPECIALIST_SINGLE_JOB"
+      ],
+      "use": "USE",
+      "signals": [
+        "facade_proof",
+        "laboratory_microscopy",
+        "retail_course_service_split",
+        "b2b_repair_path",
+        "campaign_fast_path"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://gruposmarttv.com.br/",
+      "label": "Grupo Smart TV",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "DIAGNOSTIC_LED",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "symptom_taxonomy",
+        "pickup_delivery_journey",
+        "lab_proof",
+        "b2b_segment"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.linkinformaticasjp.com.br/",
+      "label": "Link Informática",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "device_category_navigation",
+        "technical_credentials",
+        "service_depth",
+        "faq_timing"
+      ],
+      "reject": [
+        "unverified_metrics_or_reviews",
+        "zero_counter_state"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://speedcellsjp.com/",
+      "label": "Speed Cell",
+      "clusters": [
+        "FOUNDER_LED",
+        "PRODUCTIZED_SERVICE",
+        "DIAGNOSTIC_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "founder_voice",
+        "membership_plans",
+        "cpf_pj_segmentation",
+        "step_process"
+      ],
+      "reject": [
+        "zero_counter_state",
+        "generic_testimonials_without_provenance"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://tecnicahouse.my.canva.site/",
+      "label": "Técnica House",
+      "clusters": [
+        "FOUNDER_LED",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "founder_origin_story",
+        "service_plus_sales",
+        "b2b_maintenance",
+        "pickup_delivery",
+        "explicit_region_conditions"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://assistenciatecnicasantos.com.br/",
+      "label": "Assistência Técnica Santos domain",
+      "clusters": [],
+      "use": "REJECT",
+      "signals": [
+        "domain_content_mismatch"
+      ],
+      "reject": [
+        "infer_segment_from_domain_name"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://profitize.com.br/",
+      "label": "Profitize",
+      "clusters": [
+        "PRODUCTIZED_SERVICE",
+        "FOUNDER_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "editorial_manifesto",
+        "google_chatgpt_switch",
+        "process_stepper",
+        "interactive_addons",
+        "pricing_transparency",
+        "founder_faq"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/",
+      "label": "Henrique Figueirôa",
+      "clusters": [
+        "FOUNDER_LED",
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "USE",
+      "signals": [
+        "portfolio_rail",
+        "profession_specific_routes",
+        "multi_step_briefing",
+        "bonus_flip_interaction",
+        "qr_continuity",
+        "pricing_packages"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/dentistas",
+      "label": "Henrique Figueirôa — Dentistas",
+      "clusters": [
+        "PROFESSION_RISK_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "urgency_first",
+        "three_touch_decision_path",
+        "compliance_faq",
+        "persistent_contact_path"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://ffjuris.com.br/",
+      "label": "Félix & Franco",
+      "clusters": [
+        "PROFESSION_RISK_LED",
+        "FOUNDER_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "credential_first",
+        "practice_area_selection",
+        "professional_profiles",
+        "risk_faq",
+        "contextual_contact"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://soumoratta.com.br/",
+      "label": "Moratta",
+      "clusters": [
+        "PRODUCT_DEMO_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "pain_story_before_solution",
+        "real_ui_demo",
+        "stateful_product_examples",
+        "countdown_state",
+        "job_based_feature_chapters"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    }
+  ]
+}

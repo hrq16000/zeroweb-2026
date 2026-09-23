@@ -390,6 +390,62 @@ The **documentation/governance integration is complete** when:
 The future executable-gate expansion in §12 is an **additional hardening phase**,
 not a missing part of the documentation integration.
 
+## 13.1 Reference corpus program — multi-source, never single-template
+
+The FFIX audit remains a foundational example, but reference research is now a
+**versioned corpus**, not a single-site doctrine.
+
+Canonical sources:
+
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md`;
+- `src/config/portfolio-reference-pattern-library.json`.
+
+For new projects, reference selection must be based on the visitor/business
+decision mode, not merely the client's segment.
+
+Required qualitative inputs:
+
+`offerMode | decisionVelocity | decisionRisk | physicalProofStrength |
+mediaSupply | locationComplexity | catalogComplexity | humanTrustNeed |
+diagnosticNeed | priceTransparency | recurringOffer | b2bNeed |
+productDemoNeed`
+
+Prefer **2–4 complementary references** when useful. One source must never become
+the visual master template.
+
+### Reference use class
+
+Every extracted signal receives:
+
+- `USE` — directly transferable principle;
+- `ADAPT` — useful after contextual/factual/technical translation;
+- `REJECT` — anti-pattern; never reproduce.
+
+A visually attractive site can still contribute `REJECT` signals such as
+unverified reviews, zero-state counters, stale pricing or generic testimonials.
+
+### Interaction vs motion evidence
+
+Reference research must distinguish:
+
+`interactionObserved` from `motionObserved`.
+
+HTML/crawl evidence may confirm selectors, forms, tabs, carousels, multi-step
+flows and stateful controls. It does **not** prove easing, timing, parallax,
+clip-path choreography or microanimation.
+
+For motion research use:
+
+`source | observationMode | interactionObserved | motionObserved |
+derivedMotionCandidate | narrativeJob | implementationPrimitive |
+reducedMotionFallback | confidence`
+
+When no browser/render evidence exists, `motionObserved = NOT_VERIFIED`.
+Derived motion ideas remain 0WEB creative proposals, not claims about the source.
+
+
+
+
 ## 14. Final rule
 
 A client must not receive a site that looks like a recolored member of the same
