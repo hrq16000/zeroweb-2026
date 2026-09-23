@@ -258,8 +258,6 @@ Não transformar transparência em bloco padrão. A forma continua autoral.
 
 
 
-## 5. Tipografia e tokens do cliente
-
 ## 4.5 Corpus de referências — seleção por modo de decisão
 
 Além das quatro matrizes de referência, novos briefs devem consultar
@@ -312,6 +310,9 @@ O objetivo é impedir que referências virem apenas “prints bonitos” sem alt
 qualidade do processo de criação.
 
 
+
+
+## 5. Tipografia e tokens do cliente
 
 Os tokens globais existem para a plataforma. Dentro de um site de cliente,
 crie escopo local (`data-client-theme`, classe raiz ou custom properties locais)
