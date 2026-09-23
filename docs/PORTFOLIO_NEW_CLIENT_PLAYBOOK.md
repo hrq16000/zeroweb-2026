@@ -221,6 +221,23 @@ bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
 
 Após o scaffold, o próximo passo **não** é publicar: é pesquisa + discovery + creative direction + composição autoral + mídia + funil + QA.
 
+### 9.1 LEGACY GROWTH GATE
+
+O legado existente foi congelado em
+`src/config/portfolio-legacy-baseline.json` em 2026-09-22.
+
+Regra para qualquer slug criado depois desse baseline:
+
+- precisa existir em `portfolio-project-manifests.json`;
+- precisa nascer pelo lifecycle gerenciado;
+- não pode ser adicionado ao baseline legado como atalho;
+- `validate:portfolio-scaffold` reprova cliente novo que não esteja nem no
+  manifesto nem no baseline congelado.
+
+O baseline é dívida histórica explicitamente identificada, não uma segunda via
+de criação. A quantidade de projetos legados só pode **diminuir**, nunca crescer.
+
+
 ## 10. Governança
 
 Issue → branch → PR → checks → revisão → merge. Nunca publicar direto em `main`.
