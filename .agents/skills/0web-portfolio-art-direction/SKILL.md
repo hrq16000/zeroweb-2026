@@ -272,6 +272,33 @@ When the user supplied a reference and no decomposition was produced,
 
 ### FFIX audit — 2026-09-22
 
+### Multi-source reference corpus — R1 2026-09-23
+
+FFIX is no longer the only reference example. Before using an external site,
+consult:
+
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md`
+- `src/config/portfolio-reference-pattern-library.json`
+
+Select references by **decision mode**, not by segment name. Combine
+complementary grammars where useful: diagnostic-led, physical-proof-led,
+multi-location, founder-led, productized-service, profession-risk-led,
+product-demo-led, specialist-single-job or multi-offer ecosystem.
+
+Every extracted signal is `USE`, `ADAPT` or `REJECT`.
+
+Do not treat visually impressive but factually weak elements as inspiration:
+unverified metrics/reviews, fake urgency, stale prices, zero-state counters and
+generic testimonials belong in `REJECT`.
+
+For animation research, separate interaction from motion. A crawl can verify
+forms/tabs/selectors/carousels and state changes; it cannot verify timing/easing
+or scroll choreography. Without visual evidence, set
+`motionObserved=NOT_VERIFIED` and record only a project-specific
+`derivedMotionCandidate`.
+
+
+
 Public reference: `https://ffix.com.br/`. This audit is an example of
 **principle extraction**, not a template.
 
