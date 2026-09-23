@@ -260,6 +260,59 @@ Não transformar transparência em bloco padrão. A forma continua autoral.
 
 ## 5. Tipografia e tokens do cliente
 
+## 4.5 Corpus de referências — seleção por modo de decisão
+
+Além das quatro matrizes de referência, novos briefs devem consultar
+`src/config/portfolio-reference-pattern-library.json` e, quando relevante, os
+ledgers em `docs/research/PORTFOLIO_REFERENCE_CORPUS_*.md`.
+
+Não selecionar referência por rótulo de segmento (“é assistência, então use
+site de assistência”). Selecionar pelas necessidades reais:
+
+- diagnóstico/incerteza;
+- prova física;
+- múltiplas unidades;
+- serviço único;
+- confiança na pessoa/fundador;
+- planos/preço configurável;
+- risco profissional/regulatório;
+- demonstração de produto;
+- múltiplas ofertas independentes.
+
+Registrar no brief:
+
+`referenceClusters | referenceUseClasses | interactionEvidence |
+motionEvidence | rejectedReferencePatterns | skillTranslation`
+
+### REFERENCE_SIGNAL_MATRIX
+
+`source | route | businessMode | visitorJob | compositionSignal |
+mediaSignal | interactionSignal | proofSignal | localitySignal |
+motionEvidence | useClass | transferablePrinciple | antiPattern | confidence`
+
+### Regra anti-alucinação de motion
+
+Sem observação visual/browser, não declarar que a referência usa parallax,
+stagger, easing, clip reveal, sticky choreography ou qualquer efeito específico.
+Pode-se registrar apenas `DERIVED_MOTION_CANDIDATE`, com implementação própria
+e `prefers-reduced-motion`.
+
+### Skill translation
+
+Cada padrão selecionado precisa puxar competências correspondentes. Exemplos:
+
+- diagnóstico/comparison → decision intelligence + CRO + funnel carryover;
+- multi-location → entity research + local SEO + location UX;
+- prova física → media ingestion + provenance;
+- planos/configurador → truth/freshness + form/commerce state;
+- product demo → frontend interaction + performance;
+- motion → experience-design-max + reduced-motion + accessibility.
+
+O objetivo é impedir que referências virem apenas “prints bonitos” sem alterar a
+qualidade do processo de criação.
+
+
+
 Os tokens globais existem para a plataforma. Dentro de um site de cliente,
 crie escopo local (`data-client-theme`, classe raiz ou custom properties locais)
 quando isso for necessário para preservar identidade.
