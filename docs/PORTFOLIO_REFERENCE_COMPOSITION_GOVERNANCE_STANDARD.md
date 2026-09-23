@@ -390,8 +390,6 @@ The **documentation/governance integration is complete** when:
 The future executable-gate expansion in §12 is an **additional hardening phase**,
 not a missing part of the documentation integration.
 
-## 14. Final rule
-
 ## 13.1 Reference corpus program — multi-source, never single-template
 
 The FFIX audit remains a foundational example, but reference research is now a
@@ -446,6 +444,9 @@ When no browser/render evidence exists, `motionObserved = NOT_VERIFIED`.
 Derived motion ideas remain 0WEB creative proposals, not claims about the source.
 
 
+
+
+## 14. Final rule
 
 A client must not receive a site that looks like a recolored member of the same
 template family.
