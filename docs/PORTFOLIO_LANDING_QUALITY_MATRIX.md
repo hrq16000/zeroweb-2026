@@ -178,6 +178,26 @@ matriz — lacuna sem fonte vira `WARNING` + `ownerRequired`.
 
 ## 10. Proof matrix
 
+
+### 9.1 Scope truth / freshness matrix
+
+A revisão editorial também verifica:
+
+- claims de escopo não extrapolam o que a empresa realmente executa;
+- limitações materiais estão visíveis antes da conversão quando afetam a decisão;
+- preço, estoque, agenda, prazo, promoção e contagens variáveis têm fonte e
+  `verifiedAt`;
+- dado vencido não é apresentado como atual;
+- fallback para informação volátil é honesto e funcional;
+- “consultar disponibilidade” não substitui informação estável que já é conhecida;
+- ausência de atualização não é mascarada com urgência artificial.
+
+Falhas bloqueantes:
+
+`SCOPE_OVERCLAIM` · `MATERIAL_LIMIT_HIDDEN` · `STALE_DECISION_DATA` ·
+`FAKE_LIVE_AVAILABILITY` · `VOLATILE_CLAIM_WITHOUT_SOURCE`.
+
+
 Pesquisar reviews Google, depoimentos reais, cases, fotos reais, certificações,
 projetos, clientes e números comprováveis. Sem prova: `NOT_APPLICABLE` ou
 `NOT_AVAILABLE`. **Nunca** gerar prova artificial.
