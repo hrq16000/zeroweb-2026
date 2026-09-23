@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "purpose": "Pre-existing SEO debt allowed only in PR preview validation. Production validation remains strict.",
+  "allowedFailures": [
+    { "path": "/servicos/marketplace", "check": "og:image presente" },
+    { "path": "/servicos/site-express", "check": "og:image presente" },
+    { "path": "/servicos/trafego-pago", "check": "og:image presente" }
+  ]
+}

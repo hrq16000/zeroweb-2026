@@ -4,16 +4,8 @@ on:
   schedule:
     # Diariamente às 06:00 BRT (09:00 UTC) — após o ciclo de deploy noturno.
     - cron: "0 9 * * *"
-  pull_request:
-    branches: [main]
-    paths:
-      - "src/routes/servicos*.tsx"
-      - "src/routes/sitemap*.ts"
-      - "src/lib/seo.ts"
-      - "src/lib/services-*.ts"
-      - "scripts/validate-jsonld.mjs"
-      - "scripts/validate-sitemaps.mjs"
-      - ".github/workflows/seo-jsonld.yml"
+  # Pull requests are validated against their own local production preview
+  # inside build-validate. This workflow validates deployed production only.
   push:
     branches: [main]
   workflow_dispatch:
@@ -42,8 +34,7 @@ jobs:
       - name: Rodar validador JSON-LD
         env:
           BASE_URL: ${{ github.event.inputs.base_url || 'https://0web.com.br' }}
-          # PR roda rápido (sem chamar o Schema.org Validator remoto).
-          WITH_VALIDATOR: ${{ github.event.inputs.with_validator || (github.event_name == 'pull_request' && 'false' || 'true') }}
+          WITH_VALIDATOR: ${{ github.event.inputs.with_validator || 'true' }}
         run: |
           set -e
           if [ "$WITH_VALIDATOR" = "true" ]; then

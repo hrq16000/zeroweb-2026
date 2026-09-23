@@ -1,12 +1,16 @@
 name: SEO Diff
 
 on:
-  pull_request:
+  # Pull requests run SEO Diff against the PR preview inside build-validate.
+  # This workflow remains available for deployed-production verification.
+  push:
+    branches: [main]
     paths:
       - 'src/routes/**'
       - 'src/lib/seo*'
       - 'src/lib/services-*'
       - 'seo-reports/seo-diff.config.json'
+      - 'scripts/run-seo-diff.mjs'
   workflow_dispatch:
     inputs:
       base_url:

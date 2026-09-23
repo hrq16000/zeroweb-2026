@@ -27,6 +27,20 @@ jobs:
       - name: Build (production)
         run: node scripts/build-with-recovery.mjs
 
+      # Gate canônico de PR: valida o HTML realmente gerado pelo head da PR.
+      # Reaproveita o artefato
+      # de produção construído acima e sobe UM preview local para os três gates.
+      # Nenhum destes checks consulta a produção durante pull_request.
+      - name: SEO preview da PR — JSON-LD, sitemap/robots e diff
+        env:
+          SEO_JSONLD_BASELINE_FILE: seo-reports/seo-preview-baseline.json
+        run: >-
+          node scripts/ci-with-prod-preview.mjs --
+          bash -lc
+          'node scripts/validate-jsonld.mjs &&
+           node scripts/validate-sitemaps.mjs &&
+           node scripts/run-seo-diff.mjs'
+
       # Regressão de privacidade: falha o CI se um chunk público voltar a
       # embutir wa.me / telefone / e-mail não-allowlisted.
       - name: Client privacy regression
