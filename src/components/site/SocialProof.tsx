@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, MapPin, Star, Users, X } from "lucide-react";
+import { Bot, CheckCircle2, Globe2, Megaphone, Search, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { trackEvent } from "@/lib/analytics";
@@ -8,15 +8,6 @@ import { shouldEmitSocialProof } from "@/lib/telemetry-v2";
 import { useNearFooter } from "@/hooks/useNearFooter";
 import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import { getSocialProofFeed, type SocialProofItem as Notif } from "@/lib/social-proof.functions";
-
-// Fallback usado apenas se a chamada ao servidor falhar ou não retornar itens
-const FALLBACK_POOL: Notif[] = [
-  { name: "Carlos M.", city: "Curitiba, PR", action: "solicitou um diagnóstico gratuito", time: "agora há pouco" },
-  { name: "Ana P.", city: "São Paulo, SP", action: "fechou plano Pro", time: "há 3 min" },
-  { name: "Rafael S.", city: "Porto Alegre, RS", action: "agendou reunião comercial", time: "há 12 min" },
-  { name: "Mariana L.", city: "Belo Horizonte, MG", action: "contratou automação de IA", time: "há 18 min" },
-  { name: "Bruno F.", city: "Maringá, PR", action: "pediu auditoria de SEO", time: "há 28 min" },
-];
 
 export function SocialProof() {
   const [idx, setIdx] = useState(0);
@@ -32,33 +23,19 @@ export function SocialProof() {
     refetchOnWindowFocus: false,
   });
 
-  const pool: Notif[] = useMemo(() => {
-    const items = data?.items ?? [];
-    const source = items.length > 0 ? items : FALLBACK_POOL;
-    // Dedupe por nome+ação para evitar repetição visual
-    const seen = new Set<string>();
-    const unique: Notif[] = [];
-    for (const it of source) {
-      const key = `${it.name}|${it.action}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      unique.push(it);
-    }
-    // Embaralhar para ordem variada a cada sessão
-    for (let i = unique.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [unique[i], unique[j]] = [unique[j], unique[i]];
-    }
-    return unique.length > 0 ? unique : FALLBACK_POOL;
-  }, [data]);
+  // A ordem vem do servidor por created_at DESC. Não embaralhamos nem
+  // fabricamos fallback: sem evento real, não existe prova social para exibir.
+  const pool: Notif[] = useMemo(() => data?.items ?? [], [data?.items]);
 
   useEffect(() => {
-    if (dismissed) return;
+    if (dismissed || pool.length === 0) {
+      setVisible(false);
+      return;
+    }
     const start = setTimeout(() => setVisible(true), 4500);
     const cycle = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        // Avança sequencialmente para nunca repetir o mesmo item consecutivamente
         setIdx((prev) => (pool.length <= 1 ? 0 : (prev + 1) % pool.length));
         setVisible(true);
       }, 500);
@@ -69,75 +46,67 @@ export function SocialProof() {
     };
   }, [dismissed, pool.length]);
 
-  const item = pool[idx % pool.length] ?? pool[0];
+  const item = pool.length > 0 ? pool[idx % pool.length] : null;
 
-  // V2: no máximo 1 `social_proof_view` por sessão. Antes o evento era emitido
-  // a cada início de animação (a cada 8,5s), o que respondia por ~68% de toda
-  // a telemetria. A experiência visual permanece exatamente a mesma.
   useEffect(() => {
-    if (!visible || dismissed) return;
+    if (!visible || dismissed || !item) return;
     if (!shouldEmitSocialProof("site")) return;
     trackEvent("social_proof_view", { location: "site_floating" });
-  }, [visible, dismissed]);
+  }, [visible, dismissed, item]);
 
+  if (!item) return null;
 
   return (
-    <>
-
-      <AnimatePresence>
-        {visible && !dismissed && (
-          <motion.div
-            key={idx}
-            initial={{ y: 24, opacity: 0, scale: 0.95 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: 24, opacity: 0, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 280, damping: 24 }}
-            className={`fixed ${FLOATING_SLOT.three} left-4 sm:left-5 ${FLOATING_Z.fab} max-w-[19rem] ${hideNearFooter(nearFooter)}`}
-          >
-            <div className="relative rounded-2xl glass shadow-elegant border border-border p-3 pr-8">
-              <button
-                aria-label="Fechar"
-                onClick={() => setDismissed(true)}
-                className="absolute top-2 right-2 p-1 rounded-md hover:bg-muted text-muted-foreground"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-              <div className="flex items-start gap-3">
-                <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-primary text-primary-foreground shrink-0 font-bold">
-                  {item.name.charAt(0)}
+    <AnimatePresence>
+      {visible && !dismissed && (
+        <motion.div
+          key={item.id}
+          initial={{ y: 24, opacity: 0, scale: 0.95 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 24, opacity: 0, scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 280, damping: 24 }}
+          className={`fixed ${FLOATING_SLOT.three} left-4 sm:left-5 ${FLOATING_Z.fab} max-w-[19rem] ${hideNearFooter(nearFooter)}`}
+        >
+          <div className="relative rounded-2xl glass shadow-elegant border border-border p-3 pr-8">
+            <button
+              aria-label="Fechar"
+              onClick={() => setDismissed(true)}
+              className="absolute top-2 right-2 p-1 rounded-md hover:bg-muted text-muted-foreground"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+            <div className="flex items-start gap-3">
+              <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-primary text-primary-foreground shrink-0 font-bold">
+                {item.name.charAt(0)}
+              </div>
+              <div className="text-sm">
+                <div className="font-semibold text-foreground flex items-center gap-1">
+                  {item.name}
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                 </div>
-                <div className="text-sm">
-                  <div className="font-semibold text-foreground flex items-center gap-1">
-                    {item.name}
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  </div>
-                  <div className="text-muted-foreground text-xs">{item.action}</div>
-                  <div className="mt-1 flex items-center gap-2 text-[11px] text-muted-foreground">
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {item.city}
-                    </span>
-                    <span>·</span>
-                    <span>{item.time}</span>
-                  </div>
-                </div>
+                <div className="text-muted-foreground text-xs">{item.action}</div>
+                <div className="mt-1 text-[11px] text-muted-foreground">{item.time}</div>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
+/**
+ * Barra de capacidades factuais. Não usa avaliações, quantidade de clientes ou
+ * tempo de mercado sem uma fonte de evidência vinculada.
+ */
 export function TrustBar() {
   return (
-    <section aria-label="Prova social" className="border-y border-border bg-muted/40">
+    <section aria-label="Áreas de atuação" className="border-y border-border bg-muted/40">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
-        <Trust icon={<Star className="w-4 h-4 text-amber-500" />} label="4.9/5 · +180 avaliações" />
-        <Trust icon={<Users className="w-4 h-4 text-primary" />} label="+500 empresas atendidas" />
-        <Trust icon={<CheckCircle2 className="w-4 h-4 text-emerald-500" />} label="20 anos de mercado" />
-        <Trust icon={<MapPin className="w-4 h-4 text-foreground" />} label="Curitiba · atende todo Brasil" />
+        <Trust icon={<Globe2 className="w-4 h-4 text-primary" />} label="Sites e landing pages" />
+        <Trust icon={<Search className="w-4 h-4 text-primary" />} label="SEO e presença digital" />
+        <Trust icon={<Megaphone className="w-4 h-4 text-primary" />} label="Tráfego e mídia paga" />
+        <Trust icon={<Bot className="w-4 h-4 text-primary" />} label="Automação e IA" />
       </div>
     </section>
   );
