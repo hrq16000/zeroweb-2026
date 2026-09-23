@@ -27,7 +27,8 @@ jobs:
       - name: Build (production)
         run: node scripts/build-with-recovery.mjs
 
-      # Valida o HTML realmente gerado pelo head da PR. Reaproveita o artefato
+      # Gate canônico de PR: valida o HTML realmente gerado pelo head da PR.
+      # Reaproveita o artefato
       # de produção construído acima e sobe UM preview local para os três gates.
       # Nenhum destes checks consulta a produção durante pull_request.
       - name: SEO preview da PR — JSON-LD, sitemap/robots e diff
