@@ -270,8 +270,6 @@ Traduzir referências genéricas para a stack atual:
 - vídeo curto somente se comprimido, com poster, sem autoplay sonoro e com estratégia mobile;
 - code-split de galerias, lightboxes e mídia pesada.
 
-## 10. Performance
-
 ## 9.1 Reference-corpus media/interaction roles
 
 The reference corpus adds selectable roles; these are not new mandatory blocks:
@@ -315,6 +313,9 @@ All remain subject to performance budget, keyboard access and
 `prefers-reduced-motion`.
 
 
+
+
+## 10. Performance
 
 Princípios:
 
