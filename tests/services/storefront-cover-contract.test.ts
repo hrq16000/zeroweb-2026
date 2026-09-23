@@ -7,6 +7,11 @@ const source = readFileSync(
   "utf8",
 );
 
+const featuredSource = readFileSync(
+  resolve(__dirname, "../../src/components/site/FeaturedServices.tsx"),
+  "utf8",
+);
+
 describe("/servicos — contrato de capa da vitrine", () => {
   test("produtos conhecidos usam assets editoriais próprios da 0WEB", () => {
     expect(source).toContain('"criacao-de-sites": blogSitesCover');
@@ -21,5 +26,11 @@ describe("/servicos — contrato de capa da vitrine", () => {
 
     expect(storefront).not.toContain("generatedServiceCover(");
     expect(storefront).toContain("if (!imageUrl) return null");
+  });
+  test("a home só destaca produtos publicáveis pela loja", () => {
+    expect(featuredSource).not.toContain("serviceCoverFallback");
+    expect(featuredSource).toContain('typeof service.price === "number" && service.price > 0');
+    expect(featuredSource).toContain("Boolean(service.imageUrl)");
+    expect(featuredSource).toContain("src={s.imageUrl!}");
   });
 });
