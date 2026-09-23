@@ -148,6 +148,13 @@ function MarketplacePage() {
             <FunnelCTAButton
               pageType="service"
               serviceSlug="marketplace"
+              intent={{
+                purpose: "proposal",
+                source: "marketplace_cta_final",
+                pagePath: "/servicos/marketplace",
+                placement: "section",
+                serviceSlug: "marketplace",
+              }}
               label="Quero uma indicação"
               location="marketplace_cta_final"
             />
