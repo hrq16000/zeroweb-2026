@@ -315,6 +315,34 @@ All remain subject to performance budget, keyboard access and
 
 
 
+## 9.2 Automotive / operational decision capabilities — corpus R2
+
+Selectable interaction signatures:
+
+- vehicle fitment selector (marca/modelo/ano/medida quando factual);
+- inspection/check-up stepper;
+- diagnostic report preview;
+- authorization-after-diagnosis state;
+- appointment/schedule path;
+- ROI/economy/viability calculator;
+- accessibility/need segmentation;
+- nearest-unit path;
+- B2C/B2B/fleet branching;
+- product + service/install flow.
+
+Additional media/proof roles:
+
+- `PROCESS_DOCUMENTATION`;
+- `INSPECTION_EVIDENCE`;
+- `VEHICLE_FITMENT_CONTEXT`;
+- `ACCESSIBILITY_USE_CASE`;
+- `VERIFIED_REVIEW_SOURCE`;
+- `PHYSICAL_WORKSHOP_PROOF`.
+
+These are capabilities, not automotive templates. They are selected only when the
+client's real operation supports them. Calculator/configurator inputs must have
+truth/freshness rules and must carry context into the funnel.
+
 ## 10. Performance
 
 Princípios:

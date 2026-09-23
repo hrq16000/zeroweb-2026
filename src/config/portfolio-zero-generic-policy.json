@@ -200,7 +200,6 @@
   "referenceGovernanceStatus": "CANONICAL_ADDITIVE_REQUIRED",
   "referenceCorpus": {
     "patternLibrary": "src/config/portfolio-reference-pattern-library.json",
-    "researchLedger": "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
     "selectionMode": "DECISION_MODE_NOT_SEGMENT",
     "preferredReferenceCount": "2-4",
     "useClasses": [
@@ -208,6 +207,10 @@
       "ADAPT",
       "REJECT"
     ],
-    "motionRequiresVisualEvidence": true
+    "motionRequiresVisualEvidence": true,
+    "researchLedgers": [
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_AUTOMOTIVE_2026-09-23.md"
+    ]
   }
 }

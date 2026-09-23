@@ -399,6 +399,7 @@ Canonical sources:
 
 - `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md`;
 - `src/config/portfolio-reference-pattern-library.json`.
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_AUTOMOTIVE_2026-09-23.md` (automotive / operational decision extension).
 
 For new projects, reference selection must be based on the visitor/business
 decision mode, not merely the client's segment.

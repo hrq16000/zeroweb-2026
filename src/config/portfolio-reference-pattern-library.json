@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -23,7 +23,15 @@
     "PRODUCTIZED_SERVICE",
     "PROFESSION_RISK_LED",
     "PRODUCT_DEMO_LED",
-    "MULTI_OFFER_ECOSYSTEM"
+    "MULTI_OFFER_ECOSYSTEM",
+    "VEHICLE_CONFIGURATOR_LED",
+    "INSPECTION_REPORT_LED",
+    "PROCESS_TRANSPARENCY_LED",
+    "CALCULATOR_DECISION_LED",
+    "APPOINTMENT_LED",
+    "AUDIENCE_CONTEXT_LED",
+    "COMMERCE_SERVICE_HYBRID",
+    "LEGACY_AUTHORITY_LED"
   ],
   "sources": [
     {
@@ -44,7 +52,8 @@
         "decision_aid_repair_vs_replace",
         "scope_limits"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://www.especell.com.br/",
@@ -62,7 +71,8 @@
         "process_before_price",
         "physical_store_proof"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://serviceonesjp.com.br/",
@@ -80,7 +90,8 @@
         "b2b_repair_path",
         "campaign_fast_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://gruposmarttv.com.br/",
@@ -97,7 +108,8 @@
         "lab_proof",
         "b2b_segment"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://www.linkinformaticasjp.com.br/",
@@ -117,7 +129,8 @@
         "unverified_metrics_or_reviews",
         "zero_counter_state"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://speedcellsjp.com/",
@@ -138,7 +151,8 @@
         "zero_counter_state",
         "generic_testimonials_without_provenance"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://tecnicahouse.my.canva.site/",
@@ -155,7 +169,8 @@
         "pickup_delivery",
         "explicit_region_conditions"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://assistenciatecnicasantos.com.br/",
@@ -168,7 +183,8 @@
       "reject": [
         "infer_segment_from_domain_name"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://profitize.com.br/",
@@ -186,7 +202,8 @@
         "pricing_transparency",
         "founder_faq"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/",
@@ -204,7 +221,8 @@
         "qr_continuity",
         "pricing_packages"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/dentistas",
@@ -219,7 +237,8 @@
         "compliance_faq",
         "persistent_contact_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://ffjuris.com.br/",
@@ -236,7 +255,8 @@
         "risk_faq",
         "contextual_contact"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
     },
     {
       "url": "https://soumoratta.com.br/",
@@ -252,7 +272,160 @@
         "countdown_state",
         "job_based_feature_chapters"
       ],
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "LIVE_SITE"
+    },
+    {
+      "url": "https://mecanicabeto.com.br/",
+      "label": "Mecânica Beto",
+      "sourceClass": "LIVE_SITE",
+      "reviewedRoutes": [
+        "/",
+        "/agendamento/",
+        "/gnv/",
+        "/adaptacoes-veiculares/"
+      ],
+      "clusters": [
+        "LEGACY_AUTHORITY_LED",
+        "INSPECTION_REPORT_LED",
+        "CALCULATOR_DECISION_LED",
+        "APPOINTMENT_LED",
+        "AUDIENCE_CONTEXT_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "multi_offer_specialized_routes",
+        "scheduled_30_item_checkup",
+        "inspection_report_before_repair",
+        "gnv_economy_calculator",
+        "pcd_need_segmentation",
+        "verified_long_term_operation",
+        "google_review_provider"
+      ],
+      "reject": [
+        "do_not_copy_slider_silhouette"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://impactoprime.com.br/",
+      "label": "Impacto Prime",
+      "sourceClass": "LIVE_SITE",
+      "reviewedRoutes": [
+        "/",
+        "/espaco-mulher"
+      ],
+      "clusters": [
+        "VEHICLE_CONFIGURATOR_LED",
+        "MULTI_LOCATION_LED",
+        "COMMERCE_SERVICE_HYBRID",
+        "AUDIENCE_CONTEXT_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "five_step_vehicle_tire_selector",
+        "nearest_store_path",
+        "product_service_hybrid",
+        "audience_specific_service",
+        "brand_product_rail",
+        "franchise_ecosystem"
+      ],
+      "reject": [
+        "volatile_promotion_without_freshness_if_reused"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.azmotorsoficina.com.br/",
+      "label": "AZ Motors",
+      "sourceClass": "LIVE_SITE",
+      "clusters": [
+        "SPECIALIST_SINGLE_JOB",
+        "PROCESS_TRANSPARENCY_LED",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "specialist_positioning",
+        "service_video_documentation",
+        "diagnosis_before_repair",
+        "physical_facade_proof",
+        "focused_service_taxonomy"
+      ],
+      "reject": [
+        "unsourced_numeric_rating"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://proautoservice.com.br/",
+      "label": "Pro Auto Service Imports",
+      "sourceClass": "LIVE_SITE",
+      "clusters": [
+        "MULTI_OFFER_ECOSYSTEM",
+        "APPOINTMENT_LED"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "early_lead_capture",
+        "vehicle_type_branching",
+        "technical_service_depth"
+      ],
+      "reject": [
+        "duplicated_conversion_form",
+        "unverified_volume_claim",
+        "unverified_client_logo_wall",
+        "flat_service_catalog",
+        "direct_contact_repetition"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://centroautomotivofera.com.br/",
+      "label": "Fera Auto Center",
+      "sourceClass": "LIVE_SITE",
+      "clusters": [
+        "PHYSICAL_PROOF_LED",
+        "LEGACY_AUTHORITY_LED",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "USE",
+      "signals": [
+        "locality_early",
+        "deep_service_catalog",
+        "verified_google_review_provider",
+        "history_story",
+        "transparent_budget_language"
+      ],
+      "reject": [
+        "zero_state_counter_as_proof",
+        "flat_service_catalog_if_copied_wholesale"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://lp.centroautomotivofera.com.br/",
+      "label": "Fera campaign LP",
+      "sourceClass": "CAMPAIGN_LP",
+      "clusters": [],
+      "use": "ADAPT",
+      "accessStatus": "ATTEMPTED_BLOCKED",
+      "signals": [],
+      "reject": [
+        "do_not_infer_structure_when_source_unavailable"
+      ],
       "motionObserved": "NOT_VERIFIED"
     }
+  ],
+  "sourceClasses": [
+    "LIVE_SITE",
+    "CAMPAIGN_LP",
+    "REFERENCE_ARTICLE",
+    "BUILDER_PRODUCT",
+    "DIRECTORY_MARKETPLACE"
+  ],
+  "researchLedgers": [
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_AUTOMOTIVE_2026-09-23.md"
   ]
 }
