@@ -86,3 +86,12 @@ generalizar silenciosamente uma identidade, funil, fonte factual, SEO local,
 asset, Kit de Presença, requisito de privacidade ou mecanismo de conversão que
 já esteja aprovado. Para discovery por nome e pacotes comerciais, seguir
 `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md`.
+
+
+## Evidência de RLS no CI
+
+CI funcional verde não autoriza afirmar que RLS foi validado quando testes foram
+pulados por ausência de credenciais. A evidência canônica é
+`docs/RLS_CI_SECURITY_GATE.md` + `.github/workflows/rls-security.yml`.
+`SUPABASE_SERVICE_ROLE_KEY` ausente deve produzir status explícito de bloqueio,
+nunca ser interpretado como PASS.
