@@ -302,6 +302,8 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - category→location selector — categoria/equipamento antes de unidade/cobertura quando isso reduz erro de encaminhamento;
 - symptom→service-mode — sintoma conduz à modalidade/caminho adequado sem exigir que o visitante conheça o nome técnico do serviço;
 - service+commerce continuity — separar reparo, peça/produto, instalação e acompanhamento sem misturar tudo numa única grade.
+- warranty-eligibility triage — identificar se o fluxo é garantia/assistência autorizada ou particular e coletar somente os dados necessários de elegibilidade.
+- product-identity capture — categoria/marca/modelo/sintoma e identificação técnica quando isso reduz erro de roteamento ou retrabalho.
 - `MULTI_NEED_SCOPE_BUILDER` — selecionar várias necessidades e consolidar em um único briefing/orçamento quando o negócio realmente opera como fornecedor integrado.
 
 ### Derived motion candidates
