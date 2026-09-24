@@ -284,6 +284,9 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - `OFFER_CONFIGURATION` — visual state for plans/packages/options;
 - `RISK_EXPLANATION` — diagram/media that supports a decision;
 - `SOCIAL_SOURCE_PROOF` — review/testimonial only with provenance.
+- `REAL_WORK_PROOF` — execução real usada para provar amplitude e qualidade;
+- `SAFETY_COMPLIANCE` — EPI, procedimento, licença ou certificação verificável;
+- `MULTI_DISCIPLINE_RANGE` — variedade real de frentes sem virar collage genérica.
 
 ### Interaction signatures
 - symptom triage;
@@ -299,6 +302,7 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - category→location selector — categoria/equipamento antes de unidade/cobertura quando isso reduz erro de encaminhamento;
 - symptom→service-mode — sintoma conduz à modalidade/caminho adequado sem exigir que o visitante conheça o nome técnico do serviço;
 - service+commerce continuity — separar reparo, peça/produto, instalação e acompanhamento sem misturar tudo numa única grade.
+- `MULTI_NEED_SCOPE_BUILDER` — selecionar várias necessidades e consolidar em um único briefing/orçamento quando o negócio realmente opera como fornecedor integrado.
 
 ### Derived motion candidates
 
