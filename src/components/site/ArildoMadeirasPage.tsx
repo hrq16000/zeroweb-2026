@@ -328,7 +328,7 @@ export function ArildoMadeirasPage() {
                   grade genérica de produtos.
                 </p>
                 <div className="mt-8">
-                  <MaterialCta placement="materials">Pedir orientação <ArrowRight className="h-4 w-4" /></MaterialCta>
+                  <MaterialCta placement="offers">Pedir orientação <ArrowRight className="h-4 w-4" /></MaterialCta>
                 </div>
               </MotionReveal>
 
@@ -399,7 +399,7 @@ export function ArildoMadeirasPage() {
                 quantidade aproximada e aplicação no orçamento.
               </p>
               <div className="mt-8">
-                <MaterialCta placement="cambara">
+                <MaterialCta placement="offers">
                   Orçar Cambará <Ruler className="h-4 w-4" />
                 </MaterialCta>
               </div>
@@ -481,7 +481,7 @@ export function ArildoMadeirasPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <MaterialCta placement="local">Organizar meu pedido <ArrowRight className="h-4 w-4" /></MaterialCta>
+                <MaterialCta placement="location">Organizar meu pedido <ArrowRight className="h-4 w-4" /></MaterialCta>
               </div>
             </div>
           </div>
@@ -515,7 +515,7 @@ export function ArildoMadeirasPage() {
                 ))}
               </div>
               <div className="mt-8">
-                <MaterialCta placement="closing">
+                <MaterialCta placement="cta">
                   Começar orçamento <ArrowRight className="h-5 w-5" />
                 </MaterialCta>
               </div>
