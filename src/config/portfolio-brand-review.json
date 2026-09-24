@@ -309,10 +309,10 @@
     "arildo-madeiras": {
       "brandOrigin": "EXISTING_PROJECT_ASSET",
       "brandReview": "APPROVED",
-      "classification": "REAL_BRAND_VALID",
+      "classification": "REAL_BRAND_WEAK_ASSET",
       "authored": true,
       "logo": "/images/arildo-madeiras/logo.svg",
-      "notes": "Wrapper técnico local do logotipo publicado no site oficial da Arildo Madeiras. Nenhum símbolo, tipografia ou desenho foi reinterpretado; o arquivo referencia a marca oficial e fica protegido contra regeneração."
+      "notes": "A landing usa o logo oficial remoto do site da Arildo. O SVG local é fallback técnico para ownership do diretório e não é tratado como reprodução oficial."
     }
   }
 }
