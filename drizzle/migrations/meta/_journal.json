@@ -8,6 +8,13 @@
       "when": 1790012227321,
       "tag": "0000_seed_autoescola_aptos_funnel_real",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790216625362,
+      "tag": "0001_scope_portal_link_reads",
+      "breakpoints": true
     }
   ]
 }
