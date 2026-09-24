@@ -304,6 +304,7 @@ The reference corpus adds selectable roles; these are not new mandatory blocks:
 - service+commerce continuity — separar reparo, peça/produto, instalação e acompanhamento sem misturar tudo numa única grade.
 - warranty-eligibility triage — identificar se o fluxo é garantia/assistência autorizada ou particular e coletar somente os dados necessários de elegibilidade.
 - product-identity capture — categoria/marca/modelo/sintoma e identificação técnica quando isso reduz erro de roteamento ou retrabalho.
+- assessment→authorization — separar avaliação/diagnóstico da autorização para executar trabalho pago quando o processo real exige achados/orçamento antes da aprovação.
 - `MULTI_NEED_SCOPE_BUILDER` — selecionar várias necessidades e consolidar em um único briefing/orçamento quando o negócio realmente opera como fornecedor integrado.
 
 ### Derived motion candidates
