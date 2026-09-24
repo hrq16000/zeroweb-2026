@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "updatedAt": "2026-09-23",
+  "version": 5,
+  "updatedAt": "2026-09-24",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
     "absorbGrammarNeverCopySilhouette": true,
@@ -672,6 +672,37 @@
         "unverified_scale_retention_or_contract_metrics_must_not_be_imported"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://mecanicabeto.com.br/agendamento/",
+      "label": "Mecânica Beto — Check-up com hora marcada",
+      "clusters": [
+        "DIAGNOSTIC_LED",
+        "PRODUCTIZED_SERVICE",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "scheduled_checkup_entry",
+        "published_inspection_scope",
+        "customer_can_follow_assessment",
+        "findings_report_before_repair",
+        "quote_before_execution",
+        "explicit_customer_authorization_gate",
+        "eligibility_constraints_before_booking"
+      ],
+      "interactionSignatures": [
+        "ASSESSMENT_TO_AUTHORIZATION"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "reject": [
+        "diagnosis_cta_as_implicit_repair_authorization",
+        "direct_external_booking_or_whatsapp_bypass_in_0web"
+      ],
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -693,12 +724,14 @@
     "SERVICE_PLUS_COMMERCE_CONTINUITY",
     "WARRANTY_ELIGIBILITY_TRIAGE",
     "PRODUCT_IDENTITY_CAPTURE",
-    "MULTI_NEED_SCOPE_BUILDER"
+    "MULTI_NEED_SCOPE_BUILDER",
+    "ASSESSMENT_TO_AUTHORIZATION"
   ],
   "researchLedgers": [
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
-    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md"
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md"
   ]
 }

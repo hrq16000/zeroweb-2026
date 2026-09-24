@@ -373,12 +373,18 @@ O ledger de pesquisa R2 está em
 
 Ledgers adicionais:
 - `docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md` — interaction signatures;
-- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md` — facilities e consolidação operacional.
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md` — facilities e consolidação operacional;
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md` — avaliação/diagnóstico → autorização explícita.
 
 Interaction signature não substitui experience engine. Ela resolve uma decisão
 local dentro do motor dominante. Para facilities/multisserviços,
 `MULTI_NEED_SCOPE_BUILDER` só entra quando o cliente realmente consegue
 consolidar múltiplas necessidades em uma mesma avaliação/orçamento.
+
+Quando avaliação/diagnóstico e execução são compromissos distintos,
+`ASSESSMENT_TO_AUTHORIZATION` só entra se houver evidência de um ponto real de
+aprovação antes do trabalho pago. A landing/funil não pode tratar pedido de
+avaliação como consentimento automático para executar o serviço.
 
 
 
