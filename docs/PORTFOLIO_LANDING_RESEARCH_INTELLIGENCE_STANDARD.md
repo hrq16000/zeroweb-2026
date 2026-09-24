@@ -733,3 +733,20 @@ Antes de acrescentar seção, campo, CTA, link ou efeito, responder:
 A landing é um sistema contínuo: origem → página → auto-segmentação/ajuda → funil
 → lead → handoff → confirmação. A intenção e o contexto não podem se perder
 entre essas camadas.
+
+
+## Anexo R7 — PROFESSIONAL_COMPLIANCE_BOUNDARY_GATE
+
+Antes de publicar landing de profissão regulamentada:
+
+1. resolver conselho/órgão e jurisdição aplicáveis;
+2. registrar fontes oficiais e `rulesVerifiedAt`;
+3. separar `VERIFIED_ALLOWED`, `VERIFIED_CONDITIONAL`,
+   `VERIFIED_FORBIDDEN` e `UNRESOLVED_REQUIRES_OFFICIAL_SOURCE`;
+4. validar credencial, prova, depoimento/case, preço/claim e formulário;
+5. minimizar dado sensível antes do handoff;
+6. nunca importar regra de blog/site comercial como autoridade final;
+7. nunca reutilizar regra de outra profissão por semelhança.
+
+Fonte de pesquisa aditiva:
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md`.
