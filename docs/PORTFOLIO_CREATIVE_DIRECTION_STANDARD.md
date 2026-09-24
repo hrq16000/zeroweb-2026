@@ -283,8 +283,23 @@ site de assistência”). Selecionar pelas necessidades reais:
 
 Registrar no brief:
 
-`referenceClusters | referenceUseClasses | interactionEvidence |
-motionEvidence | rejectedReferencePatterns | skillTranslation`
+`referenceClusters | referenceUseClasses | referenceSourceClasses |
+interactionEvidence | motionEvidence | rejectedReferencePatterns | skillTranslation`
+
+### REFERENCE_SOURCE_CLASS_MATRIX
+
+Antes de extrair padrões, classificar cada URL como:
+
+- `COMPOSITION_REFERENCE` — pode ensinar composição/ritmo/interação;
+- `ENTITY_DISCOVERY_SOURCE` — serve para entidade, serviços, localidade,
+  concorrentes e vocabulário, mas **não** define layout/motion;
+- `META_METHOD_REFERENCE` — serve para CRO/page mode/método, não como prova
+  factual do cliente;
+- `ANTI_PATTERN_REFERENCE` — útil principalmente para registrar rejeições;
+- `INSUFFICIENT_EVIDENCE` — não gera regra estrutural até nova inspeção.
+
+A fonte só pode ensinar aquilo para o qual sua classe tem autoridade. Diretório,
+marketplace, artigo e site concorrente não são equivalentes.
 
 ### REFERENCE_SIGNAL_MATRIX
 
