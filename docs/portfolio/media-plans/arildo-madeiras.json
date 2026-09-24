@@ -101,5 +101,11 @@
       "note": "Capa é arte editorial 0WEB e não se apresenta como marca oficial ou foto real."
     }
   },
-  "lastUpdatedAt": "2026-09-24"
+  "lastUpdatedAt": "2026-09-24",
+  "heroMedia": {
+    "asset": "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+    "kind": "REAL_PHOTO",
+    "documentary": true,
+    "provenance": "OFFICIAL_WEBSITE"
+  }
 }
