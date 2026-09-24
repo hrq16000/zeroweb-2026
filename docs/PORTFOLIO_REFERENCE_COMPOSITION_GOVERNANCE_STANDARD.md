@@ -446,6 +446,15 @@ Derived motion ideas remain 0WEB creative proposals, not claims about the source
 
 
 
+## 13.2 Final corpus consolidation audit
+
+Final closure audit:
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R9_FINAL_2026-09-24.md`.
+
+It records the residual R8 editorial sweep, the R9 structural consistency check,
+official unresolved references, and the rule that future URLs extend the corpus
+without reopening R1–R9.
+
 ## 14. Final rule
 
 A client must not receive a site that looks like a recolored member of the same
