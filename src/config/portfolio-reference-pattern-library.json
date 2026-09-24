@@ -514,10 +514,15 @@
       "signals": [
         "repair_installation_parts_contracts",
         "residential_business_condo_service",
-        "brand_and_appliance_taxonomy"
+        "brand_and_appliance_taxonomy",
+        "warranty_eligibility_form",
+        "product_model_voltage_invoice_capture",
+        "appointment_window_capture"
       ],
       "interactionSignatures": [
-        "SERVICE_PLUS_COMMERCE_CONTINUITY"
+        "SERVICE_PLUS_COMMERCE_CONTINUITY",
+        "WARRANTY_ELIGIBILITY_TRIAGE",
+        "PRODUCT_IDENTITY_CAPTURE"
       ],
       "experienceEngine": [
         "PROCESS_AND_TRANSPARENCY",
@@ -686,6 +691,8 @@
     "CATEGORY_THEN_LOCATION",
     "SYMPTOM_TO_SERVICE_MODE",
     "SERVICE_PLUS_COMMERCE_CONTINUITY",
+    "WARRANTY_ELIGIBILITY_TRIAGE",
+    "PRODUCT_IDENTITY_CAPTURE",
     "MULTI_NEED_SCOPE_BUILDER"
   ],
   "researchLedgers": [
