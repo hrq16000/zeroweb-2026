@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -222,7 +222,8 @@
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
-      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md"
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
     ]
   },
   "experienceEnginePolicy": {
@@ -235,7 +236,8 @@
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
-      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md"
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
     ],
     "engineMustBeEvidenceDriven": true,
     "engineMustAffectAtLeastTwoAxes": [
@@ -263,5 +265,15 @@
     "reuseExistingBlockersBeforeAddingNewOnes": true,
     "assessmentAuthorizationRequiresExplicitExecutionBoundary": true,
     "assessmentAuthorizationMustNotImplyAutomaticRepair": true
+  },
+  "regulatedProfessionPolicy": {
+    "matrixRequired": true,
+    "matrixName": "PROFESSIONAL_COMPLIANCE_BOUNDARY_MATRIX",
+    "officialSourceVerificationRequired": true,
+    "commercialReferenceIsNeverFinalAuthority": true,
+    "crossProfessionRuleReuseForbidden": true,
+    "sensitiveDataMinimizationRequired": true,
+    "credentialFreshnessRequired": true,
+    "unresolvedRuleState": "UNRESOLVED_REQUIRES_OFFICIAL_SOURCE"
   }
 }
