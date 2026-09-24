@@ -309,7 +309,7 @@ const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
 
 // Recupera capas que já existem no projeto quando o painel perdeu a referência
 // do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
-const RECOVERED_COVERS: Record<string, string> = {
+export const RECOVERED_COVERS: Record<string, string> = {
   // Capas já recuperadas de ativos históricos do portal.
   "site-profissional-197": "/images/services/site-profissional-197.png",
   "site-express": coverSiteExpress,
@@ -536,13 +536,24 @@ export const getServicePublic = createServerFn({ method: "GET" })
       const sbPublic = getSupabasePublicServer();
       if (!sbPublic) throw new Error("supabase public client indisponível");
       const signer = await getSupabaseAdminOptional();
-      const { data: row, error } = await sbPublic
-        .from("services")
-        .select(COLS)
-        .eq("slug", data.slug)
-        .eq("is_active", true)
-        .maybeSingle();
-      if (error) throw error;
+      // Bloqueios transitórios da borda (HTML "Attention Required") não devem
+      // derrubar a página para o conteúdo estático: tenta de novo com backoff.
+      let row: unknown = null;
+      let lastError: unknown = null;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const res = await sbPublic
+          .from("services")
+          .select(COLS)
+          .eq("slug", data.slug)
+          .eq("is_active", true)
+          .maybeSingle();
+        if (!res.error) { row = res.data; lastError = null; break; }
+        lastError = res.error;
+        const msg = String((res.error as { message?: string }).message ?? "");
+        if (!/<!DOCTYPE|<html|cloudflare|fetch failed|timeout/i.test(msg)) break;
+        await new Promise((r) => setTimeout(r, 250 * (attempt + 1)));
+      }
+      if (lastError) throw lastError;
       if (row) {
         const r = normalizePublicServiceRow(row as unknown as DbServiceRow);
         const imageUrl = await signImage(signer, r.image_path);
@@ -551,7 +562,12 @@ export const getServicePublic = createServerFn({ method: "GET" })
         return { service: mapRow(r, imageUrl, gallery, ogImageUrl), source: "db" as const };
       }
     } catch (err) {
-      console.error("[getServicePublic] fallback to file", err);
+      const msg = String((err as { message?: string })?.message ?? err);
+      console.error(
+        "[getServicePublic] fallback to file",
+        data.slug,
+        /<!DOCTYPE|<html/i.test(msg) ? "upstream returned HTML block page" : msg.slice(0, 300),
+      );
     }
       if (RETIRED_SERVICE_SLUGS.has(data.slug)) return { service: null };
       const fallback = SERVICES[data.slug];
