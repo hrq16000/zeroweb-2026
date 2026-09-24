@@ -27,8 +27,7 @@ import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./arildo-madeiras.css";
 
-const LOGO =
-  "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png";
+const LOGO = "/images/arildo-madeiras/logo.svg";
 
 const MEDIA = [
   "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
@@ -220,7 +219,7 @@ function MaterialCta({
   placement,
   compact = false,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   placement: string;
   compact?: boolean;
 }) {
@@ -334,7 +333,7 @@ export function ArildoMadeirasPage() {
 
               <MotionStagger className="arildo-material-ledger" variant="up">
                 {productRows.map(({ icon: Icon, index, title, copy }, i) => (
-                  <article key={title} className="arildo-material-row" style={{ "--row-shift": `${i * 24}px` } as React.CSSProperties}>
+                  <article key={title} className="arildo-material-row" style={{ "--row-shift": `${i * 24}px` } as CSSProperties}>
                     <div className="flex items-start gap-5">
                       <span className="arildo-row-index">{index}</span>
                       <Icon className="mt-1 h-7 w-7 shrink-0" />
