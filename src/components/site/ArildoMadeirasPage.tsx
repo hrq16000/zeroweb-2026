@@ -27,7 +27,7 @@ import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./arildo-madeiras.css";
 
-const LOGO = "/images/arildo-madeiras/logo.svg";
+const LOGO = "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png";
 
 const MEDIA = [
   "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
