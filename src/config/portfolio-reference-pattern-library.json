@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "updatedAt": "2026-09-24",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -786,8 +786,7 @@
       "label": "Henrique Figueirôa — sites para fisioterapeutas",
       "clusters": [
         "PROFESSION_RISK_LED",
-        "DIAGNOSTIC_LED",
-        "LOCATION_LED"
+        "DIAGNOSTIC_LED"
       ],
       "use": "USE",
       "signals": [
@@ -809,7 +808,7 @@
       "label": "Henrique Figueirôa — sites para médicos",
       "clusters": [
         "PROFESSION_RISK_LED",
-        "LOCAL_SERVICE_LED"
+        "SPECIALIST_SINGLE_JOB"
       ],
       "use": "USE",
       "signals": [
