@@ -1175,7 +1175,7 @@
     },
     "arildo-madeiras": {
       "icon": "/images/arildo-madeiras/logo.svg",
-      "socialImage": "/images/arildo-madeiras/capa-og.svg",
+      "socialImage": "/images/arildo-madeiras/capa-og.jpg",
       "proof": {
         "eyebrow": "Arildo Madeiras · Pinhais",
         "title": "Madeira que dá corpo ao projeto.",
@@ -1183,7 +1183,7 @@
         "ctaLabel": "Montar meu orçamento",
         "ctaHref": "/f/funnel-arildo-madeiras"
       },
-      "socialVersion": "20260924"
+      "socialVersion": "18064d84"
     }
   }
 }

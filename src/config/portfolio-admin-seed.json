@@ -234,8 +234,8 @@
       "subtitle": "Madeiras brutas e beneficiadas para construção, reforma e projetos",
       "image": "/images/arildo-madeiras/capa-card.svg",
       "icon": "/images/arildo-madeiras/logo.svg",
-      "socialImage": "/images/arildo-madeiras/capa-og.svg",
-      "socialVersion": "20260924",
+      "socialImage": "/images/arildo-madeiras/capa-og.jpg",
+      "socialVersion": "18064d84",
       "componentFile": "src/components/site/ArildoMadeirasPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/arildo-madeiras",
@@ -245,6 +245,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/arildo-madeiras/capa-card.svg",
+        "/images/arildo-madeiras/capa-og.jpg",
         "/images/arildo-madeiras/capa-og.svg",
         "/images/arildo-madeiras/logo.svg",
         "/images/arildo-madeiras/material-pattern.svg"
