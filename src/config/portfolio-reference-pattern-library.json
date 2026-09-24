@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "updatedAt": "2026-09-24",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -48,7 +48,11 @@
         "decision_aid_repair_vs_replace",
         "scope_limits"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ]
     },
     {
       "url": "https://www.especell.com.br/",
@@ -66,7 +70,11 @@
         "process_before_price",
         "physical_store_proof"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ]
     },
     {
       "url": "https://serviceonesjp.com.br/",
@@ -84,7 +92,11 @@
         "b2b_repair_path",
         "campaign_fast_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ]
     },
     {
       "url": "https://gruposmarttv.com.br/",
@@ -101,7 +113,11 @@
         "lab_proof",
         "b2b_segment"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ]
     },
     {
       "url": "https://www.linkinformaticasjp.com.br/",
@@ -121,7 +137,11 @@
         "unverified_metrics_or_reviews",
         "zero_counter_state"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ]
     },
     {
       "url": "https://speedcellsjp.com/",
@@ -142,7 +162,11 @@
         "zero_counter_state",
         "generic_testimonials_without_provenance"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ]
     },
     {
       "url": "https://tecnicahouse.my.canva.site/",
@@ -159,7 +183,11 @@
         "pickup_delivery",
         "explicit_region_conditions"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ]
     },
     {
       "url": "https://assistenciatecnicasantos.com.br/",
@@ -190,7 +218,11 @@
         "pricing_transparency",
         "founder_faq"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PLAN_OR_SCOPE_CONFIGURATION",
+        "FOUNDER_OR_SPECIALIST_TRUST"
+      ]
     },
     {
       "url": "https://henriquefigueiroa.com.br/",
@@ -208,7 +240,11 @@
         "qr_continuity",
         "pricing_packages"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ]
     },
     {
       "url": "https://henriquefigueiroa.com.br/dentistas",
@@ -223,7 +259,11 @@
         "compliance_faq",
         "persistent_contact_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ]
     },
     {
       "url": "https://ffjuris.com.br/",
@@ -240,7 +280,11 @@
         "risk_faq",
         "contextual_contact"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ]
     },
     {
       "url": "https://soumoratta.com.br/",
@@ -256,7 +300,11 @@
         "countdown_state",
         "job_based_feature_chapters"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "EDUCATION_AND_RISK_REDUCTION",
+        "PROCESS_AND_TRANSPARENCY"
+      ]
     },
     {
       "url": "https://www.4irefrigeracao.com.br/",
