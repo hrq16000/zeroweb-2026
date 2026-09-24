@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -26,7 +26,8 @@
     "PRODUCTIZED_SERVICE",
     "PROFESSION_RISK_LED",
     "PRODUCT_DEMO_LED",
-    "MULTI_OFFER_ECOSYSTEM"
+    "MULTI_OFFER_ECOSYSTEM",
+    "CONSOLIDATED_PROVIDER_LED"
   ],
   "sources": [
     {
@@ -557,6 +558,115 @@
       ],
       "evidenceStatus": "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN",
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://becleanfacilites.com.br/",
+      "label": "Be Clean Facilities",
+      "clusters": [
+        "CONSOLIDATED_PROVIDER_LED",
+        "MULTI_OFFER_ECOSYSTEM",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "single_provider_positioning",
+        "multi_service_pillars",
+        "fragmented_vendor_pain",
+        "real_work_gallery",
+        "process_to_resolution",
+        "safety_epi_compliance",
+        "local_curitiba_operation",
+        "instagram_continuity"
+      ],
+      "interactionSignatures": [
+        "MULTI_NEED_SCOPE_BUILDER"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ],
+      "reject": [
+        "direct_whatsapp_bypass_in_0web",
+        "unverified_rating_or_testimonials",
+        "unverified_response_time_or_same_day_claim",
+        "unverified_savings_percentage",
+        "artificial_urgency_without_availability_evidence"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://www.youssefterceirizacao.com.br/",
+      "label": "Youssef Terceirização e Facilities",
+      "clusters": [
+        "CONSOLIDATED_PROVIDER_LED",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "USE",
+      "signals": [
+        "single_contract_multiple_fronts",
+        "single_point_of_contact",
+        "trained_team",
+        "operational_supervision"
+      ],
+      "interactionSignatures": [
+        "MULTI_NEED_SCOPE_BUILDER"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://assertivafacilities.com.br/",
+      "label": "Assertiva Gestão & Facilities",
+      "clusters": [
+        "CONSOLIDATED_PROVIDER_LED",
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "USE",
+      "signals": [
+        "build_your_operation_team",
+        "single_supplier",
+        "continuous_supervision",
+        "service_portfolio_by_operational_role"
+      ],
+      "interactionSignatures": [
+        "MULTI_NEED_SCOPE_BUILDER"
+      ],
+      "experienceEngine": [
+        "PLAN_OR_SCOPE_CONFIGURATION",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://facilities.megavig.com.br/",
+      "label": "Megavig Facilities e Multisserviços",
+      "clusters": [
+        "CONSOLIDATED_PROVIDER_LED",
+        "PHYSICAL_PROOF_LED",
+        "PRODUCTIZED_SERVICE"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "single_partner_positioning",
+        "multi_service_contract",
+        "regulatory_compliance",
+        "proposal_form",
+        "operational_pain_before_offer"
+      ],
+      "interactionSignatures": [
+        "MULTI_NEED_SCOPE_BUILDER"
+      ],
+      "experienceEngine": [
+        "PROCESS_AND_TRANSPARENCY",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ],
+      "reject": [
+        "unverified_scale_retention_or_contract_metrics_must_not_be_imported"
+      ],
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -575,11 +685,13 @@
     "SERVICE_MODE_SELECTOR",
     "CATEGORY_THEN_LOCATION",
     "SYMPTOM_TO_SERVICE_MODE",
-    "SERVICE_PLUS_COMMERCE_CONTINUITY"
+    "SERVICE_PLUS_COMMERCE_CONTINUITY",
+    "MULTI_NEED_SCOPE_BUILDER"
   ],
   "researchLedgers": [
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
-    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md"
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md"
   ]
 }
