@@ -109,6 +109,40 @@ A página pode separar caminhos sem transformar tudo em “serviços”:
 
 Referências desta R3: Eletro Fast e RS Solution.
 
+### WARRANTY_ELIGIBILITY_TRIAGE
+
+Pergunta dominante:
+
+> **Este caso segue garantia/autorizada ou atendimento particular?**
+
+Aplicável somente quando o negócio possui fluxo real de garantia ou assistência
+autorizada. Pode solicitar, quando necessário e proporcional:
+
+- marca/modelo;
+- voltagem;
+- nota fiscal/data de compra;
+- serial/etiqueta;
+- defeito/sintoma;
+- endereço e janela de atendimento.
+
+A coleta deve obedecer minimização de dados e só existir se alterar o fluxo.
+
+Referência desta R3: RS Solution.
+
+### PRODUCT_IDENTITY_CAPTURE
+
+Pergunta dominante:
+
+> **Qual equipamento exato precisa de atendimento?**
+
+Pode usar categoria, marca, modelo, sintoma e identificação técnica do produto
+quando isso reduz erro de roteamento, repetição de perguntas ou visita
+improdutiva. Foto de etiqueta só entra quando houver necessidade real e tratamento
+compatível com privacidade.
+
+Referência desta R3: RS Solution; aplicável também a jornadas técnicas em que a
+categoria muda equipe, unidade ou diagnóstico.
+
 ## 3. REFERENCE_SIGNAL_MATRIX — R3
 
 | Fonte | Sinal útil | Assinatura compatível | Tradução 0WEB | Classe |
@@ -118,7 +152,7 @@ Referências desta R3: Eletro Fast e RS Solution.
 | Eletro Fast | duas frentes técnicas + cinco unidades + loja online | CATEGORY_THEN_LOCATION | equipamento/categoria pode preceder unidade/rota de atendimento | USE |
 | Eletro Fast | assistência + peças + seminovos + rastreio | SERVICE_PLUS_COMMERCE_CONTINUITY | manter jornadas técnicas e comerciais distintas, mas coerentes | USE |
 | Grupo RDM | especialização em micro-ondas + orçamento + loja física | SYMPTOM_TO_SERVICE_MODE | problema específico pode levar a orçamento/localidade sem carregar home genérica | ADAPT |
-| RS Solution | assistência + instalação + peças + contratos | SERVICE_PLUS_COMMERCE_CONTINUITY | múltiplas necessidades reais podem virar caminhos, não grid indiferenciado | ADAPT |
+| RS Solution | assistência + instalação + peças + contratos + formulário de garantia com identificação do equipamento | SERVICE_PLUS_COMMERCE_CONTINUITY · WARRANTY_ELIGIBILITY_TRIAGE · PRODUCT_IDENTITY_CAPTURE | separar serviço/comércio e usar triagem de elegibilidade/identidade apenas quando operacionalmente necessária | ADAPT |
 | Infocase | software fiscal + venda de equipamentos + suporte presencial/remoto/telefone/e-mail | SERVICE_MODE_SELECTOR | em B2B técnico, canal/modalidade pode ser parte central da decisão | ADAPT |
 | Aicon | assistência em computadores/notebooks/celulares em SJP | — | escopo básico confirmado, sem sinal estrutural forte suficiente nesta rodada | INSUFFICIENT_EVIDENCE |
 
