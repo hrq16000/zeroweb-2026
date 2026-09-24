@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "updatedAt": "2026-09-24",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -703,6 +703,62 @@
         "direct_external_booking_or_whatsapp_bypass_in_0web"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://grupordmcuritiba.com.br/sjp/",
+      "label": "Grupo RDM / Rei do Microondas — São José dos Pinhais",
+      "clusters": [
+        "MULTI_LOCATION_LED",
+        "DIAGNOSTIC_LED",
+        "PHYSICAL_PROOF_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "branch_specific_address_and_hours",
+        "neighborhood_coverage",
+        "home_pickup_delivery_service_modes",
+        "symptom_taxonomy",
+        "b2b_service_path",
+        "customer_visible_repair_process"
+      ],
+      "interactionSignatures": [
+        "SERVICE_MODE_SELECTOR",
+        "SYMPTOM_TO_SERVICE_MODE"
+      ],
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "PROBLEM_TO_DIAGNOSIS"
+      ],
+      "reject": [
+        "city_name_swap_without_operational_difference"
+      ],
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://vendas.infocaseinformatica.com.br/",
+      "label": "Infocase — landing comercial",
+      "clusters": [
+        "PRODUCTIZED_SERVICE",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "integrated_fiscal_and_management_suite",
+        "problem_to_capability_mapping",
+        "mobile_operational_capability",
+        "remote_support",
+        "human_support_positioning",
+        "institutional_continuity",
+        "two_operational_locations"
+      ],
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "reject": [
+        "import_unverified_scale_or_customer_count"
+      ],
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -732,6 +788,7 @@
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
-    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md"
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md"
   ]
 }
