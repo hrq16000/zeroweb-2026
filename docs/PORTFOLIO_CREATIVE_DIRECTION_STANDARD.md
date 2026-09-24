@@ -374,7 +374,8 @@ O ledger de pesquisa R2 está em
 Ledgers adicionais:
 - `docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md` — interaction signatures;
 - `docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md` — facilities e consolidação operacional;
-- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md` — avaliação/diagnóstico → autorização explícita.
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md` — avaliação/diagnóstico → autorização explícita;
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md` — rotas locais e resolução de fontes sem novo engine.
 
 Interaction signature não substitui experience engine. Ela resolve uma decisão
 local dentro do motor dominante. Para facilities/multisserviços,
