@@ -178,6 +178,43 @@ Essas falhas tornam `editorialPass = false`, mesmo quando todos os blocos
 isoladamente parecem “bons”.
 
 
+### 6.6 Interaction signature / consolidated-provider review
+
+Quando o projeto usar uma interaction signature do corpus, a revisão editorial
+deve confirmar que ela **muda a jornada ou preserva contexto útil**. Selector,
+tabs ou wizard sem consequência real são decoração e devem ser removidos.
+
+Perguntas obrigatórias:
+
+- a assinatura resolve uma incerteza real do visitante?
+- a escolha altera conteúdo, elegibilidade, modalidade, unidade, escopo,
+  logística, preço factual ou contexto do funil?
+- o estado escolhido sobrevive até o lead/handoff quando isso for relevante?
+- no mobile a interação continua clara, acessível e sem duplicar passos?
+- disponibilidade, cobertura, urgência e preço usados pela assinatura têm
+  freshness/evidência quando forem mutáveis?
+
+Para `CONSOLIDATED_PROVIDER_LED` / `MULTI_NEED_SCOPE_BUILDER`:
+
+- “fornecedor único”, “um contrato” ou equivalente só pode ser usado quando o
+  cliente realmente entrega as frentes declaradas sob a mesma coordenação;
+- cada frente selecionável precisa ter evidência de escopo/capacidade;
+- múltiplas necessidades devem chegar ao **mesmo briefing/funil individual**
+  com contexto preservado;
+- a seleção não pode prometer execução simultânea, disponibilidade, SLA ou preço
+  antes da confirmação;
+- prova física, processo, compliance e limites devem ficar próximos das claims
+  que sustentam;
+- CTA direto/WhatsApp não pode bypassar o funil 0WEB.
+
+Falhas devem reutilizar blockers já existentes sempre que possível:
+`SCOPE_OVERCLAIM`, `ENGINE_DECORATIVE_ONLY`,
+`VOLATILE_CLAIM_WITHOUT_SOURCE`, `FAKE_LIVE_AVAILABILITY` ou
+`FUNCTIONAL_DIVERSITY_MISSING`.
+
+Não criar blocker novo apenas para renomear uma falha já coberta.
+
+
 ## 7. Hero matrix
 
 Avaliado separadamente: `brandMatch · segmentMatch · visualImpact ·

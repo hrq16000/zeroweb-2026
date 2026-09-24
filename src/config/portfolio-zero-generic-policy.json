@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -250,6 +250,12 @@
     "mustNotBecomeSegmentDefault": true,
     "maximumRelevantNotMaximumCount": true,
     "privacyByMinimization": true,
-    "unresolvedReferenceMustNotBeSubstituted": true
+    "unresolvedReferenceMustNotBeSubstituted": true,
+    "mustChangeJourneyOrContext": true,
+    "contextCarryoverRequiredWhenSelectionMatters": true,
+    "multiNeedScopeBuilderSingleFunnelRequired": true,
+    "consolidatedProviderClaimsRequireEvidence": true,
+    "consolidatedProviderMustNotImplyUnverifiedSimultaneousAvailability": true,
+    "reuseExistingBlockersBeforeAddingNewOnes": true
   }
 }
