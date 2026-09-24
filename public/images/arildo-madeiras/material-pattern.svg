@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="t d">
+<title id="t">Textura editorial de madeira</title>
+<desc id="d">Composição gráfica abstrata 0WEB inspirada em veios e lâminas de madeira; não representa produto ou estoque real.</desc>
+<rect width="1200" height="600" fill="#24170f"/>
+<g fill="none" stroke-linecap="round">
+  <path d="M-20 80 C170 5 320 150 520 72 S900 18 1220 98" stroke="#c9945a" stroke-width="18" opacity=".34"/>
+  <path d="M-30 168 C180 92 350 238 590 150 S910 105 1230 182" stroke="#e3c49a" stroke-width="7" opacity=".28"/>
+  <path d="M-10 282 C185 190 390 352 650 260 S1010 216 1220 294" stroke="#b22d21" stroke-width="22" opacity=".42"/>
+  <path d="M-30 405 C205 308 410 494 680 392 S1030 345 1230 424" stroke="#c9945a" stroke-width="10" opacity=".3"/>
+  <path d="M-30 522 C190 430 390 585 620 510 S950 464 1230 542" stroke="#ead8bb" stroke-width="5" opacity=".24"/>
+</g>
+</svg>
