@@ -241,7 +241,7 @@
       "assetsDir": "public/images/arildo-madeiras",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/arildo-madeiras/capa-card.svg",
