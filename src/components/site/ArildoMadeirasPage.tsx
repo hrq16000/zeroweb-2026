@@ -1,3 +1,4 @@
+import type { CSSProperties, ReactNode } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -23,7 +24,7 @@ import {
 } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
+import type { CtaPlacement, CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./arildo-madeiras.css";
 
@@ -220,7 +221,7 @@ function MaterialCta({
   compact = false,
 }: {
   children: ReactNode;
-  placement: string;
+  placement: CtaPlacement;
   compact?: boolean;
 }) {
   return composition.renderCta({
