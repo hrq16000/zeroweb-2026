@@ -513,10 +513,15 @@
       "signals": [
         "repair_installation_parts_contracts",
         "residential_business_condo_service",
-        "brand_and_appliance_taxonomy"
+        "brand_and_appliance_taxonomy",
+        "warranty_eligibility_form",
+        "product_model_voltage_invoice_capture",
+        "appointment_window_capture"
       ],
       "interactionSignatures": [
-        "SERVICE_PLUS_COMMERCE_CONTINUITY"
+        "SERVICE_PLUS_COMMERCE_CONTINUITY",
+        "WARRANTY_ELIGIBILITY_TRIAGE",
+        "PRODUCT_IDENTITY_CAPTURE"
       ],
       "experienceEngine": [
         "PROCESS_AND_TRANSPARENCY",
@@ -575,11 +580,35 @@
     "SERVICE_MODE_SELECTOR",
     "CATEGORY_THEN_LOCATION",
     "SYMPTOM_TO_SERVICE_MODE",
-    "SERVICE_PLUS_COMMERCE_CONTINUITY"
+    "SERVICE_PLUS_COMMERCE_CONTINUITY",
+    "WARRANTY_ELIGIBILITY_TRIAGE",
+    "PRODUCT_IDENTITY_CAPTURE"
   ],
   "researchLedgers": [
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md"
+  ],
+  "unresolvedSources": [
+    {
+      "url": "https://irepair.com.br/",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "rule": "DO_NOT_SUBSTITUTE_SIMILAR_DOMAIN"
+    },
+    {
+      "url": "https://assistencia-rose.vercel.app/",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "rule": "DO_NOT_INFER"
+    },
+    {
+      "url": "https://novageracaoinformatica.com.br/?page_id=9",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "rule": "DO_NOT_SUBSTITUTE_SIMILAR_DOMAIN"
+    },
+    {
+      "url": "https://vendas.infocaseinformatica.com.br/",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "rule": "DO_NOT_SUBSTITUTE_WITH_BASE_DOMAIN"
+    }
   ]
 }
