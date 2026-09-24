@@ -468,3 +468,19 @@ Novo projeto só pode ficar `published` quando:
   estiver explicitamente documentado;
 - SEO, a11y, performance, privacidade, build e browser QA passarem;
 - originalidade for revisada contra o portfólio real.
+
+
+Ledger adicional: `docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md` — profissões regulamentadas e limites de conteúdo/prova/formulário.
+
+
+### PROFESSIONAL_COMPLIANCE_BOUNDARY_MATRIX
+
+Para profissão regulamentada, registrar antes da composição:
+`profession | jurisdiction | officialAuthority | officialSources | rulesVerifiedAt |
+credentialDisplay | allowedProof | conditionalProof | forbiddenProof |
+pricingTreatment | promotionalClaimLimits | testimonialPolicy | caseResultPolicy |
+sensitiveDataBoundary | formFieldPolicy | contactHandoffPolicy |
+requiredDisclosures | unresolvedQuestions | implementationNotes`.
+
+Referência comercial não substitui fonte oficial. Regra de uma profissão não
+pode ser transplantada para outra por analogia.

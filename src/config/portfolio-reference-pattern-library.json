@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "updatedAt": "2026-09-24",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -759,6 +759,95 @@
         "import_unverified_scale_or_customer_count"
       ],
       "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/psicologos",
+      "label": "Henrique Figueirôa — sites para psicólogos",
+      "clusters": [
+        "PROFESSION_RISK_LED",
+        "FOUNDER_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "credential_visibility",
+        "plain_language_problem_taxonomy",
+        "online_presential_operational_clarity",
+        "reference_avoids_testimonials_and_result_promises"
+      ],
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/fisioterapeutas",
+      "label": "Henrique Figueirôa — sites para fisioterapeutas",
+      "clusters": [
+        "PROFESSION_RISK_LED",
+        "DIAGNOSTIC_LED",
+        "LOCATION_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "complaint_language_search",
+        "home_service_locality",
+        "credential_visibility",
+        "conditional_testimonial_pattern",
+        "insurance_reimbursement_operational_clarity"
+      ],
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "LOCATION_AND_NETWORK"
+      ],
+      "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/medicos",
+      "label": "Henrique Figueirôa — sites para médicos",
+      "clusters": [
+        "PROFESSION_RISK_LED",
+        "LOCAL_SERVICE_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "specialty_and_insurance_clarity",
+        "credential_visibility",
+        "health_data_privacy_emphasis",
+        "mobile_contact_priority",
+        "location_hours_operational_clarity"
+      ],
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://henriquefigueiroa.com.br/advogados",
+      "label": "Henrique Figueirôa — sites para advogados",
+      "clusters": [
+        "PROFESSION_RISK_LED",
+        "FOUNDER_LED"
+      ],
+      "use": "USE",
+      "signals": [
+        "plain_language_practice_areas",
+        "credential_and_team_trust",
+        "minimal_sensitive_case_capture",
+        "reference_avoids_result_promises",
+        "price_as_information_not_lure",
+        "educational_content_as_trust"
+      ],
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
+      "motionObserved": "NOT_VERIFIED"
     }
   ],
   "experienceEngines": [
@@ -789,6 +878,7 @@
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
-    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md"
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
   ]
 }
