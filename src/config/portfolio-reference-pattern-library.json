@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "updatedAt": "2026-09-23",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
@@ -15,7 +15,10 @@
     ],
     "primaryExperienceEngineRequired": true,
     "counterpointEngineMaximum": 1,
-    "segmentDefaultEngineForbidden": true
+    "segmentDefaultEngineForbidden": true,
+    "classifySourceBeforeUse": true,
+    "entitySourceMustNotDefineComposition": true,
+    "metaMethodMustNotActAsClientEvidence": true
   },
   "clusters": [
     "DIAGNOSTIC_LED",
@@ -47,7 +50,8 @@
         "decision_aid_repair_vs_replace",
         "scope_limits"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.especell.com.br/",
@@ -83,7 +87,8 @@
         "b2b_repair_path",
         "campaign_fast_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://gruposmarttv.com.br/",
@@ -171,7 +176,8 @@
       "reject": [
         "infer_segment_from_domain_name"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "ANTI_PATTERN_REFERENCE"
     },
     {
       "url": "https://profitize.com.br/",
@@ -189,7 +195,8 @@
         "pricing_transparency",
         "founder_faq"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/",
@@ -341,7 +348,8 @@
         "PRODUCT_OR_SERVICE_FINDER",
         "LOCATION_AND_NETWORK"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.azmotorsoficina.com.br/",
@@ -384,7 +392,8 @@
         "URGENT_FAST_PATH",
         "EDUCATION_AND_RISK_REDUCTION"
       ],
-      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://unbounce.com/landing-page-examples/best-landing-page-examples/",
@@ -404,7 +413,8 @@
         "URGENT_FAST_PATH",
         "EDUCATION_AND_RISK_REDUCTION"
       ],
-      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://www.hostinger.com/br/criador-de-sites-com-ia",
@@ -425,7 +435,8 @@
         "PLAN_OR_SCOPE_CONFIGURATION",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://bryytech.com.br/",
@@ -450,7 +461,8 @@
         "PROBLEM_TO_DIAGNOSIS",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.eletronicafast.com.br/",
@@ -476,7 +488,8 @@
         "LOCATION_AND_NETWORK",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://grupordmcuritiba.com.br/",
@@ -500,7 +513,8 @@
         "PROBLEM_TO_DIAGNOSIS",
         "URGENT_FAST_PATH"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.rssolution.com.br/",
@@ -522,7 +536,8 @@
         "PROCESS_AND_TRANSPARENCY",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://infocaseinformatica.com.br/",
@@ -545,7 +560,8 @@
         "PRODUCT_OR_SERVICE_FINDER",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://aiconbr.com.br/",
@@ -556,7 +572,84 @@
         "computers_notebooks_cells_assistance_sjp"
       ],
       "evidenceStatus": "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "url": "https://acheioprofissional.com.br/mecanico/sao-jose-dos-pinhais-pr",
+      "label": "Achei o Profissional — Mecânicos SJP",
+      "sourceClass": "ENTITY_DISCOVERY_SOURCE",
+      "use": "ADAPT",
+      "signals": [
+        "local_competitor_discovery",
+        "service_vocabulary",
+        "city_intent",
+        "symptom_vocabulary",
+        "google_profile_signals"
+      ],
+      "forbiddenFor": [
+        "layout_reference",
+        "motion_reference",
+        "proof_without_source_verification"
+      ],
+      "motionObserved": "NOT_APPLICABLE"
+    },
+    {
+      "url": "https://www.consertameucarro.com.br/oficina-mec-nica-edson-ribeiro-sao-jose-dos-pinhais-pr",
+      "label": "Conserta Meu Carro — perfil de oficina",
+      "sourceClass": "ENTITY_DISCOVERY_SOURCE",
+      "use": "ADAPT",
+      "signals": [
+        "business_identity",
+        "address",
+        "service_scope",
+        "route_locality",
+        "contact_discovery"
+      ],
+      "forbiddenFor": [
+        "premium_composition_reference",
+        "motion_reference"
+      ],
+      "motionObserved": "NOT_APPLICABLE"
+    },
+    {
+      "url": "https://br.hubspot.com/blog/marketing/exemplos-landing-page",
+      "label": "HubSpot — exemplos de landing page",
+      "sourceClass": "META_METHOD_REFERENCE",
+      "use": "ADAPT",
+      "signals": [
+        "landing_goal",
+        "cta_method",
+        "mobile",
+        "content_relevance"
+      ],
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+    },
+    {
+      "url": "https://pt.wix.com/blog/exemplos-de-landing-pages",
+      "label": "Wix — exemplos de landing pages",
+      "sourceClass": "META_METHOD_REFERENCE",
+      "use": "ADAPT",
+      "signals": [
+        "single_goal",
+        "page_type",
+        "cta_focus",
+        "visual_storytelling"
+      ],
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+    },
+    {
+      "url": "https://hotmart.com/pt-br/blog/exemplos-de-landing-pages",
+      "label": "Hotmart — exemplos de landing pages",
+      "sourceClass": "META_METHOD_REFERENCE",
+      "use": "ADAPT",
+      "signals": [
+        "single_conversion_goal",
+        "form_friction",
+        "product_demo",
+        "speed_mobile"
+      ],
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
     }
   ],
   "experienceEngines": [
@@ -580,6 +673,14 @@
   "researchLedgers": [
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
-    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md"
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
+    "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md"
+  ],
+  "sourceClasses": [
+    "COMPOSITION_REFERENCE",
+    "ENTITY_DISCOVERY_SOURCE",
+    "META_METHOD_REFERENCE",
+    "ANTI_PATTERN_REFERENCE",
+    "INSUFFICIENT_EVIDENCE"
   ]
 }
