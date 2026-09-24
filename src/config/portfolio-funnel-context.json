@@ -676,5 +676,15 @@
     "whatsappPrompt": "Quero receber uma proposta para começar meu processo de habilitação na APTOS.",
     "whatsappSubject": "meu processo de habilitação",
     "proposalKind": "service"
+  },
+  "arildo-madeiras": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu projeto começa pelo material certo.",
+    "nextStepBody": "Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo.",
+    "primaryCtaLabel": "Montar meu orçamento",
+    "theme": "gold",
+    "whatsappPrompt": "Quero pedir um orçamento para meu projeto com a Arildo Madeiras.",
+    "whatsappSubject": "meu orçamento de madeiras",
+    "proposalKind": "service"
   }
 }
