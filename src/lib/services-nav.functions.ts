@@ -7,6 +7,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
+import { serviceCoverFallback } from "@/lib/service-cover-fallback";
 
 export type NavService = {
   slug: string;
@@ -90,7 +91,10 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
       name: r.name,
       category: r.category,
       description: r.description,
-      imageUrl: signedMap.get(r.slug) ?? canonicalServiceCoverUrl(r.slug),
+      imageUrl:
+        signedMap.get(r.slug) ??
+        canonicalServiceCoverUrl(r.slug) ??
+        (Number(r.price) > 0 ? serviceCoverFallback(r.slug, r.category) : null),
       imageAlt: r.image_alt,
       price: r.price == null || !Number.isFinite(Number(r.price)) ? null : Number(r.price),
       pricePeriod: r.price_period,
