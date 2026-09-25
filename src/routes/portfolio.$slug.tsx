@@ -326,9 +326,6 @@ const AcaiTotalAraucariaPage = lazy(() =>
     default: m.AcaiTotalAraucariaPage,
   })),
 );
-const JklMarcenariaPage = lazy(() =>
-  import("@/components/site/JklMarcenariaPage").then((m) => ({ default: m.JklMarcenariaPage })),
-);
 const SantosMontadorDeMoveisPage = lazy(() =>
   import("@/components/site/SantosMontadorDeMoveisPage").then((m) => ({
     default: m.SantosMontadorDeMoveisPage,
@@ -528,7 +525,6 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
     const isMary = loaderData?.slug === "mary-diarista";
     const isAcai = loaderData?.slug === "acai-total-araucaria";
-    const isJkl = loaderData?.slug === "jkl-marcenaria";
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
     const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
     const isCrisPresentesColoniaRioGrande = loaderData?.slug === "cris-presentes-colonia-rio-grande";
@@ -776,9 +772,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                         ? "/images/mary-diarista/servicos.webp"
                                                         : isAcai
                                                           ? "/images/acai-total-araucaria/acai.webp"
-                                                          : isJkl
-                                                            ? "/images/jkl-marcenaria/cozinha.webp"
-                                                            : isSantos
+                                                          : isSantos
                                                               ? "/images/santos-montador-de-moveis/hero.webp"
                                                               : "/images/mestre-dos-servicos-logo.jpg",
       ),
@@ -1632,8 +1626,6 @@ function PortfolioPrototypePage() {
           <MaryDiaristaPage />
         ) : slug === "acai-total-araucaria" ? (
           <AcaiTotalAraucariaPage />
-        ) : slug === "jkl-marcenaria" ? (
-          <JklMarcenariaPage />
         ) : slug === "santos-montador-de-moveis" ? (
           <SantosMontadorDeMoveisPage />
         ) : slug === "almeida-torres" ? (
