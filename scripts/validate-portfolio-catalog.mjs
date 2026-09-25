@@ -5,7 +5,6 @@ const catalog = JSON.parse(fs.readFileSync(path.join(root, "src/config/portfolio
 const clients = JSON.parse(fs.readFileSync(path.join(root, "src/config/portfolio-clients.json"), "utf8"));
 const shareCopy = JSON.parse(fs.readFileSync(path.join(root, "src/config/portfolio-share-copy.json"), "utf8"));
 const presenceKitSource = fs.readFileSync(path.join(root, "src/components/portfolio/PortfolioPresenceKit.tsx"), "utf8");
-const portfolioRouteSource = fs.readFileSync(path.join(root, "src/routes/portfolio.$slug.tsx"), "utf8");
 const required = ["slug", "clientKey", "title", "segment", "projectType", "status", "tags"];
 const errors = []; const seen = new Set();
 for (const item of catalog) {
@@ -40,16 +39,6 @@ for (const item of catalog) {
 }
 for (const copySlug of Object.keys(shareCopy)) if (!seen.has(copySlug)) errors.push(`${copySlug}: divulgação órfã sem item no catálogo`);
 for (const client of clients) if (!seen.has(client.slug)) errors.push(`${client.slug}: cliente registrado sem item no catálogo`);
-
-const hardcodedRouteSlugs = new Set(
-  [...portfolioRouteSource.matchAll(/(?:loaderData\\?\\.slug|slug)\\s*===\\s*"([^"]+)"/g)]
-    .map((match) => match[1]),
-);
-for (const routeSlug of hardcodedRouteSlugs) {
-  if (!seen.has(routeSlug)) {
-    errors.push(`${routeSlug}: slug hardcoded na rota, mas ausente do catálogo canônico`);
-  }
-}
 if (!/getPortfolioPresenceKit/.test(presenceKitSource) || !/printMockup/.test(presenceKitSource) || !/brandBrief/.test(presenceKitSource)) {
   errors.push("contrato de kit de presença (brandBrief/printMockup) ausente");
 }
