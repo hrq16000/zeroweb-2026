@@ -185,6 +185,24 @@ export const upsertClientSettings = createServerFn({ method: "POST" })
       });
     }
 
+    // No painel legacy, o toggle de publicação é uma decisão explícita.
+    // Mantemos o lifecycle em sincronia para impedir estados impossíveis como
+    // published=true + lifecycle=imported, que faziam a página virar noindex.
+    if (data.published !== undefined) {
+      const nextLifecycle = data.published ? "published" : "draft";
+      const previousLifecycle = String(existing?.lifecycle_status ?? "imported");
+      patch.lifecycle_status = nextLifecycle;
+      if (previousLifecycle !== nextLifecycle) {
+        history.push({
+          client_key: data.client_key,
+          field: "lifecycle_status",
+          old_value: previousLifecycle,
+          new_value: nextLifecycle,
+          actor: context.userId,
+        });
+      }
+    }
+
     const { data: saved, error } = await (admin as any)
       .from("portfolio_client_settings")
       .upsert({ client_key: data.client_key, slug: data.slug ?? existing?.slug ?? data.client_key, ...patch }, { onConflict: "client_key" })
@@ -194,10 +212,18 @@ export const upsertClientSettings = createServerFn({ method: "POST" })
     if (history.length) {
       await (admin as any).from("portfolio_client_settings_history").insert(history);
     }
-    const publicationChanged = data.published !== undefined && Boolean(saved.published) !== Boolean(existing?.published);
+    const publicationChanged =
+      data.published !== undefined &&
+      (
+        Boolean(saved.published) !== Boolean(existing?.published) ||
+        String(saved.lifecycle_status ?? "") !== String(existing?.lifecycle_status ?? "")
+      );
     if (publicationChanged) {
       const { syncPortfolioSitemapAndIndexing } = await import("@/lib/portfolio-sitemap.server");
-      await syncPortfolioSitemapAndIndexing(admin, Boolean(saved.published) ? [saved.slug] : []);
+      await syncPortfolioSitemapAndIndexing(
+        admin,
+        Boolean(saved.published) && saved.lifecycle_status === "published" ? [saved.slug] : [],
+      );
     }
     return { row: toPublic(saved) };
   });
