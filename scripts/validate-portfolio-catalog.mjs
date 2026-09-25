@@ -21,10 +21,10 @@ for (const item of catalog) {
     const urls = copy.match(/https?:\/\/[^\s]+/g) ?? [];
     const hashtags = copy.match(/#[A-Za-z0-9_]+/g) ?? [];
     const canonicalOnOwnLine = copy
-      .split(/\\r?\\n/)
+      .split(/\r?\n/)
       .some((line) => line.trim() === canonicalUrl);
 
-    if (copy.includes("\\\\n")) errors.push(`${item.slug}: divulgação contém \\\\n literal`);
+    if (copy.includes("\\n")) errors.push(`${item.slug}: divulgação contém \\n literal`);
     if (!copy.includes("\n\n")) errors.push(`${item.slug}: divulgação sem separação de parágrafos`);
     if (urls.length !== 1 || urls[0] !== canonicalUrl || !canonicalOnOwnLine) {
       errors.push(`${item.slug}: divulgação com URL canônica mal formatada`);
