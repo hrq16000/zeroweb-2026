@@ -10,11 +10,12 @@ type Props = {
   context?: PortfolioSeoContextOverride;
 };
 
-function relationLabel(reason: "city" | "segment" | "affinity" | "state"): string {
+function relationLabel(reason: "city" | "segment" | "affinity" | "state" | "discovery"): string {
   if (reason === "city") return "Mesma cidade";
   if (reason === "segment") return "Mesmo segmento";
   if (reason === "affinity") return "Afinidade de serviços";
-  return "Mesma região";
+  if (reason === "state") return "Mesma região";
+  return "Outro projeto publicado";
 }
 
 export function PortfolioSeoNetwork({ slug, context }: Props) {
