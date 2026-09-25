@@ -17,6 +17,8 @@ import { PortfolioConversionNarrative } from "@/components/portfolio/PortfolioCo
 import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import type { ContactMode } from "@/lib/portfolio-global-config";
 import type { PortfolioFunnelIntent } from "@/lib/portfolio-funnel-context";
+import { PortfolioSeoNetwork } from "@/components/portfolio/PortfolioSeoNetwork";
+import type { PortfolioSeoContextOverride } from "@/lib/portfolio-seo-network";
 
 type Props = {
   slug: string;
@@ -32,6 +34,8 @@ type Props = {
   contactLabelOverride?: string;
   funnelIntentOverride?: PortfolioFunnelIntent;
   quizConfigOverride?: PortfolioQuizConfig;
+  /** Contexto factual opcional para o grafo universal de SEO (Managed/runtime). */
+  seoContextOverride?: PortfolioSeoContextOverride;
 };
 
 /**
@@ -53,6 +57,7 @@ export function PortfolioStandardShell({
   contactLabelOverride,
   funnelIntentOverride,
   quizConfigOverride,
+  seoContextOverride,
 }: Props) {
   // Older dedicated routes still pass this flag. Footer ownership is now
   // centralized so the client footer can never appear above the About block.
@@ -95,6 +100,8 @@ export function PortfolioStandardShell({
       >
         {children}
       </div>
+
+      <PortfolioSeoNetwork slug={slug} context={seoContextOverride} />
 
       <PortfolioConversionNarrative slug={slug} />
 
