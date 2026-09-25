@@ -1576,3 +1576,20 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   READY/PUBLISH continua bloqueado se não existir composição válida.
 - **Escopo:** forward-only; nenhum portfolio legado é redesenhado nesta rodada.
 
+# 2026-09-25 — SEO universal e grafo interno de portfólios
+
+- **Escopo:** todos os `/portfolio/:slug` publicados, atuais e futuros.
+- **Rede interna:** `PortfolioStandardShell` passa a renderizar
+  `PortfolioSeoNetwork`, ligando cada projeto a até seis páginas publicadas
+  por segmento, cidade, estado e afinidade de tags/serviços.
+- **Dados estruturados:** a mesma rede é exposta como `ItemList` JSON-LD.
+- **Metadados:** rota dinâmica usa title universal determinístico, fallback de
+  description pelo catálogo, contexto editorial de keywords, `og:locale`,
+  `twitter:image:alt` e hreflang `pt-BR/x-default`.
+- **Managed:** contexto factual de nome, segmento, cidade, estado e serviços é
+  repassado ao grafo sem depender do catálogo versionado.
+- **Gate:** teste universal entrou em `test:portfolio-ops`/prebuild e garante
+  cobertura integral, seis relações, ausência de self-link e titles únicos <=65.
+- **Política:** escala não autoriza doorway pages, stuffing, conteúdo duplicado
+  ou dados locais inventados.
+
