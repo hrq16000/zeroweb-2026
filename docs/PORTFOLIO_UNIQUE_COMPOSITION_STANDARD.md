@@ -230,3 +230,17 @@ publicados antes deste adendo permanecem disponíveis; ao sofrerem redesign
 material, entram no contrato vigente. A dívida histórica continua mensurada e
 pode ser reduzida por ondas.
 
+### F. Composition graph Managed
+
+O canal Managed implementa uma camada intermediária entre workbench e JSX
+manual: `src/lib/portfolio-managed-composition.ts`. Ela gera três direções,
+seleciona um graph por projeto e persiste a decisão no `source_snapshot`.
+
+O graph não pode usar `segment -> preset`. A base inclui identidade textual,
+localidade, serviços e disponibilidade real dos papéis editoriais. A assinatura
+selecionada é comparada com as composições Managed existentes e deve ficar
+abaixo do teto de similaridade definido pelo planner. O runtime final é
+`PortfolioManagedAuthorialView`; `PortfolioManagedView` só usa preset quando
+não há plano válido, situação que continua bloqueante para projeto novo marcado
+com `authorial_composition.required=true`.
+
