@@ -13,6 +13,7 @@
  * nos testes e no gate `check:portfolio-runtime-overrides`.
  */
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
+import { isValidPortfolioShareMessage, normalizePortfolioShareMessage } from "@/lib/portfolio-share";
 
 export type PortfolioLifecycle = "imported" | "draft" | "published" | "archived";
 
@@ -232,11 +233,11 @@ export function sanitizePortfolioRuntimeRow(
     ctaLabel: text(row.cta_label, 80),
     shareCopy:
       typeof row.share_copy === "string" &&
-      row.share_copy.trim() &&
       row.share_copy.trim().length <= 2000 &&
       !containsPublicContact(row.share_copy) &&
-      !/[<>]/.test(row.share_copy)
-        ? row.share_copy.trim()
+      !/[<>]/.test(row.share_copy) &&
+      isValidPortfolioShareMessage(slug, row.share_copy)
+        ? normalizePortfolioShareMessage(row.share_copy)
         : undefined,
     gallery: gallery && gallery.length > 0 ? gallery : undefined,
     brandColors: Object.keys(brandColors).length ? brandColors : undefined,
