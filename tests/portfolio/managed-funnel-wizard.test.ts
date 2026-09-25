@@ -8,6 +8,8 @@ const redirect = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
 const view = readFileSync("src/components/portfolio/PortfolioManagedView.tsx", "utf8");
 const managed = readFileSync("src/lib/portfolio-managed.ts", "utf8");
 const authorialRegistry = readFileSync("src/config/portfolio-authorial-compositions.ts", "utf8");
+const authorialView = readFileSync("src/components/portfolio/PortfolioManagedAuthorialView.tsx", "utf8");
+const compositionPlanner = readFileSync("src/lib/portfolio-managed-composition.ts", "utf8");
 
 describe("novo portfolio managed: funil isolado", () => {
   test("wizard exige intenção e modo de entrega", () => {
@@ -49,5 +51,10 @@ describe("novo portfolio managed: funil isolado", () => {
     expect(managed).toContain("hasAuthorialPortfolioComposition(slug)");
     expect(authorialRegistry).toContain("PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS");
     expect(view).toContain("WORKBENCH de compatibilidade");
+    expect(view).toContain("project.compositionPlan");
+    expect(authorialView).toContain('data-managed-authorial="true"');
+    expect(authorialView).toContain("data-composition-signature");
+    expect(compositionPlanner).toContain("directions");
+    expect(compositionPlanner).toContain("managedCompositionSimilarity");
   });
 });
