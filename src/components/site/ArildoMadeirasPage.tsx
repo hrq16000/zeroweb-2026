@@ -246,7 +246,6 @@ export function ArildoMadeirasPage() {
               className="h-9 w-auto object-contain md:h-11"
               loading="eager"
               decoding="async"
-              fetchPriority="high"
               referrerPolicy="no-referrer"
             />
           </a>
