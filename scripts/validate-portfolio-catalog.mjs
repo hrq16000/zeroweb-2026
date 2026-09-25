@@ -18,7 +18,7 @@ for (const item of catalog) {
     errors.push(`${item.slug}: divulgação individual ausente ou curta`);
   }
   if (typeof copy === "string") {
-    const urls = copy.match(/https?:\\/\\/[^\\s]+/g) ?? [];
+    const urls = copy.match(/https?:\/\/[^\s]+/g) ?? [];
     const hashtags = copy.match(/#[A-Za-z0-9_]+/g) ?? [];
     const canonicalOnOwnLine = copy
       .split(/\\r?\\n/)
@@ -32,7 +32,7 @@ for (const item of catalog) {
     if (hashtags.length === 0 || hashtags.at(-1) !== "#0WEB") {
       errors.push(`${item.slug}: divulgação deve terminar com #0WEB como última hashtag`);
     }
-    if (/\\[[^\\]]+\\]\\(https?:\\/\\//.test(copy)) {
+    if (/\[[^\]]+\]\(https?:\/\//.test(copy)) {
       errors.push(`${item.slug}: divulgação não pode conter link em markdown`);
     }
   }
