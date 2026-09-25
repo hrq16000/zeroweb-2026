@@ -115,6 +115,8 @@ Destino institucional 0WEB é proibido como destino de cliente. Se não houver d
 
 Presets podem existir temporariamente como compatibilidade técnica, mas **não podem ser a decisão criativa final**.
 
+**Regra de paridade entre canais:** `PortfolioManagedView`, `PRESET_HERO` e o campo `preset` são workbench/preview para projeto novo, nunca superfície final de publicação. O mesmo contrato vale para criação via painel, fluxo autônomo, scaffold, agente/Codex ou edição manual. Antes de `READY/PUBLISH`, o projeto precisa possuir composição autoral própria (ou composition graph específico, sem DOM universal) e passar os gates de unicidade declarada, originalidade estática e revisão perceptual.
+
 Para cada projeto novo ou redesign relevante, o Creative Director deve produzir pelo menos três propostas divergentes. Cada proposta define:
 
 - personalidade do negócio;
