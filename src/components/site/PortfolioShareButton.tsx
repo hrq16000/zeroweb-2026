@@ -75,7 +75,7 @@ export function PortfolioShareButton({
       // Clipboard pode estar indisponível em contextos não seguros.
     }
   };
-  const placementClass = placement === "floating" ? `fixed z-40 ${POSITION[position]}` : "";
+  const placementClass = placement === "floating" ? `fixed z-[60] ${POSITION[position]}` : "";
   const baseClass = placement === "floating"
     ? "min-h-11 rounded-full border px-4 py-2 text-xs font-bold shadow-lg backdrop-blur transition hover:-translate-y-0.5"
     : "min-h-10 rounded-xl px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
