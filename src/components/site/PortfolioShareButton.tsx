@@ -61,7 +61,7 @@ export function PortfolioShareButton({
     // Isolamento por projeto: o override só vale quando é do MESMO slug.
     const override =
       runtime && runtime.slug === (slug ?? "") && runtime.shareCopy ? runtime.shareCopy : undefined;
-    const text = override ?? buildPortfolioShareMessage(slug ?? "portfolio", siteName);
+    const text = buildPortfolioShareMessage(slug ?? "portfolio", siteName, override);
     trackEvent("portfolio_share_click", {
       portfolio_slug: slug ?? "unknown",
       page_type: "portfolio_client",
