@@ -78,6 +78,11 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
+      - name: Copiar divulgação — 96 portfólios
+        env:
+          SHARE_E2E_CONCURRENCY: 4
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-share
+
       - name: Funis individuais de portfólio
         env:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -197,6 +202,7 @@ jobs:
             seo-reports/ci-audit-summary.md
             seo-reports/portfolio-funnels-e2e.json
             seo-reports/portfolio-funnels-e2e.html
+            seo-reports/portfolio-share-e2e.json
             public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore
