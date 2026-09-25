@@ -6,6 +6,8 @@ const managedFns = readFileSync("src/lib/portfolio-managed.functions.ts", "utf8"
 const dynamicFunnel = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
 const redirect = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
 const view = readFileSync("src/components/portfolio/PortfolioManagedView.tsx", "utf8");
+const managed = readFileSync("src/lib/portfolio-managed.ts", "utf8");
+const authorialRegistry = readFileSync("src/config/portfolio-authorial-compositions.ts", "utf8");
 
 describe("novo portfolio managed: funil isolado", () => {
   test("wizard exige intenção e modo de entrega", () => {
@@ -37,5 +39,15 @@ describe("novo portfolio managed: funil isolado", () => {
     expect(view).toContain("<PortfolioCTAQuiz");
     expect(view).toContain("clientKey={project.clientKey}");
     expect(view).toContain("funnelIntent={project.funnelIntent}");
+  });
+
+  test("projeto managed novo não publica preset como composição final", () => {
+    expect(managedFns).toContain("authorial_composition");
+    expect(managedFns).toContain('reason: "new_managed_project"');
+    expect(managedFns).toContain('reason: "new_autonomous_managed_project"');
+    expect(managed).toContain("PORTFOLIO_AUTHORIAL_COMPOSITION_REQUIRED");
+    expect(managed).toContain("hasAuthorialPortfolioComposition(slug)");
+    expect(authorialRegistry).toContain("PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS");
+    expect(view).toContain("WORKBENCH de compatibilidade");
   });
 });
