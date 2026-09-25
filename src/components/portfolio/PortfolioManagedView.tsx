@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioManagedAuthorialView } from "@/components/portfolio/PortfolioManagedAuthorialView";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import type { ManagedProject } from "@/lib/portfolio-managed";
@@ -58,6 +59,10 @@ function focalStyle(focal: { x: number; y: number }): CSSProperties {
 }
 
 export function PortfolioManagedView({ project }: Props) {
+  if (project.compositionPlan) {
+    return <PortfolioManagedAuthorialView project={project} plan={project.compositionPlan} />;
+  }
+
   const preset = PRESET_HERO[project.preset] ?? PRESET_HERO.editorial;
   const brand = project.brandColors;
   const style = {

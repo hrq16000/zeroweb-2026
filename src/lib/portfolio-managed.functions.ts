@@ -18,6 +18,12 @@ import {
 } from "@/lib/portfolio-managed";
 import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
 import { UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-admin";
+import {
+  buildManagedAuthorialCompositionPlan,
+  managedCompositionSignature,
+  sanitizeManagedAuthorialCompositionPlan,
+  type ManagedCompositionInput,
+} from "@/lib/portfolio-managed-composition";
 
 export const MANAGED_COLUMNS = [
   "client_key",
@@ -91,6 +97,44 @@ function record(value: unknown): Record<string, unknown> {
 function normalizeWhatsApp(value: unknown): string {
   const digits = typeof value === "string" ? value.replace(/\D/g, "") : "";
   return digits.length >= 10 && digits.length <= 15 ? digits : "";
+}
+
+function managedCompositionInput(row: Record<string, any>): ManagedCompositionInput {
+  const content = record(row.content_blocks);
+  const services = Array.isArray(row.services)
+    ? row.services
+        .map((item: unknown) => String(record(item).title ?? "").trim())
+        .filter(Boolean)
+    : [];
+  return {
+    slug: String(row.slug ?? ""),
+    displayName: String(row.display_name ?? row.slug ?? ""),
+    segment: String(row.segment ?? ""),
+    city: String(row.city ?? ""),
+    services,
+    galleryCount: Array.isArray(row.gallery_items) ? row.gallery_items.length : 0,
+    hasDifferentials: Array.isArray(content.differentials) && content.differentials.length > 0,
+    hasSteps: Array.isArray(content.steps) && content.steps.length > 0,
+    hasAbout: typeof content.about === "string" && content.about.trim().length > 0,
+    hasFaq: Array.isArray(content.faq) && content.faq.length > 0,
+  };
+}
+
+async function listManagedCompositionSignatures(admin: any, excludeSlug?: string): Promise<string[]> {
+  const { data, error } = await admin
+    .from("portfolio_client_settings")
+    .select("slug, source_snapshot")
+    .eq("project_kind", "managed");
+  if (error) throw new Error("Não foi possível comparar as composições Managed existentes.");
+
+  return (data ?? [])
+    .filter((row: any) => !excludeSlug || row.slug !== excludeSlug)
+    .map((row: any) => {
+      const snapshot = record(row.source_snapshot);
+      const policy = record(snapshot.authorial_composition);
+      return managedCompositionSignature(policy.plan);
+    })
+    .filter((value: string | null): value is string => Boolean(value));
 }
 
 async function syncManagedFunnelForm(
@@ -325,13 +369,19 @@ export const createAutonomousManagedPortfolio = createServerFn({ method: "POST" 
       content: contentPlan.content,
       brandColors: {},
     });
+    const usedCompositionSignatures = await listManagedCompositionSignatures(admin);
+    const authorialPlan = buildManagedAuthorialCompositionPlan(
+      managedCompositionInput(row),
+      usedCompositionSignatures,
+    );
     const sourceSnapshot = {
       ...record(row.source_snapshot),
       authorial_composition: {
-        contract: 1,
+        contract: 2,
         required: true,
-        status: "required",
+        status: "selected",
         reason: "new_autonomous_managed_project",
+        plan: authorialPlan,
       },
       autonomous_research: research,
       autonomous_content: contentPlan,
@@ -509,18 +559,38 @@ export const saveManagedProject = createServerFn({ method: "POST" })
     const funnelRecipient =
       effectiveDeliveryMode === "whatsapp" ? requestedRecipient || existingRecipient : "";
     const funnelEnabled = effectiveDeliveryMode === "whatsapp" && Boolean(funnelRecipient);
+
+    const existingAuthorial = record(existingSnapshot.authorial_composition);
+    const existingPlan = sanitizeManagedAuthorialCompositionPlan(existingAuthorial.plan);
+    let authorialComposition = existingAuthorial;
+
+    if (!existing || existingAuthorial.required === true) {
+      const usedCompositionSignatures = await listManagedCompositionSignatures(admin, slug);
+      const candidatePlan = buildManagedAuthorialCompositionPlan(
+        managedCompositionInput(row),
+        usedCompositionSignatures,
+      );
+      const shouldRefreshPlan =
+        !existingPlan ||
+        !existing ||
+        (existing?.lifecycle_status === "draft" && existingPlan.basis !== candidatePlan.basis);
+
+      if (shouldRefreshPlan) {
+        authorialComposition = {
+          contract: 2,
+          required: true,
+          status: "selected",
+          reason: existing ? "managed_draft_recomposed" : "new_managed_project",
+          plan: candidatePlan,
+        };
+      }
+    }
+
     const sourceSnapshot = {
       ...existingSnapshot,
-      ...(existing
-        ? {}
-        : {
-            authorial_composition: {
-              contract: 1,
-              required: true,
-              status: "required",
-              reason: "new_managed_project",
-            },
-          }),
+      ...(!existing || existingAuthorial.required === true
+        ? { authorial_composition: authorialComposition }
+        : {}),
       ...record(row.source_snapshot),
     };
 

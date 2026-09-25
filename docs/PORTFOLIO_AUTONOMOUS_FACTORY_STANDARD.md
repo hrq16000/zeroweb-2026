@@ -117,6 +117,20 @@ Presets podem existir temporariamente como compatibilidade técnica, mas **não 
 
 **Regra de paridade entre canais:** `PortfolioManagedView`, `PRESET_HERO` e o campo `preset` são workbench/preview para projeto novo, nunca superfície final de publicação. O mesmo contrato vale para criação via painel, fluxo autônomo, scaffold, agente/Codex ou edição manual. Antes de `READY/PUBLISH`, o projeto precisa possuir composição autoral própria (ou composition graph específico, sem DOM universal) e passar os gates de unicidade declarada, originalidade estática e revisão perceptual.
 
+### Implementação Managed do composition graph
+
+Projetos Managed novos persistem em `source_snapshot.authorial_composition.plan` um plano de composição específico do projeto. O planner:
+
+- deriva a base de nome, localidade, serviços, disponibilidade de mídia e blocos factuais;
+- produz três direções materialmente divergentes;
+- seleciona uma direção sem mapear segmento para template;
+- compara a assinatura escolhida com projetos Managed já persistidos;
+- rejeita assinatura idêntica e também similaridade estrutural >= 0,68;
+- replaneja enquanto o projeto ainda está em `draft` quando a base factual muda;
+- renderiza o plano em `PortfolioManagedAuthorialView`; o renderer antigo permanece fallback legado/workbench.
+
+Esse graph é uma combinação de papéis, ordem, geometria de abertura, apresentação de oferta, mídia, passos, FAQ, CTA, densidade, bordas e estratégia mobile. As primitivas são finitas e compartilháveis; a composição final e sua assinatura pertencem ao cliente.
+
 Para cada projeto novo ou redesign relevante, o Creative Director deve produzir pelo menos três propostas divergentes. Cada proposta define:
 
 - personalidade do negócio;

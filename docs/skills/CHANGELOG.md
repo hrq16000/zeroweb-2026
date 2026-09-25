@@ -1558,3 +1558,21 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Escopo:** nenhuma landing publicada foi redesenhada nesta rodada; mudança
   forward-only de governança e gates.
 
+# 2026-09-25 — Managed composition graph · geração autoral automática
+
+- **Tarefa:** avançar a fábrica para que projeto novo Managed não dependa de JSX
+  manual para sair do workbench genérico.
+- **Implementação:** novo `portfolio-managed-composition.ts` gera três direções
+  divergentes por projeto e persiste a selecionada em
+  `source_snapshot.authorial_composition.plan`.
+- **Anti-template:** não há mapeamento `segment -> template`. A composição usa
+  a forma real do conteúdo e uma semente estável do projeto; assinaturas iguais
+  ou com similaridade >= 0,68 contra Managed existentes são rejeitadas.
+- **Runtime:** `PortfolioManagedAuthorialView` interpreta o graph e varia
+  abertura, header, ordem dos capítulos, oferta, galeria, processo, FAQ, CTA,
+  densidade, geometria e estratégia mobile. O `PortfolioManagedView` anterior
+  fica como fallback de legado/workbench.
+- **Lifecycle:** drafts Managed são recompostos quando a base factual muda;
+  READY/PUBLISH continua bloqueado se não existir composição válida.
+- **Escopo:** forward-only; nenhum portfolio legado é redesenhado nesta rodada.
+
