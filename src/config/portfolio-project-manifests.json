@@ -552,18 +552,18 @@
       "structuralContract": 1,
       "structuralSignature": {
         "segment": "madeireira",
-        "layoutFamily": "material-ledger-authorial",
-        "heroFamily": "documentary-material-stage",
-        "sectionRhythm": "layered-dense",
-        "proofStyle": "distributed-source-proof",
-        "mediaNarrative": "stock-material-application",
-        "ctaStyle": "contextual-funnel-persistent",
+        "layoutFamily": "catalogo-capacidades",
+        "heroFamily": "catalog-first",
+        "sectionRhythm": "modular-grid",
+        "proofStyle": "captioned-gallery",
+        "mediaNarrative": "technical-collage",
+        "ctaStyle": "hero-primary",
         "motionProfile": "timber-layer-balanced"
       },
       "structuralOriginalityReview": {
         "approved": true,
         "reviewedAt": "2026-09-24",
-        "notes": "Direção Camadas de madeira escolhida entre três alternativas; comparação automática de skeleton/fingerprint ainda será executada no CI."
+        "notes": "Direção Camadas de Madeira escolhida entre três alternativas; vocabulário estrutural normalizado sem alterar o compositionFingerprint autoral."
       },
       "compositionContract": 2,
       "compositionFingerprint": {
