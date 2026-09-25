@@ -1,6 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
 import {
-  ArrowDownRight,
   ArrowRight,
   Box,
   Building2,
@@ -259,7 +258,7 @@ export function ArildoMadeirasPage() {
             <a href="#local">Pinhais</a>
           </nav>
           <MaterialCta placement="header" compact>
-            Orçar <ArrowRight className="h-4 w-4" />
+            Orçar
           </MaterialCta>
         </header>
 
@@ -280,7 +279,7 @@ export function ArildoMadeirasPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <MaterialCta placement="hero">
-                  Montar meu orçamento <ArrowDownRight className="h-5 w-5" />
+                  Montar meu orçamento
                 </MaterialCta>
                 <a href="#materiais" className="arildo-secondary inline-flex min-h-12 items-center gap-2 px-6 py-3 font-bold">
                   Ver materiais <ArrowRight className="h-4 w-4" />
@@ -327,7 +326,7 @@ export function ArildoMadeirasPage() {
                   grade genérica de produtos.
                 </p>
                 <div className="mt-8">
-                  <MaterialCta placement="offers">Pedir orientação <ArrowRight className="h-4 w-4" /></MaterialCta>
+                  <MaterialCta placement="offers">Pedir orientação</MaterialCta>
                 </div>
               </MotionReveal>
 
@@ -480,7 +479,7 @@ export function ArildoMadeirasPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <MaterialCta placement="location">Organizar meu pedido <ArrowRight className="h-4 w-4" /></MaterialCta>
+                <MaterialCta placement="location">Organizar meu pedido</MaterialCta>
               </div>
             </div>
           </div>
@@ -515,7 +514,7 @@ export function ArildoMadeirasPage() {
               </div>
               <div className="mt-8">
                 <MaterialCta placement="cta">
-                  Começar orçamento <ArrowRight className="h-5 w-5" />
+                  Começar orçamento
                 </MaterialCta>
               </div>
               <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed opacity-70">
@@ -557,7 +556,7 @@ export function ArildoMadeirasPage() {
             <p className="truncate text-sm font-black">Orçamento de materiais</p>
           </div>
           <MaterialCta placement="floating" compact>
-            Orçar <ArrowRight className="h-4 w-4" />
+            Orçar
           </MaterialCta>
         </div>
       </main>

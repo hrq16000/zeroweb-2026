@@ -270,8 +270,13 @@
 @media (max-width: 767px) {
   .arildo-hero { padding-bottom: 0; }
   .arildo-hero-cut { box-shadow: -8px 8px 0 rgba(178,45,33,.7); }
-  .arildo-plank-stack span:nth-child(2) { margin-left: 1rem; }
-  .arildo-plank-stack span:nth-child(3) { margin-left: 2rem; }
+  .arildo-plank-stack span {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .arildo-plank-stack span:nth-child(2) { margin-left: 1rem; max-width: calc(100% - 1rem); }
+  .arildo-plank-stack span:nth-child(3) { margin-left: 2rem; max-width: calc(100% - 2rem); }
   .arildo-material-row {
     grid-template-columns: 74px minmax(0, 1fr);
     padding: 1.25rem;
