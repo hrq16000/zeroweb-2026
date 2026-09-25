@@ -100,11 +100,21 @@ async function runTarget(client) {
     if (!response || response.status() >= 400) {
       throw new Error(`HTTP ${response?.status() ?? "sem resposta"}`);
     }
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForFunction(
+      () => Boolean(window.__0WEB_RENDER_MODE__),
+      undefined,
+      { timeout: 10_000 },
+    );
+    // O botão já existe no HTML SSR; esperar a hidratação impede falso clique
+    // em páginas pesadas antes de o handler React estar conectado.
+    await page.waitForTimeout(250);
 
     const button = page.locator('button[aria-label^="Copiar divulgação de "]');
     const count = await button.count();
     if (count !== 1) throw new Error(`esperado 1 botão; encontrado ${count}`);
     await button.first().waitFor({ state: "visible", timeout: 10_000 });
+    await button.first().scrollIntoViewIfNeeded();
     await button.first().click({ timeout: 10_000 });
 
     await page.waitForFunction(
