@@ -933,6 +933,16 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { rel: "canonical", href: eff.canonicalUrl },
         { rel: "icon", href: effIcon },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+        ...(isArildoMadeiras
+          ? [
+              { rel: "preconnect", href: "https://arildomadeiras.guiapinhais.com.br" },
+              {
+                rel: "preload",
+                as: "image",
+                href: "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+              },
+            ]
+          : []),
       ],
       scripts: vertical
         ? [
