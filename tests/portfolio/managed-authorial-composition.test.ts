@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   buildManagedAuthorialCompositionPlan,
+  managedCompositionSimilarity,
   sanitizeManagedAuthorialCompositionPlan,
 } from "@/lib/portfolio-managed-composition";
 
@@ -40,6 +41,7 @@ describe("managed authorial composition planner", () => {
       [first.selected.signature],
     );
     expect(second.selected.signature).not.toBe(first.selected.signature);
+    expect(managedCompositionSimilarity(second.selected.signature, first.selected.signature)).toBeLessThan(0.68);
   });
 
   test("projetos diferentes não ficam presos a preset por segmento", () => {
