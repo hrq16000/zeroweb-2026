@@ -1459,6 +1459,15 @@ function PortfolioPrototypePage() {
           services: managed.services.map((service) => service.title),
           proposalKind: "service",
         }}
+        seoContextOverride={{
+          title: managed.displayName,
+          segment: managed.segment,
+          city: managed.city,
+          state: managed.state,
+          tags: managed.services.map((service) => service.title),
+          summary: managed.summary || managed.seoDescription,
+          projectType: "managed",
+        }}
       >
         <PortfolioManagedView project={managed} />
       </PortfolioStandardShell>
