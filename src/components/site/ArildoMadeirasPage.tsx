@@ -475,8 +475,8 @@ export function ArildoMadeirasPage() {
                   <p className="mt-5 text-sm font-black uppercase tracking-[0.14em]">Atendimento</p>
                   <p className="mt-2 text-xl font-bold">Atacado e varejo</p>
                   <p className="mt-2 text-sm leading-relaxed opacity-75">
-                    Telefones públicos do site: (41) 3668-7014 e (41) 99167-1593.
-                    O pedido desta página segue pelo funil antes do WhatsApp oficial.
+                    Contato comercial validado nas fontes oficiais.
+                    O pedido desta página segue pelo funil antes do atendimento no canal oficial.
                   </p>
                 </div>
               </div>
