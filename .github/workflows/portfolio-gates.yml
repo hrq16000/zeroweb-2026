@@ -157,7 +157,12 @@ jobs:
 
           # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
           # gate completo. O registry de WhatsApp e código server-only não.
-          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
+          # PortfolioShareButton é uma camada fixed explicitamente ocultada pelo
+          # próprio teste visual. A interação/stacking dela é coberta pelo E2E
+          # "Copiar divulgação" em todos os portfolios, então não dispara a
+          # comparação pixel-a-pixel global.
+          VISUAL_FILES="$(printf '%s\n' "$FILES" | grep -Fvx 'src/components/site/PortfolioShareButton.tsx' || true)"
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$VISUAL_FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
