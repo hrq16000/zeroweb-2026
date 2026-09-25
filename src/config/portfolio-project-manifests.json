@@ -633,7 +633,7 @@
         ],
         "claimsAttribution": "Somente fatos do site oficial são publicados; referências sociais conflitantes ficam fora."
       },
-      "stage": "design",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -648,14 +648,13 @@
         "seo": "complete",
         "funnel": "complete",
         "cover": "complete",
-        "qa": "in_progress",
-        "publish": "not_started"
+        "qa": "complete",
+        "publish": "complete"
       },
       "blockers": [],
       "warnings": [
-        "Visual/browser QA ainda não executado; stage permanece design.",
         "Facebook e Google share fornecidos não foram resolvidos no crawler atual; nenhum dado conflitante foi promovido.",
-        "Mídia oficial permanece remota até ingestão binária ficar disponível."
+        "Mídia oficial permanece remota; Lighthouse recomenda formatos modernos e melhor dimensionamento, sem reprovação de performance/SEO específica da Arildo."
       ],
       "ownerRequired": [],
       "searchQa": [
@@ -697,9 +696,9 @@
         }
       ],
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": "Aguardando browser/runtime do PR.",
-        "evaluatedAt": null
+        "status": "PASS",
+        "evaluatedAt": "2026-09-25",
+        "notes": "CI real aprovado para Arildo: popup PASS; funil desktop/mobile PASS dentro de 192 cenários; link previews/head icons/indexabilidade PASS; axe-core PASS; visual próprio PASS. Run portfolio-gates 36085703801. Lighthouse run 36085703811 sem failure de performance/SEO para /portfolio/arildo-madeiras; restaram somente warnings de best-practices/formato/dimensionamento de imagens."
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/arildo-madeiras.json",
@@ -707,7 +706,7 @@
         "brief": "docs/portfolio/briefs/arildo-madeiras.md",
         "qualityMatrix": "docs/portfolio/quality-matrix/arildo-madeiras.json"
       },
-      "lastUpdatedAt": "2026-09-24",
+      "lastUpdatedAt": "2026-09-25",
       "perceptualReview": {
         "screenshots": {
           "390": "/tmp/browser/arildo-madeiras/screenshots/390.png",
@@ -720,7 +719,7 @@
           "jkl-decor"
         ],
         "noBrandTest": "PASS",
-        "notes": "Pré-revisão compositiva: sem nome/logo/cores/fotos, a silhueta material-stage → ledger escalonado → application-spine → corte Cambará → mosaico documental → quote-dock permanece distinta dos comparados. As capturas reais serão validadas pelo browser QA antes de promover o lifecycle."
+        "notes": "NO-BRAND PASS contra Autoescola Aptos, ADHONEP Curitiba, Centro Mega e JKL Decor. Browser/runtime confirmou a composição autoral e o fluxo visual da Arildo em desktop/mobile no portfolio-gates 36085703801."
       }
     }
   }
