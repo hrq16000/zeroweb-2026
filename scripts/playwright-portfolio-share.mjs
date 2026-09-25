@@ -36,7 +36,7 @@ const installed = existsSync(root)
 function normalize(value) {
   return String(value ?? "")
     .replace(/\r\n?/g, "\n")
-    .replace(/\\\\n/g, "\n")
+    .replace(/\\n/g, "\n")
     .split("\n")
     .map((line) => line.replace(/[ \t]+$/g, ""))
     .join("\n")
@@ -47,15 +47,15 @@ function normalize(value) {
 function validateStructure(slug, value) {
   const message = normalize(value);
   const canonicalUrl = `https://0web.com.br/portfolio/${slug}`;
-  const urls = message.match(/https?:\\/\\/[^\\s]+/g) ?? [];
+  const urls = message.match(/https?:\/\/[^\s]+/g) ?? [];
   const hashtags = message.match(/#[A-Za-z0-9_]+/g) ?? [];
   const issues = [];
-  if (message.includes("\\\\n")) issues.push("contém \\\\n literal");
+  if (message.includes("\\n")) issues.push("contém \\\\n literal");
   if (!message.includes("\n\n")) issues.push("sem separação de parágrafos");
   if (urls.length !== 1 || urls[0] !== canonicalUrl) issues.push("URL canônica incorreta ou duplicada");
   if (!message.split("\n").some((line) => line.trim() === canonicalUrl)) issues.push("URL fora de linha própria");
   if (hashtags.at(-1) !== "#0WEB") issues.push("última hashtag não é #0WEB");
-  if (/\\[[^\\]]+\\]\\(https?:\\/\\//.test(message)) issues.push("link markdown detectado");
+  if (/\[[^\]]+\]\(https?:\/\//.test(message)) issues.push("link markdown detectado");
   return issues;
 }
 
