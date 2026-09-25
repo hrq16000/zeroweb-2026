@@ -357,17 +357,22 @@ Além das existentes, `scripts/check-portfolio-project-readiness.mjs` reprova:
   (`REAL_PHOTO | BRAND_LED | SERVICE_LED | PRODUCT_LED | HYBRID | GENERATED_EDITORIAL`);
 - `contactMode` diferente de `funnelOnly` ou `funnelType` ausente;
 - workbench de scaffold ainda presente (direção criativa indefinida);
-- projeto gerenciado fora do `PortfolioBlueprintRenderer`;
+- projeto novo ainda dependente de renderer/preset genérico em vez de composição autoral;
 - `visualQA` ausente, `FAIL` ou `NOT_EXECUTED`.
   `BLOCKED_ENVIRONMENT` nunca equivale a `PASS`: passa como aviso explícito.
 
 ### 13.5 O que o scaffold gera (sempre draft)
 
-Blueprint inicial rodando pelo renderer (com marcador
-`CREATIVE_BRIEF_REQUIRED`), creative brief, enrichment stub com
+Workbench de composição autoral sobre `PortfolioCompositionRoot` (com marcador
+`COMPOSITION_BRIEF_REQUIRED`), Creative Composition Brief, enrichment stub com
 `researchLedger`/`entity`/`providerCalls`, media plan stub com fontes de
 descoberta e `referenceOnlyAssets`, quality matrix stub, discovery stub,
-funil `draft`, manifesto `stage=draft` com `visualQa=NOT_EXECUTED`, registro do
-cliente com `contactMode=funnelOnly` e `funnelType`, e entrada no registry do
-Blueprint. Nenhum stub inventa avaliação, endereço, telefone, garantia, tempo de
-mercado, equipe, número ou certificação.
+funil `draft` e manifesto `stage=draft` com `visualQa=NOT_EXECUTED`.
+
+Nenhum projeto novo entra no `PortfolioBlueprintRenderer`: ele permanece
+congelado apenas para os pilotos legados definidos no padrão de composição.
+Projetos criados pelo painel/Managed podem usar preset somente como workbench de
+preview; antes de `READY/PUBLISH` precisam ser promovidos a composição autoral
+ou a um composition graph específico do projeto que passe os mesmos gates.
+Nenhum stub inventa avaliação, endereço, telefone, garantia, tempo de mercado,
+equipe, número ou certificação.
