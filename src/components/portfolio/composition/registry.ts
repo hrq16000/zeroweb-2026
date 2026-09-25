@@ -6,6 +6,7 @@
  * resolve o slug, nunca a composição.
  */
 import { lazy, type ComponentType, type LazyExoticComponent } from "react";
+import { PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS } from "@/config/portfolio-authorial-compositions";
 
 export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {
   "arildo-madeiras": lazy(() =>
@@ -21,6 +22,15 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
 };
 
 export const compositionSlugs = Object.keys(compositionPages);
+
+const declaredAuthorial = [...PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS].sort();
+const registeredAuthorial = [...compositionSlugs].sort();
+if (declaredAuthorial.join("|") !== registeredAuthorial.join("|")) {
+  throw new Error(
+    "[portfolio-composition] registry visual e contrato server-side divergiram. " +
+      "Atualize portfolio-authorial-compositions.ts e composition/registry.ts no mesmo PR.",
+  );
+}
 
 export function getCompositionPage(slug: string): LazyExoticComponent<ComponentType> | undefined {
   return compositionPages[slug];
