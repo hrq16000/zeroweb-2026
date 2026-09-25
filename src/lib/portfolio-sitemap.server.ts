@@ -16,6 +16,8 @@ export type PortfolioSitemapOverride = {
   updated_at?: string | null;
   /** "managed" = projeto criado pelo painel, sem entrada no catálogo versionado. */
   project_kind?: string | null;
+  /** imported = seed/migração; draft/published/archived = decisão explícita. */
+  lifecycle_status?: string | null;
 };
 
 type CatalogItem = {
@@ -48,11 +50,20 @@ export function buildApprovedPortfolioEntries(
     const item = catalog.get(slug);
     const site = PORTFOLIO_PROTOTYPES.find((candidate) => candidate.slug === slug);
     const override = runtime.get(slug);
-    if (!item && !site) return Boolean(override?.published);
+    // Um slug sem catálogo/registry só pode nascer no sitemap pelo pipeline
+    // Managed. Linha legacy órfã nunca cria URL pública por conta própria.
+    if (!item && !site) {
+      return Boolean(override?.project_kind === "managed" && override.published);
+    }
     const approved = item
       ? APPROVED_STATUSES.has(item.status ?? "") && item.live !== false
       : Boolean(site?.indexable);
-    return approved && (!override || override.published);
+    // "imported" é apenas estado de seed/migração e herda o Git. Um
+    // draft/published/archived explícito continua podendo controlar o sitemap.
+    const explicitRuntimeState = Boolean(
+      override && override.lifecycle_status !== "imported",
+    );
+    return approved && (!explicitRuntimeState || Boolean(override?.published));
   });
 
   return [
@@ -80,12 +91,10 @@ export async function getPublishedPortfolioOverrides(): Promise<PortfolioSitemap
       .select("slug,published,updated_at,project_kind,lifecycle_status")
       .limit(1000);
     if (error) throw new Error(error.message);
-    return ((data ?? []) as Array<PortfolioSitemapOverride & { lifecycle_status?: string }>).map(
-      (row) => ({
-        ...row,
-        published: Boolean(row.published) && row.lifecycle_status !== "archived",
-      }),
-    );
+    return ((data ?? []) as PortfolioSitemapOverride[]).map((row) => ({
+      ...row,
+      published: Boolean(row.published) && row.lifecycle_status !== "archived",
+    }));
   } catch (error) {
     console.warn("[portfolio-sitemap] runtime overrides unavailable; using catalog", error);
     return [];
