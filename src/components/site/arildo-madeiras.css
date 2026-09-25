@@ -13,6 +13,11 @@
   color: #fff;
 }
 
+.arildo-site > section:not(.arildo-hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 .arildo-display {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 800;
@@ -25,7 +30,6 @@
     rgba(23, 21, 18, 0.94);
   border: 1px solid rgba(234, 216, 187, 0.25);
   box-shadow: 0 12px 40px rgba(0,0,0,.26);
-  backdrop-filter: blur(16px);
 }
 .arildo-ruler nav a {
   padding: .65rem .85rem;
@@ -255,7 +259,6 @@
   color: white;
   border: 1px solid rgba(255,255,255,.2);
   box-shadow: 0 12px 36px rgba(0,0,0,.35);
-  backdrop-filter: blur(14px);
 }
 
 @media (max-width: 1023px) {
