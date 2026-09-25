@@ -70,19 +70,24 @@ export function buildPortfolioShareMessage(
   const item = findCatalogItem(slug);
   const canonicalSlug = item?.slug ?? slug;
 
-  if (runtimeCopy) {
-    const normalizedRuntimeCopy = normalizePortfolioShareMessage(runtimeCopy);
-    if (isValidPortfolioShareMessage(canonicalSlug, normalizedRuntimeCopy)) {
-      return normalizedRuntimeCopy;
-    }
-  }
-
+  // Para projetos presentes no catálogo, o Git é a fonte de verdade.
+  // Um override antigo no banco não pode substituir silenciosamente a copy
+  // versionada e reintroduzir formatação/conteúdo divergente.
   const approvedCopy = portfolioShareCopy[slug as keyof typeof portfolioShareCopy]
     ?? (item ? portfolioShareCopy[item.slug as keyof typeof portfolioShareCopy] : undefined);
   if (approvedCopy) {
     const normalizedApprovedCopy = normalizePortfolioShareMessage(approvedCopy);
     if (isValidPortfolioShareMessage(canonicalSlug, normalizedApprovedCopy)) {
       return normalizedApprovedCopy;
+    }
+  }
+
+  // Runtime continua disponível para projetos ainda fora do catálogo canônico
+  // (ex.: Managed em preparação/publicação), sempre com a mesma validação.
+  if (runtimeCopy) {
+    const normalizedRuntimeCopy = normalizePortfolioShareMessage(runtimeCopy);
+    if (isValidPortfolioShareMessage(canonicalSlug, normalizedRuntimeCopy)) {
+      return normalizedRuntimeCopy;
     }
   }
 

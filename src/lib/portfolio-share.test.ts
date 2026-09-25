@@ -46,3 +46,25 @@ test("override de runtime inválido cai para a copy canônica", () => {
   expect(message).toContain("https://0web.com.br/portfolio/autoescola-aptos");
   expect(message.trimEnd().endsWith("#0WEB")).toBe(true);
 });
+
+
+test("copy canônica vence override válido divergente de projeto catalogado", () => {
+  const runtimeCopy = `🏗️ Paulo Mestre de Obras ganhou uma divulgação alternativa válida.
+
+Serviços de obra e manutenção apresentados em uma página própria.
+
+🌐 Conheça:
+https://0web.com.br/portfolio/paulo-mestre-de-obras
+
+#PauloMestreDeObras #ConstrucaoCivil #0WEB`;
+  const message = buildPortfolioShareMessage(
+    "paulo-mestre-de-obras",
+    "Paulo Mestre de Obras",
+    runtimeCopy,
+  );
+  const canonical =
+    portfolioShareCopy["paulo-mestre-de-obras" as keyof typeof portfolioShareCopy];
+
+  expect(message).toBe(normalizePortfolioShareMessage(String(canonical)));
+  expect(message).not.toBe(normalizePortfolioShareMessage(runtimeCopy));
+});

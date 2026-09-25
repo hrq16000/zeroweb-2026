@@ -72,7 +72,10 @@ jobs:
             fi
           fi
 
-          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
+          # O botão flutuante de divulgação não altera payload SEO nem conteúdo
+          # de página; sua interação/stacking é validada no portfolio-gates.
+          LIGHTHOUSE_FILES="$(printf '%s\n' "$FILES" | grep -Fvx 'src/components/site/PortfolioShareButton.tsx' || true)"
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$LIGHTHOUSE_FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 

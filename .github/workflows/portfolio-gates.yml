@@ -78,6 +78,11 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
+      - name: Copiar divulgação — 96 portfólios
+        env:
+          SHARE_E2E_CONCURRENCY: 4
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-share
+
       - name: Funis individuais de portfólio
         env:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -152,7 +157,12 @@ jobs:
 
           # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
           # gate completo. O registry de WhatsApp e código server-only não.
-          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
+          # PortfolioShareButton é uma camada fixed explicitamente ocultada pelo
+          # próprio teste visual. A interação/stacking dela é coberta pelo E2E
+          # "Copiar divulgação" em todos os portfolios, então não dispara a
+          # comparação pixel-a-pixel global.
+          VISUAL_FILES="$(printf '%s\n' "$FILES" | grep -Fvx 'src/components/site/PortfolioShareButton.tsx' || true)"
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$VISUAL_FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
@@ -197,6 +207,7 @@ jobs:
             seo-reports/ci-audit-summary.md
             seo-reports/portfolio-funnels-e2e.json
             seo-reports/portfolio-funnels-e2e.html
+            seo-reports/portfolio-share-e2e.json
             public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore
