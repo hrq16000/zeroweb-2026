@@ -36,7 +36,7 @@ function findCatalogItem(slug: string): PortfolioCatalogItem | undefined {
 export function normalizePortfolioShareMessage(value: string) {
   return value
     .replace(/\r\n?/g, "\n")
-    .replace(/\\\\n/g, "\n")
+    .replace(/\\n/g, "\n")
     .split("\n")
     .map((line) => line.replace(/[ \t]+$/g, ""))
     .join("\n")
