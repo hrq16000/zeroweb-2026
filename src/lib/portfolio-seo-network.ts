@@ -187,6 +187,54 @@ export function relatedPortfolioSeoItems(
   return [...selected.values()].slice(0, requested);
 }
 
+
+const SEGMENT_LABELS: Record<string, string> = {
+  agencias: "Agência digital",
+  beleza: "Beleza",
+  comercios: "Comércio",
+  construcao: "Construção",
+  juridico: "Serviços jurídicos",
+  "prestadores-de-servicos": "Serviços",
+  restaurantes: "Gastronomia",
+  saude: "Saúde",
+  servicos: "Serviços",
+};
+
+export function portfolioUniversalSeoTitle(
+  slug: string,
+  override?: PortfolioSeoContextOverride,
+): string | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return null;
+
+  const city = isUsefulPlace(item.city) ? item.city : "";
+  const segment = SEGMENT_LABELS[item.segment] ?? item.segment;
+  const candidates = [
+    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
+    city ? `${item.title} | ${city}` : "",
+    segment ? `${item.title} | ${segment}` : "",
+    item.title,
+  ].filter(Boolean);
+
+  return candidates.find((value) => value.length <= 65) ?? item.title;
+}
+
+export function portfolioUniversalKeywords(
+  slug: string,
+  override?: PortfolioSeoContextOverride,
+): string | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return null;
+  const terms = [
+    item.title,
+    ...item.tags,
+    item.segment,
+    isUsefulPlace(item.city) ? item.city : "",
+    item.state,
+  ].map(clean).filter(Boolean);
+  return [...new Set(terms)].join(", ");
+}
+
 export function relatedPortfolioItemListSchema(
   slug: string,
   override?: PortfolioSeoContextOverride,
