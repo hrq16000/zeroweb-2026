@@ -327,6 +327,12 @@ export const createAutonomousManagedPortfolio = createServerFn({ method: "POST" 
     });
     const sourceSnapshot = {
       ...record(row.source_snapshot),
+      authorial_composition: {
+        contract: 1,
+        required: true,
+        status: "required",
+        reason: "new_autonomous_managed_project",
+      },
       autonomous_research: research,
       autonomous_content: contentPlan,
       autonomous_pipeline: {
@@ -505,6 +511,16 @@ export const saveManagedProject = createServerFn({ method: "POST" })
     const funnelEnabled = effectiveDeliveryMode === "whatsapp" && Boolean(funnelRecipient);
     const sourceSnapshot = {
       ...existingSnapshot,
+      ...(existing
+        ? {}
+        : {
+            authorial_composition: {
+              contract: 1,
+              required: true,
+              status: "required",
+              reason: "new_managed_project",
+            },
+          }),
       ...record(row.source_snapshot),
     };
 

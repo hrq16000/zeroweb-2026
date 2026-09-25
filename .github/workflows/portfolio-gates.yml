@@ -48,6 +48,12 @@ jobs:
       - name: validate:portfolio-scaffold
         run: bun run validate:portfolio-scaffold
 
+      - name: Unicidade autoral declarada
+        run: bun run check:portfolio-uniqueness
+
+      - name: Regressão de originalidade no código renderizado
+        run: bun run check:portfolio-originality:enforce
+
   runtime-gates:
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest

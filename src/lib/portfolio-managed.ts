@@ -8,6 +8,7 @@
  * `containsPublicContact` (LGPD/privacidade) e bloqueio de HTML; todo asset
  * precisa ser um caminho interno permitido (`isSafeAssetPath`).
  */
+import { hasAuthorialPortfolioComposition } from "@/config/portfolio-authorial-compositions";
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
 import {
   PORTFOLIO_FUNNEL_INTENTS,
@@ -76,6 +77,9 @@ export type ManagedProject = {
   indexable: boolean;
   robots: string;
   contentVersion: number;
+  /** Forward-only: projetos novos do painel não publicam o renderer genérico. */
+  authorialCompositionRequired?: boolean;
+  authorialCompositionAvailable?: boolean;
 };
 
 const HEX = /^#[0-9a-fA-F]{3,8}$/;
@@ -261,6 +265,9 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
   const socialVersion = /^[A-Za-z0-9._-]{1,40}$/.test(String(row.social_version ?? ""))
     ? String(row.social_version)
     : "";
+  const sourceSnapshot = record(row.source_snapshot);
+  const authorialPolicy = record(sourceSnapshot.authorial_composition);
+  const authorialCompositionRequired = authorialPolicy.required === true;
 
   return {
     slug,
@@ -310,6 +317,8 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     indexable,
     robots: indexable ? "index,follow,max-image-preview:large" : "noindex,nofollow",
     contentVersion: Number(row.content_version ?? 1),
+    authorialCompositionRequired,
+    authorialCompositionAvailable: hasAuthorialPortfolioComposition(slug),
   };
 }
 
@@ -358,6 +367,12 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   }
   if (!project.shareCopy) {
     blocker("PORTFOLIO_SHARE_COPY_MISSING", "Escreva a copy de divulgação do projeto.");
+  }
+  if (project.authorialCompositionRequired && !project.authorialCompositionAvailable) {
+    blocker(
+      "PORTFOLIO_AUTHORIAL_COMPOSITION_REQUIRED",
+      "Projeto novo não pode publicar o renderer Managed/preset como composição final. Promova-o para uma composição autoral e registre o slug no contrato de composições.",
+    );
   }
   if (project.gallery.length < 2) {
     warn("PORTFOLIO_GALLERY_THIN", "Poucas imagens na galeria; o projeto fica menos convincente.");

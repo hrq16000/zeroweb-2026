@@ -135,6 +135,8 @@ somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados.
 
 **Padronizar a engenharia, nunca a criatividade.**
 
+**Paridade de criação:** painel/Managed, pipeline autônomo, scaffold, agente e código direto obedecem ao mesmo contrato de composição. Para projeto novo, `PortfolioManagedView`/`preset` é somente workbench/preview; não é superfície final publicável.
+
 Nunca reutilize identidade, navegação, composição visual, conteúdo, contato,
 SEO, CTA ou linguagem de outro cliente como padrão. Reutilizar primitives de
 engenharia é permitido; reutilizar o mesmo hero/section-order/motion e apenas
