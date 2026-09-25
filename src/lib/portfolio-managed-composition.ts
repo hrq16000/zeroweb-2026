@@ -278,6 +278,32 @@ function materiallyDivergent(directions: ManagedCompositionDirection[]): boolean
   return heroCount >= 2 && orderCount >= 2 && offerCount >= 2;
 }
 
+export function managedCompositionSimilarity(a: string, b: string): number {
+  const left = a.split("|");
+  const right = b.split("|");
+  const size = Math.max(left.length, right.length);
+  if (!size) return 0;
+
+  let score = 0;
+  let weight = 0;
+  for (let index = 0; index < size; index += 1) {
+    const lv = left[index] ?? "";
+    const rv = right[index] ?? "";
+    if (index === 2) {
+      const la = lv.split(">").filter(Boolean);
+      const ra = rv.split(">").filter(Boolean);
+      const orderSize = Math.max(la.length, ra.length, 1);
+      const positional = la.filter((role, i) => role === ra[i]).length / orderSize;
+      score += positional * 2;
+      weight += 2;
+      continue;
+    }
+    score += lv && lv === rv ? 1 : 0;
+    weight += 1;
+  }
+  return weight ? score / weight : 0;
+}
+
 export function buildManagedAuthorialCompositionPlan(
   input: ManagedCompositionInput,
   usedSignatures: readonly string[] = [],
@@ -308,7 +334,11 @@ export function buildManagedAuthorialCompositionPlan(
 
     const preferredIndex = seed % directions.length;
     const ranked = rotate(directions, preferredIndex);
-    const selected = ranked.find((item) => !used.has(item.signature));
+    const selected = ranked.find(
+      (item) =>
+        !used.has(item.signature) &&
+        [...used].every((signature) => managedCompositionSimilarity(item.signature, signature) < 0.68),
+    );
     if (!selected) continue;
 
     return {
