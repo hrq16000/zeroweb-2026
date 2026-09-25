@@ -84,15 +84,25 @@ describe("resolver de runtime do portfólio", () => {
     }
   });
 
-  it("share copy administrável fica restrita ao próprio slug", () => {
+  it("share copy administrável válida fica restrita ao próprio slug", () => {
+    const shareCopy = `🔥 A Heloá Gás está de site novo!
+
+Agora ficou mais fácil conhecer os produtos e iniciar o pedido com a equipe.
+
+🌐 Confira:
+https://0web.com.br/portfolio/heloa-gas
+
+📲 Consulte disponibilidade pelo site.
+
+#HeloaGas #Piraquara #0WEB`;
     const ov = sanitizePortfolioRuntimeRow("heloa-gas", {
-      share_copy: "Heloá Gás está de site novo!",
+      share_copy: shareCopy,
       published: true,
       lifecycle_status: "published",
     });
     const eff = applyPortfolioRuntime({ ...base, slug: "heloa-gas" }, ov);
     expect(eff.slug).toBe("heloa-gas");
-    expect(eff.shareCopy).toBe("Heloá Gás está de site novo!");
+    expect(eff.shareCopy).toBe(shareCopy);
   });
 
   it("galeria aceita apenas assets internos", () => {
