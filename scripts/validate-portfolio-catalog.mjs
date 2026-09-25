@@ -13,8 +13,29 @@ for (const item of catalog) {
   if (seen.has(item.slug)) errors.push(`${item.slug}: slug duplicado`); seen.add(item.slug);
   if (!Array.isArray(item.tags) || item.tags.length === 0) errors.push(`${item.slug}: tags obrigatórias`);
   const copy = shareCopy[item.slug];
-  if (typeof copy !== "string" || copy.trim().length < 120) errors.push(`${item.slug}: divulgação individual ausente ou curta`);
-  if (typeof copy === "string" && !copy.includes(`https://0web.com.br/portfolio/${item.slug}`)) errors.push(`${item.slug}: divulgação sem URL canônica`);
+  const canonicalUrl = `https://0web.com.br/portfolio/${item.slug}`;
+  if (typeof copy !== "string" || copy.trim().length < 120) {
+    errors.push(`${item.slug}: divulgação individual ausente ou curta`);
+  }
+  if (typeof copy === "string") {
+    const urls = copy.match(/https?:\\/\\/[^\\s]+/g) ?? [];
+    const hashtags = copy.match(/#[A-Za-z0-9_]+/g) ?? [];
+    const canonicalOnOwnLine = copy
+      .split(/\\r?\\n/)
+      .some((line) => line.trim() === canonicalUrl);
+
+    if (copy.includes("\\\\n")) errors.push(`${item.slug}: divulgação contém \\\\n literal`);
+    if (!copy.includes("\n\n")) errors.push(`${item.slug}: divulgação sem separação de parágrafos`);
+    if (urls.length !== 1 || urls[0] !== canonicalUrl || !canonicalOnOwnLine) {
+      errors.push(`${item.slug}: divulgação com URL canônica mal formatada`);
+    }
+    if (hashtags.length === 0 || hashtags.at(-1) !== "#0WEB") {
+      errors.push(`${item.slug}: divulgação deve terminar com #0WEB como última hashtag`);
+    }
+    if (/\\[[^\\]]+\\]\\(https?:\\/\\//.test(copy)) {
+      errors.push(`${item.slug}: divulgação não pode conter link em markdown`);
+    }
+  }
 }
 for (const client of clients) if (!seen.has(client.slug)) errors.push(`${client.slug}: cliente registrado sem item no catálogo`);
 if (!/getPortfolioPresenceKit/.test(presenceKitSource) || !/printMockup/.test(presenceKitSource) || !/brandBrief/.test(presenceKitSource)) {
