@@ -1,9 +1,9 @@
 {
-  "doc": "Quality matrix — Arildo Madeiras (pré-runtime)",
+  "doc": "Quality matrix — Arildo Madeiras (runtime aprovado)",
   "slug": "arildo-madeiras",
   "matrixVersion": 2,
   "contractVersion": 3,
-  "evaluatedAt": "2026-09-24",
+  "evaluatedAt": "2026-09-25",
   "technicalPass": true,
   "editorialPass": true,
   "dimensions": {
@@ -44,20 +44,20 @@
       "notes": "Prova baseada em catálogo, endereço e fotografias oficiais; sem reviews, estrelas ou métricas importadas."
     },
     "RESPONSIVENESS": {
-      "status": "WARNING",
-      "notes": "Estratégia mobile implementada em CSS; viewport real ainda será validado no PR."
+      "status": "PASS",
+      "notes": "Browser/runtime validado em desktop/mobile; funil visual completo em ambos e composição sem bloqueio específico da Arildo."
     },
     "PERFORMANCE": {
-      "status": "WARNING",
-      "notes": "Lazy loading abaixo da dobra e nenhum pacote novo; mídia oficial remota exige medição no preview."
+      "status": "PASS",
+      "notes": "Lighthouse run 36085703811 sem failure de performance/SEO para /portfolio/arildo-madeiras; permanecem warnings não bloqueantes de formato moderno e dimensionamento das fotos oficiais remotas."
     },
     "ACCESSIBILITY": {
-      "status": "WARNING",
-      "notes": "H1 único, headings, alts, targets e reduced-motion implementados; axe-core ainda será executado no PR."
+      "status": "PASS",
+      "notes": "axe-core PASS no portfolio-gates 36085703801; estrutura semântica, alts, targets e reduced-motion preservados."
     },
     "QA": {
-      "status": "WARNING",
-      "notes": "Browser/runtime ainda não executado; não equivale a PASS visual."
+      "status": "PASS",
+      "notes": "Popup, 192 cenários de funil, link previews, head icons, indexabilidade, axe-core e visual próprio da Arildo aprovados. Falha global de regressão visual pertence a baselines antigos de outros portfolios."
     },
     "CONTENT_DEPTH": {
       "status": "PASS",
@@ -151,12 +151,12 @@
       "contextualMicrointeraction": "PASS",
       "signatureMotion": "PASS",
       "ctaFeedback": "PASS",
-      "mobileAdapted": "WARNING",
+      "mobileAdapted": "PASS",
       "reducedMotionCovered": "PASS",
       "contentAccessibleWithoutMotion": "PASS",
-      "noTransformOverflow": "WARNING",
+      "noTransformOverflow": "PASS",
       "noHeavyDependency": "PASS",
-      "noPerformanceRegression": "WARNING",
+      "noPerformanceRegression": "PASS",
       "noAggressiveLoop": "PASS"
     },
     "qualityProfile": {
@@ -234,20 +234,20 @@
     }
   },
   "hero": {
-    "status": "WARNING",
-    "notes": "Composição e mídia oficial implementadas; crop/legibilidade real serão validados no preview.",
+    "status": "PASS",
+    "notes": "Hero validado no runtime/preview; legibilidade, crop e CTA sem blocker específico.",
     "criteria": {
       "brandMatch": "PASS",
       "segmentMatch": "PASS",
       "visualImpact": "PASS",
       "premiumFeel": "PASS",
-      "legibility": "WARNING",
+      "legibility": "PASS",
       "contrast": "PASS",
       "composition": "PASS",
       "mediaQuality": "PASS",
       "CTAVisibility": "PASS",
-      "mobileCrop": "WARNING",
-      "desktopCrop": "WARNING",
+      "mobileCrop": "PASS",
+      "desktopCrop": "PASS",
       "originality": "PASS"
     }
   },
@@ -340,8 +340,8 @@
   },
   "p0": [],
   "warnings": [
-    "Browser QA pendente nesta revisão; RESPONSIVENESS/ACCESSIBILITY/QA não são declarados PASS ainda.",
-    "Fotos oficiais estão remotas porque a ingestão binária foi bloqueada no ambiente atual; provenance e URLs foram preservadas."
+    "Fotos oficiais continuam remotas; Lighthouse recomenda modern-image-formats e responsive sizing, sem failure específico de performance/SEO da Arildo.",
+    "Facebook/Google share não resolvidos pelo crawler; dados conflitantes permanecem fora da página."
   ],
   "ownerRequired": []
 }
