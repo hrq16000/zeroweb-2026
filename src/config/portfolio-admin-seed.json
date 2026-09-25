@@ -235,7 +235,7 @@
       "image": "/images/arildo-madeiras/capa-card.svg",
       "icon": "/images/arildo-madeiras/logo.svg",
       "socialImage": "/images/arildo-madeiras/capa-og.jpg",
-      "socialVersion": "18064d84",
+      "socialVersion": "723b10cc",
       "componentFile": "src/components/site/ArildoMadeirasPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/arildo-madeiras",
