@@ -707,7 +707,21 @@
         "brief": "docs/portfolio/briefs/arildo-madeiras.md",
         "qualityMatrix": "docs/portfolio/quality-matrix/arildo-madeiras.json"
       },
-      "lastUpdatedAt": "2026-09-24"
+      "lastUpdatedAt": "2026-09-24",
+      "perceptualReview": {
+        "screenshots": {
+          "390": "/tmp/browser/arildo-madeiras/screenshots/390.png",
+          "1440": "/tmp/browser/arildo-madeiras/screenshots/1440.png"
+        },
+        "comparedWith": [
+          "autoescola-aptos",
+          "adhonep-curitiba",
+          "centro-mega",
+          "jkl-decor"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "Pré-revisão compositiva: sem nome/logo/cores/fotos, a silhueta material-stage → ledger escalonado → application-spine → corte Cambará → mosaico documental → quote-dock permanece distinta dos comparados. As capturas reais serão validadas pelo browser QA antes de promover o lifecycle."
+      }
     }
   }
 }
