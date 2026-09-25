@@ -1551,7 +1551,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `READY/PUBLISH` requer composição autoral ou composition graph específico.
 - **Enforcement:** CI passa a executar a regressão de originalidade do código
   com `--enforce`; o runner de `PROJECT_UNIQUENESS_GATE` agora respeita
-  `compositionContract` V2 e seus campos de jornada/ritmo.
+  `compositionContract` V2 e seus campos de jornada/ritmo. Projetos Managed
+  novos recebem `authorial_composition.required=true` e o gate de conformidade
+  bloqueia `READY/PUBLISHED` enquanto o slug não possuir composição autoral
+  registrada; projetos Managed legados sem essa marca permanecem intactos.
 - **Escopo:** nenhuma landing publicada foi redesenhada nesta rodada; mudança
   forward-only de governança e gates.
 
