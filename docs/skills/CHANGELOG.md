@@ -1537,3 +1537,21 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Recursos usados:** site oficial e assets versionados; Creative Composition Brief; composição autoral; media plan; motion primitives; funil por clientKey; catálogo e registries; schema local factual.
 - **Rejeitados:** template/Blueprint compartilhado, parallax, 3D, vídeo, marquee, depoimentos e métricas adicionais — sem função decisória ou evidência. Projeto Lovable de referência ficou ATTEMPTED_BLOCKED por falta de acesso.
 - **Validação:** gates e QA visual registrados no manifesto e quality matrix do cliente.
+
+# 2026-09-25 — Paridade de criação e enforcement anti-template
+
+- **Tarefa:** impedir que novos `/portfolio/:slug` sejam publicados como o
+  mesmo esqueleto com alterações cosméticas.
+- **Diagnóstico:** `PortfolioManagedView` usa ordem fixa de blocos e presets que
+  alteram principalmente hero/grid/altura; o gate Managed não cobre composição.
+  O lifecycle ainda continha referências antigas ao
+  `PortfolioBlueprintRenderer`, conflitantes com a norma autoral.
+- **Protocolo:** painel/Managed, pipeline autônomo, scaffold e código direto
+  passam a obedecer ao mesmo contrato. Preset é somente workbench/preview;
+  `READY/PUBLISH` requer composição autoral ou composition graph específico.
+- **Enforcement:** CI passa a executar a regressão de originalidade do código
+  com `--enforce`; o runner de `PROJECT_UNIQUENESS_GATE` agora respeita
+  `compositionContract` V2 e seus campos de jornada/ritmo.
+- **Escopo:** nenhuma landing publicada foi redesenhada nesta rodada; mudança
+  forward-only de governança e gates.
+
