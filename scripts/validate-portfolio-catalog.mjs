@@ -37,6 +37,7 @@ for (const item of catalog) {
     }
   }
 }
+for (const copySlug of Object.keys(shareCopy)) if (!seen.has(copySlug)) errors.push(`${copySlug}: divulgação órfã sem item no catálogo`);
 for (const client of clients) if (!seen.has(client.slug)) errors.push(`${client.slug}: cliente registrado sem item no catálogo`);
 if (!/getPortfolioPresenceKit/.test(presenceKitSource) || !/printMockup/.test(presenceKitSource) || !/brandBrief/.test(presenceKitSource)) {
   errors.push("contrato de kit de presença (brandBrief/printMockup) ausente");
