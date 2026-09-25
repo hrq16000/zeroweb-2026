@@ -261,10 +261,15 @@ export function applyPortfolioRuntime(
     return value;
   };
 
-  const lifecycle = overrides?.lifecycle ?? "published";
-  const published = overrides ? overrides.published : true;
-  // Sem linha no banco o projeto segue exatamente como hoje (indexável).
-  const indexable = !overrides ? true : lifecycle === "published" && published;
+  // "imported" é estado de seed/migração, não uma decisão editorial.
+  // Para projetos legados ele herda a publicação versionada da rota/catálogo.
+  // Apenas draft/published/archived representam uma decisão explícita do painel.
+  const hasExplicitPublicationOverride = Boolean(
+    overrides && overrides.lifecycle !== "imported",
+  );
+  const lifecycle = hasExplicitPublicationOverride ? overrides!.lifecycle : "published";
+  const published = hasExplicitPublicationOverride ? overrides!.published : true;
+  const indexable = lifecycle === "published" && published;
 
   const socialVersion = overrides?.socialVersion;
   let socialImage = take("socialImage", overrides?.socialImageUrl, base.socialImage);
