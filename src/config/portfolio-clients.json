@@ -1278,5 +1278,26 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/autoescola-aptos.md"
+  },
+  {
+    "clientKey": "arildo-madeiras",
+    "slug": "arildo-madeiras",
+    "siteName": "Arildo Madeiras",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ArildoMadeirasPage.tsx",
+    "assetsDir": "public/images/arildo-madeiras",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true,
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/arildo-madeiras.md",
+    "provenance": {
+      "kind": "OFFICIAL_WEBSITE",
+      "source": "Site oficial informado pelo operador e pesquisado em 24/09/2026",
+      "reference": "https://arildomadeiras.guiapinhais.com.br/"
+    }
   }
 ]

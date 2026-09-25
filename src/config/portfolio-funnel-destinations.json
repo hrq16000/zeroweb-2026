@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "docs": "Livro-razão histórico de PROVENIÊNCIA dos destinos. A fonte operacional única é src/config/portfolio-whatsapp.json: número válido = WHATSAPP do próprio clientKey; null = LEAD_ONLY intencional. Este arquivo não guarda nem resolve o destino e não depende de secrets/env ou tabela privada.",
   "statuses": [
     "VERIFIED",
@@ -271,6 +271,18 @@
         "VHSYS público da Centro Mega exibe o telefone 41 99858-9419 na seção Fale Conosco junto ao CNPJ 17.991.627/0001-54.",
         "Presença social pública indexada exibe +55 41 99858-9419 para Centro Mega em São José dos Pinhais.",
         "Destino versionado exclusivamente para client_key centro-mega; sem fallback institucional ou cross-client."
+      ]
+    },
+    "arildo-madeiras": {
+      "status": "VERIFIED",
+      "source": "OFFICIAL_WEBSITE",
+      "confidence": 98,
+      "verifiedAt": "2026-09-24",
+      "evidence": [
+        "A página oficial de Madeira de Cambará da Arildo exibe a ação 'Orçar pelo Whatsapp!' resolvendo para 41 99167-1593.",
+        "O mesmo site oficial identifica Arildo Madeiras em Av. Iraí, 1752, Weissópolis, Pinhais — PR e publica o número 41 99167-1593 no contato.",
+        "Números divergentes encontrados em índices sociais/diretórios foram rejeitados e não são usados como fallback.",
+        "Destino exclusivo do client_key arildo-madeiras; sem fallback institucional ou cross-client."
       ]
     }
   }

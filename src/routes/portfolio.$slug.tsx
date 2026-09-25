@@ -575,7 +575,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
-    const description = isAutoescolaAptos
+    const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
+    const description = isArildoMadeiras
+      ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
+      : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
       : isCrisPresentesColoniaRioGrande
       ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
@@ -813,7 +816,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isCentroMega
+          content: eff.keywords ?? (isArildoMadeiras
+            ? "Arildo Madeiras, madeireira Pinhais, madeiras em Pinhais, madeira para construção, madeiras brutas, madeiras beneficiadas, portas, janelas, forros, Madeira de Cambará, móveis rústicos, Weissópolis"
+            : isCentroMega
             ? "Centro Mega, celulares São José dos Pinhais, smartphones SJP, acessórios para celular, Centro Mega Outlet, tênis outlet, bonés, calçados, loja virtual, Instagram Centro Mega, Facebook Centro Mega"
             : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
@@ -928,6 +933,16 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { rel: "canonical", href: eff.canonicalUrl },
         { rel: "icon", href: effIcon },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+        ...(isArildoMadeiras
+          ? [
+              { rel: "preconnect", href: "https://arildomadeiras.guiapinhais.com.br" },
+              {
+                rel: "preload",
+                as: "image",
+                href: "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+              },
+            ]
+          : []),
       ],
       scripts: vertical
         ? [

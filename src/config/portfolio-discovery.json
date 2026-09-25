@@ -542,6 +542,64 @@
         "Controle PlayStation 4 Original Sony",
         "Suporte de celular para Moto & Bike Renux 5203"
       ]
+    },
+    "arildo-madeiras": {
+      "aliases": [
+        "Arildo Madeiras",
+        "Arildo Madeiras Pinhais"
+      ],
+      "categories": [
+        "madeireira",
+        "loja de madeiras",
+        "madeiras brutas",
+        "madeiras beneficiadas",
+        "materiais para construção e reforma"
+      ],
+      "services": [
+        "atacado de madeiras",
+        "varejo de madeiras",
+        "orientação para escolha de materiais"
+      ],
+      "equipment": [],
+      "products": [
+        "madeiras em geral",
+        "portas",
+        "janelas",
+        "forros",
+        "Madeira de Cambará",
+        "móveis rústicos",
+        "banquetas"
+      ],
+      "problems": [
+        "preciso de madeira para construção",
+        "preciso de madeira para reforma",
+        "quero portas ou janelas",
+        "quero forro de madeira",
+        "procuro Madeira de Cambará",
+        "quero material para assoalho, caixilho ou coluna"
+      ],
+      "useCases": [
+        "obra residencial",
+        "obra comercial",
+        "reforma",
+        "acabamento",
+        "móvel rústico",
+        "orçamento de madeiras em Pinhais"
+      ],
+      "locality": [
+        "Weissópolis",
+        "Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Arildo Madeiras",
+        "madeireira Pinhais",
+        "madeiras Pinhais",
+        "madeira para construção Pinhais",
+        "portas janelas forros Pinhais",
+        "Madeira de Cambará Pinhais",
+        "móveis rústicos Pinhais"
+      ]
     }
   }
 }

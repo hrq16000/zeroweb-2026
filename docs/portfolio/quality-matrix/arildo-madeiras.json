@@ -1,0 +1,347 @@
+{
+  "doc": "Quality matrix — Arildo Madeiras (runtime aprovado)",
+  "slug": "arildo-madeiras",
+  "matrixVersion": 2,
+  "contractVersion": 3,
+  "evaluatedAt": "2026-09-25",
+  "technicalPass": true,
+  "editorialPass": true,
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Entidade resolvida pelo site oficial em Av. Iraí, 1752, Pinhais; homônimo de Piraquara rejeitado."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Copy usa apenas catálogo, aplicações, endereço e contexto publicados pela Arildo."
+    },
+    "MEDIA": {
+      "status": "PASS",
+      "notes": "Hero e galeria usam 8 fotos do site oficial; capa/OG são artes editoriais 0WEB. Binários oficiais permanecem remotos por bloqueio do downloader."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Camadas, régua escalonada, espinha de aplicações, corte Cambará e mosaico criam composição própria."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Brief considera três direções e rejeita grade genérica; fingerprint V2 será comparado automaticamente pelos gates."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Nome, categoria, produtos, aplicações, intenção e Pinhais indexados."
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Título via registry, description/keywords factuais, canonical da rota e OG local configurados."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Todos os CTAs passam pelo funil arildo-madeiras; WhatsApp 41 99167-1593 vem do CTA oficial do próprio site."
+    },
+    "PROOF": {
+      "status": "PASS",
+      "notes": "Prova baseada em catálogo, endereço e fotografias oficiais; sem reviews, estrelas ou métricas importadas."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Browser/runtime validado em desktop/mobile; funil visual completo em ambos e composição sem bloqueio específico da Arildo."
+    },
+    "PERFORMANCE": {
+      "status": "PASS",
+      "notes": "Lighthouse run 36085703811 sem failure de performance/SEO para /portfolio/arildo-madeiras; permanecem warnings não bloqueantes de formato moderno e dimensionamento das fotos oficiais remotas."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS",
+      "notes": "axe-core PASS no portfolio-gates 36085703801; estrutura semântica, alts, targets e reduced-motion preservados."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Popup, 192 cenários de funil, link previews, head icons, indexabilidade, axe-core e visual próprio da Arildo aprovados. Falha global de regressão visual pertence a baselines antigos de outros portfolios."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Jornada cobre materiais, aplicações, Cambará, estoque, endereço, orçamento e dúvidas."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Carvão, papel de madeira, Cambará, galeria escura e dock final alternam função e densidade."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Estoque apresenta matéria; aplicação contextualiza; Cambará prova linha; mosaico amplia evidência."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Oito regiões com topologias distintas e sem repetição dominante de cards."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Lâminas do hero, ledger escalonado, corte Cambará e mosaico documental."
+    },
+    "PROOF_DENSITY": {
+      "status": "PASS",
+      "notes": "Prova distribuída nos pontos em que o visitante precisa validar produto/localidade."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "Um único objetivo de orçamento atravessa hero, materiais, Cambará, local e fechamento."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Reveals curtos seguem lógica de lâminas/cortes e conteúdo permanece disponível sem motion."
+    }
+  },
+  "experience": {
+    "visualRhythm": "material-stage→ledger→application-spine→cambara-cut→stock-masonry→local-yard→quote-dock",
+    "signatureMoments": [
+      "lâminas tipográficas no hero",
+      "régua escalonada de materiais",
+      "corte Cambará",
+      "mosaico documental"
+    ],
+    "motionNarrative": "Peças entram como lâminas e fotos são reveladas como cortes de material.",
+    "heroArchetype": "material-ledger assimétrico documental"
+  },
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": "BALANCED",
+      "personality": "material and grounded",
+      "entrance": [
+        "fade-up",
+        "fade-left/right"
+      ],
+      "scroll": [
+        "image-reveal",
+        "stagger-up",
+        "stagger-left"
+      ],
+      "hover": [
+        "short plank shift",
+        "image micro-scale"
+      ],
+      "typography": [
+        "text-line-reveal"
+      ],
+      "media": [
+        "clip-reveal"
+      ],
+      "transitions": [
+        "native section flow"
+      ],
+      "signatureEffects": [
+        "plank stack reveal",
+        "documentary stock cut"
+      ],
+      "reducedMotionStrategy": "remover deslocamento e escala mantendo todo conteúdo visível",
+      "mobileStrategy": "reduzir deslocamentos e manter fluxo nativo; sem parallax ou pinning"
+    },
+    "narrativeRoles": {
+      "hero": "material arrival",
+      "materials": "selection",
+      "applications": "fit",
+      "stock": "proof",
+      "closing": "commitment"
+    },
+    "gate": {
+      "motionProfileDefined": "PASS",
+      "effectsMatchBrand": "PASS",
+      "entranceNotRepetitive": "PASS",
+      "contextualMicrointeraction": "PASS",
+      "signatureMotion": "PASS",
+      "ctaFeedback": "PASS",
+      "mobileAdapted": "PASS",
+      "reducedMotionCovered": "PASS",
+      "contentAccessibleWithoutMotion": "PASS",
+      "noTransformOverflow": "PASS",
+      "noHeavyDependency": "PASS",
+      "noPerformanceRegression": "PASS",
+      "noAggressiveLoop": "PASS"
+    },
+    "qualityProfile": {
+      "motionIntensity": "BALANCED",
+      "motionPurpose": "material hierarchy",
+      "interactionDensity": "LOW",
+      "scrollExperience": "NATIVE",
+      "microinteractionQuality": "FOCUSED",
+      "reducedMotionCoverage": "COMPLETE_SOURCE",
+      "motionPerformance": "CSS_TRANSFORM_OPACITY"
+    }
+  },
+  "qualityProfile": {
+    "visualDensity": "HIGH_INTENTIONAL",
+    "editorialDepth": "HIGH",
+    "motionIntensity": "BALANCED",
+    "mediaRichness": "REAL_OFFICIAL_REMOTE",
+    "proofLevel": "OFFICIAL_SOURCE",
+    "interactionLevel": "FOCUSED",
+    "localContext": "HIGH",
+    "conversionIntensity": "PERSISTENT_CONTEXTUAL"
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": "REAL_LOGO",
+      "asset": "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png",
+      "provenance": "OFFICIAL_WEBSITE",
+      "evidence": "URL oficial usada diretamente no header; fallback local não é tratado como reprodução oficial."
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "official stock photo + official remote logo + material ledger",
+      "notes": "Sem stock genérico ou foto fabricada."
+    },
+    "heroMedia": {
+      "asset": "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+      "kind": "REAL_PHOTO",
+      "documentary": true,
+      "provenance": "OFFICIAL_WEBSITE"
+    },
+    "motionPresence": {
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "MotionReveal",
+        "MotionImageReveal",
+        "MotionStagger",
+        "MotionTextReveal",
+        "motionIntensity"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "enabled",
+      "label": "Orçar",
+      "destination": "funnel",
+      "reason": "Mantém orçamento acessível no mobile sem expor wa.me."
+    },
+    "embed": {
+      "status": "PASS",
+      "checkedAt": "2026-09-24",
+      "notes": "Catálogo, site registry e composition registry incluem arildo-madeiras."
+    },
+    "structuralSkeleton": {
+      "topology": [
+        "material-stage",
+        "staggered-ledger",
+        "application-spine",
+        "cambara-cut",
+        "stock-masonry",
+        "local-yard",
+        "quote-dock",
+        "native-faq"
+      ],
+      "rationale": "Jornada derivada do estoque/material/aplicação, não de template de comércio."
+    }
+  },
+  "hero": {
+    "status": "PASS",
+    "notes": "Hero validado no runtime/preview; legibilidade, crop e CTA sem blocker específico.",
+    "criteria": {
+      "brandMatch": "PASS",
+      "segmentMatch": "PASS",
+      "visualImpact": "PASS",
+      "premiumFeel": "PASS",
+      "legibility": "PASS",
+      "contrast": "PASS",
+      "composition": "PASS",
+      "mediaQuality": "PASS",
+      "CTAVisibility": "PASS",
+      "mobileCrop": "PASS",
+      "desktopCrop": "PASS",
+      "originality": "PASS"
+    }
+  },
+  "cover": {
+    "status": "PASS",
+    "notes": "Capa editorial 1200x900 e OG 1200x630 locais, separados da marca oficial.",
+    "criteria": {
+      "identityMatch": "PASS",
+      "segmentMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "focalPoint": "PASS",
+      "crop": "PASS",
+      "visualQuality": "PASS",
+      "genericPenalty": "PASS",
+      "duplicatePenalty": "PASS",
+      "portfolioRecognition": "PASS"
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "visualRole": "matéria e escala",
+      "mediaDecision": "REAL_PHOTO",
+      "asset": "official-media-177",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "source-verified",
+      "status": "PASS"
+    },
+    {
+      "section": "materials",
+      "visualRole": "catálogo em lâminas",
+      "mediaDecision": "TYPOGRAPHY_GRAPHIC",
+      "asset": null,
+      "provenance": "0WEB_AUTHORED",
+      "quality": "source-implemented",
+      "status": "PASS"
+    },
+    {
+      "section": "applications",
+      "visualRole": "aplicação e material",
+      "mediaDecision": "REAL_PHOTO",
+      "asset": "official-media-178",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "source-verified",
+      "status": "PASS"
+    },
+    {
+      "section": "cambara",
+      "visualRole": "produto em foco",
+      "mediaDecision": "REAL_PHOTO",
+      "asset": "official-media-186",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "source-verified",
+      "status": "PASS"
+    },
+    {
+      "section": "stock",
+      "visualRole": "mosaico documental",
+      "mediaDecision": "REAL_PHOTO_MOSAIC",
+      "asset": "official-media-187..191",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "source-verified",
+      "status": "PASS"
+    },
+    {
+      "section": "local",
+      "visualRole": "endereço e operação",
+      "mediaDecision": "TYPOGRAPHY_GRAPHIC",
+      "asset": null,
+      "provenance": "OFFICIAL_WEBSITE+0WEB_COMPOSITION",
+      "quality": "source-implemented",
+      "status": "PASS"
+    },
+    {
+      "section": "closing",
+      "visualRole": "brief de orçamento",
+      "mediaDecision": "TYPOGRAPHY_GRAPHIC",
+      "asset": null,
+      "provenance": "0WEB_AUTHORED",
+      "quality": "source-implemented",
+      "status": "PASS"
+    }
+  ],
+  "deadZones": [],
+  "mediaSourceMix": {
+    "OFFICIAL_WEBSITE": 8,
+    "0WEB_EDITORIAL_GRAPHIC": 3,
+    "GENERATED_FAKE_REALITY": 0
+  },
+  "p0": [],
+  "warnings": [
+    "Fotos oficiais continuam remotas; Lighthouse recomenda modern-image-formats e responsive sizing, sem failure específico de performance/SEO da Arildo.",
+    "Facebook/Google share não resolvidos pelo crawler; dados conflitantes permanecem fora da página."
+  ],
+  "ownerRequired": []
+}

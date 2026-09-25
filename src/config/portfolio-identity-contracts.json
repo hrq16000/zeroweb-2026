@@ -1600,6 +1600,42 @@
       "logoFile": "/images/autoescola-aptos/logo.webp",
       "socialFile": "/images/autoescola-aptos/capa-og.jpg",
       "identityNote": "Logo e fotografias copiados e versionados do site oficial autoescolaaptos.com.br; paleta derivada da identidade oficial."
+    },
+    "arildo-madeiras": {
+      "brandCharacter": [
+        "sólida",
+        "material",
+        "prática",
+        "local"
+      ],
+      "visualConcept": "Camadas de madeira: lâminas, veios, cortes e pilhas organizam a página como um estoque editorial.",
+      "heroComposition": "material-ledger-assimetrico-com-corte-documental-vertical",
+      "sectionRhythm": [
+        "material-stage",
+        "staggered-material-ledger",
+        "application-spine",
+        "cambara-cut",
+        "stock-masonry",
+        "local-yard",
+        "quote-dock",
+        "native-faq"
+      ],
+      "typographicCharacter": "Serif pesada e material nos títulos; sans funcional para catálogo e medidas.",
+      "colorBehavior": "Carvão e marrom profundo como base, areia/madeira como matéria e vermelho da marca nos pontos de decisão.",
+      "imageDirection": "Somente fotos oficiais do site para estoque/produto; arte 0WEB apenas como capa, OG e textura editorial.",
+      "signatureElement": "Três lâminas tipográficas empilhadas e catálogo em régua escalonada.",
+      "logoStatus": "OFFICIAL_BRAND_ASSET_REMOTE",
+      "coverStatus": "0WEB_EDITORIAL",
+      "forbiddenSimilarities": [
+        "jkl-decor",
+        "enoel-portas",
+        "eisenfer-tubos-acos",
+        "estrutura-nacional"
+      ],
+      "identityStatus": "OFFICIAL_IDENTITY_PRESERVED",
+      "logoFile": "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png",
+      "socialFile": "/images/arildo-madeiras/capa-og.svg",
+      "identityNote": "A landing usa diretamente o logo publicado no site oficial. /images/arildo-madeiras/logo.svg é somente fallback técnico local para o contrato de assets; não substitui nem redesenha a marca."
     }
   }
 }

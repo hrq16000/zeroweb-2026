@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "docs": "docs/PORTFOLIO_GLOBAL_STANDARDS.md",
   "defaults": {
     "shareButton": {
@@ -1311,6 +1311,53 @@
           },
           "notePlaceholder": "Dúvidas sobre acesso ao prédio, estacionamento ou horário (opcional)."
         }
+      }
+    },
+    "arildo-madeiras": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe da Arildo Madeiras",
+        "label": "Pedir orçamento",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": [
+            "Madeiras em geral",
+            "Portas",
+            "Janelas",
+            "Forros",
+            "Madeira de Cambará",
+            "Móveis rústicos / banquetas"
+          ],
+          "experienceOptions": [
+            "Construção",
+            "Reforma",
+            "Acabamento",
+            "Projeto residencial ou comercial",
+            "Quero orientação para escolher"
+          ],
+          "periodOptions": [
+            "Vou até a loja em Pinhais",
+            "Quero combinar a forma de atendimento",
+            "Ainda estou planejando"
+          ],
+          "timingOptions": [
+            "Quero orçamento agora",
+            "Nesta semana",
+            "Nas próximas semanas",
+            "Estou pesquisando"
+          ],
+          "stepTitles": {
+            "service": "O que você procura?",
+            "experience": "Onde esse material entra no seu projeto?",
+            "period": "Como prefere continuar?",
+            "timing": "Quando pretende avançar?",
+            "note": "Passe as medidas ou detalhes que já tiver"
+          },
+          "notePlaceholder": "Ex.: tipo de peça, medidas aproximadas, quantidade e aplicação."
+        }
+      },
+      "footer": {
+        "variant": "dark"
       }
     }
   }

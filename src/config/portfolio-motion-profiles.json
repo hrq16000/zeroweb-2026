@@ -1398,6 +1398,23 @@
       "tabletBehavior": "hero empilhado, escolhas em duas colunas e movimento direcional reduzido",
       "mobileBehavior": "uma coluna, CTA persistente, sem parallax e linha de rota estática em reduced motion",
       "wave": "NEW_CLIENT_AUTOESCOLA_APTOS"
+    },
+    "arildo-madeiras": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "crop",
+      "depthBehavior": "overlap",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "lâminas do hero entram como tábuas empilhadas; catálogo avança em régua escalonada; imagens de estoque são reveladas por cortes curtos",
+      "tabletBehavior": "lâminas permanecem escalonadas com deslocamento reduzido; mosaico e espinha de aplicações preservam a leitura",
+      "mobileBehavior": "pilha vertical sem parallax; deslocamentos curtos, sem hover dependente e conteúdo integral com reduced-motion"
     }
   },
   "decisions": {

@@ -305,6 +305,14 @@
       "authored": true,
       "logo": "/images/carecas-infotec/logo.png",
       "notes": "Marca real da faixa oficial enviada pelo negócio (banner.webp). Normalização fiel por scripts/build-carecas-identity.mjs: recorte do bloco do logotipo, remoção do ruído da lona e redução às três tintas reais (amarelo, carvão e descritor claro). Nenhuma reinterpretação, nenhum símbolo novo. Vetorização fiel não foi feita: a única fonte é fotográfica, então a marca segue em raster limpo. A identidade roxa gerada (logo.svg/CI, social-source.svg, hero-og.jpg) foi removida."
+    },
+    "arildo-madeiras": {
+      "brandOrigin": "EXISTING_PROJECT_ASSET",
+      "brandReview": "APPROVED",
+      "classification": "REAL_BRAND_WEAK_ASSET",
+      "authored": true,
+      "logo": "/images/arildo-madeiras/logo.svg",
+      "notes": "A landing usa o logo oficial remoto do site da Arildo. O SVG local é fallback técnico para ownership do diretório e não é tratado como reprodução oficial."
     }
   }
 }

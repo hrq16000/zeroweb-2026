@@ -2225,5 +2225,35 @@
     "fallbackImage": "/images/autoescola-aptos/carro-aptos.webp",
     "metrics": "Agendamento pelo funil",
     "summary": "Autoescola APTOS em São José dos Pinhais: primeira habilitação, categorias A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
+  },
+  {
+    "slug": "arildo-madeiras",
+    "clientKey": "arildo-madeiras",
+    "title": "Arildo Madeiras",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "live": true,
+    "city": "Pinhais",
+    "state": "PR",
+    "tags": [
+      "madeiras",
+      "madeiras brutas",
+      "madeiras beneficiadas",
+      "portas",
+      "janelas",
+      "forros",
+      "móveis rústicos",
+      "cambará",
+      "construção"
+    ],
+    "subtitle": "Madeiras brutas e beneficiadas para construção, reforma e projetos",
+    "location": "Av. Iraí, 1752 · Weissópolis · Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/arildo-madeiras/capa-card.svg",
+    "fallbackImage": "/images/arildo-madeiras/capa-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Orçamento pelo funil",
+    "summary": "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará."
   }
 ]

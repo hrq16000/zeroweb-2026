@@ -4,11 +4,11 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-09-21",
   "summary": {
-    "total": 95,
-    "valid": 47,
+    "total": 96,
+    "valid": 48,
     "pending": 48,
     "byStatus": {
-      "VALID": 47,
+      "VALID": 48,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
@@ -1253,6 +1253,19 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "arildo-madeiras",
+      "asset": "/images/arildo-madeiras/capa-card.svg",
+      "catalogImage": "/images/arildo-madeiras/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "0WEB_AUTHORED",
+      "reviewedAt": "2026-09-24",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Arildo Madeiras",
+      "segment": "comercios"
     }
   ]
 }

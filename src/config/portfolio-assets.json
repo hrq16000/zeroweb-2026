@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "policy": {
     "preferredFormats": [
       "avif",
@@ -1172,6 +1172,18 @@
         "ctaHref": "/f/funnel-autoescola-aptos"
       },
       "socialVersion": "4d6ace96"
+    },
+    "arildo-madeiras": {
+      "icon": "/images/arildo-madeiras/logo.svg",
+      "socialImage": "/images/arildo-madeiras/capa-og.jpg",
+      "proof": {
+        "eyebrow": "Arildo Madeiras · Pinhais",
+        "title": "Madeira que dá corpo ao projeto.",
+        "description": "Atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Cambará.",
+        "ctaLabel": "Montar meu orçamento",
+        "ctaHref": "/f/funnel-arildo-madeiras"
+      },
+      "socialVersion": "723b10cc"
     }
   }
 }
