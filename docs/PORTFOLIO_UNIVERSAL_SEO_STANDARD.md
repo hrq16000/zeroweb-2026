@@ -30,6 +30,25 @@ Todo projeto publicado deve possuir:
 - rede interna de links contextual entre portfólios;
 - nenhuma alegação criada apenas para SEO.
 
+## Enriquecimento semântico individual
+
+A camada universal também deve expor contexto factual curto por projeto, derivado apenas de
+dados já comprovados no catálogo ou, para Managed, dos campos salvos no próprio projeto.
+
+O bloco pode usar:
+
+- entidade/marca;
+- segmento;
+- cidade/estado quando específicos;
+- até cinco temas vindos de tags ou serviços reais;
+- links para hubs regionais já existentes em `/portfolio-em/*`.
+
+O texto nunca inventa atributos, preços, bairros, certificações, horários, avaliações ou
+serviços. Tags que apenas repetem a localidade são filtradas para evitar stuffing.
+
+Os hubs regionais formam circuito de navegação bidirecional: hub → projeto e projeto → hub.
+Isso reforça rastreamento e contexto geográfico sem criar páginas artificiais.
+
 ## Rede de relevância universal
 
 A casca `PortfolioStandardShell` deve renderizar `PortfolioSeoNetwork`.
