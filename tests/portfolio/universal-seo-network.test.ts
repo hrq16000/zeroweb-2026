@@ -4,6 +4,7 @@ import {
   listPublicPortfolioSeoDescriptors,
   portfolioUniversalKeywords,
   portfolioUniversalSeoTitle,
+  portfolioSemanticContext,
   relatedPortfolioItemListSchema,
   relatedPortfolioSeoItems,
 } from "@/lib/portfolio-seo-network";
@@ -43,6 +44,21 @@ describe("SEO universal dos portfolios", () => {
       const terms = keywords.split(", ").filter(Boolean);
       expect(new Set(terms).size).toBe(terms.length);
     }
+  });
+
+  test("todo projeto publicado recebe contexto semântico factual", () => {
+    for (const item of published) {
+      const semantic = portfolioSemanticContext(item.slug);
+      expect(semantic).not.toBeNull();
+      expect((semantic?.label.length ?? 0) + (semantic?.topics.length ?? 0)).toBeGreaterThan(0);
+      expect((semantic?.topics.length ?? 0)).toBeLessThanOrEqual(5);
+    }
+  });
+
+  test("projetos locais conhecidos devolvem backlinks para hubs regionais", () => {
+    const semantic = portfolioSemanticContext("arildo-madeiras");
+    expect(semantic?.placeLinks.some((link) => link.href.startsWith("/portfolio-em/"))).toBe(true);
+    expect(semantic?.placeLinks.some((link) => /Pinhais/i.test(link.label))).toBe(true);
   });
 
   test("vertical isolada continua conectada sem falsa alegação de afinidade", () => {
