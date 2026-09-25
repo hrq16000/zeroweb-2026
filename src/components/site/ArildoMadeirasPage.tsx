@@ -244,8 +244,9 @@ export function ArildoMadeirasPage() {
               width="220"
               height="78"
               className="h-9 w-auto object-contain md:h-11"
-              loading="lazy"
+              loading="eager"
               decoding="async"
+              fetchPriority="high"
               referrerPolicy="no-referrer"
             />
           </a>
