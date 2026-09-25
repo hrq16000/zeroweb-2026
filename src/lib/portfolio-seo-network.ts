@@ -134,7 +134,7 @@ function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDe
 
 export type RelatedPortfolioSeoItem = PortfolioSeoDescriptor & {
   score: number;
-  reason: "city" | "segment" | "affinity" | "state";
+  reason: "city" | "segment" | "affinity" | "state" | "discovery";
 };
 
 function relationReason(
@@ -154,7 +154,8 @@ function relationReason(
   if (candidate.tags.some((tag) => current.tags.map(normalize).includes(normalize(tag)))) {
     return "affinity";
   }
-  return "state";
+  if (current.state && normalize(current.state) === normalize(candidate.state)) return "state";
+  return "discovery";
 }
 
 export function relatedPortfolioSeoItems(
@@ -165,16 +166,25 @@ export function relatedPortfolioSeoItems(
   const current = resolvePortfolioSeoDescriptor(slug, override);
   if (!current) return [];
 
-  return PUBLIC_ITEMS.map(descriptorFromCatalog)
+  const requested = Math.max(0, Math.min(8, limit));
+  const ranked = PUBLIC_ITEMS.map(descriptorFromCatalog)
     .filter((candidate) => candidate.slug !== slug)
     .map((candidate) => ({
       ...candidate,
       score: relatedScore(current, candidate),
       reason: relationReason(current, candidate),
     }))
-    .filter((candidate) => candidate.score >= 3)
-    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, "pt-BR"))
-    .slice(0, Math.max(0, Math.min(8, limit)));
+    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, "pt-BR"));
+
+  const strong = ranked.filter((candidate) => candidate.score >= 3);
+  if (strong.length >= requested) return strong.slice(0, requested);
+
+  const selected = new Map(strong.map((item) => [item.slug, item]));
+  for (const item of ranked) {
+    if (selected.size >= requested) break;
+    if (!selected.has(item.slug)) selected.set(item.slug, { ...item, reason: "discovery" });
+  }
+  return [...selected.values()].slice(0, requested);
 }
 
 export function relatedPortfolioItemListSchema(
