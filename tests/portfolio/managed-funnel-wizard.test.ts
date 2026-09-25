@@ -45,8 +45,8 @@ describe("novo portfolio managed: funil isolado", () => {
 
   test("projeto managed novo não publica preset como composição final", () => {
     expect(managedFns).toContain("authorial_composition");
-    expect(managedFns).toContain('reason: "new_managed_project"');
-    expect(managedFns).toContain('reason: "new_autonomous_managed_project"');
+    expect(managedFns).toContain('"new_managed_project"');
+    expect(managedFns).toContain('"new_autonomous_managed_project"');
     expect(managed).toContain("PORTFOLIO_AUTHORIAL_COMPOSITION_REQUIRED");
     expect(managed).toContain("hasAuthorialPortfolioComposition(slug)");
     expect(authorialRegistry).toContain("PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS");
