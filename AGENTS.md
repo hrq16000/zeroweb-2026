@@ -137,6 +137,8 @@ somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados.
 
 **Paridade de criação:** painel/Managed, pipeline autônomo, scaffold, agente e código direto obedecem ao mesmo contrato de composição. Para projeto novo, `PortfolioManagedView`/`preset` é somente workbench/preview; não é superfície final publicável.
 
+**SEO universal:** todo `/portfolio/:slug` publicado usa a camada definida em `docs/PORTFOLIO_UNIVERSAL_SEO_STANDARD.md`: canonical/indexação, metadados únicos, Schema.org, sitemap e rede interna contextual fazem parte da infraestrutura comum. Nunca criar páginas doorway, texto oculto, stuffing ou fatos locais não comprovados.
+
 Nunca reutilize identidade, navegação, composição visual, conteúdo, contato,
 SEO, CTA ou linguagem de outro cliente como padrão. Reutilizar primitives de
 engenharia é permitido; reutilizar o mesmo hero/section-order/motion e apenas
