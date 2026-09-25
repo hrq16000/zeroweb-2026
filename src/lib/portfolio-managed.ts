@@ -11,6 +11,10 @@
 import { hasAuthorialPortfolioComposition } from "@/config/portfolio-authorial-compositions";
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
 import {
+  sanitizeManagedAuthorialCompositionPlan,
+  type ManagedAuthorialCompositionPlan,
+} from "@/lib/portfolio-managed-composition";
+import {
   PORTFOLIO_FUNNEL_INTENTS,
   type PortfolioFunnelIntent,
 } from "@/lib/portfolio-funnel-context";
@@ -80,6 +84,7 @@ export type ManagedProject = {
   /** Forward-only: projetos novos do painel não publicam o renderer genérico. */
   authorialCompositionRequired?: boolean;
   authorialCompositionAvailable?: boolean;
+  compositionPlan?: ManagedAuthorialCompositionPlan | null;
 };
 
 const HEX = /^#[0-9a-fA-F]{3,8}$/;
@@ -268,6 +273,7 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
   const sourceSnapshot = record(row.source_snapshot);
   const authorialPolicy = record(sourceSnapshot.authorial_composition);
   const authorialCompositionRequired = authorialPolicy.required === true;
+  const compositionPlan = sanitizeManagedAuthorialCompositionPlan(authorialPolicy.plan);
 
   return {
     slug,
@@ -318,7 +324,9 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     robots: indexable ? "index,follow,max-image-preview:large" : "noindex,nofollow",
     contentVersion: Number(row.content_version ?? 1),
     authorialCompositionRequired,
-    authorialCompositionAvailable: hasAuthorialPortfolioComposition(slug),
+    authorialCompositionAvailable:
+      hasAuthorialPortfolioComposition(slug) || Boolean(compositionPlan),
+    compositionPlan,
   };
 }
 
@@ -371,7 +379,7 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   if (project.authorialCompositionRequired && !project.authorialCompositionAvailable) {
     blocker(
       "PORTFOLIO_AUTHORIAL_COMPOSITION_REQUIRED",
-      "Projeto novo não pode publicar o renderer Managed/preset como composição final. Promova-o para uma composição autoral e registre o slug no contrato de composições.",
+      "Projeto novo não pode publicar o renderer Managed/preset como composição final. Gere uma composição autoral/graph válido para este cliente antes de avançar.",
     );
   }
   if (project.gallery.length < 2) {
