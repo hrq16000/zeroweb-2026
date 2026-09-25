@@ -75,6 +75,20 @@ describe("resolver de runtime do portfólio", () => {
     expect(eff.logoUrl).toBe(base.logoUrl);
   });
 
+  it("linha imported de seed herda publicação do catálogo em vez de forçar noindex", () => {
+    const ov = sanitizePortfolioRuntimeRow("paulo-mestre-de-obras", {
+      lifecycle_status: "imported",
+      published: false,
+      seo_title: "Título administrado preservado",
+    });
+    const eff = applyPortfolioRuntime(base, ov);
+    expect(eff.indexable).toBe(true);
+    expect(eff.robots).toContain("index,follow");
+    expect(eff.lifecycle).toBe("published");
+    expect(eff.published).toBe(true);
+    expect(eff.title).toBe("Título administrado preservado");
+  });
+
   it("draft e archived saem do índice", () => {
     for (const status of ["draft", "archived"] as const) {
       const ov = sanitizePortfolioRuntimeRow("x", { lifecycle_status: status, published: false });
