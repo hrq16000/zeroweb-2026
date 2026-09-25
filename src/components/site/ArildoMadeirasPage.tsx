@@ -20,7 +20,6 @@ import {
   MotionImageReveal,
   MotionReveal,
   MotionStagger,
-  MotionTextReveal,
 } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -267,12 +266,12 @@ export function ArildoMadeirasPage() {
         <section id="inicio" className="arildo-hero relative overflow-hidden pt-24 md:pt-28">
           <div className="arildo-grain" aria-hidden="true" />
           <div className="mx-auto grid min-h-[760px] max-w-7xl items-stretch gap-0 px-4 py-6 md:px-7 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,0.75fr)]">
-            <MotionReveal className="relative z-10 flex flex-col justify-center py-10 pr-0 lg:pr-12">
+            <div className="relative z-10 flex flex-col justify-center py-10 pr-0 lg:pr-12">
               <p className="arildo-kicker flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em]">
                 <MapPin className="h-4 w-4" /> Weissópolis · Pinhais — PR
               </p>
               <h1 className="arildo-display mt-6 max-w-[10ch] text-[clamp(3.9rem,9vw,8.6rem)] leading-[0.82]">
-                <MotionTextReveal text="Madeira que dá corpo ao projeto." />
+                Madeira que dá corpo ao projeto.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[var(--arildo-muted)] md:text-xl">
                 Atacado e varejo de madeiras brutas e beneficiadas, com portas,
@@ -293,9 +292,9 @@ export function ArildoMadeirasPage() {
                 <span>MADEIRAS BENEFICIADAS</span>
                 <span>PORTAS · JANELAS · FORROS</span>
               </div>
-            </MotionReveal>
+            </div>
 
-            <MotionImageReveal className="arildo-hero-cut relative min-h-[460px] overflow-hidden lg:min-h-full" direction="left">
+            <div className="arildo-hero-cut relative min-h-[460px] overflow-hidden lg:min-h-full">
               <img
                 src={MEDIA[0]}
                 alt="Estoque real de madeira publicado pela Arildo Madeiras"
@@ -311,7 +310,7 @@ export function ArildoMadeirasPage() {
                 <p className="text-xs font-black uppercase tracking-[0.16em]">Mídia oficial</p>
                 <p className="mt-1 text-sm">Estoque e madeiras publicados pela própria Arildo.</p>
               </div>
-            </MotionImageReveal>
+            </div>
           </div>
         </section>
 
