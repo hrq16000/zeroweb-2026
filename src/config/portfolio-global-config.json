@@ -1359,6 +1359,45 @@
       "footer": {
         "variant": "dark"
       }
+    },
+    "autoescola-aptos": {
+      "contactFloating": {
+        "quizConfig": {
+          "proposalKind": "service",
+          "stepTitles": {
+            "service": "O que você quer resolver agora?",
+            "experience": "Em que ponto você está?",
+            "period": "Qual período fica melhor para as aulas?",
+            "timing": "Quando quer começar?",
+            "note": "Quer contar mais alguma coisa?"
+          },
+          "services": [
+            "Primeira habilitação",
+            "Adicionar categoria (A ou B)",
+            "Renovação da CNH",
+            "Reteste ou reciclagem"
+          ],
+          "experienceOptions": [
+            "Ainda não comecei nada",
+            "Já fiz exames ou provas",
+            "Parei no meio do processo",
+            "Só quero tirar dúvidas"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Noite",
+            "Fins de semana"
+          ],
+          "timingOptions": [
+            "Esta semana",
+            "Este mês",
+            "Nos próximos meses",
+            "Ainda pesquisando"
+          ],
+          "notePlaceholder": "Ex.: interesse em carro automático ou moto automática."
+        }
+      }
     }
   }
 }
