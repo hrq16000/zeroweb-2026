@@ -8,15 +8,16 @@ import {
 } from "./portfolio-whatsapp-registry.server";
 
 describe("portfolio WhatsApp data", () => {
-  it("mantém os 95 portfolios no cadastro canônico", () => {
-    expect(getPortfolioContactClientKeys()).toHaveLength(95);
+  it("mantém os 96 portfolios no cadastro canônico", () => {
+    expect(getPortfolioContactClientKeys()).toHaveLength(96);
   });
 
   it("migra os destinos atuais e preserva o comprovado na PR", () => {
-    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(69);
+    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(70);
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
     expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");
+    expect(resolveVersionedPortfolioWhatsApp("arildo-madeiras")).toBe("5541991671593");
     // r-beauty não possui número próprio comprovado (variante derivada de
     // renata-beauty foi removida): portfolio lead-only.
     expect(resolveVersionedPortfolioWhatsApp("r-beauty")).toBeNull();
