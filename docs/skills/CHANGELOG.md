@@ -1593,3 +1593,14 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Política:** escala não autoriza doorway pages, stuffing, conteúdo duplicado
   ou dados locais inventados.
 
+# 2026-09-25 — Enriquecimento semântico individual · portfólios
+
+- **Contexto factual:** cada página publicada passa a expor marca/segmento/localidade e até
+  cinco temas derivados de tags ou serviços reais.
+- **SEO local:** páginas com cidade/estado reconhecidos passam a devolver links para os hubs
+  regionais já existentes em `/portfolio-em/*`, fechando o circuito hub ↔ projeto.
+- **Anti-spam:** localidade duplicada é filtrada dos tópicos e não há criação automática de
+  serviços, bairros, preços, avaliações ou fatos não comprovados.
+- **Managed:** o mesmo resolvedor usa o contexto factual já salvo no projeto.
+- **Gate:** testes universais cobrem contexto semântico e backlinks regionais.
+
