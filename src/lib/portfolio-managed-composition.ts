@@ -197,10 +197,10 @@ function makeDirection(
   const radius = pick(MANAGED_RADIUS_MODES, seed >>> 16, variant * 2);
   const mobileStrategy = pick(MANAGED_MOBILE_STRATEGIES, seed >>> 18, variant);
   const mediaDominance = pick(["low", "balanced", "high"] as const, seed >>> 20, variant * 2);
-  const anchor = input.services?.[variant % Math.max(1, input.services.length)] ||
-    input.segment ||
-    input.city ||
-    input.displayName;
+  const services = input.services ?? [];
+  const anchor = services.length
+    ? services[variant % services.length]
+    : input.segment || input.city || input.displayName;
 
   const conceptVerb = ["mapa editorial", "jornada em capítulos", "vitrine narrativa"][variant];
   const concept = `${input.displayName}: ${conceptVerb} guiado por ${anchor}`;
