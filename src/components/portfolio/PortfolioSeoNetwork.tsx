@@ -3,6 +3,7 @@ import {
   relatedPortfolioItemListSchema,
   relatedPortfolioSeoItems,
   resolvePortfolioSeoDescriptor,
+  portfolioSemanticContext,
 } from "@/lib/portfolio-seo-network";
 
 type Props = {
@@ -21,6 +22,7 @@ function relationLabel(reason: "city" | "segment" | "affinity" | "state" | "disc
 export function PortfolioSeoNetwork({ slug, context }: Props) {
   const current = resolvePortfolioSeoDescriptor(slug, context);
   const related = relatedPortfolioSeoItems(slug, context, 6);
+  const semantic = portfolioSemanticContext(slug, context);
   const schema = relatedPortfolioItemListSchema(slug, context, 6);
 
   if (!current || related.length < 3) return null;
@@ -51,6 +53,35 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
           Veja outras presenças digitais publicadas na 0WEB com contexto de mercado, localidade ou
           serviços relacionados.
         </p>
+
+        {semantic && (semantic.label || semantic.topics.length || semantic.placeLinks.length) ? (
+          <div className="mt-6 rounded-2xl border border-black/10 bg-white p-4 sm:p-5">
+            <p className="text-xs font-black uppercase tracking-[.14em] text-neutral-500">
+              Contexto do projeto
+            </p>
+            {semantic.label ? (
+              <p className="mt-2 text-sm font-semibold text-neutral-800">{semantic.label}</p>
+            ) : null}
+            {semantic.topics.length ? (
+              <ul aria-label="Temas deste projeto" className="mt-3 flex flex-wrap gap-2">
+                {semantic.topics.map((topic) => (
+                  <li key={topic} className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {semantic.placeLinks.length ? (
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                {semantic.placeLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="font-bold underline decoration-black/20 underline-offset-4 hover:decoration-black">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
         <nav aria-label="Projetos relacionados" className="mt-7">
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

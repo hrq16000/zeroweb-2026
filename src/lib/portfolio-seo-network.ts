@@ -1,5 +1,6 @@
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { SITE_URL } from "@/lib/portfolio-seo";
+import { portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
 
 export type PortfolioSeoDescriptor = {
   slug: string;
@@ -233,6 +234,76 @@ export function portfolioUniversalKeywords(
     item.state,
   ].map(clean).filter(Boolean);
   return [...new Set(terms)].join(", ");
+}
+
+
+export type PortfolioSemanticContext = {
+  label: string;
+  topics: string[];
+  placeLinks: { href: string; label: string }[];
+};
+
+function humanizeTag(value: string): string {
+  return value
+    .replace(/-/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^./, (char) => char.toUpperCase());
+}
+
+export function portfolioSemanticContext(
+  slug: string,
+  override?: PortfolioSeoContextOverride,
+): PortfolioSemanticContext | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return null;
+
+  const cityNorm = normalize(item.city);
+  const stateNorm = normalize(item.state);
+  const blocked = new Set([
+    cityNorm,
+    stateNorm,
+    normalize(item.title),
+    normalize(item.segment),
+  ]);
+
+  const topics = item.tags
+    .map(humanizeTag)
+    .filter((tag) => {
+      const key = normalize(tag);
+      return key && !blocked.has(key) && !key.includes(cityNorm);
+    })
+    .filter((tag, index, all) => all.findIndex((candidate) => normalize(candidate) === normalize(tag)) === index)
+    .slice(0, 5);
+
+  const placeLinks = portfolioPlaceHubs()
+    .filter(
+      (hub) =>
+        normalize(hub.city) === cityNorm &&
+        normalize(hub.state) === stateNorm,
+    )
+    .sort((a, b) => {
+      const aContains = a.projects.some((project) => project.slug === slug) ? 1 : 0;
+      const bContains = b.projects.some((project) => project.slug === slug) ? 1 : 0;
+      if (aContains !== bContains) return bContains - aContains;
+      return a.kind === b.kind ? 0 : a.kind === "neighborhood" ? -1 : 1;
+    })
+    .slice(0, 2)
+    .map((hub) => ({
+      href: portfolioPlacePath(hub.slug),
+      label:
+        hub.kind === "neighborhood"
+          ? `Projetos em ${hub.name}, ${hub.city}`
+          : `Projetos em ${hub.city}`,
+    }));
+
+  const segment = SEGMENT_LABELS[item.segment] ?? humanizeTag(item.segment);
+  const location = isUsefulPlace(item.city)
+    ? [item.city, item.state].filter(Boolean).join(" — ")
+    : "";
+  const label = [segment, location].filter(Boolean).join(" em ");
+
+  return { label, topics, placeLinks };
 }
 
 export function relatedPortfolioItemListSchema(
