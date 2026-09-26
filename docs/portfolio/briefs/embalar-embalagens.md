@@ -21,3 +21,12 @@
 - antiTemplateDecisions: Hero editorial próprio, galeria real, copy orientada a compra e paleta coral/creme específica.
 
 O telefone fornecido pelo cliente deve permanecer somente no segredo server-side `PORTFOLIO_WHATSAPP_EMBALAR_EMBALAGENS`; não escrever o número em código público, imagem pública ou metadado.
+
+## Redesign autoral — 2026-09-26
+
+- **Problema detectado:** Embalar ↔ Maximos permaneceu como o último par HIGH_SIMILARITY, score 61.
+- **Nova direção:** experiência de varejo por prateleiras, usando fotos reais da loja como estrutura principal.
+- **Estrutura:** manifesto de loja → mosaico real do interior → índice linear de prateleiras → galeria documental → consulta/retirada.
+- **Anti-template:** sem hero split clássico, sem bloco escuro de três cards e sem CTA em painel arredondado.
+- **Objetivo de originalidade:** retirar Embalar do par crítico com Maximos preservando categorias, endereço, galeria real e funil.
+
