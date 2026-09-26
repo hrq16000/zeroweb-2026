@@ -7,6 +7,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -80,13 +81,15 @@ function CTA({
 }
 
 export function AcaiTotalAraucariaPage() {
+  const logo = useManagedValue("logoUrl", "/images/acai-total-araucaria/logo.webp");
+
   return (
     <div className="min-h-dvh overflow-hidden bg-[#2d0f44] text-white">
       <header className="border-b border-[#d9f23b]/25 bg-[#2d0f44] px-5 py-4 lg:px-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-5">
           <a href="#inicio" className="flex items-center gap-3">
             <PortfolioImage
-              src="/images/acai-total-araucaria/logo.webp"
+              src={logo}
               alt="Açaí Total Araucária"
               width={48}
               height={48}
