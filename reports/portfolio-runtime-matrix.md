@@ -6,15 +6,15 @@ As colunas abaixo indicam o consumo dentro do componente próprio de cada client
 Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 (composição autoral preservada) · `NOT_APPLICABLE` · `MISSING` (bloqueante).
 
-- Componentes de portfólio auditados: 86
-- Componentes com núcleo administrável: 86
+- Componentes de portfólio auditados: 85
+- Componentes com núcleo administrável: 85
 - Conexões faltando (MISSING): 0
 
 | Componente | Logo | Hero | Headline | Subheadline | CTA |
 | --- | --- | --- | --- | --- | --- |
-| AcaiTotalAraucariaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| AcaiTotalAraucariaPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | AgElectricalServicesPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
-| AguiaSulSinalizacaoPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| AguiaSulSinalizacaoPage.tsx | MANAGED | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | AlmeidaTorresAdvocaciaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | AngelMixBrechoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
 | ArtesanatosDarLeiaOliveiraPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
@@ -26,7 +26,6 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | BrechoSaoFranciscoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
 | BrunaDiaristaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | CasaNativaBistroPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
-| CentroMegaPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | ClinicaIntegradaSaudePage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | ConfeitariaChyrleyPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | ConfeitariaSaborDaRealezaPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |

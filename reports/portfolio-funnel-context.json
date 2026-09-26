@@ -1,16 +1,16 @@
 {
   "summary": {
-    "generatedAt": "2026-09-21T17:40:10.330Z",
-    "audited": 95,
-    "pass": 95,
+    "generatedAt": "2026-09-26T21:37:47.324Z",
+    "audited": 96,
+    "pass": 96,
     "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 25,
-      "orcamento": 32,
+      "pedido": 26,
+      "orcamento": 33,
       "solicitacao": 1,
       "agendamento": 17,
-      "contato": 9,
+      "contato": 8,
       "reserva": 4,
       "diagnostico": 7
     }
@@ -1085,13 +1085,13 @@
     {
       "slug": "centro-mega",
       "businessName": "Centro Mega",
-      "segment": "prestadores-de-servicos",
-      "intent": "contato",
+      "segment": "comercios",
+      "intent": "pedido",
       "source": "PROJECT_CONTRACT",
-      "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
-      "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
-      "primaryCtaLabel": "Falar com a equipe",
-      "whatsappIntent": "contato",
+      "nextStepTitle": "Sua seleção pode seguir para a equipe sem perder o contexto.",
+      "nextStepBody": "Escolha os produtos ou categorias na loja-demo; a equipe confirma preço, estoque, tamanho, cor e forma de atendimento antes da compra.",
+      "primaryCtaLabel": "Consultar minha seleção",
+      "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []
     },
@@ -1248,6 +1248,19 @@
       "nextStepBody": "Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo.",
       "primaryCtaLabel": "Montar minha proposta",
       "whatsappIntent": "agendamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "arildo-madeiras",
+      "businessName": "Arildo Madeiras",
+      "segment": "comercios",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu projeto começa pelo material certo.",
+      "nextStepBody": "Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo.",
+      "primaryCtaLabel": "Montar meu orçamento",
+      "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
     }
