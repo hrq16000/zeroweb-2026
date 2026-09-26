@@ -61,7 +61,9 @@ Gate de saída:
 - nenhuma regressão em outros projetos;
 - build/SSR e visual verdes.
 
-### Micro 1B — POPYS — EM EXECUÇÃO
+### Micro 1B — POPYS — CONCLUÍDA
+Resultado: POPYS saiu de HIGH_SIMILARITY; Easy Clean caiu para ATTENTION. Total crítico: 4 → 2.
+
 Baseline após 1A: POPYS ↔ Easy Clean = 62 (HIGH_SIMILARITY).
 
 Objetivo: separar limpeza B2B da linguagem residencial e da higienização de estofados.
@@ -72,15 +74,19 @@ Direção:
 - processo e frequência como eixo central;
 - hero horizontal institucional, sem repetir estrutura Bruna.
 
-### Micro 1C — Easy Clean
-Objetivo: remover o terceiro membro do cluster de limpeza.
+### Micro 1C — Easy Clean — RECLASSIFICADA PARA ONDA 2
+Resultado indireto da 1B: Easy Clean caiu para ATTENTION (score 59), portanto deixa de ser prioridade crítica nesta onda.
+
+Objetivo original: remover o terceiro membro do cluster de limpeza.
 
 Direção:
 - identidade e composição baseadas no material real do flyer;
 - evitar hero/card/processo herdado;
 - estrutura própria por prova e escopo.
 
-### Micro 1D — Embalar Embalagens
+### Micro 1D — Embalar Embalagens — EM EXECUÇÃO
+Baseline: Embalar ↔ Maximos = 61 (HIGH_SIMILARITY), único par crítico restante.
+
 Objetivo: quebrar similaridade estrutural com Maximos.
 
 Direção:
