@@ -1651,3 +1651,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** conteúdo oficial, foto documental, `heroImageUrl`, Curitiba/Região e funil individual.
 - **Estratégia:** alterar um lado do par primeiro e medir o efeito sobre ambos antes de tocar Maximos.
 
+# 2026-09-26 — Onda 2B de originalidade · Águia Sul Sinalização
+
+- **Baseline:** score 59, ATTENTION, nearest Diego Montador de Móveis.
+- **Direção autoral:** composição de planta de sinalização/mapa de piso, com grid técnico, legenda, mapa linear de escopo, setores de circulação e CTA operacional.
+- **Anti-template:** removidos hero split escuro, grid de quatro cards e bloco genérico de diferenciais que aproximavam Águia Sul de Diego.
+- **Mídia:** nenhuma foto de obra foi inventada; a marca oficial permanece, e a linguagem visual é construída com elementos gráficos próprios de sinalização.
+- **Preservado:** serviços, Curitiba/região e funil individual.
+

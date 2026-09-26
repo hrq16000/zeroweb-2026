@@ -1,5 +1,4 @@
 import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
-import { motion } from "motion/react";
 import {
   ArrowRight,
   Check,
@@ -14,29 +13,35 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
-const services = [
-  [
-    "Estacionamentos organizados",
-    "Pintura de vagas comuns, PCD e idosos com leitura clara e acabamento durável.",
-    ParkingSquare,
-  ],
-  [
-    "Sinalização horizontal",
-    "Faixas de pedestres, setas, carga e descarga e demais demarcações de solo.",
-    Waypoints,
-  ],
-  [
-    "Pintura imobiliária",
-    "Paredes internas e externas para valorizar condomínios, comércios e empresas.",
-    SprayCan,
-  ],
-  [
-    "Estruturas industriais",
-    "Pintura de barracões, galpões e áreas operacionais com segurança e prazo.",
-    HardHat,
-  ],
+const scopeLines = [
+  {
+    code: "A01",
+    title: "Estacionamentos",
+    text: "Pintura de vagas comuns, PCD e idosos, além de áreas de circulação e organização do fluxo.",
+    icon: ParkingSquare,
+  },
+  {
+    code: "A02",
+    title: "Sinalização horizontal",
+    text: "Faixas de pedestres, setas, carga e descarga e demais demarcações de solo.",
+    icon: Waypoints,
+  },
+  {
+    code: "A03",
+    title: "Pintura imobiliária",
+    text: "Paredes internas e externas para condomínios, comércios, empresas e imóveis.",
+    icon: SprayCan,
+  },
+  {
+    code: "A04",
+    title: "Estruturas industriais",
+    text: "Pintura de barracões, galpões e áreas operacionais conforme o escopo do local.",
+    icon: HardHat,
+  },
 ] as const;
+
 const quiz = {
   stepTitles: {
     service: "Qual sinalização você precisa?",
@@ -62,7 +67,14 @@ const quiz = {
   periodOptions: ["Curitiba e região", "Região metropolitana", "Vou confirmar o endereço"],
   timingOptions: ["Preciso de orçamento em breve", "Estou planejando", "Quero uma visita técnica"],
 };
-function CTA({ children }: { children: React.ReactNode }) {
+
+function CTA({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <PortfolioCTAQuiz
       clientKey="aguia-sul-sinalizacao"
@@ -71,212 +83,295 @@ function CTA({ children }: { children: React.ReactNode }) {
       theme="gold"
       mode="proposal"
       quizConfig={quiz}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f5b51b] px-6 py-3.5 font-bold text-[#101010] shadow-lg shadow-[#f5b51b]/25 transition hover:-translate-y-1 hover:bg-[#ffd45c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5b51b]"
+      className={className}
     >
       {children}
     </PortfolioCTAQuiz>
   );
 }
+
 export function AguiaSulSinalizacaoPage() {
   const logo = useManagedValue("logoUrl", "/images/aguia-sul-sinalizacao/logo.webp");
+
   return (
-    <div className="min-h-dvh overflow-hidden bg-[#090a0c] text-[#f7f4ec]">
-      <header className="sticky top-0 z-30 border-b border-[#f5b51b]/20 bg-[#090a0c]/95 px-5 py-4 backdrop-blur lg:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold">
-            <PortfolioImage
-              src={logo}
-              alt="Águia Sul Sinalização"
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-full object-cover"
-            />
-            <span>
-              ÁGUIA <span className="text-[#f5b51b]">SUL</span>
-            </span>
-          </a>
-          <nav className="hidden gap-6 text-sm font-semibold text-white/70 md:flex">
-            <a href="#servicos">Serviços</a>
-            <a href="#diferenciais">Diferenciais</a>
-            <a href="#contato">Orçamento</a>
-          </nav>
-          <CTA>
-            Solicitar orçamento <ArrowRight className="h-4 w-4" />
-          </CTA>
-        </div>
-      </header>
-      <main>
-        <section id="inicio" className="relative overflow-hidden px-5 py-16 lg:px-8 lg:py-24">
-          <div className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-[#f5b51b]/15 blur-3xl" />
-          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
-            <div>
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]"
-              >
-                Sinalização viária · pintura profissional
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.08 }}
-                className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl"
-              >
-                Espaços mais seguros,{" "}
-                <span className="text-[#f5b51b]">organizados e valorizados.</span>
-              </motion.h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
-                A Águia Sul Sinalização entrega pintura e demarcação horizontal para condomínios,
-                comércios, empresas, indústrias e estacionamentos.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <CTA>
-                  Falar com a Águia Sul <ArrowRight className="h-4 w-4" />
-                </CTA>
-                <a
-                  href="#servicos"
-                  className="inline-flex min-h-12 items-center rounded-full border border-white/25 px-6 py-3.5 font-semibold hover:bg-white/10"
-                >
-                  Conhecer serviços
-                </a>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-white/70">
-                <span>
-                  <Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />
-                  Equipe qualificada
-                </span>
-                <span>
-                  <Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />
-                  Prazo cumprido
-                </span>
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, x: 24, scale: 0.97 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.7 }}
-            >
+    <MotionScope intensity="BALANCED">
+      <div className="min-h-dvh overflow-hidden bg-[#f2efe6] text-[#121212]">
+        <header className="border-b border-[#121212]/15 bg-[#f2efe6] px-5 py-4 lg:px-8">
+          <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
+            <a href="#inicio" className="flex items-center gap-3">
               <PortfolioImage
                 src={logo}
-                alt="Logo dourada da Águia Sul Sinalização"
-                priority
-                width={1024}
-                height={1024}
-                className="mx-auto w-full max-w-[520px] rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#f5b51b]/40"
-            managedField="heroImageUrl"
-          />
-            </motion.div>
-          </div>
-        </section>
-        <section id="servicos" className="bg-[#f3f0e8] px-5 py-20 text-[#161616] lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b7200]">
-              Soluções sob medida
-            </p>
-            <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">
-              Cada marca no chão tem uma função.
-            </h2>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map(([title, text, Icon], i) => (
-                <motion.article
-                  key={title}
-                  whileHover={{ y: -6 }}
-                  className="rounded-3xl border border-[#ded5be] bg-white p-6 shadow-sm"
-                >
-                  <span className="text-sm font-bold text-[#9b7200]">0{i + 1}</span>
-                  <Icon className="mt-8 h-7 w-7 text-[#9b7200]" />
-                  <h3 className="mt-5 text-xl font-bold">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5a5d64]">{text}</p>
-                </motion.article>
-              ))}
+                alt="Águia Sul Sinalização"
+                width={42}
+                height={42}
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <div>
+                <p className="text-sm font-black uppercase tracking-[.12em]">Águia Sul</p>
+                <p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#8a6a10]">
+                  sinalização e pintura
+                </p>
+              </div>
+            </a>
+
+            <nav
+              aria-label="Navegação Águia Sul"
+              className="hidden items-center gap-1 border border-[#121212]/15 bg-white/60 p-1 text-[10px] font-black uppercase tracking-[.14em] md:flex"
+            >
+              <a href="#mapa" className="px-3 py-2 hover:bg-[#f5b51b]">Mapa</a>
+              <a href="#setores" className="px-3 py-2 hover:bg-[#f5b51b]">Setores</a>
+              <a href="#proposta" className="px-3 py-2 hover:bg-[#f5b51b]">Proposta</a>
+            </nav>
+
+            <div className="justify-self-end">
+              <CTA className="inline-flex min-h-10 items-center gap-2 border border-[#121212] bg-[#121212] px-4 py-2.5 text-xs font-black uppercase tracking-[.08em] text-white transition hover:bg-[#f5b51b] hover:text-[#121212]">
+                Solicitar orçamento
+                <ArrowRight className="h-4 w-4" />
+              </CTA>
             </div>
           </div>
-        </section>
-        <section id="diferenciais" className="px-5 py-20 lg:px-8">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">
-                Por que escolher
-              </p>
-              <h2 className="mt-3 font-display text-4xl font-bold">
-                Precisão que aparece. Segurança que permanece.
-              </h2>
-              <p className="mt-5 leading-8 text-white/70">
-                Materiais de alta qualidade, normas técnicas e execução responsável para entregar um
-                resultado durável, legível e bonito.
-              </p>
-              <div className="mt-8 flex items-start gap-4">
-                <ShieldCheck className="mt-1 h-7 w-7 shrink-0 text-[#f5b51b]" />
-                <div>
-                  <p className="font-bold">Transparência do orçamento à entrega</p>
-                  <p className="mt-1 text-sm text-white/60">
-                    Atendimento personalizado, planejamento e acompanhamento do prazo.
+        </header>
+
+        <main>
+          <section id="inicio" className="relative px-5 py-8 lg:px-8 lg:py-10">
+            <div className="mx-auto max-w-7xl border border-[#121212]/15 bg-white">
+              <div className="grid min-h-[640px] lg:grid-cols-[1fr_17rem]">
+                <div className="relative overflow-hidden p-7 sm:p-10 lg:p-14">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 opacity-[.16]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, #111 1px, transparent 1px), linear-gradient(to bottom, #111 1px, transparent 1px)",
+                      backgroundSize: "42px 42px",
+                    }}
+                  />
+
+                  <div className="relative flex min-h-[520px] flex-col justify-between">
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[10px] font-black uppercase tracking-[.18em]">
+                      <span className="inline-flex items-center gap-2 bg-[#f5b51b] px-2 py-1">
+                        <span className="h-2 w-2 bg-[#121212]" />
+                        mapa de sinalização
+                      </span>
+                      <span>Curitiba e região</span>
+                      <span>solo · pintura · estrutura</span>
+                    </div>
+
+                    <div>
+                      <MotionReveal
+                        as="h1"
+                        variant="mask"
+                        intensity="EXPRESSIVE"
+                        className="max-w-[10ch] font-display text-6xl font-black uppercase leading-[.82] tracking-[-.055em] sm:text-7xl lg:text-[7.2rem]"
+                      >
+                        Cada linha organiza um espaço.
+                      </MotionReveal>
+                      <p className="mt-8 max-w-2xl text-base leading-8 text-[#565656] sm:text-lg">
+                        Pintura e demarcação horizontal para estacionamentos, condomínios, empresas,
+                        indústrias e áreas operacionais.
+                      </p>
+                      <div className="mt-8 flex flex-wrap gap-3">
+                        <CTA className="inline-flex min-h-12 items-center gap-2 bg-[#f5b51b] px-6 py-3.5 text-sm font-black uppercase tracking-[.08em] text-[#121212]">
+                          Abrir proposta
+                          <ArrowRight className="h-4 w-4" />
+                        </CTA>
+                        <a
+                          href="#mapa"
+                          className="inline-flex min-h-12 items-center border border-[#121212]/30 px-6 py-3.5 text-sm font-black uppercase tracking-[.08em]"
+                        >
+                          Ver escopo
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <aside className="border-t border-[#121212]/15 bg-[#121212] text-white lg:border-l lg:border-t-0">
+                  <div className="border-b border-white/15 p-5">
+                    <p className="text-[10px] font-black uppercase tracking-[.16em] text-[#f5b51b]">
+                      legenda
+                    </p>
+                  </div>
+                  {[
+                    ["01", "Estacionamentos"],
+                    ["02", "Faixas e setas"],
+                    ["03", "Paredes"],
+                    ["04", "Galpões"],
+                  ].map(([n, label]) => (
+                    <div key={n} className="grid grid-cols-[2.4rem_1fr] gap-3 border-b border-white/15 p-5">
+                      <span className="font-mono text-xs font-black text-[#f5b51b]">{n}</span>
+                      <span className="text-sm font-bold text-white/85">{label}</span>
+                    </div>
+                  ))}
+                  <div className="p-5 text-xs leading-6 text-white/55">
+                    O escopo final é definido conforme o tipo de área e a necessidade informada.
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section id="mapa" className="px-5 py-20 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-10 lg:grid-cols-[.32fr_.68fr]">
+                <div className="lg:sticky lg:top-6 lg:self-start">
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#8a6a10]">
+                    Mapa de escopo
                   </p>
+                  <h2 className="mt-4 max-w-[8ch] font-display text-4xl font-black uppercase leading-[.92] sm:text-5xl">
+                    Do chão à estrutura.
+                  </h2>
+                  <p className="mt-5 max-w-sm text-sm leading-7 text-[#666]">
+                    A solicitação é organizada pela função da área, pelo tipo de pintura e pelo
+                    resultado que o espaço precisa comunicar.
+                  </p>
+                </div>
+
+                <div className="border-t-2 border-[#121212]">
+                  {scopeLines.map(({ code, title, text, icon: Icon }) => (
+                    <article
+                      key={code}
+                      className="grid gap-5 border-b border-[#121212]/15 py-7 md:grid-cols-[4rem_1fr_auto] md:items-start"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs font-black text-[#8a6a10]">{code}</span>
+                        <Icon className="h-5 w-5 text-[#8a6a10] md:hidden" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <Icon className="hidden h-5 w-5 text-[#8a6a10] md:block" />
+                          <h3 className="font-display text-2xl font-black">{title}</h3>
+                        </div>
+                        <p className="mt-3 max-w-xl leading-7 text-[#666]">{text}</p>
+                      </div>
+                      <span className="font-mono text-[10px] font-black uppercase tracking-[.13em] text-[#8a6a10]">
+                        área de atuação
+                      </span>
+                    </article>
+                  ))}
+
+                  <div className="grid gap-5 bg-[#121212] p-6 text-white sm:grid-cols-[1fr_auto] sm:items-center">
+                    <p className="text-sm leading-6 text-white/65">
+                      Informe o tipo de espaço, o serviço desejado e o local para organizar a proposta.
+                    </p>
+                    <CTA className="inline-flex min-h-11 items-center gap-2 bg-[#f5b51b] px-5 py-3 text-sm font-black text-[#121212]">
+                      Descrever área
+                      <ArrowRight className="h-4 w-4" />
+                    </CTA>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6">
-                <p className="text-4xl font-bold text-[#f5b51b]">01</p>
-                <p className="mt-8 font-bold">Diagnóstico do local</p>
-                <p className="mt-2 text-sm text-white/60">
-                  Entendemos fluxo, medidas e objetivo da sinalização.
-                </p>
-              </div>
-              <div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6">
-                <p className="text-4xl font-bold text-[#f5b51b]">02</p>
-                <p className="mt-8 font-bold">Execução cuidadosa</p>
-                <p className="mt-2 text-sm text-white/60">
-                  Equipe preparada e acabamento revisado.
-                </p>
+          </section>
+
+          <section id="setores" className="border-y border-[#121212]/15 bg-[#d9d4c8] px-5 py-20 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-8 lg:grid-cols-[.55fr_.45fr]">
+                <div className="border border-[#121212]/20 bg-[#f2efe6] p-6 sm:p-8">
+                  <div className="grid gap-2">
+                    <div className="h-3 w-32 bg-[#f5b51b]" />
+                    <div className="h-3 w-52 bg-[#121212]" />
+                    <div className="h-3 w-40 bg-[#f5b51b]" />
+                  </div>
+                  <div className="mt-10 grid grid-cols-2 gap-px bg-[#121212]/20 border border-[#121212]/20">
+                    {[
+                      ["Vaga comum", "demarcação"],
+                      ["PCD / idoso", "identificação"],
+                      ["Fluxo", "setas / faixas"],
+                      ["Carga", "área dedicada"],
+                    ].map(([label, detail]) => (
+                      <div key={label} className="bg-white p-5">
+                        <p className="text-lg font-black">{label}</p>
+                        <p className="mt-1 text-xs font-bold uppercase tracking-[.12em] text-[#8a6a10]">
+                          {detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-between border border-[#121212]/20 bg-[#121212] p-7 text-white sm:p-9">
+                  <div>
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#f5b51b]">
+                      leitura do local
+                    </p>
+                    <h2 className="mt-5 font-display text-4xl font-black uppercase leading-[.92]">
+                      Primeiro vem a função. Depois, a marca no espaço.
+                    </h2>
+                    <p className="mt-6 leading-8 text-white/65">
+                      O orçamento parte da necessidade do ambiente. Estacionamento, circulação,
+                      pintura ou estrutura exigem escopos diferentes.
+                    </p>
+                  </div>
+
+                  <dl className="mt-10 divide-y divide-white/15 border-y border-white/15">
+                    {[
+                      ["Entrada", "Tipo de espaço"],
+                      ["Leitura", "Serviço necessário"],
+                      ["Saída", "Próximo passo"],
+                    ].map(([term, value]) => (
+                      <div key={term} className="grid grid-cols-[5rem_1fr] gap-4 py-5">
+                        <dt className="font-mono text-[10px] font-black uppercase tracking-[.12em] text-white/45">{term}</dt>
+                        <dd className="text-sm font-bold">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section id="contato" className="bg-[#f5b51b] px-5 py-16 text-[#111] lg:px-8">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#111315] p-8 text-white shadow-2xl md:flex-row md:items-center">
+          </section>
+
+          <section id="proposta" className="bg-[#f5b51b] px-5 py-14 lg:px-8 lg:py-16">
+            <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-6 w-6" />
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em]">
+                    Próximo passo
+                  </p>
+                </div>
+                <h2 className="mt-4 max-w-[14ch] font-display text-4xl font-black uppercase leading-[.94] sm:text-5xl">
+                  Descreva o espaço. A proposta começa pela necessidade certa.
+                </h2>
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold">
+                  <span><Check className="mr-1 inline h-4 w-4" />Tipo de área</span>
+                  <span><Check className="mr-1 inline h-4 w-4" />Serviço desejado</span>
+                  <span><Check className="mr-1 inline h-4 w-4" />Prazo pretendido</span>
+                </div>
+              </div>
+              <CTA className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#121212] px-6 py-3.5 text-sm font-black uppercase tracking-[.08em] text-white">
+                Solicitar proposta
+                <ArrowRight className="h-4 w-4" />
+              </CTA>
+            </div>
+          </section>
+        </main>
+
+        <footer className="border-t border-[#121212]/15 bg-[#f2efe6] px-5 py-8 text-sm text-[#666] lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">
-                Atendimento empresarial
+              <p className="font-black uppercase text-[#121212]">
+                Águia Sul Sinalização
               </p>
-              <h2 className="mt-3 font-display text-4xl font-bold">
-                Pronto para transformar seu espaço?
-              </h2>
-              <p className="mt-3 max-w-xl leading-7 text-white/65">
-                Solicite um orçamento sem compromisso para sua empresa, condomínio, comércio ou
-                indústria.
-              </p>
+              <p className="mt-1">Pintura e demarcação horizontal em Curitiba e região.</p>
             </div>
-            <CTA>
-              Solicitar proposta <ArrowRight className="h-4 w-4" />
-            </CTA>
+            <PortfolioHostCredit linkClassName="font-semibold text-[#121212] underline underline-offset-4" />
           </div>
-        </section>
-      </main>
-      <footer className="bg-[#050607] px-5 py-8 text-sm text-white/60 lg:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="font-bold text-white">
-              Águia <span className="text-[#f5b51b]">Sul Sinalização</span>
-            </p>
-            <p className="mt-1">Pintura e sinalização horizontal com excelência.</p>
-          </div>
-          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f5b51b]" />
-        </div>
-      </footer>
-      <PortfolioSocialProofPopup
-        clientKey="aguia-sul-sinalizacao"
-        eyebrow="Águia Sul · Sinalização"
-        title="Organização, segurança e valorização para o seu espaço."
-        description="Conte o desafio e receba um próximo passo profissional."
-        ctaLabel="Conhecer soluções"
-        ctaHref="#servicos"
-        delayMs={9000}
-        className="border-[#f5b51b]/40 bg-[#121416]/95 text-white"
-        accentClassName="text-[#f5b51b]"
-      />
-      <PortfolioUpsellPopup pageName="portfolio-aguia-sul-sinalizacao" />
-    </div>
+        </footer>
+
+        <PortfolioSocialProofPopup
+          clientKey="aguia-sul-sinalizacao"
+          eyebrow="Águia Sul · Sinalização"
+          title="Organização e leitura para cada área."
+          description="Conte o tipo de espaço e o serviço necessário para organizar o próximo passo."
+          ctaLabel="Ver mapa de escopo"
+          ctaHref="#mapa"
+          delayMs={9000}
+          className="border-[#f5b51b]/40 bg-[#121212]/95 text-white"
+          accentClassName="text-[#f5b51b]"
+        />
+        <PortfolioUpsellPopup pageName="portfolio-aguia-sul-sinalizacao" />
+      </div>
+    </MotionScope>
   );
 }

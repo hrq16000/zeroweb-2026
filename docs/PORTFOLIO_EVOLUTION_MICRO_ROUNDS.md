@@ -116,7 +116,9 @@ Resultado medido após as micros 1A, 1B e 1D:
 
 ## Onda 2 — ATTENTION por prioridade
 
-### Micro 2A — JS Elétrica e Manutenção — EM EXECUÇÃO
+### Micro 2A — JS Elétrica e Manutenção — CONCLUÍDA
+Resultado: HIGH_SIMILARITY permaneceu em 0 e JS saiu do topo crítico.
+
 Baseline: score 60, nearest Maximos Cabeleireiros.
 
 Direção:
@@ -130,6 +132,23 @@ Direção:
 Gate:
 - reduzir o score de JS sem criar novo HIGH_SIMILARITY;
 - preservar funil, runtime fields, SEO e performance.
+
+### Micro 2B — Águia Sul Sinalização — EM EXECUÇÃO
+Baseline atual: score 59, nearest Diego Montador de Móveis.
+
+Direção:
+- planta de sinalização / mapa de piso;
+- composição clara e técnica, sem hero split convencional;
+- linhas, setores e fluxo como linguagem visual;
+- serviços em mapa linear de escopo;
+- sem foto de obra inventada: somente marca e elementos gráficos próprios;
+- preservar serviços, Curitiba/região e funil.
+
+Gate:
+- reduzir o score da Águia Sul;
+- manter 0 HIGH_SIMILARITY e 0 CLONE;
+- não aproximar a página do Diego ou da JS;
+- build/SSR/visual verdes.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
 SAME_FAMILY`. Cada lote deve produzir queda mensurável antes do próximo.
