@@ -1666,3 +1666,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Anti-template:** removidos hero split convencional, três cards de pacote e fechamento em cartão branco semelhantes ao Studio de Cílios.
 - **Preservado:** preços a partir de R$ 160/R$ 250/R$ 350, Araucária/região, Instagram oficial já utilizado, montagem/taxa de deslocamento já presentes e funil.
 
+# 2026-09-26 — Onda 2D de originalidade · Cris Presentes
+
+- **Baseline:** score 57, ATTENTION, nearest Catharine Lima Studio.
+- **Direção autoral:** gift finder de comércio local, com busca por pistas, corredor linear de categorias, ficha da filial e CTA de disponibilidade/retirada.
+- **Anti-template:** removidos hero split de studio, grid de cinco cards, bloco imagem+texto e CTA central que coincidiam com Catharine.
+- **Preservado:** Rua Pedro Trevisan 58, lojas 06/07, Colônia Rio Grande, São José dos Pinhais, categorias registradas e funil.
+
