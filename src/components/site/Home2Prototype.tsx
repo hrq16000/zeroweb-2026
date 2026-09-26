@@ -24,6 +24,7 @@ import blogRoiTrafego from "@/assets/blog-roi-trafego.jpg";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { initHome2Motion } from "./home2-motion";
 import "./home2-wcria.css";
+import "./home2-soma.css";
 
 type CatalogItem = {
   slug: string;
@@ -288,6 +289,32 @@ export function Home2Prototype() {
               <a href="#solucoes" className="home2-btn-primary">
                 Nossas soluções <ArrowRight size={15} aria-hidden="true" />
               </a>
+            </div>
+
+            {/* Soma: on tablet/mobile the desktop depth showcase is hidden, so real
+                published covers enter the hero flow as a compact, linked reel. */}
+            <div className="home2-hero-reel" aria-label="Projetos reais publicados">
+              {proofProjects.slice(0, 3).map((project, index) => (
+                <Link
+                  key={project.slug}
+                  to="/portfolio/$slug"
+                  params={{ slug: project.slug }}
+                  className={`home2-hero-reel-item home2-hero-reel-item--${index + 1}`}
+                >
+                  <PortfolioCover
+                    clientKey={project.clientKey}
+                    slug={project.slug}
+                    title={project.title}
+                    image={project.image}
+                    fallbackImage={project.fallbackImage}
+                    className="h-full w-full object-cover"
+                    width={320}
+                    height={400}
+                    sizes="30vw"
+                  />
+                  <span className="home2-hero-reel-label">{project.title}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
