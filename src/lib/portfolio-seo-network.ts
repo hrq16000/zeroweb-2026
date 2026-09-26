@@ -12,6 +12,9 @@ export type PortfolioSeoDescriptor = {
   summary: string;
   subtitle?: string;
   projectType?: string;
+  image?: string;
+  fallbackImage?: string;
+  services?: string[];
 };
 
 export type PortfolioSeoContextOverride = Partial<Omit<PortfolioSeoDescriptor, "slug">>;
@@ -47,6 +50,28 @@ function normalizeTags(value: unknown): string[] {
     : [];
 }
 
+function normalizeLabels(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const item of value) {
+    const label = clean(String(item ?? "")).replace(/\s+/g, " ");
+    const key = normalize(label);
+    if (!label || !key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(label);
+  }
+  return out;
+}
+
+function humanizeTag(value: string): string {
+  return value
+    .replace(/-/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^./, (char) => char.toUpperCase());
+}
+
 function isUsefulPlace(value: string): boolean {
   return !GENERIC_PLACES.has(normalize(value));
 }
@@ -62,6 +87,9 @@ function descriptorFromCatalog(item: CatalogItem): PortfolioSeoDescriptor {
     summary: clean(item.summary),
     subtitle: clean(item.subtitle) || undefined,
     projectType: clean(item.projectType) || undefined,
+    image: clean((item as CatalogItem & { image?: string }).image) || undefined,
+    fallbackImage: clean((item as CatalogItem & { fallbackImage?: string }).fallbackImage) || undefined,
+    services: [],
   };
 }
 
@@ -92,6 +120,12 @@ export function resolvePortfolioSeoDescriptor(
     summary: clean(override?.summary) || fallback?.summary || "",
     subtitle: clean(override?.subtitle) || fallback?.subtitle,
     projectType: clean(override?.projectType) || fallback?.projectType,
+    image: clean(override?.image) || fallback?.image,
+    fallbackImage: clean(override?.fallbackImage) || fallback?.fallbackImage,
+    services:
+      normalizeLabels(override?.services).length > 0
+        ? normalizeLabels(override?.services)
+        : fallback?.services ?? [],
   };
 }
 
@@ -243,14 +277,6 @@ export type PortfolioSemanticContext = {
   placeLinks: { href: string; label: string }[];
 };
 
-function humanizeTag(value: string): string {
-  return value
-    .replace(/-/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/^./, (char) => char.toUpperCase());
-}
-
 export function portfolioSemanticContext(
   slug: string,
   override?: PortfolioSeoContextOverride,
@@ -304,6 +330,132 @@ export function portfolioSemanticContext(
   const label = [segment, location].filter(Boolean).join(" em ");
 
   return { label, topics, placeLinks };
+}
+
+
+function absolutePortfolioAsset(value?: string): string | undefined {
+  const src = clean(value);
+  if (!src) return undefined;
+  if (/^https?:\/\//i.test(src)) return src;
+  return `${SITE_URL}${src.startsWith("/") ? src : `/${src}`}`;
+}
+
+export function portfolioEntityGraphSchema(
+  slug: string,
+  override?: PortfolioSeoContextOverride,
+) {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  const semantic = portfolioSemanticContext(slug, override);
+  if (!item) return null;
+
+  const pageUrl = `${SITE_URL}/portfolio/${slug}`;
+  const entityId = `${pageUrl}#entity`;
+  const webpageId = `${pageUrl}#webpage`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const image = absolutePortfolioAsset(item.image || item.fallbackImage);
+
+  const place =
+    isUsefulPlace(item.city)
+      ? {
+          "@type": "Place",
+          "@id": `${pageUrl}#place`,
+          name: [item.city, item.state].filter(Boolean).join(" — "),
+          address: item.state
+            ? {
+                "@type": "PostalAddress",
+                addressLocality: item.city,
+                addressRegion: item.state,
+                addressCountry: "BR",
+              }
+            : undefined,
+        }
+      : null;
+
+  const explicitServices = (item.services ?? []).slice(0, 8);
+  const serviceNodes = explicitServices.map((service, index) => ({
+    "@type": "Service",
+    "@id": `${pageUrl}#service-${index + 1}`,
+    name: service,
+    provider: { "@id": entityId },
+    ...(place ? { areaServed: { "@id": place["@id"] } } : {}),
+  }));
+
+  const topicNodes = (semantic?.topics ?? []).map((topic) => ({
+    "@type": "DefinedTerm",
+    name: topic,
+  }));
+
+  const about = [
+    ...serviceNodes.map((service) => ({ "@id": service["@id"] })),
+    ...topicNodes,
+    ...(place ? [{ "@id": place["@id"] }] : []),
+  ];
+
+  const entity = {
+    "@type": "Thing",
+    "@id": entityId,
+    name: item.title,
+    description: item.summary || undefined,
+    url: pageUrl,
+    image,
+    subjectOf: { "@id": webpageId },
+  };
+
+  const webpage = {
+    "@type": "WebPage",
+    "@id": webpageId,
+    url: pageUrl,
+    name: portfolioUniversalSeoTitle(slug, override) ?? item.title,
+    description: item.summary || undefined,
+    inLanguage: "pt-BR",
+    mainEntity: { "@id": entityId },
+    breadcrumb: { "@id": breadcrumbId },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "0WEB",
+    },
+    ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: image } } : {}),
+    ...(about.length ? { about } : {}),
+    ...(place ? { spatialCoverage: { "@id": place["@id"] } } : {}),
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": breadcrumbId,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "0WEB",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfólio",
+        item: `${SITE_URL}/portfolio`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: item.title,
+        item: pageUrl,
+      },
+    ],
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      webpage,
+      entity,
+      breadcrumb,
+      ...(place ? [place] : []),
+      ...serviceNodes,
+    ],
+  };
 }
 
 export function relatedPortfolioItemListSchema(

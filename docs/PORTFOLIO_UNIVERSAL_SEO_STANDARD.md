@@ -30,6 +30,30 @@ Todo projeto publicado deve possuir:
 - rede interna de links contextual entre portfólios;
 - nenhuma alegação criada apenas para SEO.
 
+## Grafo universal de entidades
+
+Todo portfolio publicado deve emitir um grafo JSON-LD factual por meio de
+`portfolioEntityGraphSchema`.
+
+O grafo mínimo contém:
+
+- `WebPage` canônica, em `pt-BR`;
+- uma entidade principal genérica `Thing`, evitando classificar pessoa/empresa
+  sem evidência suficiente;
+- `BreadcrumbList` universal `0WEB → Portfólio → projeto`;
+- `Place` somente quando cidade/estado são específicos e comprovados;
+- `DefinedTerm` para temas editoriais comprovados;
+- `Service` somente quando a fonte do projeto fornece serviços explícitos;
+- imagem principal somente quando existe asset real.
+
+Para Managed, os serviços já persistidos no projeto podem alimentar nós
+`Service`, com `provider` apontando para a entidade e `areaServed` apenas
+quando há localidade comprovada.
+
+Tags editoriais nunca são automaticamente promovidas a serviços. O objetivo é
+aumentar entendimento de entidade por buscadores sem transformar inferência em
+fato.
+
 ## Enriquecimento semântico individual
 
 A camada universal também deve expor contexto factual curto por projeto, derivado apenas de

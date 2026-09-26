@@ -4,6 +4,7 @@ import {
   relatedPortfolioSeoItems,
   resolvePortfolioSeoDescriptor,
   portfolioSemanticContext,
+  portfolioEntityGraphSchema,
 } from "@/lib/portfolio-seo-network";
 
 type Props = {
@@ -24,6 +25,7 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
   const related = relatedPortfolioSeoItems(slug, context, 6);
   const semantic = portfolioSemanticContext(slug, context);
   const schema = relatedPortfolioItemListSchema(slug, context, 6);
+  const entityGraph = portfolioEntityGraphSchema(slug, context);
 
   if (!current || related.length < 3) return null;
 
@@ -108,6 +110,15 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
             ))}
           </ul>
         </nav>
+
+        {entityGraph ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(entityGraph).replace(/</g, "\\u003c"),
+            }}
+          />
+        ) : null}
 
         {schema ? (
           <script

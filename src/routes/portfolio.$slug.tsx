@@ -1487,8 +1487,10 @@ function PortfolioPrototypePage() {
           city: managed.city,
           state: managed.state,
           tags: managed.services.map((service) => service.title),
+          services: managed.services.map((service) => service.title),
           summary: managed.summary || managed.seoDescription,
           projectType: "managed",
+          image: managed.heroImageUrl,
         }}
       >
         <PortfolioManagedView project={managed} />

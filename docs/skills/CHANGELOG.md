@@ -1604,3 +1604,19 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Managed:** o mesmo resolvedor usa o contexto factual já salvo no projeto.
 - **Gate:** testes universais cobrem contexto semântico e backlinks regionais.
 
+# 2026-09-25 — Grafo universal de entidades · Schema.org
+
+- **WebPage + entidade:** todos os portfolios publicados passam a emitir um
+  grafo JSON-LD com WebPage, entidade principal, BreadcrumbList e imagem real
+  quando disponível.
+- **Localidade:** cidade/estado comprovados geram `Place` e
+  `spatialCoverage`; localidades genéricas continuam excluídas.
+- **Serviços:** projetos Managed fornecem nós `Service` apenas a partir de
+  serviços explícitos já salvos. Tags do catálogo permanecem `DefinedTerm` e
+  não são promovidas a oferta.
+- **Classificação conservadora:** a entidade universal usa `Thing` para evitar
+  classificar como Organization/Person sem prova. Schemas específicos de
+  clientes continuam podendo complementar o grafo.
+- **Gate:** teste universal verifica WebPage, entidade, breadcrumb, Place e a
+  separação entre tags editoriais e serviços reais.
+
