@@ -11,7 +11,9 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
+    width: min(100%, 440px);
     margin-top: 28px;
+    margin-left: auto;
     perspective: 900px;
   }
 
