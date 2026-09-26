@@ -1620,3 +1620,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Gate:** teste universal verifica WebPage, entidade, breadcrumb, Place e a
   separação entre tags editoriais e serviços reais.
 
+# 2026-09-25 — Onda 1A de originalidade · Bruna Diarista
+
+- **Baseline:** Bruna score 66, HIGH_SIMILARITY com POPYS; SECTION_ORDER_SIMILARITY 100%.
+- **Mudança:** hero split/card-grid substituídos por composição editorial de agenda, pôster fotográfico, tabela linear de diárias e serviços em notas de rotina.
+- **Preservado:** preços, dias de atendimento, serviços, Curitiba/Região e funil.
+- **Plano:** `docs/PORTFOLIO_EVOLUTION_MICRO_ROUNDS.md` passa a ser a fila canônica da onda de redução de similaridade e dívida visual.
+
