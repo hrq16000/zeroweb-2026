@@ -50,6 +50,7 @@
     "build:check:dev": "node scripts/build-with-recovery.mjs --mode development",
     "validate:portfolio-scaffold": "node scripts/validate-portfolio-scaffold.mjs",
     "test:e2e:portfolio-popup": "node scripts/playwright-portfolio-popup.mjs",
+    "test:e2e:portfolio-share-copy": "node scripts/playwright-portfolio-share-copy.mjs",
     "validate:link-previews": "node scripts/validate-link-previews.mjs",
     "validate:head-icons": "node scripts/validate-head-icons.mjs",
     "test:rls-sensitive": "bun tests/rls/sensitive_data_access.test.ts",

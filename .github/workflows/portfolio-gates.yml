@@ -95,6 +95,11 @@ jobs:
             E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
           fi
 
+      - name: Clipboard de divulgação — todos os portfólios
+        env:
+          SHARE_COPY_CONCURRENCY: 6
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-share-copy
+
       - name: Prévias de link e ícones (headless)
         run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
 
