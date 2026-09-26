@@ -1651,3 +1651,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** conteúdo oficial, foto documental, `heroImageUrl`, Curitiba/Região e funil individual.
 - **Estratégia:** alterar um lado do par primeiro e medir o efeito sobre ambos antes de tocar Maximos.
 
+# 2026-09-26 — Onda 2B de originalidade · Águia Sul
+
+- **Baseline:** Águia Sul ↔ Diego Montador score 59.
+- **Mudança:** composição baseada em faixas e demarcações de solo, com campo de sinalização, legenda, aplicações lineares e leitura do espaço.
+- **Removido:** hero split convencional, card-grid de quatro serviços e CTA final arredondado.
+- **Preservado:** serviços, Curitiba/Região, marca, `heroImageUrl` e funil.
+- **Estratégia:** modificar somente Águia Sul e medir o efeito indireto sobre Diego antes de qualquer redesign dele.
+
