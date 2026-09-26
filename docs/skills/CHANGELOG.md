@@ -1659,3 +1659,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Mídia:** nenhuma foto de obra foi inventada; a marca oficial permanece, e a linguagem visual é construída com elementos gráficos próprios de sinalização.
 - **Preservado:** serviços, Curitiba/região e funil individual.
 
+# 2026-09-26 — Onda 2C de originalidade · MP Festas e Eventos
+
+- **Baseline:** score 59, ATTENTION, nearest Studio de Cílios.
+- **Direção autoral:** storyboard de celebração, hero fotográfico full-bleed com briefing lateral, pacotes em pauta linear e galeria como capítulo editorial.
+- **Anti-template:** removidos hero split convencional, três cards de pacote e fechamento em cartão branco semelhantes ao Studio de Cílios.
+- **Preservado:** preços a partir de R$ 160/R$ 250/R$ 350, Araucária/região, Instagram oficial já utilizado, montagem/taxa de deslocamento já presentes e funil.
+
