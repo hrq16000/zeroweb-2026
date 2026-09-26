@@ -42,7 +42,9 @@ HIGH_SIMILARITY atual:
 
 ## Onda 1 — eliminar HIGH_SIMILARITY
 
-### Micro 1A — Bruna Diarista
+### Micro 1A — Bruna Diarista — CONCLUÍDA
+Resultado: Bruna saiu de HIGH_SIMILARITY; total crítico caiu de 5 para 4.
+
 Objetivo: quebrar o cluster Bruna/POPYS/Easy Clean.
 
 Direção:
@@ -59,8 +61,10 @@ Gate de saída:
 - nenhuma regressão em outros projetos;
 - build/SSR e visual verdes.
 
-### Micro 1B — POPYS
-Objetivo: separar limpeza B2B da linguagem residencial da Bruna.
+### Micro 1B — POPYS — EM EXECUÇÃO
+Baseline após 1A: POPYS ↔ Easy Clean = 62 (HIGH_SIMILARITY).
+
+Objetivo: separar limpeza B2B da linguagem residencial e da higienização de estofados.
 
 Direção:
 - composição operacional B2B;
