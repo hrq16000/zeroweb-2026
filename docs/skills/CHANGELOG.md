@@ -1643,3 +1643,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** categorias confirmadas, endereço, fotos reais, finalidade comercial e funil individual.
 - **Contexto da onda:** Micro 1B reduziu HIGH_SIMILARITY de 4 para 2; Easy Clean foi reclassificada para ATTENTION sem alteração direta.
 
+# 2026-09-26 — Onda 2A de originalidade · JS Elétrica
+
+- **Onda 1 encerrada:** 96 projetos · 0 HIGH_SIMILARITY · 0 CLONE.
+- **Baseline 2A:** JS Elétrica score 60, ATTENTION, nearest Maximos Cabeleireiros.
+- **Mudança:** landing convencional substituída por composição de central técnica: painel de escopo, mapa de circuitos, registro de campo, ambientes codificados e barra operacional.
+- **Preservado:** conteúdo oficial, foto documental, `heroImageUrl`, Curitiba/Região e funil individual.
+- **Estratégia:** alterar um lado do par primeiro e medir o efeito sobre ambos antes de tocar Maximos.
+

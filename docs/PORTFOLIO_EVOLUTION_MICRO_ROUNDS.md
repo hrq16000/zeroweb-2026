@@ -84,8 +84,10 @@ Direção:
 - evitar hero/card/processo herdado;
 - estrutura própria por prova e escopo.
 
-### Micro 1D — Embalar Embalagens — EM EXECUÇÃO
-Baseline: Embalar ↔ Maximos = 61 (HIGH_SIMILARITY), único par crítico restante.
+### Micro 1D — Embalar Embalagens — CONCLUÍDA
+Resultado: Embalar saiu do par crítico; catálogo chegou a 0 HIGH_SIMILARITY e 0 CLONE.
+
+Baseline: Embalar ↔ Maximos = 61 (HIGH_SIMILARITY), último par crítico da Onda 1.
 
 Objetivo: quebrar similaridade estrutural com Maximos.
 
@@ -94,15 +96,40 @@ Direção:
 - ritmo de prateleira, categorias, estoque visual e loja física;
 - mídia real como estrutura, não decoração.
 
-### Micro 1E — Maximos Cabeleireiros
-Objetivo: assumir narrativa editorial de beleza/atendimento.
+### Micro 1E — Maximos Cabeleireiros — RECLASSIFICADA PARA ONDA 2
+Resultado indireto da 1D: Maximos caiu para ATTENTION (score 60); não há justificativa para redesign crítico na Onda 1.
+
+Objetivo original: assumir narrativa editorial de beleza/atendimento.
 
 Direção:
 - jornada de serviço, estilo e agenda;
 - composição de salão/editorial;
 - separar completamente do grid comercial da Embalar.
 
+## Fechamento da Onda 1
+
+Resultado medido após as micros 1A, 1B e 1D:
+- HIGH_SIMILARITY: 5 → 0;
+- CLONE: 0 → 0;
+- três redesigns diretos resolveram cinco projetos críticos;
+- Easy Clean e Maximos foram rebaixados para ATTENTION por separação dos vizinhos mais próximos.
+
 ## Onda 2 — ATTENTION por prioridade
+
+### Micro 2A — JS Elétrica e Manutenção — EM EXECUÇÃO
+Baseline: score 60, nearest Maximos Cabeleireiros.
+
+Direção:
+- central técnica / quadro de controle;
+- painel de escopo;
+- serviços como circuitos lineares;
+- foto real como registro de campo;
+- ambientes codificados;
+- CTA como barra operacional, não cartão.
+
+Gate:
+- reduzir o score de JS sem criar novo HIGH_SIMILARITY;
+- preservar funil, runtime fields, SEO e performance.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
 SAME_FAMILY`. Cada lote deve produzir queda mensurável antes do próximo.
