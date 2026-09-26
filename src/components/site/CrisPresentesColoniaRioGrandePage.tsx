@@ -91,7 +91,7 @@ export function CrisPresentesColoniaRioGrandePage() {
             </div>
           </a>
 
-          <CTA className="inline-flex min-h-10 items-center gap-2 border-2 border-[#20213a] bg-[#20213a] px-4 py-2.5 text-xs font-black uppercase tracking-[.08em] text-white">
+          <CTA className="inline-flex min-h-10 items-center gap-2 border-2 border-[#20213a] bg-[#20213a] px-4 py-2.5 text-xs font-black uppercase tracking-[.08em] text-white transition hover:-translate-y-0.5 hover:bg-[#bd3e72]">
             Consultar item
             <ArrowRight className="h-4 w-4" />
           </CTA>
