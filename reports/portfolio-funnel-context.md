@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-21T17:40:10.330Z
+Gerado em 2026-09-26T21:37:47.324Z
 
-- Projetos auditados: **95**
-- PASS: **95** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (25) · orcamento (32) · solicitacao (1) · agendamento (17) · contato (9) · reserva (4) · diagnostico (7)
+- Projetos auditados: **96**
+- PASS: **96** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (26) · orcamento (33) · solicitacao (1) · agendamento (17) · contato (8) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,7 +90,7 @@ Gerado em 2026-09-21T17:40:10.330Z
 | enoel-portas | construcao | orcamento | Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
 | mania-de-limpeza | servicos | orcamento | Conte os itens que deseja higienizar e monte o combo família com a equipe. | Montar meu combo | PROJECT_CONTRACT | PASS | — |
 | dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
-| centro-mega | prestadores-de-servicos | contato | Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. | Falar com a equipe | PROJECT_CONTRACT | PASS | — |
+| centro-mega | comercios | pedido | Escolha os produtos ou categorias na loja-demo; a equipe confirma preço, estoque, tamanho, cor e forma de atendimento antes da compra. | Consultar minha seleção | PROJECT_CONTRACT | PASS | — |
 | pastelaria-route-66 | restaurantes | pedido | Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. | Pedir na Route 66 | PROJECT_CONTRACT | PASS | — |
 | your-brutus-burguer | restaurantes | pedido | Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial. | Abrir cardápio | PROJECT_CONTRACT | PASS | — |
 | auto-socorro-dentinho | servicos | diagnostico | Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. | Descrever o problema | PROJECT_CONTRACT | PASS | — |
@@ -103,3 +103,4 @@ Gerado em 2026-09-21T17:40:10.330Z
 | catharine-lima-studio | beleza | agendamento | Escolha o procedimento, conte sua preferência e indique o melhor período para o Catharine Lima Studio organizar o atendimento. | Agendar meu horário | PROJECT_CONTRACT | PASS | — |
 | cris-presentes-colonia-rio-grande | comercios | pedido | Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade. | Encontrar um presente | PROJECT_CONTRACT | PASS | — |
 | autoescola-aptos | servicos | agendamento | Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo. | Montar minha proposta | PROJECT_CONTRACT | PASS | — |
+| arildo-madeiras | comercios | orcamento | Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo. | Montar meu orçamento | PROJECT_CONTRACT | PASS | — |
