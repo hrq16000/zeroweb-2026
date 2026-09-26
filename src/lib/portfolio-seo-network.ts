@@ -50,6 +50,20 @@ function normalizeTags(value: unknown): string[] {
     : [];
 }
 
+function normalizeLabels(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const item of value) {
+    const label = clean(String(item ?? "")).replace(/\s+/g, " ");
+    const key = normalize(label);
+    if (!label || !key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(label);
+  }
+  return out;
+}
+
 function humanizeTag(value: string): string {
   return value
     .replace(/-/g, " ")
@@ -109,8 +123,8 @@ export function resolvePortfolioSeoDescriptor(
     image: clean(override?.image) || fallback?.image,
     fallbackImage: clean(override?.fallbackImage) || fallback?.fallbackImage,
     services:
-      normalizeTags(override?.services).length > 0
-        ? normalizeTags(override?.services).map(humanizeTag)
+      normalizeLabels(override?.services).length > 0
+        ? normalizeLabels(override?.services)
         : fallback?.services ?? [],
   };
 }
