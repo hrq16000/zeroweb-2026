@@ -44,3 +44,12 @@ Fonte de migração: [site oficial](https://jseletricaemanutencoes.com.br/) e ma
 - Não apresentar a imagem editorial gerada como fotografia documental.
 - Preservar texto e escopo do site oficial, adaptando apenas para uma narrativa de conversão mais clara.
 
+## Redesign autoral — 2026-09-26
+
+- **Baseline pós-Onda 1:** JS Elétrica = ATTENTION 60, nearest Maximos Cabeleireiros.
+- **Problema estrutural:** hero dividido, grade de serviços, prova lateral e painel final repetiam a gramática de outras landing pages.
+- **Nova direção:** central técnica/quadro de controle, com painel de escopo, mapa de circuitos, registro de campo e ambientes codificados.
+- **Estrutura:** painel técnico → imagem ampla de quadro → mapa linear de circuitos → prova de campo → ambientes → barra de diagnóstico.
+- **Anti-template:** sem hero split convencional, sem card-grid de serviço, sem CTA final em cartão arredondado.
+- **Preservado:** escopo oficial, foto documental, Curitiba e Região, funil e `heroImageUrl` runtime.
+
