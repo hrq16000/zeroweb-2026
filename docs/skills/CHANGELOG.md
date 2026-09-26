@@ -1673,3 +1673,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Anti-template:** removidos hero split de studio, grid de cinco cards, bloco imagem+texto e CTA central que coincidiam com Catharine.
 - **Preservado:** Rua Pedro Trevisan 58, lojas 06/07, Colônia Rio Grande, São José dos Pinhais, categorias registradas e funil.
 
+# 2026-09-26 — Onda 2E de originalidade · Confeitaria Chyrley
+
+- **Baseline:** score 56, ATTENTION, nearest Studio de Cílios.
+- **Direção autoral:** balcão de encomendas e cardápio de ocasião, com hero full-bleed, menu linear, faixa operacional e bloco tipográfico 6–100 pessoas.
+- **Anti-template:** removidos hero split, quatro cards em grade e fechamento em card que aproximavam Chyrley do Studio de Cílios.
+- **Preservado:** bolos personalizados, kit festa, salgados, Copo da Felicidade, faixa de kits 6–100 pessoas, crédito/débito, retirada no Rio Bonito, Uber a combinar e funil.
+- **Operação:** a micro pode ser validada em PR, mas o merge fica condicionado à normalização do build-rate-limit do Vercel para evitar ampliar divergência entre main e produção.
+

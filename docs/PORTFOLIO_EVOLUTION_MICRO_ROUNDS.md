@@ -171,8 +171,10 @@ Gate:
 - separar MP Festas do Studio de Cílios;
 - build/SSR/visual verdes.
 
-### Micro 2D — Cris Presentes · Colônia Rio Grande — EM EXECUÇÃO
-Baseline atual: score 57, nearest Catharine Lima Studio.
+### Micro 2D — Cris Presentes · Colônia Rio Grande — CONCLUÍDA
+Resultado: o par Cris/Catharine foi rompido; ambos deixaram o top 10 de similaridade, mantendo 0 HIGH_SIMILARITY e 0 CLONE. PR #207 mesclada no Git; publicação automática ficou temporariamente bloqueada pelo build-rate-limit do Vercel.
+
+Baseline: score 57, nearest Catharine Lima Studio.
 
 Direção:
 - experiência de loja local / gift finder;
@@ -187,6 +189,25 @@ Gate:
 - separar Cris da Catharine;
 - manter 0 HIGH_SIMILARITY e 0 CLONE;
 - build/SSR/visual verdes.
+
+### Micro 2E — Confeitaria Chyrley — EM EXECUÇÃO
+Baseline atual: score 56, nearest Studio de Cílios.
+
+Direção:
+- balcão de encomendas / cardápio de ocasião;
+- hero fotográfico full-bleed, sem split de studio;
+- ofertas em pauta linear, não cards;
+- faixa factual de pagamento/retirada/entrega;
+- bloco tipográfico 6–100 pessoas como eixo do kit festa;
+- galeria + operação de retirada/entrega;
+- preservar serviços, Rio Bonito, crédito/débito, Uber e funil.
+
+Gate:
+- reduzir o score da Chyrley;
+- separar Chyrley do Studio de Cílios;
+- manter 0 HIGH_SIMILARITY e 0 CLONE;
+- build/SSR verdes;
+- segurar merge enquanto produção estiver bloqueada por build-rate-limit do Vercel.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
 SAME_FAMILY`. Cada lote deve produzir queda mensurável antes do próximo.
