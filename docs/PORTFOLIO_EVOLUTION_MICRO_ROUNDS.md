@@ -152,8 +152,10 @@ Gate:
 - não aproximar a página do Diego ou da JS;
 - build/SSR/visual verdes.
 
-### Micro 2C — MP Festas e Eventos — EM EXECUÇÃO
-Baseline atual: score 59, nearest Studio de Cílios.
+### Micro 2C — MP Festas e Eventos — CONCLUÍDA
+Resultado: MP Festas saiu do topo de ATTENTION; Studio de Cílios caiu 59 → 56 por separação do vizinho.
+
+Baseline: score 59, nearest Studio de Cílios.
 
 Direção:
 - storyboard de celebração / roteiro de festa;
@@ -167,6 +169,23 @@ Gate:
 - reduzir o score da MP Festas;
 - manter 0 HIGH_SIMILARITY e 0 CLONE;
 - separar MP Festas do Studio de Cílios;
+- build/SSR/visual verdes.
+
+### Micro 2D — Cris Presentes · Colônia Rio Grande — EM EXECUÇÃO
+Baseline atual: score 57, nearest Catharine Lima Studio.
+
+Direção:
+- experiência de loja local / gift finder;
+- hero como painel de busca por pistas, não studio split;
+- categorias em corredor linear de loja, não cards;
+- ficha factual da filial como bloco de varejo;
+- CTA de disponibilidade e retirada;
+- preservar endereço, categorias registradas e funil.
+
+Gate:
+- reduzir o score da Cris;
+- separar Cris da Catharine;
+- manter 0 HIGH_SIMILARITY e 0 CLONE;
 - build/SSR/visual verdes.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
