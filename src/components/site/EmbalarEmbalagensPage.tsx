@@ -177,6 +177,7 @@ export function EmbalarEmbalagensPage() {
                   <PortfolioImage
                     src="/images/embalar-embalagens/loja-01.png"
                     alt="Prateleiras da Embalar com embalagens e descartáveis"
+                    managedField="heroImageUrl"
                     priority
                     width={960}
                     height={720}
