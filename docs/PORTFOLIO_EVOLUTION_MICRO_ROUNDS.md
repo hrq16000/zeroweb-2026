@@ -133,8 +133,10 @@ Gate:
 - reduzir o score de JS sem criar novo HIGH_SIMILARITY;
 - preservar funil, runtime fields, SEO e performance.
 
-### Micro 2B — Águia Sul Sinalização — EM EXECUÇÃO
-Baseline atual: score 59, nearest Diego Montador de Móveis.
+### Micro 2B — Águia Sul Sinalização — CONCLUÍDA
+Resultado: score 59 → 56, mantendo 0 HIGH_SIMILARITY e 0 CLONE.
+
+Baseline: score 59, nearest Diego Montador de Móveis.
 
 Direção:
 - planta de sinalização / mapa de piso;
@@ -148,6 +150,23 @@ Gate:
 - reduzir o score da Águia Sul;
 - manter 0 HIGH_SIMILARITY e 0 CLONE;
 - não aproximar a página do Diego ou da JS;
+- build/SSR/visual verdes.
+
+### Micro 2C — MP Festas e Eventos — EM EXECUÇÃO
+Baseline atual: score 59, nearest Studio de Cílios.
+
+Direção:
+- storyboard de celebração / roteiro de festa;
+- hero fotográfico full-bleed + briefing lateral;
+- pacotes em pauta linear, não cards;
+- galeria como composição editorial e social;
+- atendimento local como fechamento de roteiro;
+- preservar preços, Araucária/região, Instagram e funil.
+
+Gate:
+- reduzir o score da MP Festas;
+- manter 0 HIGH_SIMILARITY e 0 CLONE;
+- separar MP Festas do Studio de Cílios;
 - build/SSR/visual verdes.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
