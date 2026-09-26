@@ -116,7 +116,9 @@ Resultado medido após as micros 1A, 1B e 1D:
 
 ## Onda 2 — ATTENTION por prioridade
 
-### Micro 2A — JS Elétrica e Manutenção — EM EXECUÇÃO
+### Micro 2A — JS Elétrica e Manutenção — CONCLUÍDA
+Resultado: JS e Maximos saíram do topo ATTENTION; catálogo manteve 0 HIGH_SIMILARITY / 0 CLONE.
+
 Baseline: score 60, nearest Maximos Cabeleireiros.
 
 Direção:
@@ -130,6 +132,20 @@ Direção:
 Gate:
 - reduzir o score de JS sem criar novo HIGH_SIMILARITY;
 - preservar funil, runtime fields, SEO e performance.
+
+### Micro 2B — Águia Sul Sinalização — EM EXECUÇÃO
+Baseline: Águia Sul ↔ Diego Montador = 59.
+
+Direção:
+- linguagem de faixas, pistas e demarcações;
+- hero como campo de sinalização, não split tradicional;
+- serviços como linhas de aplicação;
+- leitura do espaço antes da proposta;
+- CTA como faixa operacional.
+
+Gate:
+- reduzir Águia/Diego sem criar novo HIGH_SIMILARITY;
+- preservar funil e `heroImageUrl`.
 
 Atacar em lotes de 2 projetos, começando pelos maiores scores e pelos pares
 SAME_FAMILY`. Cada lote deve produzir queda mensurável antes do próximo.
