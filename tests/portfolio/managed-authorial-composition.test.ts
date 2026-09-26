@@ -62,3 +62,25 @@ describe("managed authorial composition planner", () => {
     expect(sanitizeManagedAuthorialCompositionPlan(invalid)).toBeNull();
   });
 });
+
+describe("projeto mínimo do painel (regressão: save não pode quebrar)", () => {
+  test("apenas nome + serviços gera plano sem lançar erro", () => {
+    const plan = buildManagedAuthorialCompositionPlan({
+      slug: "projeto-minimo",
+      displayName: "Projeto Mínimo",
+      services: ["Serviço Único"],
+    });
+    expect(plan.status).toBe("selected");
+    expect(plan.selected.sectionOrder).toEqual(["services"]);
+    expect(sanitizeManagedAuthorialCompositionPlan(plan)).not.toBeNull();
+  });
+
+  test("sem nenhum sinal de conteúdo (fallback about) também gera plano", () => {
+    const plan = buildManagedAuthorialCompositionPlan({
+      slug: "projeto-vazio",
+      displayName: "Projeto Vazio",
+    });
+    expect(plan.status).toBe("selected");
+    expect(plan.selected.sectionOrder).toEqual(["about"]);
+  });
+});
