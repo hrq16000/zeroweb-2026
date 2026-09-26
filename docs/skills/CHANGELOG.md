@@ -1627,3 +1627,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** preços, dias de atendimento, serviços, Curitiba/Região e funil.
 - **Plano:** `docs/PORTFOLIO_EVOLUTION_MICRO_ROUNDS.md` passa a ser a fila canônica da onda de redução de similaridade e dívida visual.
 
+# 2026-09-26 — Onda 1B de originalidade · POPYS
+
+- **Baseline pós-1A:** POPYS ↔ Easy Clean score 62, HIGH_SIMILARITY.
+- **Mudança:** composição B2B operacional com leitura rápida, matriz ambiente/escopo/modalidade, imagem em faixa e processo vertical.
+- **Removido:** hero split padrão e grid de cards de serviços.
+- **Preservado:** serviços confirmados, Curitiba/Região, modalidades pontual/periódica e funil individual.
+- **Gate de saída:** POPYS deve cair abaixo de HIGH_SIMILARITY sem regressão nos demais projetos.
+
