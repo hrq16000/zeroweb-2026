@@ -1,3 +1,14 @@
+import {
+  ArrowRight,
+  CheckCircle2,
+  CircuitBoard,
+  Fan,
+  Gauge,
+  MapPin,
+  Sun,
+  Wrench,
+  Zap,
+} from "lucide-react";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -5,7 +16,6 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { ArrowRight, CheckCircle2, CircuitBoard, Fan, Sun, Wrench, Zap } from "lucide-react";
 
 const quiz = {
   services: [
@@ -32,7 +42,51 @@ const quiz = {
   notePlaceholder: "Ex.: equipamento, defeito, quantidade de pontos, foto do quadro ou prazo.",
 };
 
-function CTA({ children }: { children: React.ReactNode }) {
+const serviceChannels = [
+  {
+    id: "C01",
+    icon: Zap,
+    title: "Instalações e manutenção",
+    scope: "Residencial · comercial · predial · industrial",
+    text: "Instalação, reparo e manutenção preventiva ou corretiva para diferentes tipos de ambiente.",
+  },
+  {
+    id: "C02",
+    icon: CircuitBoard,
+    title: "Infraestrutura elétrica",
+    scope: "Quadros · circuitos · padrão Copel",
+    text: "Organização da infraestrutura e dos pontos críticos que mantêm a instalação funcionando.",
+  },
+  {
+    id: "C03",
+    icon: Sun,
+    title: "Solar e eficiência",
+    scope: "Sistema solar · fotovoltaico",
+    text: "Frente técnica para soluções de geração e uso de energia com escopo confirmado no atendimento.",
+  },
+  {
+    id: "C04",
+    icon: Fan,
+    title: "Climatização e equipamentos",
+    scope: "Ar-condicionado · motores · bombas",
+    text: "Instalação e manutenção de equipamentos ligados à operação elétrica do ambiente.",
+  },
+] as const;
+
+const environments = [
+  ["R", "Residencial", "Tomadas, iluminação, quadros, circuitos e reparos para a casa."],
+  ["C", "Comercial", "Continuidade para lojas, escritórios e pequenos negócios."],
+  ["P", "Predial", "Manutenção e organização de sistemas e áreas comuns."],
+  ["I", "Industrial", "Motores, bombas, infraestrutura e manutenção da operação."],
+] as const;
+
+function CTA({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <PortfolioCTAQuiz
       clientKey="js-eletrica-manutencao"
@@ -41,104 +95,298 @@ function CTA({ children }: { children: React.ReactNode }) {
       theme="navy"
       mode="proposal"
       quizConfig={quiz}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ffd21d] px-7 py-3.5 font-bold text-[#07131d] shadow-lg shadow-[#ffd21d]/20 transition hover:-translate-y-1 hover:bg-[#ffe467] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd21d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07131d]"
+      className={className}
     >
       {children}
     </PortfolioCTAQuiz>
   );
 }
 
-const services = [
-  { code: "01", icon: Zap, title: "Instalações e manutenção", text: "Elétrica residencial, comercial, predial e industrial, com manutenção preventiva e corretiva." },
-  { code: "02", icon: CircuitBoard, title: "Infraestrutura elétrica", text: "Quadros, circuitos, padrão Copel, motores, bombas e reparos para manter a operação segura." },
-  { code: "03", icon: Sun, title: "Solar e eficiência", text: "Soluções de energia solar e fotovoltaica para quem quer produzir e usar energia com mais inteligência." },
-  { code: "04", icon: Fan, title: "Climatização", text: "Instalação e manutenção de ar-condicionado e equipamentos que precisam de atenção técnica." },
-];
-
-const fieldNotes = [
-  ["Residencial", "Tomadas, iluminação, quadros e circuitos para a casa."],
-  ["Comercial", "Continuidade para lojas, escritórios e pequenos negócios."],
-  ["Predial", "Manutenção e organização das áreas comuns e sistemas."],
-  ["Industrial", "Reparos, motores e infraestrutura para a rotina da operação."],
-];
-
 export function JsEletricaManutencaoPage() {
   return (
     <MotionScope intensity="BALANCED">
-      <div className="min-h-dvh overflow-hidden bg-[#07131d] font-sans text-[#eaf4f8]">
-        <header className="sticky top-0 z-30 border-b border-white/10 bg-[#07131d]/95 px-5 py-4 backdrop-blur lg:px-10">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
-            <a href="#inicio" className="flex items-center gap-3" aria-label="JS Elétrica e Manutenção">
-              <PortfolioImage src="/images/js-eletrica-manutencao/js-eletrica-marca.jpeg" alt="JS Elétrica e Manutenção" width={360} height={150} className="h-12 w-36 object-contain" priority />
+      <div className="min-h-dvh overflow-hidden bg-[#06111a] font-sans text-[#eaf4f8]">
+        <header className="border-b border-[#55d6ef]/20 bg-[#06111a] px-5 py-3 lg:px-10">
+          <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
+            <a href="#inicio" className="flex items-center" aria-label="JS Elétrica e Manutenção">
+              <PortfolioImage
+                src="/images/js-eletrica-manutencao/js-eletrica-marca.jpeg"
+                alt="JS Elétrica e Manutenção"
+                width={360}
+                height={150}
+                className="h-11 w-32 object-contain"
+                priority
+              />
             </a>
-            <nav className="hidden gap-7 text-xs font-bold uppercase tracking-[.16em] text-[#a8c4d1] md:flex" aria-label="Navegação principal">
-              <a href="#servicos" className="transition hover:text-[#ffd21d]">Serviços</a>
-              <a href="#empresa" className="transition hover:text-[#ffd21d]">A empresa</a>
-              <a href="#atuacao" className="transition hover:text-[#ffd21d]">Atuação</a>
-              <a href="#contato" className="transition hover:text-[#ffd21d]">Contato</a>
+
+            <nav
+              aria-label="Navegação técnica"
+              className="hidden items-center gap-1 border border-white/10 bg-[#0a1d2a] p-1 text-[10px] font-black uppercase tracking-[.17em] text-[#9fc0cd] md:flex"
+            >
+              <a href="#circuitos" className="px-3 py-2 hover:bg-[#11344a] hover:text-white">Circuitos</a>
+              <a href="#campo" className="px-3 py-2 hover:bg-[#11344a] hover:text-white">Campo</a>
+              <a href="#ambientes" className="px-3 py-2 hover:bg-[#11344a] hover:text-white">Ambientes</a>
             </nav>
-            <CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA>
+
+            <div className="justify-self-end">
+              <CTA className="inline-flex min-h-10 items-center gap-2 border border-[#ffd21d] px-4 py-2.5 text-xs font-black uppercase tracking-[.12em] text-[#ffd21d] transition hover:bg-[#ffd21d] hover:text-[#07131d]">
+                Abrir diagnóstico
+                <ArrowRight className="h-4 w-4" />
+              </CTA>
+            </div>
           </div>
         </header>
 
         <main>
-          <section id="inicio" className="relative overflow-hidden bg-[radial-gradient(circle_at_80%_20%,rgba(23,150,216,.3),transparent_32%),linear-gradient(120deg,#07131d,#0b2c43)] px-5 py-16 lg:px-10 lg:py-24">
-            <div className="pointer-events-none absolute -bottom-48 -left-48 h-[34rem] w-[34rem] rounded-full border border-[#ffd21d]/10" />
-            <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.88fr_1.12fr]">
-              <div>
-                <p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[#55d6ef]">JS Elétrica e Manutenção · Curitiba e região</p>
-                <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-6 max-w-3xl font-display text-5xl font-bold uppercase leading-[.94] tracking-[-.04em] sm:text-7xl">
-                  <ManagedText field="heroHeadline" fallback="Energia funcionando. Serviço bem feito." />
-                </MotionReveal>
-                <p className="mt-6 max-w-xl text-base leading-8 text-[#c1d6df]">
-                  <ManagedText field="heroSubheadline" fallback="Atendimento técnico para residências, comércios, condomínios e indústrias: instalação, manutenção, padrão Copel, energia solar, motores, bombas e iluminação." />
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <CTA>Falar com a JS <ArrowRight className="h-4 w-4" /></CTA>
-                  <a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-[#5e91aa] px-6 py-3.5 text-sm font-bold text-[#d6e9f0] transition hover:border-[#ffd21d] hover:text-[#ffd21d]">Ver serviços</a>
+          <section id="inicio" className="relative px-5 py-8 lg:px-10 lg:py-12">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#55d6ef]/50 to-transparent" />
+            <div className="mx-auto max-w-7xl">
+              <div className="grid border border-white/10 lg:grid-cols-[1fr_18rem]">
+                <div className="p-7 sm:p-10 lg:p-14">
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-[.18em] text-[#8fb9c9]">
+                    <span className="inline-flex items-center gap-2 text-[#55d6ef]">
+                      <span className="h-2 w-2 bg-[#55d6ef]" />
+                      sistema técnico ativo
+                    </span>
+                    <span>Curitiba e região</span>
+                    <span>residencial → industrial</span>
+                  </div>
+
+                  <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-9 max-w-[11ch] font-display text-5xl font-black uppercase leading-[.88] tracking-[-.05em] sm:text-7xl lg:text-[6.6rem]">
+                    <ManagedText field="heroHeadline" fallback="Energia funcionando. Serviço bem feito." />
+                  </MotionReveal>
+
+                  <div className="mt-10 grid gap-8 border-t border-white/12 pt-7 lg:grid-cols-[1fr_auto] lg:items-end">
+                    <p className="max-w-2xl text-base leading-8 text-[#b9d0da]">
+                      <ManagedText
+                        field="heroSubheadline"
+                        fallback="Atendimento técnico para residências, comércios, condomínios e indústrias: instalação, manutenção, padrão Copel, energia solar, motores, bombas e iluminação."
+                      />
+                    </p>
+                    <CTA className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#ffd21d] px-6 py-3.5 text-sm font-black uppercase tracking-[.08em] text-[#07131d]">
+                      Solicitar avaliação
+                      <ArrowRight className="h-4 w-4" />
+                    </CTA>
+                  </div>
                 </div>
-                <div className="mt-9 grid grid-cols-2 gap-3 border-t border-white/15 pt-5 text-xs font-bold text-[#b5ced8] sm:grid-cols-4">
-                  {["Residencial", "Comercial", "Predial", "Industrial"].map((item) => <span key={item} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#ffd21d]" />{item}</span>)}
-                </div>
+
+                <aside className="border-t border-white/10 bg-[#0a1d2a] lg:border-l lg:border-t-0">
+                  <div className="border-b border-white/10 p-5">
+                    <p className="text-[10px] font-black uppercase tracking-[.16em] text-[#6f96a7]">painel de escopo</p>
+                  </div>
+                  {[
+                    ["01", "Instalação / reparo"],
+                    ["02", "Quadros / Copel"],
+                    ["03", "Solar / fotovoltaico"],
+                    ["04", "Ar / motores / bombas"],
+                  ].map(([code, label]) => (
+                    <div key={code} className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-white/10 p-5">
+                      <span className="font-mono text-xs font-black text-[#ffd21d]">{code}</span>
+                      <span className="text-sm font-bold text-[#c9dce4]">{label}</span>
+                    </div>
+                  ))}
+                  <div className="p-5 text-xs leading-6 text-[#789dad]">
+                    O escopo final é confirmado depois que você descreve o ambiente e a necessidade.
+                  </div>
+                </aside>
               </div>
-              <MotionReveal variant="right" className="relative">
-                <PortfolioImage src="/images/js-eletrica-manutencao/hero.png" alt="Imagem editorial de inspeção de um quadro elétrico" priority width={1680} height={945} className="aspect-video w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-white/15" managedField="heroImageUrl" />
-                <p className="mt-3 text-right text-[10px] uppercase tracking-[.16em] text-[#8eb6c7]">Imagem editorial · identidade técnica JS</p>
+
+              <MotionReveal variant="up" className="relative mt-4 overflow-hidden border border-white/10">
+                <PortfolioImage
+                  src="/images/js-eletrica-manutencao/hero.png"
+                  alt="Imagem editorial de inspeção de um quadro elétrico"
+                  priority
+                  width={1680}
+                  height={945}
+                  managedField="heroImageUrl"
+                  className="h-[300px] w-full object-cover sm:h-[410px] lg:h-[520px]"
+                />
+                <div className="absolute bottom-0 left-0 border-r border-t border-white/15 bg-[#06111a]/95 px-4 py-3 text-[10px] font-black uppercase tracking-[.14em] text-[#8eb6c7]">
+                  imagem editorial · identidade técnica JS
+                </div>
               </MotionReveal>
             </div>
           </section>
 
-          <section id="servicos" className="bg-[#f4f8fa] px-5 py-20 text-[#07131d] lg:px-10 lg:py-24">
+          <section id="circuitos" className="bg-[#edf4f7] px-5 py-20 text-[#07131d] lg:px-10 lg:py-24">
             <div className="mx-auto max-w-7xl">
-              <div className="grid gap-6 lg:grid-cols-[1fr_.6fr] lg:items-end">
-                <div><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[#0781c8]">Serviços</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">O que a JS resolve para você.</h2></div>
-                <p className="text-sm leading-7 text-[#607580]">Sem foto genérica e sem enrolação: você descreve a necessidade, recebe orientação inicial e combina o próximo passo.</p>
+              <div className="grid gap-10 lg:grid-cols-[.31fr_.69fr]">
+                <div className="lg:sticky lg:top-6 lg:self-start">
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#0781c8]">Mapa de circuitos</p>
+                  <h2 className="mt-4 max-w-[8ch] font-display text-4xl font-black uppercase leading-[.92] sm:text-5xl">
+                    Quatro frentes. Um diagnóstico por vez.
+                  </h2>
+                  <p className="mt-5 max-w-sm text-sm leading-7 text-[#5f747e]">
+                    A solicitação é organizada pela frente técnica, pelo ambiente e pelo prazo antes do encaminhamento.
+                  </p>
+                </div>
+
+                <div className="border-t-2 border-[#07131d]">
+                  {serviceChannels.map(({ id, icon: Icon, title, scope, text }) => (
+                    <article
+                      key={id}
+                      className="grid gap-5 border-b border-[#07131d]/15 py-7 md:grid-cols-[4rem_1fr_.72fr] md:items-start"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs font-black text-[#0781c8]">{id}</span>
+                        <Icon className="h-5 w-5 text-[#0781c8] md:hidden" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <Icon className="hidden h-5 w-5 text-[#0781c8] md:block" />
+                          <h3 className="font-display text-2xl font-black">{title}</h3>
+                        </div>
+                        <p className="mt-3 max-w-xl leading-7 text-[#5f747e]">{text}</p>
+                      </div>
+                      <p className="font-mono text-[10px] font-black uppercase leading-5 tracking-[.12em] text-[#607b88]">
+                        {scope}
+                      </p>
+                    </article>
+                  ))}
+
+                  <div className="grid gap-5 bg-[#07131d] p-6 text-white sm:grid-cols-[1fr_auto] sm:items-center">
+                    <p className="text-sm leading-6 text-[#b9d0da]">
+                      Tem foto do quadro, equipamento ou ponto com defeito? Informe no diagnóstico.
+                    </p>
+                    <CTA className="inline-flex min-h-11 items-center gap-2 bg-[#ffd21d] px-5 py-3 text-sm font-black text-[#07131d]">
+                      Descrever serviço
+                      <ArrowRight className="h-4 w-4" />
+                    </CTA>
+                  </div>
+                </div>
               </div>
-              <div className="mt-12 grid gap-px overflow-hidden border border-[#d6e2e7] bg-[#d6e2e7] sm:grid-cols-2 lg:grid-cols-4">
-                {services.map(({ code, icon: Icon, title, text }, i) => <MotionReveal as="article" variant="up" delay={i * 90} key={code} className="min-h-72 bg-white p-6 transition hover:bg-[#eef9fd]">
-                  <p className="font-mono text-xs font-bold tracking-[.2em] text-[#0781c8]">{code}</p><Icon className="mt-8 h-7 w-7 text-[#0781c8]" aria-hidden /><h3 className="mt-5 font-display text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#61737d]">{text}</p>
-                </MotionReveal>)}
-              </div>
-              <div className="mt-4 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[#07131d] px-6 py-5 text-sm text-[#c9dde5] sm:flex-row sm:items-center"><span>Não encontrou o que procura?</span><CTA>Descrever meu serviço <ArrowRight className="h-4 w-4" /></CTA></div>
             </div>
           </section>
 
-          <section id="empresa" className="bg-[#0b2536] px-5 py-20 lg:px-10 lg:py-24">
-            <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-              <div><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[#55d6ef]">A empresa</p><h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Elétrica não pode virar dor de cabeça.</h2><p className="mt-6 max-w-2xl text-base leading-8 text-[#c4d8e0]">O atendimento começa entendendo a necessidade do cliente para indicar o melhor caminho antes de executar o serviço. A conversa é direta do orçamento ao pós-serviço.</p><div className="mt-9 grid gap-4 sm:grid-cols-3">{[["Conversa clara", "Você entende o que será feito."], ["Atendimento direto", "Orientação pelo WhatsApp."], ["Frentes completas", "Da casa ao ambiente industrial."]].map(([title, text]) => <div key={title} className="border-l-2 border-[#ffd21d] pl-4"><p className="font-bold text-white">{title}</p><p className="mt-2 text-xs leading-5 text-[#9dbbc8]">{text}</p></div>)}</div></div>
-              <figure className="relative m-0 pl-5 sm:pl-10"><div className="absolute inset-0 top-5 bg-[#0781c8]/30" /><PortfolioImage src="/images/js-eletrica-manutencao/medicao-energia-01.jpeg" alt="Atendimento técnico em medição elétrica" width={960} height={1280} className="relative h-[28rem] w-full object-cover shadow-2xl" /><figcaption className="absolute bottom-4 right-4 max-w-[15rem] border-l-2 border-[#ffd21d] bg-[#07131d]/95 px-4 py-3 text-xs leading-5 text-[#e2f1f5]">Foto oficial de atendimento técnico da JS Elétrica.</figcaption></figure>
+          <section id="campo" className="bg-[#0a2536] px-5 py-20 lg:px-10 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-4 lg:grid-cols-[.66fr_.34fr]">
+                <figure className="relative m-0 overflow-hidden border border-white/10">
+                  <PortfolioImage
+                    src="/images/js-eletrica-manutencao/medicao-energia-01.jpeg"
+                    alt="Atendimento técnico em medição elétrica"
+                    width={960}
+                    height={1280}
+                    className="h-[520px] w-full object-cover lg:h-[680px]"
+                  />
+                  <figcaption className="absolute bottom-0 left-0 border-r border-t border-white/10 bg-[#07131d]/95 px-5 py-4 text-xs leading-5 text-[#dbeaf0]">
+                    Foto oficial de atendimento técnico da JS Elétrica.
+                  </figcaption>
+                </figure>
+
+                <div className="flex flex-col justify-between border border-[#55d6ef]/20 bg-[#06111a] p-7 sm:p-9">
+                  <div>
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#55d6ef]">Campo / operação</p>
+                    <h2 className="mt-5 font-display text-4xl font-black uppercase leading-[.95]">
+                      A conversa técnica vem antes da execução.
+                    </h2>
+                    <p className="mt-6 leading-8 text-[#a9c4cf]">
+                      O atendimento começa entendendo a necessidade para organizar o próximo passo, do orçamento ao pós-serviço.
+                    </p>
+                  </div>
+
+                  <dl className="mt-10 divide-y divide-white/10 border-y border-white/10">
+                    {[
+                      ["Entrada", "Ambiente + necessidade"],
+                      ["Leitura", "Escopo técnico"],
+                      ["Saída", "Próximo passo combinado"],
+                    ].map(([term, value]) => (
+                      <div key={term} className="grid grid-cols-[5rem_1fr] gap-4 py-5">
+                        <dt className="font-mono text-[10px] font-black uppercase tracking-[.12em] text-[#6f96a7]">{term}</dt>
+                        <dd className="text-sm font-bold text-[#d6e6ec]">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
             </div>
           </section>
 
-          <section id="atuacao" className="bg-white px-5 py-20 text-[#07131d] lg:px-10 lg:py-24">
-            <div className="mx-auto max-w-7xl"><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[#0781c8]">Área de atuação</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">Uma frente técnica para cada tipo de ambiente.</h2><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{fieldNotes.map(([title, text], i) => <MotionReveal as="article" variant="up" delay={i * 80} key={title} className="border-t-2 border-[#0781c8] pt-5"><p className="font-mono text-xs font-bold uppercase tracking-[.18em] text-[#0781c8]">0{i + 1}</p><h3 className="mt-3 font-display text-2xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#61737d]">{text}</p></MotionReveal>)}</div></div>
+          <section id="ambientes" className="bg-white px-5 py-20 text-[#07131d] lg:px-10 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-9 border-b border-[#07131d]/15 pb-9 lg:grid-cols-[1fr_.45fr] lg:items-end">
+                <div>
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#0781c8]">Área de atuação</p>
+                  <h2 className="mt-4 max-w-[13ch] font-display text-4xl font-black uppercase leading-[.94] sm:text-5xl">
+                    O ambiente muda. A leitura técnica também.
+                  </h2>
+                </div>
+                <div className="flex items-center gap-3 text-sm font-bold text-[#5f747e]">
+                  <MapPin className="h-5 w-5 text-[#0781c8]" />
+                  Curitiba e Região Metropolitana
+                </div>
+              </div>
+
+              <div className="grid border-b border-[#07131d]/15 sm:grid-cols-2 lg:grid-cols-4">
+                {environments.map(([code, title, text], index) => (
+                  <MotionReveal
+                    as="article"
+                    variant="up"
+                    delay={index * 70}
+                    key={code}
+                    className="border-r border-t border-[#07131d]/15 p-6 last:border-r-0"
+                  >
+                    <span className="grid h-10 w-10 place-items-center border border-[#0781c8] font-mono text-sm font-black text-[#0781c8]">
+                      {code}
+                    </span>
+                    <h3 className="mt-8 font-display text-2xl font-black">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#61737d]">{text}</p>
+                  </MotionReveal>
+                ))}
+              </div>
+            </div>
           </section>
 
-          <section id="contato" className="bg-[#ffd21d] px-5 py-16 text-[#07131d] lg:px-10 lg:py-20"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#07131d] p-8 text-white shadow-2xl sm:p-12 lg:flex-row lg:items-center"><div><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[#55d6ef]">Vamos conversar</p><h2 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">Precisando de um eletricista?</h2><p className="mt-4 max-w-xl text-sm leading-7 text-[#c6d9e1]">Envie sua dúvida, foto ou vídeo pelo WhatsApp. A JS organiza uma orientação inicial para o seu atendimento.</p></div><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div></section>
+          <section className="bg-[#ffd21d] px-5 py-14 text-[#07131d] lg:px-10 lg:py-16">
+            <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <div className="flex items-center gap-3">
+                  <Gauge className="h-6 w-6" />
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em]">Próximo passo</p>
+                </div>
+                <h2 className="mt-4 max-w-[14ch] font-display text-4xl font-black uppercase leading-[.94] sm:text-5xl">
+                  Descreva o problema. A avaliação começa pela informação certa.
+                </h2>
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold">
+                  <span><CheckCircle2 className="mr-1 inline h-4 w-4" />Tipo de ambiente</span>
+                  <span><Wrench className="mr-1 inline h-4 w-4" />Serviço ou defeito</span>
+                  <span><Zap className="mr-1 inline h-4 w-4" />Prazo pretendido</span>
+                </div>
+              </div>
+              <CTA className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#07131d] px-6 py-3.5 text-sm font-black uppercase tracking-[.08em] text-white">
+                Solicitar orçamento
+                <ArrowRight className="h-4 w-4" />
+              </CTA>
+            </div>
+          </section>
         </main>
 
-        <footer className="border-t border-white/10 bg-[#050c12] px-5 py-8 text-sm text-[#9eb6c2] lg:px-10"><div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-display font-bold text-white">JS <span className="text-[#55d6ef]">Elétrica e Manutenção</span></p><p className="mt-1 text-xs">Residencial · Comercial · Predial · Industrial · Curitiba e região</p></div><div className="text-left sm:text-right"><p className="text-xs">Guaíra · Curitiba/PR</p><PortfolioHostCredit linkClassName="mt-2 inline-block font-semibold text-white underline underline-offset-4 hover:text-[#ffd21d]" /></div></div></footer>
-        <PortfolioSocialProofPopup clientKey="js-eletrica-manutencao" eyebrow="JS Elétrica e Manutenção" title="Sua instalação merece uma avaliação clara." description="Conte o que precisa instalar, reparar ou modernizar e receba um próximo passo organizado." ctaLabel="Ver serviços" ctaHref="#servicos" delayMs={9000} className="border-[#ffd21d]/40 bg-[#07131d]/95 text-white" accentClassName="text-[#ffd21d]" />
+        <footer className="border-t border-white/10 bg-[#040a0f] px-5 py-8 text-sm text-[#8eaab7] lg:px-10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-display font-black uppercase text-white">
+                JS <span className="text-[#55d6ef]">Elétrica e Manutenção</span>
+              </p>
+              <p className="mt-1 text-xs">Residencial · Comercial · Predial · Industrial</p>
+            </div>
+            <div className="text-left sm:text-right">
+              <p className="text-xs">Guaíra · Curitiba/PR</p>
+              <PortfolioHostCredit linkClassName="mt-2 inline-block font-semibold text-white underline underline-offset-4 hover:text-[#ffd21d]" />
+            </div>
+          </div>
+        </footer>
+
+        <PortfolioSocialProofPopup
+          clientKey="js-eletrica-manutencao"
+          eyebrow="JS Elétrica e Manutenção"
+          title="Sua instalação merece uma avaliação clara."
+          description="Conte o que precisa instalar, reparar ou modernizar e receba um próximo passo organizado."
+          ctaLabel="Abrir diagnóstico"
+          ctaHref="#circuitos"
+          delayMs={9000}
+          className="border-[#ffd21d]/40 bg-[#07131d]/95 text-white"
+          accentClassName="text-[#ffd21d]"
+        />
         <PortfolioUpsellPopup pageName="portfolio-js-eletrica-manutencao" />
       </div>
     </MotionScope>
