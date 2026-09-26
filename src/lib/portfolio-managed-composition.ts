@@ -275,7 +275,10 @@ function materiallyDivergent(directions: ManagedCompositionDirection[]): boolean
   const heroCount = new Set(directions.map((item) => item.heroMode)).size;
   const orderCount = new Set(directions.map((item) => item.sectionOrder.join(">"))).size;
   const offerCount = new Set(directions.map((item) => item.serviceMode)).size;
-  return heroCount >= 2 && orderCount >= 2 && offerCount >= 2;
+  // Com uma única seção de conteúdo não existem 2 ordenações distintas;
+  // exigir orderCount >= 2 tornaria o save impossível para projetos mínimos.
+  const orderTarget = Math.min(2, directions[0]?.sectionOrder.length ?? 0);
+  return heroCount >= 2 && orderCount >= orderTarget && offerCount >= 2;
 }
 
 export function managedCompositionSimilarity(a: string, b: string): number {
