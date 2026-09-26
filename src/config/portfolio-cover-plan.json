@@ -424,6 +424,15 @@
       },
       "issues": [],
       "notes": "Composição de marca própria para beleza e autocuidado."
+    },
+    "autoescola-aptos": {
+      "source": "public/images/autoescola-aptos/carro-aptos.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Foto real da frota oficial, versionada do site oficial. Fonte documentada em docs/portfolio/media-plans/autoescola-aptos.json; sem usar OG/social como capa."
     }
   }
 }
