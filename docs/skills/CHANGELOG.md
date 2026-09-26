@@ -1635,3 +1635,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** serviços confirmados, Curitiba/Região, modalidades pontual/periódica e funil individual.
 - **Gate de saída:** POPYS deve cair abaixo de HIGH_SIMILARITY sem regressão nos demais projetos.
 
+# 2026-09-26 — Onda 1D de originalidade · Embalar Embalagens
+
+- **Baseline:** Embalar ↔ Maximos score 61, último par HIGH_SIMILARITY.
+- **Mudança:** composição de varejo baseada em prateleiras e fotos reais da loja; manifesto amplo, mosaico documental, índice linear de categorias e consulta/retirada.
+- **Removido:** hero split clássico, grid escuro de três cards e painel final arredondado compartilhado com Maximos.
+- **Preservado:** categorias confirmadas, endereço, fotos reais, finalidade comercial e funil individual.
+- **Contexto da onda:** Micro 1B reduziu HIGH_SIMILARITY de 4 para 2; Easy Clean foi reclassificada para ATTENTION sem alteração direta.
+
