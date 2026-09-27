@@ -92,7 +92,7 @@ function BairroPage() {
   const process = localProcessSteps(n);
   const faq = localFaq(n);
   const projects = localPublishedProjectsAtPlace(n);
-  const nearby = nearbyCWB(n);
+  const nearby = nearbyCWB(n).filter((place) => localPlaceHasEvidence(place));
 
   return (
     <div className="min-h-screen bg-background text-foreground">
