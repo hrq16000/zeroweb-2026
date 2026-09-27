@@ -10,7 +10,7 @@ import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motio
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
   ["01", "Plotagem de móveis", "Portas e frentes renovadas com película aplicada em obra limpa, sem barulho e sem quebra.", "Móveis"],
-  ["02", "Envelopamento de geladeiras", "Mais de 800 opções de imagens e cores para transformar o eletro em peça central da cozinha.", "Eletros"],
+  ["02", "Envelopamento de geladeiras", "Películas em diferentes cores, texturas e estampas para renovar o visual do eletro sem substituir a peça.", "Eletros"],
   ["03", "Comunicação visual", "Adesivos para paredes, portas e automóveis, além de lonas, banners e perfurados.", "Ambientes"],
   ["04", "Criação de artes", "Logotipos e artes personalizadas para dar unidade à comunicação da marca.", "Marca"],
 ] as const;
@@ -60,8 +60,8 @@ export function PremiumEnvelopamentosPage() {
                 <dd className="text-lg font-black">Sem obra</dd>
               </div>
               <div>
-                <dt className="text-[#7fa6cd]">Prazo típico</dt>
-                <dd className="text-lg font-black">Mesmo dia</dd>
+                <dt className="text-[#7fa6cd]">Orçamento</dt>
+                <dd className="text-lg font-black">Sob medida</dd>
               </div>
             </dl>
           </div>
@@ -101,13 +101,50 @@ export function PremiumEnvelopamentosPage() {
           </div>
         </section>
 
+        <section className="border-y border-[#cfdce9] bg-white px-5 py-16 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.32em] text-[#f06a24]">Antes do orçamento</p>
+            <h2 className="mt-3 max-w-3xl text-3xl font-black uppercase tracking-[-.01em] sm:text-4xl">
+              O que ajuda a definir a aplicação certa
+            </h2>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#46617c]">
+              Para móveis, geladeiras e peças de comunicação visual, o orçamento fica mais preciso quando a necessidade vem acompanhada de
+              medidas aproximadas, fotos da superfície atual e uma referência do acabamento desejado.
+            </p>
+            <div className="mt-9 grid gap-6 md:grid-cols-3">
+              <article className="border-t-4 border-[#f06a24] pt-5">
+                <h3 className="text-xl font-black">Móveis e frentes</h3>
+                <p className="mt-3 leading-7 text-[#46617c]">
+                  Informe quais portas, gavetas ou painéis serão renovados e envie fotos que mostrem quinas, puxadores e o estado atual da superfície.
+                </p>
+              </article>
+              <article className="border-t-4 border-[#10a8d8] pt-5">
+                <h3 className="text-xl font-black">Geladeiras e eletros</h3>
+                <p className="mt-3 leading-7 text-[#46617c]">
+                  Modelo, medidas, quantidade de portas e acabamento pretendido ajudam a avaliar recortes, encontros e áreas que exigem maior precisão.
+                </p>
+              </article>
+              <article className="border-t-4 border-[#071d41] pt-5">
+                <h3 className="text-xl font-black">Comunicação visual</h3>
+                <p className="mt-3 leading-7 text-[#46617c]">
+                  Para adesivos, banners e outras peças, tamanho final, local de aplicação e arquivo de arte ou referência visual ajudam a fechar o escopo.
+                </p>
+              </article>
+            </div>
+            <p className="mt-8 max-w-3xl text-sm leading-6 text-[#5c7188]">
+              A Premium Envelopamentos atua em Curitiba e região com plotagem, envelopamento e comunicação visual. Disponibilidade, material e prazo
+              são confirmados caso a caso no atendimento.
+            </p>
+          </div>
+        </section>
+
         {/* Aplicação: foto de oficina em bloco largo com legenda lateral. */}
         <section id="aplicacao" className="bg-[#0a2b5e] px-5 py-16 text-white lg:px-8">
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.35fr_.65fr] md:items-center">
             <MotionImageReveal direction="up">
             <PortfolioImage
               src="/images/premium-envelopamentos/galeria-oficina.png"
-              alt="Plotagem de móveis em oficina limpa e moderna"
+              alt="Referência visual de aplicação de envelopamento em móveis"
               width={1536}
               height={1024}
               className="aspect-[16/9] w-full rounded-none object-cover"
@@ -117,8 +154,8 @@ export function PremiumEnvelopamentosPage() {
               <p className="text-xs font-bold uppercase tracking-[.32em] text-[#49d6f3]">Como é feito</p>
               <h2 className="mt-3 text-3xl font-black">Preparo, corte e aplicação no mesmo fluxo.</h2>
               <p className="mt-4 leading-7 text-white/75">
-                A superfície é limpa e nivelada antes da película. O corte é ajustado à peça e o acabamento é conferido
-                borda a borda — sem poeira, sem cheiro forte e sem parar o ambiente por dias.
+                A aplicação começa pela avaliação da superfície, limpeza e preparação da peça. O corte é ajustado ao formato e o acabamento é conferido
+                borda a borda. Medidas, estado da superfície e tipo de película influenciam o escopo e devem ser confirmados no orçamento.
               </p>
               <a
                 href="https://www.instagram.com/premiumenvelopamentos"
