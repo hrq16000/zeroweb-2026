@@ -1,0 +1,75 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, expect, it } from "bun:test";
+import {
+  comboHasOwnContent,
+  findPortfolioPlace,
+  findPortfolioSegment,
+  portfolioProjectsForSegmentAtPlace,
+} from "./portfolio-clusters";
+
+function required<T>(value: T | undefined, label: string): T {
+  if (!value) throw new Error(`Fixture ausente: ${label}`);
+  return value;
+}
+
+// Gate regional: só indexa combinação sustentada por projeto real compatível.
+// O Lighthouse regional cobre a superfície alterada sem auditar portfólios canônicos não relacionados.
+describe("gate de indexacao do portfolio programatico", () => {
+  it("nao libera segmento sem projeto real correspondente no local", () => {
+    const barreiro = required(findPortfolioPlace("barreiro"), "bairro Barreiro");
+    const beleza = required(findPortfolioSegment("beleza-estetica"), "segmento beleza-estetica");
+
+    expect(portfolioProjectsForSegmentAtPlace(beleza, barreiro)).toHaveLength(0);
+    expect(comboHasOwnContent(beleza, barreiro)).toBe(false);
+  });
+
+  it("libera servicos locais quando existe projeto real compativel no local", () => {
+    const barreiro = required(findPortfolioPlace("barreiro"), "bairro Barreiro");
+    const servicos = required(findPortfolioSegment("servicos-locais"), "segmento servicos-locais");
+
+    const projects = portfolioProjectsForSegmentAtPlace(servicos, barreiro);
+    expect(projects.some((project) => project.slug === "bh-barreiro-marmitas")).toBe(true);
+    expect(projects.every((project) => project.status === "published")).toBe(true);
+    expect(comboHasOwnContent(servicos, barreiro)).toBe(true);
+  });
+
+  it("usa somente projeto publicado como prova regional", () => {
+    const barreiro = required(findPortfolioPlace("barreiro"), "bairro Barreiro");
+    const servicos = required(findPortfolioSegment("servicos-locais"), "segmento servicos-locais");
+    expect(portfolioProjectsForSegmentAtPlace(servicos, barreiro).every((project) => project.status === "published")).toBe(true);
+  });
+
+  it("mantem marido de aluguel restrito ao projeto especifico", () => {
+    const segment = required(findPortfolioSegment("marido-de-aluguel"), "segmento marido-de-aluguel");
+    expect(segment.projectSlugs).toEqual(["marido-de-aluguel"]);
+  });
+
+  it("mantém a 0WEB como provedora de presença digital, não do serviço do cliente", () => {
+    const segment = required(findPortfolioSegment("marido-de-aluguel"), "segmento marido-de-aluguel");
+    expect(segment.keyword).toContain("site");
+    expect(segment.deliverables.join(" ").toLowerCase()).not.toContain("reparos hidráulicos");
+    expect(segment.deliverables.join(" ").toLowerCase()).not.toContain("pintura e acabamento");
+  });
+  it("não publica endereço ou geo da 0WEB no bairro", () => {
+    const route = readFileSync(
+      resolve(process.cwd(), "src/routes/portfolio.$segmento.$bairro.tsx"),
+      "utf8",
+    );
+
+    expect(route).not.toContain("localBusinessNode(place)");
+    expect(route).not.toContain('name: "geo.placename"');
+    expect(route).not.toContain('name: "geo.position"');
+  });
+
+  it("não mantém promessas comerciais sem contrato na página regional", () => {
+    const route = readFileSync(
+      resolve(process.cwd(), "src/routes/portfolio.$segmento.$bairro.tsx"),
+      "utf8",
+    );
+
+    expect(route).not.toContain("Até 90 dias para começar a pagar");
+    expect(route).not.toContain("prazo e valor na hora");
+    expect(route).not.toContain("sites que trazem clientes do bairro");
+  });
+});

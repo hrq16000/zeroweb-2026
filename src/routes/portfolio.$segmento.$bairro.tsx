@@ -14,6 +14,7 @@ import {
   portfolioClusterLinks,
   portfolioComboPath,
   portfolioProjectsAtPlace,
+  portfolioProjectMatchesSegment,
   comboHasOwnContent,
 } from "@/lib/portfolio-clusters";
 import {
@@ -21,7 +22,6 @@ import {
   breadcrumbNode,
   graph,
   itemListNode,
-  localBusinessNode,
   organizationNode,
   serviceNode,
 } from "@/lib/portfolio-seo";
@@ -43,7 +43,10 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
     const path = portfolioComboPath(segment.slug, place.slug);
     const url = `${SITE_URL}${path}`;
     const title = `${segment.name} em ${place.name}, ${place.city} · Criação de Sites 0WEB`;
-    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. Veja projetos reais, entregáveis e condições com até 90 dias para começar a pagar.`;
+    const proofText = hasOwnContent
+      ? "Veja projetos publicados que sustentam esta página, entregáveis e como funciona o atendimento remoto da 0WEB."
+      : "Conheça os entregáveis e como funciona o atendimento remoto da 0WEB.";
+    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. ${proofText}`;
     return {
       meta: [
         { title },
@@ -62,8 +65,6 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: SOCIAL_IMAGE },
-        { name: "geo.placename", content: `${place.name}, ${place.city}` },
-        { name: "geo.position", content: `${place.geo[0]};${place.geo[1]}` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -71,7 +72,6 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
           type: "application/ld+json",
           children: graph([
             organizationNode(),
-            localBusinessNode(place),
             serviceNode(segment, place),
             itemListNode(
               `${url}#entregaveis`,
@@ -94,7 +94,9 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
 function ProgrammaticPortfolioPage() {
   const { segment, place } = Route.useLoaderData();
   const links = portfolioClusterLinks({ segmentSlug: segment.slug, placeSlug: place.slug, limit: 12 });
-  const localProjects = portfolioProjectsAtPlace(place);
+  const localProjects = portfolioProjectsAtPlace(place).filter((project) =>
+    portfolioProjectMatchesSegment(project, segment),
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -119,12 +121,11 @@ function ProgrammaticPortfolioPage() {
             </span>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
               {segment.name} em {place.name}:{" "}
-              <span className="text-primary">sites que trazem clientes do bairro</span>
+              <span className="text-primary">sites e landing pages para negócios da região</span>
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg max-w-3xl">
-              {place.name} é {place.vibe}. Criamos sites e landing pages para{" "}
-              {segment.name.toLowerCase()} da região com foco em {segment.intent} — do domínio .com.br
-              ao Google Meu Negócio otimizado.
+              {place.name} é {place.vibe}. A 0WEB atende remotamente negócios de{" "}
+              {segment.name.toLowerCase()} da região, com foco em {segment.intent}.
             </p>
             <FunnelCTAButton
               label={`Quero um site em ${place.name}`}
@@ -149,9 +150,9 @@ function ProgrammaticPortfolioPage() {
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold">Negócios que atendemos na região</h2>
+              <h2 className="text-2xl font-bold">Perfis de negócio compatíveis com este segmento</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
-                {place.typicalBusinesses.map((b) => (
+                {(segment.businessTypes ?? []).map((b) => (
                   <li key={b} className="rounded-lg bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground">
                     {b}
                   </li>
@@ -164,14 +165,14 @@ function ProgrammaticPortfolioPage() {
                     {localProjects.map((project) => (
                       <li key={project.slug}>
                         <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="text-primary font-medium hover:underline">
-                          {project.title} · {project.status === "draft" ? "projeto em preparação" : "ver projeto"}
+                          {project.title} · ver projeto
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </>
               )}
-              <h3 className="mt-6 text-lg font-semibold">Projetos reais deste segmento</h3>
+              <h3 className="mt-6 text-lg font-semibold">Referências do segmento</h3>
               <ul className="mt-2 space-y-1.5 text-sm">
                 {segment.showcases.map((s) => (
                   <li key={s.path}>
@@ -189,16 +190,16 @@ function ProgrammaticPortfolioPage() {
           <div className="container max-w-5xl mx-auto space-y-8">
             <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 text-center space-y-4">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
-                <Zap className="w-3.5 h-3.5" /> Até 90 dias para começar a pagar
+                <Zap className="w-3.5 h-3.5" /> Atendimento remoto
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold">
-                Seu negócio em {place.name} merece aparecer no Google
+                Organize a presença digital do seu negócio em {place.name}
               </h2>
               <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-                Responda 4 perguntas rápidas e receba um plano com prazo e valor na hora.
+                Responda às perguntas do funil para registrar o contexto do projeto e avançar para a proposta.
               </p>
               <FunnelCTAButton
-                label="Ver condições para o meu negócio"
+                label="Descrever meu projeto"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-lg hover:opacity-95 transition-opacity"
               />
             </div>
