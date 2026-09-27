@@ -53,7 +53,7 @@ jobs:
           if [ -z "$FILES" ]; then SEO_ONLY=false; fi
           while IFS= read -r FILE; do
             case "$FILE" in
-              src/lib/*seo*.ts|src/lib/*seo*.tsx|src/lib/*indexability*.ts|src/lib/*indexability*.tsx|src/lib/*publication*.ts|src/lib/*publication*.tsx|src/lib/*evidence*.ts|src/lib/*evidence*.tsx|src/routes/sitemap-*.ts|src/routes/sitemap*.ts|src/routes/portfolio-em.*.tsx|src/routes/bairros-*.tsx|src/routes/estados*.tsx|src/routes/cidades.tsx|src/routes/areas-de-atendimento.tsx|src/routes/criacao-de-site-institucional*.tsx|src/routes/__root.tsx|src/lib/*seo*.test.ts|src/lib/*indexability*.test.ts|src/lib/*publication*.test.ts|src/lib/*evidence*.test.ts) ;;
+              src/lib/*seo*.ts|src/lib/*seo*.tsx|src/lib/*indexability*.ts|src/lib/*indexability*.tsx|src/lib/*publication*.ts|src/lib/*publication*.tsx|src/lib/*evidence*.ts|src/lib/*evidence*.tsx|src/routes/sitemap-*.ts|src/routes/sitemap*.ts|src/routes/portfolio-em.*.tsx|src/routes/bairros-*.tsx|src/routes/estados*.tsx|src/routes/cidades.tsx|src/routes/areas-de-atendimento.tsx|src/routes/criacao-de-site-institucional*.tsx|src/lib/*seo*.test.ts|src/lib/*indexability*.test.ts|src/lib/*publication*.test.ts|src/lib/*evidence*.test.ts) ;;
               *) SEO_ONLY=false ;;
             esac
           done < <(printf '%s\n' "$FILES")
