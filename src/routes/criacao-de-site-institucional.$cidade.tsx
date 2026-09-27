@@ -11,7 +11,15 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import { LocalPagePixel, trackLocalCta } from "@/components/site/LocalPagePixel";
 import { getCapital, relatedCapitais, type Capital } from "@/lib/capitais";
-import { getLocalPageOverride, type LocalPageOverride } from "@/lib/local-pages.functions";
+import {
+  getLocalPageOverride,
+  getLocalPagePublicationStates,
+  type LocalPageOverride,
+} from "@/lib/local-pages.functions";
+import {
+  getInstitutionalCapitalEvidence,
+  getInstitutionalCapitalIndexability,
+} from "@/lib/institutional-capital-evidence.functions";
 
 const BASE = "https://0web.com.br/criacao-de-site-institucional";
 
@@ -19,7 +27,7 @@ function faqFor(c: Capital) {
   return [
     {
       q: `Vocês atendem empresas de ${c.name} presencialmente?`,
-      a: `O atendimento é remoto, com reuniões por vídeo e WhatsApp — o mesmo processo usado com clientes de ${c.state} e do restante do Brasil. Isso mantém prazos previsíveis sem custo de deslocamento.`,
+      a: "O atendimento descrito nesta página é remoto. Reuniões e alinhamentos podem ser feitos por canais digitais; qualquer atividade presencial depende de combinação expressa no escopo.",
     },
     {
       q: `Quanto custa criar um site institucional em ${c.name}?`,
@@ -27,7 +35,7 @@ function faqFor(c: Capital) {
     },
     {
       q: `O site vai aparecer nas buscas de ${c.name}?`,
-      a: `Entregamos a base técnica de SEO local: páginas por serviço, dados estruturados, sitemap, títulos e descrições com referência a ${c.name}/${c.uf} e integração com o Google Meu Negócio. Posicionamento depende de conteúdo e tempo — não prometemos posição garantida.`,
+      a: `A base técnica pode incluir títulos, descrições, dados estruturados e sitemap. Referências a ${c.name}/${c.uf} e perfil empresarial só são usadas quando correspondem à operação real do cliente. Não prometemos posição garantida.`,
     },
     {
       q: "O que preciso enviar para começar?",
@@ -44,13 +52,29 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
   loader: async ({ params }) => {
     const capital = getCapital(params.cidade);
     if (!capital) throw notFound();
+
     let override: LocalPageOverride | null = null;
+    const [states, evidence, indexability] = await Promise.all([
+      getLocalPagePublicationStates().catch(() => []),
+      getInstitutionalCapitalEvidence({ data: { slug: capital.slug } }).catch(() => ({
+        hasEvidence: false,
+        projects: [] as { slug: string; title: string }[],
+      })),
+      getInstitutionalCapitalIndexability().catch(() => ({ slugs: [] as string[] })),
+    ]);
     try {
       override = await getLocalPageOverride({ data: { slug: capital.slug } });
     } catch {
       override = null;
     }
-    return { capital, related: relatedCapitais(capital.slug), override };
+
+    const publicationOverride = states.find((item) => item.slug === capital.slug);
+    const published = publicationOverride ? publicationOverride.published : true;
+    const related = relatedCapitais(capital.slug, 27)
+      .filter((item) => indexability.slugs.includes(item.slug))
+      .slice(0, 6);
+
+    return { capital, related, override, published, evidence };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -58,12 +82,13 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
     }
     const c = loaderData.capital;
     const o = loaderData.override;
+    const indexable = loaderData.published && loaderData.evidence.hasEvidence;
     const url = `${BASE}/${c.slug}`;
     const title =
       o?.metaTitle ?? `Criação de Site Institucional em ${c.name} (${c.uf}) | 0WEB`;
     const description =
       o?.metaDescription ??
-      `Criação de site institucional em ${c.name} com estrutura de conversão, SEO local e funil de captura. Diagnóstico gratuito para empresas de ${c.name} e região.`;
+      `Atendimento remoto para criação de site institucional para empresas em ${c.name} (${c.uf}), com escopo, conteúdo e entregáveis definidos conforme o projeto.`;
     const faq = faqFor(c);
     return {
       meta: [
@@ -74,6 +99,10 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "robots",
+          content: indexable ? "index,follow,max-image-preview:large" : "noindex,follow",
+        },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -97,27 +126,6 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
               url: "https://0web.com.br",
               areaServed: { "@type": "Country", name: "Brasil" },
             },
-          }),
-        },
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "@id": `${url}#localbusiness`,
-            name: `0WEB — Criação de Sites em ${c.name}`,
-            url,
-            description,
-            priceRange: "$$",
-            areaServed: { "@type": "City", name: c.name },
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: c.name,
-              addressRegion: c.uf,
-              addressCountry: "BR",
-            },
-            parentOrganization: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-            availableLanguage: ["pt-BR"],
           }),
         },
         {
@@ -151,7 +159,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
 });
 
 function CapitalPage() {
-  const { capital: c, related, override } = Route.useLoaderData();
+  const { capital: c, related, override, evidence } = Route.useLoaderData();
   const [modal, setModal] = useState(false);
   const faq = faqFor(c);
 
@@ -162,8 +170,8 @@ function CapitalPage() {
   };
 
   const benefits = [
-    { icon: Search, title: `Busca local em ${c.name}`, text: `Títulos, descrições e dados estruturados com referência a ${c.name}/${c.uf}, integrados ao perfil do Google Meu Negócio.` },
-    { icon: LineChart, title: "Contato rastreado", text: "Cada lead entra no painel com origem, página e campanha — dá para saber o que traz cliente." },
+    { icon: Search, title: `Contexto de busca em ${c.name}`, text: `Títulos, descrições e dados estruturados podem considerar ${c.name}/${c.uf} quando isso corresponde à área real de atuação do cliente.` },
+    { icon: LineChart, title: "Medição de contato", text: "Quando analytics e funil fazem parte do escopo, eventos de contato podem ser registrados por origem e página." },
     { icon: Rocket, title: "Publicação em etapas", text: "O essencial entra no ar primeiro; o restante evolui sem travar o lançamento." },
     { icon: Gauge, title: "Leve no 4G", text: "Performance e acessibilidade como requisito, com medição de Core Web Vitals depois da publicação." },
   ];
@@ -199,7 +207,7 @@ function CapitalPage() {
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-[60ch]">
                 {override?.intro ??
-                  `Sites institucionais para empresas de ${c.name} e região metropolitana, com estrutura de conversão, SEO local e funil de captura ligado ao painel de leads. Atendimento remoto, escopo e prazo por escrito.`}
+                  `Atendimento remoto para empresas de ${c.name} que precisam de um site institucional. Escopo, páginas, integrações e prazo são definidos por escrito conforme o projeto.`}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
@@ -235,6 +243,32 @@ function CapitalPage() {
                 <p key={paragraph.slice(0, 40)} className="text-muted-foreground leading-relaxed">
                   {paragraph}
                 </p>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {evidence.projects.length > 0 && (
+          <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-20">
+            <h2 className="text-2xl sm:text-3xl font-bold font-display">
+              Projeto institucional publicado em {c.name}
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-[65ch]">
+              Esta página local é indexável porque há projeto institucional publicado da própria capital.
+            </p>
+            <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {evidence.projects.map((project) => (
+                <Link
+                  key={project.slug}
+                  to="/portfolio/$slug"
+                  params={{ slug: project.slug }}
+                  className="rounded-2xl border border-border bg-card p-5 hover:border-primary/50 transition"
+                >
+                  <p className="font-semibold">{project.title}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-sm text-primary">
+                    Ver projeto publicado <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
               ))}
             </div>
           </section>
@@ -287,7 +321,7 @@ function CapitalPage() {
         </section>
 
         <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-24">
-          <h2 className="text-2xl font-bold font-display">Outras capitais atendidas</h2>
+          <h2 className="text-2xl font-bold font-display">Outras capitais com projeto institucional publicado</h2>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
             {related.map((r) => (
               <li key={r.slug}>
@@ -331,7 +365,7 @@ function CapitalPage() {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur px-4 py-3 lg:hidden">
         <div className="flex items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            Atendemos {c.name} · {c.uf}
+            Atendimento remoto para {c.name} · {c.uf}
           </p>
           <button
             type="button"
