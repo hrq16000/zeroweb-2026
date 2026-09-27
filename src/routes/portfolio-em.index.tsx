@@ -9,6 +9,10 @@ import {
   portfolioPlacePath,
 } from "@/lib/portfolio-places";
 import { SITE_URL, breadcrumbNode, graph, itemListNode, organizationNode } from "@/lib/portfolio-seo";
+import {
+  getPortfolioPlacePublicationStates,
+  portfolioPlaceIsPublished,
+} from "@/lib/portfolio-place-seo.functions";
 
 const URL = `${SITE_URL}/portfolio-em`;
 const TITLE = "Projetos do portfólio por cidade e bairro · 0WEB";
@@ -16,7 +20,14 @@ const DESCRIPTION =
   "Veja os sites publicados pela 0WEB organizados por cidade e bairro: Curitiba, São José dos Pinhais, Araucária, Guaratuba, Belo Horizonte e mais. Cada página lista os projetos reais daquele local.";
 
 export const Route = createFileRoute("/portfolio-em/")({
-  head: () => ({
+  loader: async () => {
+    const states = await getPortfolioPlacePublicationStates().catch(() => []);
+    return { states };
+  },
+  head: ({ loaderData }) => {
+    const states = loaderData?.states ?? [];
+    const cities = portfolioCityHubs().filter((hub) => portfolioPlaceIsPublished(hub.slug, states));
+    return ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
@@ -38,7 +49,7 @@ export const Route = createFileRoute("/portfolio-em/")({
           itemListNode(
             `${URL}#cidades`,
             "Cidades com projetos da 0WEB",
-            portfolioCityHubs().map((hub) => ({
+            cities.map((hub) => ({
               url: `${SITE_URL}${portfolioPlacePath(hub.slug)}`,
               name: hub.label,
             })),
@@ -51,13 +62,15 @@ export const Route = createFileRoute("/portfolio-em/")({
         ]),
       },
     ],
-  }),
+  });
+  },
   component: PlacesIndex,
 });
 
 function PlacesIndex() {
-  const cities = portfolioCityHubs();
-  const hoods = portfolioNeighborhoodHubs();
+  const { states } = Route.useLoaderData();
+  const cities = portfolioCityHubs().filter((hub) => portfolioPlaceIsPublished(hub.slug, states));
+  const hoods = portfolioNeighborhoodHubs().filter((hub) => portfolioPlaceIsPublished(hub.slug, states));
   return (
     <div className="min-h-screen bg-background">
       <Header />
