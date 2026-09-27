@@ -14,6 +14,7 @@ import {
   portfolioClusterLinks,
   portfolioComboPath,
   portfolioProjectsAtPlace,
+  portfolioProjectMatchesSegment,
   comboHasOwnContent,
 } from "@/lib/portfolio-clusters";
 import {
@@ -94,7 +95,9 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
 function ProgrammaticPortfolioPage() {
   const { segment, place } = Route.useLoaderData();
   const links = portfolioClusterLinks({ segmentSlug: segment.slug, placeSlug: place.slug, limit: 12 });
-  const localProjects = portfolioProjectsAtPlace(place);
+  const localProjects = portfolioProjectsAtPlace(place).filter((project) =>
+    portfolioProjectMatchesSegment(project, segment),
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -151,7 +154,7 @@ function ProgrammaticPortfolioPage() {
             <div>
               <h2 className="text-2xl font-bold">Negócios que atendemos na região</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
-                {place.typicalBusinesses.map((b) => (
+                {(segment.businessTypes ?? []).map((b) => (
                   <li key={b} className="rounded-lg bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground">
                     {b}
                   </li>
