@@ -28,6 +28,12 @@ export type PortfolioPlaceSeoOverride = {
   metaDescription: string | null;
   intro: string | null;
   localBusiness: PortfolioPlaceLocalBusiness | null;
+  published: boolean;
+};
+
+export type PortfolioPlacePublicationState = {
+  slug: string;
+  published: boolean;
 };
 
 export type PortfolioPlaceSeoRow = PortfolioPlaceSeoOverride & {
@@ -81,6 +87,7 @@ function toOverride(row: any): PortfolioPlaceSeoOverride {
     metaDescription: row.meta_description ?? null,
     intro: row.intro ?? null,
     localBusiness: normalizeLocalBusiness(row.local_business),
+    published: row.published !== false,
   };
 }
 
@@ -95,7 +102,6 @@ export const getPortfolioPlaceSeo = createServerFn({ method: "GET" })
         .from("portfolio_place_seo")
         .select("slug,meta_title,meta_description,intro,local_business,published")
         .eq("slug", data.slug)
-        .eq("published", true)
         .maybeSingle();
       if (error || !row) return null;
       return toOverride(row);
@@ -104,6 +110,34 @@ export const getPortfolioPlaceSeo = createServerFn({ method: "GET" })
       return null;
     }
   });
+
+/** Estado público de publicação usado por hubs e sitemap. Falha preserva o catálogo. */
+export const getPortfolioPlacePublicationStates = createServerFn({ method: "GET" })
+  .handler(async (): Promise<PortfolioPlacePublicationState[]> => {
+    try {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const { data, error } = await supabaseAdmin
+        .from("portfolio_place_seo")
+        .select("slug,published")
+        .limit(1000);
+      if (error) throw new Error(error.message);
+      return (data ?? []).map((row: any) => ({
+        slug: String(row.slug),
+        published: Boolean(row.published),
+      }));
+    } catch (error) {
+      console.warn("[portfolio-place-seo] estados de publicação indisponíveis; usando catálogo", error);
+      return [];
+    }
+  });
+
+export function portfolioPlaceIsPublished(
+  slug: string,
+  states: readonly PortfolioPlacePublicationState[] = [],
+) {
+  const override = states.find((item) => item.slug === slug);
+  return override ? override.published : true;
+}
 
 /** Lista todos os hubs regionais com o override correspondente (admin). */
 export const listPortfolioPlaceSeo = createServerFn({ method: "POST" })
