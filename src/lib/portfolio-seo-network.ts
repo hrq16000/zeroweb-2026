@@ -202,8 +202,11 @@ export function relatedPortfolioSeoItems(
   if (!current) return [];
 
   const requested = Math.max(0, Math.min(8, limit));
-  const ranked = PUBLIC_ITEMS.map(descriptorFromCatalog)
-    .filter((candidate) => candidate.slug !== slug)
+  if (requested === 0) return [];
+
+  const all = PUBLIC_ITEMS.map(descriptorFromCatalog)
+    .filter((candidate) => candidate.slug !== slug);
+  const ranked = all
     .map((candidate) => ({
       ...candidate,
       score: relatedScore(current, candidate),
@@ -211,15 +214,31 @@ export function relatedPortfolioSeoItems(
     }))
     .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, "pt-BR"));
 
-  const strong = ranked.filter((candidate) => candidate.score >= 3);
-  if (strong.length >= requested) return strong.slice(0, requested);
+  // Reserva uma aresta de cobertura determinística no grafo universal.
+  // Assim todo projeto publicado recebe ao menos um backlink de outro portfolio,
+  // sem fingir afinidade: quando a relação não é forte, o motivo é "discovery".
+  const ring = PUBLIC_ITEMS.map(descriptorFromCatalog)
+    .sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
+  const currentIndex = ring.findIndex((candidate) => candidate.slug === slug);
+  const coverage =
+    ring.length > 1 && currentIndex >= 0
+      ? ring[(currentIndex + 1) % ring.length]
+      : undefined;
 
-  const selected = new Map(strong.map((item) => [item.slug, item]));
-  for (const item of ranked) {
-    if (selected.size >= requested) break;
-    if (!selected.has(item.slug)) selected.set(item.slug, { ...item, reason: "discovery" });
+  const selected = ranked.slice(0, requested);
+  if (coverage && !selected.some((item) => item.slug === coverage.slug)) {
+    const scoredCoverage = {
+      ...coverage,
+      score: relatedScore(current, coverage),
+      reason: relationReason(current, coverage),
+    };
+    selected[selected.length - 1] = {
+      ...scoredCoverage,
+      reason: scoredCoverage.score >= 3 ? scoredCoverage.reason : "discovery",
+    };
   }
-  return [...selected.values()].slice(0, requested);
+
+  return selected;
 }
 
 
