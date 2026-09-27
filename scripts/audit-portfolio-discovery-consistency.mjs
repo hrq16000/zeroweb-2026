@@ -1,84 +1,32 @@
 #!/usr/bin/env node
 /**
- * Gate de descoberta/indexação dos portfolios.
- * Cruza as duas fontes estruturais locais usadas pelo portal e o sitemap
- * publicado. Não promove páginas fracas e não inventa dados de cliente.
+ * Gate de descoberta dos portfolios canônicos de clientes.
  *
- * Uso:
- *   node scripts/audit-portfolio-discovery-consistency.mjs [baseUrl]
+ * O sitemap também contém hubs e rotas programáticas válidas; elas são
+ * deliberadamente ignoradas aqui. A política runtime/admin pode sobrepor o
+ * estado estático, então catálogo↔registry é diagnóstico e a prova forte é:
+ * cliente canônico registrado + URL presente no sitemap publicado.
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-
-const BASE = (process.argv[2] || "https://0web.com.br").replace(/\/$/, "");
-const catalog = JSON.parse(await readFile("src/config/portfolio-catalog.json", "utf8"));
-const clients = JSON.parse(await readFile("src/config/portfolio-clients.json", "utf8"));
-const PUBLIC_STATUSES = new Set(["published", "approved"]);
-const failures = [];
-
-const published = catalog.filter((item) => PUBLIC_STATUSES.has(item.status ?? "") && item.live !== false);
-const publishedSlugs = new Set(published.map((item) => item.slug).filter(Boolean));
-const clientSlugs = new Set(clients.map((item) => item.slug).filter(Boolean));
-
-function duplicates(values) {
-  const seen = new Set();
-  const dupes = new Set();
-  for (const value of values) {
-    if (!value) continue;
-    if (seen.has(value)) dupes.add(value);
-    seen.add(value);
-  }
-  return [...dupes].sort();
-}
-
-for (const slug of duplicates(published.map((item) => item.slug))) failures.push(`catálogo: slug publicado duplicado ${slug}`);
-for (const slug of duplicates(clients.map((item) => item.slug))) failures.push(`clientes: slug duplicado ${slug}`);
-
-const missingClient = [...publishedSlugs].filter((slug) => !clientSlugs.has(slug)).sort();
-const clientOutsidePublished = [...clientSlugs].filter((slug) => !publishedSlugs.has(slug)).sort();
-for (const slug of missingClient) failures.push(`${slug}: publicado no catálogo mas ausente de portfolio-clients.json`);
-
-let sitemapUrls = new Set();
-let sitemapError = "";
-try {
-  const response = await fetch(`${BASE}/sitemap-portfolio.xml`, {
-    headers: { "user-agent": "0web-portfolio-discovery-audit/1.0", accept: "application/xml,text/xml,text/plain" },
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const xml = await response.text();
-  sitemapUrls = new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((match) => match[1].trim().replace(/\/$/, "")));
-} catch (error) {
-  sitemapError = error instanceof Error ? error.message : String(error);
-  failures.push(`sitemap-portfolio.xml indisponível: ${sitemapError}`);
-}
-
-const expectedUrls = new Set([...publishedSlugs].map((slug) => `${BASE}/portfolio/${slug}`));
-const missingSitemap = [...expectedUrls].filter((url) => !sitemapUrls.has(url)).sort();
-const portfolioSitemapUrls = [...sitemapUrls].filter((url) => url.startsWith(`${BASE}/portfolio/`));
-const unexpectedSitemap = portfolioSitemapUrls.filter((url) => !expectedUrls.has(url)).sort();
-for (const url of missingSitemap) failures.push(`${url}: publicado mas ausente do sitemap de portfolio`);
-for (const url of unexpectedSitemap) failures.push(`${url}: sitemap aponta para slug fora do catálogo publicado`);
-
-const report = {
-  generatedAt: new Date().toISOString(),
-  baseUrl: BASE,
-  publishedCatalogCount: publishedSlugs.size,
-  clientRegistryCount: clientSlugs.size,
-  sitemapPortfolioCount: portfolioSitemapUrls.length,
-  missingClient,
-  clientOutsidePublished,
-  missingSitemap,
-  unexpectedSitemap,
-  sitemapError: sitemapError || null,
-};
-await mkdir("seo-reports", { recursive: true });
-await writeFile("seo-reports/portfolio-discovery-consistency-latest.json", `${JSON.stringify(report, null, 2)}\n`);
-
-console.log(`[portfolio-discovery] catálogo ${publishedSlugs.size} · registry ${clientSlugs.size} · sitemap ${portfolioSitemapUrls.length}`);
-console.log(`[portfolio-discovery] faltando registry ${missingClient.length} · faltando sitemap ${missingSitemap.length} · sitemap inesperado ${unexpectedSitemap.length}`);
-console.log(`[portfolio-discovery] clientes fora do conjunto publicado: ${clientOutsidePublished.length} (informativo)`);
-if (failures.length) {
-  console.error("[portfolio-discovery] FAIL");
-  for (const failure of failures) console.error(` - ${failure}`);
-  process.exit(1);
-}
-console.log("[portfolio-discovery] OK — catálogo publicado, registry e sitemap estão coerentes.");
+const BASE=(process.argv[2]||"https://0web.com.br").replace(/\/$/,"");
+const catalog=JSON.parse(await readFile("src/config/portfolio-catalog.json","utf8"));
+const clients=JSON.parse(await readFile("src/config/portfolio-clients.json","utf8"));
+const PUBLIC_STATUSES=new Set(["published","approved"]);const failures=[];
+const catalogPublished=new Set(catalog.filter(x=>PUBLIC_STATUSES.has(x.status??"")&&x.live!==false).map(x=>x.slug).filter(Boolean));
+const clientSlugs=new Set(clients.map(x=>x.slug).filter(Boolean));
+function duplicates(values){const seen=new Set(),dupes=new Set();for(const v of values){if(!v)continue;if(seen.has(v))dupes.add(v);seen.add(v);}return [...dupes].sort();}
+for(const slug of duplicates(clients.map(x=>x.slug)))failures.push(`registry: slug duplicado ${slug}`);
+const registryNotStaticPublished=[...clientSlugs].filter(s=>!catalogPublished.has(s)).sort();
+const staticPublishedNotRegistry=[...catalogPublished].filter(s=>!clientSlugs.has(s)).sort();
+let sitemapUrls=new Set(),sitemapError="";try{const r=await fetch(`${BASE}/sitemap-portfolio.xml`,{headers:{"user-agent":"0web-portfolio-discovery-audit/1.1",accept:"application/xml,text/xml,text/plain"}});if(!r.ok)throw new Error(`HTTP ${r.status}`);const xml=await r.text();sitemapUrls=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(m=>m[1].trim().replace(/\/$/,"")));}catch(e){sitemapError=e instanceof Error?e.message:String(e);failures.push(`sitemap-portfolio.xml indisponível: ${sitemapError}`);}
+// Somente URLs canônicas de clientes registrados. Hubs /portfolio-em/* e
+// combinações /portfolio/<segmento>/<local> não pertencem a este conjunto.
+const expectedClientUrls=new Set([...clientSlugs].map(slug=>`${BASE}/portfolio/${slug}`));
+const missingRegisteredClients=[...expectedClientUrls].filter(url=>!sitemapUrls.has(url)).sort();
+for(const url of missingRegisteredClients)failures.push(`${url}: cliente registrado ausente do sitemap publicado`);
+const sitemapClientUrls=[...sitemapUrls].filter(url=>expectedClientUrls.has(url));
+const report={generatedAt:new Date().toISOString(),baseUrl:BASE,staticPublishedCatalogCount:catalogPublished.size,clientRegistryCount:clientSlugs.size,sitemapRegisteredClientCount:sitemapClientUrls.length,missingRegisteredClients,staticPublishedNotRegistry,registryNotStaticPublished,sitemapError:sitemapError||null};
+await mkdir("seo-reports",{recursive:true});await writeFile("seo-reports/portfolio-discovery-consistency-latest.json",`${JSON.stringify(report,null,2)}\n`);
+console.log(`[portfolio-discovery] registry ${clientSlugs.size} · clientes no sitemap ${sitemapClientUrls.length} · ausentes ${missingRegisteredClients.length}`);
+console.log(`[portfolio-discovery] catálogo estático fora do registry ${staticPublishedNotRegistry.length} · registry fora do published estático ${registryNotStaticPublished.length} (diagnóstico; admin/runtime pode sobrepor)`);
+if(failures.length){console.error("[portfolio-discovery] FAIL");for(const f of failures)console.error(` - ${f}`);process.exit(1);}console.log("[portfolio-discovery] OK — clientes canônicos registrados estão descobertos no sitemap.");
