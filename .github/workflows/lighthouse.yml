@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.diff.outputs.run }}
+      mode: ${{ steps.diff.outputs.mode }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -47,6 +48,7 @@ jobs:
           git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
+          MODE=full
 
           # Troca isolada de OG social + cache-bust não altera o DOM visível.
           # Esses casos continuam cobertos pelos gates de link preview/head e
@@ -72,6 +74,26 @@ jobs:
             fi
           fi
 
+          # Mudança isolada da camada programática segmento×bairro deve ser
+          # auditada nas rotas que ela realmente renderiza. Não varrer os 96
+          # portfólios canônicos, pois eles usam outra rota e geram falso bloqueio
+          # por dívida de performance não relacionada ao diff.
+          PROGRAMMATIC_PORTFOLIO_ONLY=true
+          if [ -z "$FILES" ]; then
+            PROGRAMMATIC_PORTFOLIO_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              'src/routes/portfolio.$segmento.$bairro.tsx'|src/lib/portfolio-clusters.ts|src/lib/portfolio-clusters.test.ts|scripts/validate-portfolio-regional.mjs|.github/workflows/lighthouse.yml|.lighthouserc.cjs) ;;
+              *) PROGRAMMATIC_PORTFOLIO_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$PROGRAMMATIC_PORTFOLIO_ONLY" = true ] && printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$segmento.$bairro.tsx' >/dev/null; then
+            RUN=true
+            MODE=portfolio-cluster
+          fi
+
           if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
@@ -88,7 +110,8 @@ jobs:
           fi
 
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
-          echo "impacto Lighthouse: $RUN"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN · modo: $MODE"
 
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
@@ -111,11 +134,13 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run Lighthouse CI
+        if: needs.scope.outputs.mode != 'portfolio-cluster' || matrix.shard == 0
         env:
           LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
           LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
           LHCI_SHARD_INDEX: ${{ matrix.shard }}
           LHCI_SHARD_COUNT: 4
+          LHCI_SCOPE_MODE: ${{ needs.scope.outputs.mode }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
