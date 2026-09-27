@@ -17,9 +17,18 @@ for (const item of catalog) {
   }
 }
 
-for (const required of ["portfolioProjectsAtPlace", "portfolioComboPath", "itemListNode", "localBusinessNode"]) {
+for (const required of ["portfolioProjectsAtPlace", "portfolioComboPath", "itemListNode", "organizationNode", "serviceNode"]) {
   if (!route.includes(required)) errors.push(`guia regional sem integração: ${required}`);
 }
+for (const forbidden of ["localBusinessNode(place)", 'name: "geo.placename"', 'name: "geo.position"']) {
+  if (route.includes(forbidden)) errors.push(`guia regional publica presença física não comprovada: ${forbidden}`);
+}
+
+const portfolioSeo = readFileSync(resolve(root, "src/lib/portfolio-seo.ts"), "utf8");
+if (!portfolioSeo.includes("areaServed")) {
+  errors.push("Service regional sem areaServed no schema");
+}
+
 for (const required of ["PORTFOLIO_PLACES", "Guia comercial nacional", "Explorar todas as regiões"]) {
   if (!index.includes(required)) errors.push(`vitrine nacional sem integração: ${required}`);
 }
