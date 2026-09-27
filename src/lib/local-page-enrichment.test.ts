@@ -55,6 +55,20 @@ describe("gate de indexacao das landings de bairro", () => {
     }
   });
 
+  it("hub de áreas promove somente localidades comprovadas", () => {
+    const source = readFileSync(
+      resolve(process.cwd(), "src/routes/areas-de-atendimento.tsx"),
+      "utf8",
+    );
+
+    expect(source).toContain("localPlaceHasEvidence");
+    expect(source).not.toContain("30 bairros");
+    expect(source).not.toContain("atendimento presencial");
+    expect(source).not.toContain("Em 24h");
+    expect(source).not.toContain("dominar as buscas");
+    expect(source).not.toContain("Silo completo de landing pages");
+  });
+
   it("não mantém promessas absolutas de posição ou resultado", () => {
     const paths = [
       "src/routes/bairros-cwb.$slug.tsx",
