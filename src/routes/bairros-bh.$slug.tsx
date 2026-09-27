@@ -1,6 +1,5 @@
 // Landing local /bairros-bh/$slug — agência de marketing digital por bairro de BH.
-// Estratégia: copy comercial agressiva + LocalBusiness com coordenadas + BreadcrumbList + FAQPage
-// + interlinking do silo (bairros vizinhos ↔ hub ↔ áreas de atendimento).
+// Regra: atendimento remoto, prova local publicada e schema Service + Organization.
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Check, MapPin, Sparkles, TrendingUp } from "lucide-react";
 import { Header } from "@/components/site/Header";
@@ -29,32 +28,6 @@ function placeOf(n: BHNeighborhood) {
     vibe: n.vibe,
     typicalBusinesses: n.typicalBusinesses,
   };
-}
-
-function faqFor(n: BHNeighborhood) {
-  const main = n.typicalBusinesses[0];
-  return [
-    {
-      q: `Quanto custa contratar uma agência de marketing digital em ${n.name}?`,
-      a: `O investimento depende do escopo. Projetos de site institucional e landing page são orçados por entrega, enquanto SEO local, Google Ads e gestão de redes sociais funcionam em mensalidade. Para empresas de ${n.name} montamos o orçamento a partir do diagnóstico gratuito, sem pacote fechado imposto.`,
-    },
-    {
-      q: `Em quanto tempo minha empresa em ${n.name} aparece no Google?`,
-      a: `Campanhas pagas com segmentação por raio no bairro começam a gerar contatos nos primeiros dias após a aprovação. SEO local e Google Meu Negócio dão os primeiros sinais entre 30 e 60 dias, com consolidação de posições a partir do terceiro mês.`,
-    },
-    {
-      q: `Vocês atendem ${main} em ${n.name}?`,
-      a: `Sim. ${n.name} é um ${n.vibe}, e trabalhamos exatamente com esse perfil: ${n.typicalBusinesses.join(", ")}. A pesquisa de palavras-chave é refeita para o seu segmento e para a concorrência real do bairro.`,
-    },
-    {
-      q: `Preciso ter endereço em ${n.name} para ranquear no bairro?`,
-      a: `Para SEO orgânico e anúncios com raio geográfico, não. Para disputar o pacote de mapas do Google, ter endereço ou declarar ${n.name} como área de serviço no Google Meu Negócio aumenta bastante a força do resultado.`,
-    },
-    {
-      q: `O atendimento é presencial em ${n.name}?`,
-      a: `Reuniões presenciais são possíveis em Belo Horizonte mediante agendamento. A operação do dia a dia é remota, com relatórios e acompanhamento periódico — o que mantém o custo previsível sem perder proximidade.`,
-    },
-  ];
 }
 
 
@@ -113,7 +86,7 @@ export const Route = createFileRoute("/bairros-bh/$slug")({
               {
                 "@type": "FAQPage",
                 "@id": `${url}#faq`,
-                mainEntity: faqFor(n).map((f) => ({
+                mainEntity: localFaq(placeOf(n)).map((f) => ({
                   "@type": "Question",
                   name: f.q,
                   acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -251,8 +224,8 @@ function BairroPage() {
         {projects.length > 0 && (
           <section className="py-16">
             <div className="mx-auto max-w-5xl px-5 lg:px-8">
-              <h2 className="text-3xl font-bold font-display">Sites no ar em Belo Horizonte</h2>
-              <p className="mt-3 text-muted-foreground">Projetos publicados pela 0web na mesma cidade de {n.name}.</p>
+              <h2 className="text-3xl font-bold font-display">Projetos publicados em {n.name}</h2>
+              <p className="mt-3 text-muted-foreground">Projetos do portfólio com localização publicada em {n.name}.</p>
               <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map((p) => (
                   <Link
