@@ -43,7 +43,10 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
     const path = portfolioComboPath(segment.slug, place.slug);
     const url = `${SITE_URL}${path}`;
     const title = `${segment.name} em ${place.name}, ${place.city} · Criação de Sites 0WEB`;
-    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. Veja projetos reais, entregáveis e como funciona o atendimento remoto da 0WEB.`;
+    const proofText = hasOwnContent
+      ? "Veja projetos publicados que sustentam esta página, entregáveis e como funciona o atendimento remoto da 0WEB."
+      : "Conheça os entregáveis e como funciona o atendimento remoto da 0WEB.";
+    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. ${proofText}`;
     return {
       meta: [
         { title },
@@ -162,14 +165,14 @@ function ProgrammaticPortfolioPage() {
                     {localProjects.map((project) => (
                       <li key={project.slug}>
                         <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="text-primary font-medium hover:underline">
-                          {project.title} · {project.status === "draft" ? "projeto em preparação" : "ver projeto"}
+                          {project.title} · ver projeto
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </>
               )}
-              <h3 className="mt-6 text-lg font-semibold">Projetos reais deste segmento</h3>
+              <h3 className="mt-6 text-lg font-semibold">Referências do segmento</h3>
               <ul className="mt-2 space-y-1.5 text-sm">
                 {segment.showcases.map((s) => (
                   <li key={s.path}>
