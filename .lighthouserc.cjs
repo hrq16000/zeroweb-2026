@@ -14,6 +14,7 @@ const IS_PULL_REQUEST =
 const TARGET_URL = IS_PULL_REQUEST
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
+const SCOPE_MODE = process.env.LHCI_SCOPE_MODE || "full";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
@@ -31,11 +32,21 @@ const commonUrls =
         `${TARGET_URL}/portfolio`,
       ]
     : [];
+const programmaticPortfolioUrls = [
+  // Combinação com prova real de segmento em BH.
+  `${TARGET_URL}/portfolio/servicos-locais/barreiro`,
+  // Combinação com prova real de beleza em São José dos Pinhais.
+  `${TARGET_URL}/portfolio/beleza-estetica/jardim-italia-sjp`,
+];
+const collectUrls =
+  SCOPE_MODE === "portfolio-cluster"
+    ? programmaticPortfolioUrls
+    : [...commonUrls, ...portfolioUrls];
 
 module.exports = {
   ci: {
     collect: {
-      url: [...commonUrls, ...portfolioUrls],
+      url: collectUrls,
       ...(IS_PULL_REQUEST
         ? {
             // PR mede o artefato da própria branch, não a produção anterior.
