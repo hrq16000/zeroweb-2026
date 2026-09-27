@@ -29,8 +29,9 @@ export const Route = createFileRoute("/portfolio-em/$local")({
     if (!loaderData) {
       return { meta: [{ title: "Local indisponível · 0WEB" }, { name: "robots", content: "noindex" }] };
     }
-    const { hub, seo } = loaderData;
-    const published = seo?.published !== false;
+    const { hub, seo, states } = loaderData;
+    const published =
+      portfolioPlaceIsPublished(hub.slug, states) && seo?.published !== false;
     const url = `${SITE_URL}${portfolioPlacePath(hub.slug)}`;
     const count = hub.projects.length;
     const plural = count === 1 ? "site no ar" : "sites no ar";
