@@ -6,12 +6,13 @@ import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
 import { CWB_NEIGHBORHOODS } from "@/lib/curitiba-neighborhoods";
+import { localPlaceHasEvidence } from "@/lib/local-page-enrichment";
 
 export const Route = createFileRoute("/bairros-cwb/")({
   head: () => {
     const url = `${ORIGIN}/bairros-cwb`;
-    const title = "Agência de Marketing Digital em Curitiba e RMC por Bairro | 0web";
-    const description = "A 0web atende empresas em 25+ bairros de Curitiba e cidades da RMC: Batel, Água Verde, Champagnat, Ecoville, São José dos Pinhais e mais.";
+    const title = "Marketing digital para Curitiba e RMC | 0web";
+    const description = "Atendimento remoto da 0WEB para Curitiba e Região Metropolitana, com páginas locais destacadas somente onde há projetos publicados que comprovam a atuação.";
     return {
       meta: [
         { title },
@@ -19,8 +20,6 @@ export const Route = createFileRoute("/bairros-cwb/")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
-        { name: "geo.region", content: "BR-PR" },
-        { name: "geo.placename", content: "Curitiba" },
         { name: "robots", content: "index, follow, max-image-preview:large" },
       ],
       links: [{ rel: "canonical", href: url }],
@@ -44,7 +43,8 @@ export const Route = createFileRoute("/bairros-cwb/")({
 });
 
 function HubPage() {
-  const byCity = CWB_NEIGHBORHOODS.reduce<Record<string, typeof CWB_NEIGHBORHOODS>>((acc, n) => {
+  const evidenced = CWB_NEIGHBORHOODS.filter((place) => localPlaceHasEvidence(place));
+  const byCity = evidenced.reduce<Record<string, typeof CWB_NEIGHBORHOODS>>((acc, n) => {
     (acc[n.city] ||= []).push(n);
     return acc;
   }, {});
@@ -59,7 +59,7 @@ function HubPage() {
             Marketing Digital em <span className="text-gradient">Curitiba e RMC</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            Sua empresa onde seus clientes estão. Atendimento especializado em 25+ bairros de Curitiba e cidades da Região Metropolitana.
+            Atendimento remoto para Curitiba e Região Metropolitana. As páginas abaixo são destacadas porque já possuem projetos publicados com localização comprovada.
           </p>
           <p className="mt-3 text-sm">
             <Link to="/areas-de-atendimento" className="text-primary font-semibold hover:underline">
