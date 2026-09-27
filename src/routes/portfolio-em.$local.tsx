@@ -9,20 +9,28 @@ import {
   portfolioPlacePath,
 } from "@/lib/portfolio-places";
 import { SITE_URL, breadcrumbNode, graph, itemListNode, organizationNode } from "@/lib/portfolio-seo";
-import { getPortfolioPlaceSeo } from "@/lib/portfolio-place-seo.functions";
+import {
+  getPortfolioPlacePublicationStates,
+  getPortfolioPlaceSeo,
+  portfolioPlaceIsPublished,
+} from "@/lib/portfolio-place-seo.functions";
 
 export const Route = createFileRoute("/portfolio-em/$local")({
   loader: async ({ params }) => {
     const hub = findPortfolioPlaceHub(params.local);
     if (!hub) throw notFound();
-    const seo = await getPortfolioPlaceSeo({ data: { slug: hub.slug } }).catch(() => null);
-    return { hub, seo };
+    const [seo, states] = await Promise.all([
+      getPortfolioPlaceSeo({ data: { slug: hub.slug } }).catch(() => null),
+      getPortfolioPlacePublicationStates().catch(() => []),
+    ]);
+    return { hub, seo, states };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Local indisponível · 0WEB" }, { name: "robots", content: "noindex" }] };
     }
     const { hub, seo } = loaderData;
+    const published = seo?.published !== false;
     const url = `${SITE_URL}${portfolioPlacePath(hub.slug)}`;
     const count = hub.projects.length;
     const plural = count === 1 ? "site no ar" : "sites no ar";
@@ -47,12 +55,11 @@ export const Route = createFileRoute("/portfolio-em/$local")({
       .filter((src): src is string => typeof src === "string" && src.startsWith("/"));
     const rawImage = candidates.find((src) => !/logo/i.test(src)) ?? candidates[0];
     const socialImage = rawImage ? `${SITE_URL}${rawImage}` : undefined;
-    const lb = seo?.localBusiness;
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "robots", content: "index,follow,max-image-preview:large" },
+        { name: "robots", content: published ? "index,follow,max-image-preview:large" : "noindex,follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
@@ -67,8 +74,6 @@ export const Route = createFileRoute("/portfolio-em/$local")({
               { name: "twitter:image", content: socialImage },
             ]
           : []),
-        { name: "geo.placename", content: hub.label },
-        { name: "geo.region", content: `BR-${hub.state}` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -76,23 +81,6 @@ export const Route = createFileRoute("/portfolio-em/$local")({
           type: "application/ld+json",
           children: graph([
             organizationNode(),
-            {
-              "@type": "ProfessionalService",
-              "@id": `${url}#localbusiness`,
-              name: lb?.name || `0WEB — Sites publicados em ${hub.label}`,
-              url,
-              ...(lb?.description ? { description: lb.description } : {}),
-              ...(lb?.telephone ? { telephone: lb.telephone } : {}),
-              priceRange: lb?.priceRange || "$$",
-              parentOrganization: { "@id": `${SITE_URL}/#organization` },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: hub.city,
-                addressRegion: hub.state,
-                addressCountry: "BR",
-              },
-              areaServed: { "@type": "Place", name: lb?.areaServed || hub.label },
-            },
             itemListNode(
               `${url}#projetos`,
               `Projetos da 0WEB em ${hub.label}`,
@@ -113,11 +101,14 @@ export const Route = createFileRoute("/portfolio-em/$local")({
 });
 
 function PlacePage() {
-  const { hub, seo } = Route.useLoaderData();
-  const related =
+  const { hub, seo, states } = Route.useLoaderData();
+  const relatedCandidates =
     hub.kind === "city"
       ? portfolioNeighborhoodHubs(hub.city)
       : portfolioNeighborhoodHubs(hub.city).filter((h) => h.slug !== hub.slug);
+  const related = relatedCandidates.filter((item) =>
+    portfolioPlaceIsPublished(item.slug, states),
+  );
 
   return (
     <div className="min-h-screen bg-background">
