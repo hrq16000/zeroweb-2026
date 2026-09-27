@@ -17,7 +17,7 @@ for (const item of catalog) {
   }
 }
 
-for (const required of ["portfolioProjectsAtPlace", "portfolioComboPath", "itemListNode", "localBusinessNode"]) {
+for (const required of ["portfolioProjectsForSegmentAtPlace", "portfolioComboPath", "itemListNode", "localBusinessNode"]) {
   if (!route.includes(required)) errors.push(`guia regional sem integração: ${required}`);
 }
 for (const required of ["PORTFOLIO_PLACES", "Guia comercial nacional", "Explorar todas as regiões"]) {
