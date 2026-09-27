@@ -9,14 +9,21 @@ import {
   portfolioPlacePath,
 } from "@/lib/portfolio-places";
 import { SITE_URL, breadcrumbNode, graph, itemListNode, organizationNode } from "@/lib/portfolio-seo";
-import { getPortfolioPlaceSeo } from "@/lib/portfolio-place-seo.functions";
+import {
+  getPortfolioPlacePublicationStates,
+  getPortfolioPlaceSeo,
+  portfolioPlaceIsPublished,
+} from "@/lib/portfolio-place-seo.functions";
 
 export const Route = createFileRoute("/portfolio-em/$local")({
   loader: async ({ params }) => {
     const hub = findPortfolioPlaceHub(params.local);
     if (!hub) throw notFound();
-    const seo = await getPortfolioPlaceSeo({ data: { slug: hub.slug } }).catch(() => null);
-    return { hub, seo };
+    const [seo, states] = await Promise.all([
+      getPortfolioPlaceSeo({ data: { slug: hub.slug } }).catch(() => null),
+      getPortfolioPlacePublicationStates().catch(() => []),
+    ]);
+    return { hub, seo, states };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -94,11 +101,14 @@ export const Route = createFileRoute("/portfolio-em/$local")({
 });
 
 function PlacePage() {
-  const { hub, seo } = Route.useLoaderData();
-  const related =
+  const { hub, seo, states } = Route.useLoaderData();
+  const relatedCandidates =
     hub.kind === "city"
       ? portfolioNeighborhoodHubs(hub.city)
       : portfolioNeighborhoodHubs(hub.city).filter((h) => h.slug !== hub.slug);
+  const related = relatedCandidates.filter((item) =>
+    portfolioPlaceIsPublished(item.slug, states),
+  );
 
   return (
     <div className="min-h-screen bg-background">
