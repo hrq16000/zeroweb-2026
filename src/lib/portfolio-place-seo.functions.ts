@@ -111,25 +111,32 @@ export const getPortfolioPlaceSeo = createServerFn({ method: "GET" })
     }
   });
 
-/** Estado público de publicação usado por hubs e sitemap. Falha preserva o catálogo. */
+async function readPortfolioPlacePublicationStates(): Promise<PortfolioPlacePublicationState[]> {
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
+      .from("portfolio_place_seo")
+      .select("slug,published")
+      .limit(1000);
+    if (error) throw new Error(error.message);
+    return (data ?? []).map((row: any) => ({
+      slug: String(row.slug),
+      published: Boolean(row.published),
+    }));
+  } catch (error) {
+    console.warn("[portfolio-place-seo] estados de publicação indisponíveis; usando catálogo", error);
+    return [];
+  }
+}
+
+/** Estado público de publicação usado por loaders do app. */
 export const getPortfolioPlacePublicationStates = createServerFn({ method: "GET" })
-  .handler(async (): Promise<PortfolioPlacePublicationState[]> => {
-    try {
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const { data, error } = await supabaseAdmin
-        .from("portfolio_place_seo")
-        .select("slug,published")
-        .limit(1000);
-      if (error) throw new Error(error.message);
-      return (data ?? []).map((row: any) => ({
-        slug: String(row.slug),
-        published: Boolean(row.published),
-      }));
-    } catch (error) {
-      console.warn("[portfolio-place-seo] estados de publicação indisponíveis; usando catálogo", error);
-      return [];
-    }
-  });
+  .handler(readPortfolioPlacePublicationStates);
+
+/** Leitura direta para handlers server-side, como o sitemap. */
+export async function getPortfolioPlacePublicationStatesServer() {
+  return readPortfolioPlacePublicationStates();
+}
 
 export function portfolioPlaceIsPublished(
   slug: string,
