@@ -34,6 +34,13 @@ export const CITIES: Record<string, CityInfo> = {
     microrregiao: "Curitiba", mesorregiao: "Metropolitana de Curitiba",
     flavor: "polo de tecnologia e indústria do Sul",
   },
+  "sao-jose-dos-pinhais": {
+    slug: "sao-jose-dos-pinhais", name: "São José dos Pinhais", state: "Paraná", stateCode: "PR",
+    region: "Sul", population: 329628, gentilico: "são-joseense", ddd: "41",
+    lat: -25.5302, lng: -49.20836, capitalRegional: false,
+    microrregiao: "Curitiba", mesorregiao: "Metropolitana de Curitiba",
+    flavor: "polo industrial e de serviços da Região Metropolitana de Curitiba",
+  },
   "sao-paulo": {
     slug: "sao-paulo", name: "São Paulo", state: "São Paulo", stateCode: "SP",
     region: "Sudeste", population: 11451245, gentilico: "paulistano", ddd: "11",
