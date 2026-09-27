@@ -12,6 +12,10 @@ on:
         required: false
         default: "https://0web.com.br"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   scope:
     name: Detectar impacto em Performance + SEO
