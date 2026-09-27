@@ -226,6 +226,7 @@ import { Route as AuthenticatedAppLeadsHeloaGasRouteImport } from './routes/_aut
 import { Route as AuthenticatedAppLeadsMarcasRouteImport } from './routes/_authenticated/app.leads.marcas'
 import { Route as AuthenticatedAppLeadsPorPortfolioRouteImport } from './routes/_authenticated/app.leads.por-portfolio'
 import { Route as AuthenticatedAppLeadsPortfolioRouteImport } from './routes/_authenticated/app.leads.portfolio'
+import { Route as AuthenticatedAppMarcasMapaRouteImport } from './routes/_authenticated/app.marcas.mapa'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
@@ -1412,6 +1413,12 @@ const AuthenticatedAppLeadsPortfolioRoute =
     path: '/portfolio',
     getParentRoute: () => AuthenticatedAppLeadsRoute,
   } as any)
+const AuthenticatedAppMarcasMapaRoute =
+  AuthenticatedAppMarcasMapaRouteImport.update({
+    id: '/marcas/mapa',
+    path: '/marcas/mapa',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppMarketplaceAdminRoute =
   AuthenticatedAppMarketplaceAdminRouteImport.update({
     id: '/admin',
@@ -1805,6 +1812,7 @@ export interface FileRoutesByFullPath {
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2049,6 +2057,7 @@ export interface FileRoutesByTo {
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2299,6 +2308,7 @@ export interface FileRoutesById {
   '/_authenticated/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/_authenticated/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/_authenticated/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/_authenticated/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2549,6 +2559,7 @@ export interface FileRouteTypes {
     | '/app/leads/marcas'
     | '/app/leads/por-portfolio'
     | '/app/leads/portfolio'
+    | '/app/marcas/mapa'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2793,6 +2804,7 @@ export interface FileRouteTypes {
     | '/app/leads/marcas'
     | '/app/leads/por-portfolio'
     | '/app/leads/portfolio'
+    | '/app/marcas/mapa'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -3042,6 +3054,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/leads/marcas'
     | '/_authenticated/app/leads/por-portfolio'
     | '/_authenticated/app/leads/portfolio'
+    | '/_authenticated/app/marcas/mapa'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
@@ -4748,6 +4761,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppLeadsPortfolioRouteImport
       parentRoute: typeof AuthenticatedAppLeadsRoute
     }
+    '/_authenticated/app/marcas/mapa': {
+      id: '/_authenticated/app/marcas/mapa'
+      path: '/marcas/mapa'
+      fullPath: '/app/marcas/mapa'
+      preLoaderRoute: typeof AuthenticatedAppMarcasMapaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/marketplace/admin': {
       id: '/_authenticated/app/marketplace/admin'
       path: '/admin'
@@ -5140,6 +5160,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisPortfoliosRoute: typeof AuthenticatedAppFunisPortfoliosRoute
   AuthenticatedAppFunisSemDestinoRoute: typeof AuthenticatedAppFunisSemDestinoRoute
   AuthenticatedAppFunisSolicitacoesRoute: typeof AuthenticatedAppFunisSolicitacoesRoute
+  AuthenticatedAppMarcasMapaRoute: typeof AuthenticatedAppMarcasMapaRoute
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
   AuthenticatedAppPortfolioNovoRoute: typeof AuthenticatedAppPortfolioNovoRoute
   AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
@@ -5216,6 +5237,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisSemDestinoRoute: AuthenticatedAppFunisSemDestinoRoute,
   AuthenticatedAppFunisSolicitacoesRoute:
     AuthenticatedAppFunisSolicitacoesRoute,
+  AuthenticatedAppMarcasMapaRoute: AuthenticatedAppMarcasMapaRoute,
   AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
   AuthenticatedAppPortfolioNovoRoute: AuthenticatedAppPortfolioNovoRoute,
   AuthenticatedAppPortfolioOriginalidadeRoute:
