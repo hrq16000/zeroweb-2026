@@ -16,6 +16,7 @@
     "validate:brand-integrity": "node scripts/validate-brand-integrity.mjs",
     "smoke:servicos": "node scripts/smoke-servicos.mjs",
     "seo:jsonld": "node scripts/validate-jsonld.mjs",
+    "seo:structured-data": "node scripts/validate-published-structured-data.mjs",
     "seo:legacy301": "node scripts/validate-legacy-301.mjs",
     "seo:validate": "node scripts/validate-jsonld.mjs https://0web.com.br --with-validator && node scripts/validate-legacy-301.mjs https://0web.com.br",
     "db:validate": "node scripts/validate-required-tables.mjs",

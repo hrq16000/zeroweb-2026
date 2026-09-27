@@ -43,6 +43,11 @@ jobs:
             node scripts/validate-jsonld.mjs "$BASE_URL"
           fi
 
+      - name: Validar dados estruturados publicados (/portfolio)
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url || 'https://0web.com.br' }}
+        run: node scripts/validate-published-structured-data.mjs "$BASE_URL"
+
       - name: Rodar validador de sitemap/robots
         env:
           BASE_URL: ${{ github.event.inputs.base_url || 'https://0web.com.br' }}
