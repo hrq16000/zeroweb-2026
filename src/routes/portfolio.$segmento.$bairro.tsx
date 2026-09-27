@@ -22,7 +22,6 @@ import {
   breadcrumbNode,
   graph,
   itemListNode,
-  localBusinessNode,
   organizationNode,
   serviceNode,
 } from "@/lib/portfolio-seo";
@@ -63,8 +62,6 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: SOCIAL_IMAGE },
-        { name: "geo.placename", content: `${place.name}, ${place.city}` },
-        { name: "geo.position", content: `${place.geo[0]};${place.geo[1]}` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -72,7 +69,6 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
           type: "application/ld+json",
           children: graph([
             organizationNode(),
-            localBusinessNode(place),
             serviceNode(segment, place),
             itemListNode(
               `${url}#entregaveis`,
