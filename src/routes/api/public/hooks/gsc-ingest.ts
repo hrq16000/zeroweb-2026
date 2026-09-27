@@ -1,17 +1,33 @@
 /**
- * Stub endpoint to receive GSC coverage exports from external pullers
- * (Apps Script, n8n, Make). Authenticated by the Supabase anon key in the
- * `apikey` header.
+ * Recebe evidência de cobertura do Google Search Console por URL.
+ * A autenticação usa o mesmo CRON_SECRET dos demais hooks internos.
  *
- * Body: { rows: Array<{ url, issue_type, status_code?, message? }> }
+ * Mantém compatibilidade com o payload legado de issues e aceita também
+ * estados positivos/observacionais, para distinguir "indexável" de
+ * "observado pelo Google" sem inferir indexação a partir do código.
  */
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
+const IssueType = z.enum([
+  "indexed",
+  "discovered",
+  "crawled_not_indexed",
+  "discovered_not_indexed",
+  "404",
+  "soft_404",
+  "redirect",
+  "excluded",
+  "server_error",
+  "blocked_robots",
+  "noindex",
+  "other",
+]);
+
 const Body = z.object({
   rows: z.array(z.object({
     url: z.string().url().max(2000),
-    issue_type: z.enum(["404", "soft_404", "redirect", "excluded", "server_error", "blocked_robots", "noindex", "other"]),
+    issue_type: IssueType,
     status_code: z.number().int().optional(),
     message: z.string().max(2000).optional(),
   })).min(1).max(2000),
@@ -30,6 +46,7 @@ export const Route = createFileRoute("/api/public/hooks/gsc-ingest")({
         if (!parsed.success) {
           return Response.json({ error: "invalid_payload", issues: parsed.error.issues }, { status: 400 });
         }
+
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
         const rows = parsed.data.rows.map((r) => ({
           url: r.url,
@@ -40,7 +57,17 @@ export const Route = createFileRoute("/api/public/hooks/gsc-ingest")({
         }));
         const { error } = await supabaseAdmin.from("index_coverage_issues").insert(rows);
         if (error) return new Response(error.message, { status: 500 });
-        return Response.json({ ok: true, inserted: rows.length });
+
+        const portfolioRows = rows.filter((row) => {
+          try {
+            const url = new URL(row.url);
+            return url.hostname === "0web.com.br" && /^\/portfolio\/[^/]+\/?$/.test(url.pathname);
+          } catch {
+            return false;
+          }
+        }).length;
+
+        return Response.json({ ok: true, inserted: rows.length, portfolioRows });
       },
     },
   },
