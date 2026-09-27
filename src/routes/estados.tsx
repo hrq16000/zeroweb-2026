@@ -6,7 +6,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { STATES, type Region, type StateInfo } from "@/lib/geo-data";
-import { isGeoStateIndexable } from "@/lib/geo-hub-indexability";
+import { isGeoCityIndexable, isGeoStateIndexable } from "@/lib/geo-hub-indexability";
 
 export const Route = createFileRoute("/estados")({
   head: () => {
@@ -93,7 +93,9 @@ function EstadosHub() {
                     >
                       <p className="text-xs uppercase tracking-wider text-primary font-semibold">{s.code}</p>
                       <h3 className="mt-1 font-semibold text-lg">{s.name}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{s.cities.length} cidade(s) ativa(s)</p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        {s.cities.filter((slug) => isGeoCityIndexable(slug)).length} cidade(s) com evidência
+                      </p>
                       <span className="mt-3 inline-flex items-center gap-1 text-sm text-primary font-semibold">
                         Ver detalhes <ArrowRight className="w-3.5 h-3.5" />
                       </span>
