@@ -63,6 +63,13 @@ export const getLocalPageOverride = createServerFn({ method: "GET" })
     };
   });
 
+/** Estados de publicação usados nas rotas públicas. */
+export const getLocalPagePublicationStates = createServerFn({ method: "GET" })
+  .handler(async () => {
+    const { listLocalPagePublicationStates } = await import("@/lib/local-pages.server");
+    return listLocalPagePublicationStates();
+  });
+
 /** Lista todas as capitais com o override correspondente (admin). */
 export const listLocalPages = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
