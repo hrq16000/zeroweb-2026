@@ -102,9 +102,19 @@ export function cityFaq(city: CityInfo, service: ServiceData): { q: string; a: s
   return bank.map((it) => ({ q: fill(it.q, vars), a: fill(it.a, vars) }));
 }
 
-/** Combined FAQ: service-level FAQ + 2-3 city-specific items. */
+/** FAQ geográfico: evita herdar prazos, garantias ou condições comerciais do catálogo global. */
 export function combinedFaq(city: CityInfo, service: ServiceData) {
-  return [...service.faq, ...cityFaq(city, service)];
+  return [
+    {
+      q: `O que está incluído em ${service.name.toLowerCase()} para ${city.name}?`,
+      a: "O conteúdo da entrega depende do escopo aprovado. A proposta documenta entregáveis, integrações, responsabilidades e condições antes do início do projeto.",
+    },
+    {
+      q: `Existe prazo fixo para ${service.name.toLowerCase()}?`,
+      a: "Não há um prazo universal por cidade. O cronograma depende do escopo, das integrações e dos materiais necessários e é definido na proposta.",
+    },
+    ...cityFaq(city, service),
+  ];
 }
 
 /** Page title variations — different from the canonical service title. */
