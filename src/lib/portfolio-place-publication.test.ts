@@ -45,6 +45,7 @@ describe("publicação dos hubs regionais do portfólio", () => {
       "utf8",
     );
 
+    expect(detail).toContain("portfolioPlaceIsPublished(hub.slug, states)");
     expect(detail).toContain("seo?.published !== false");
     expect(detail).toContain("portfolioPlaceIsPublished(item.slug, states)");
     expect(index).toContain("portfolioPlaceIsPublished(hub.slug, states)");
