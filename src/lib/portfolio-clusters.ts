@@ -18,7 +18,7 @@ export type PortfolioSegment = {
   services: string[];
   /** Hubs/artigos relacionados. */
   hubs: string[];
-  /** Cases reais do portfólio. */
+  /** Referências e cases relacionados ao segmento. */
   showcases: { path: string; label: string }[];
   deliverables: string[];
   /** Segmentos reais aceitos no catálogo de portfólios. */
@@ -204,7 +204,11 @@ type PortfolioCatalogProject = {
 /** Projetos canônicos associados ao bairro/cidade, usados nos guias regionais. */
 export function portfolioProjectsAtPlace(place: PortfolioPlace) {
   return (portfolioCatalog as PortfolioCatalogProject[]).filter(
-    (item) => item.city === place.city && item.state === place.state && item.location?.toLowerCase().includes(place.name.toLowerCase()),
+    (item) =>
+      item.status === "published" &&
+      item.city === place.city &&
+      item.state === place.state &&
+      item.location?.toLowerCase().includes(place.name.toLowerCase()),
   );
 }
 
