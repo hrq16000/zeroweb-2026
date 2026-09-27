@@ -22,9 +22,9 @@ export type PortfolioSegment = {
   showcases: { path: string; label: string }[];
   deliverables: string[];
   /** Audiências coerentes com o segmento — nunca herdadas do bairro. */
-  audiences: string[];
+  audiences?: string[];
   /** Taxonomia do catálogo que comprova aderência real ao segmento. */
-  catalogSegments: string[];
+  catalogSegments?: string[];
   /** Slugs que comprovam um segmento específico quando a taxonomia é ampla. */
   projectSlugs?: string[];
 };
@@ -208,7 +208,7 @@ export function portfolioProjectMatchesSegment(
   segment: PortfolioSegment,
 ): boolean {
   if (segment.projectSlugs?.includes(project.slug)) return true;
-  return Boolean(project.segment && segment.catalogSegments.includes(project.segment));
+  return Boolean(project.segment && segment.catalogSegments?.includes(project.segment));
 }
 
 export function portfolioProjectsForSegmentAtPlace(
