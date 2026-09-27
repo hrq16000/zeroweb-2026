@@ -19,6 +19,7 @@ jobs:
     outputs:
       run: ${{ steps.diff.outputs.run }}
       mode: ${{ steps.diff.outputs.mode }}
+      shards: ${{ steps.diff.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,6 +35,8 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            echo "shards=[0,1,2,3]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -105,20 +108,27 @@ jobs:
             fi
           fi
 
+          if [ "$MODE" = "regional" ]; then
+            SHARDS='[0]'
+          else
+            SHARDS='[0,1,2,3]'
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
-          echo "impacto Lighthouse: $RUN ($MODE)"
+          echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN ($MODE; shards=$SHARDS)"
 
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
     needs: scope
-    if: needs.scope.outputs.run == 'true' && (needs.scope.outputs.mode != 'regional' || matrix.shard == 0)
+    if: needs.scope.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: ${{ fromJSON(needs.scope.outputs.shards) }}
     steps:
       - uses: actions/checkout@v4
 
