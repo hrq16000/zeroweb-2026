@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "bun:test";
 import {
   comboHasOwnContent,
@@ -33,5 +35,15 @@ function required<T>(value: T | undefined, label: string): T {
   it("mantem marido de aluguel restrito ao projeto especifico", () => {
     const segment = required(findPortfolioSegment("marido-de-aluguel"), "segmento marido-de-aluguel");
     expect(segment.projectSlugs).toEqual(["marido-de-aluguel"]);
+  });
+  it("não publica endereço ou geo da 0WEB no bairro", () => {
+    const route = readFileSync(
+      resolve(process.cwd(), "src/routes/portfolio.$segmento.$bairro.tsx"),
+      "utf8",
+    );
+
+    expect(route).not.toContain("localBusinessNode(place)");
+    expect(route).not.toContain('name: "geo.placename"');
+    expect(route).not.toContain('name: "geo.position"');
   });
 });
