@@ -25,10 +25,9 @@ jobs:
           SITEMAP_URL: https://0web.com.br/sitemap-portfolio.xml
         run: |
           set -euo pipefail
-          if [ -z "${CRON_SECRET:-}" ]; then
-            echo "CRON_SECRET não configurado; sincronização será executada pelo evento de publicação do painel."
-            exit 0
-          fi
+
+          # O sitemap público é a base de descoberta e deve estar saudável
+          # independentemente da integração autenticada de GSC/IndexNow.
           for attempt in $(seq 1 20); do
             if curl --fail --silent --show-error "$SITEMAP_URL" >/dev/null; then
               break
@@ -39,6 +38,12 @@ jobs:
             fi
             sleep 15
           done
+
+          if [ -z "${CRON_SECRET:-}" ]; then
+            echo "::error title=Sincronização de indexação não executada::CRON_SECRET não está configurado. O sitemap respondeu, mas esta execução NÃO enviou sinais via hook GSC/IndexNow. Configure o secret ou remova o agendamento autenticado."
+            exit 1
+          fi
+
           curl --fail --silent --show-error \
             -X POST "$SYNC_URL" \
             -H "x-cron-secret: $CRON_SECRET" \
