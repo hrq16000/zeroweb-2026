@@ -31,6 +31,18 @@ describe("SEO universal dos portfolios", () => {
     }
   });
 
+  test("nenhum portfolio publicado fica órfão na malha interna", () => {
+    const inbound = new Map(published.map((item) => [item.slug, 0]));
+
+    for (const item of published) {
+      for (const related of relatedPortfolioSeoItems(item.slug, undefined, 6)) {
+        inbound.set(related.slug, (inbound.get(related.slug) ?? 0) + 1);
+      }
+    }
+
+    expect([...inbound.entries()].filter(([, count]) => count === 0)).toEqual([]);
+  });
+
   test("títulos universais são únicos, úteis e dentro do limite", () => {
     const titles = published.map((item) => portfolioUniversalSeoTitle(item.slug));
     expect(titles.every(Boolean)).toBe(true);
