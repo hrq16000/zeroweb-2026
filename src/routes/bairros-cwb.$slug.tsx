@@ -141,7 +141,7 @@ function BairroPage() {
                 <strong className="text-foreground">{n.name}</strong> é {n.vibe}. O contexto local pode ser relevante para conteúdo, anúncios e páginas de serviço quando isso corresponde à operação real do negócio.
               </p>
               <p>
-                A 0web atende empresas de {n.name} ({n.city}) com estratégia de marketing local desenhada para captar quem mora, trabalha e consome no bairro — não tráfego inflado que não vira venda.
+                A 0web atende remotamente empresas de {n.name} ({n.city}), usando informações reais do negócio e da área que ele efetivamente atende.
               </p>
               <p>
                 Os perfis comuns na região incluem {n.typicalBusinesses.slice(0, -1).join(", ")} e {n.typicalBusinesses.slice(-1)[0]}; isso serve como contexto editorial, não como prova de clientes atendidos.
@@ -199,8 +199,8 @@ function BairroPage() {
         {projects.length > 0 && (
           <section className="py-16">
             <div className="mx-auto max-w-5xl px-5 lg:px-8">
-              <h2 className="text-3xl font-bold font-display">Sites no ar em {n.city}</h2>
-              <p className="mt-3 text-muted-foreground">Projetos publicados pela 0web na mesma cidade de {n.name}.</p>
+              <h2 className="text-3xl font-bold font-display">Projetos publicados em {n.name}</h2>
+              <p className="mt-3 text-muted-foreground">Projetos do portfólio com localização publicada em {n.name}.</p>
               <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map((p) => (
                   <Link
