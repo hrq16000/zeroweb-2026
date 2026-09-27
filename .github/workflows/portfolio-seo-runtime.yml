@@ -1,0 +1,38 @@
+name: Portfolio SEO runtime audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  portfolio-seo:
+    name: SEO permanente · portfolio
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Contratos determinísticos + produção
+        run: node scripts/audit-portfolio-seo-permanent-gate.mjs https://0web.com.br https://0web.com.br
+
+      - name: Upload evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-seo-runtime
+          path: |
+            seo-reports/portfolio-indexability-latest.json
+            seo-reports/portfolio-discovery-consistency-latest.json
+            seo-reports/portfolio-gsc-evidence-latest.json
+            seo-reports/structured-data-latest.json
+          if-no-files-found: ignore
