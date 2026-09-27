@@ -21,6 +21,12 @@ export type PortfolioSegment = {
   /** Cases reais do portfólio. */
   showcases: { path: string; label: string }[];
   deliverables: string[];
+  /** Audiências coerentes com o segmento — nunca herdadas do bairro. */
+  audiences: string[];
+  /** Taxonomia do catálogo que comprova aderência real ao segmento. */
+  catalogSegments: string[];
+  /** Slugs que comprovam um segmento específico quando a taxonomia é ampla. */
+  projectSlugs?: string[];
 };
 
 export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
@@ -41,6 +47,8 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Ficha do Google Meu Negócio otimizada",
       "Galeria antes e depois",
     ],
+    audiences: ["salões de beleza", "studios de unhas e cílios", "barbearias", "clínicas de estética"],
+    catalogSegments: ["beleza"],
   },
   {
     slug: "saude-clinicas",
@@ -56,6 +64,8 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Depoimentos e provas sociais",
       "Conformidade com conselhos de classe",
     ],
+    audiences: ["clínicas", "consultórios", "psicólogos e terapeutas", "profissionais de saúde"],
+    catalogSegments: ["saude"],
   },
   {
     slug: "advocacia-consultoria",
@@ -71,6 +81,8 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Formulário com aviso LGPD",
       "Páginas por área de atuação",
     ],
+    audiences: ["escritórios de advocacia", "advogados autônomos", "consultorias", "profissionais jurídicos"],
+    catalogSegments: ["juridico"],
   },
   {
     slug: "servicos-locais",
@@ -86,6 +98,8 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Mapa e rota no Google Maps",
       "Carregamento em menos de 1 segundo",
     ],
+    audiences: ["comércios de bairro", "restaurantes e lanchonetes", "prestadores de serviços", "empresas de manutenção e construção"],
+    catalogSegments: ["comercios", "restaurantes", "servicos", "prestadores-de-servicos", "construcao"],
   },
   {
     slug: "marido-de-aluguel",
@@ -96,6 +110,9 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
     hubs: ["/areas-de-atendimento", "/portfolio"],
     showcases: [{ path: "/portfolio/marido-de-aluguel", label: "Serviços de marido de aluguel" }],
     deliverables: ["Instalações e montagens", "Reparos hidráulicos simples", "Pintura e acabamento", "Manutenção preventiva"],
+    audiences: ["maridos de aluguel", "profissionais de reparos residenciais", "montadores e instaladores", "serviços de manutenção residencial"],
+    catalogSegments: [],
+    projectSlugs: ["marido-de-aluguel"],
   },
 ];
 
@@ -170,10 +187,35 @@ export function placesForSegment(segment: PortfolioSegment, limit = 12): Portfol
 }
 
 /** Projetos canônicos associados ao bairro/cidade, usados nos guias regionais. */
-export function portfolioProjectsAtPlace(place: PortfolioPlace) {
-  return (portfolioCatalog as Array<{ slug: string; title: string; city: string; state: string; location?: string; status?: string; segment?: string }>).filter(
+export type PortfolioCatalogProject = {
+  slug: string;
+  title: string;
+  city: string;
+  state: string;
+  location?: string;
+  status?: string;
+  segment?: string;
+};
+
+export function portfolioProjectsAtPlace(place: PortfolioPlace): PortfolioCatalogProject[] {
+  return (portfolioCatalog as PortfolioCatalogProject[]).filter(
     (item) => item.city === place.city && item.state === place.state && item.location?.toLowerCase().includes(place.name.toLowerCase()),
   );
+}
+
+export function portfolioProjectMatchesSegment(
+  project: Pick<PortfolioCatalogProject, "slug" | "segment">,
+  segment: PortfolioSegment,
+): boolean {
+  if (segment.projectSlugs?.includes(project.slug)) return true;
+  return Boolean(project.segment && segment.catalogSegments.includes(project.segment));
+}
+
+export function portfolioProjectsForSegmentAtPlace(
+  segment: PortfolioSegment,
+  place: PortfolioPlace,
+): PortfolioCatalogProject[] {
+  return portfolioProjectsAtPlace(place).filter((project) => portfolioProjectMatchesSegment(project, segment));
 }
 
 /** Todas as combinações publicadas (usadas no sitemap programático). */
@@ -189,9 +231,7 @@ export function allPortfolioCombos(): { segment: PortfolioSegment; place: Portfo
  * segmento e apenas dilui o rastreamento.
  */
 export function comboHasOwnContent(segment: PortfolioSegment, place: PortfolioPlace): boolean {
-  const projects = portfolioProjectsAtPlace(place);
-  if (projects.length === 0) return false;
-  return projects.some((project) => !project.segment || project.segment === segment.slug) || projects.length > 0;
+  return portfolioProjectsForSegmentAtPlace(segment, place).length > 0;
 }
 
 /** Combinações com conteúdo próprio — as únicas que entram no mapa do site. */
