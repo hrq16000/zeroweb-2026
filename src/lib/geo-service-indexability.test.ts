@@ -1,6 +1,7 @@
 import { describe, expect, it } from "bun:test";
 import { ALL_CITY_SLUGS } from "./geo-data";
 import { GEO_SERVICE_SLUGS } from "./services-data";
+import portfolioCatalog from "@/config/portfolio-catalog.json";
 import {
   getGeoServiceEvidence,
   isGeoServiceIndexable,
@@ -44,6 +45,25 @@ describe("indexabilidade cidade x servico", () => {
       expect(evidence.projects.length).toBeGreaterThan(0);
       expect(evidence.proofSummary.length).toBeGreaterThan(40);
       expect(getGeoServiceEvidence(evidence.citySlug, evidence.serviceSlug)).toEqual(evidence);
+    }
+  });
+  it("toda evidencia aponta para projeto publicado no catálogo", () => {
+    const catalog = portfolioCatalog as Array<{
+      slug: string;
+      status?: string;
+      city?: string;
+      projectType?: string;
+    }>;
+
+    for (const evidence of listIndexableGeoServicePairs()) {
+      for (const project of evidence.projects) {
+        const item = catalog.find((candidate) => candidate.slug === project.slug);
+        expect(item).toBeDefined();
+        expect(item?.status).toBe("published");
+        if (evidence.serviceSlug === "landing-pages") {
+          expect(item?.projectType).toBe("landing");
+        }
+      }
     }
   });
 });
