@@ -26,6 +26,8 @@ import {
   serviceNode,
 } from "@/lib/portfolio-seo";
 
+const SOCIAL_IMAGE = `${SITE_URL}/og-default.jpg`;
+
 export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
   loader: ({ params }) => {
     const segment = findPortfolioSegment(params.segmento);
@@ -54,6 +56,12 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
+        { property: "og:image", content: SOCIAL_IMAGE },
+        { property: "og:image:alt", content: `${segment.name} em ${place.name} · projetos 0WEB` },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: SOCIAL_IMAGE },
         { name: "geo.placename", content: `${place.name}, ${place.city}` },
         { name: "geo.position", content: `${place.geo[0]};${place.geo[1]}` },
       ],
