@@ -1,5 +1,8 @@
-name: Portfolio sitemap · GSC + IndexNow
+name: Portfolio sitemap · healthcheck
 
+# Os sinais de indexação são enviados no momento da publicação/despublicação
+# pelo próprio backend (syncPortfolioSitemapAndIndexing). Este workflow valida
+# apenas a camada pública de descoberta e não depende de segredo duplicado.
 on:
   push:
     branches: [main]
@@ -10,42 +13,44 @@ on:
       - "src/routes/sitemap-portfolio*.ts"
       - ".github/workflows/portfolio-sitemap-sync.yml"
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17 10 * * *"
   workflow_dispatch:
 
 jobs:
-  sync:
+  sitemap-health:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Atualizar sitemap dinâmico e enviar sinais de indexação
+      - name: Validar sitemap público de portfólios
         env:
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          SYNC_URL: https://0web.com.br/api/public/hooks/portfolio-sitemap-sync
           SITEMAP_URL: https://0web.com.br/sitemap-portfolio.xml
         run: |
           set -euo pipefail
 
-          # O sitemap público é a base de descoberta e deve estar saudável
-          # independentemente da integração autenticada de GSC/IndexNow.
+          TMP_FILE="$(mktemp)"
+          trap 'rm -f "$TMP_FILE"' EXIT
+
           for attempt in $(seq 1 20); do
-            if curl --fail --silent --show-error "$SITEMAP_URL" >/dev/null; then
+            if curl --fail --silent --show-error "$SITEMAP_URL" -o "$TMP_FILE"; then
               break
             fi
             if [ "$attempt" -eq 20 ]; then
-              echo "Sitemap não respondeu após a publicação" >&2
+              echo "::error title=Sitemap indisponível::sitemap-portfolio.xml não respondeu após 20 tentativas."
               exit 1
             fi
             sleep 15
           done
 
-          if [ -z "${CRON_SECRET:-}" ]; then
-            echo "::error title=Sincronização de indexação não executada::CRON_SECRET não está configurado. O sitemap respondeu, mas esta execução NÃO enviou sinais via hook GSC/IndexNow. Configure o secret ou remova o agendamento autenticado."
+          if ! grep -q '<urlset' "$TMP_FILE"; then
+            echo "::error title=Sitemap inválido::Resposta não contém <urlset>."
             exit 1
           fi
 
-          curl --fail --silent --show-error \
-            -X POST "$SYNC_URL" \
-            -H "x-cron-secret: $CRON_SECRET" \
-            -H "content-type: application/json" \
-            --data '{"slugs":[]}'
+          if ! grep -q '<loc>https://0web.com.br/portfolio' "$TMP_FILE"; then
+            echo "::error title=Descoberta de portfólio ausente::Nenhuma URL canônica de /portfolio foi encontrada."
+            exit 1
+          fi
+
+          COUNT="$(grep -o '<loc>[^<]*</loc>' "$TMP_FILE" | wc -l | tr -d ' ')"
+          echo "Sitemap saudável: $COUNT URLs publicadas."
+          echo "GSC/IndexNow são sincronizados transacionalmente pelo backend quando o estado de publicação muda."
