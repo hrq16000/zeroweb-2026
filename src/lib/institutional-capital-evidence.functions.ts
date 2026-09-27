@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { getCapital } from "@/lib/capitais";
+import { CAPITAIS, getCapital } from "@/lib/capitais";
 import {
   institutionalCapitalHasEvidence,
   institutionalProjectsForCapital,
@@ -15,3 +15,11 @@ export const getInstitutionalCapitalEvidence = createServerFn({ method: "GET" })
       projects: institutionalProjectsForCapital(capital),
     };
   });
+
+
+export const getInstitutionalCapitalIndexability = createServerFn({ method: "GET" })
+  .handler(async () => ({
+    slugs: CAPITAIS.filter((capital) => institutionalCapitalHasEvidence(capital)).map(
+      (capital) => capital.slug,
+    ),
+  }));
