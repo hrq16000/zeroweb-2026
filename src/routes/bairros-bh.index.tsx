@@ -6,12 +6,13 @@ import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
 import { BH_NEIGHBORHOODS } from "@/lib/bh-neighborhoods";
+import { localPlaceHasEvidence } from "@/lib/local-page-enrichment";
 
 export const Route = createFileRoute("/bairros-bh/")({
   head: () => {
     const url = `${ORIGIN}/bairros-bh`;
-    const title = "Agência de Marketing Digital em Belo Horizonte por Bairro | 0web";
-    const description = "A 0web atende empresas de 30+ bairros de Belo Horizonte. Veja a página do seu bairro: Savassi, Lourdes, Buritis, Pampulha e mais.";
+    const title = "Marketing digital para Belo Horizonte | 0web";
+    const description = "Atendimento remoto da 0WEB para Belo Horizonte, com páginas locais destacadas somente onde há projeto publicado que comprova a atuação.";
     return {
       meta: [
         { title },
@@ -19,8 +20,6 @@ export const Route = createFileRoute("/bairros-bh/")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
-        { name: "geo.region", content: "BR-MG" },
-        { name: "geo.placename", content: "Belo Horizonte" },
         { name: "robots", content: "index, follow, max-image-preview:large" },
       ],
       links: [{ rel: "canonical", href: url }],
@@ -44,7 +43,10 @@ export const Route = createFileRoute("/bairros-bh/")({
 });
 
 function HubPage() {
-  const byRegion = BH_NEIGHBORHOODS.reduce<Record<string, typeof BH_NEIGHBORHOODS>>((acc, n) => {
+  const evidenced = BH_NEIGHBORHOODS.filter((place) =>
+    localPlaceHasEvidence({ ...place, city: "Belo Horizonte" }),
+  );
+  const byRegion = evidenced.reduce<Record<string, typeof BH_NEIGHBORHOODS>>((acc, n) => {
     (acc[n.region] ||= []).push(n);
     return acc;
   }, {});
@@ -59,7 +61,7 @@ function HubPage() {
             Marketing Digital em <span className="text-gradient">Belo Horizonte</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            Sua empresa onde seus clientes estão. Atendimento especializado em mais de 30 bairros de BH — escolha o seu.
+            Atendimento remoto para Belo Horizonte. As páginas abaixo são destacadas porque já possuem projeto publicado com localização comprovada.
           </p>
           <p className="mt-3 text-sm">
             <Link to="/areas-de-atendimento" className="text-primary font-semibold hover:underline">
