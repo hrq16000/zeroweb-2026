@@ -9,7 +9,7 @@ import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motio
 
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
-  ["01", "Plotagem de móveis", "Portas e frentes renovadas com película aplicada em obra limpa, sem barulho e sem quebra.", "Móveis"],
+  ["01", "Plotagem de móveis", "Película aplicada sobre superfícies compatíveis para renovar portas e frentes sem substituir o móvel.", "Móveis"],
   ["02", "Envelopamento de geladeiras", "Renovação visual de geladeiras com películas, cores, estampas e acabamentos escolhidos conforme o projeto.", "Eletros"],
   ["03", "Comunicação visual", "Adesivos para paredes, portas e automóveis, além de lonas, banners e perfurados.", "Ambientes"],
   ["04", "Criação de artes", "Logotipos e artes personalizadas para dar unidade à comunicação da marca.", "Marca"],
@@ -51,7 +51,7 @@ export function PremiumEnvelopamentosPage() {
             <p className="max-w-2xl text-lg leading-8 text-[#b9d0e6]">
               <ManagedText
                 field="heroSubheadline"
-                fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com aplica\u00e7\u00e3o limpa, cores atuais e acabamento profissional em Curitiba e regi\u00e3o."}
+                fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com pel\u00edculas, cores e acabamentos definidos conforme o projeto em Curitiba e regi\u00e3o."}
               />
             </p>
             <dl className="grid grid-cols-2 gap-4 text-sm md:justify-items-end">
@@ -107,7 +107,7 @@ export function PremiumEnvelopamentosPage() {
             <MotionImageReveal direction="up">
             <PortfolioImage
               src="/images/premium-envelopamentos/galeria-oficina.png"
-              alt="Plotagem de móveis em oficina limpa e moderna"
+              alt="Referência visual de aplicação de envelopamento em móveis"
               width={1536}
               height={1024}
               className="aspect-[16/9] w-full rounded-none object-cover"
@@ -117,8 +117,8 @@ export function PremiumEnvelopamentosPage() {
               <p className="text-xs font-bold uppercase tracking-[.32em] text-[#49d6f3]">Como é feito</p>
               <h2 className="mt-3 text-3xl font-black">Preparo, corte e aplicação no mesmo fluxo.</h2>
               <p className="mt-4 leading-7 text-white/75">
-                A superfície é limpa e nivelada antes da película. O corte é ajustado à peça e o acabamento é conferido
-                borda a borda — sem poeira, sem cheiro forte e sem parar o ambiente por dias.
+                A aplicação começa pela avaliação da superfície, limpeza e preparação da peça. O corte é ajustado ao formato e o acabamento é conferido
+                borda a borda. Medidas, estado da superfície e tipo de película influenciam o escopo e devem ser confirmados no orçamento.
               </p>
               <a
                 href="https://www.instagram.com/premiumenvelopamentos"
@@ -147,8 +147,8 @@ export function PremiumEnvelopamentosPage() {
                 </p>
                 <p>
                   Para um orçamento mais preciso, informe no funil qual superfície você pretende renovar,
-                  a cidade de atendimento e os detalhes do projeto. Assim a solicitação chega contextualizada
-                  antes do retorno comercial.
+                  a cidade de atendimento, medidas aproximadas, fotos do estado atual e uma referência do acabamento desejado.
+                  Assim a solicitação chega contextualizada antes do retorno comercial.
                 </p>
               </div>
               <div className="border-l-4 border-[#49d6f3] bg-white p-6 shadow-sm">
