@@ -47,4 +47,15 @@ describe("gate de indexacao do portfolio programatico", () => {
     expect(route).not.toContain('name: "geo.placename"');
     expect(route).not.toContain('name: "geo.position"');
   });
+
+  it("não mantém promessas comerciais sem contrato na página regional", () => {
+    const route = readFileSync(
+      resolve(process.cwd(), "src/routes/portfolio.$segmento.$bairro.tsx"),
+      "utf8",
+    );
+
+    expect(route).not.toContain("Até 90 dias para começar a pagar");
+    expect(route).not.toContain("prazo e valor na hora");
+    expect(route).not.toContain("sites que trazem clientes do bairro");
+  });
 });
