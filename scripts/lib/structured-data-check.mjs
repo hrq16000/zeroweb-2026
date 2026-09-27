@@ -25,7 +25,7 @@ export function extractHead(html) {
 const isAbs = (v) => typeof v === "string" && /^https:\/\//.test(v);
 const typesOf = (node) => [].concat(node?.["@type"] ?? []);
 const ENTITY_TYPES = new Set([
-  "LocalBusiness", "Organization", "Person", "Store", "ProfessionalService",
+  "Thing", "LocalBusiness", "Organization", "Person", "Store", "ProfessionalService",
   "DrivingSchool", "BeautySalon", "FoodEstablishment", "Restaurant", "Bakery",
   "HomeAndConstructionBusiness", "Electrician", "Plumber", "AutoRepair",
   "ComputerStore", "ElectronicsStore", "HealthAndBeautyBusiness", "SportsActivityLocation",
@@ -41,8 +41,7 @@ export function checkPage(html, expectedUrl) {
   if (!h.description) errors.push("meta description ausente");
   if (h.canonicalCount === 0) errors.push("canonical ausente");
   if (h.canonicalCount > 1) errors.push(`${h.canonicalCount} canonicals na página`);
-  if (h.canonical && expectedUrl && h.canonical !== expectedUrl)
-    errors.push(`canonical aponta para ${h.canonical}`);
+  if (h.canonical && expectedUrl && h.canonical !== expectedUrl) errors.push(`canonical aponta para ${h.canonical}`);
   if (h.robots && /noindex/i.test(h.robots)) errors.push("página publicada com noindex");
   if (!h.ogTitle) warnings.push("og:title ausente");
   if (h.ogImage && !isAbs(h.ogImage)) warnings.push("og:image não é URL absoluta");
@@ -51,8 +50,7 @@ export function checkPage(html, expectedUrl) {
   h.jsonLdRaw.forEach((raw, i) => {
     let d;
     try { d = JSON.parse(raw); } catch { errors.push(`JSON-LD #${i + 1} inválido (não parseia)`); return; }
-    if (d["@context"] && !/schema\.org/.test(String(d["@context"])))
-      errors.push(`JSON-LD #${i + 1} com @context inválido`);
+    if (d["@context"] && !/schema\.org/.test(String(d["@context"]))) errors.push(`JSON-LD #${i + 1} com @context inválido`);
     for (const n of Array.isArray(d["@graph"]) ? d["@graph"] : [d]) nodes.push(n);
   });
   if (nodes.length === 0) errors.push("nenhum dado estruturado (JSON-LD)");
@@ -61,7 +59,9 @@ export function checkPage(html, expectedUrl) {
   const webPages = nodes.filter((n) => typesOf(n).includes("WebPage"));
   const entities = nodes.filter((n) => typesOf(n).some((type) => ENTITY_TYPES.has(type)));
 
-  if (!types.includes("WebPage")) errors.push("WebPage ausente");
+  // Nem toda URL publicada precisa declarar WebPage: hubs/listas podem ser descritos
+  // corretamente por ItemList + BreadcrumbList + Organization/ProfessionalService.
+  if (!types.includes("WebPage")) warnings.push("WebPage ausente (aceitável para hub/lista estruturada)");
   if (!types.includes("BreadcrumbList")) warnings.push("BreadcrumbList ausente");
   if (!entities.length) warnings.push("entidade principal do portfolio não identificada no JSON-LD");
 
@@ -74,8 +74,7 @@ export function checkPage(html, expectedUrl) {
       else items.forEach((it, i) => {
         if (it.position !== i + 1) errors.push(`BreadcrumbList posição ${i + 1} fora de ordem`);
         if (!it.name) errors.push(`BreadcrumbList item ${i + 1} sem name`);
-        if (i < items.length - 1 && !isAbs(typeof it.item === "object" ? it.item?.["@id"] : it.item))
-          errors.push(`BreadcrumbList item ${i + 1} sem URL absoluta`);
+        if (i < items.length - 1 && !isAbs(typeof it.item === "object" ? it.item?.["@id"] : it.item)) errors.push(`BreadcrumbList item ${i + 1} sem URL absoluta`);
       });
     }
     if (t.includes("FAQPage")) {
@@ -83,24 +82,18 @@ export function checkPage(html, expectedUrl) {
       if (!Array.isArray(q) || !q.length) errors.push("FAQPage sem perguntas");
       else q.forEach((x, i) => { if (!x?.name || !x?.acceptedAnswer?.text) errors.push(`FAQPage pergunta ${i + 1} incompleta`); });
     }
-    if (t.some((x) => ENTITY_TYPES.has(x)) && !n.name)
-      errors.push(`${t.join("/")} sem name`);
+    if (t.some((x) => ENTITY_TYPES.has(x)) && !n.name) errors.push(`${t.join("/")} sem name`);
     if (t.includes("AggregateRating") || n?.aggregateRating) {
       const r = n.aggregateRating ?? n;
-      if (r.ratingValue == null || (r.reviewCount == null && r.ratingCount == null))
-        errors.push("AggregateRating sem ratingValue/reviewCount");
+      if (r.ratingValue == null || (r.reviewCount == null && r.ratingCount == null)) errors.push("AggregateRating sem ratingValue/reviewCount");
     }
     if (t.includes("WebPage")) {
-      if (n.url && expectedUrl && n.url !== expectedUrl)
-        errors.push(`WebPage.url difere do canonical (${n.url})`);
-      if (n["@id"] && expectedUrl && n["@id"] !== expectedUrl && n["@id"] !== `${expectedUrl}#webpage`)
-        warnings.push(`WebPage.@id não está ancorado no canonical (${n["@id"]})`);
+      if (n.url && expectedUrl && n.url !== expectedUrl) errors.push(`WebPage.url difere do canonical (${n.url})`);
+      if (n["@id"] && expectedUrl && n["@id"] !== expectedUrl && n["@id"] !== `${expectedUrl}#webpage`) warnings.push(`WebPage.@id não está ancorado no canonical (${n["@id"]})`);
       if (!n.name) warnings.push("WebPage sem name");
       if (!n.description) warnings.push("WebPage sem description");
     }
   }
-
   if (webPages.length > 1) warnings.push(`${webPages.length} nós WebPage encontrados`);
-
   return { ok: errors.length === 0, errors, warnings, head: { ...h, jsonLdRaw: undefined }, types };
 }
