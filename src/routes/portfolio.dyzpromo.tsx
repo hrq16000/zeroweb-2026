@@ -27,6 +27,8 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
     links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: TOUCH_ICON }],
