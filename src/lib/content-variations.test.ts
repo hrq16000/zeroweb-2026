@@ -3,6 +3,7 @@ import { CITIES } from "./geo-data";
 import { GEO_SERVICE_SLUGS, SERVICES } from "./services-data";
 import {
   cityFaq,
+  combinedFaq,
   heroSubtitle,
   localContext,
   pageDescription,
@@ -40,7 +41,7 @@ describe("copy factual de cidade x serviço", () => {
           pageDescription(city, service),
           heroSubtitle(city, service),
           localContext(city, service),
-          ...cityFaq(city, service).flatMap((item) => [item.q, item.a]),
+          ...combinedFaq(city, service).flatMap((item) => [item.q, item.a]),
         ]
           .join(" ")
           .toLowerCase();
