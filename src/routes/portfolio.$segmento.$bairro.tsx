@@ -43,7 +43,7 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
     const path = portfolioComboPath(segment.slug, place.slug);
     const url = `${SITE_URL}${path}`;
     const title = `${segment.name} em ${place.name}, ${place.city} · Criação de Sites 0WEB`;
-    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. Veja projetos reais, entregáveis e condições com até 90 dias para começar a pagar.`;
+    const description = `Criação de site profissional para ${segment.name.toLowerCase()} em ${place.name} (${place.city}/${place.state}): ${segment.intent}. Veja projetos reais, entregáveis e como funciona o atendimento remoto da 0WEB.`;
     return {
       meta: [
         { title },
