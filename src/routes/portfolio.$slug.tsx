@@ -1048,6 +1048,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           hubs: [],
                           showcases: [],
                           deliverables: vertical.services.map((service) => service.title),
+                          catalogSegments: [],
+                          businessTypes: [],
                         }),
                         "@id": `${url}#service`,
                         url,
