@@ -14,7 +14,7 @@ describe("indexabilidade cidade x servico", () => {
     );
     const indexable = allPairs.filter(({ city, service }) => isGeoServiceIndexable(city, service));
 
-    expect(allPairs).toHaveLength(72);
+    expect(allPairs).toHaveLength(80);
     expect(indexable).toEqual([
       { city: "curitiba", service: "criacao-de-sites" },
       { city: "curitiba", service: "landing-pages" },
