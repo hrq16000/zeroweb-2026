@@ -37,6 +37,13 @@ describe("gate de indexacao do portfolio programatico", () => {
     const segment = required(findPortfolioSegment("marido-de-aluguel"), "segmento marido-de-aluguel");
     expect(segment.projectSlugs).toEqual(["marido-de-aluguel"]);
   });
+
+  it("mantém a 0WEB como provedora de presença digital, não do serviço do cliente", () => {
+    const segment = required(findPortfolioSegment("marido-de-aluguel"), "segmento marido-de-aluguel");
+    expect(segment.keyword).toContain("site");
+    expect(segment.deliverables.join(" ").toLowerCase()).not.toContain("reparos hidráulicos");
+    expect(segment.deliverables.join(" ").toLowerCase()).not.toContain("pintura e acabamento");
+  });
   it("não publica endereço ou geo da 0WEB no bairro", () => {
     const route = readFileSync(
       resolve(process.cwd(), "src/routes/portfolio.$segmento.$bairro.tsx"),
