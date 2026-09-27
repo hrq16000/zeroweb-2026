@@ -108,7 +108,9 @@ function BairroPage() {
   const steps = localProcessSteps(place);
   const projects = localPublishedProjectsAtPlace(place);
   const faq = localFaq(place);
-  const nearby = nearbyBHNeighborhoods(n.slug, 6);
+  const nearby = nearbyBHNeighborhoods(n.slug, 30)
+    .filter((item) => localPlaceHasEvidence(placeOf(item)))
+    .slice(0, 6);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
