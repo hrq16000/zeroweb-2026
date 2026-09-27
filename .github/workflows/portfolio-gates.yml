@@ -82,13 +82,53 @@ jobs:
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
 
+      - name: Detectar impacto em funis e portfólio interativo
+        id: portfolio-runtime-scope
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+
+          # Falha aberta: se não conseguimos determinar o diff, roda os E2Es.
+          RUN=true
+          if [ -n "$FILES" ]; then
+            RUN=false
+            if printf '%s\n' "$FILES" | grep -Eq '^(src/components/funnel/|src/components/site/(WaFunnelModal|WhatsAppFloat|Header)\.tsx$|src/lib/(funnel|wa-|whatsapp|portfolio-funnel)|src/routes/(portfolio\.\$slug\.tsx$|api/whatsapp-redirect|api/public/.*funnel)|src/config/portfolio|scripts/.*portfolio-(popup|funnels)|package\.json$|bun\.lock$)'; then
+              RUN=true
+            fi
+          fi
+
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+          echo "impacto em funis/portfólio interativo: $RUN"
+
       - name: Pop-up único em /portfolio/$slug
+        if: steps.portfolio-runtime-scope.outputs.run == 'true'
+        timeout-minutes: 20
         env:
           POPUP_CONCURRENCY: 4
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
+        if: steps.portfolio-runtime-scope.outputs.run == 'true'
+        timeout-minutes: 20
         env:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
