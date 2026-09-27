@@ -12,6 +12,7 @@ import { CITIES, relatedCities, type CityInfo } from "@/lib/geo-data";
 import { SERVICES, GEO_SERVICE_SLUGS, relatedServices, type ServiceData } from "@/lib/services-data";
 import { heroSubtitle, localContext, combinedFaq, pageTitle, pageDescription } from "@/lib/content-variations";
 import { cases } from "@/lib/cases-data";
+import { getGeoServiceEvidence, isGeoServiceIndexable } from "@/lib/geo-service-indexability";
 
 const GEO_SET = new Set(GEO_SERVICE_SLUGS);
 
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/$city/$service")({
     service: SERVICES[params.service] as ServiceData,
     citySlug: params.city,
     serviceSlug: params.service,
+    evidence: getGeoServiceEvidence(params.city, params.service),
   }),
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "0WEB" }] };
@@ -39,6 +41,12 @@ export const Route = createFileRoute("/$city/$service")({
         { title },
         { name: "description", content: desc },
         { name: "keywords", content: [...service.keywords, city.name, city.state, city.stateCode].join(", ") },
+        {
+          name: "robots",
+          content: loaderData.evidence
+            ? "index,follow,max-image-preview:large"
+            : "noindex,follow",
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
@@ -71,26 +79,6 @@ export const Route = createFileRoute("/$city/$service")({
                   addressCountry: "BR",
                 },
                 provider: ORG_REF,
-              },
-              {
-                "@type": "LocalBusiness",
-                "@id": `${url}#localbusiness`,
-                name: `0WEB · ${service.name} em ${city.name}`,
-                url,
-                priceRange: "$$",
-                areaServed: {
-                  "@type": "City",
-                  name: city.name,
-                  addressRegion: city.state,
-                  addressCountry: "BR",
-                },
-                geo: { "@type": "GeoCoordinates", latitude: city.lat, longitude: city.lng },
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: city.name,
-                  addressRegion: city.state,
-                  addressCountry: "BR",
-                },
               },
               {
                 "@type": "FAQPage",
@@ -126,13 +114,17 @@ export const Route = createFileRoute("/$city/$service")({
 });
 
 function GeoPage() {
-  const { city, service, citySlug, serviceSlug } = Route.useLoaderData();
+  const { city, service, citySlug, serviceSlug, evidence } = Route.useLoaderData();
   const { open: openFunnel } = useWaFunnel();
   const subtitle = heroSubtitle(city, service);
   const context = localContext(city, service);
   const faq = combinedFaq(city, service);
-  const related = relatedCities(city.slug, 6);
-  const relatedSvcs = relatedServices(service.slug, 4).filter((s) => GEO_SET.has(s.slug));
+  const related = relatedCities(city.slug, 6).filter((candidate) =>
+    isGeoServiceIndexable(candidate.slug, service.slug),
+  );
+  const relatedSvcs = relatedServices(service.slug, 4).filter(
+    (candidate) => GEO_SET.has(candidate.slug) && isGeoServiceIndexable(city.slug, candidate.slug),
+  );
   const localCase = cases.find((c) => c.city?.toLowerCase().includes(city.name.toLowerCase().split(" ")[0]));
 
   return (
@@ -151,7 +143,7 @@ function GeoPage() {
         <section className="py-16 bg-hero">
           <div className="mx-auto max-w-5xl px-5 lg:px-8 text-center">
             <p className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary font-semibold">
-              <MapPin className="w-3.5 h-3.5" /> Atendemos em {city.name} · {city.stateCode}
+              <MapPin className="w-3.5 h-3.5" /> Atendimento remoto para {city.name} · {city.stateCode}
             </p>
             <h1 className="mt-3 text-4xl lg:text-6xl font-bold tracking-tight">
               {service.name} em <span className="text-gradient">{city.name}</span>
@@ -180,6 +172,31 @@ function GeoPage() {
             </p>
           </div>
         </section>
+
+        {evidence && (
+          <section className="py-14 bg-muted/20">
+            <div className="mx-auto max-w-4xl px-5 lg:px-8">
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold">Prova local publicada</p>
+              <h2 className="mt-2 text-2xl lg:text-3xl font-bold">
+                Projetos reais que sustentam esta página em {city.name}
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">{evidence.proofSummary}</p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {evidence.projects.map((project) => (
+                  <Link
+                    key={project.slug}
+                    to="/portfolio/$slug"
+                    params={{ slug: project.slug }}
+                    className="rounded-2xl border border-border bg-card p-4 font-semibold hover:border-primary transition-colors"
+                  >
+                    {project.title}
+                    <span className="mt-1 block text-xs font-normal text-muted-foreground">Ver projeto publicado</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* PROBLEMS */}
         <section className="py-12 bg-muted/30">
