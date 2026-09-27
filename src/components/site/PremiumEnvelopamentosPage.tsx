@@ -6,6 +6,7 @@ import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { PREMIUM_ENVELOPAMENTOS_FAQ } from "@/components/site/premium-envelopamentos-content";
 
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
@@ -134,7 +135,7 @@ export function PremiumEnvelopamentosPage() {
 
         <section className="px-5 py-16 lg:px-8" aria-labelledby="premium-aplicacoes">
           <div className="mx-auto max-w-6xl">
-            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f06a24]">Aplicações e escolha do projeto</p>
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#9a3d12]">Aplicações e escolha do projeto</p>
             <h2 id="premium-aplicacoes" className="mt-3 max-w-3xl text-3xl font-black uppercase tracking-[-.01em] sm:text-4xl">
               Envelopamento para renovar superfícies sem trocar o que ainda funciona.
             </h2>
@@ -146,9 +147,9 @@ export function PremiumEnvelopamentosPage() {
                   A escolha de cor, estampa e acabamento depende do item, das medidas e do resultado desejado.
                 </p>
                 <p>
-                  Para um orçamento mais preciso, informe no funil qual superfície você pretende renovar,
-                  a cidade de atendimento, medidas aproximadas, fotos do estado atual e uma referência do acabamento desejado.
-                  Assim a solicitação chega contextualizada antes do retorno comercial.
+                  Para iniciar o orçamento, use o funil para escolher o tipo de serviço, o formato do atendimento e o prazo desejado.
+                  Nome e WhatsApp permitem a continuidade da conversa; medidas, fotos, endereço e acabamento desejado são confirmados
+                  no atendimento quando forem necessários para avaliar o projeto.
                 </p>
               </div>
               <div className="border-l-4 border-[#49d6f3] bg-white p-6 shadow-sm">
@@ -169,15 +170,10 @@ export function PremiumEnvelopamentosPage() {
             <p className="text-xs font-bold uppercase tracking-[.28em] text-[#0a2b5e]">Dúvidas frequentes</p>
             <h2 id="premium-faq" className="mt-3 text-3xl font-black uppercase sm:text-4xl">Antes de solicitar o orçamento</h2>
             <div className="mt-8 grid gap-px overflow-hidden border border-[#cfdce9] bg-[#cfdce9] md:grid-cols-2">
-              {[
-                ["A Premium atende Curitiba e região?", "A página de atendimento da Premium Envelopamentos é direcionada a Curitiba e região. Informe sua cidade no funil para confirmar a disponibilidade para o endereço do projeto."],
-                ["Quais itens podem receber envelopamento?", "O portfólio apresenta aplicações em móveis, geladeiras e outras superfícies, além de soluções de comunicação visual. A compatibilidade final depende do material e do estado da superfície."],
-                ["O envelopamento exige obra civil?", "O serviço é baseado na aplicação de película ou material adesivo sobre uma superfície preparada. Não é uma reforma estrutural; eventuais reparos prévios dependem das condições do item."],
-                ["Como pedir um orçamento?", "Use o botão de orçamento e descreva o item, o tipo de aplicação desejada e a localização. Essas informações ajudam a orientar o atendimento sem expor contato direto na página."],
-              ].map(([question, answer]) => (
-                <article key={question} className="bg-white p-6">
-                  <h3 className="text-lg font-black text-[#071d41]">{question}</h3>
-                  <p className="mt-3 leading-7 text-[#46617c]">{answer}</p>
+              {PREMIUM_ENVELOPAMENTOS_FAQ.map((faq) => (
+                <article key={faq.q} className="bg-white p-6">
+                  <h3 className="text-lg font-black text-[#071d41]">{faq.q}</h3>
+                  <p className="mt-3 leading-7 text-[#46617c]">{faq.a}</p>
                 </article>
               ))}
             </div>
