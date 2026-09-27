@@ -134,5 +134,7 @@ describe("SEO universal dos portfolios", () => {
     expect(route).toContain("portfolioUniversalKeywords");
     expect(route).toContain('property: "og:locale"');
     expect(route).toContain('hrefLang: "pt-BR"');
+    expect(route).not.toContain("serviceNode({");
+    expect(route).not.toContain('"@id": `${url}#service`');
   });
 });
