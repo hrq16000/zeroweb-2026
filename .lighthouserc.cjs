@@ -17,16 +17,11 @@ const TARGET_URL = IS_PULL_REQUEST
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
-const LIGHTHOUSE_SCOPE = process.env.LHCI_SCOPE || "full";
-const regionalUrls =
-  LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
-    ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
-    : [];
-const portfolioUrls = LIGHTHOUSE_SCOPE === "regional" ? [] : clients
+const portfolioUrls = clients
   .filter((_, index) => index % shardCount === shardIndex)
   .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
-  LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
+  shardIndex === 0
     ? [
         `${TARGET_URL}/`,
         `${TARGET_URL}/blog`,
@@ -40,7 +35,7 @@ const commonUrls =
 module.exports = {
   ci: {
     collect: {
-      url: [...regionalUrls, ...commonUrls, ...portfolioUrls],
+      url: [...commonUrls, ...portfolioUrls],
       ...(IS_PULL_REQUEST
         ? {
             // PR mede o artefato da própria branch, não a produção anterior.
