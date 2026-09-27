@@ -306,35 +306,37 @@ function GeoPage() {
           </section>
         )}
 
-        {/* INTERLINKS — same service in related cities */}
-        <section className="py-16 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-              {service.name} em outras cidades do Brasil
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {related.map((c) => (
-                <Link
-                  key={c.slug}
-                  to="/$city/$service"
-                  params={{ city: c.slug, service: serviceSlug }}
-                  className="flex items-center justify-between p-4 rounded-2xl border border-border bg-card hover:border-primary transition-colors"
-                >
-                  <div>
-                    <p className="font-semibold">{service.name} em {c.name}</p>
-                    <p className="text-xs text-muted-foreground">{c.state} · {c.region}</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-primary" />
-                </Link>
-              ))}
+        {/* INTERLINKS — same service in related cities, somente quando há prova indexável */}
+        {related.length > 0 && (
+          <section className="py-16 bg-muted/30">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+                {service.name} em outras cidades do Brasil
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {related.map((candidate) => (
+                  <Link
+                    key={candidate.slug}
+                    to="/$city/$service"
+                    params={{ city: candidate.slug, service: serviceSlug }}
+                    className="flex items-center justify-between p-4 rounded-2xl border border-border bg-card hover:border-primary transition-colors"
+                  >
+                    <div>
+                      <p className="font-semibold">{service.name} em {candidate.name}</p>
+                      <p className="text-xs text-muted-foreground">{candidate.state} · {candidate.region}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-primary" />
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6 text-sm">
+                <Link to="/cidades" className="text-primary story-link">Ver todas as cidades atendidas</Link>
+                {" · "}
+                <Link to="/servicos" className="text-primary story-link">Ver todos os serviços</Link>
+              </div>
             </div>
-            <div className="mt-6 text-sm">
-              <Link to="/cidades" className="text-primary story-link">Ver todas as cidades atendidas</Link>
-              {" · "}
-              <Link to="/servicos" className="text-primary story-link">Ver todos os serviços</Link>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <CTA />
       </main>
