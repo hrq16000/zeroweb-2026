@@ -1,111 +1,18 @@
 #!/usr/bin/env node
-/**
- * Gate estático da malha interna universal de /portfolio.
- *
- * Objetivo: impedir que um portfolio publicado fique semanticamente órfão.
- * A fonte de verdade é a mesma usada pelo runtime: portfolio-catalog.json.
- * O ranking replica apenas os critérios estruturais do resolvedor universal,
- * sem criar conteúdo, localidade ou afinidade que não estejam no catálogo.
- */
+/** Gate estático da malha interna universal de /portfolio. */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-
 const catalog = JSON.parse(await readFile("src/config/portfolio-catalog.json", "utf8"));
 const PUBLIC_STATUSES = new Set(["published", "approved"]);
 const GENERIC_PLACES = new Set(["", "brasil", "região a confirmar", "regiao a confirmar"]);
 const LIMIT = 6;
-
-const clean = (value) => typeof value === "string" ? value.trim() : "";
-const normalize = (value = "") => clean(value)
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, " ")
-  .trim();
-const tags = (value) => Array.isArray(value)
-  ? [...new Set(value.map((item) => normalize(String(item ?? ""))).filter(Boolean))]
-  : [];
-const usefulPlace = (value) => !GENERIC_PLACES.has(normalize(value));
-
-const items = catalog
-  .filter((item) => PUBLIC_STATUSES.has(item.status ?? "") && item.live !== false)
-  .map((item) => ({
-    slug: clean(item.slug),
-    title: clean(item.title),
-    segment: clean(item.segment),
-    city: clean(item.city),
-    state: clean(item.state),
-    projectType: clean(item.projectType),
-    tags: tags(item.tags),
-  }));
-
-function score(current, candidate) {
-  let value = 0;
-  if (current.segment && normalize(current.segment) === normalize(candidate.segment)) value += 8;
-  if (usefulPlace(current.city) && usefulPlace(candidate.city) && normalize(current.city) === normalize(candidate.city)) value += 7;
-  if (current.state && normalize(current.state) === normalize(candidate.state)) value += 2;
-  const currentTags = new Set(current.tags);
-  value += Math.min(8, candidate.tags.filter((tag) => currentTags.has(tag)).length * 2);
-  if (current.projectType && normalize(current.projectType) === normalize(candidate.projectType)) value += 1;
-  return value;
-}
-
-function related(current) {
-  const ranked = items
-    .filter((candidate) => candidate.slug !== current.slug)
-    .map((candidate) => ({ slug: candidate.slug, score: score(current, candidate) }))
-    .sort((a, b) => b.score - a.score || a.slug.localeCompare(b.slug, "pt-BR"));
-  const strong = ranked.filter((candidate) => candidate.score >= 3);
-  if (strong.length >= LIMIT) return strong.slice(0, LIMIT);
-  const selected = new Map(strong.map((item) => [item.slug, item]));
-  for (const item of ranked) {
-    if (selected.size >= LIMIT) break;
-    if (!selected.has(item.slug)) selected.set(item.slug, item);
-  }
-  return [...selected.values()].slice(0, LIMIT);
-}
-
-const outgoing = new Map(items.map((item) => [item.slug, related(item)]));
-const incoming = new Map(items.map((item) => [item.slug, []]));
-for (const [source, links] of outgoing) {
-  for (const link of links) incoming.get(link.slug)?.push(source);
-}
-
-const rows = items.map((item) => {
-  const out = outgoing.get(item.slug) ?? [];
-  const inbound = incoming.get(item.slug) ?? [];
-  return {
-    slug: item.slug,
-    outgoing: out.length,
-    strongOutgoing: out.filter((link) => link.score >= 3).length,
-    incoming: inbound.length,
-    incomingFrom: inbound,
-  };
-});
-
-const failures = [];
-const slugSet = new Set(items.map((item) => item.slug));
-if (slugSet.size !== items.length) failures.push("slugs publicados duplicados no catálogo");
-for (const item of items) {
-  if (!item.slug || !item.title) failures.push(`${item.slug || "<sem-slug>"}: slug/title ausente`);
-}
-for (const row of rows) {
-  if (row.outgoing !== Math.min(LIMIT, Math.max(0, items.length - 1))) failures.push(`${row.slug}: possui ${row.outgoing} links de saída`);
-  if (row.incoming === 0) failures.push(`${row.slug}: portfolio órfão, sem backlink interno de outro portfolio`);
-}
-
-const report = {
-  generatedAt: new Date().toISOString(),
-  totalPublished: items.length,
-  orphanCount: rows.filter((row) => row.incoming === 0).length,
-  minIncoming: rows.length ? Math.min(...rows.map((row) => row.incoming)) : 0,
-  maxIncoming: rows.length ? Math.max(...rows.map((row) => row.incoming)) : 0,
-  rows,
-};
-await mkdir("seo-reports", { recursive: true });
-await writeFile("seo-reports/portfolio-internal-link-graph-latest.json", `${JSON.stringify(report, null, 2)}\n`);
-
-console.log(`[portfolio-link-graph] ${items.length} publicados · ${report.orphanCount} órfão(s) · inbound min/max ${report.minIncoming}/${report.maxIncoming}`);
-if (failures.length) {
-  for (const failure of failures) console.error(` - ${failure}`);
-  process.exit(1);
-}
+const clean = (v) => typeof v === "string" ? v.trim() : "";
+const normalize = (v = "") => clean(v).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const tags = (v) => Array.isArray(v) ? [...new Set(v.map((x) => normalize(String(x ?? ""))).filter(Boolean))] : [];
+const usefulPlace = (v) => !GENERIC_PLACES.has(normalize(v));
+const items = catalog.filter((x) => PUBLIC_STATUSES.has(x.status ?? "") && x.live !== false).map((x) => ({ slug: clean(x.slug), title: clean(x.title), segment: clean(x.segment), city: clean(x.city), state: clean(x.state), projectType: clean(x.projectType), tags: tags(x.tags) }));
+function score(a,b){let s=0;if(a.segment&&b.segment&&normalize(a.segment)===normalize(b.segment))s+=8;if(usefulPlace(a.city)&&usefulPlace(b.city)&&normalize(a.city)===normalize(b.city))s+=7;if(a.state&&b.state&&normalize(a.state)===normalize(b.state))s+=2;const at=new Set(a.tags.map(normalize));s+=Math.min(8,b.tags.filter(t=>at.has(normalize(t))).length*2);if(a.projectType&&b.projectType&&normalize(a.projectType)===normalize(b.projectType))s+=1;return s;}
+function related(current){const ranked=items.filter(c=>c.slug!==current.slug).map(c=>({...c,score:score(current,c)})).sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title,"pt-BR"));const strong=ranked.filter(c=>c.score>=3);if(strong.length>=LIMIT)return strong.slice(0,LIMIT);const selected=new Map(strong.map(i=>[i.slug,i]));for(const item of ranked){if(selected.size>=LIMIT)break;if(!selected.has(item.slug))selected.set(item.slug,item);}return [...selected.values()].slice(0,LIMIT);}
+const outgoing=new Map(items.map(i=>[i.slug,related(i)]));const incoming=new Map(items.map(i=>[i.slug,[]]));for(const [source,links] of outgoing)for(const link of links)incoming.get(link.slug)?.push(source);
+const rows=items.map(i=>({slug:i.slug,outgoing:(outgoing.get(i.slug)??[]).length,strongOutgoing:(outgoing.get(i.slug)??[]).filter(x=>x.score>=3).length,incoming:(incoming.get(i.slug)??[]).length,incomingFrom:incoming.get(i.slug)??[]}));
+const failures=[];if(new Set(items.map(i=>i.slug)).size!==items.length)failures.push("slugs publicados duplicados no catálogo");for(const i of items)if(!i.slug||!i.title)failures.push(`${i.slug||"<sem-slug>"}: slug/title ausente`);for(const r of rows){if(r.outgoing!==Math.min(LIMIT,Math.max(0,items.length-1)))failures.push(`${r.slug}: possui ${r.outgoing} links de saída`);if(r.incoming===0)failures.push(`${r.slug}: portfolio órfão, sem backlink interno de outro portfolio`);}
+const report={generatedAt:new Date().toISOString(),totalPublished:items.length,orphanCount:rows.filter(r=>r.incoming===0).length,minIncoming:rows.length?Math.min(...rows.map(r=>r.incoming)):0,maxIncoming:rows.length?Math.max(...rows.map(r=>r.incoming)):0,rows};await mkdir("seo-reports",{recursive:true});await writeFile("seo-reports/portfolio-internal-link-graph-latest.json",`${JSON.stringify(report,null,2)}\n`);console.log(`[portfolio-link-graph] ${items.length} publicados · ${report.orphanCount} órfão(s) · inbound min/max ${report.minIncoming}/${report.maxIncoming}`);if(failures.length){for(const f of failures)console.error(` - ${f}`);process.exit(1);}console.log("[portfolio-link-graph] OK — nenhum portfolio publicado ficou órfão.");
