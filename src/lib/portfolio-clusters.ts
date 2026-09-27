@@ -22,11 +22,11 @@ export type PortfolioSegment = {
   showcases: { path: string; label: string }[];
   deliverables: string[];
   /** Segmentos reais aceitos no catálogo de portfólios. */
-  catalogSegments: string[];
+  catalogSegments?: string[];
   /** Restringe o match a projetos específicos quando o cluster é mais estreito que o segmento do catálogo. */
   projectSlugs?: string[];
   /** Tipos de negócio coerentes com o segmento, usados na copy programática. */
-  businessTypes: string[];
+  businessTypes?: string[];
 };
 
 export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
@@ -204,7 +204,7 @@ export function portfolioProjectsAtPlace(place: PortfolioPlace) {
 }
 
 export function portfolioProjectMatchesSegment(project: PortfolioCatalogProject, segment: PortfolioSegment): boolean {
-  if (!project.segment || !segment.catalogSegments.includes(project.segment)) return false;
+  if (!project.segment || !(segment.catalogSegments ?? []).includes(project.segment)) return false;
   if (segment.projectSlugs?.length) return segment.projectSlugs.includes(project.slug);
   return true;
 }
