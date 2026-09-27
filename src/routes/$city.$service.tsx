@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, CheckCircle2, XCircle, Sparkles, HelpCircle } from "lucide-react";
+import { ArrowRight, MapPin, CheckCircle2, Sparkles, HelpCircle } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -11,8 +11,8 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CITIES, relatedCities, type CityInfo } from "@/lib/geo-data";
 import { SERVICES, GEO_SERVICE_SLUGS, relatedServices, type ServiceData } from "@/lib/services-data";
 import { heroSubtitle, localContext, combinedFaq, pageTitle, pageDescription } from "@/lib/content-variations";
-import { cases } from "@/lib/cases-data";
 import { getGeoServiceEvidence, isGeoServiceIndexable } from "@/lib/geo-service-indexability";
+import { geoDeliveryProcess, geoNeedSignals, geoScopeItems } from "@/lib/geo-service-content";
 
 const GEO_SET = new Set(GEO_SERVICE_SLUGS);
 
@@ -119,13 +119,15 @@ function GeoPage() {
   const subtitle = heroSubtitle(city, service);
   const context = localContext(city, service);
   const faq = combinedFaq(city, service);
+  const needs = geoNeedSignals(service);
+  const scopeItems = geoScopeItems(service);
+  const deliveryProcess = geoDeliveryProcess(service);
   const related = relatedCities(city.slug, 6).filter((candidate) =>
     isGeoServiceIndexable(candidate.slug, service.slug),
   );
   const relatedSvcs = relatedServices(service.slug, 4).filter(
     (candidate) => GEO_SET.has(candidate.slug) && isGeoServiceIndexable(city.slug, candidate.slug),
   );
-  const localCase = cases.find((c) => c.city?.toLowerCase().includes(city.name.toLowerCase().split(" ")[0]));
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -176,7 +178,7 @@ function GeoPage() {
         {evidence && (
           <section className="py-14 bg-muted/20">
             <div className="mx-auto max-w-4xl px-5 lg:px-8">
-              <p className="text-xs uppercase tracking-wider text-primary font-semibold">Prova local publicada</p>
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold">Evidência publicada para esta cidade</p>
               <h2 className="mt-2 text-2xl lg:text-3xl font-bold">
                 Projetos reais que sustentam esta página em {city.name}
               </h2>
@@ -198,30 +200,30 @@ function GeoPage() {
           </section>
         )}
 
-        {/* PROBLEMS */}
+        {/* NEEDS */}
         <section className="py-12 bg-muted/30">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">Problemas comuns que resolvemos em {city.name}</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6">Quando considerar {service.name.toLowerCase()} em {city.name}</h2>
             <div className="grid sm:grid-cols-2 gap-3">
-              {service.problems.map((p: string) => (
-                <div key={p} className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card">
-                  <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                  <span>{p}</span>
+              {needs.map((item) => (
+                <div key={item} className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* BENEFITS */}
+        {/* SCOPE */}
         <section className="py-16">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">O que sua empresa em {city.name} ganha com a 0WEB</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6">O que pode compor o escopo</h2>
             <div className="grid sm:grid-cols-2 gap-3">
-              {service.benefits.map((b: string) => (
-                <div key={b} className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card">
+              {scopeItems.map((item) => (
+                <div key={item} className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="font-medium">{b}</span>
+                  <span className="font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -231,36 +233,18 @@ function GeoPage() {
         {/* PROCESS */}
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8">Como entregamos {service.name.toLowerCase()} para {city.gentilico}s</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-8">Como o projeto é definido e executado</h2>
             <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {service.process.map((p: {step:string;desc:string}, i: number) => (
-                <li key={p.step} className="p-5 rounded-2xl border border-border bg-card">
+              {deliveryProcess.map((item, i) => (
+                <li key={item.step} className="p-5 rounded-2xl border border-border bg-card">
                   <span className="text-xs font-mono text-primary">0{i + 1}</span>
-                  <h3 className="mt-2 font-semibold text-lg">{p.step}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+                  <h3 className="mt-2 font-semibold text-lg">{item.step}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
                 </li>
               ))}
             </ol>
           </div>
         </section>
-
-        {/* RELATED CASE */}
-        {localCase && (
-          <section className="py-16">
-            <div className="mx-auto max-w-4xl px-5 lg:px-8">
-              <p className="text-xs uppercase tracking-wider text-primary font-semibold">Caso relacionado</p>
-              <h2 className="mt-2 text-2xl lg:text-3xl font-bold">{localCase.brand}</h2>
-              <p className="mt-3 text-muted-foreground">{localCase.tagline}</p>
-              <Link
-                to="/cases/$slug"
-                params={{ slug: localCase.slug }}
-                className="mt-4 inline-flex items-center gap-2 text-primary font-semibold story-link"
-              >
-                Ver caso completo <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </section>
-        )}
 
         {/* FAQ */}
         <section className="py-16 bg-muted/30">
