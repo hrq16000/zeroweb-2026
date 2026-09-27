@@ -66,6 +66,63 @@ const GEO_SERVICE_EVIDENCE: readonly GeoServiceEvidence[] = [
     ],
   },
   {
+    citySlug: "araucaria",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Araucária para eventos, alimentação e comércio digital.",
+    projects: [
+      { slug: "mp-festas-eventos", title: "MP Festas e Eventos" },
+      { slug: "acai-total-araucaria", title: "Açaí Total" },
+      { slug: "dona-lucy-salgados", title: "Dona Lucy Salgados" },
+    ],
+  },
+  {
+    citySlug: "araucaria",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing page publicada para negócio de alimentação em Araucária.",
+    projects: [{ slug: "dona-lucy-salgados", title: "Dona Lucy Salgados" }],
+  },
+  {
+    citySlug: "pinhais",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Pinhais para serviços elétricos e comércio de madeiras.",
+    projects: [
+      { slug: "eletro-solucoes-eficazes", title: "Eletro Soluções Eficazes" },
+      { slug: "arildo-madeiras", title: "Arildo Madeiras" },
+    ],
+  },
+  {
+    citySlug: "pinhais",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing page publicada para prestador de serviços em Pinhais.",
+    projects: [{ slug: "eletro-solucoes-eficazes", title: "Eletro Soluções Eficazes" }],
+  },
+  {
+    citySlug: "guaratuba",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Guaratuba para alimentação, náutica, comércio e reparos.",
+    projects: [
+      { slug: "guaratuba-sabores-da-baia", title: "Sabores da Baía" },
+      { slug: "guaratuba-oficina-nautica", title: "Oficina Náutica Guaratuba" },
+      { slug: "guaratuba-atelie-presentes", title: "Ateliê Encanto da Baía" },
+      { slug: "guaratuba-reparos-residenciais", title: "Reparos do Litoral" },
+    ],
+  },
+  {
+    citySlug: "guaratuba",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing pages publicadas para serviços náuticos e reparos residenciais em Guaratuba.",
+    projects: [
+      { slug: "guaratuba-oficina-nautica", title: "Oficina Náutica Guaratuba" },
+      { slug: "guaratuba-reparos-residenciais", title: "Reparos do Litoral" },
+    ],
+  },
+  {
     citySlug: "sao-paulo",
     serviceSlug: "criacao-de-sites",
     proofSummary:
