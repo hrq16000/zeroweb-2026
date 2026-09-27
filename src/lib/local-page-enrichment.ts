@@ -130,7 +130,7 @@ export function localPortfolioProjects(city: string, limit = 6) {
   const target = city.trim().toLowerCase();
   return (portfolioCatalog as CatalogItem[])
     .filter((item) => (item.city ?? "").trim().toLowerCase() === target)
-    .filter((item) => item.live !== false && item.status === "published")
+    .filter((item) => item.live !== false && item.status !== "draft")
     .slice(0, limit)
     .map((item) => ({
       slug: item.slug,
