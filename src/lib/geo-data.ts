@@ -41,6 +41,27 @@ export const CITIES: Record<string, CityInfo> = {
     microrregiao: "Curitiba", mesorregiao: "Metropolitana de Curitiba",
     flavor: "polo industrial e de serviços da Região Metropolitana de Curitiba",
   },
+  araucaria: {
+    slug: "araucaria", name: "Araucária", state: "Paraná", stateCode: "PR",
+    region: "Sul", population: 151666, gentilico: "araucariano", ddd: "41",
+    lat: -25.5861, lng: -49.4051, capitalRegional: false,
+    microrregiao: "Curitiba", mesorregiao: "Metropolitana de Curitiba",
+    flavor: "município industrial da Região Metropolitana de Curitiba",
+  },
+  pinhais: {
+    slug: "pinhais", name: "Pinhais", state: "Paraná", stateCode: "PR",
+    region: "Sul", population: 127019, gentilico: "pinhaiense", ddd: "41",
+    lat: -25.4443, lng: -49.19, capitalRegional: false,
+    microrregiao: "Curitiba", mesorregiao: "Metropolitana de Curitiba",
+    flavor: "município integrado à Região Metropolitana de Curitiba",
+  },
+  guaratuba: {
+    slug: "guaratuba", name: "Guaratuba", state: "Paraná", stateCode: "PR",
+    region: "Sul", population: 42062, gentilico: "guaratubano", ddd: "41",
+    lat: -25.8806, lng: -48.5751, capitalRegional: false,
+    microrregiao: "Paranaguá", mesorregiao: "Metropolitana de Curitiba",
+    flavor: "município do litoral do Paraná",
+  },
   "sao-paulo": {
     slug: "sao-paulo", name: "São Paulo", state: "São Paulo", stateCode: "SP",
     region: "Sudeste", population: 11451245, gentilico: "paulistano", ddd: "11",
