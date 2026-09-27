@@ -1,5 +1,9 @@
 #!/usr/bin/env node
-/** Valida metadados mínimos de SEO nas páginas públicas do portfólio. */
+/**
+ * Valida o contrato estático das rotas canônicas de clientes em /portfolio.
+ * Hubs regionais/programáticos têm contratos próprios e não devem ser forçados
+ * a declarar imagem social quando não existe ativo factual apropriado.
+ */
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
@@ -13,23 +17,29 @@ function walk(dir) {
     const full = join(dir, name);
     const st = statSync(full);
     if (st.isDirectory()) files.push(...walk(full));
-    else if (/^portfolio(?:\.|\.).*\.(?:tsx|ts)$/.test(name)) files.push(full);
+    else if (/^portfolio(?:\.index|\.\$slug)\.(?:tsx|ts)$/.test(name)) files.push(full);
   }
   return files;
 }
 
-for (const file of walk(ROUTES)) {
+const files = walk(ROUTES);
+for (const file of files) {
   const src = readFileSync(file, "utf8");
   const rel = relative(ROOT, file);
+  const head = src.match(/head\s*:\s*(?:\([^)]*\)|[^=,{]+)?\s*=>\s*\(?(\{[\s\S]*?\n\s*\}\)?\s*,?\n\s*(?:component|loader|beforeLoad)\s*:)/)?.[1] ?? src;
   const required = [
+    [/meta\s*:\s*\[[\s\S]*?\{\s*title\s*:/, "title"],
+    [/name:\s*["']description["']/, "meta description"],
+    [/name:\s*["']robots["']/, "robots"],
     [/rel:\s*["']canonical["']/, "canonical"],
     [/property:\s*["']og:title["']/, "Open Graph title"],
     [/property:\s*["']og:description["']/, "Open Graph description"],
     [/property:\s*["']og:url["']/, "Open Graph URL"],
+    [/name:\s*["']twitter:card["']/, "Twitter card"],
     [/application\/ld\+json/, "Schema.org JSON-LD"],
   ];
   for (const [pattern, label] of required) {
-    if (!pattern.test(src)) errors.push(`${rel}: ${label} ausente`);
+    if (!pattern.test(head)) errors.push(`${rel}: ${label} ausente`);
   }
 }
 
@@ -38,4 +48,4 @@ if (errors.length) {
   for (const error of errors) console.error(`  ✖ ${error}`);
   process.exit(1);
 }
-console.log(`[portfolio-meta] OK — ${walk(ROUTES).length} rotas de portfólio verificadas.`);
+console.log(`[portfolio-meta] OK — ${files.length} rotas canônicas verificadas.`);
