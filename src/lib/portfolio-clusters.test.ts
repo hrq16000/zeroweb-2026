@@ -30,7 +30,14 @@ describe("gate de indexacao do portfolio programatico", () => {
 
     const projects = portfolioProjectsForSegmentAtPlace(servicos, barreiro);
     expect(projects.some((project) => project.slug === "bh-barreiro-marmitas")).toBe(true);
+    expect(projects.every((project) => project.status === "published")).toBe(true);
     expect(comboHasOwnContent(servicos, barreiro)).toBe(true);
+  });
+
+  it("usa somente projeto publicado como prova regional", () => {
+    const barreiro = required(findPortfolioPlace("barreiro"), "bairro Barreiro");
+    const servicos = required(findPortfolioSegment("servicos-locais"), "segmento servicos-locais");
+    expect(portfolioProjectsForSegmentAtPlace(servicos, barreiro).every((project) => project.status === "published")).toBe(true);
   });
 
   it("mantem marido de aluguel restrito ao projeto especifico", () => {
