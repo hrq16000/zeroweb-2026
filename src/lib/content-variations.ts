@@ -20,36 +20,36 @@ export function pick<T>(seed: string, options: readonly T[]): T {
 
 // ----- Hero subtitle templates -----
 const HERO_SUBTITLES = [
-  "Agência especializada em {service} para empresas em {city}, {state}. Time sênior, entrega ágil e foco em resultado real.",
-  "{Service} sob medida para o mercado de {city} — {flavor}. Tecnologia moderna, processo enxuto e ROI mensurável.",
-  "Empresas em {city} contam com a 0WEB para {serviceLower}: estratégia, execução e otimização contínua.",
-  "Soluções de {serviceLower} para negócios {gentilico_pl}. Atendimento remoto e dedicado, do diagnóstico ao resultado.",
+  "Atendimento remoto de {serviceLower} para empresas em {city}, {state}. O escopo e a entrega são definidos conforme a necessidade real do projeto.",
+  "{Service} para empresas de {city}, com processo remoto e proposta definida a partir do briefing do negócio.",
+  "Negócios em {city} podem contratar a 0WEB para {serviceLower} sem depender de uma filial local. O atendimento é remoto.",
+  "Soluções de {serviceLower} para negócios {gentilico_pl}, com atendimento remoto do briefing à entrega.",
 ] as const;
 
 // ----- Local-context paragraph templates -----
 const LOCAL_CONTEXT = [
-  "{City} é {flavor}. Empresas locais que investem em {serviceLower} ganham vantagem competitiva em um mercado cada vez mais digital.",
-  "Como {flavor}, {City} ({stateCode}) reúne públicos exigentes — e {serviceLower} bem executado é o que separa marcas que crescem das que estagnam.",
-  "Atendemos negócios de {City} e região metropolitana de {state}. {Service} com sotaque local: linguagem, oferta e estratégia ajustadas ao seu mercado.",
-  "A população {gentilico_pl} de {City} consome digital intensamente. {Service} estratégico transforma essa atenção em receita.",
+  "O atendimento da 0WEB para {City} é remoto. A estratégia parte das informações reais do negócio e do escopo contratado, sem presumir presença física da agência na cidade.",
+  "Esta página descreve atendimento remoto de {serviceLower} para empresas de {City} ({stateCode}). Ela não representa escritório, filial ou equipe local da 0WEB.",
+  "{City} faz parte da área de atendimento remoto da 0WEB. Quando existem projetos publicados na cidade que comprovam esta oferta, eles são apresentados como evidência na própria página.",
+  "A localização em {City} não exige uma unidade física da 0WEB. O serviço é prestado remotamente e os detalhes de prazo, canais e entregáveis são definidos na proposta.",
 ] as const;
 
 // ----- City-specific FAQ items (added on top of service FAQ) -----
 const CITY_FAQ_BANKS: { q: string; a: string }[][] = [
   [
-    { q: "Vocês atendem empresas em {city}?", a: "Sim. Atendemos {gentilico_pl} de toda a região metropolitana de {city} ({stateCode}) de forma 100% remota, com mesma qualidade de quem está ao lado." },
-    { q: "Precisa visita presencial?", a: "Não. Todo o processo é feito por reuniões online — mais rápido para você e mais barato (você não paga deslocamento)." },
-    { q: "Qual o prazo médio para projetos em {city}?", a: "O prazo independe da cidade: depende do escopo. Em geral, projetos de {serviceLower} em {city} ficam prontos no mesmo SLA que demais clientes Brasil." },
+    { q: "Vocês atendem empresas em {city}?", a: "Sim. A 0WEB oferece atendimento remoto para empresas de {city} ({stateCode}); esta página não indica uma filial física na cidade." },
+    { q: "Precisa visita presencial?", a: "Para estes serviços digitais, o processo pode ser conduzido remotamente. Qualquer necessidade excepcional é definida antes da contratação." },
+    { q: "Qual o prazo para um projeto em {city}?", a: "O prazo depende do escopo e dos entregáveis. A estimativa é definida na proposta, sem variar apenas por causa da cidade." },
   ],
   [
-    { q: "0WEB atende a região de {city}?", a: "Sim, atendemos {city} e todas as cidades de {state}. O processo é remoto e ágil." },
-    { q: "Como é a comunicação com clientes em {city}?", a: "Reuniões por Google Meet ou WhatsApp, com SLA de resposta em horário comercial. Sem ruído, sem atraso." },
-    { q: "Preciso emitir nota em {state}?", a: "Sim, emitimos NF-e regular. Atendemos PJs em qualquer estado do Brasil, incluindo {state} ({stateCode})." },
+    { q: "0WEB atende {city}?", a: "Sim, de forma remota. A disponibilidade do serviço não significa que exista escritório ou equipe física da 0WEB em {city}." },
+    { q: "Como funciona a comunicação?", a: "A comunicação é feita por canais digitais combinados no início do projeto, conforme a necessidade do cliente e do escopo." },
+    { q: "O atendimento muda por estar em {state}?", a: "Não por si só. Escopo, prazo e entregáveis são definidos pelo projeto; a localização é considerada quando ela realmente afeta a estratégia." },
   ],
   [
-    { q: "Por que escolher uma agência remota em vez de uma local em {city}?", a: "Você acessa um time sênior nacional pelo mesmo investimento de uma agência local, sem comprometer entrega e suporte." },
-    { q: "Vocês entendem o mercado de {city}?", a: "Sim. Antes de propor qualquer ação, fazemos imersão no seu mercado em {city}, concorrência e público {gentilico} antes de qualquer entrega." },
-    { q: "Onde fica a 0WEB?", a: "Operamos remotamente em todo o Brasil, com base em Curitiba (PR). Atendemos {city} ({stateCode}) com a mesma proximidade." },
+    { q: "A 0WEB é uma agência local de {city}?", a: "Não necessariamente. O atendimento descrito aqui é remoto e não deve ser interpretado como presença física, filial ou equipe local." },
+    { q: "Como a cidade entra na estratégia?", a: "Quando a localização é relevante, usamos informações verificáveis do negócio e do mercado atendido. Não tratamos uma cidade como prova de experiência sem projetos ou evidências correspondentes." },
+    { q: "Há projetos reais em {city}?", a: "Quando existem projetos publicados que sustentam esta combinação de cidade e serviço, eles são exibidos nesta página como evidência." },
   ],
 ];
 
@@ -109,10 +109,10 @@ export function combinedFaq(city: CityInfo, service: ServiceData) {
 
 /** Page title variations — different from the canonical service title. */
 const TITLE_TEMPLATES = [
-  "{Service} em {City} ({stateCode}) · 0WEB",
-  "{Service} para empresas em {City} · 0WEB",
-  "Agência de {Service} em {City} · 0WEB",
-  "{Service} {City} | Time sênior, ROI mensurável · 0WEB",
+  "{Service} para empresas em {City} ({stateCode}) · 0WEB",
+  "{Service} remoto para {City} · 0WEB",
+  "0WEB | {Service} para negócios em {City}",
+  "{Service} em {City}: atendimento remoto · 0WEB",
 ] as const;
 
 export function pageTitle(city: CityInfo, service: ServiceData): string {
@@ -120,10 +120,10 @@ export function pageTitle(city: CityInfo, service: ServiceData): string {
 }
 
 const DESCRIPTION_TEMPLATES = [
-  "{Service} em {City} ({stateCode}): agência sênior, processo enxuto e resultado mensurável. Solicite orçamento sem compromisso.",
-  "Empresa de {serviceLower} atendendo {City} e {state}. Estratégia, execução e otimização — orçamento gratuito.",
-  "Procurando {serviceLower} em {City}? Time sênior 0WEB, atendimento {gentilico} dedicado. Fale com um especialista.",
-  "{Service} em {City} com a 0WEB: tecnologia moderna, foco em ROI e suporte contínuo. Orçamento sem compromisso.",
+  "{Service} para empresas em {City} ({stateCode}), com atendimento remoto e escopo definido conforme o projeto. Consulte disponibilidade e proposta.",
+  "Atendimento remoto de {serviceLower} para negócios de {City}. Escopo, prazo e entregáveis são definidos antes da contratação.",
+  "Precisa de {serviceLower} em {City}? A 0WEB atende remotamente, sem alegar filial ou equipe física local. Conheça o processo e as evidências publicadas.",
+  "{Service} para {City} com atendimento remoto da 0WEB. Veja como funciona e, quando houver, os projetos reais que sustentam esta página.",
 ] as const;
 
 export function pageDescription(city: CityInfo, service: ServiceData): string {
