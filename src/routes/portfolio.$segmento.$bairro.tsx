@@ -13,7 +13,8 @@ import {
   findPortfolioSegment,
   portfolioClusterLinks,
   portfolioComboPath,
-  portfolioProjectsForSegmentAtPlace,
+  portfolioProjectsAtPlace,
+  portfolioProjectMatchesSegment,
   comboHasOwnContent,
 } from "@/lib/portfolio-clusters";
 import {
@@ -94,7 +95,9 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
 function ProgrammaticPortfolioPage() {
   const { segment, place } = Route.useLoaderData();
   const links = portfolioClusterLinks({ segmentSlug: segment.slug, placeSlug: place.slug, limit: 12 });
-  const localProjects = portfolioProjectsForSegmentAtPlace(segment, place);
+  const localProjects = portfolioProjectsAtPlace(place).filter((project) =>
+    portfolioProjectMatchesSegment(project, segment),
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
