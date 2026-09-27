@@ -55,6 +55,33 @@ describe("gate de indexacao das landings de bairro", () => {
     }
   });
 
+  it("hubs promovem somente localidades comprovadas", () => {
+    const cwbIndexable = CWB_NEIGHBORHOODS.filter((place) => localPlaceHasEvidence(place));
+    const bhIndexable = bhPlaces.filter((place) => localPlaceHasEvidence(place));
+
+    expect(cwbIndexable.map((place) => place.slug).sort()).toEqual([
+      "campo-comprido",
+      "jardim-italia-sjp",
+      "novo-mundo",
+      "sao-jose-dos-pinhais-centro",
+      "uberaba",
+    ]);
+    expect(bhIndexable.map((place) => place.slug)).toEqual(["barreiro"]);
+
+    for (const path of [
+      "src/routes/bairros-cwb.index.tsx",
+      "src/routes/bairros-bh.index.tsx",
+    ]) {
+      const source = readFileSync(resolve(process.cwd(), path), "utf8");
+      expect(source).toContain("localPlaceHasEvidence");
+      expect(source).not.toContain("25+ bairros");
+      expect(source).not.toContain("30+ bairros");
+      expect(source).not.toContain("mais de 30 bairros");
+      expect(source).not.toContain('name: "geo.placename"');
+      expect(source).not.toContain('name: "geo.region"');
+    }
+  });
+
   it("não mantém promessas absolutas de posição ou resultado", () => {
     const paths = [
       "src/routes/bairros-cwb.$slug.tsx",
