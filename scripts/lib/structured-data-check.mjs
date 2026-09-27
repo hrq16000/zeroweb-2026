@@ -23,6 +23,13 @@ export function extractHead(html) {
 }
 
 const isAbs = (v) => typeof v === "string" && /^https:\/\//.test(v);
+const typesOf = (node) => [].concat(node?.["@type"] ?? []);
+const ENTITY_TYPES = new Set([
+  "LocalBusiness", "Organization", "Person", "Store", "ProfessionalService",
+  "DrivingSchool", "BeautySalon", "FoodEstablishment", "Restaurant", "Bakery",
+  "HomeAndConstructionBusiness", "Electrician", "Plumber", "AutoRepair",
+  "ComputerStore", "ElectronicsStore", "HealthAndBeautyBusiness", "SportsActivityLocation",
+]);
 
 export function checkPage(html, expectedUrl) {
   const errors = [];
@@ -50,11 +57,16 @@ export function checkPage(html, expectedUrl) {
   });
   if (nodes.length === 0) errors.push("nenhum dado estruturado (JSON-LD)");
 
-  const types = nodes.flatMap((n) => [].concat(n?.["@type"] ?? []));
+  const types = nodes.flatMap(typesOf);
+  const webPages = nodes.filter((n) => typesOf(n).includes("WebPage"));
+  const entities = nodes.filter((n) => typesOf(n).some((type) => ENTITY_TYPES.has(type)));
+
+  if (!types.includes("WebPage")) errors.push("WebPage ausente");
   if (!types.includes("BreadcrumbList")) warnings.push("BreadcrumbList ausente");
+  if (!entities.length) warnings.push("entidade principal do portfolio não identificada no JSON-LD");
 
   for (const n of nodes) {
-    const t = [].concat(n?.["@type"] ?? []);
+    const t = typesOf(n);
     if (!t.length && !n?.["@id"]) errors.push("nó JSON-LD sem @type");
     if (t.includes("BreadcrumbList")) {
       const items = n.itemListElement;
@@ -71,15 +83,24 @@ export function checkPage(html, expectedUrl) {
       if (!Array.isArray(q) || !q.length) errors.push("FAQPage sem perguntas");
       else q.forEach((x, i) => { if (!x?.name || !x?.acceptedAnswer?.text) errors.push(`FAQPage pergunta ${i + 1} incompleta`); });
     }
-    if (t.some((x) => ["LocalBusiness", "DrivingSchool", "Store", "ProfessionalService"].includes(x)) && !n.name)
+    if (t.some((x) => ENTITY_TYPES.has(x)) && !n.name)
       errors.push(`${t.join("/")} sem name`);
     if (t.includes("AggregateRating") || n?.aggregateRating) {
       const r = n.aggregateRating ?? n;
       if (r.ratingValue == null || (r.reviewCount == null && r.ratingCount == null))
         errors.push("AggregateRating sem ratingValue/reviewCount");
     }
-    if (t.includes("WebPage") && n.url && expectedUrl && n.url !== expectedUrl)
-      warnings.push(`WebPage.url difere do canonical (${n.url})`);
+    if (t.includes("WebPage")) {
+      if (n.url && expectedUrl && n.url !== expectedUrl)
+        errors.push(`WebPage.url difere do canonical (${n.url})`);
+      if (n["@id"] && expectedUrl && n["@id"] !== expectedUrl && n["@id"] !== `${expectedUrl}#webpage`)
+        warnings.push(`WebPage.@id não está ancorado no canonical (${n["@id"]})`);
+      if (!n.name) warnings.push("WebPage sem name");
+      if (!n.description) warnings.push("WebPage sem description");
+    }
   }
+
+  if (webPages.length > 1) warnings.push(`${webPages.length} nós WebPage encontrados`);
+
   return { ok: errors.length === 0, errors, warnings, head: { ...h, jsonLdRaw: undefined }, types };
 }
