@@ -26,7 +26,7 @@ const portfolioUrls = LIGHTHOUSE_SCOPE === "regional" ? [] : clients
   .filter((_, index) => index % shardCount === shardIndex)
   .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
-  shardIndex === 0
+  LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
     ? [
         `${TARGET_URL}/`,
         `${TARGET_URL}/blog`,
