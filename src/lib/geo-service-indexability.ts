@@ -44,6 +44,28 @@ const GEO_SERVICE_EVIDENCE: readonly GeoServiceEvidence[] = [
     ],
   },
   {
+    citySlug: "sao-jose-dos-pinhais",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui dezenas de projetos publicados em São José dos Pinhais, cobrindo comércio, serviços, saúde, alimentação, beleza e assistência técnica.",
+    projects: [
+      { slug: "centro-mega", title: "Centro Mega" },
+      { slug: "carecas-infotec", title: "Careca's Infotec" },
+      { slug: "denise-gomes-psicologa", title: "Denise Gomes · Psicóloga" },
+    ],
+  },
+  {
+    citySlug: "sao-jose-dos-pinhais",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing pages reais publicadas para negócios de São José dos Pinhais, com conteúdo, identidade e jornadas específicas para cada cliente.",
+    projects: [
+      { slug: "carecas-infotec", title: "Careca's Infotec" },
+      { slug: "maximos-cabeleireiros", title: "Maximos Cabeleireiros" },
+      { slug: "catharine-lima-studio", title: "Catharine Lima Studio" },
+    ],
+  },
+  {
     citySlug: "sao-paulo",
     serviceSlug: "criacao-de-sites",
     proofSummary:
