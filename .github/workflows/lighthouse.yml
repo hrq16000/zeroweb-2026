@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.diff.outputs.run }}
+      mode: ${{ steps.diff.outputs.mode }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -47,6 +48,23 @@ jobs:
           git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
+          MODE=full
+
+          REGIONAL_ONLY=true
+          if [ -z "$FILES" ]; then
+            REGIONAL_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/lib/portfolio-clusters.ts|src/lib/portfolio-clusters.test.ts|'src/routes/portfolio.$segmento.$bairro.tsx') ;;
+              *) REGIONAL_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$REGIONAL_ONLY" = true ]; then
+            RUN=true
+            MODE=regional
+          fi
 
           # Troca isolada de OG social + cache-bust não altera o DOM visível.
           # Esses casos continuam cobertos pelos gates de link preview/head e
@@ -88,12 +106,13 @@ jobs:
           fi
 
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
-          echo "impacto Lighthouse: $RUN"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN ($MODE)"
 
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
     needs: scope
-    if: needs.scope.outputs.run == 'true'
+    if: needs.scope.outputs.run == 'true' && (needs.scope.outputs.mode != 'regional' || matrix.shard == 0)
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
@@ -116,6 +135,7 @@ jobs:
           LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
           LHCI_SHARD_INDEX: ${{ matrix.shard }}
           LHCI_SHARD_COUNT: 4
+          LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
