@@ -15,6 +15,53 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    name: Classificar escopo
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Classificar mudança
+        id: scope
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          MODE=full
+
+          SEO_ONLY=true
+          if [ -z "$FILES" ]; then SEO_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/lib/*seo*.ts|src/lib/*seo*.tsx|src/lib/*indexability*.ts|src/lib/*indexability*.tsx|src/lib/*publication*.ts|src/lib/*publication*.tsx|src/lib/*evidence*.ts|src/lib/*evidence*.tsx|src/routes/sitemap-*.ts|src/routes/sitemap*.ts|src/routes/portfolio-em.*.tsx|src/routes/bairros-*.tsx|src/routes/estados*.tsx|src/routes/cidades.tsx|src/routes/areas-de-atendimento.tsx|src/routes/criacao-de-site-institucional*.tsx|src/routes/__root.tsx|src/lib/*seo*.test.ts|src/lib/*indexability*.test.ts|src/lib/*publication*.test.ts|src/lib/*evidence*.test.ts) ;;
+              *) SEO_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$SEO_ONLY" = true ]; then MODE=seo; fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "portfolio-gates mode=$MODE"
+
   static-gates:
     name: Testes, tipos e validadores estáticos
     runs-on: ubuntu-latest
@@ -62,7 +109,7 @@ jobs:
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    needs: static-gates
+    needs: [scope, static-gates]
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -83,12 +130,14 @@ jobs:
         run: bun run audit:indexability -- --label=before https://0web.com.br
 
       - name: Pop-up único em /portfolio/$slug
+        if: needs.scope.outputs.mode != 'seo'
         env:
           POPUP_CONCURRENCY: 4
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
+        if: needs.scope.outputs.mode != 'seo'
         env:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
