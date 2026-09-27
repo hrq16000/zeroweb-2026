@@ -11,7 +11,8 @@ function required<T>(value: T | undefined, label: string): T {
   return value;
 }
 
-// Gate regional: só indexa combinação sustentada por projeto real compatível.\ndescribe("gate de indexacao do portfolio programatico", () => {
+// Gate regional: só indexa combinação sustentada por projeto real compatível.
+// O Lighthouse regional cobre a superfície alterada sem auditar portfólios canônicos não relacionados.\ndescribe("gate de indexacao do portfolio programatico", () => {
   it("nao libera segmento sem projeto real correspondente no local", () => {
     const barreiro = required(findPortfolioPlace("barreiro"), "bairro Barreiro");
     const beleza = required(findPortfolioSegment("beleza-estetica"), "segmento beleza-estetica");
