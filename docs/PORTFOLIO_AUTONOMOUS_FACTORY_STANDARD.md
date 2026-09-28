@@ -18,6 +18,11 @@ Este documento define o **produto-alvo** da zona `/portfolio` e a arquitetura qu
 
 Ele complementa `PORTFOLIO_PROJECT_LIFECYCLE.md`, `PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`, `PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`, `PORTFOLIO_CLIENT_STANDARD.md`, `PORTFOLIO_FUNNELS.md` e `0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md`.
 
+Também obedece a `0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`: cada execução
+deve preservar ativos úteis, acumular conhecimento e aumentar a autonomia da próxima
+execução. O produto-alvo inclui a função de **guia comercial/diretório local**, não apenas
+a geração isolada de páginas.
+
 Em conflito sobre **como novos projetos devem ser criados, armazenados, editados, publicados ou promovidos a domínio próprio**, este documento define o alvo arquitetural. Ele não autoriza remover gates de segurança, evidência, acessibilidade, SEO, privacidade, funil ou originalidade.
 
 > Norte em uma frase: **poucas palavras → pesquisa factual → direção criativa própria → site completo e único → preview → edição pelo cliente → publicação → domínio próprio, sem reconstrução manual.**
@@ -55,16 +60,25 @@ Landingsite.ai, UXPilot, LeadSite, Faroleads e ferramentas equivalentes servem c
 A capacidade-alvo da 0WEB é:
 
 1. iniciar por linguagem natural e poucas palavras;
-2. pesquisar automaticamente empresa, segmento, cidade e contexto verificável;
-3. detectar o que é fato, inferência, conflito ou ausência de evidência;
-4. perguntar apenas gaps materiais;
-5. gerar no mínimo três direções visuais realmente divergentes antes da seleção;
-6. rejeitar composição parecida demais com projeto já existente;
-7. criar copy, mídia, SEO, motion e funil contextualizados;
-8. oferecer preview imediato desktop/mobile;
-9. permitir edição por formulário, controles visuais e conversa;
-10. versionar e permitir rollback;
-11. publicar em `/portfolio/:slug` e depois ligar domínio próprio ao mesmo projeto.
+2. resolver bairro/cidade/região e relações comerciais locais quando disponíveis;
+3. pesquisar automaticamente empresa, segmento, cidade e contexto verificável;
+4. pesquisar mídia oficial, catálogo/cardápio e redes sociais aplicáveis;
+5. preservar dados e materiais existentes já aprovados;
+6. detectar o que é fato, inferência, conflito ou ausência de evidência;
+7. perguntar apenas gaps materiais;
+8. gerar no mínimo três direções visuais realmente divergentes antes da seleção;
+9. rejeitar composição parecida demais com projeto já existente;
+10. criar copy, mídia, SEO, motion e funil contextualizados;
+11. integrar o negócio aos hubs e relações locais/temáticas do diretório;
+12. oferecer preview imediato desktop/mobile;
+13. permitir edição por formulário, controles visuais e conversa;
+14. versionar e permitir rollback;
+15. publicar em `/portfolio/:slug` e depois ligar domínio próprio ao mesmo projeto.
+
+O efeito comercial desejado é que a amostra demonstre capacidade suficiente para tornar
+óbvio o valor de uma evolução contratada, sem depender de prova social falsa ou alegação
+fabricada.
+
 
 ## 4. Pipeline obrigatório
 

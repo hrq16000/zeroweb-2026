@@ -6,6 +6,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Constituição universal: evolução aditiva, mega diretório local, preservação + enriquecimento | `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
 | Discovery contínuo em LobeHub/AwesomeSkill/fontes originais | `.agents/skills/0web-skill-discovery/SKILL.md` · `.agents/skills/lobehub-skills-search-engine/SKILL.md` · `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` |
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
@@ -52,6 +53,12 @@ Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 Para toda tarefa, leia também `docs/0WEB_EXECUTION_CONTRACT.md`. Toda alteração
 concluída deve ser publicada no repositório oficial e integrada em `main` por PR;
 não deixar trabalho pendente em cópias locais ou hospedagens externas.
+
+Para toda tarefa material de conteúdo, SEO, portfólio, diretório local, mídia, geração
+autônoma ou evolução visual, leia também
+`docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`. A regra padrão é
+**preservar + enriquecer**: remover valor existente exige gatilho explícito e
+rastreável; simplificação não é evolução.
 
 # Regra oficial da zona de portfolios
 

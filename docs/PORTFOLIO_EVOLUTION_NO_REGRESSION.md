@@ -22,6 +22,8 @@ Este documento é o contrato operacional para evolução de `/portfolio`. Ele ex
 - Não iniciar nova auditoria global se a frente atual já possui baseline válido; atualizar somente o delta.
 - Não corrigir visual com patch cosmético quando a causa é estrutural.
 - Não publicar alteração que reduza originalidade, SEO, funil, privacidade, acessibilidade, performance ou ownership.
+- Não remover conteúdo útil, referência, mídia ou especificidade já aprovada apenas para simplificar uma rodada; aplicar `0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`.
+- Em conflito entre “simplificar” e “enriquecer”, enriquecer preservando o que já funciona, salvo gatilho explícito de correção.
 - Toda mudança relevante deve ter: baseline → alteração isolada → teste → comparação → deploy → validação de runtime.
 - `build green` não significa `visual pass`.
 - `NOT_TESTED` nunca significa `PASS`.
@@ -179,6 +181,8 @@ Uma rodada só conta como evolução quando:
 - resolve causa raiz;
 - reduz dependência manual futura;
 - mantém ou melhora todos os gates relevantes;
+- preserva valor existente e adiciona utilidade, qualidade ou descoberta;
+- melhora contexto local/temático quando aplicável;
 - deixa o próximo projeto mais fácil de criar do que o anterior;
 - não exige repetir a mesma correção por slug.
 

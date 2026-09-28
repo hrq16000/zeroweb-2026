@@ -12,6 +12,11 @@ camada técnica mínima de descoberta, indexação e interligação.
 O objetivo é ampliar autoridade e cobertura sem produzir doorway pages, texto oculto,
 keyword stuffing, avaliações inventadas ou informação local não comprovada.
 
+Este padrão obedece à `0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`.
+Quando uma página comercial/local legítima precisar melhorar indexabilidade, a ação
+preferencial é **ganhar conteúdo, mídia, links, contexto local e utilidade**, não perder
+conteúdo já aprovado. Remoção é exceção rastreável, não técnica padrão de SEO.
+
 ## Contrato obrigatório
 
 Todo projeto publicado deve possuir:
@@ -78,13 +83,17 @@ Isso reforça rastreamento e contexto geográfico sem criar páginas artificiais
 A casca `PortfolioStandardShell` deve renderizar `PortfolioSeoNetwork`.
 
 O resolvedor usa apenas o catálogo publicado e, para Managed, contexto factual já salvo.
-A pontuação privilegia:
+A descoberta local deve privilegiar proximidade quando houver dados suficientes:
 
-1. mesmo segmento;
-2. mesma cidade;
-3. mesmo estado;
-4. tags/serviços em comum;
-5. mesmo tipo de projeto.
+1. mesmo bairro;
+2. contexto local/bairros relacionados quando modelados;
+3. mesma cidade;
+4. mesma região metropolitana/estado;
+5. mesmo segmento, serviços/tags em comum e afinidade temática;
+6. descoberta editorial complementar.
+
+A rede nunca inventa distância ou proximidade. Na ausência de dado geográfico suficiente,
+usa afinidade semântica de forma neutra.
 
 Cada página recebe até seis links HTML reais para outras páginas publicadas. O grafo também
 é exposto como `ItemList` JSON-LD.
