@@ -1,20 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { resolveBaseUrl, renderSitemap } from "@/lib/sitemap-utils";
-import { cases } from "@/lib/cases-data";
 
+/**
+ * Cases ficam fora do sitemap enquanto métricas/depoimentos não possuem
+ * evidência versionada por estudo.
+ */
 export const Route = createFileRoute("/sitemap-cases.xml")({
   server: {
     handlers: {
-      GET: async ({ request }) => {
-        return renderSitemap(
-          resolveBaseUrl(request),
-          cases.map((c) => ({
-            path: `/cases/${c.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.75",
-          })),
-        );
-      },
+      GET: async () =>
+        new Response(
+          '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>',
+          {
+            headers: {
+              "Content-Type": "application/xml",
+              "Cache-Control": "public, max-age=3600",
+            },
+          },
+        ),
     },
   },
 });
