@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
+import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
@@ -72,16 +72,18 @@ function managedHead(project: ManagedProject) {
           organizationNode(),
           {
             "@type": "WebPage",
-            "@id": url,
+            "@id": `${url}#webpage`,
             url,
             name: project.seoTitle,
             description: project.seoDescription,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
+            mainEntity: { "@id": `${url}#business` },
+            publisher: { "@id": "https://0web.com.br/#org" },
+            isPartOf: { "@id": "https://0web.com.br/#website" },
           },
           {
-            "@type": "LocalBusiness",
-            "@id": `${url}#localbusiness`,
+            "@type": "Organization",
+            "@id": `${url}#business`,
             name: project.displayName,
             description: project.seoDescription,
             url,
@@ -89,12 +91,8 @@ function managedHead(project: ManagedProject) {
             ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
             ...(project.city
               ? {
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: project.city,
-                    addressRegion: project.state || "BR",
-                    addressCountry: "BR",
-                  },
+                  location: { "@id": `${url}#place` },
+                  areaServed: { "@type": "City", name: project.city },
                 }
               : {}),
             ...(project.services.length
@@ -103,9 +101,26 @@ function managedHead(project: ManagedProject) {
                     "@type": "Offer",
                     itemOffered: { "@type": "Service", name: service.title },
                   })),
+                  knowsAbout: project.services.map((service) => service.title),
                 }
               : {}),
+            mainEntityOfPage: { "@id": `${url}#webpage` },
           },
+          ...(project.city
+            ? [
+                {
+                  "@type": "Place",
+                  "@id": `${url}#place`,
+                  name: [project.city, project.state].filter(Boolean).join(" — "),
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: project.city,
+                    addressRegion: project.state || undefined,
+                    addressCountry: "BR",
+                  },
+                },
+              ]
+            : []),
           ...(project.content.faq.length
             ? [
                 {
@@ -974,12 +989,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 organizationNode(),
                 {
                   "@type": "WebPage",
-                  "@id": url,
+                  "@id": `${url}#webpage`,
                   url,
                   name: title,
                   description,
                   inLanguage: "pt-BR",
-                  isPartOf: { "@id": "https://0web.com.br/portfolio" },
+                  mainEntity: { "@id": `${url}#business` },
+                  publisher: { "@id": "https://0web.com.br/#org" },
+                  isPartOf: { "@id": "https://0web.com.br/#website" },
                 },
                 ...(isBtb
                   ? [
@@ -1012,7 +1029,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         {
                           "@type": "Store",
                           additionalType: "https://schema.org/ElectronicsStore",
-                          "@id": `${url}#store`,
+                          "@id": `${url}#business`,
                           name: "Centro Mega",
                           description,
                           url,
@@ -1037,22 +1054,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           ],
                         },
                       ]
-                    : [
-                      {
-                        ...serviceNode({
-                          slug: vertical.slug,
-                          name: vertical.name,
-                          keyword: vertical.keywords,
-                          intent: vertical.hero,
-                          services: vertical.services.map((service) => service.to),
-                          hubs: [],
-                          showcases: [],
-                          deliverables: vertical.services.map((service) => service.title),
-                        }),
-                        "@id": `${url}#service`,
-                        url,
-                      },
-                    ]),
+                    : []),
                 ...(isMarido
                   ? [
                       {
@@ -1070,7 +1072,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": ["DrivingSchool", "LocalBusiness"],
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Autoescola APTOS",
                         description,
                         url,
@@ -1116,7 +1118,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "ComputerStore",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Careca's Infotec",
                         description,
                         url,
@@ -1182,7 +1184,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "AutoRepair",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Moreira Auto Mecânica",
                         description,
                         url,
@@ -1238,7 +1240,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       {
                         "@type": "HomeAndConstructionBusiness",
                         additionalType: "https://schema.org/FurnitureStore",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "JKL Decor",
                         description,
                         url,
@@ -1291,7 +1293,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "LocalBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Heloá Gás",
                         description,
                         url,
@@ -1333,7 +1335,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "HomeAndConstructionBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "S&S Construções",
                         description,
                         url,
@@ -1378,7 +1380,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "HomeAndConstructionBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Paulo Mestre de Obras",
                         description,
                         url,
