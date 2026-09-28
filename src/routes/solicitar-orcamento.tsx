@@ -9,6 +9,7 @@ export const Route = createFileRoute("/solicitar-orcamento")({
     meta: [
       { title: "Solicitar orçamento | Marketplace 0WEB" },
       { name: "description", content: "Descreva seu projeto e receba propostas de prestadores e empresas verificadas em todo o Brasil." },
+      { name: "robots", content: "noindex,follow" },
       { property: "og:url", content: `${ORIGIN}/solicitar-orcamento` },
     ],
     links: [{ rel: "canonical", href: `${ORIGIN}/solicitar-orcamento` }],
