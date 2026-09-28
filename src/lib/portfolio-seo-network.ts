@@ -280,6 +280,22 @@ const SEGMENT_LABELS: Record<string, string> = {
   servicos: "Serviços",
 };
 
+const SEGMENT_SCHEMA_TYPES: Record<string, string> = {
+  agencias: "ProfessionalService",
+  beleza: "HealthAndBeautyBusiness",
+  comercios: "Store",
+  construcao: "ProfessionalService",
+  juridico: "LegalService",
+  "prestadores-de-servicos": "ProfessionalService",
+  restaurantes: "FoodEstablishment",
+  saude: "MedicalBusiness",
+  servicos: "ProfessionalService",
+};
+
+export function portfolioEntitySchemaType(segment: string): string {
+  return SEGMENT_SCHEMA_TYPES[normalize(segment)] ?? "Organization";
+}
+
 export function portfolioUniversalSeoTitle(
   slug: string,
   override?: PortfolioSeoContextOverride,
@@ -289,14 +305,37 @@ export function portfolioUniversalSeoTitle(
 
   const city = isUsefulPlace(item.city) ? item.city : "";
   const segment = SEGMENT_LABELS[item.segment] ?? item.segment;
+  const local = [item.neighborhood, city].filter(Boolean).join(" · ");
   const candidates = [
-    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
+    local ? `${item.title} | ${local}` : "",
     city ? `${item.title} | ${city}` : "",
+    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
     segment ? `${item.title} | ${segment}` : "",
     item.title,
   ].filter(Boolean);
 
   return candidates.find((value) => value.length <= 65) ?? item.title;
+}
+
+export function portfolioUniversalSeoDescription(
+  slug: string,
+  override?: PortfolioSeoContextOverride,
+): string | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return null;
+
+  const base = clean(item.summary) || clean(item.subtitle) || item.title;
+  const local = [item.neighborhood, isUsefulPlace(item.city) ? item.city : "", item.state]
+    .filter(Boolean)
+    .join(" · ");
+  const suffix = local && !normalize(base).includes(normalize(item.city))
+    ? ` Em ${local}.`
+    : "";
+  const value = `${base.replace(/[.\s]+$/, "")}.${suffix}`.replace(/\s+/g, " ").trim();
+  if (value.length <= 160) return value;
+
+  const clipped = value.slice(0, 157).replace(/\s+\S*$/, "").replace(/[,:;\-\s]+$/, "");
+  return `${clipped}...`;
 }
 
 export function portfolioUniversalKeywords(
@@ -405,15 +444,18 @@ export function portfolioEntityGraphSchema(
       ? {
           "@type": "Place",
           "@id": `${pageUrl}#place`,
-          name: [item.city, item.state].filter(Boolean).join(" — "),
-          address: item.state
+          name: [item.neighborhood, item.city, item.state].filter(Boolean).join(" · "),
+          ...(item.neighborhood
             ? {
-                "@type": "PostalAddress",
-                addressLocality: item.city,
-                addressRegion: item.state,
-                addressCountry: "BR",
+                containedInPlace: {
+                  "@type": "City",
+                  name: item.city,
+                  ...(item.state ? { containedInPlace: { "@type": "State", name: item.state } } : {}),
+                },
               }
-            : undefined,
+            : item.state
+              ? { containedInPlace: { "@type": "State", name: item.state } }
+              : {}),
         }
       : null;
 
@@ -438,12 +480,15 @@ export function portfolioEntityGraphSchema(
   ];
 
   const entity = {
-    "@type": "Thing",
+    "@type": portfolioEntitySchemaType(item.segment),
     "@id": entityId,
     name: item.title,
-    description: item.summary || undefined,
+    description: portfolioUniversalSeoDescription(slug, override) ?? item.summary || undefined,
     url: pageUrl,
     image,
+    ...(item.subtitle ? { alternateName: item.subtitle } : {}),
+    ...(place ? { areaServed: { "@id": place["@id"] } } : {}),
+    ...(semantic?.topics.length ? { knowsAbout: semantic.topics } : {}),
     subjectOf: { "@id": webpageId },
   };
 
@@ -452,7 +497,7 @@ export function portfolioEntityGraphSchema(
     "@id": webpageId,
     url: pageUrl,
     name: portfolioUniversalSeoTitle(slug, override) ?? item.title,
-    description: item.summary || undefined,
+    description: portfolioUniversalSeoDescription(slug, override) ?? item.summary || undefined,
     inLanguage: "pt-BR",
     mainEntity: { "@id": entityId },
     breadcrumb: { "@id": breadcrumbId },
