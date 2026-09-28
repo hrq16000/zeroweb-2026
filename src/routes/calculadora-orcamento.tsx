@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Calculator, Check, ArrowRight, TrendingUp, Shield, Zap, MessageCircle, Sparkles } from "lucide-react";
+import { Calculator, Check, ArrowRight, TrendingUp, Shield, Zap, MessageCircle, Sparkles, Info } from "lucide-react";
 import { ORIGIN } from "@/lib/seo";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 import { useWaFunnel } from "@/components/site/WaFunnelModal";
@@ -9,39 +9,83 @@ import { useWaFunnel } from "@/components/site/WaFunnelModal";
 export const Route = createFileRoute("/calculadora-orcamento")({
   head: () => ({
     meta: [
-      { title: "Calculadora de Orçamento de Marketing Digital | 0web" },
+      { title: "Estimador de Escopo e Investimento Digital | 0WEB" },
       {
         name: "description",
         content:
-          "Descubra em 30 segundos quanto investir em marketing digital para o seu porte e objetivo. A 0web entrega até 40% mais performance pelo mesmo investimento.",
+          "Estime uma faixa orientativa de planejamento para SEO, mídia, social, sites e operação digital a partir de serviço, porte e objetivo. Não substitui proposta comercial.",
       },
-      { property: "og:title", content: "Calculadora de Orçamento de Marketing Digital | 0web" },
+      { property: "og:title", content: "Estimador de Escopo e Investimento Digital | 0WEB" },
       {
         property: "og:description",
         content:
-          "Plano personalizado de marketing digital com faixa de investimento, ROI estimado e proposta direta no WhatsApp.",
+          "Ferramenta orientativa para estimar faixa de planejamento digital e entender os fatores que alteram o escopo antes de solicitar uma proposta.",
       },
       { property: "og:url", content: `${ORIGIN}/calculadora-orcamento` },
       { property: "og:type", content: "website" },
+      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
     ],
     links: [{ rel: "canonical", href: `${ORIGIN}/calculadora-orcamento` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": `${ORIGIN}/calculadora-orcamento#webpage`,
+              url: `${ORIGIN}/calculadora-orcamento`,
+              name: "Estimador de Escopo e Investimento Digital",
+              description: "Ferramenta orientativa para estimar uma faixa de planejamento a partir de serviço, porte e objetivo.",
+              inLanguage: "pt-BR",
+              isPartOf: { "@id": `${ORIGIN}/#website` },
+            },
+            {
+              "@type": "FAQPage",
+              "@id": `${ORIGIN}/calculadora-orcamento#faq`,
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "A faixa calculada é uma proposta comercial?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. É uma referência orientativa baseada em parâmetros internos de serviço, porte e objetivo. Escopo, integrações, mídia, conteúdo e condições reais podem alterar a proposta.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "A calculadora garante retorno ou resultado?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. A ferramenta não prevê ROI, vendas, leads ou posição no Google. Ela apenas organiza uma faixa de planejamento para iniciar a conversa.",
+                  },
+                },
+              ],
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: CalculadoraPage,
 });
 
 // =====================================================================
-// Lógica de preços — viés agressivo (0web entrega +40% performance)
+// Modelo orientativo de planejamento.
+// As faixas abaixo são parâmetros internos da ferramenta, não tabela oficial,
+// proposta comercial nem comparação de preço com o mercado.
 // =====================================================================
 type ServiceKey = "seo" | "ads" | "social" | "site" | "full";
 type SizeKey = "mei" | "pequena" | "media" | "grande";
 type GoalKey = "leads" | "vendas" | "marca" | "local";
 
 const SERVICES: Record<ServiceKey, { label: string; base: [number, number]; desc: string }> = {
-  seo: { label: "SEO Orgânico", base: [1800, 4500], desc: "Tráfego perene e autoridade no Google" },
-  ads: { label: "Google & Meta Ads", base: [2500, 8000], desc: "Leads e vendas com mídia paga" },
+  seo: { label: "SEO Orgânico", base: [1800, 4500], desc: "Diagnóstico, conteúdo, técnica e autoridade conforme escopo" },
+  ads: { label: "Google & Meta Ads", base: [2500, 8000], desc: "Gestão e estrutura de mídia conforme canais e verba" },
   social: { label: "Gestão de Redes Sociais", base: [1500, 4000], desc: "Conteúdo, design e comunidade" },
-  site: { label: "Criação de Site / Landing", base: [3500, 18000], desc: "Site robusto, rápido e que converte" },
-  full: { label: "Operação Completa (Full Funnel)", base: [6000, 22000], desc: "SEO + Mídia + Social + Site integrados" },
+  site: { label: "Criação de Site / Landing", base: [3500, 18000], desc: "Projeto web conforme páginas, conteúdo, integrações e complexidade" },
+  full: { label: "Operação Integrada", base: [6000, 22000], desc: "Combinação de SEO, mídia, social e web conforme escopo" },
 };
 
 const SIZE_MULT: Record<SizeKey, { label: string; mult: number }> = {
@@ -75,14 +119,10 @@ function CalculadoraPage() {
     const m = SIZE_MULT[size].mult * GOALS[goal].bonus;
     const min = Math.round((lo * m) / 100) * 100;
     const max = Math.round((hi * m) / 100) * 100;
-    // Concorrência praticando 40% acima para a mesma entrega
-    const marketMin = Math.round((min * 1.4) / 100) * 100;
-    const marketMax = Math.round((max * 1.4) / 100) * 100;
     return {
       min,
       max,
-      marketMin,
-      marketMax,
+      multiplier: m,
       service: SERVICES[service],
       size: SIZE_MULT[size],
       goal: GOALS[goal],
@@ -114,20 +154,18 @@ function CalculadoraPage() {
             <Calculator className="w-3.5 h-3.5" /> Calculadora gratuita · 30 segundos
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-            Quanto sua empresa <span className="text-gradient">deveria investir</span> em marketing digital?
+            Qual faixa de planejamento <span className="text-gradient">faz sentido explorar</span> no digital?
           </h1>
           <p className="mt-5 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Receba em 30 segundos uma faixa de investimento personalizada para o seu porte e objetivo —
-            com base em mais de 200 operações reais da 0web.
-            <strong className="text-foreground"> Entregamos até 40% mais performance pelo mesmo orçamento</strong> que as
-            agências tradicionais cobram.
+            Use serviço, porte e objetivo para gerar uma faixa orientativa de planejamento. O cálculo usa parâmetros internos
+            da ferramenta e serve para organizar a conversa — não substitui diagnóstico, proposta ou validação do escopo real.
           </p>
 
           <ul className="mt-8 grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
             {[
-              { Icon: TrendingUp, t: "Baseado em dados reais", d: "200+ operações ativas em SEO, Ads e Sites" },
+              { Icon: TrendingUp, t: "Modelo transparente", d: "Serviço × porte × objetivo formam a faixa orientativa" },
               { Icon: Shield, t: "Sem cadastro obrigatório", d: "Resultado na hora, sem captura de e-mail" },
-              { Icon: Zap, t: "Plano personalizado", d: "Faixa de preço + KPIs + próximos passos" },
+              { Icon: Zap, t: "Planejamento, não promessa", d: "A faixa não garante ROI, leads, vendas ou ranking" },
             ].map(({ Icon, t, d }) => (
               <li key={t} className="flex gap-3 rounded-2xl border border-border bg-card/60 backdrop-blur p-4">
                 <Icon className="w-5 h-5 text-primary shrink-0 mt-0.5" />
@@ -201,7 +239,7 @@ function CalculadoraPage() {
                     <div className="rounded-3xl bg-foreground text-background p-8 sm:p-10 relative overflow-hidden">
                       <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
                       <p className="relative inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
-                        <Sparkles className="w-3.5 h-3.5" /> Seu plano personalizado
+                        <Sparkles className="w-3.5 h-3.5" /> Sua estimativa orientativa
                       </p>
                       <h2 className="relative mt-4 text-2xl sm:text-3xl font-display font-bold">
                         {result.service.label} · {result.size.label}
@@ -210,7 +248,7 @@ function CalculadoraPage() {
 
                       <div className="relative mt-8 grid sm:grid-cols-2 gap-4">
                         <div className="rounded-2xl bg-background/5 border border-background/10 p-5">
-                          <p className="text-xs uppercase tracking-wider text-background/60">Investimento 0web</p>
+                          <p className="text-xs uppercase tracking-wider text-background/60">Faixa orientativa</p>
                           <p className="mt-2 text-3xl sm:text-4xl font-display font-bold text-accent">
                             {fmtBRL(result.min)}
                             <span className="text-lg text-background/60"> a </span>
@@ -219,23 +257,21 @@ function CalculadoraPage() {
                           <p className="text-xs text-background/60 mt-1">/mês · sem fidelidade abusiva</p>
                         </div>
                         <div className="rounded-2xl bg-background/5 border border-background/10 p-5">
-                          <p className="text-xs uppercase tracking-wider text-background/60">Mercado tradicional</p>
-                          <p className="mt-2 text-2xl font-display font-semibold line-through decoration-destructive/70 text-background/60">
-                            {fmtBRL(result.marketMin)} a {fmtBRL(result.marketMax)}
-                          </p>
-                          <p className="text-xs text-accent mt-1 font-semibold">
-                            +40% de performance pelo mesmo investimento
+                          <p className="text-xs uppercase tracking-wider text-background/60">Como ler o resultado</p>
+                          <p className="mt-2 text-sm leading-6 text-background/80">
+                            É uma referência de planejamento gerada pela ferramenta. Não inclui automaticamente mídia,
+                            licenças, integrações, produção externa ou outros itens que dependam do escopo.
                           </p>
                         </div>
                       </div>
 
                       <div className="relative mt-8 grid sm:grid-cols-2 gap-3 text-sm">
                         <Bullet>
-                          KPI principal: <strong>{result.goal.kpi}</strong>
+                          Métrica de referência: <strong>{result.goal.kpi}</strong>
                         </Bullet>
-                        <Bullet>Relatórios quinzenais com dados reais (sem maquiagem)</Bullet>
-                        <Bullet>Equipe sênior dedicada — nada de estagiário</Bullet>
-                        <Bullet>Setup completo em até 7 dias úteis</Bullet>
+                        <Bullet>O porte modifica a complexidade usada no cálculo orientativo</Bullet>
+                        <Bullet>O objetivo aplica um fator diferente sobre a faixa-base do serviço</Bullet>
+                        <Bullet>A proposta final depende do escopo validado no atendimento</Bullet>
                       </div>
 
                       <button
@@ -244,7 +280,7 @@ function CalculadoraPage() {
                         className="relative mt-8 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent text-foreground font-semibold px-7 py-4 hover:brightness-110 transition"
                       >
                         <MessageCircle className="w-5 h-5" />
-                        Falar com especialista no WhatsApp
+                        Levar estimativa para o atendimento
                       </button>
                     </div>
 
@@ -265,31 +301,61 @@ function CalculadoraPage() {
         </div>
       </section>
 
-      {/* VANTAGENS */}
-      <section className="py-16 border-t border-border bg-muted/30">
+      <section className="py-16 border-t border-border bg-muted/30" aria-labelledby="metodologia-calculadora">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-center">
-            Por que o orçamento da 0web rende mais
-          </h2>
-          <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
-            Não competimos por preço — competimos por entrega. Veja por que clientes migram de agências
-            tradicionais e nunca mais voltam.
-          </p>
-          <ul className="mt-10 grid md:grid-cols-2 gap-4">
-            {[
-              "Estrutura enxuta e tecnológica: menos camadas, mais execução na ponta",
-              "Time sênior com automações próprias de SEO, mídia e CRO",
-              "Dashboards transparentes em tempo real — você vê cada R$ investido",
-              "Contratos sem fidelidade abusiva e sem letras miúdas",
-              "Foco obsessivo em ROI: tudo que fazemos é medido por receita gerada",
-              "Atendimento direto com estrategista — zero telefone sem fim",
-            ].map((t) => (
-              <li key={t} className="flex gap-3 rounded-2xl border border-border bg-card p-5">
-                <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm">{t}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="max-w-3xl">
+            <h2 id="metodologia-calculadora" className="text-3xl sm:text-4xl font-display font-bold">
+              Como a estimativa é calculada
+            </h2>
+            <p className="mt-4 leading-7 text-muted-foreground">
+              Cada serviço possui uma faixa-base interna da ferramenta. O porte aplica um fator de complexidade e o objetivo
+              aplica outro fator de planejamento. O resultado é arredondado para uma faixa simples e não consulta preço de concorrente.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              <h3 className="mt-4 font-semibold">1. Serviço</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">SEO, mídia, social, projeto web e operação integrada partem de faixas de referência diferentes.</p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <Shield className="h-5 w-5 text-primary" />
+              <h3 className="mt-4 font-semibold">2. Porte</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">O porte funciona como aproximação de complexidade operacional; ele não determina sozinho o preço de um projeto.</p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <Zap className="h-5 w-5 text-primary" />
+              <h3 className="mt-4 font-semibold">3. Objetivo</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Leads, vendas, marca e presença local mudam a prioridade e o tipo de medição sugerido.</p>
+            </article>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-primary/20 bg-primary/5 p-6">
+            <div className="flex gap-3">
+              <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <h3 className="font-semibold">O que a ferramenta não calcula</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Não prevê retorno financeiro, posição no Google, volume de leads, tempo de implantação nem preço de outras empresas.
+                  Também não substitui uma proposta baseada em páginas, integrações, conteúdo, mídia, acessos e condições reais.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <h2 className="text-2xl font-display font-bold">Perguntas sobre a estimativa</h2>
+            <div className="mt-5 divide-y divide-border rounded-2xl border border-border bg-card">
+              <details className="p-5">
+                <summary className="cursor-pointer font-semibold">A faixa calculada é uma proposta comercial?</summary>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">Não. Ela é uma referência interna de planejamento para organizar o primeiro contato.</p>
+              </details>
+              <details className="p-5">
+                <summary className="cursor-pointer font-semibold">A calculadora garante retorno ou resultado?</summary>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">Não. ROI, vendas, leads e ranking dependem de variáveis que a ferramenta não consegue prever.</p>
+              </details>
+            </div>
+          </div>
         </div>
       </section>
     </main>
