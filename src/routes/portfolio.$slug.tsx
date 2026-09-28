@@ -944,7 +944,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
-        { property: "og:site_name", content: eff.title },
+        { property: "og:site_name", content: catalogSeo?.title ?? eff.title },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
