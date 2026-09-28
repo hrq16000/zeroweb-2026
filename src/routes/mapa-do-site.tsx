@@ -31,7 +31,7 @@ export const Route = createFileRoute("/mapa-do-site")({
         content: "Índice completo de páginas, serviços e seções do 0WEB.",
       },
       { property: "og:url", content: "https://0web.com.br/mapa-do-site" },
-      { name: "robots", content: "index,follow" },
+      { name: "robots", content: "noindex,follow" },
     ],
     links: [{ rel: "canonical", href: "https://0web.com.br/mapa-do-site" }],
   }),
