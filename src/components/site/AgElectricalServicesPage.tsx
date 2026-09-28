@@ -116,7 +116,7 @@ export function AgElectricalServicesPage() {
           </ul>
         </section>
 
-                <section className="border-b border-[#1c3f66] px-5 py-16 lg:px-10" aria-labelledby="ag-avaliacao-title">
+        <section className="border-b border-[#1c3f66] px-5 py-16 lg:px-10" aria-labelledby="ag-avaliacao-title">
           <div className="mx-auto max-w-7xl">
             <p className="font-mono text-[11px] uppercase tracking-[.22em] text-[#f47b20]">Dados para a avaliação</p>
             <h2 id="ag-avaliacao-title" className="mt-3 max-w-4xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
@@ -143,7 +143,7 @@ export function AgElectricalServicesPage() {
           </div>
         </section>
 
-{/* PAINEL: fechamento em duas colunas de texto técnico + chamada */}
+        {/* PAINEL: fechamento em duas colunas de texto técnico + chamada */}
         <section id="painel" className="px-5 py-20 lg:px-10">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 md:grid-cols-3">

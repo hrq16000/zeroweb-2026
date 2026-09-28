@@ -118,7 +118,7 @@ export function AngelMixBrechoPage() {
           </MotionReveal>
         </section>
 
-                <section className="mx-auto max-w-5xl px-6 pb-16 md:px-14 md:pb-24" aria-labelledby="angel-consulta-title">
+        <section className="mx-auto max-w-5xl px-6 pb-16 md:px-14 md:pb-24" aria-labelledby="angel-consulta-title">
           <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--am-rose)]">Antes de consultar a vitrine</p>
           <h2 id="angel-consulta-title" className="mt-3 max-w-[24ch] font-display text-3xl font-black leading-tight md:text-4xl">
             Tipo de peça, tamanho e estilo ajudam a direcionar o garimpo.
@@ -143,7 +143,7 @@ export function AngelMixBrechoPage() {
           </div>
         </section>
 
-{/* fechamento em faixa fina, alinhado à esquerda */}
+        {/* fechamento em faixa fina, alinhado à esquerda */}
         <section className="bg-[var(--am-rose)] px-6 py-10 text-[var(--am-cream)] md:px-14">
           <div className="mx-auto flex max-w-5xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <p className="max-w-[34ch] font-display text-2xl font-bold leading-snug md:text-3xl">
