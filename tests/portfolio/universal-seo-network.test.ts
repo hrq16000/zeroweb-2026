@@ -12,6 +12,7 @@ import {
 
 const shell = readFileSync("src/components/portfolio/PortfolioStandardShell.tsx", "utf8");
 const route = readFileSync("src/routes/portfolio.$slug.tsx", "utf8");
+const portfolioIndex = readFileSync("src/routes/portfolio.index.tsx", "utf8");
 
 describe("SEO universal dos portfolios", () => {
   const published = listPublicPortfolioSeoDescriptors();
@@ -179,6 +180,12 @@ describe("SEO universal dos portfolios", () => {
     expect(route).not.toContain("serviceNode({");
     expect(route).toContain('mainEntity: { "@id": `${url}#business` }');
     expect(route).toContain('publisher: { "@id": "https://0web.com.br/#org" }');
+  });
+
+  test("hub /portfolio mantém índice HTML completo dos negócios públicos", () => {
+    expect(portfolioIndex).toContain("PUBLIC_DISCOVERY_ITEMS");
+    expect(portfolioIndex).toContain("Todos os negócios e prestadores publicados");
+    expect(portfolioIndex).toContain("PUBLIC_DISCOVERY_ITEMS.map");
   });
 
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {
