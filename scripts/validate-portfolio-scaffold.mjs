@@ -80,12 +80,31 @@ const UNIVERSAL_FUNNELS = ["diagnostico-0web", "funnel-service", "funnel-order-s
 const CREATIVE_PLACEHOLDER = /\[PREENCHER\]/i;
 const SCAFFOLD_MARKER = /CREATIVE_BRIEF_REQUIRED/;
 
+const INDIVIDUAL_SITE_CONTRACT_VERSION = 4;
+const INDIVIDUAL_SITE_STANDARD = "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md";
+const INDIVIDUAL_SITE_GATES = [
+  "PORTFOLIO_INDIVIDUAL_SITE_GATE",
+  "PORTFOLIO_ENTITY_GATE",
+  "PORTFOLIO_LOCAL_SEO_GATE",
+  "PORTFOLIO_MEDIA_RICHNESS_GATE",
+  "PORTFOLIO_DISCOVERY_GRAPH_GATE",
+  "PORTFOLIO_INDEXABILITY_GATE",
+];
+const INDIVIDUAL_SITE_GATE_STATES = new Set([
+  "not_started",
+  "in_progress",
+  "complete",
+  "blocked",
+  "not_applicable",
+]);
+
 for (const client of clients) {
   const label = `[${client.slug}]`;
   const catalogProject = catalogBySlug.get(client.slug);
   const isPublished = catalogProject?.status === "published";
   const isCreativeV2 = Number(client.creativeContractVersion ?? 0) >= 2;
-  const isManaged = Boolean(lifecycleManifests[client.slug]);
+  const lifecycleManifest = lifecycleManifests[client.slug];
+  const isManaged = Boolean(lifecycleManifest);
   const isFrozenLegacy = legacyBaseline.has(client.slug);
 
   // LEGACY GROWTH GATE:
@@ -148,6 +167,30 @@ for (const client of clients) {
     if (!client.funnelType) {
       errors.push(`${label} projeto gerenciado sem funnelType (canal comercial do negócio)`);
     }
+
+    if (Number(lifecycleManifest?.contractVersion ?? 0) >= INDIVIDUAL_SITE_CONTRACT_VERSION) {
+      const contract = lifecycleManifest?.individualSiteContract;
+      if (contract?.version !== 1) {
+        errors.push(`${label} contrato v4 sem individualSiteContract.version=1`);
+      }
+      if (contract?.standard !== INDIVIDUAL_SITE_STANDARD) {
+        errors.push(`${label} contrato v4 sem referência normativa a ${INDIVIDUAL_SITE_STANDARD}`);
+      }
+      for (const gate of INDIVIDUAL_SITE_GATES) {
+        const state = contract?.gates?.[gate];
+        if (!INDIVIDUAL_SITE_GATE_STATES.has(state)) {
+          errors.push(`${label} ${gate} com estado inválido/ausente (${state ?? "ausente"})`);
+          continue;
+        }
+        if (state === "complete") {
+          const evidence = contract?.evidence?.[gate];
+          if (!Array.isArray(evidence) || evidence.length === 0) {
+            errors.push(`${label} ${gate}=complete sem evidência registrada`);
+          }
+        }
+      }
+    }
+
     if (
       !blueprintRegistrySource.includes(`"${client.slug}"`) &&
       !compositionRegistrySource.includes(`"${client.slug}"`)

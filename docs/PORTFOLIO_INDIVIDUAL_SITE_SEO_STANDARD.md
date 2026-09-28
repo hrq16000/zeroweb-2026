@@ -439,6 +439,42 @@ Falhas típicas:
 - `noindex` sem motivo rastreável;
 - portfolio publicado sem participação no diretório local.
 
+### 12.1 Execução operacional do contrato
+
+Para projetos novos, o scaffold canônico cria `contractVersion >= 4` e um
+`individualSiteContract` no manifesto do projeto.
+
+O contrato registra os seis gates desta seção com estado explícito e evidências:
+
+- `not_started`;
+- `in_progress`;
+- `complete`;
+- `blocked`;
+- `not_applicable` somente quando a natureza do negócio realmente não exigir o item.
+
+Regras:
+
+- `PORTFOLIO_INDIVIDUAL_SITE_GATE`, `PORTFOLIO_ENTITY_GATE`,
+  `PORTFOLIO_DISCOVERY_GRAPH_GATE` e `PORTFOLIO_INDEXABILITY_GATE` são estruturais
+  e não podem ser marcados como `not_applicable`;
+- gate marcado `complete` precisa registrar evidência concreta no manifesto;
+- projeto `ready` ou `published` não pode possuir gate pendente;
+- portfolio publicado exige `PORTFOLIO_INDEXABILITY_GATE=complete`;
+- drafts podem permanecer incompletos sem quebrar o build, mas não podem ser
+  promovidos para READY/PUBLISH enquanto o contrato não estiver satisfeito.
+
+Execução:
+
+```bash
+bun run validate:portfolio-scaffold
+bun run check:portfolio-project-readiness
+bun run check:portfolio-individual-site-contract
+```
+
+O `validate-portfolio-scaffold` valida forma/estados/evidências do contrato;
+o readiness gate valida a promoção do projeto; e o teste de contrato protege
+scaffold, gates e roteamento normativo contra regressão.
+
 ---
 
 ## 13. Relação com a Constituição Aditiva
