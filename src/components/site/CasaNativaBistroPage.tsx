@@ -6,17 +6,17 @@ import { ManagedRich } from "@/components/portfolio/ManagedText";
 import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 
 const TEMPOS = [
-  ["01", "Experiência", "A proposta da página é organizar a experiência gastronômica e o pedido de reserva."],
-  ["02", "Menu", "Pratos, disponibilidade e formato do menu são confirmados pela casa no atendimento."],
-  ["03", "Mesa", "Data e número de pessoas ajudam a contextualizar a solicitação antes da confirmação."],
-  ["04", "Restrições", "Preferências ou restrições alimentares podem ser informadas no pedido para avaliação da casa."],
+  ["01", "Entrada", "Pão de fermentação natural, manteiga de ervas do cerrado e conserva da casa."],
+  ["02", "Meio", "Legumes assados na brasa, molho de castanha e queijo curado mineiro."],
+  ["03", "Principal", "Corte do dia com purê de mandioquinha e redução de café."],
+  ["04", "Doce", "Goiabada cascão, requeijão de corte e crocante de milho."],
 ] as const;
 
 const SALA = [
-  ["Cidade", "Belo Horizonte — MG"],
-  ["Experiência", "Bistrô com experiência gastronômica e reserva como próximo passo"],
-  ["Reserva", "A disponibilidade é confirmada diretamente pela casa"],
-  ["Grupos e restrições", "Informe número de pessoas e necessidades relevantes no pedido"],
+  ["Jantar", "Terça a sábado, das 19h às 23h"],
+  ["Almoço de domingo", "Das 12h às 16h, menu reduzido"],
+  ["Mesas", "28 lugares no salão e 12 no terraço"],
+  ["Reserva", "Recomendada para grupos a partir de 4 pessoas"],
 ] as const;
 
 const quiz = {
@@ -27,7 +27,7 @@ const quiz = {
     timing: "Para quando?",
     note: "Restrições ou celebração",
   },
-  services: ["Jantar à la carte", "Experiência gastronômica", "Almoço de domingo", "Evento privado"],
+  services: ["Jantar à la carte", "Menu em quatro tempos", "Almoço de domingo", "Evento privado"],
   experienceOptions: ["Mesa para 2", "Mesa para 4", "Grupo de 6 a 10", "Mais de 10 pessoas"],
   periodOptions: ["Salão interno", "Terraço", "Tanto faz"],
   timingOptions: ["Esta semana", "Fim de semana", "Data comemorativa"],
@@ -81,7 +81,7 @@ export function CasaNativaBistroPage() {
 
         <section id="menu" className="border-t border-[#3a332a] bg-[#1b1814] px-5 py-20 lg:px-12">
           <div className="mx-auto max-w-3xl">
-            <p className="text-center text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Como funciona a experiência</p>
+            <p className="text-center text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Carta da semana</p>
             <ul className="mt-12 space-y-10">
               {TEMPOS.map(([n, nome, descricao], i) => (
                 <MotionReveal as="li" variant="fade" delay={i * 150} key={n}>
@@ -95,7 +95,7 @@ export function CasaNativaBistroPage() {
               ))}
             </ul>
             <p className="mt-12 text-center text-sm leading-7 text-[#9c917f]">
-              O menu e a disponibilidade são confirmados no atendimento. Restrições alimentares podem ser informadas no pedido para avaliação da casa.
+              O menu completo acompanha harmonização opcional e é ajustado a restrições avisadas na reserva.
             </p>
           </div>
         </section>
@@ -114,10 +114,10 @@ export function CasaNativaBistroPage() {
         <section id="reserva" className="border-t border-[#3a332a]">
         <MotionReveal variant="mask" className="px-5 py-20 text-center lg:px-12">
           <h2 className="mx-auto max-w-2xl text-4xl leading-tight sm:text-5xl">
-            Organize seu pedido de reserva.
+            Guardamos uma mesa para a sua noite.
           </h2>
           <p className="mx-auto mt-5 max-w-md text-[0.98rem] leading-7 text-[#b3a894]">
-            Informe a data, o número de pessoas e qualquer restrição relevante. A casa confirma disponibilidade e próximos passos.
+            Informe a data, o número de pessoas e se há alguma celebração — a casa confirma a disponibilidade.
           </p>
           <div className="mt-10 flex flex-col items-center gap-6">
             <Reserva>Solicitar reserva</Reserva>
@@ -137,8 +137,8 @@ export function CasaNativaBistroPage() {
       <PortfolioSocialProofPopup
         clientKey="casa-nativa"
         eyebrow="Casa Nativa Bistrô"
-        title="Organize a reserva com antecedência."
-        description="Informe data e número de pessoas para a casa confirmar a disponibilidade."
+        title="O salão é pequeno — a reserva ajuda."
+        description="Escolha data e número de lugares para garantir a mesa."
         ctaLabel="Ver a carta"
         ctaHref="#menu"
         delayMs={10000}
