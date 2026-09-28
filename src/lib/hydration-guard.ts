@@ -39,7 +39,7 @@ export const HYDRATION_GUARD_SCRIPT = `(function(){
       var d = document.createElement('div');
       d.id = 'hydration-fallback';
       d.setAttribute('style', 'position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;background:#fff;color:#0b1120;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:24px;text-align:center');
-      d.innerHTML = '<div style="max-width:420px"><h1 style="font-size:20px;font-weight:700;margin:0 0 8px">Não conseguimos carregar esta página</h1>'
+      d.innerHTML = '<div style="max-width:420px"><p role="heading" aria-level="2" style="font-size:20px;font-weight:700;margin:0 0 8px">Não conseguimos carregar esta página</p>'
         + '<p style="font-size:14px;line-height:1.5;color:#475569;margin:0 0 20px">Isso costuma acontecer quando o navegador guardou uma versão antiga do site. Atualize para carregar a versão mais recente.</p>'
         + '<button id="hydration-fallback-reload" style="background:#0066FF;color:#fff;border:0;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer">Atualizar página</button>'
         + '<div style="margin-top:12px"><a href="/" style="color:#0066FF;font-size:13px">Ir para o início</a></div></div>';
