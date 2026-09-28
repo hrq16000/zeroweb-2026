@@ -120,12 +120,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
               name: c.name,
               containedInPlace: { "@type": "State", name: c.state },
             },
-            provider: {
-              "@type": "Organization",
-              name: "0WEB",
-              url: "https://0web.com.br",
-              areaServed: { "@type": "Country", name: "Brasil" },
-            },
+            provider: { "@id": "https://0web.com.br/#org" },
           }),
         },
         {
