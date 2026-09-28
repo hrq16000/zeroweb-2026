@@ -1,15 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 const URL = "https://0web.com.br/cases";
-const TITLE = "Cases de Sucesso · Resultados Reais em SEO, Tráfego e IA · 0WEB";
+const TITLE = "Projetos 0WEB · Estudos em revisão editorial";
 const DESC =
-  "Conheça cases reais de clientes 0WEB: crescimento de tráfego orgânico, redução de CPL, automação de vendas e implementação de IA. Resultados mensuráveis.";
+  "Projetos e estudos da 0WEB em revisão editorial. Métricas e depoimentos só voltam à indexação quando houver evidência versionada para cada afirmação.";
 
 const cases = [
   {
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/cases/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { name: "robots", content: "index,follow,max-image-preview:large" },
+      { name: "robots", content: "noindex,follow,max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
@@ -93,36 +93,24 @@ function CasesPage() {
       <main>
         <section className="pt-6 pb-12 px-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6">
-            <TrendingUp className="w-3.5 h-3.5" /> Resultados reais
+            <TrendingUp className="w-3.5 h-3.5" /> Revisão editorial
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold max-w-3xl mx-auto">
-            Cases de sucesso de clientes que <span className="text-gradient">cresceram com a 0WEB</span>
+            Projetos e estudos <span className="text-gradient">em validação de evidências</span>
           </h1>
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-            Resultados mensuráveis em SEO, tráfego pago, automação com IA e desenvolvimento web.
+            Esta seção permanece acessível para revisão, mas não participa do índice do Google enquanto métricas e depoimentos não tiverem fonte verificável.
           </p>
         </section>
 
         <section className="pb-24 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-            {cases.map((c) => (
-              <Link
-                key={c.slug}
-                to="/cases/$slug"
-                params={{ slug: c.slug }}
-                className="rounded-2xl border border-border bg-card p-8 hover:shadow-glow-primary hover:border-primary/40 transition group"
-              >
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">{c.segment}</div>
-                <h2 className="mt-2 text-2xl font-display font-bold">{c.title}</h2>
-                <p className="mt-3 text-muted-foreground">{c.summary}</p>
-                <div className="mt-6 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-2 text-primary font-semibold">
-                    {c.metric}
-                  </span>
-                  <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition" />
-                </div>
-              </Link>
-            ))}
+          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 text-left">
+            <h2 className="text-xl font-bold">Critério de publicação dos cases</h2>
+            <p className="mt-3 text-muted-foreground">
+              Cada estudo precisa ter escopo, fonte das métricas, período de medição e autorização de uso
+              documentados. Enquanto essa trilha não estiver versionada, o material não é apresentado como
+              resultado comprovado nem enviado para indexação.
+            </p>
           </div>
         </section>
       </main>
