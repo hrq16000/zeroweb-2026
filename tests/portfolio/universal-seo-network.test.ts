@@ -77,6 +77,30 @@ describe("SEO universal dos portfolios", () => {
     expect(related.some((item) => item.slug === "maximos-cabeleireiros")).toBe(true);
   });
 
+  test("title local prioriza bairro e cidade quando couber", () => {
+    const title = portfolioUniversalSeoTitle("beto-pasteis") ?? "";
+    expect(title).toContain("Beto Pastéis");
+    expect(title).toContain("Jardim Itália");
+    expect(title).toContain("São José dos Pinhais");
+    expect(title.length).toBeLessThanOrEqual(65);
+  });
+
+  test("negócio local recebe Organization, logo/imagem e Place próprios", () => {
+    const schema = portfolioEntityGraphSchema("beto-pasteis");
+    const graph = schema?.["@graph"] ?? [];
+    const business = graph.find(
+      (node: any) => node["@type"] === "Organization" && node["@id"]?.endsWith("#business"),
+    ) as any;
+    const place = graph.find((node: any) => node["@type"] === "Place") as any;
+    expect(business?.name).toBe("Beto Pastéis");
+    expect(business?.url).toBe("https://0web.com.br/portfolio/beto-pasteis");
+    expect(business?.logo?.url).toContain("/images/beto-pasteis/");
+    expect(business?.image).toContain("/images/beto-pasteis/");
+    expect(business?.knowsAbout).toContain("Pasteis");
+    expect(place?.name).toContain("Jardim Itália");
+    expect(place?.address?.addressLocality).toBe("São José dos Pinhais");
+  });
+
   test("descritor extrai bairro do location versionado e leva bairro às keywords", () => {
     const beto = published.find((item) => item.slug === "beto-pasteis");
     expect(beto?.neighborhood).toBe("Jardim Itália");
@@ -101,13 +125,22 @@ describe("SEO universal dos portfolios", () => {
       expect(schema?.["@context"]).toBe("https://schema.org");
       const graph = schema?.["@graph"] ?? [];
       expect(graph.some((node: any) => node["@type"] === "WebPage")).toBe(true);
-      expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(true);
+      expect(graph.some((node: any) => node["@type"] === "Organization")).toBe(true);
+      expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(false);
       expect(graph.some((node: any) => node["@type"] === "BreadcrumbList")).toBe(true);
 
       const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
       expect(webpage?.url).toBe(`https://0web.com.br/portfolio/${item.slug}`);
       expect(webpage?.inLanguage).toBe("pt-BR");
-      expect(webpage?.mainEntity?.["@id"]).toContain("#entity");
+      expect(webpage?.mainEntity?.["@id"]).toContain("#business");
+      expect(webpage?.publisher?.["@id"]).toBe("https://0web.com.br/#org");
+
+      const business = graph.find(
+        (node: any) => node["@type"] === "Organization" && node["@id"]?.endsWith("#business"),
+      ) as any;
+      expect(business?.name).toBe(item.title);
+      expect(business?.mainEntityOfPage?.["@id"]).toContain("#webpage");
+      expect(Array.isArray(business?.knowsAbout) || business?.knowsAbout === undefined).toBe(true);
     }
   });
 
@@ -129,7 +162,7 @@ describe("SEO universal dos portfolios", () => {
       "Manutenção de notebooks",
       "Configuração de Wi-Fi",
     ]);
-    expect(services.every((node) => node.provider?.["@id"]?.endsWith("#entity"))).toBe(true);
+    expect(services.every((node) => node.provider?.["@id"]?.endsWith("#business"))).toBe(true);
     expect(graph.some((node: any) => node["@type"] === "Place")).toBe(true);
   });
 
@@ -140,6 +173,12 @@ describe("SEO universal dos portfolios", () => {
     const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
     expect(Array.isArray(webpage?.about)).toBe(true);
     expect(webpage.about.some((node: any) => node["@type"] === "DefinedTerm")).toBe(true);
+  });
+
+  test("head estático não atribui genericamente o serviço do cliente à 0WEB", () => {
+    expect(route).not.toContain("serviceNode({");
+    expect(route).toContain('mainEntity: { "@id": `${url}#business` }');
+    expect(route).toContain('publisher: { "@id": "https://0web.com.br/#org" }');
   });
 
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {
