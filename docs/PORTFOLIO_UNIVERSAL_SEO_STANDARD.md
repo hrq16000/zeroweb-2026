@@ -12,6 +12,11 @@ camada técnica mínima de descoberta, indexação e interligação.
 O objetivo é ampliar autoridade e cobertura sem produzir doorway pages, texto oculto,
 keyword stuffing, avaliações inventadas ou informação local não comprovada.
 
+Este padrão deve ser lido em conjunto com `PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`.
+A camada universal existe para garantir o básico em escala, mas **cada portfolio publicado
+deve se comportar como site individual**, com entidade, conteúdo, mídia, contexto local,
+head, schema e descoberta próprios.
+
 Este padrão obedece à `0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`.
 Quando uma página comercial/local legítima precisar melhorar indexabilidade, a ação
 preferencial é **ganhar conteúdo, mídia, links, contexto local e utilidade**, não perder
@@ -19,7 +24,7 @@ conteúdo já aprovado. Remoção é exceção rastreável, não técnica padrã
 
 ## Contrato obrigatório
 
-Todo projeto publicado deve possuir:
+Todo projeto publicado deve possuir, como contrato mínimo de um site individual:
 
 - URL canônica exclusiva derivada do slug;
 - `index,follow,max-image-preview:large` somente quando realmente publicado;

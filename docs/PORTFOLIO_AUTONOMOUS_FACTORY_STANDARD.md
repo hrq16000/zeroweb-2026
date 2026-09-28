@@ -31,7 +31,7 @@ Em conflito sobre **como novos projetos devem ser criados, armazenados, editados
 
 `/portfolio` deixa de ser apenas uma galeria de páginas criadas manualmente e evolui para uma **plataforma multi-tenant de criação, venda, hospedagem e evolução de sites**.
 
-Cada `/portfolio/:slug` é um projeto/cliente independente com:
+Cada `/portfolio/:slug` é um projeto/cliente independente e deve nascer como **site individual completo**, conforme `PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`, com:
 
 - identidade e fatos próprios;
 - pesquisa e provenance próprias;
@@ -39,6 +39,10 @@ Cada `/portfolio/:slug` é um projeto/cliente independente com:
 - composição e motion próprios;
 - funil e destinatário próprios;
 - SEO e domínio próprios;
+- title/description/canonical/OG/schema próprios;
+- participação em sitemap e grafo local/temático;
+- imagem social e mídia próprias;
+- contexto de bairro/cidade quando disponível;
 - permissões e proprietários próprios;
 - histórico de versões próprio;
 - analytics próprios.
