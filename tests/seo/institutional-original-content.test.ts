@@ -29,4 +29,22 @@ describe("conteúdo institucional autêntico", () => {
     expect(solicitar).toContain('name: "robots", content: "noindex,follow"');
     expect(sitemap).not.toContain('{ path: "/solicitar-orcamento"');
   });
+
+  test("Infraestrutura não publica garantias universais", () => {
+    const infra = readFileSync("src/routes/infraestrutura.tsx", "utf8");
+    expect(infra).toContain("Performance medida por projeto");
+    expect(infra).toContain("A infraestrutura deixa rastros que podem ser auditados");
+    expect(infra).not.toContain("100% de uptime garantido");
+    expect(infra).not.toContain("LCP < 1.5s");
+    expect(infra).not.toContain("300+ pontos de presença");
+    expect(infra).not.toContain("carrega em milissegundos");
+  });
+
+  test("Sites por segmento explica intenção sem virar template genérico", () => {
+    const sites = readFileSync("src/routes/sites.index.tsx", "utf8");
+    expect(sites).toContain("Segmento não é sinônimo de template");
+    expect(sites).toContain("Quando criar outra página");
+    expect(sites).toContain('"@type": "ItemList"');
+    expect(sites).toContain("index,follow");
+  });
 });
