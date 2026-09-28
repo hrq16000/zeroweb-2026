@@ -42,6 +42,22 @@ describe("gate de capitais para criação de site institucional", () => {
     expect(source).toContain('indexable ? "index,follow,max-image-preview:large" : "noindex,follow"');
   });
 
+  it("referencia a Organization global da 0WEB sem duplicar entidade", () => {
+    const hub = readFileSync(
+      resolve(process.cwd(), "src/routes/criacao-de-site-institucional.index.tsx"),
+      "utf8",
+    );
+    const detail = readFileSync(
+      resolve(process.cwd(), "src/routes/criacao-de-site-institucional.$cidade.tsx"),
+      "utf8",
+    );
+
+    expect(hub).toContain('provider: { "@id": "https://0web.com.br/#org" }');
+    expect(detail).toContain('provider: { "@id": "https://0web.com.br/#org" }');
+    expect(hub).not.toContain('provider: { "@type": "Organization"');
+    expect(detail).not.toContain('provider: {\n              "@type": "Organization"');
+  });
+
   it("alinha hub e sitemap ao mesmo gate de evidência", () => {
     const hub = readFileSync(
       resolve(process.cwd(), "src/routes/criacao-de-site-institucional.index.tsx"),
