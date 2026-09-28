@@ -34,4 +34,18 @@ describe("onda de conteúdo original em portfólios", () => {
     expect(source).toContain("Marca e modelo quando conhecidos");
     expect(source).toContain("Disponibilidade, garantia e condições são confirmadas");
   });
+
+  test("Brechó São Francisco aprofunda consulta sem fingir estoque fixo", () => {
+    const source = readFileSync("src/components/site/BrechoSaoFranciscoPage.tsx", "utf8");
+    expect(source).toContain("Tipo, tamanho e estilo ajudam a encontrar");
+    expect(source).toContain("a página não trata a vitrine como estoque fixo");
+    expect(source).toContain("A confirmação acontece no atendimento");
+  });
+
+  test("Woodhouse aprofunda o pedido sem prometer disponibilidade", () => {
+    const source = readFileSync("src/components/site/WoodhouseHamburgueresPage.tsx", "utf8");
+    expect(source).toContain("Antes de fechar a comanda");
+    expect(source).toContain("hambúrgueres grelhados, petiscos e combos");
+    expect(source).toContain("A página não presume disponibilidade");
+  });
 });
