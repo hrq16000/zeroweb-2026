@@ -139,6 +139,40 @@ export function WoodhouseHamburgueresPage() {
             </p>
           </aside>
         </div>
+
+        <section className="mt-12 rounded-lg border border-[var(--wh-amber)]/30 bg-[var(--wh-wood)]/15 p-6 md:p-9" aria-labelledby="woodhouse-pedido-title">
+          <p className="text-[0.62rem] font-bold uppercase tracking-[0.4em] text-[var(--wh-amber)]">Antes de fechar a comanda</p>
+          <h2 id="woodhouse-pedido-title" className="mt-4 max-w-3xl font-display text-2xl font-black uppercase leading-tight md:text-3xl">
+            O pedido fica mais claro quando você já sabe o que quer compartilhar.
+          </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-[var(--wh-bone)]/70">
+            A página apresenta três caminhos já descritos pela casa: hambúrgueres grelhados, petiscos e combos. O contato serve para confirmar o pedido,
+            combinar retirada ou entrega e alinhar os detalhes antes de finalizar.
+          </p>
+          <div className="mt-7 grid gap-5 md:grid-cols-3">
+            <article className="border-t border-[var(--wh-amber)]/35 pt-5">
+              <p className="text-[0.6rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">01 · principal</p>
+              <h3 className="mt-3 font-display text-lg font-bold uppercase">Hambúrguer</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--wh-bone)]/65">
+                Informe que procura um hambúrguer da casa para o atendimento direcionar a conversa ao pedido principal.
+              </p>
+            </article>
+            <article className="border-t border-[var(--wh-amber)]/35 pt-5">
+              <p className="text-[0.6rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">02 · mesa</p>
+              <h3 className="mt-3 font-display text-lg font-bold uppercase">Petiscos</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--wh-bone)]/65">
+                Se a ideia é compartilhar, indique que procura petiscos ou porções para a equipe confirmar o que está disponível.
+              </p>
+            </article>
+            <article className="border-t border-[var(--wh-amber)]/35 pt-5">
+              <p className="text-[0.6rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">03 · retirada</p>
+              <h3 className="mt-3 font-display text-lg font-bold uppercase">Combinar o pedido</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--wh-bone)]/65">
+                Retirada ou entrega são combinadas diretamente com a casa. A página não presume disponibilidade, prazo ou condição fixa.
+              </p>
+            </article>
+          </div>
+        </section>
       </main>
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
