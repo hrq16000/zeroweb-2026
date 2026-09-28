@@ -53,4 +53,19 @@ describe("conteúdo institucional autêntico", () => {
     expect(diagnostico).toContain('name: "robots", content: "noindex,follow"');
     expect(sitemap).not.toContain('{ path: "/solicitar-diagnostico"');
   });
+
+  test("planos hardcoded ficam fora do índice até reconciliação com catálogo", () => {
+    const planos = readFileSync("src/routes/planos.tsx", "utf8");
+    const comparativo = readFileSync("src/routes/planos-comparativo.tsx", "utf8");
+    expect(planos).toContain('name: "robots", content: "noindex,follow"');
+    expect(comparativo).toContain('name: "robots", content: "noindex,follow"');
+    expect(sitemap).not.toContain('{ path: "/planos"');
+    expect(sitemap).not.toContain('{ path: "/planos-comparativo"');
+  });
+
+  test("mapa HTML continua navegável sem competir no índice", () => {
+    const mapa = readFileSync("src/routes/mapa-do-site.tsx", "utf8");
+    expect(mapa).toContain('name: "robots", content: "noindex,follow"');
+    expect(sitemap).not.toContain('{ path: "/mapa-do-site"');
+  });
 });
