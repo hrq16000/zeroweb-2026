@@ -1,8 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import {
+  clipPortfolioMetaDescription,
   listPublicPortfolioSeoDescriptors,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   portfolioSemanticContext,
   portfolioEntityGraphSchema,
@@ -49,6 +51,14 @@ describe("SEO universal dos portfolios", () => {
     expect(titles.every(Boolean)).toBe(true);
     expect(titles.every((title) => (title?.length ?? 999) <= 65)).toBe(true);
     expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  test("snippets universais respeitam limite sem reduzir conteúdo da página", () => {
+    const long = "Beto Pastéis em São José dos Pinhais — PR: " + "pastéis artesanais e informações do negócio ".repeat(10);
+    expect(clipPortfolioMetaDescription(long).length).toBeLessThanOrEqual(158);
+    const description = portfolioUniversalSeoDescription("beto-pasteis", long) ?? "";
+    expect(description.length).toBeLessThanOrEqual(158);
+    expect(description).toContain("Beto Pastéis");
   });
 
   test("contexto de palavras-chave usa entidade, tags e localidade sem duplicar termos", () => {
@@ -174,6 +184,11 @@ describe("SEO universal dos portfolios", () => {
     const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
     expect(Array.isArray(webpage?.about)).toBe(true);
     expect(webpage.about.some((node: any) => node["@type"] === "DefinedTerm")).toBe(true);
+  });
+
+  test("managed também recebe meta description controlada", () => {
+    expect(route).toContain("managedMetaDescription");
+    expect(route).toContain("clipPortfolioMetaDescription(project.seoDescription)");
   });
 
   test("head estático não atribui genericamente o serviço do cliente à 0WEB", () => {
