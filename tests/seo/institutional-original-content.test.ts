@@ -47,4 +47,10 @@ describe("conteúdo institucional autêntico", () => {
     expect(sites).toContain('"@type": "ItemList"');
     expect(sites).toContain("index,follow");
   });
+
+  test("diagnóstico utilitário não compete no índice", () => {
+    const diagnostico = readFileSync("src/routes/solicitar-diagnostico.tsx", "utf8");
+    expect(diagnostico).toContain('name: "robots", content: "noindex,follow"');
+    expect(sitemap).not.toContain('{ path: "/solicitar-diagnostico"');
+  });
 });
