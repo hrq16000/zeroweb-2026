@@ -53,15 +53,16 @@ export const Route = createFileRoute("/sites-robustos/$slug")({
                 { name: a.title, path: `/sites-robustos/${a.slug}` },
               ]),
               {
-                "@type": "Article",
-                "@id": `${url}#article`,
-                headline: a.h1,
+                "@type": "WebPage",
+                "@id": `${url}#webpage`,
+                url,
+                name: a.seoTitle,
                 description: a.description,
                 inLanguage: "pt-BR",
-                mainEntityOfPage: url,
-                image: CLUSTER_OG_IMAGE,
-                author: { "@type": "Organization", name: "0WEB", url: ORIGIN },
-                publisher: { "@type": "Organization", name: "0WEB", url: ORIGIN },
+                primaryImageOfPage: {
+                  "@type": "ImageObject",
+                  url: CLUSTER_OG_IMAGE,
+                },
                 isPartOf: { "@type": "CollectionPage", "@id": `${ORIGIN}/sites-robustos#collection` },
               },
               {
