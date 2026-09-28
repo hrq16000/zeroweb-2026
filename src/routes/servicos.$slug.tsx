@@ -148,6 +148,24 @@ export const Route = createFileRoute("/servicos/$slug")({
     const rawExtra = Array.isArray(loaderData.schemaJsonLd) ? loaderData.schemaJsonLd : [];
     const extraGraph = rawExtra.map((node: Record<string, unknown>) => {
       if (!node || typeof node !== "object") return node;
+      const nodeType = (node as { "@type"?: unknown })["@type"];
+      const nodeId = (node as { "@id"?: unknown })["@id"];
+      const nodeUrl = (node as { url?: unknown }).url;
+      const nodeName = (node as { name?: unknown }).name;
+      const isZeroWebOrganization =
+        nodeType === "Organization" &&
+        (
+          nodeId === `${ORIGIN}/#org` ||
+          nodeUrl === ORIGIN ||
+          nodeUrl === `${ORIGIN}/` ||
+          (typeof nodeName === "string" && nodeName.trim().toUpperCase() === "0WEB")
+        );
+      if (isZeroWebOrganization) {
+        node = {
+          ...node,
+          logo: (node as { logo?: unknown }).logo ?? `${ORIGIN}/0web-logo.png`,
+        };
+      }
       const offers = (node as { offers?: unknown }).offers;
       if (Array.isArray(offers)) {
         return { ...node, offers: offers.map((o) => withOfferDefaults(o as OfferLike, url)) };
