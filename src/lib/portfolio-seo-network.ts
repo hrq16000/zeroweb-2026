@@ -1,5 +1,6 @@
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { SITE_URL } from "@/lib/portfolio-seo";
+import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { extractNeighborhood, portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
 
 export type PortfolioSeoDescriptor = {
@@ -290,8 +291,10 @@ export function portfolioUniversalSeoTitle(
   const city = isUsefulPlace(item.city) ? item.city : "";
   const segment = SEGMENT_LABELS[item.segment] ?? item.segment;
   const candidates = [
-    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
+    item.neighborhood && city ? `${item.title} | ${item.neighborhood}, ${city}` : "",
+    item.neighborhood ? `${item.title} | ${item.neighborhood}` : "",
     city ? `${item.title} | ${city}` : "",
+    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
     segment ? `${item.title} | ${segment}` : "",
     item.title,
   ].filter(Boolean);
@@ -335,6 +338,7 @@ export function portfolioSemanticContext(
   const blocked = new Set([
     cityNorm,
     stateNorm,
+    normalize(item.neighborhood ?? ""),
     normalize(item.title),
     normalize(item.segment),
   ]);
@@ -395,17 +399,26 @@ export function portfolioEntityGraphSchema(
   if (!item) return null;
 
   const pageUrl = `${SITE_URL}/portfolio/${slug}`;
-  const entityId = `${pageUrl}#entity`;
+  const entityId = `${pageUrl}#business`;
   const webpageId = `${pageUrl}#webpage`;
   const breadcrumbId = `${pageUrl}#breadcrumb`;
-  const image = absolutePortfolioAsset(item.image || item.fallbackImage);
+  const placeId = `${pageUrl}#place`;
+  const assetConfig = resolvePortfolioAssets(slug) as
+    | { icon?: string; socialImage?: string }
+    | undefined;
+  const image = absolutePortfolioAsset(
+    assetConfig?.socialImage || item.image || item.fallbackImage,
+  );
+  const logo = absolutePortfolioAsset(
+    assetConfig?.icon || item.fallbackImage || item.image,
+  );
 
   const place =
     isUsefulPlace(item.city)
       ? {
           "@type": "Place",
-          "@id": `${pageUrl}#place`,
-          name: [item.city, item.state].filter(Boolean).join(" — "),
+          "@id": placeId,
+          name: [item.neighborhood, item.city, item.state].filter(Boolean).join(" · "),
           address: item.state
             ? {
                 "@type": "PostalAddress",
@@ -423,10 +436,19 @@ export function portfolioEntityGraphSchema(
     "@id": `${pageUrl}#service-${index + 1}`,
     name: service,
     provider: { "@id": entityId },
-    ...(place ? { areaServed: { "@id": place["@id"] } } : {}),
+    ...(place ? { areaServed: { "@id": placeId } } : {}),
   }));
 
-  const topicNodes = (semantic?.topics ?? []).map((topic) => ({
+  const topics = [
+    ...item.tags.map(humanizeTag),
+    ...explicitServices,
+  ].filter(
+    (topic, index, all) =>
+      topic &&
+      all.findIndex((candidate) => normalize(candidate) === normalize(topic)) === index,
+  );
+
+  const topicNodes = topics.slice(0, 12).map((topic) => ({
     "@type": "DefinedTerm",
     name: topic,
   }));
@@ -434,17 +456,26 @@ export function portfolioEntityGraphSchema(
   const about = [
     ...serviceNodes.map((service) => ({ "@id": service["@id"] })),
     ...topicNodes,
-    ...(place ? [{ "@id": place["@id"] }] : []),
+    ...(place ? [{ "@id": placeId }] : []),
   ];
 
   const entity = {
-    "@type": "Thing",
+    "@type": "Organization",
     "@id": entityId,
     name: item.title,
-    description: item.summary || undefined,
     url: pageUrl,
-    image,
-    subjectOf: { "@id": webpageId },
+    description: item.summary || undefined,
+    ...(item.subtitle ? { slogan: item.subtitle } : {}),
+    ...(logo ? { logo: { "@type": "ImageObject", url: logo } } : {}),
+    ...(image ? { image } : {}),
+    ...(topics.length ? { knowsAbout: topics.slice(0, 12) } : {}),
+    ...(place
+      ? {
+          location: { "@id": placeId },
+          areaServed: { "@type": "City", name: item.city },
+        }
+      : {}),
+    mainEntityOfPage: { "@id": webpageId },
   };
 
   const webpage = {
@@ -455,6 +486,7 @@ export function portfolioEntityGraphSchema(
     description: item.summary || undefined,
     inLanguage: "pt-BR",
     mainEntity: { "@id": entityId },
+    publisher: { "@id": `${SITE_URL}/#org` },
     breadcrumb: { "@id": breadcrumbId },
     isPartOf: {
       "@type": "WebSite",
@@ -462,9 +494,10 @@ export function portfolioEntityGraphSchema(
       url: SITE_URL,
       name: "0WEB",
     },
+    keywords: portfolioUniversalKeywords(slug, override) ?? undefined,
     ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: image } } : {}),
     ...(about.length ? { about } : {}),
-    ...(place ? { spatialCoverage: { "@id": place["@id"] } } : {}),
+    ...(place ? { spatialCoverage: { "@id": placeId } } : {}),
   };
 
   const breadcrumb = {
@@ -483,9 +516,19 @@ export function portfolioEntityGraphSchema(
         name: "Portfólio",
         item: `${SITE_URL}/portfolio`,
       },
+      ...(item.neighborhood && semantic?.placeLinks?.[0]
+        ? [
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: item.neighborhood,
+              item: `${SITE_URL}${semantic.placeLinks[0].href}`,
+            },
+          ]
+        : []),
       {
         "@type": "ListItem",
-        position: 3,
+        position: item.neighborhood && semantic?.placeLinks?.[0] ? 4 : 3,
         name: item.title,
         item: pageUrl,
       },
