@@ -42,7 +42,7 @@ export const SERVICES: Record<string, ServiceData> = {
     title: "Criação de Sites Profissionais · 0WEB",
     h1: "Criação de sites que vendem",
     description:
-      "Sites institucionais rápidos, modernos e otimizados para Google. Conversão acima da média do mercado.",
+      "Sites institucionais com foco em clareza, performance, descoberta orgânica e caminho de contato.",
     serviceType: "Web Design",
     problems: [
       "Site lento, desatualizado ou difícil de editar",
@@ -52,7 +52,7 @@ export const SERVICES: Record<string, ServiceData> = {
     ],
     benefits: [
       "Design premium e identidade forte",
-      "Performance 95+ no Lighthouse",
+      "Performance acompanhada com Lighthouse e Core Web Vitals",
       "SEO técnico embutido desde o dia 1",
       "Painel simples para o cliente editar",
       "Hospedagem, SSL e backup inclusos",
@@ -64,7 +64,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { step: "Lançamento", desc: "Deploy, SEO técnico, analytics e treinamento" },
     ],
     faq: [
-      { q: "Em quanto tempo o site fica pronto?", a: "Sites institucionais ficam prontos em 15 a 30 dias, dependendo do escopo aprovado." },
+      { q: "Em quanto tempo o site fica pronto?", a: "O prazo depende do escopo, conteúdo, integrações e aprovações. A previsão é definida na proposta do projeto." },
       { q: "Posso editar o site depois?", a: "Sim. Entregamos um painel simples para você atualizar textos, imagens e seções sem depender de programador." },
       { q: "Hospedagem está inclusa?", a: "Sim. Cuidamos de hospedagem, SSL, backup e monitoramento durante todo o contrato." },
       { q: "Vocês fazem SEO no site?", a: "Sim. SEO técnico, semântico e on-page já vem embutido em toda entrega." },
@@ -79,7 +79,7 @@ export const SERVICES: Record<string, ServiceData> = {
     title: "Landing Pages de Alta Conversão · 0WEB",
     h1: "Landing pages que convertem visitantes em clientes",
     description:
-      "Páginas focadas em conversão para Google Ads e Meta Ads. Taxa de conversão até 4x maior.",
+      "Páginas focadas em uma oferta e uma ação principal para campanhas, busca orgânica e outras fontes de tráfego.",
     serviceType: "Conversion Rate Optimization",
     problems: [
       "Investimento em mídia paga sem retorno",
@@ -92,7 +92,7 @@ export const SERVICES: Record<string, ServiceData> = {
       "Integração direta com Ads e CRM",
       "A/B testing nativo",
       "Tracking completo (GA4 + Pixel + GTM)",
-      "Entrega em 7 dias úteis",
+      "Prazo definido conforme escopo e materiais disponíveis",
     ],
     process: [
       { step: "Estratégia", desc: "Persona, oferta e proposta única de valor" },
@@ -101,7 +101,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { step: "Otimização", desc: "A/B testing, heatmap e melhoria contínua" },
     ],
     faq: [
-      { q: "Em quanto tempo entregam?", a: "7 dias úteis para a primeira versão pronta para tráfego." },
+      { q: "Em quanto tempo entregam?", a: "O prazo da primeira versão depende da oferta, conteúdo, integrações e aprovações necessárias." },
       { q: "Vocês cuidam dos anúncios também?", a: "Sim, oferecemos pacote integrado de landing page + gestão de Ads." },
       { q: "Tem teste A/B?", a: "Sim. Implementamos variações e medimos conversão para decidir o vencedor." },
       { q: "Funciona em mobile?", a: "Todas as páginas são mobile-first e otimizadas para o tráfego pago." },
@@ -151,7 +151,7 @@ export const SERVICES: Record<string, ServiceData> = {
     name: "SEO",
     category: "SEO",
     title: "SEO Técnico e Estratégico · 0WEB",
-    h1: "SEO Estratégico que Posiciona sua Empresa no Topo do Google",
+    h1: "SEO estratégico para melhorar descoberta e autoridade no Google",
     description:
       "SEO técnico, on-page e off-page executado por especialistas — com conteúdo, autoridade e Core Web Vitals otimizados para gerar tráfego orgânico que vende, mês após mês.",
     serviceType: "Search Engine Optimization",
@@ -166,19 +166,19 @@ export const SERVICES: Record<string, ServiceData> = {
       "Conteúdo escrito por time editorial próprio com SEO embutido",
       "Link building white-hat com veículos e portais relevantes",
       "SEO local: Google Meu Negócio, citações e páginas geo-segmentadas",
-      "Relatório mensal transparente: posições, tráfego, leads e ROI",
+      "Relatório de posições, tráfego e leads quando o acompanhamento está configurado",
     ],
     process: [
       { step: "Auditoria", desc: "Técnica, on-page e de autoridade" },
       { step: "Estratégia", desc: "Cluster de conteúdo e roadmap" },
       { step: "Execução", desc: "Otimização técnica + conteúdo + links" },
-      { step: "Mensuração", desc: "GSC, GA4, posicionamento e ROI" },
+      { step: "Mensuração", desc: "GSC, analytics, posicionamento e leads conforme instrumentação disponível" },
     ],
     faq: [
-      { q: "Em quanto tempo vejo resultado em SEO?", a: "Primeiros ganhos de posição em 60-90 dias. SEO consistente e previsível a partir do 6º mês — quem promete top 1 em 30 dias está mentindo." },
+      { q: "Em quanto tempo vejo resultado em SEO?", a: "SEO não tem prazo ou posição garantidos. O ritmo depende da situação técnica, conteúdo, autoridade, concorrência e frequência de rastreamento do Google." },
       { q: "Vocês escrevem o conteúdo?", a: "Sim. Time editorial próprio com briefing SEO, revisão e otimização on-page antes de publicar." },
       { q: "Fazem SEO local para minha cidade?", a: "Sim. Otimização de Google Meu Negócio, páginas geo-targeted por cidade/bairro e citações locais." },
-      { q: "Como medem o ROI de SEO?", a: "Tracking de leads orgânicos no GA4, valor de oportunidade por keyword e comparativo com CPA de mídia paga." },
+      { q: "Como acompanham resultado de SEO?", a: "Quando analytics e CRM estão configurados, acompanhamos consultas, páginas, tráfego e leads orgânicos para relacionar visibilidade a resultados observáveis." },
       { q: "Se eu parar, perco tudo?", a: "Não. Diferente de mídia paga, os ativos (conteúdo, links, autoridade) continuam gerando tráfego. Mas concorrentes ativos podem ultrapassar com o tempo." },
     ],
     keywords: ["SEO", "otimização para google", "agência de SEO", "consultoria SEO"],
@@ -188,10 +188,10 @@ export const SERVICES: Record<string, ServiceData> = {
     slug: "marketing-digital",
     name: "Marketing Digital",
     category: "Tráfego",
-    title: "Marketing Digital com ROI · 0WEB",
+    title: "Marketing Digital Integrado · 0WEB",
     h1: "Marketing digital que gera resultado",
     description:
-      "Estratégia 360° de tráfego pago, orgânico, social media e automação focada em ROI.",
+      "Estratégia integrada de tráfego pago, orgânico, social media e automação, com métricas definidas conforme o objetivo.",
     serviceType: "Digital Marketing",
     problems: [
       "Investimento em mídia sem estratégia",
@@ -215,8 +215,8 @@ export const SERVICES: Record<string, ServiceData> = {
     faq: [
       { q: "Qual investimento mínimo recomendam?", a: "Mínimo de R$ 3.000/mês em mídia + fee para resultado consistente." },
       { q: "Vocês criam os criativos?", a: "Sim, design e copy fazem parte do pacote." },
-      { q: "Trabalham com Google e Meta?", a: "Sim, somos certificados nos dois ecossistemas." },
-      { q: "Como sei se está dando certo?", a: "Painel com CAC, ROAS e LTV atualizado em tempo real." },
+      { q: "Trabalham com Google e Meta?", a: "Campanhas podem incluir Google Ads e Meta Ads conforme a estratégia, as contas disponíveis e o escopo contratado." },
+      { q: "Como sei se está dando certo?", a: "As métricas são definidas conforme o objetivo e a instrumentação disponível, como custo por lead, vendas atribuídas, tráfego e conversões registradas." },
     ],
     keywords: ["marketing digital", "tráfego pago", "google ads", "meta ads", "agência de performance"],
     ctaLabel: "Quero gerar mais leads",
@@ -240,8 +240,8 @@ export const SERVICES: Record<string, ServiceData> = {
       "Agentes GPT customizados para seu negócio",
       "Integrações n8n / Make / Zapier",
       "Qualificação automática de leads",
-      "Follow-up inteligente 24/7",
-      "ROI mensurável em horas economizadas",
+      "Follow-up automatizado conforme regras e integrações do projeto",
+      "Impacto acompanhado por tempo poupado e etapas automatizadas quando mensuráveis",
     ],
     process: [
       { step: "Mapeamento", desc: "Identificar processos manuais e gargalos" },
@@ -253,7 +253,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { q: "Funciona com meu CRM?", a: "Sim. Integramos com HubSpot, Pipedrive, RD Station, Salesforce e CRMs próprios." },
       { q: "Os agentes substituem meu time?", a: "Não. Eles aumentam a capacidade do time e cuidam do operacional repetitivo." },
       { q: "É seguro?", a: "Sim. Dados criptografados, ambientes isolados e LGPD compliance." },
-      { q: "Em quanto tempo implanta?", a: "MVPs em 2-4 semanas; automações completas em 30-60 dias." },
+      { q: "Em quanto tempo implanta?", a: "O prazo depende do número de integrações, regras, acessos e validações necessárias. A estimativa é definida após o mapeamento do processo." },
     ],
     keywords: ["automação", "automação com IA", "agentes de IA", "workflow", "n8n", "make"],
     ctaLabel: "Quero automatizar minha operação",
@@ -263,7 +263,7 @@ export const SERVICES: Record<string, ServiceData> = {
     name: "Chatbot WhatsApp",
     category: "IA",
     title: "Chatbot WhatsApp com IA · 0WEB",
-    h1: "Chatbot WhatsApp que vende 24/7",
+    h1: "Chatbot WhatsApp com IA para triagem e atendimento",
     description:
       "Atendimento e vendas automatizadas no WhatsApp com Inteligência Artificial.",
     serviceType: "Conversational AI",
@@ -274,11 +274,11 @@ export const SERVICES: Record<string, ServiceData> = {
       "Sem histórico unificado por cliente",
     ],
     benefits: [
-      "Resposta em segundos, 24h por dia",
+      "Respostas automáticas conforme fluxos, disponibilidade da API e regras configuradas",
       "Treinado com a base do seu negócio",
       "Integra com CRM, agendamento e pagamentos",
       "Multi-atendente com transferência automática",
-      "Métricas e satisfação em tempo real",
+      "Métricas de atendimento conforme eventos e integrações configurados",
     ],
     process: [
       { step: "Conhecimento", desc: "Treinar o bot com FAQ, política e tom de voz" },
@@ -288,7 +288,7 @@ export const SERVICES: Record<string, ServiceData> = {
     ],
     faq: [
       { q: "Precisa do WhatsApp Business API?", a: "Sim, configuramos a API oficial Meta para você." },
-      { q: "Atende fora do horário comercial?", a: "Sim, o bot atende 24/7 e escala para humano quando preciso." },
+      { q: "Atende fora do horário comercial?", a: "Fluxos automáticos podem operar fora do horário comercial quando a integração e as regras do projeto estiverem configuradas para isso." },
       { q: "Integra com meu sistema?", a: "Sim, com CRM, ERP, agenda, pagamentos e sistemas próprios via API." },
       { q: "Quanto custa?", a: "Setup + mensalidade. Avaliamos no diagnóstico gratuito." },
     ],
@@ -323,7 +323,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { step: "Scale", desc: "Performance, novos módulos e expansão" },
     ],
     faq: [
-      { q: "Quanto tempo até o MVP?", a: "Entre 8 e 16 semanas para a primeira versão utilizável." },
+      { q: "Quanto tempo até o MVP?", a: "O prazo depende do escopo do MVP, integrações, regras de negócio e critérios de aceite definidos no discovery." },
       { q: "Quem é dono do código?", a: "Você. Entregamos repositório e infraestrutura no seu nome." },
       { q: "Vocês operam pós-lançamento?", a: "Sim. Squad dedicado com SLA e roadmap mensal." },
       { q: "Qual stack usam?", a: "Next.js, TypeScript, PostgreSQL, Supabase, Stripe e Cloudflare." },
@@ -459,7 +459,7 @@ export const SERVICES: Record<string, ServiceData> = {
       "Compartilhamento instantâneo via WhatsApp, SMS e e-mail",
       "QR Code personalizado para eventos e materiais impressos",
       "Links diretos para WhatsApp, Instagram, site e localização",
-      "Atualização em tempo real (mudou algo? atualize na hora)",
+      "Atualização de conteúdo pelo painel quando esse recurso estiver habilitado",
       "Analytics de cliques (saiba quantas pessoas acessaram)",
     ],
     process: [
@@ -470,7 +470,7 @@ export const SERVICES: Record<string, ServiceData> = {
     ],
     faq: [
       { q: "Posso editar depois de pronto?", a: "Sim, você pode atualizar informações, fotos e links quando quiser." },
-      { q: "Funciona em qualquer celular?", a: "Sim, é 100% responsivo e funciona em qualquer dispositivo." },
+      { q: "Funciona no celular?", a: "A interface é responsiva e deve ser validada nos navegadores e tamanhos de tela definidos para o projeto." },
       { q: "Preciso instalar algum app?", a: "Não, funciona direto no navegador, sem downloads." },
       { q: "Como compartilho?", a: "Via link, QR Code, WhatsApp, Instagram, e-mail ou onde quiser." },
       { q: "Quanto tempo leva para ficar pronto?", a: "Entregamos em até 5 dias úteis após o briefing." },
@@ -482,8 +482,8 @@ export const SERVICES: Record<string, ServiceData> = {
     slug: "catalogo-digital",
     name: "Catálogo Digital",
     category: "E-commerce",
-    title: "Catálogo Digital Completo · Venda 24h por Dia · 0WEB",
-    h1: "Catálogo Digital Completo: Venda 24h por Dia",
+    title: "Catálogo Digital Online · 0WEB",
+    h1: "Catálogo digital para organizar produtos e pedidos",
     description:
       "Transforme seus produtos em um catálogo online profissional, com fotos, descrições, preços e botão direto para WhatsApp. Sem mensalidade.",
     serviceType: "Digital Product Catalog",
@@ -493,7 +493,7 @@ export const SERVICES: Record<string, ServiceData> = {
       "Você perde vendas fora do horário comercial",
     ],
     benefits: [
-      "Catálogo online 24h, acessível de qualquer lugar",
+      "Catálogo online acessível por link enquanto o serviço publicado estiver disponível",
       "Botão de compra direto para WhatsApp (fechamento rápido)",
       "Organização por categorias (facilita a navegação)",
       "Fotos em alta qualidade com zoom",
@@ -509,7 +509,7 @@ export const SERVICES: Record<string, ServiceData> = {
     ],
     faq: [
       { q: "Posso adicionar produtos depois?", a: "Sim, você pode adicionar quantos produtos quiser, quando quiser." },
-      { q: "Funciona no celular?", a: "Sim, é 100% responsivo e otimizado para mobile." },
+      { q: "Funciona no celular?", a: "O catálogo usa layout responsivo e deve ser validado nos dispositivos definidos para o projeto." },
       { q: "Preciso pagar mensalidade?", a: "Não, você paga uma vez só e usa para sempre." },
       { q: "Como o cliente compra?", a: "Clica no produto e vai direto para o WhatsApp com a mensagem pronta." },
       { q: "Posso mudar preços e fotos?", a: "Sim, você tem acesso para editar tudo quando quiser." },
@@ -588,7 +588,7 @@ export const SERVICES: Record<string, ServiceData> = {
     faq: [
       { q: "Posso editar depois de pronto?", a: "Sim, você pode solicitar alterações (cobrado à parte) ou usar nosso plano de manutenção." },
       { q: "Preciso pagar hospedagem?", a: "Sim, hospedagem e domínio são à parte (indicamos os melhores fornecedores)." },
-      { q: "Funciona no celular?", a: "Sim, é 100% responsivo e otimizado para mobile." },
+      { q: "Funciona no celular?", a: "O catálogo usa layout responsivo e deve ser validado nos dispositivos definidos para o projeto." },
       { q: "Vai aparecer no Google?", a: "Sim, fazemos otimização básica de SEO para aparecer nas buscas." },
       { q: "Quanto tempo leva?", a: "Entregamos em até 10 dias úteis após o recebimento do conteúdo." },
     ],
@@ -602,7 +602,7 @@ export const SERVICES: Record<string, ServiceData> = {
     title: "E-Book Profissional · Autoridade e Captação de Leads · 0WEB",
     h1: "E-Book Profissional: Autoridade e Captação de Leads",
     description:
-      "Transforme seu conhecimento em um e-book estratégico que posiciona sua empresa como autoridade e captura leads qualificados 24h por dia.",
+      "Organize conhecimento em um e-book com estrutura editorial, identidade visual e um caminho claro para distribuição ou captação quando isso fizer parte da estratégia.",
     serviceType: "Ebook Production",
     problems: [
       "Seus clientes não confiam em você como especialista do mercado",
@@ -620,7 +620,7 @@ export const SERVICES: Record<string, ServiceData> = {
     process: [
       { step: "Briefing estratégico", desc: "1h — definimos tema, público-objetivo e objetivos" },
       { step: "Estrutura e roteiro", desc: "3 dias — criamos o sumário e fluxo de conteúdo" },
-      { step: "Redação do conteúdo", desc: "7 dias — escrevemos o texto completo" },
+      { step: "Redação do conteúdo", desc: "Texto desenvolvido conforme briefing, volume, fontes e aprovações" },
       { step: "Design editorial", desc: "5 dias — diagramação profissional com imagens" },
       { step: "Revisão e entrega", desc: "2 dias — você aprova e recebe os arquivos" },
     ],
@@ -660,7 +660,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { step: "Briefing criativo", desc: "1h — entendemos sua marca, mensagem e objetivos" },
       { step: "Roteiro e planejamento", desc: "3 dias — criamos o roteiro e cronograma" },
       { step: "Captação de imagens", desc: "1 dia — gravação profissional na sua empresa" },
-      { step: "Edição e pós-produção", desc: "7 dias — edição, trilha, motion graphics" },
+      { step: "Edição e pós-produção", desc: "Edição, trilha e motion graphics conforme o escopo aprovado" },
       { step: "Revisão e ajustes", desc: "2 dias — você assiste e pede mudanças" },
       { step: "Entrega final", desc: "1 dia — todos os arquivos e versões" },
     ],
@@ -693,7 +693,7 @@ export const SERVICES: Record<string, ServiceData> = {
       "Design profissional e consistente com sua marca",
       "Materiais para impressão (cartões, flyers, banners) + digital (posts, stories)",
       "Arquivos prontos para gráfica e redes sociais",
-      "Entrega em até 7 dias úteis",
+      "Prazo definido conforme briefing, duração, materiais e rodadas de aprovação",
       "Inclui 2 rodadas de ajustes",
     ],
     process: [
@@ -707,7 +707,7 @@ export const SERVICES: Record<string, ServiceData> = {
       { q: "Vocês imprimem os materiais?", a: "Não, entregamos os arquivos prontos para gráfica. Indicamos parceiros de confiança." },
       { q: "Posso pedir ajustes?", a: "Sim, incluímos 2 rodadas de ajustes em cada peça." },
       { q: "Recebo os arquivos editáveis?", a: "Sim, você recebe PDF, PNG, JPG e arquivos editáveis (AI/PSD)." },
-      { q: "Quanto tempo leva?", a: "Entregamos em até 7 dias úteis após o briefing." },
+      { q: "Quanto tempo leva?", a: "O prazo depende do briefing, materiais recebidos, duração e rodadas de aprovação." },
     ],
     keywords: ["comunicação visual", "design gráfico", "material gráfico", "artes para redes sociais"],
     ctaLabel: "Criar Minha Comunicação Visual",
