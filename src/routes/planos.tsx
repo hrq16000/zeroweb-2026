@@ -67,7 +67,7 @@ export const Route = createFileRoute("/planos")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { name: "robots", content: "index,follow,max-image-preview:large" },
+      { name: "robots", content: "noindex,follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
