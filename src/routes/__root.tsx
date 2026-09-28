@@ -165,11 +165,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       // Google Search Console — verificação de propriedade (0web.com.br)
       { name: "google-site-verification", content: "8T74s_DMPj2w764HA4c_vL7zVpKJU9GU6o2piGK0Fbc" },
-      // Geo targeting (Curitiba/PR/BR + RMC)
-      { name: "geo.region", content: "BR-PR" },
-      { name: "geo.placename", content: "Curitiba" },
-      { name: "geo.position", content: "-25.4284;-49.2733" },
-      { name: "ICBM", content: "-25.4284, -49.2733" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -200,44 +195,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: "https://0web.com.br",
               logo: "https://0web.com.br/favicon.ico",
               taxID: "41.723.708/0001-58",
+              areaServed: { "@type": "Country", name: "Brasil" },
               sameAs: [
                 "https://www.instagram.com/0web.com.br",
                 "https://www.linkedin.com/company/0web",
               ],
-            },
-            {
-              "@type": "ProfessionalService",
-              "@id": "https://0web.com.br/#localbusiness",
-              name: "0WEB",
-              image: "https://0web.com.br/favicon.ico",
-              url: "https://0web.com.br",
-              priceRange: "$$",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "BR",
-                addressRegion: "PR",
-                addressLocality: "Curitiba",
-              },
-              geo: { "@type": "GeoCoordinates", latitude: -25.4284, longitude: -49.2733 },
-              areaServed: [
-                { "@type": "Country", name: "Brasil" },
-                { "@type": "City", name: "Curitiba", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "São José dos Pinhais", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Colombo", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Araucária", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Pinhais", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Fazenda Rio Grande", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Campo Largo", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Almirante Tamandaré", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Piraquara", address: { "@type": "PostalAddress", addressRegion: "PR", addressCountry: "BR" } },
-                { "@type": "City", name: "Belo Horizonte", address: { "@type": "PostalAddress", addressRegion: "MG", addressCountry: "BR" } },
-              ],
-              openingHoursSpecification: [{
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                opens: "09:00",
-                closes: "18:00",
-              }],
             },
             {
               "@type": "WebSite",
