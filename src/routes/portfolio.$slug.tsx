@@ -21,7 +21,9 @@ import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import {
+  clipPortfolioMetaDescription,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   resolvePortfolioSeoDescriptor,
 } from "@/lib/portfolio-seo-network";
@@ -29,6 +31,7 @@ import {
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
   const url = project.canonicalUrl;
+  const managedMetaDescription = clipPortfolioMetaDescription(project.seoDescription);
   const social = project.socialImage
     ? project.socialImage.startsWith("http")
       ? project.socialImage
@@ -38,11 +41,11 @@ function managedHead(project: ManagedProject) {
   return {
     meta: [
       { title: project.seoTitle },
-      { name: "description", content: project.seoDescription },
+      { name: "description", content: managedMetaDescription },
       { name: "robots", content: project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
       { property: "og:title", content: project.seoTitle },
-      { property: "og:description", content: project.seoDescription },
+      { property: "og:description", content: managedMetaDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
@@ -54,7 +57,7 @@ function managedHead(project: ManagedProject) {
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: project.seoTitle },
-      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:description", content: managedMetaDescription },
       { name: "twitter:image", content: social },
       { name: "twitter:image:alt", content: project.displayName },
     ],
@@ -606,7 +609,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJklDecor = loaderData?.slug === "jkl-decor";
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
-    const description = isArildoMadeiras
+    const rawDescription = isArildoMadeiras
       ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
@@ -751,6 +754,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                     : (catalogSeo?.summary ??
                                                                                       loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
+    const description = loaderData?.slug
+      ? (portfolioUniversalSeoDescription(loaderData.slug, rawDescription) ?? clipPortfolioMetaDescription(rawDescription))
+      : clipPortfolioMetaDescription(rawDescription);
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(
