@@ -6,6 +6,7 @@ import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
+import { PREMIUM_ENVELOPAMENTOS_FAQ } from "@/components/site/premium-envelopamentos-content";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
 import {
@@ -1404,6 +1405,19 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         "@type": "FAQPage",
                         "@id": `${url}#faq`,
                         mainEntity: PAULO_MESTRE_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isPremium
+                  ? [
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: PREMIUM_ENVELOPAMENTOS_FAQ.map((faq) => ({
                           "@type": "Question",
                           name: faq.q,
                           acceptedAnswer: { "@type": "Answer", text: faq.a },
