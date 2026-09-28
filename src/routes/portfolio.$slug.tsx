@@ -22,6 +22,7 @@ import { getCompositionPage } from "@/components/portfolio/composition/registry"
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import {
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   resolvePortfolioSeoDescriptor,
 } from "@/lib/portfolio-seo-network";
@@ -733,7 +734,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                   ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
                                                                                   : isSantos
                                                                                     ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-                                                                                    : (catalogSeo?.summary ??
+                                                                                    : ((loaderData?.slug
+                                                                                      ? portfolioUniversalSeoDescription(loaderData.slug)
+                                                                                      : null) ??
+                                                                                      catalogSeo?.summary ??
                                                                                       loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
