@@ -79,10 +79,15 @@ export const Route = createFileRoute("/sites-robustos/")({
               description: PILLAR.description,
               inLanguage: "pt-BR",
               hasPart: SATELLITES.map((s) => ({
-                "@type": "Article",
-                headline: s.h1,
+                "@type": "WebPage",
+                name: s.seoTitle,
                 description: s.description,
                 url: `${URL}/${s.slug}`,
+                inLanguage: "pt-BR",
+                primaryImageOfPage: {
+                  "@type": "ImageObject",
+                  url: CLUSTER_OG_IMAGE,
+                },
               })),
             },
             {
