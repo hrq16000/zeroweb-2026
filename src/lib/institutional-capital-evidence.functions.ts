@@ -1,0 +1,25 @@
+import { createServerFn } from "@tanstack/react-start";
+import { CAPITAIS, getCapital } from "@/lib/capitais";
+import {
+  institutionalCapitalHasEvidence,
+  institutionalProjectsForCapital,
+} from "@/lib/institutional-capital-evidence";
+
+export const getInstitutionalCapitalEvidence = createServerFn({ method: "GET" })
+  .inputValidator((data: { slug: string }) => ({ slug: String(data?.slug ?? "") }))
+  .handler(async ({ data }) => {
+    const capital = getCapital(data.slug);
+    if (!capital) return { hasEvidence: false, projects: [] as { slug: string; title: string }[] };
+    return {
+      hasEvidence: institutionalCapitalHasEvidence(capital),
+      projects: institutionalProjectsForCapital(capital),
+    };
+  });
+
+
+export const getInstitutionalCapitalIndexability = createServerFn({ method: "GET" })
+  .handler(async () => ({
+    slugs: CAPITAIS.filter((capital) => institutionalCapitalHasEvidence(capital)).map(
+      (capital) => capital.slug,
+    ),
+  }));
