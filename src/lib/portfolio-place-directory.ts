@@ -48,6 +48,13 @@ export function portfolioPlaceDirectoryTitle(hub: PortfolioPlaceHub): string {
   return `Negócios em ${hub.city}, ${hub.state} | Guia 0WEB`;
 }
 
+function clipMeta(value: string, max = 158): string {
+  const clean = value.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const clipped = clean.slice(0, Math.max(1, max - 1)).replace(/\s+\S*$/, "").trim();
+  return `${clipped}…`;
+}
+
 export function portfolioPlaceDirectoryDescription(hub: PortfolioPlaceHub): string {
   const groups = portfolioPlaceDirectoryGroups(hub);
   const categories = groups.slice(0, 3).map((group) => group.label.toLowerCase());
@@ -56,7 +63,9 @@ export function portfolioPlaceDirectoryDescription(hub: PortfolioPlaceHub): stri
       ? `${hub.name}, ${hub.city}`
       : `${hub.city}, ${hub.state}`;
   const categoryText = categories.length ? ` em ${categories.join(", ")}` : "";
-  return `Explore ${hub.projects.length} negócios e prestadores publicados em ${place}${categoryText}. Abra cada página, conheça a oferta e siga pelo atendimento.`;
+  return clipMeta(
+    `Explore ${hub.projects.length} negócios e prestadores publicados em ${place}${categoryText}. Abra cada página, conheça a oferta e siga pelo atendimento.`,
+  );
 }
 
 export function portfolioPlaceDirectoryIntro(hub: PortfolioPlaceHub): string {
