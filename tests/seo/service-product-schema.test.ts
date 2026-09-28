@@ -14,4 +14,11 @@ describe("schema Product dos serviços", () => {
     expect(route).toContain('"@type": "Service"');
     expect(route).toContain("offers: buildSingleOffer(loaderData.price, url)");
   });
+
+
+  test("Organization extra da própria 0WEB recebe logo oficial quando ausente", () => {
+    expect(route).toContain('nodeType === "Organization"');
+    expect(route).toContain('nodeName.trim().toUpperCase() === "0WEB"');
+    expect(route).toContain('logo: (node as { logo?: unknown }).logo ?? `${ORIGIN}/0web-logo.png`');
+  });
 });
