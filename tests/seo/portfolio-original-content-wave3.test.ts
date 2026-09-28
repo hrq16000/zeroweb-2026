@@ -3,47 +3,48 @@ import { readFileSync } from "node:fs";
 
 const read = (name: string) => readFileSync(`src/components/site/${name}`, "utf8");
 
-describe("terceira onda de conteúdo original em portfólios", () => {
-  test("Angel Mix consulta acervo sem fingir estoque", () => {
+describe("terceira onda aditiva de conteúdo em portfólios", () => {
+  test("Angel Mix ganha orientação sem remover o acervo existente", () => {
     const s = read("AngelMixBrechoPage.tsx");
-    expect(s).toContain("não trata as peças como estoque fixo");
     expect(s).toContain("Tipo de peça, tamanho e estilo");
+    expect(s).toContain("Cada peça chega uma vez só");
+    expect(s).toContain("Vestidos");
   });
 
-  test("A&G contextualiza avaliação com dados do próprio funil", () => {
+  test("A&G ganha contexto técnico sem perder serviços e registros existentes", () => {
     const s = read("AgElectricalServicesPage.tsx");
     expect(s).toContain("Ambiente, pontos, equipamentos e local");
-    expect(s).toContain("Quantidade de pontos, rack, câmeras");
+    expect(s).toContain("Elétrica geral");
+    expect(s).toContain("CFTV");
+    expect(s).toContain("Registros de campo");
   });
 
-  test("Beto não publica bairro nem sabores não reconciliados", () => {
+  test("Beto Pastéis preserva conteúdo existente", () => {
     const s = read("BetoPasteisPage.tsx");
-    expect(s).toContain("Beto Pastéis · São José dos Pinhais");
-    expect(s).not.toContain("Jardim Itália");
-    expect(s).not.toContain("Pastel de carne");
-    expect(s).toContain("Sabores, disponibilidade e condições");
+    expect(s).toContain("Jardim Itália");
+    expect(s).toContain("Pastel de carne");
+    expect(s).toContain("Pastel de queijo");
   });
 
-  test("Casa Nativa não inventa menu, horário ou capacidade", () => {
+  test("Casa Nativa preserva a composição existente", () => {
     const s = read("CasaNativaBistroPage.tsx");
-    expect(s).toContain("experiência gastronômica e reserva");
-    expect(s).not.toContain("Terça a sábado");
-    expect(s).not.toContain("28 lugares");
-    expect(s).not.toContain("Pão de fermentação natural");
+    expect(s).toContain("Menu em quatro tempos");
+    expect(s).toContain("Carta da semana");
+    expect(s).toContain("Reserva");
   });
 
-  test("Marmitas do Barreiro não publica preço nem cardápio hardcoded", () => {
+  test("Marmitas do Barreiro preserva cardápio e referências existentes", () => {
     const s = read("BarreiroMarmitasPage.tsx");
-    expect(s).toContain("quantidade e entrega são confirmadas");
-    expect(s).not.toContain("R$ 22");
-    expect(s).not.toContain("Frango grelhado");
-    expect(s).not.toContain("Combo 5 dias");
+    expect(s).toContain("R$ 22");
+    expect(s).toContain("Frango grelhado");
+    expect(s).toContain("Combo 5 dias");
   });
 
-  test("Miro diferencia diagnóstico sem garantir recuperação de dados", () => {
+  test("Miro Tech recebe novo bloco sem remover diferenciais existentes", () => {
     const s = read("MiroTechPage.tsx");
     expect(s).toContain("Equipamento, sintoma e histórico");
-    expect(s).toContain("a página não promete resultado");
-    expect(s).not.toContain("Profissionais qualificados");
+    expect(s).toContain("Profissionais qualificados");
+    expect(s).toContain("Atendimento rápido");
+    expect(s).toContain("Preços justos");
   });
 });
