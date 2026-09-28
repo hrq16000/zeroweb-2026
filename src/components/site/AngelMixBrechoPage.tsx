@@ -118,7 +118,32 @@ export function AngelMixBrechoPage() {
           </MotionReveal>
         </section>
 
-        {/* fechamento em faixa fina, alinhado à esquerda */}
+                <section className="mx-auto max-w-5xl px-6 pb-16 md:px-14 md:pb-24" aria-labelledby="angel-consulta-title">
+          <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--am-rose)]">Antes de consultar a vitrine</p>
+          <h2 id="angel-consulta-title" className="mt-3 max-w-[24ch] font-display text-3xl font-black leading-tight md:text-4xl">
+            Tipo de peça, tamanho e estilo ajudam a direcionar o garimpo.
+          </h2>
+          <p className="mt-5 max-w-[64ch] leading-8 text-[var(--am-ink)]/75">
+            O Angel Mix é apresentado como brechó de moda no Novo Mundo. Como o acervo muda, a página não trata as peças como estoque fixo:
+            o contato começa pelo que você procura e pela numeração ou estilo que faz sentido para você.
+          </p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Peça</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Vestido, blusa, jeans, saia, casaco ou acessório ajudam a orientar a consulta.</p>
+            </article>
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Tamanho</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Quando houver preferência de numeração ou caimento, vale informar antes de verificar disponibilidade.</p>
+            </article>
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Estilo</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Romântico, básico, colorido ou clássico funcionam como pistas para separar opções compatíveis.</p>
+            </article>
+          </div>
+        </section>
+
+{/* fechamento em faixa fina, alinhado à esquerda */}
         <section className="bg-[var(--am-rose)] px-6 py-10 text-[var(--am-cream)] md:px-14">
           <div className="mx-auto flex max-w-5xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <p className="max-w-[34ch] font-display text-2xl font-bold leading-snug md:text-3xl">
