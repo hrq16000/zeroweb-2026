@@ -23,7 +23,6 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
           { path: "/sites/lojas", changefreq: "monthly", priority: "0.75" },
           { path: "/sites/comercios", changefreq: "monthly", priority: "0.75" },
           { path: "/sites/prestadores-de-servicos", changefreq: "monthly", priority: "0.75" },
-          { path: "/planos-comparativo", changefreq: "monthly", priority: "0.9" },
           { path: "/areas-de-atendimento", changefreq: "weekly", priority: "0.9" },
           { path: "/sites-robustos", changefreq: "weekly", priority: "0.95" },
           ...SERVICE_CATEGORY_HUBS.map((c) => ({
@@ -41,10 +40,8 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
 
           { path: "/cases", changefreq: "weekly", priority: "0.8" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
-          { path: "/planos", changefreq: "monthly", priority: "0.8" },
           { path: "/faq", changefreq: "monthly", priority: "0.7" },
           { path: "/solucoes", changefreq: "weekly", priority: "0.85" },
-          { path: "/mapa-do-site", changefreq: "monthly", priority: "0.4" },
           { path: "/calculadora-orcamento", changefreq: "monthly", priority: "0.8" },
           { path: "/blog-skyscraper", changefreq: "weekly", priority: "0.85" },
           { path: "/politica-privacidade", changefreq: "yearly", priority: "0.2" },
