@@ -31,4 +31,11 @@ describe("Home2 e Home3 como landing pages indexáveis", () => {
     expect(sitemap).toContain('{ path: "/home2"');
     expect(sitemap).toContain('{ path: "/home3"');
   });
+
+
+  test("o rodapé global oferece links rastreáveis para as duas LPs", () => {
+    const footer = readFileSync("src/components/site/Footer.tsx", "utf8");
+    expect(footer).toContain('{ label: "Agência digital integrada", to: "/home2" }');
+    expect(footer).toContain('{ label: "Landing pages autorais", to: "/home3" }');
+  });
 });
