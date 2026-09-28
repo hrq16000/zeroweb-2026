@@ -180,10 +180,18 @@ jobs:
           fi
 
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
-          echo "impacto visual: $RUN"
+
+          # Quando a mudança visual está restrita a componentes/ativos de
+          # portfolios individuais registrados, limita a comparação a esses
+          # slugs. Qualquer arquivo visual compartilhado mantém escopo global.
+          VISUAL_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
+          echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 
       - name: Regressão visual (home + portfólios, 3 viewports)
         if: steps.visual-scope.outputs.run == 'true'
+        env:
+          VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
 
       - name: Relatório comparativo consolidado
