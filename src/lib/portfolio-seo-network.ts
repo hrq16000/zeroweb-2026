@@ -302,6 +302,34 @@ export function portfolioUniversalSeoTitle(
   return candidates.find((value) => value.length <= 65) ?? item.title;
 }
 
+export function clipPortfolioMetaDescription(value: string, max = 158): string {
+  const compact = clean(value).replace(/\s+/g, " ");
+  if (compact.length <= max) return compact;
+  const clipped = compact.slice(0, Math.max(1, max - 1)).replace(/\s+\S*$/, "").trim();
+  return `${clipped}…`;
+}
+
+export function portfolioUniversalSeoDescription(
+  slug: string,
+  preferredDescription?: string,
+  override?: PortfolioSeoContextOverride,
+): string | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return preferredDescription ? clipPortfolioMetaDescription(preferredDescription) : null;
+
+  const source = clean(preferredDescription) || item.summary;
+  if (!source) {
+    const location = [item.neighborhood, isUsefulPlace(item.city) ? item.city : "", item.state]
+      .filter(Boolean)
+      .join(", ");
+    return clipPortfolioMetaDescription(
+      [item.title, location ? `em ${location}` : "", item.subtitle || ""].filter(Boolean).join(" "),
+    );
+  }
+
+  return clipPortfolioMetaDescription(source);
+}
+
 export function portfolioUniversalKeywords(
   slug: string,
   override?: PortfolioSeoContextOverride,
