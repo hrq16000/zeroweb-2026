@@ -31,6 +31,23 @@ describe("publicação dos hubs regionais do portfólio", () => {
     expect(source).not.toContain('"@type": "PostalAddress"');
   });
 
+  it("mantém sitemaps legados apontando para o mapa canônico", () => {
+    const locais = readFileSync(
+      resolve(process.cwd(), "src/routes/sitemap-portfolio-locais[.]xml.ts"),
+      "utf8",
+    );
+    const prioritario = readFileSync(
+      resolve(process.cwd(), "src/routes/sitemap-portfolio-prioritario[.]xml.ts"),
+      "utf8",
+    );
+
+    for (const source of [locais, prioritario]) {
+      expect(source).toContain('new URL("/sitemap-portfolio.xml", request.url)');
+      expect(source).toContain("Response.redirect");
+      expect(source).toContain(", 301)");
+    }
+  });
+
   it("aplica publicação no detalhe, índice, relacionados e sitemap", () => {
     const detail = readFileSync(
       resolve(process.cwd(), "src/routes/portfolio-em.$local.tsx"),
