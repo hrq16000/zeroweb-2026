@@ -22,4 +22,20 @@ describe("segunda onda de conteúdo original em portfólios", () => {
     expect(s).toContain("Equipamento, sintoma e objetivo");
     expect(s).toContain("corretiva, preventiva ou de melhoria de desempenho");
   });
+
+  test("LK contextualiza orçamento por etapa sem inventar preço", () => {
+    const s = readFileSync("src/components/site/LkAlvenariaPage.tsx", "utf8");
+    expect(s).toContain("Etapa, metragem e local");
+    expect(s).toContain("qual etapa da obra");
+  });
+  test("Eletro Soluções separa instalação, manutenção e automação", () => {
+    const s = readFileSync("src/components/site/EletroSolucoesEficazesPage.tsx", "utf8");
+    expect(s).toContain("Instalar, corrigir ou automatizar");
+    expect(s).toContain("Residência, comércio, condomínio e indústria");
+  });
+  test("Eisenfer contextualiza cotação por especificação real", () => {
+    const s = readFileSync("src/components/site/EisenferTubosAcosPage.tsx", "utf8");
+    expect(s).toContain("Medida, quantidade e aplicação");
+    expect(s).toContain("medidas ficam sob consulta");
+  });
 });
