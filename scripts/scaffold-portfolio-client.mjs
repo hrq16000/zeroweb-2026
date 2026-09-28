@@ -556,8 +556,31 @@ if (existsSync(manifestPath)) {
     manifests.projects[slug] = {
       slug,
       lifecycleContract: 1,
-      /** >= 3 exige as dimensões de experiência (adendo §19) na quality matrix. */
-      contractVersion: 3,
+      /**
+       * Contrato v4: mantém os gates de experiência e adiciona o contrato
+       * operacional "cada portfolio = site individual".
+       */
+      contractVersion: 4,
+      individualSiteContract: {
+        version: 1,
+        standard: "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        gates: {
+          PORTFOLIO_INDIVIDUAL_SITE_GATE: "not_started",
+          PORTFOLIO_ENTITY_GATE: "not_started",
+          PORTFOLIO_LOCAL_SEO_GATE: "not_started",
+          PORTFOLIO_MEDIA_RICHNESS_GATE: "not_started",
+          PORTFOLIO_DISCOVERY_GRAPH_GATE: "not_started",
+          PORTFOLIO_INDEXABILITY_GATE: "not_started",
+        },
+        evidence: {
+          PORTFOLIO_INDIVIDUAL_SITE_GATE: [],
+          PORTFOLIO_ENTITY_GATE: [],
+          PORTFOLIO_LOCAL_SEO_GATE: [],
+          PORTFOLIO_MEDIA_RICHNESS_GATE: [],
+          PORTFOLIO_DISCOVERY_GRAPH_GATE: [],
+          PORTFOLIO_INDEXABILITY_GATE: [],
+        },
+      },
       /** >= 1 ativa o STRUCTURAL_ORIGINALITY_GATE como bloqueio (adendo estrutural §7). */
       structuralContract: 1,
       /**
@@ -690,8 +713,11 @@ Próximos passos obrigatórios:
   5. Criar override próprio em src/config/portfolio-motion-profiles.json.
   6. Preencher o funil ${funnelSlug}, validar e só então mudar para published.
   7. Cadastrar o secret privado ${secretName} (somente servidor), se houver contato oficial.
-  8. Rodar gates de scaffold, boundaries, meta, originality, a11y, privacy, test e build.
+  8. Preencher individualSiteContract com evidências reais dos seis gates antes de READY/PUBLISH.
+  9. Rodar gates de scaffold, boundaries, meta, originality, a11y, privacy, test e build.
 
 Herdados automaticamente pela rota compartilhada: captação 0WEB,
-compartilhamento, breadcrumbs e infraestrutura SEO. Visual NÃO é herdado.
+compartilhamento, breadcrumbs e infraestrutura SEO. A autonomia editorial,
+visual, de entidade, mídia e descoberta continua obrigatória e deve ser
+evidenciada no individualSiteContract. Visual NÃO é herdado.
 `);
