@@ -24,6 +24,7 @@ jobs:
       run: ${{ steps.diff.outputs.run }}
       mode: ${{ steps.diff.outputs.mode }}
       shards: ${{ steps.diff.outputs.shards }}
+      only: ${{ steps.diff.outputs.only }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -112,7 +113,16 @@ jobs:
             fi
           fi
 
-          if [ "$MODE" = "regional" ]; then
+          # Se todas as superfícies visuais alteradas pertencem a portfolios
+          # individuais registrados, mede somente esses slugs. Arquivo
+          # compartilhado/rota/CSS global continua em modo full.
+          PORTFOLIO_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          if [ -n "$PORTFOLIO_ONLY" ]; then
+            RUN=true
+            MODE=portfolio
+          fi
+
+          if [ "$MODE" = "regional" ] || [ "$MODE" = "portfolio" ]; then
             SHARDS='[0]'
           else
             SHARDS='[0,1,2,3]'
@@ -121,7 +131,8 @@ jobs:
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
-          echo "impacto Lighthouse: $RUN ($MODE; shards=$SHARDS)"
+          echo "only=$PORTFOLIO_ONLY" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN ($MODE; shards=$SHARDS; only=${PORTFOLIO_ONLY:-global})"
 
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
@@ -150,6 +161,7 @@ jobs:
           LHCI_SHARD_INDEX: ${{ matrix.shard }}
           LHCI_SHARD_COUNT: 4
           LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
+          LHCI_ONLY: ${{ needs.scope.outputs.only }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
