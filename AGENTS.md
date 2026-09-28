@@ -7,6 +7,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
 | Constituição universal: evolução aditiva, mega diretório local, preservação + enriquecimento | `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md` |
+| Cada `/portfolio/:slug` como site individual completo + SEO autônomo/agressivo legítimo | `docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
 | Discovery contínuo em LobeHub/AwesomeSkill/fontes originais | `.agents/skills/0web-skill-discovery/SKILL.md` · `.agents/skills/lobehub-skills-search-engine/SKILL.md` · `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` |
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
@@ -56,7 +57,9 @@ não deixar trabalho pendente em cópias locais ou hospedagens externas.
 
 Para toda tarefa material de conteúdo, SEO, portfólio, diretório local, mídia, geração
 autônoma ou evolução visual, leia também
-`docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`. A regra padrão é
+`docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`.
+Para qualquer tarefa em `/portfolio/:slug`, leia também
+`docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`: cada portfolio publicado é tratado como site individual, entidade própria e superfície SEO autônoma. A regra padrão é
 **preservar + enriquecer**: remover valor existente exige gatilho explícito e
 rastreável; simplificação não é evolução.
 
