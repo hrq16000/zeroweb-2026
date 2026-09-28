@@ -18,15 +18,23 @@ const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", 
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
 const LIGHTHOUSE_SCOPE = process.env.LHCI_SCOPE || "full";
+const onlySlugs = (process.env.LHCI_ONLY || "")
+  .split(",")
+  .map((slug) => slug.trim())
+  .filter(Boolean);
+const selectedClients = onlySlugs.length
+  ? clients.filter(({ slug }) => onlySlugs.includes(slug))
+  : clients;
+const effectiveShardCount = onlySlugs.length ? 1 : shardCount;
 const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
     ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
     : [];
-const portfolioUrls = LIGHTHOUSE_SCOPE === "regional" ? [] : clients
-  .filter((_, index) => index % shardCount === shardIndex)
+const portfolioUrls = LIGHTHOUSE_SCOPE === "regional" ? [] : selectedClients
+  .filter((_, index) => index % effectiveShardCount === shardIndex)
   .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
-  LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
+  LIGHTHOUSE_SCOPE !== "regional" && !onlySlugs.length && shardIndex === 0
     ? [
         `${TARGET_URL}/`,
         `${TARGET_URL}/blog`,
