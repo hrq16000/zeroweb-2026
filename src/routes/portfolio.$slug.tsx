@@ -21,6 +21,7 @@ import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import {
+  portfolioEntitySchemaType,
   portfolioUniversalKeywords,
   portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
@@ -73,16 +74,17 @@ function managedHead(project: ManagedProject) {
           organizationNode(),
           {
             "@type": "WebPage",
-            "@id": url,
+            "@id": `${url}#webpage`,
             url,
             name: project.seoTitle,
             description: project.seoDescription,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
+            isPartOf: { "@id": "https://0web.com.br/#website" },
+            mainEntity: { "@id": `${url}#entity` },
           },
           {
-            "@type": "LocalBusiness",
-            "@id": `${url}#localbusiness`,
+            "@type": portfolioEntitySchemaType(project.segment),
+            "@id": `${url}#entity`,
             name: project.displayName,
             description: project.seoDescription,
             url,
@@ -90,11 +92,9 @@ function managedHead(project: ManagedProject) {
             ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
             ...(project.city
               ? {
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: project.city,
-                    addressRegion: project.state || "BR",
-                    addressCountry: "BR",
+                  areaServed: {
+                    "@type": "Place",
+                    name: [project.city, project.state].filter(Boolean).join(" — "),
                   },
                 }
               : {}),
@@ -102,7 +102,11 @@ function managedHead(project: ManagedProject) {
               ? {
                   makesOffer: project.services.map((service) => ({
                     "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: service.title },
+                    itemOffered: {
+                      "@type": "Service",
+                      name: service.title,
+                      description: service.description || undefined,
+                    },
                   })),
                 }
               : {}),
