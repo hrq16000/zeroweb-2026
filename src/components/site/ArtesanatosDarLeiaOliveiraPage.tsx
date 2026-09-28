@@ -167,6 +167,45 @@ export function ArtesanatosDarLeiaOliveiraPage() {
           </div>
         </section>
 
+        <section className="border-y-2 border-[#3e241d] bg-[#fff3e4] px-5 py-16 lg:px-8" aria-labelledby="escolha-coador-title">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xs font-bold uppercase tracking-[.3em] text-[#8d2345]">Antes da encomenda</p>
+            <h2 id="escolha-coador-title" className="mt-3 font-serif text-3xl sm:text-4xl">
+              O que vale definir antes de falar com a artesã.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#6d4a3e]">
+              A encomenda pode variar conforme uso, estampa, quantidade e forma de entrega. A página não presume estoque:
+              esses detalhes são informados no funil e confirmados diretamente no atendimento.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <article className="border border-[#d8ab91] bg-[#fff8ef] p-6">
+                <h3 className="font-serif text-2xl">Para casa ou para presente?</h3>
+                <p className="mt-3 text-sm leading-7 text-[#6d4a3e]">
+                  O uso ajuda a contextualizar a encomenda. Para presente, vale informar a ocasião; para uso próprio, basta indicar a preferência de estampa e acabamento.
+                </p>
+              </article>
+              <article className="border border-[#d8ab91] bg-[#fff8ef] p-6">
+                <h3 className="font-serif text-2xl">Estampa e acabamento</h3>
+                <p className="mt-3 text-sm leading-7 text-[#6d4a3e]">
+                  O coador é descrito como 100% algodão, com costura e acabamento feitos à mão. Estampas e barrados disponíveis são combinados no atendimento.
+                </p>
+              </article>
+              <article className="border border-[#d8ab91] bg-[#fff8ef] p-6">
+                <h3 className="font-serif text-2xl">Quantidade</h3>
+                <p className="mt-3 text-sm leading-7 text-[#6d4a3e]">
+                  Para uma ou várias peças, a quantidade deve entrar no pedido. Isso permite confirmar disponibilidade e organizar a produção antes de fechar a encomenda.
+                </p>
+              </article>
+              <article className="border border-[#d8ab91] bg-[#fff8ef] p-6">
+                <h3 className="font-serif text-2xl">Retirada ou entrega</h3>
+                <p className="mt-3 text-sm leading-7 text-[#6d4a3e]">
+                  A ficha do produto já informa que retirada ou entrega são combinadas no atendimento. O funil registra a preferência para orientar o próximo passo.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* Encomenda: bloco de papel, alinhado à esquerda, sem faixa colorida cheia. */}
         <section id="encomenda" className="px-5 pb-20 lg:px-8">
           <div className="mx-auto flex max-w-4xl flex-col gap-6 border-2 border-[#3e241d] bg-[#4a2921] px-7 py-10 text-[#fff8ef] sm:flex-row sm:items-end sm:justify-between">
