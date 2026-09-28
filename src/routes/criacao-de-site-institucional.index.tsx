@@ -112,7 +112,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/")({
           description: DESCRIPTION,
           url: CANONICAL,
           areaServed: { "@type": "Country", name: "Brasil" },
-          provider: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+          provider: { "@id": "https://0web.com.br/#org" },
         }),
       },
       {
