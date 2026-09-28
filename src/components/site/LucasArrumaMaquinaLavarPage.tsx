@@ -176,6 +176,19 @@ export function LucasArrumaMaquinaLavarPage() {
           </div>
         </section>
 
+        <section className="border-b-2 border-[#23282e] bg-[#f7f4ee]" aria-labelledby="lucas-sintomas-title">
+          <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#c2452d]">Antes do diagnóstico</p>
+            <h2 id="lucas-sintomas-title" className="mt-3 max-w-3xl font-display text-3xl font-bold sm:text-4xl">Descrever o sintoma evita começar a conversa pelo serviço errado.</h2>
+            <p className="mt-5 max-w-3xl leading-8 text-[#4a545e]">Não ligar, não centrifugar, não drenar, vazar ou fazer ruído são sinais diferentes. A primeira conversa organiza o que foi percebido, qual equipamento está envolvido e quando o problema começou; o diagnóstico é que define o próximo passo.</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {["Não liga", "Não centrifuga ou não lava", "Não drena", "Vazamento ou ruído"].map((item) => (
+                <div key={item} className="border-2 border-[#23282e] bg-[#e8e3d9] p-5"><h3 className="font-display text-lg font-bold">{item}</h3><p className="mt-2 text-sm leading-6 text-[#4a545e]">Informe quando começou e, se souber, marca, modelo ou código de erro exibido.</p></div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Ciclo: régua horizontal numerada com a arte real do cliente contida. */}
         <section id="ciclo" className="border-b-2 border-[#23282e]">
           <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
