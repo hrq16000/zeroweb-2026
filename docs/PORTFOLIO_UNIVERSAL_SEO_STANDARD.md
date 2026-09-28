@@ -30,7 +30,8 @@ Todo projeto publicado deve possuir:
 - Schema.org válido;
 - BreadcrumbList;
 - sitemap único de portfólio;
-- submissão por GSC/IndexNow nos gatilhos de publicação já existentes;
+- acompanhamento por Google Search Console e sitemap;
+- submissão IndexNow de URLs realmente alteradas somente após produção confirmada, seguindo `SEO_INDEXNOW_STANDARD.md`;
 - conteúdo SSR/indexável;
 - rede interna de links contextual entre portfólios;
 - nenhuma alegação criada apenas para SEO.
