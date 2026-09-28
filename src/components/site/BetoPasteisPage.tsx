@@ -17,10 +17,10 @@ import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motio
  * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.
  */
 const vitrine = [
-  ["Pastel de carne", "recheio temperado na casa, massa fina e crocante"],
-  ["Pastel de queijo", "queijo puxando, frito na hora do pedido"],
-  ["Pastel de frango com catupiry", "clássico do balcão, sempre pedido"],
-  ["Pastel doce", "para fechar a parada com açúcar e canela"],
+  ["Escolha do pedido", "Informe o tipo de pastel ou combinação que procura para a casa confirmar as opções disponíveis."],
+  ["Quantidade", "Para consumo individual ou encomenda, indique quantas unidades precisa."],
+  ["Horário", "Informe quando pretende retirar ou consumir para organizar o atendimento."],
+  ["Confirmação", "Sabores, disponibilidade e condições são confirmados diretamente com a equipe."],
 ] as const;
 
 export function BetoPasteisPage() {
@@ -40,7 +40,7 @@ export function BetoPasteisPage() {
       {/* faixa de balcão — assinatura do projeto */}
       <div className="w-full bg-[var(--bp-tomato)] py-2">
         <p className="mx-auto max-w-6xl px-5 text-[0.7rem] font-bold uppercase tracking-[0.4em] text-[var(--bp-paper)]">
-          Beto Pastéis · Jardim Itália · São José dos Pinhais
+          Beto Pastéis · São José dos Pinhais
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export function BetoPasteisPage() {
             />
             </MotionImageReveal>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.25em] text-[var(--bp-ink)]/55">
-              Massa fina, fritura na hora
+              Pastelaria em São José dos Pinhais
             </figcaption>
           </figure>
 
@@ -87,25 +87,25 @@ export function BetoPasteisPage() {
                 <dt className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--bp-tomato)]">
                   <Flame className="h-3.5 w-3.5" aria-hidden /> Feito na hora
                 </dt>
-                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Cada pastel vai à fritura depois do pedido.</dd>
+                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">O preparo e a disponibilidade são confirmados pela equipe no atendimento.</dd>
               </div>
               <div>
                 <dt className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--bp-tomato)]">
                   <Clock3 className="h-3.5 w-3.5" aria-hidden /> Ritmo de balcão
                 </dt>
-                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Pensado para a pausa curta do dia.</dd>
+                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Informe o horário desejado para contextualizar o pedido.</dd>
               </div>
               <div>
                 <dt className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--bp-tomato)]">
                   <MapPin className="h-3.5 w-3.5" aria-hidden /> Do bairro
                 </dt>
-                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Freguesia que volta pelo mesmo sabor.</dd>
+                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Atendimento local em São José dos Pinhais.</dd>
               </div>
               <div>
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--bp-tomato)]">
                   Encomenda
                 </dt>
-                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Combine quantidade e horário com a casa.</dd>
+                <dd className="mt-1 text-sm text-[var(--bp-ink)]/75">Informe quantidade e horário para a equipe confirmar o pedido.</dd>
               </div>
             </dl>
 
@@ -128,7 +128,7 @@ export function BetoPasteisPage() {
             id="bp-vitrine"
             className="font-display text-xs font-black uppercase tracking-[0.45em] text-[var(--bp-ink)]/50"
           >
-            No balcão
+            Como organizar o pedido
           </h2>
           <ul className="mt-6">
             {vitrine.map(([nome, nota], i) => (
@@ -148,10 +148,10 @@ export function BetoPasteisPage() {
 
         <MotionReveal as="section" variant="scale" className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">
           <h2 className="font-display text-2xl font-black uppercase leading-tight md:text-3xl">
-            Um pastel bem escolhido muda o ritmo do dia.
+            Pastel, quantidade e horário: três dados para começar.
           </h2>
           <p className="mt-3 max-w-[54ch] text-sm leading-relaxed text-[var(--bp-ink)]/80">
-            Escolha a ocasião e conte o que gostaria de encontrar no menu.
+            Conte o que procura e a equipe confirma sabores, disponibilidade e condições do pedido.
           </p>
           <div className="mt-6">
             <FunnelCTAButton
