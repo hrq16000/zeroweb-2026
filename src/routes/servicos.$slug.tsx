@@ -77,6 +77,7 @@ export const Route = createFileRoute("/servicos/$slug")({
         .find((c): c is string => Boolean(c)) ?? DEFAULT_OG_IMAGE;
     const ogAlt = loaderData.imageAlt || loaderData.h1;
     const ogType = loaderData.ogType || "website";
+    const productImage = ogImage !== DEFAULT_OG_IMAGE ? ogImage : null;
     const baseGraph = [
       {
         "@type": "WebPage",
@@ -109,7 +110,7 @@ export const Route = createFileRoute("/servicos/$slug")({
       // Product/Offer só para itens realmente transacionais (preço > 0).
       // Sem AggregateRating: não há avaliações reais cadastradas e schema
       // de nota inventada viola as diretrizes do Google.
-      ...(typeof loaderData.price === "number" && loaderData.price > 0
+      ...(typeof loaderData.price === "number" && loaderData.price > 0 && productImage
         ? [{
             "@type": "Product",
             "@id": `${url}#product`,
@@ -117,7 +118,7 @@ export const Route = createFileRoute("/servicos/$slug")({
             description: loaderData.seoDescription || loaderData.description,
             category: loaderData.category,
             url,
-            ...(loaderData.imageUrl ? { image: [loaderData.imageUrl] } : {}),
+            image: [productImage],
             brand: { "@id": `${ORIGIN}/#org` },
             offers: buildSingleOffer(loaderData.price, url),
           }]
@@ -147,6 +148,24 @@ export const Route = createFileRoute("/servicos/$slug")({
     const rawExtra = Array.isArray(loaderData.schemaJsonLd) ? loaderData.schemaJsonLd : [];
     const extraGraph = rawExtra.map((node: Record<string, unknown>) => {
       if (!node || typeof node !== "object") return node;
+      const nodeType = (node as { "@type"?: unknown })["@type"];
+      const nodeId = (node as { "@id"?: unknown })["@id"];
+      const nodeUrl = (node as { url?: unknown }).url;
+      const nodeName = (node as { name?: unknown }).name;
+      const isZeroWebOrganization =
+        nodeType === "Organization" &&
+        (
+          nodeId === `${ORIGIN}/#org` ||
+          nodeUrl === ORIGIN ||
+          nodeUrl === `${ORIGIN}/` ||
+          (typeof nodeName === "string" && nodeName.trim().toUpperCase() === "0WEB")
+        );
+      if (isZeroWebOrganization) {
+        node = {
+          ...node,
+          logo: (node as { logo?: unknown }).logo ?? `${ORIGIN}/0web-logo.png`,
+        };
+      }
       const offers = (node as { offers?: unknown }).offers;
       if (Array.isArray(offers)) {
         return { ...node, offers: offers.map((o) => withOfferDefaults(o as OfferLike, url)) };
