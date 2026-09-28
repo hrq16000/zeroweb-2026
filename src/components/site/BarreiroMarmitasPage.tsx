@@ -6,18 +6,15 @@ import { ManagedRich } from "@/components/portfolio/ManagedText";
 import { MotionReveal, MotionScope } from "@/components/motion";
 
 const SEMANA = [
-  ["SEG", "Frango grelhado", "Arroz, feijão, purê e salada de repolho"],
-  ["TER", "Carne moída com legumes", "Arroz, feijão, farofa e vinagrete"],
-  ["QUA", "Bife acebolado", "Arroz, feijão, macarrão e couve"],
-  ["QUI", "Frango à parmegiana", "Arroz, feijão, batata sauté e salada"],
-  ["SEX", "Feijoada leve", "Arroz, couve, farofa e laranja"],
-  ["SÁB", "Costelinha assada", "Arroz, feijão, mandioca e vinagrete"],
+  ["01", "Cardápio", "Consulte as opções disponíveis para o almoço no atendimento."],
+  ["02", "Quantidade", "Informe quantas marmitas precisa para organizar o pedido."],
+  ["03", "Entrega", "Indique o local para a cozinha confirmar a possibilidade de entrega."],
 ] as const;
 
 const TAMANHOS = [
-  ["P", "Porção individual", "Para quem come pouco no almoço"],
-  ["M", "A mais pedida", "Porção padrão do dia a dia"],
-  ["G", "Reforçada", "Para quem trabalha pesado"],
+  ["1", "Para hoje", "Pedido pontual de almoço"],
+  ["2", "Mais de uma refeição", "Informe a quantidade desejada"],
+  ["3", "Frequência", "Conte se procura pedido pontual ou recorrente"],
 ] as const;
 
 const quiz = {
@@ -62,7 +59,7 @@ export function BarreiroMarmitasPage() {
           <a href="#inicio" className="text-lg font-extrabold uppercase tracking-wide text-[#f7f2e7]">
             Marmitas do Barreiro
           </a>
-          <p className="text-sm font-semibold text-[#c6d8c8]">Segunda a sábado · almoço quentinho</p>
+          <p className="text-sm font-semibold text-[#c6d8c8]">Marmitas · almoço · entrega</p>
         </div>
       </header>
 
@@ -80,34 +77,31 @@ export function BarreiroMarmitasPage() {
               Comida caseira feita todo dia de manhã, marmita fechada na hora e cardápio fixo para você programar a
               semana sem pensar duas vezes.</ManagedRich></p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
-              <Pedido>Pedir marmita de hoje</Pedido>
+              <Pedido>Consultar marmita</Pedido>
               <a href="#cardapio" className="text-base font-bold underline underline-offset-4">
-                Ver cardápio da semana
+                Como pedir
               </a>
             </div>
           </div>
           <MotionReveal variant="down" intensity="EXPRESSIVE" className="rounded-lg border-[10px] border-[#6b4a25] bg-[#1f3a26] p-5 shadow-xl">
-            <p className="text-center font-mono text-sm uppercase tracking-[.3em] text-[#f2c744]">Quadro do dia</p>
+            <p className="text-center font-mono text-sm uppercase tracking-[.3em] text-[#f2c744]">Pedido</p>
             <p className="mt-4 text-center font-extrabold uppercase leading-tight text-[#f7f2e7]">
-              <span className="block text-5xl">R$ 22</span>
-              <span className="mt-2 block text-sm tracking-widest text-[#c6d8c8]">marmita M completa</span>
-            </p>
-            <p className="mt-5 border-t border-dashed border-[#c6d8c8]/40 pt-4 text-center text-sm leading-6 text-[#dbe6dc]">
-              Combo 5 dias sai por R$ 100 — pago na entrega da primeira marmita.
+              <span className="block text-3xl">Consulte o almoço disponível</span>
+              <span className="mt-2 block text-sm tracking-widest text-[#c6d8c8]">quantidade e entrega são confirmadas no atendimento</span>
             </p>
           </MotionReveal>
         </section>
 
         <section id="cardapio" className="bg-[#1f3a26] px-5 py-14 lg:px-8">
           <div className="mx-auto max-w-5xl">
-            <h2 className="text-3xl font-extrabold uppercase text-[#f7f2e7]">Cardápio fixo da semana</h2>
+            <h2 className="text-3xl font-extrabold uppercase text-[#f7f2e7]">Como organizar o pedido</h2>
             <MotionReveal variant="mask" className="mt-6 overflow-x-auto">
               <table className="w-full min-w-[34rem] border-collapse text-left text-[#f7f2e7]">
                 <thead>
                   <tr className="border-b-2 border-[#f2c744]">
-                    <th scope="col" className="py-3 pr-4 text-sm uppercase tracking-widest text-[#f2c744]">Dia</th>
-                    <th scope="col" className="py-3 pr-4 text-sm uppercase tracking-widest text-[#f2c744]">Prato principal</th>
-                    <th scope="col" className="py-3 text-sm uppercase tracking-widest text-[#f2c744]">Acompanha</th>
+                    <th scope="col" className="py-3 pr-4 text-sm uppercase tracking-widest text-[#f2c744]">Etapa</th>
+                    <th scope="col" className="py-3 pr-4 text-sm uppercase tracking-widest text-[#f2c744]">Informação</th>
+                    <th scope="col" className="py-3 text-sm uppercase tracking-widest text-[#f2c744]">Como usar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -125,7 +119,7 @@ export function BarreiroMarmitasPage() {
         </section>
 
         <section className="mx-auto max-w-5xl px-5 py-14 lg:px-8">
-          <h2 className="text-2xl font-extrabold uppercase">Escolha o tamanho</h2>
+          <h2 className="text-2xl font-extrabold uppercase">Defina o formato do pedido</h2>
           <dl className="mt-6 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 sm:grid-cols-3">
             {TAMANHOS.map(([letra, titulo, texto], i) => (
               <MotionReveal variant="scale" delay={i * 100} key={letra} className="bg-[#f7f2e7] p-6">
@@ -142,12 +136,12 @@ export function BarreiroMarmitasPage() {
         <section id="pedir" className="bg-[#f2c744] px-5 py-12 lg:px-8">
           <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
-              <h2 className="text-3xl font-extrabold uppercase leading-tight">Fecha o combo da semana?</h2>
+              <h2 className="text-3xl font-extrabold uppercase leading-tight">Quer organizar o próximo almoço?</h2>
               <p className="mt-2 max-w-xl text-base font-semibold leading-7 text-[#3d3524]">
-                Diga os dias, o tamanho e onde retirar. A cozinha confirma a reserva das marmitas.
+                Informe quantidade, frequência e local de entrega. A cozinha confirma o que está disponível e o próximo passo.
               </p>
             </div>
-            <Pedido>Montar meu combo</Pedido>
+            <Pedido>Organizar meu pedido</Pedido>
           </div>
         </section>
       </main>
@@ -162,9 +156,9 @@ export function BarreiroMarmitasPage() {
       <PortfolioSocialProofPopup
         clientKey="bh-barreiro-marmitas"
         eyebrow="Marmitas do Barreiro"
-        title="Já pensou no almoço de amanhã?"
-        description="Reserve a marmita do dia ou feche o combo da semana."
-        ctaLabel="Ver cardápio"
+        title="Quer organizar seu próximo almoço?"
+        description="Consulte disponibilidade, quantidade e entrega diretamente com a cozinha."
+        ctaLabel="Como pedir"
         ctaHref="#cardapio"
         delayMs={8000}
         className="border-[#f2c744]/60 bg-[#1f3a26]/95 text-[#f7f2e7]"
