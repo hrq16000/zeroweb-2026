@@ -160,6 +160,30 @@ Bloqueio de uma fonte não encerra a pesquisa: seguir a escada definida em `PORT
 
 ---
 
+## 4.1 Portfolio como site individual
+
+Todo `/portfolio/:slug` publicado deve funcionar como **site individual completo do negócio**, ainda que hospedado sob `0web.com.br`.
+
+Isso significa autonomia de:
+
+- entidade;
+- conteúdo;
+- identidade;
+- mídia;
+- SEO;
+- contexto local;
+- schema;
+- navegação interna;
+- descoberta;
+- funil;
+- promoção futura para domínio próprio.
+
+O padrão especializado é `PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`.
+
+A regra operacional é: **publicar um portfolio é publicar um site individual dentro do ecossistema**, não apenas adicionar uma página à galeria.
+
+---
+
 ## 5. Autenticidade visual e efeito “amostra premium”
 
 Cada `/portfolio/:slug` deve parecer um projeto próprio.
