@@ -21,7 +21,9 @@ import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import {
+  portfolioEntitySchemaType,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   resolvePortfolioSeoDescriptor,
 } from "@/lib/portfolio-seo-network";
@@ -72,16 +74,17 @@ function managedHead(project: ManagedProject) {
           organizationNode(),
           {
             "@type": "WebPage",
-            "@id": url,
+            "@id": `${url}#webpage`,
             url,
             name: project.seoTitle,
             description: project.seoDescription,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
+            isPartOf: { "@id": "https://0web.com.br/#website" },
+            mainEntity: { "@id": `${url}#entity` },
           },
           {
-            "@type": "LocalBusiness",
-            "@id": `${url}#localbusiness`,
+            "@type": portfolioEntitySchemaType(project.segment),
+            "@id": `${url}#entity`,
             name: project.displayName,
             description: project.seoDescription,
             url,
@@ -89,11 +92,9 @@ function managedHead(project: ManagedProject) {
             ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
             ...(project.city
               ? {
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: project.city,
-                    addressRegion: project.state || "BR",
-                    addressCountry: "BR",
+                  areaServed: {
+                    "@type": "Place",
+                    name: [project.city, project.state].filter(Boolean).join(" — "),
                   },
                 }
               : {}),
@@ -101,7 +102,11 @@ function managedHead(project: ManagedProject) {
               ? {
                   makesOffer: project.services.map((service) => ({
                     "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: service.title },
+                    itemOffered: {
+                      "@type": "Service",
+                      name: service.title,
+                      description: service.description || undefined,
+                    },
                   })),
                 }
               : {}),
@@ -733,7 +738,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                   ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
                                                                                   : isSantos
                                                                                     ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-                                                                                    : (catalogSeo?.summary ??
+                                                                                    : ((loaderData?.slug
+                                                                                      ? portfolioUniversalSeoDescription(loaderData.slug)
+                                                                                      : null) ??
+                                                                                      catalogSeo?.summary ??
                                                                                       loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
@@ -936,7 +944,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
-        { property: "og:site_name", content: eff.title },
+        { property: "og:site_name", content: catalogSeo?.title ?? eff.title },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },

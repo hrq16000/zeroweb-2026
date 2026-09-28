@@ -2,7 +2,9 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import {
   listPublicPortfolioSeoDescriptors,
+  portfolioEntitySchemaType,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   portfolioSemanticContext,
   portfolioEntityGraphSchema,
@@ -50,6 +52,42 @@ describe("SEO universal dos portfolios", () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
+  test("cada portfolio recebe descrição universal única, curta e orientada ao próprio negócio", () => {
+    for (const item of published) {
+      const description = portfolioUniversalSeoDescription(item.slug);
+      expect(description).toBeTruthy();
+      expect((description?.length ?? 999)).toBeLessThanOrEqual(160);
+      expect(description).toContain(item.title.split(" · ")[0].split(" — ")[0]);
+    }
+  });
+
+  test("negócio local prioriza bairro/cidade no título quando cabe", () => {
+    const title = portfolioUniversalSeoTitle("beto-pasteis") ?? "";
+    expect(title).toContain("Beto Pastéis");
+    expect(title).toContain("Jardim Itália");
+    expect(title.length).toBeLessThanOrEqual(65);
+  });
+
+  test("segmentos recebem entidade Schema.org coerente", () => {
+    expect(portfolioEntitySchemaType("restaurantes")).toBe("FoodEstablishment");
+    expect(portfolioEntitySchemaType("comercios")).toBe("Store");
+    expect(portfolioEntitySchemaType("beleza")).toBe("HealthAndBeautyBusiness");
+    expect(portfolioEntitySchemaType("juridico")).toBe("LegalService");
+    expect(portfolioEntitySchemaType("saude")).toBe("MedicalBusiness");
+    expect(portfolioEntitySchemaType("prestadores-de-servicos")).toBe("ProfessionalService");
+  });
+
+  test("Beto Pastéis recebe área atendida do Jardim Itália sem endereço postal inventado", () => {
+    const schema = portfolioEntityGraphSchema("beto-pasteis");
+    const graph = schema?.["@graph"] ?? [];
+    const entity = graph.find((node: any) => node["@id"]?.endsWith("#entity")) as any;
+    const place = graph.find((node: any) => node["@type"] === "Place") as any;
+    expect(entity?.["@type"]).toBe("FoodEstablishment");
+    expect(entity?.areaServed?.["@id"]).toContain("#place");
+    expect(place?.name).toContain("Jardim Itália");
+    expect(place?.address).toBeUndefined();
+  });
+
   test("contexto de palavras-chave usa entidade, tags e localidade sem duplicar termos", () => {
     for (const item of published) {
       const keywords = portfolioUniversalKeywords(item.slug) ?? "";
@@ -95,19 +133,22 @@ describe("SEO universal dos portfolios", () => {
     expect(related.some((item) => item.reason === "discovery")).toBe(true);
   });
 
-  test("todo portfolio publicado recebe WebPage, entidade e breadcrumb universais", () => {
+  test("todo portfolio publicado recebe WebPage, entidade comercial e breadcrumb universais", () => {
     for (const item of published) {
       const schema = portfolioEntityGraphSchema(item.slug);
       expect(schema?.["@context"]).toBe("https://schema.org");
       const graph = schema?.["@graph"] ?? [];
       expect(graph.some((node: any) => node["@type"] === "WebPage")).toBe(true);
-      expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(true);
+      expect(graph.some((node: any) => node["@type"] === portfolioEntitySchemaType(item.segment))).toBe(true);
       expect(graph.some((node: any) => node["@type"] === "BreadcrumbList")).toBe(true);
 
       const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
+      const entity = graph.find((node: any) => node["@id"]?.endsWith("#entity")) as any;
       expect(webpage?.url).toBe(`https://0web.com.br/portfolio/${item.slug}`);
       expect(webpage?.inLanguage).toBe("pt-BR");
       expect(webpage?.mainEntity?.["@id"]).toContain("#entity");
+      expect(entity?.name).toBe(item.title);
+      expect(entity?.url).toBe(`https://0web.com.br/portfolio/${item.slug}`);
     }
   });
 
@@ -145,6 +186,8 @@ describe("SEO universal dos portfolios", () => {
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {
     expect(shell).toContain("<PortfolioSeoNetwork");
     expect(route).toContain("portfolioUniversalSeoTitle");
+    expect(route).toContain("portfolioUniversalSeoDescription");
+    expect(route).toContain("portfolioEntitySchemaType");
     expect(shell).toContain("seoContextOverride");
     expect(route).toContain("portfolioUniversalKeywords");
     expect(route).toContain('property: "og:locale"');
