@@ -3,14 +3,9 @@ import { motion } from "motion/react";
 import {
   ArrowLeft,
   ArrowRight,
-  CheckCircle2,
   ExternalLink,
   MessageCircle,
-  Quote,
   Sparkles,
-  Target,
-  Trophy,
-  Wrench,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -37,6 +32,7 @@ export const Route = createFileRoute("/cases/$slug")({
         { title: c.seo.title },
         { name: "description", content: c.seo.description },
         { name: "keywords", content: c.seo.keywords },
+        { name: "robots", content: "noindex,follow,max-image-preview:large" },
         { property: "og:title", content: c.seo.title },
         { property: "og:description", content: c.seo.description },
         { property: "og:type", content: "article" },
@@ -55,13 +51,14 @@ export const Route = createFileRoute("/cases/$slug")({
             "@context": "https://schema.org",
             "@graph": [
               {
-                "@type": "Article",
-                headline: c.seo.title,
-                description: c.seo.description,
+                "@type": "WebPage",
+                "@id": `${url}#webpage`,
+                url,
+                name: c.brand,
+                description: c.intro,
                 image,
-                author: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-                publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-                mainEntityOfPage: url,
+                inLanguage: "pt-BR",
+                isPartOf: { "@id": "https://0web.com.br/#website" },
               },
               {
                 "@type": "BreadcrumbList",
@@ -169,76 +166,16 @@ function CasePage() {
           </div>
         </section>
 
-        {/* Métricas */}
-        <section className="mx-auto max-w-7xl px-5 lg:px-8 -mt-12 relative z-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {c.metrics.map((m, i) => (
-              <motion.div
-                key={m.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-2xl bg-card border border-border p-5 shadow-elegant"
-              >
-                <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                  {m.label}
-                </div>
-                <div className="mt-1 text-3xl font-bold font-display text-gradient">{m.value}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{m.sub}</div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Desafio / Solução / Resultado */}
-        <section className="mx-auto max-w-7xl px-5 lg:px-8 mt-20 grid lg:grid-cols-3 gap-6">
-          <Block
-            icon={<Target className="w-5 h-5" />}
-            title="Desafio"
-            tone="primary"
-            items={c.challenges}
-          />
-          <Block
-            icon={<Wrench className="w-5 h-5" />}
-            title="Solução"
-            tone="accent"
-            items={c.solutions}
-          />
-          <Block
-            icon={<Trophy className="w-5 h-5" />}
-            title="Resultado"
-            tone="emerald"
-            items={c.results}
-          />
-        </section>
-
-        {/* Stack */}
-        <section className="mx-auto max-w-7xl px-5 lg:px-8 mt-16">
-          <h2 className="text-2xl font-bold font-display">Stack & integrações</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {c.stack.map((s) => (
-              <span
-                key={s}
-                className="inline-flex items-center gap-1 rounded-full border border-border bg-muted px-3 py-1.5 text-xs font-medium"
-              >
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> {s}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* Depoimento */}
-        <section className="mx-auto max-w-5xl px-5 lg:px-8 mt-20">
-          <div className="rounded-3xl border border-border bg-gradient-to-br from-background to-muted p-8 sm:p-12 shadow-elegant">
-            <Quote className="w-8 h-8 text-primary" />
-            <p className="mt-4 text-xl sm:text-2xl font-display leading-snug">
-              “{c.testimonial.quote}”
+        {/* Métricas, resultados e depoimentos ficam ocultos até existir
+            evidência versionada para cada afirmação. */}
+        <section className="mx-auto max-w-5xl px-5 lg:px-8 mt-16">
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-2xl font-bold font-display">Estudo em revisão editorial</h2>
+            <p className="mt-3 text-muted-foreground">
+              A página permanece disponível para revisão do projeto, mas métricas de desempenho,
+              resultados e depoimentos só serão publicados novamente após validação documental da fonte,
+              do período medido e da autorização de uso.
             </p>
-            <div className="mt-6 text-sm text-muted-foreground">
-              <strong className="text-foreground">{c.testimonial.author}</strong> ·{" "}
-              {c.testimonial.role}
-            </div>
           </div>
         </section>
 
@@ -314,44 +251,5 @@ function CasePage() {
       <Footer />
       <WhatsAppFloat />
     </div>
-  );
-}
-
-function Block({
-  icon,
-  title,
-  tone,
-  items,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  tone: "primary" | "accent" | "emerald";
-  items: string[];
-}) {
-  const toneBg = {
-    primary: "bg-primary/10 text-primary",
-    accent: "bg-accent/20 text-accent-foreground",
-    emerald: "bg-emerald-500/10 text-emerald-600",
-  }[tone];
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="rounded-2xl border border-border bg-card p-6"
-    >
-      <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${toneBg}`}>
-        {icon}
-      </div>
-      <h3 className="mt-4 font-semibold text-lg">{title}</h3>
-      <ul className="mt-3 space-y-2">
-        {items.map((it) => (
-          <li key={it} className="flex gap-2 text-sm text-muted-foreground">
-            <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-            <span>{it}</span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
   );
 }
