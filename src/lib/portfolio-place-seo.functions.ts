@@ -104,6 +104,9 @@ export const getPortfolioPlaceSeo = createServerFn({ method: "GET" })
         .eq("slug", data.slug)
         .maybeSingle();
       if (error || !row) return null;
+      // Rascunho (published=false) nunca vaza para o público: a página usa o
+      // conteúdo gerado do catálogo até o texto ser publicado.
+      if (row.published === false) return null;
       return toOverride(row);
     } catch (error) {
       console.warn("[portfolio-place-seo] leitura indisponível; usando conteúdo do código", error);
