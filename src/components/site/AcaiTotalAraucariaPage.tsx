@@ -227,6 +227,49 @@ export function AcaiTotalAraucariaPage() {
           </div>
         </section>
 
+        <section id="como-montar" className="border-y border-[#2d0f44]/15 bg-white px-5 py-20 text-[#2d0f44] lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-[.38fr_.62fr]">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#8c3d8a]">pedido em Araucária — PR</p>
+                <h2 className="mt-4 font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                  Tamanho, combinação e endereço: o pedido nasce dessas três escolhas.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-[#705976]">
+                  O cardápio apresentado aqui é intencionalmente direto. Em vez de inventar combinações fixas, a
+                  página registra se você procura copão ou litrão, quais preferências quer detalhar e para onde será a
+                  entrega em Araucária. A disponibilidade final é confirmada no atendimento.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <article className="border-2 border-[#2d0f44] p-6">
+                  <span className="font-mono text-xs font-black text-[#8c3d8a]">01</span>
+                  <h3 className="mt-5 font-display text-2xl font-black">Copão</h3>
+                  <p className="mt-3 leading-7 text-[#705976]">Uma opção individual para quem quer montar o açaí com as preferências informadas no pedido.</p>
+                </article>
+                <article className="border-2 border-[#2d0f44] p-6">
+                  <span className="font-mono text-xs font-black text-[#8c3d8a]">02</span>
+                  <h3 className="mt-5 font-display text-2xl font-black">Litrão</h3>
+                  <p className="mt-3 leading-7 text-[#705976]">Formato maior apresentado pela loja para compartilhar ou atender um pedido de maior volume.</p>
+                </article>
+                <article className="border-2 border-[#2d0f44] p-6">
+                  <span className="font-mono text-xs font-black text-[#8c3d8a]">03</span>
+                  <h3 className="mt-5 font-display text-2xl font-black">Delivery</h3>
+                  <p className="mt-3 leading-7 text-[#705976]">Informe o endereço em Araucária e o momento desejado para que a entrega seja organizada no atendimento.</p>
+                </article>
+              </div>
+            </div>
+            <div className="mt-10 border-l-4 border-[#8c3d8a] bg-[#fff9fc] p-6 sm:p-8">
+              <h3 className="font-display text-2xl font-black">O que vale detalhar no pedido?</h3>
+              <p className="mt-3 max-w-4xl leading-7 text-[#705976]">
+                Frutas, cremes e complementos aparecem como possibilidades de personalização. Use o campo de
+                observações para registrar a preferência e deixe a confirmação de itens e disponibilidade para o
+                atendimento. Assim a página ajuda a decidir sem transformar uma preferência em promessa de estoque.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section id="entrega" className="px-5 py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-4 lg:grid-cols-[.62fr_.38fr]">
