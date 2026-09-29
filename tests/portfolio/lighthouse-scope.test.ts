@@ -16,6 +16,10 @@ describe("Lighthouse escopado por portfolios alterados", () => {
     expect(workflow).toContain("SHARDS='[0]'");
   });
 
+  test("metadata pura não dispara Lighthouse global", () => {
+    expect(workflow).toContain("compactMetaDescription|metaDescription");
+  });
+
   test("config mede somente os slugs indicados quando LHCI_ONLY existe", () => {
     expect(config).toContain('process.env.LHCI_ONLY');
     expect(config).toContain("LIGHTHOUSE_ONLY.map");
