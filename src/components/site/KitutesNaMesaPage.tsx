@@ -67,6 +67,43 @@ export function KitutesNaMesaPage() {
 
       <section id="ocasioes" className="px-5 py-20 lg:px-10 lg:py-24"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-start"><div><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[var(--kitutes-terracotta)]">Escolha o clima</p><h2 className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">A mesa começa pela ocasião.</h2><p className="mt-5 max-w-xl leading-8 text-[var(--kitutes-muted)]">Selecione um cenário para ver como a conversa pode começar. O cardápio final é sempre combinado sob encomenda.</p><div className="mt-8 flex flex-wrap gap-2">{occasions.map(([code, title]) => <button type="button" key={code} onClick={() => setOccasion(title)} className={`min-h-11 rounded-full px-4 py-2 text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--kitutes-terracotta)] ${occasion === title ? "bg-[var(--kitutes-terracotta)] text-white" : "border border-[var(--kitutes-terracotta)]/25 text-[var(--kitutes-cocoa)] hover:border-[var(--kitutes-terracotta)]"}`}>{title}</button>)}</div></div><div className="grid gap-4">{occasions.map(([code, title, text, color]) => <article key={code} className={`rounded-[1.75rem] p-7 transition ${occasion === title ? "translate-x-1 shadow-xl" : "opacity-70"}`} style={{ backgroundColor: color }}><div className="flex items-start justify-between gap-6"><span className="font-mono text-xs font-bold tracking-[.2em] text-[var(--kitutes-cocoa)]/65">{code}</span><CalendarDays className="h-6 w-6 text-[var(--kitutes-cocoa)]/70" aria-hidden="true" /></div><h3 className="mt-9 font-serif text-3xl font-bold text-[var(--kitutes-cocoa)]">{title}</h3><p className="mt-3 max-w-xl leading-7 text-[var(--kitutes-cocoa)]/75">{text}</p><p className="mt-6 text-xs font-bold uppercase tracking-[.16em] text-[var(--kitutes-cocoa)]/60">{occasion === title ? "ocasião selecionada" : "toque para selecionar"}</p></article>)}</div></div></section>
 
+      <section id="planejamento" className="border-y border-[var(--kitutes-cocoa)]/10 bg-[var(--kitutes-cream)] px-5 py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[.42fr_.58fr]">
+            <div>
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[var(--kitutes-terracotta)]">planejamento da encomenda</p>
+              <h2 className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">Antes do orçamento, quatro respostas deixam a mesa mais fácil de montar.</h2>
+              <p className="mt-5 max-w-xl leading-8 text-[var(--kitutes-muted)]">
+                A Kitutes na Mesa trabalha somente sob encomenda em Curitiba e região. A página organiza a conversa
+                para que a equipe receba contexto suficiente sem transformar uma ideia inicial em cardápio fechado.
+              </p>
+            </div>
+            <div className="divide-y divide-[var(--kitutes-cocoa)]/10 border-y border-[var(--kitutes-cocoa)]/10">
+              {[
+                ["01", "Qual é a ocasião?", "Festa em família, casamento, confraternização, coffee break ou outro encontro."],
+                ["02", "Quando será?", "A data é necessária para consultar disponibilidade antes de avançar com a composição."],
+                ["03", "O que você quer servir?", "Salgados, mini lanches, doces, bolos caseiros ou uma combinação dessas categorias."],
+                ["04", "Para quantas pessoas?", "Uma estimativa ajuda a equipe a entender o tamanho do pedido e orientar o próximo passo."],
+              ].map(([n, title, text]) => (
+                <article key={n} className="grid gap-4 py-6 sm:grid-cols-[3rem_10rem_1fr]">
+                  <span className="font-mono text-xs font-bold text-[var(--kitutes-terracotta)]">{n}</span>
+                  <h3 className="font-serif text-xl font-bold">{title}</h3>
+                  <p className="leading-7 text-[var(--kitutes-muted)]">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 rounded-[1.75rem] bg-[var(--kitutes-blush)] p-7 sm:p-9">
+            <h3 className="font-serif text-2xl font-bold">Orçamento não precisa começar com tudo decidido.</h3>
+            <p className="mt-3 max-w-4xl leading-7 text-[var(--kitutes-cocoa)]/75">
+              Se você ainda estiver montando o cardápio, indique a ocasião, a data e as categorias que mais fazem
+              sentido. O próprio funil permite pedir orientação, e o fechamento acontece somente depois da confirmação
+              de disponibilidade e dos detalhes da encomenda.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="encomenda" className="bg-[var(--kitutes-blush)] px-5 py-16 lg:px-10 lg:py-20"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[var(--kitutes-cream)] p-8 shadow-2xl shadow-[var(--kitutes-cocoa)]/10 sm:p-12 lg:flex-row lg:items-center"><div><p className="font-mono text-[11px] font-bold uppercase tracking-[.28em] text-[var(--kitutes-terracotta)]">Próximo passo</p><h2 className="mt-4 max-w-2xl font-serif text-4xl font-bold leading-tight text-[var(--kitutes-cocoa)] sm:text-5xl">Conte a ocasião. A gente ajuda a montar a mesa.</h2><p className="mt-4 max-w-xl leading-7 text-[var(--kitutes-muted)]">Escolha o que deseja, informe a data e receba um orçamento sem compromisso pelo WhatsApp.</p></div><CTA location="kitutes_footer">Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div></section>
     </main>
 
