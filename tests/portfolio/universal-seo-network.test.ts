@@ -68,6 +68,21 @@ describe("SEO universal dos portfolios", () => {
     }
   });
 
+  test("Jardim Itália prioriza negócios do mesmo bairro antes de relações distantes", () => {
+    const related = relatedPortfolioSeoItems("beto-pasteis", undefined, 6);
+    expect(related.slice(0, 5).every((item) => item.neighborhood === "Jardim Itália")).toBe(true);
+    expect(related.slice(0, 5).every((item) => item.city === "São José dos Pinhais")).toBe(true);
+    expect(related.slice(0, 5).every((item) => item.reason === "neighborhood")).toBe(true);
+    expect(related.some((item) => item.slug === "woodhouse-hamburgueres")).toBe(true);
+    expect(related.some((item) => item.slug === "maximos-cabeleireiros")).toBe(true);
+  });
+
+  test("descritor extrai bairro do location versionado e leva bairro às keywords", () => {
+    const beto = published.find((item) => item.slug === "beto-pasteis");
+    expect(beto?.neighborhood).toBe("Jardim Itália");
+    expect(portfolioUniversalKeywords("beto-pasteis")).toContain("Jardim Itália");
+  });
+
   test("projetos locais conhecidos devolvem backlinks para hubs regionais", () => {
     const semantic = portfolioSemanticContext("arildo-madeiras");
     expect(semantic?.placeLinks.some((link) => link.href.startsWith("/portfolio-em/"))).toBe(true);

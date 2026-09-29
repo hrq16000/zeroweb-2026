@@ -1,6 +1,6 @@
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { SITE_URL } from "@/lib/portfolio-seo";
-import { portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
+import { extractNeighborhood, portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
 
 export type PortfolioSeoDescriptor = {
   slug: string;
@@ -8,6 +8,8 @@ export type PortfolioSeoDescriptor = {
   segment: string;
   city: string;
   state: string;
+  location?: string;
+  neighborhood?: string;
   tags: string[];
   summary: string;
   subtitle?: string;
@@ -22,6 +24,7 @@ export type PortfolioSeoContextOverride = Partial<Omit<PortfolioSeoDescriptor, "
 type CatalogItem = PortfolioSeoDescriptor & {
   status?: string;
   live?: boolean;
+  location?: string;
 };
 
 const PUBLIC_STATUSES = new Set(["published", "approved"]);
@@ -77,12 +80,16 @@ function isUsefulPlace(value: string): boolean {
 }
 
 function descriptorFromCatalog(item: CatalogItem): PortfolioSeoDescriptor {
+  const city = clean(item.city);
+  const location = clean(item.location);
   return {
     slug: item.slug,
     title: clean(item.title),
     segment: clean(item.segment),
-    city: clean(item.city),
+    city,
     state: clean(item.state),
+    location: location || undefined,
+    neighborhood: extractNeighborhood(location || undefined, city),
     tags: normalizeTags(item.tags),
     summary: clean(item.summary),
     subtitle: clean(item.subtitle) || undefined,
@@ -113,6 +120,11 @@ export function resolvePortfolioSeoDescriptor(
     segment: clean(override?.segment) || fallback?.segment || "",
     city: clean(override?.city) || fallback?.city || "",
     state: clean(override?.state) || fallback?.state || "",
+    location: clean(override?.location) || fallback?.location,
+    neighborhood:
+      clean(override?.neighborhood) ||
+      extractNeighborhood(clean(override?.location) || fallback?.location, clean(override?.city) || fallback?.city || "") ||
+      fallback?.neighborhood,
     tags:
       normalizeTags(override?.tags).length > 0
         ? normalizeTags(override?.tags)
@@ -132,16 +144,23 @@ export function resolvePortfolioSeoDescriptor(
 function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDescriptor): number {
   let score = 0;
 
-  if (current.segment && candidate.segment && normalize(current.segment) === normalize(candidate.segment)) {
-    score += 8;
-  }
-
-  if (
+  const sameCity =
     isUsefulPlace(current.city) &&
     isUsefulPlace(candidate.city) &&
-    normalize(current.city) === normalize(candidate.city)
-  ) {
-    score += 7;
+    normalize(current.city) === normalize(candidate.city);
+
+  const sameNeighborhood =
+    sameCity &&
+    current.neighborhood &&
+    candidate.neighborhood &&
+    normalize(current.neighborhood) === normalize(candidate.neighborhood);
+
+  // O diretório é local-first: bairro e cidade pesam antes da afinidade temática.
+  if (sameNeighborhood) score += 24;
+  if (sameCity) score += 12;
+
+  if (current.segment && candidate.segment && normalize(current.segment) === normalize(candidate.segment)) {
+    score += 8;
   }
 
   if (
@@ -149,7 +168,7 @@ function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDe
     candidate.state &&
     normalize(current.state) === normalize(candidate.state)
   ) {
-    score += 2;
+    score += 3;
   }
 
   const currentTags = new Set(current.tags.map(normalize));
@@ -169,20 +188,27 @@ function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDe
 
 export type RelatedPortfolioSeoItem = PortfolioSeoDescriptor & {
   score: number;
-  reason: "city" | "segment" | "affinity" | "state" | "discovery";
+  reason: "neighborhood" | "city" | "segment" | "affinity" | "state" | "discovery";
 };
 
 function relationReason(
   current: PortfolioSeoDescriptor,
   candidate: PortfolioSeoDescriptor,
 ): RelatedPortfolioSeoItem["reason"] {
-  if (
+  const sameCity =
     isUsefulPlace(current.city) &&
     isUsefulPlace(candidate.city) &&
-    normalize(current.city) === normalize(candidate.city)
+    normalize(current.city) === normalize(candidate.city);
+
+  if (
+    sameCity &&
+    current.neighborhood &&
+    candidate.neighborhood &&
+    normalize(current.neighborhood) === normalize(candidate.neighborhood)
   ) {
-    return "city";
+    return "neighborhood";
   }
+  if (sameCity) return "city";
   if (current.segment && normalize(current.segment) === normalize(candidate.segment)) {
     return "segment";
   }
@@ -283,6 +309,7 @@ export function portfolioUniversalKeywords(
     item.title,
     ...item.tags,
     item.segment,
+    item.neighborhood ?? "",
     isUsefulPlace(item.city) ? item.city : "",
     item.state,
   ].map(clean).filter(Boolean);
@@ -344,7 +371,7 @@ export function portfolioSemanticContext(
 
   const segment = SEGMENT_LABELS[item.segment] ?? humanizeTag(item.segment);
   const location = isUsefulPlace(item.city)
-    ? [item.city, item.state].filter(Boolean).join(" — ")
+    ? [item.neighborhood, item.city, item.state].filter(Boolean).join(" · ")
     : "";
   const label = [segment, location].filter(Boolean).join(" em ");
 
