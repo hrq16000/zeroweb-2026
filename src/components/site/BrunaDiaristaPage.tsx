@@ -248,6 +248,50 @@ export function BrunaDiaristaPage() {
           </div>
         </section>
 
+        <section id="escolher-diaria" className="border-y border-[#253047]/15 bg-white px-5 py-20 lg:px-8 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-[.4fr_.6fr]">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#c62069]">como escolher a diária</p>
+                <h2 className="mt-4 font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                  O tamanho do ambiente e a prioridade ajudam a definir 4h, 6h ou 8h.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-[#6b6570]">
+                  A página apresenta três durações porque necessidades diferentes pedem tempos diferentes. A escolha
+                  não é uma promessa de que toda tarefa caberá naquele período: ela serve para iniciar a conversa com
+                  uma referência objetiva e permitir que a equipe confirme a disponibilidade.
+                </p>
+              </div>
+              <div className="divide-y divide-[#253047]/15 border-y border-[#253047]/15">
+                {[
+                  ["4 horas", "Uma janela mais curta para demandas direcionadas, manutenção ou ambientes menores."],
+                  ["6 horas", "Uma faixa intermediária para distribuir o cuidado entre mais ambientes sem partir direto para uma diária longa."],
+                  ["8 horas", "A opção mais extensa da tabela para rotinas maiores, pós-obra ou demandas que exigem mais tempo de trabalho."],
+                ].map(([title, text], i) => (
+                  <article key={title} className="grid gap-4 py-6 sm:grid-cols-[3rem_8rem_1fr]">
+                    <span className="font-mono text-xs font-black text-[#c62069]">0{i + 1}</span>
+                    <h3 className="font-display text-xl font-black">{title}</h3>
+                    <p className="leading-7 text-[#6b6570]">{text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12 grid gap-6 bg-[#f6dbe6] p-7 sm:grid-cols-2 lg:p-10">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#8b5870]">antes de consultar a agenda</p>
+                <h3 className="mt-3 font-display text-3xl font-black">Quatro informações deixam o orçamento mais objetivo.</h3>
+              </div>
+              <ul className="space-y-3 text-sm leading-7 text-[#6b6570]">
+                <li><Check className="mr-2 inline h-4 w-4 text-[#c62069]" />Tipo de ambiente: casa, apartamento, escritório, pós-obra ou organização.</li>
+                <li><Check className="mr-2 inline h-4 w-4 text-[#c62069]" />Cidade ou região do atendimento em Curitiba e Região Metropolitana.</li>
+                <li><Check className="mr-2 inline h-4 w-4 text-[#c62069]" />Duração desejada: 4h, 6h ou 8h e, quando necessário, uma ou duas profissionais.</li>
+                <li><Check className="mr-2 inline h-4 w-4 text-[#c62069]" />Frequência ou urgência para que a disponibilidade seja confirmada sem criar expectativa de agenda.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section id="rotinas" className="border-y border-[#253047]/15 bg-[#f4eee8] px-5 py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#c62069]">
