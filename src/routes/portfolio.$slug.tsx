@@ -1,7 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
-import { absUrl, compactMetaDescription } from "@/lib/seo";
+import { absUrl } from "@/lib/seo";
+import { compactMetaDescription } from "@/lib/meta-description";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
