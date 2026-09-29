@@ -1,6 +1,7 @@
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { SITE_URL } from "@/lib/portfolio-seo";
-import { portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
+import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { extractNeighborhood, portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
 
 export type PortfolioSeoDescriptor = {
   slug: string;
@@ -8,6 +9,8 @@ export type PortfolioSeoDescriptor = {
   segment: string;
   city: string;
   state: string;
+  location?: string;
+  neighborhood?: string;
   tags: string[];
   summary: string;
   subtitle?: string;
@@ -22,6 +25,7 @@ export type PortfolioSeoContextOverride = Partial<Omit<PortfolioSeoDescriptor, "
 type CatalogItem = PortfolioSeoDescriptor & {
   status?: string;
   live?: boolean;
+  location?: string;
 };
 
 const PUBLIC_STATUSES = new Set(["published", "approved"]);
@@ -77,12 +81,16 @@ function isUsefulPlace(value: string): boolean {
 }
 
 function descriptorFromCatalog(item: CatalogItem): PortfolioSeoDescriptor {
+  const city = clean(item.city);
+  const location = clean(item.location);
   return {
     slug: item.slug,
     title: clean(item.title),
     segment: clean(item.segment),
-    city: clean(item.city),
+    city,
     state: clean(item.state),
+    location: location || undefined,
+    neighborhood: extractNeighborhood(location || undefined, city),
     tags: normalizeTags(item.tags),
     summary: clean(item.summary),
     subtitle: clean(item.subtitle) || undefined,
@@ -113,6 +121,11 @@ export function resolvePortfolioSeoDescriptor(
     segment: clean(override?.segment) || fallback?.segment || "",
     city: clean(override?.city) || fallback?.city || "",
     state: clean(override?.state) || fallback?.state || "",
+    location: clean(override?.location) || fallback?.location,
+    neighborhood:
+      clean(override?.neighborhood) ||
+      extractNeighborhood(clean(override?.location) || fallback?.location, clean(override?.city) || fallback?.city || "") ||
+      fallback?.neighborhood,
     tags:
       normalizeTags(override?.tags).length > 0
         ? normalizeTags(override?.tags)
@@ -132,16 +145,23 @@ export function resolvePortfolioSeoDescriptor(
 function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDescriptor): number {
   let score = 0;
 
-  if (current.segment && candidate.segment && normalize(current.segment) === normalize(candidate.segment)) {
-    score += 8;
-  }
-
-  if (
+  const sameCity =
     isUsefulPlace(current.city) &&
     isUsefulPlace(candidate.city) &&
-    normalize(current.city) === normalize(candidate.city)
-  ) {
-    score += 7;
+    normalize(current.city) === normalize(candidate.city);
+
+  const sameNeighborhood =
+    sameCity &&
+    current.neighborhood &&
+    candidate.neighborhood &&
+    normalize(current.neighborhood) === normalize(candidate.neighborhood);
+
+  // O diretório é local-first: bairro e cidade pesam antes da afinidade temática.
+  if (sameNeighborhood) score += 24;
+  if (sameCity) score += 12;
+
+  if (current.segment && candidate.segment && normalize(current.segment) === normalize(candidate.segment)) {
+    score += 8;
   }
 
   if (
@@ -149,7 +169,7 @@ function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDe
     candidate.state &&
     normalize(current.state) === normalize(candidate.state)
   ) {
-    score += 2;
+    score += 3;
   }
 
   const currentTags = new Set(current.tags.map(normalize));
@@ -169,20 +189,27 @@ function relatedScore(current: PortfolioSeoDescriptor, candidate: PortfolioSeoDe
 
 export type RelatedPortfolioSeoItem = PortfolioSeoDescriptor & {
   score: number;
-  reason: "city" | "segment" | "affinity" | "state" | "discovery";
+  reason: "neighborhood" | "city" | "segment" | "affinity" | "state" | "discovery";
 };
 
 function relationReason(
   current: PortfolioSeoDescriptor,
   candidate: PortfolioSeoDescriptor,
 ): RelatedPortfolioSeoItem["reason"] {
-  if (
+  const sameCity =
     isUsefulPlace(current.city) &&
     isUsefulPlace(candidate.city) &&
-    normalize(current.city) === normalize(candidate.city)
+    normalize(current.city) === normalize(candidate.city);
+
+  if (
+    sameCity &&
+    current.neighborhood &&
+    candidate.neighborhood &&
+    normalize(current.neighborhood) === normalize(candidate.neighborhood)
   ) {
-    return "city";
+    return "neighborhood";
   }
+  if (sameCity) return "city";
   if (current.segment && normalize(current.segment) === normalize(candidate.segment)) {
     return "segment";
   }
@@ -264,13 +291,43 @@ export function portfolioUniversalSeoTitle(
   const city = isUsefulPlace(item.city) ? item.city : "";
   const segment = SEGMENT_LABELS[item.segment] ?? item.segment;
   const candidates = [
-    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
+    item.neighborhood && city ? `${item.title} | ${item.neighborhood}, ${city}` : "",
+    item.neighborhood ? `${item.title} | ${item.neighborhood}` : "",
     city ? `${item.title} | ${city}` : "",
+    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
     segment ? `${item.title} | ${segment}` : "",
     item.title,
   ].filter(Boolean);
 
   return candidates.find((value) => value.length <= 65) ?? item.title;
+}
+
+export function clipPortfolioMetaDescription(value: string, max = 158): string {
+  const compact = clean(value).replace(/\s+/g, " ");
+  if (compact.length <= max) return compact;
+  const clipped = compact.slice(0, Math.max(1, max - 1)).replace(/\s+\S*$/, "").trim();
+  return `${clipped}…`;
+}
+
+export function portfolioUniversalSeoDescription(
+  slug: string,
+  preferredDescription?: string,
+  override?: PortfolioSeoContextOverride,
+): string | null {
+  const item = resolvePortfolioSeoDescriptor(slug, override);
+  if (!item) return preferredDescription ? clipPortfolioMetaDescription(preferredDescription) : null;
+
+  const source = clean(preferredDescription) || item.summary;
+  if (!source) {
+    const location = [item.neighborhood, isUsefulPlace(item.city) ? item.city : "", item.state]
+      .filter(Boolean)
+      .join(", ");
+    return clipPortfolioMetaDescription(
+      [item.title, location ? `em ${location}` : "", item.subtitle || ""].filter(Boolean).join(" "),
+    );
+  }
+
+  return clipPortfolioMetaDescription(source);
 }
 
 export function portfolioUniversalKeywords(
@@ -283,6 +340,7 @@ export function portfolioUniversalKeywords(
     item.title,
     ...item.tags,
     item.segment,
+    item.neighborhood ?? "",
     isUsefulPlace(item.city) ? item.city : "",
     item.state,
   ].map(clean).filter(Boolean);
@@ -308,6 +366,7 @@ export function portfolioSemanticContext(
   const blocked = new Set([
     cityNorm,
     stateNorm,
+    normalize(item.neighborhood ?? ""),
     normalize(item.title),
     normalize(item.segment),
   ]);
@@ -344,7 +403,7 @@ export function portfolioSemanticContext(
 
   const segment = SEGMENT_LABELS[item.segment] ?? humanizeTag(item.segment);
   const location = isUsefulPlace(item.city)
-    ? [item.city, item.state].filter(Boolean).join(" — ")
+    ? [item.neighborhood, item.city, item.state].filter(Boolean).join(" · ")
     : "";
   const label = [segment, location].filter(Boolean).join(" em ");
 
@@ -368,17 +427,26 @@ export function portfolioEntityGraphSchema(
   if (!item) return null;
 
   const pageUrl = `${SITE_URL}/portfolio/${slug}`;
-  const entityId = `${pageUrl}#entity`;
+  const entityId = `${pageUrl}#business`;
   const webpageId = `${pageUrl}#webpage`;
   const breadcrumbId = `${pageUrl}#breadcrumb`;
-  const image = absolutePortfolioAsset(item.image || item.fallbackImage);
+  const placeId = `${pageUrl}#place`;
+  const assetConfig = resolvePortfolioAssets(slug) as
+    | { icon?: string; socialImage?: string }
+    | undefined;
+  const image = absolutePortfolioAsset(
+    assetConfig?.socialImage || item.image || item.fallbackImage,
+  );
+  const logo = absolutePortfolioAsset(
+    assetConfig?.icon || item.fallbackImage || item.image,
+  );
 
   const place =
     isUsefulPlace(item.city)
       ? {
           "@type": "Place",
-          "@id": `${pageUrl}#place`,
-          name: [item.city, item.state].filter(Boolean).join(" — "),
+          "@id": placeId,
+          name: [item.neighborhood, item.city, item.state].filter(Boolean).join(" · "),
           address: item.state
             ? {
                 "@type": "PostalAddress",
@@ -396,10 +464,19 @@ export function portfolioEntityGraphSchema(
     "@id": `${pageUrl}#service-${index + 1}`,
     name: service,
     provider: { "@id": entityId },
-    ...(place ? { areaServed: { "@id": place["@id"] } } : {}),
+    ...(place ? { areaServed: { "@id": placeId } } : {}),
   }));
 
-  const topicNodes = (semantic?.topics ?? []).map((topic) => ({
+  const topics = [
+    ...item.tags.map(humanizeTag),
+    ...explicitServices,
+  ].filter(
+    (topic, index, all) =>
+      topic &&
+      all.findIndex((candidate) => normalize(candidate) === normalize(topic)) === index,
+  );
+
+  const topicNodes = topics.slice(0, 12).map((topic) => ({
     "@type": "DefinedTerm",
     name: topic,
   }));
@@ -407,17 +484,26 @@ export function portfolioEntityGraphSchema(
   const about = [
     ...serviceNodes.map((service) => ({ "@id": service["@id"] })),
     ...topicNodes,
-    ...(place ? [{ "@id": place["@id"] }] : []),
+    ...(place ? [{ "@id": placeId }] : []),
   ];
 
   const entity = {
-    "@type": "Thing",
+    "@type": "Organization",
     "@id": entityId,
     name: item.title,
-    description: item.summary || undefined,
     url: pageUrl,
-    image,
-    subjectOf: { "@id": webpageId },
+    description: item.summary || undefined,
+    ...(item.subtitle ? { slogan: item.subtitle } : {}),
+    ...(logo ? { logo: { "@type": "ImageObject", url: logo } } : {}),
+    ...(image ? { image } : {}),
+    ...(topics.length ? { knowsAbout: topics.slice(0, 12) } : {}),
+    ...(place
+      ? {
+          location: { "@id": placeId },
+          areaServed: { "@type": "City", name: item.city },
+        }
+      : {}),
+    mainEntityOfPage: { "@id": webpageId },
   };
 
   const webpage = {
@@ -428,6 +514,7 @@ export function portfolioEntityGraphSchema(
     description: item.summary || undefined,
     inLanguage: "pt-BR",
     mainEntity: { "@id": entityId },
+    publisher: { "@id": `${SITE_URL}/#org` },
     breadcrumb: { "@id": breadcrumbId },
     isPartOf: {
       "@type": "WebSite",
@@ -435,9 +522,10 @@ export function portfolioEntityGraphSchema(
       url: SITE_URL,
       name: "0WEB",
     },
+    keywords: portfolioUniversalKeywords(slug, override) ?? undefined,
     ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: image } } : {}),
     ...(about.length ? { about } : {}),
-    ...(place ? { spatialCoverage: { "@id": place["@id"] } } : {}),
+    ...(place ? { spatialCoverage: { "@id": placeId } } : {}),
   };
 
   const breadcrumb = {
@@ -456,9 +544,19 @@ export function portfolioEntityGraphSchema(
         name: "Portfólio",
         item: `${SITE_URL}/portfolio`,
       },
+      ...(item.neighborhood && semantic?.placeLinks?.[0]
+        ? [
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: item.neighborhood,
+              item: `${SITE_URL}${semantic.placeLinks[0].href}`,
+            },
+          ]
+        : []),
       {
         "@type": "ListItem",
-        position: 3,
+        position: item.neighborhood && semantic?.placeLinks?.[0] ? 4 : 3,
         name: item.title,
         item: pageUrl,
       },

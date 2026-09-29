@@ -1,8 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import {
+  clipPortfolioMetaDescription,
   listPublicPortfolioSeoDescriptors,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   portfolioSemanticContext,
   portfolioEntityGraphSchema,
@@ -12,6 +14,7 @@ import {
 
 const shell = readFileSync("src/components/portfolio/PortfolioStandardShell.tsx", "utf8");
 const route = readFileSync("src/routes/portfolio.$slug.tsx", "utf8");
+const portfolioIndex = readFileSync("src/routes/portfolio.index.tsx", "utf8");
 
 describe("SEO universal dos portfolios", () => {
   const published = listPublicPortfolioSeoDescriptors();
@@ -50,6 +53,14 @@ describe("SEO universal dos portfolios", () => {
     expect(new Set(titles).size).toBe(titles.length);
   });
 
+  test("snippets universais respeitam limite sem reduzir conteúdo da página", () => {
+    const long = "Beto Pastéis em São José dos Pinhais — PR: " + "pastéis artesanais e informações do negócio ".repeat(10);
+    expect(clipPortfolioMetaDescription(long).length).toBeLessThanOrEqual(158);
+    const description = portfolioUniversalSeoDescription("beto-pasteis", long) ?? "";
+    expect(description.length).toBeLessThanOrEqual(158);
+    expect(description).toContain("Beto Pastéis");
+  });
+
   test("contexto de palavras-chave usa entidade, tags e localidade sem duplicar termos", () => {
     for (const item of published) {
       const keywords = portfolioUniversalKeywords(item.slug) ?? "";
@@ -66,6 +77,45 @@ describe("SEO universal dos portfolios", () => {
       expect((semantic?.label.length ?? 0) + (semantic?.topics.length ?? 0)).toBeGreaterThan(0);
       expect((semantic?.topics.length ?? 0)).toBeLessThanOrEqual(5);
     }
+  });
+
+  test("Jardim Itália prioriza negócios do mesmo bairro antes de relações distantes", () => {
+    const related = relatedPortfolioSeoItems("beto-pasteis", undefined, 6);
+    expect(related.slice(0, 5).every((item) => item.neighborhood === "Jardim Itália")).toBe(true);
+    expect(related.slice(0, 5).every((item) => item.city === "São José dos Pinhais")).toBe(true);
+    expect(related.slice(0, 5).every((item) => item.reason === "neighborhood")).toBe(true);
+    expect(related.some((item) => item.slug === "woodhouse-hamburgueres")).toBe(true);
+    expect(related.some((item) => item.slug === "maximos-cabeleireiros")).toBe(true);
+  });
+
+  test("title local prioriza bairro e cidade quando couber", () => {
+    const title = portfolioUniversalSeoTitle("beto-pasteis") ?? "";
+    expect(title).toContain("Beto Pastéis");
+    expect(title).toContain("Jardim Itália");
+    expect(title).toContain("São José dos Pinhais");
+    expect(title.length).toBeLessThanOrEqual(65);
+  });
+
+  test("negócio local recebe Organization, logo/imagem e Place próprios", () => {
+    const schema = portfolioEntityGraphSchema("beto-pasteis");
+    const graph = schema?.["@graph"] ?? [];
+    const business = graph.find(
+      (node: any) => node["@type"] === "Organization" && node["@id"]?.endsWith("#business"),
+    ) as any;
+    const place = graph.find((node: any) => node["@type"] === "Place") as any;
+    expect(business?.name).toBe("Beto Pastéis");
+    expect(business?.url).toBe("https://0web.com.br/portfolio/beto-pasteis");
+    expect(business?.logo?.url).toContain("/images/beto-pasteis/");
+    expect(business?.image).toContain("/images/beto-pasteis/");
+    expect(business?.knowsAbout).toContain("Pasteis");
+    expect(place?.name).toContain("Jardim Itália");
+    expect(place?.address?.addressLocality).toBe("São José dos Pinhais");
+  });
+
+  test("descritor extrai bairro do location versionado e leva bairro às keywords", () => {
+    const beto = published.find((item) => item.slug === "beto-pasteis");
+    expect(beto?.neighborhood).toBe("Jardim Itália");
+    expect(portfolioUniversalKeywords("beto-pasteis")).toContain("Jardim Itália");
   });
 
   test("projetos locais conhecidos devolvem backlinks para hubs regionais", () => {
@@ -86,13 +136,22 @@ describe("SEO universal dos portfolios", () => {
       expect(schema?.["@context"]).toBe("https://schema.org");
       const graph = schema?.["@graph"] ?? [];
       expect(graph.some((node: any) => node["@type"] === "WebPage")).toBe(true);
-      expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(true);
+      expect(graph.some((node: any) => node["@type"] === "Organization")).toBe(true);
+      expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(false);
       expect(graph.some((node: any) => node["@type"] === "BreadcrumbList")).toBe(true);
 
       const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
       expect(webpage?.url).toBe(`https://0web.com.br/portfolio/${item.slug}`);
       expect(webpage?.inLanguage).toBe("pt-BR");
-      expect(webpage?.mainEntity?.["@id"]).toContain("#entity");
+      expect(webpage?.mainEntity?.["@id"]).toContain("#business");
+      expect(webpage?.publisher?.["@id"]).toBe("https://0web.com.br/#org");
+
+      const business = graph.find(
+        (node: any) => node["@type"] === "Organization" && node["@id"]?.endsWith("#business"),
+      ) as any;
+      expect(business?.name).toBe(item.title);
+      expect(business?.mainEntityOfPage?.["@id"]).toContain("#webpage");
+      expect(Array.isArray(business?.knowsAbout) || business?.knowsAbout === undefined).toBe(true);
     }
   });
 
@@ -114,7 +173,7 @@ describe("SEO universal dos portfolios", () => {
       "Manutenção de notebooks",
       "Configuração de Wi-Fi",
     ]);
-    expect(services.every((node) => node.provider?.["@id"]?.endsWith("#entity"))).toBe(true);
+    expect(services.every((node) => node.provider?.["@id"]?.endsWith("#business"))).toBe(true);
     expect(graph.some((node: any) => node["@type"] === "Place")).toBe(true);
   });
 
@@ -125,6 +184,23 @@ describe("SEO universal dos portfolios", () => {
     const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
     expect(Array.isArray(webpage?.about)).toBe(true);
     expect(webpage.about.some((node: any) => node["@type"] === "DefinedTerm")).toBe(true);
+  });
+
+  test("managed também recebe meta description controlada", () => {
+    expect(route).toContain("managedMetaDescription");
+    expect(route).toContain("clipPortfolioMetaDescription(project.seoDescription)");
+  });
+
+  test("head estático não atribui genericamente o serviço do cliente à 0WEB", () => {
+    expect(route).not.toContain("serviceNode({");
+    expect(route).toContain('mainEntity: { "@id": `${url}#business` }');
+    expect(route).toContain('publisher: { "@id": "https://0web.com.br/#org" }');
+  });
+
+  test("hub /portfolio mantém índice HTML completo dos negócios públicos", () => {
+    expect(portfolioIndex).toContain("PUBLIC_DISCOVERY_ITEMS");
+    expect(portfolioIndex).toContain("Todos os negócios e prestadores publicados");
+    expect(portfolioIndex).toContain("PUBLIC_DISCOVERY_ITEMS.map");
   });
 
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {

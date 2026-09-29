@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
+import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
@@ -21,7 +21,9 @@ import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import {
+  clipPortfolioMetaDescription,
   portfolioUniversalKeywords,
+  portfolioUniversalSeoDescription,
   portfolioUniversalSeoTitle,
   resolvePortfolioSeoDescriptor,
 } from "@/lib/portfolio-seo-network";
@@ -29,6 +31,7 @@ import {
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
   const url = project.canonicalUrl;
+  const managedMetaDescription = clipPortfolioMetaDescription(project.seoDescription);
   const social = project.socialImage
     ? project.socialImage.startsWith("http")
       ? project.socialImage
@@ -38,11 +41,11 @@ function managedHead(project: ManagedProject) {
   return {
     meta: [
       { title: project.seoTitle },
-      { name: "description", content: project.seoDescription },
+      { name: "description", content: managedMetaDescription },
       { name: "robots", content: project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
       { property: "og:title", content: project.seoTitle },
-      { property: "og:description", content: project.seoDescription },
+      { property: "og:description", content: managedMetaDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
@@ -54,7 +57,7 @@ function managedHead(project: ManagedProject) {
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: project.seoTitle },
-      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:description", content: managedMetaDescription },
       { name: "twitter:image", content: social },
       { name: "twitter:image:alt", content: project.displayName },
     ],
@@ -72,16 +75,18 @@ function managedHead(project: ManagedProject) {
           organizationNode(),
           {
             "@type": "WebPage",
-            "@id": url,
+            "@id": `${url}#webpage`,
             url,
             name: project.seoTitle,
             description: project.seoDescription,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
+            mainEntity: { "@id": `${url}#business` },
+            publisher: { "@id": "https://0web.com.br/#org" },
+            isPartOf: { "@id": "https://0web.com.br/#website" },
           },
           {
-            "@type": "LocalBusiness",
-            "@id": `${url}#localbusiness`,
+            "@type": "Organization",
+            "@id": `${url}#business`,
             name: project.displayName,
             description: project.seoDescription,
             url,
@@ -89,12 +94,8 @@ function managedHead(project: ManagedProject) {
             ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
             ...(project.city
               ? {
-                  address: {
-                    "@type": "PostalAddress",
-                    addressLocality: project.city,
-                    addressRegion: project.state || "BR",
-                    addressCountry: "BR",
-                  },
+                  location: { "@id": `${url}#place` },
+                  areaServed: { "@type": "City", name: project.city },
                 }
               : {}),
             ...(project.services.length
@@ -103,9 +104,26 @@ function managedHead(project: ManagedProject) {
                     "@type": "Offer",
                     itemOffered: { "@type": "Service", name: service.title },
                   })),
+                  knowsAbout: project.services.map((service) => service.title),
                 }
               : {}),
+            mainEntityOfPage: { "@id": `${url}#webpage` },
           },
+          ...(project.city
+            ? [
+                {
+                  "@type": "Place",
+                  "@id": `${url}#place`,
+                  name: [project.city, project.state].filter(Boolean).join(" — "),
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: project.city,
+                    addressRegion: project.state || undefined,
+                    addressCountry: "BR",
+                  },
+                },
+              ]
+            : []),
           ...(project.content.faq.length
             ? [
                 {
@@ -591,7 +609,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJklDecor = loaderData?.slug === "jkl-decor";
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
-    const description = isArildoMadeiras
+    const rawDescription = isArildoMadeiras
       ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
@@ -736,6 +754,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                     : (catalogSeo?.summary ??
                                                                                       loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
+    const description = loaderData?.slug
+      ? (portfolioUniversalSeoDescription(loaderData.slug, rawDescription) ?? clipPortfolioMetaDescription(rawDescription))
+      : clipPortfolioMetaDescription(rawDescription);
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(
@@ -974,12 +995,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 organizationNode(),
                 {
                   "@type": "WebPage",
-                  "@id": url,
+                  "@id": `${url}#webpage`,
                   url,
                   name: title,
                   description,
                   inLanguage: "pt-BR",
-                  isPartOf: { "@id": "https://0web.com.br/portfolio" },
+                  mainEntity: { "@id": `${url}#business` },
+                  publisher: { "@id": "https://0web.com.br/#org" },
+                  isPartOf: { "@id": "https://0web.com.br/#website" },
                 },
                 ...(isBtb
                   ? [
@@ -1012,7 +1035,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         {
                           "@type": "Store",
                           additionalType: "https://schema.org/ElectronicsStore",
-                          "@id": `${url}#store`,
+                          "@id": `${url}#business`,
                           name: "Centro Mega",
                           description,
                           url,
@@ -1037,22 +1060,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           ],
                         },
                       ]
-                    : [
-                      {
-                        ...serviceNode({
-                          slug: vertical.slug,
-                          name: vertical.name,
-                          keyword: vertical.keywords,
-                          intent: vertical.hero,
-                          services: vertical.services.map((service) => service.to),
-                          hubs: [],
-                          showcases: [],
-                          deliverables: vertical.services.map((service) => service.title),
-                        }),
-                        "@id": `${url}#service`,
-                        url,
-                      },
-                    ]),
+                    : []),
                 ...(isMarido
                   ? [
                       {
@@ -1070,7 +1078,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": ["DrivingSchool", "LocalBusiness"],
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Autoescola APTOS",
                         description,
                         url,
@@ -1116,7 +1124,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "ComputerStore",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Careca's Infotec",
                         description,
                         url,
@@ -1182,7 +1190,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "AutoRepair",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Moreira Auto Mecânica",
                         description,
                         url,
@@ -1238,7 +1246,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       {
                         "@type": "HomeAndConstructionBusiness",
                         additionalType: "https://schema.org/FurnitureStore",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "JKL Decor",
                         description,
                         url,
@@ -1291,7 +1299,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "LocalBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Heloá Gás",
                         description,
                         url,
@@ -1333,7 +1341,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "HomeAndConstructionBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "S&S Construções",
                         description,
                         url,
@@ -1378,7 +1386,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? [
                       {
                         "@type": "HomeAndConstructionBusiness",
-                        "@id": `${url}#localbusiness`,
+                        "@id": `${url}#business`,
                         name: "Paulo Mestre de Obras",
                         description,
                         url,

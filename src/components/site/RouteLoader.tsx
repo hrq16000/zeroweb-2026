@@ -51,7 +51,7 @@ export function RouteLoader() {
         <div className="relative flex flex-col items-center gap-4">
           <BrandLogo
             size={72}
-            alt=""
+            alt="0WEB — carregando página"
             priority
             className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
           />

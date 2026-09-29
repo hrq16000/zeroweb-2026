@@ -54,7 +54,6 @@ import {
   breadcrumbNode,
   graph,
   itemListNode,
-  localBusinessNode,
   organizationNode,
   serviceNode,
 } from "@/lib/portfolio-seo";
@@ -309,6 +308,10 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
   } as PortfolioItem;
 });
 
+const PUBLIC_DISCOVERY_ITEMS = PORTFOLIO_ITEMS.filter(
+  (item) => ["published", "approved"].includes(item.status ?? "") && item.live !== false,
+);
+
 type PortfolioSearch = {
   segment?: string;
   ramo?: string;
@@ -361,7 +364,6 @@ export const Route = createFileRoute("/portfolio/")({
         type: "application/ld+json",
         children: graph([
           organizationNode(),
-          localBusinessNode(),
           {
             "@type": "CollectionPage",
             "@id": `${URL}#collection`,
@@ -369,7 +371,7 @@ export const Route = createFileRoute("/portfolio/")({
             name: TITLE_Q,
             description: DESC_Q,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": `${SITE_URL}/#organization` },
+            isPartOf: { "@id": `${SITE_URL}/#org` },
             potentialAction: {
               "@type": "SearchAction",
               target: {
@@ -383,7 +385,7 @@ export const Route = createFileRoute("/portfolio/")({
           itemListNode(
             `${URL}#projetos`,
             "Projetos publicados pela 0WEB",
-            PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
+            PUBLIC_DISCOVERY_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
           ),
           breadcrumbNode([
             { name: "Início", path: "/" },
@@ -906,6 +908,44 @@ function PortfolioPage() {
                 </button>
               </>
             ) : null}
+
+            <section
+              aria-labelledby="portfolio-discovery-index-title"
+              className="rounded-3xl border border-border bg-card p-5 sm:p-7"
+            >
+              <div className="max-w-3xl">
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">
+                  Guia comercial · índice completo
+                </p>
+                <h2
+                  id="portfolio-discovery-index-title"
+                  className="mt-2 text-2xl font-bold text-foreground"
+                >
+                  Todos os negócios e prestadores publicados
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  A vitrine destaca projetos conforme filtros e contexto. Este índice mantém um link HTML direto
+                  para cada presença digital publicada, fortalecendo descoberta, navegação e rastreamento de todo o diretório.
+                </p>
+              </div>
+              <details className="mt-5 rounded-2xl border border-border/70 bg-muted/30 p-4">
+                <summary className="cursor-pointer font-semibold text-foreground">
+                  Explorar índice completo ({PUBLIC_DISCOVERY_ITEMS.length} negócios)
+                </summary>
+                <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {PUBLIC_DISCOVERY_ITEMS.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        to={item.slug}
+                        className="inline-flex py-1 text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition hover:text-primary hover:decoration-primary"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </section>
 
             {/* Banner Callout for Custom Sites */}
             <MotionChoreo surface="catalog-showcase" role="callout">
