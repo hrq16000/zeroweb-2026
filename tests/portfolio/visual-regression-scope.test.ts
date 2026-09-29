@@ -55,9 +55,8 @@ describe("escopo seguro da regressão visual", () => {
         clients,
       ),
     ).toEqual([
-      "beto-pasteis",
-      "woodhouse-hamburgueres",
-      "maximos-cabeleireiros",
+      "ag-electrical-services",
+      "marmitaria-dom-diego",
       "mirassol-conserta-celular",
       "guaratuba-oficina-nautica",
     ]);
