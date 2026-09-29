@@ -93,10 +93,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
-            node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+            E2E_CONCURRENCY=2 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
           else
             echo "SUPABASE_SERVICE_ROLE_KEY não está configurada no GitHub; executando o gate E2E sem escrita externa."
-            E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+            E2E_DRY_RUN=1 E2E_CONCURRENCY=4 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
           fi
 
       - name: Prévias de link e ícones (headless)
