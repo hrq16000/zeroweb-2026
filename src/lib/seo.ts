@@ -9,25 +9,6 @@ export function absUrl(path: string): string {
   return ORIGIN + (path.startsWith("/") ? path : "/" + path);
 }
 
-/**
- * Mantém a copy editorial completa na página/JSON-LD, mas limita a meta
- * description ao tamanho útil para SERP. O corte acontece em fronteira de
- * palavra e nunca ultrapassa o teto informado.
- */
-export function compactMetaDescription(value: string, maxLength = 160): string {
-  const clean = String(value ?? "").trim().replace(/\s+/g, " ");
-  if (!clean || clean.length <= maxLength) return clean;
-
-  const budget = Math.max(24, maxLength - 1);
-  const slice = clean.slice(0, budget + 1);
-  const breakAt = slice.lastIndexOf(" ");
-  const base = (breakAt >= Math.floor(budget * 0.72) ? slice.slice(0, breakAt) : clean.slice(0, budget))
-    .replace(/[\s,;:–—-]+$/g, "")
-    .trim();
-
-  return `${base}…`;
-}
-
 // Default brand share image (fallback when route has no real image).
 // Lives at /favicon.png via the favicon asset; safe absolute URL.
 export const DEFAULT_OG_IMAGE = `${ORIGIN}/og-default.jpg`;
