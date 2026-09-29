@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+import portfolioClients from "@/config/portfolio-clients.json";
 import {
   listPublicPortfolioSeoDescriptors,
   portfolioUniversalKeywords,
@@ -15,6 +16,12 @@ const route = readFileSync("src/routes/portfolio.$slug.tsx", "utf8");
 
 describe("SEO universal dos portfolios", () => {
   const published = listPublicPortfolioSeoDescriptors();
+
+  test("100% dos portfolios registrados estão no conjunto público indexável", () => {
+    const registered = (portfolioClients as Array<{ slug: string }>).map((item) => item.slug).sort();
+    const publicSlugs = published.map((item) => item.slug).sort();
+    expect(publicSlugs).toEqual(registered);
+  });
 
   test("todo portfolio publicado entra no grafo semântico", () => {
     expect(published.length).toBeGreaterThanOrEqual(90);

@@ -2055,7 +2055,7 @@
     "title": "Moreira Auto Mecânica",
     "segment": "prestadores-de-servicos",
     "projectType": "landing",
-    "status": "draft",
+    "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
@@ -2071,7 +2071,8 @@
     "image": "/images/moreira-auto-mecanica/capa.jpg",
     "fallbackImage": "/images/moreira-auto-mecanica/google-fachada.jpg",
     "metrics": "Agendamento pelo formulário",
-    "summary": "Moreira Auto Mecânica é uma oficina de mecânica para carros no bairro Cidade Jardim, em São José dos Pinhais — PR, com avaliação presencial do veículo e agendamento pelo formulário do site."
+    "summary": "Moreira Auto Mecânica é uma oficina de mecânica para carros no bairro Cidade Jardim, em São José dos Pinhais — PR, com avaliação presencial do veículo e agendamento pelo formulário do site.",
+    "live": true
   },
   {
     "slug": "carecas-infotec",
