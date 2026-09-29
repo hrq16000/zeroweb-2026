@@ -1,0 +1,24 @@
+name: IndexNow · Submit changed URLs
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "URLs ou paths alterados, separados por espaço, vírgula ou nova linha"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          INDEXNOW_URLS: ${{ inputs.urls }}
+        run: node scripts/indexnow-submit.mjs
