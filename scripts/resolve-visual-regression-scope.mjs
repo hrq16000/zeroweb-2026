@@ -44,9 +44,8 @@ const LOCAL_DIRECTORY_FILES = new Set([
 // Os thresholds continuam idênticos; este escopo só evita cobrar dívida
 // histórica de páginas que o diff local-directory não toca.
 const LOCAL_DIRECTORY_REPRESENTATIVE_SLUGS = [
-  "beto-pasteis",
-  "woodhouse-hamburgueres",
-  "maximos-cabeleireiros",
+  "ag-electrical-services",
+  "marmitaria-dom-diego",
   "mirassol-conserta-celular",
   "guaratuba-oficina-nautica",
 ];
