@@ -3,12 +3,18 @@ import process from "node:process";
 import { extractOpenAIText, type OpenAIResponseLike } from "@/lib/openai-gateway.helpers";
 
 export type OpenAIReasoningEffort = "none" | "low" | "medium" | "high";
+export type OpenAIServiceTier = "auto" | "default" | "flex";
 
 export type GenerateOpenAITextInput = {
   input: string;
   instructions: string;
   maxOutputTokens?: number;
   reasoningEffort?: OpenAIReasoningEffort;
+  /**
+   * Use "flex" only for background/non-urgent work. Interactive requests
+   * stay on "auto" to avoid turning occasional Flex unavailability into UX errors.
+   */
+  serviceTier?: OpenAIServiceTier;
 };
 
 export type GenerateOpenAITextResult = {
@@ -64,8 +70,10 @@ export function getOpenAIGatewayStatus() {
 }
 
 function clampMaxOutputTokens(value: number | undefined): number {
-  if (!Number.isFinite(value)) return 800;
-  return Math.max(64, Math.min(4_000, Math.floor(value as number)));
+  // Economy-first default: most UI answers should fit comfortably in ~400 tokens.
+  // Callers must opt in explicitly to longer output and can never exceed 2k here.
+  if (!Number.isFinite(value)) return 400;
+  return Math.max(64, Math.min(2_000, Math.floor(value as number)));
 }
 
 export async function generateOpenAIText(
@@ -100,6 +108,7 @@ export async function generateOpenAIText(
         input,
         reasoning: { effort: request.reasoningEffort ?? "none" },
         max_output_tokens: clampMaxOutputTokens(request.maxOutputTokens),
+        service_tier: request.serviceTier ?? "auto",
         store: false,
       }),
       signal: controller.signal,
