@@ -30,7 +30,52 @@ function isBroadVisualFile(file) {
   );
 }
 
+const LOCAL_DIRECTORY_FILES = new Set([
+  "src/components/portfolio/PortfolioSeoNetwork.tsx",
+  "src/lib/portfolio-place-directory.ts",
+  "src/lib/portfolio-places.ts",
+  "src/lib/portfolio-seo-network.ts",
+  "src/routes/portfolio-em.$local.tsx",
+]);
+
+// Casos representativos estáveis para a família local-first:
+// - Jardim Itália: bairro com categorias distintas;
+// - Mirassol/Guaratuba: fallback por cidade fora do cluster principal.
+// Os thresholds continuam idênticos; este escopo só evita cobrar dívida
+// histórica de páginas que o diff local-directory não toca.
+const LOCAL_DIRECTORY_REPRESENTATIVE_SLUGS = [
+  "beto-pasteis",
+  "woodhouse-hamburgueres",
+  "maximos-cabeleireiros",
+  "mirassol-conserta-celular",
+  "guaratuba-oficina-nautica",
+];
+
+function localDirectoryRepresentativeScope(files) {
+  const relevant = files
+    .map(normalize)
+    .filter(Boolean)
+    .filter(
+      (file) =>
+        !file.startsWith("tests/") &&
+        file !== "scripts/resolve-visual-regression-scope.mjs",
+    );
+
+  if (!relevant.length) return null;
+  if (!relevant.every((file) => LOCAL_DIRECTORY_FILES.has(file))) return null;
+
+  const exercisesLocalDirectory =
+    relevant.includes("src/routes/portfolio-em.$local.tsx") ||
+    relevant.includes("src/lib/portfolio-seo-network.ts") ||
+    relevant.includes("src/components/portfolio/PortfolioSeoNetwork.tsx");
+
+  return exercisesLocalDirectory ? [...LOCAL_DIRECTORY_REPRESENTATIVE_SLUGS] : null;
+}
+
 export function resolveVisualRegressionScope(files, clients) {
+  const localDirectoryScope = localDirectoryRepresentativeScope(files);
+  if (localDirectoryScope) return localDirectoryScope;
+
   const byComponent = new Map(
     clients
       .filter((client) => client?.componentFile && client?.slug)
