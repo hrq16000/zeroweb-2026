@@ -148,6 +148,31 @@ export function BrechoSaoFranciscoPage() {
             <p className="mt-8 font-display text-lg italic text-[var(--sf-ink)]/70">
               Roupas com história merecem uma descoberta cuidadosa.
             </p>
+
+            <section className="mt-12 border-t border-[var(--sf-gold)]/40 pt-8" aria-labelledby="garimpo-title">
+              <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--sf-terra)]">Como consultar a vitrine</p>
+              <h2 id="garimpo-title" className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+                Tipo, tamanho e estilo ajudam a encontrar o que ainda está disponível.
+              </h2>
+              <p className="mt-4 max-w-[62ch] leading-[1.85] text-[var(--sf-ink)]/75">
+                Como as peças são garimpadas individualmente, a página não trata a vitrine como estoque fixo. O melhor primeiro passo é indicar
+                se procura peça feminina, masculina ou acessório, informar o tamanho quando fizer diferença e descrever o estilo desejado.
+              </p>
+              <dl className="mt-7 divide-y divide-[var(--sf-gold)]/30 border-y border-[var(--sf-gold)]/30">
+                <div className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr]">
+                  <dt className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--sf-terra)]">Tipo de peça</dt>
+                  <dd className="leading-7 text-[var(--sf-ink)]/75">Vestido, blusa, saia, camisa, calça ou acessório ajudam a direcionar a consulta para a arara certa.</dd>
+                </div>
+                <div className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr]">
+                  <dt className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--sf-terra)]">Tamanho e caimento</dt>
+                  <dd className="leading-7 text-[var(--sf-ink)]/75">Quando houver preferência de tamanho ou modelagem, essa informação entra no pedido para filtrar melhor as opções disponíveis.</dd>
+                </div>
+                <div className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr]">
+                  <dt className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--sf-terra)]">Disponibilidade</dt>
+                  <dd className="leading-7 text-[var(--sf-ink)]/75">A confirmação acontece no atendimento, porque cada peça é única e pode sair da vitrine rapidamente.</dd>
+                </div>
+              </dl>
+            </section>
           </div>
         </div>
       </main>

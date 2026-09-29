@@ -227,6 +227,44 @@ export function AcaiTotalAraucariaPage() {
           </div>
         </section>
 
+        <section className="border-y border-white/15 bg-[#341048] px-5 py-16 lg:px-8" aria-labelledby="acai-escolha-title">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
+              <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#d9f23b]">antes de enviar o pedido</p>
+              <h2 id="acai-escolha-title" className="mt-4 font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                Três informações deixam o pedido mais claro.
+              </h2>
+              <p className="mt-5 leading-8 text-white/65">
+                O cardápio da página organiza a intenção, mas a combinação final é confirmada no atendimento. Antes de abrir o pedido,
+                vale decidir o tamanho, indicar os complementos preferidos e informar onde a entrega será feita em Araucária.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <article className="border border-white/15 bg-[#2d0f44] p-6">
+                <span className="font-mono text-xs font-black text-[#d9f23b]">01 · TAMANHO</span>
+                <h3 className="mt-4 font-display text-2xl font-black">Copão ou litrão?</h3>
+                <p className="mt-3 text-sm leading-7 text-white/65">
+                  O copão atende um pedido individual. O litrão aparece como opção maior para compartilhar. A escolha inicial ajuda o atendimento a entender a intenção do pedido.
+                </p>
+              </article>
+              <article className="border border-white/15 bg-[#2d0f44] p-6">
+                <span className="font-mono text-xs font-black text-[#d9f23b]">02 · COMBINAÇÃO</span>
+                <h3 className="mt-4 font-display text-2xl font-black">Frutas, cremes e complementos</h3>
+                <p className="mt-3 text-sm leading-7 text-white/65">
+                  A página não presume uma montagem fechada. O cliente descreve a preferência no funil e a composição é confirmada no atendimento antes de finalizar.
+                </p>
+              </article>
+              <article className="border border-white/15 bg-[#2d0f44] p-6">
+                <span className="font-mono text-xs font-black text-[#d9f23b]">03 · ENTREGA</span>
+                <h3 className="mt-4 font-display text-2xl font-black">Endereço em Araucária</h3>
+                <p className="mt-3 text-sm leading-7 text-white/65">
+                  O endereço e o momento desejado entram no pedido para organizar o próximo passo. Disponibilidade e detalhes de entrega são confirmados durante o atendimento.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section id="entrega" className="px-5 py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-4 lg:grid-cols-[.62fr_.38fr]">

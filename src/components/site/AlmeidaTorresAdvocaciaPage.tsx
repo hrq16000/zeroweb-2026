@@ -110,6 +110,44 @@ export function AlmeidaTorresAdvocaciaPage() {
           </blockquote>
         </section>
 
+        <section className="border-t border-[#22201c]/20 bg-[#f7f3eb]" aria-labelledby="triagem-title">
+          <div className="mx-auto max-w-4xl px-5 py-16 lg:px-8">
+            <p className="text-[0.68rem] uppercase tracking-[.34em] text-[#5c6b60]">Como funciona a triagem</p>
+            <h2 id="triagem-title" className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
+              Contexto, documentos e próximo passo antes de qualquer estratégia.
+            </h2>
+            <p className="mt-5 max-w-3xl text-[0.98rem] leading-8 text-[#4a463f]">
+              A orientação inicial começa pelo relato do problema e pelos documentos já disponíveis. O objetivo é separar fato,
+              prazo, contrato, comunicação e eventual processo em andamento antes de indicar qual área jurídica deve analisar o caso.
+              A própria página organiza essa primeira conversa sem prometer resultado ou transformar a triagem em parecer definitivo.
+            </p>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <article className="border border-[#22201c]/20 bg-[#f3efe6] p-6">
+                <span className="text-[0.68rem] uppercase tracking-[.24em] text-[#5c6b60]">01 · situação</span>
+                <h3 className="mt-4 text-xl font-semibold">Explique o que aconteceu</h3>
+                <p className="mt-3 text-[0.92rem] leading-7 text-[#4a463f]">
+                  Informe se ainda não há processo, se houve notificação, se existe prazo correndo ou se a necessidade é revisar um documento antes de assinar.
+                </p>
+              </article>
+              <article className="border border-[#22201c]/20 bg-[#f3efe6] p-6">
+                <span className="text-[0.68rem] uppercase tracking-[.24em] text-[#5c6b60]">02 · documentos</span>
+                <h3 className="mt-4 text-xl font-semibold">Separe o que já existe</h3>
+                <p className="mt-3 text-[0.92rem] leading-7 text-[#4a463f]">
+                  Contratos, comprovantes, mensagens e documentos oficiais ajudam a entender o contexto. A lista definitiva depende do caso e é ajustada após a triagem.
+                </p>
+              </article>
+              <article className="border border-[#22201c]/20 bg-[#f3efe6] p-6">
+                <span className="text-[0.68rem] uppercase tracking-[.24em] text-[#5c6b60]">03 · encaminhamento</span>
+                <h3 className="mt-4 text-xl font-semibold">Defina o próximo passo</h3>
+                <p className="mt-3 text-[0.92rem] leading-7 text-[#4a463f]">
+                  A conversa inicial ajuda a identificar a área de atuação relacionada, a urgência e se o próximo passo exige análise documental, negociação ou avaliação de medida judicial.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section id="duvidas" className="border-t border-[#22201c]/20">
           <div className="mx-auto max-w-3xl px-5 py-16 lg:px-8">
             <p className="text-[0.68rem] uppercase tracking-[.34em] text-[#5c6b60]">Perguntas frequentes</p>
