@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
-import { absUrl } from "@/lib/seo";
+import { absUrl, compactMetaDescription } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
@@ -29,6 +29,7 @@ import {
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
   const url = project.canonicalUrl;
+  const projectMetaDescription = compactMetaDescription(project.seoDescription);
   const social = project.socialImage
     ? project.socialImage.startsWith("http")
       ? project.socialImage
@@ -38,11 +39,11 @@ function managedHead(project: ManagedProject) {
   return {
     meta: [
       { title: project.seoTitle },
-      { name: "description", content: project.seoDescription },
+      { name: "description", content: projectMetaDescription },
       { name: "robots", content: project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
       { property: "og:title", content: project.seoTitle },
-      { property: "og:description", content: project.seoDescription },
+      { property: "og:description", content: projectMetaDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
@@ -54,7 +55,7 @@ function managedHead(project: ManagedProject) {
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: project.seoTitle },
-      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:description", content: projectMetaDescription },
       { name: "twitter:image", content: social },
       { name: "twitter:image:alt", content: project.displayName },
     ],
@@ -817,6 +818,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       },
       loaderData?.overrides ?? null,
     );
+    const metaDescription = compactMetaDescription(eff.description);
     const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
     const effIcon = eff.logoUrl
       ? eff.logoUrl.startsWith("http")
@@ -826,7 +828,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return {
       meta: [
         { title: eff.title },
-        { name: "description", content: eff.description },
+        { name: "description", content: metaDescription },
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
@@ -932,7 +934,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                           "site profissional, criação de sites, SEO local")),
         },
         { property: "og:title", content: eff.title },
-        { property: "og:description", content: eff.description },
+        { property: "og:description", content: metaDescription },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
@@ -945,7 +947,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: eff.title },
-        { name: "twitter:description", content: eff.description },
+        { name: "twitter:description", content: metaDescription },
         { name: "twitter:image", content: effSocial },
         { name: "twitter:image:alt", content: eff.title },
       ],
