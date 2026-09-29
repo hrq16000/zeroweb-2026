@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { compactMetaDescription } from "@/lib/seo";
+import { compactMetaDescription } from "@/lib/meta-description";
 
 describe("compactMetaDescription", () => {
   test("preserva descriptions já adequadas", () => {
