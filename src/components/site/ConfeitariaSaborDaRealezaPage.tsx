@@ -27,6 +27,49 @@ export function ConfeitariaSaborDaRealezaPage() {
           /></MotionImageReveal></section>
       <section id="sabores" className="bg-[#9d2443] px-5 py-20 text-white lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f6d9a3]">Feito para celebrar</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-black">Escolha a combinação que combina com seu momento.</h2><div className="mt-10 grid gap-5 md:grid-cols-3">{products.map(([title, text], i) => <MotionReveal as="article" key={title} variant="scale" delay={i * 120} className="rounded-[1.6rem] border border-white/15 bg-white/10 p-6 transition-transform duration-200 hover:-translate-y-1"><span className="text-sm font-bold text-[#f6d9a3]">0{i + 1}</span><h3 className="mt-8 font-display text-2xl font-black">{title}</h3><p className="mt-3 leading-7 text-white/80">{text}</p></MotionReveal>)}</div></div></section>
       <section id="festas" className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center"><MotionReveal variant="left"><CakeSlice className="h-9 w-9 text-[#b27b1e]" /><p className="mt-6 text-sm font-bold uppercase tracking-[.2em] text-[#b27b1e]">Encomendas para festas e eventos</p><h2 className="mt-3 font-display text-4xl font-black">Uma mesa com sabor, qualidade e carinho.</h2><p className="mt-5 text-lg leading-8 text-[#76564a]">Conte a ocasião, a data e o que você imaginou. A confeitaria organiza a encomenda de acordo com a sua celebração.</p><ul className="mt-7 grid gap-3 text-sm font-semibold"><li><Check className="mr-2 inline h-4 w-4 text-[#9d2443]" />Atendimento para encomendas</li><li><Check className="mr-2 inline h-4 w-4 text-[#9d2443]" />Bolos, doces e salgados no mesmo pedido</li><li><Check className="mr-2 inline h-4 w-4 text-[#9d2443]" />Detalhes e disponibilidade confirmados no atendimento</li></ul></MotionReveal><MotionReveal variant="right" delay={140} className="rounded-[2rem] bg-[#f4dfc4] p-8"><Gift className="h-8 w-8 text-[#9d2443]" /><h3 className="mt-8 font-display text-3xl font-black">Seu evento começa no planejamento.</h3><p className="mt-4 leading-7 text-[#76564a]">Uma página própria para apresentar o trabalho da Sabor da Realeza e facilitar o próximo passo de cada cliente.</p><FunnelCTAButton clientKey="confeitaria-sabor-da-realeza" companySlug="confeitaria-sabor-da-realeza" formSlug="funnel-confeitaria-sabor-da-realeza" location="realeza_festas" className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#9d2443] px-5 py-3 font-bold text-white">Solicitar orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton></MotionReveal></div></section>
+      <section id="como-pedir" className="border-y border-[#efd9bd] bg-white px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr]">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#b27b1e]">Encomendas em Uberaba — MG</p>
+              <h2 className="mt-3 font-display text-4xl font-black">O pedido fica mais claro quando a ocasião vem primeiro.</h2>
+              <p className="mt-5 text-lg leading-8 text-[#76564a]">
+                A Sabor da Realeza trabalha com bolos, doces e salgados para comemorações. Para iniciar a conversa,
+                informe a ocasião, a data e quais categorias você quer incluir. Quantidades, combinações e
+                disponibilidade são confirmadas no atendimento antes do fechamento.
+              </p>
+            </div>
+            <div className="border-t-2 border-[#9d2443]">
+              {[
+                ["01", "Conte a ocasião", "Aniversário, encontro, evento ou outro momento especial: começar pelo contexto ajuda a organizar a encomenda."],
+                ["02", "Informe a data", "A disponibilidade depende da agenda. A data é o primeiro dado para saber se o pedido pode ser atendido."],
+                ["03", "Escolha as categorias", "Bolos, doces e salgados podem entrar na mesma conversa. Você não precisa chegar com a combinação final pronta."],
+                ["04", "Ajuste os detalhes", "Preferências e observações ficam para o atendimento, sem a página inventar sabores, tamanhos ou condições que ainda precisam ser confirmados."],
+              ].map(([n, title, text]) => (
+                <article key={n} className="grid gap-3 border-b border-[#efd9bd] py-6 sm:grid-cols-[3rem_11rem_1fr]">
+                  <span className="text-sm font-black text-[#9d2443]">{n}</span>
+                  <h3 className="font-display text-xl font-black">{title}</h3>
+                  <p className="leading-7 text-[#76564a]">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <article className="rounded-[1.4rem] bg-[#fff8f0] p-6">
+              <h3 className="font-display text-xl font-black">Bolos por encomenda</h3>
+              <p className="mt-3 leading-7 text-[#76564a]">Para incluir o bolo no planejamento da comemoração e confirmar as possibilidades diretamente com a confeitaria.</p>
+            </article>
+            <article className="rounded-[1.4rem] bg-[#fff8f0] p-6">
+              <h3 className="font-display text-xl font-black">Doces para a mesa</h3>
+              <p className="mt-3 leading-7 text-[#76564a]">Uma categoria que pode complementar a encomenda e ser combinada com os demais itens no atendimento.</p>
+            </article>
+            <article className="rounded-[1.4rem] bg-[#fff8f0] p-6">
+              <h3 className="font-display text-xl font-black">Salgados para eventos</h3>
+              <p className="mt-3 leading-7 text-[#76564a]">Opção para festas, reuniões e celebrações, com disponibilidade e composição confirmadas antes do pedido.</p>
+            </article>
+          </div>
+        </div>
+      </section>
       <section id="pedido" className="px-5 pb-20 lg:px-8"><MotionReveal variant="scale" className="mx-auto max-w-5xl rounded-[2rem] bg-[#f4dfc4] px-7 py-12 text-center sm:px-12"><Sparkles className="mx-auto h-9 w-9 text-[#9d2443]" /><h2 className="mt-5 font-display text-4xl font-black">Vamos preparar algo especial?</h2><p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-[#76564a]">Fale sobre sua ocasião e receba orientação para montar sua encomenda.</p><FunnelCTAButton clientKey="confeitaria-sabor-da-realeza" companySlug="confeitaria-sabor-da-realeza" formSlug="funnel-confeitaria-sabor-da-realeza" location="realeza_footer" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#9d2443] px-7 py-3.5 font-bold text-white">Fazer meu pedido <ArrowRight className="h-4 w-4" /></FunnelCTAButton></MotionReveal></section>
     </main>
     </MotionScope><footer className="bg-[#40251e] px-5 py-8 text-sm text-[#f4dfc4] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Confeitaria Sabor da Realeza</strong><br />Bolos, doces e salgados em Uberaba.</p><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer><PortfolioSocialProofPopup clientKey="confeitaria-sabor-da-realeza" eyebrow="Sabor da Realeza" title="Seu momento especial merece esse sabor." description="Conheça bolos, doces e salgados para sua próxima comemoração." ctaLabel="Ver sabores" ctaHref="#sabores" delayMs={9000} className="border-[#9d2443]/35 bg-[#40251e]/95 text-white" accentClassName="text-[#f6d9a3]" /><PortfolioUpsellPopup pageName="portfolio-confeitaria-sabor-da-realeza" />
