@@ -49,3 +49,10 @@ A ordem operacional é:
 Antes de adicionar IA a uma função já resolvida deterministicamente, comparar:
 custo, latência, previsibilidade e manutenção. Se regra/código simples resolve
 com qualidade equivalente, preferir a solução determinística.
+
+
+## Vercel: ativação de variável compartilhada
+
+Após criar ou vincular uma Shared Environment Variable a um projeto, é necessário
+um novo deployment para que o runtime receba o segredo. Validar sempre no novo
+deployment antes de considerar a integração ativa.
