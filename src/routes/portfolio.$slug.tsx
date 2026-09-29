@@ -3,9 +3,10 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
+import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
+import { PREMIUM_ENVELOPAMENTOS_FAQ } from "@/components/site/premium-envelopamentos-content";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
 import {
@@ -1037,22 +1038,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           ],
                         },
                       ]
-                    : [
-                      {
-                        ...serviceNode({
-                          slug: vertical.slug,
-                          name: vertical.name,
-                          keyword: vertical.keywords,
-                          intent: vertical.hero,
-                          services: vertical.services.map((service) => service.to),
-                          hubs: [],
-                          showcases: [],
-                          deliverables: vertical.services.map((service) => service.title),
-                        }),
-                        "@id": `${url}#service`,
-                        url,
-                      },
-                    ]),
+                    : []),
                 ...(isMarido
                   ? [
                       {
@@ -1419,6 +1405,19 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         "@type": "FAQPage",
                         "@id": `${url}#faq`,
                         mainEntity: PAULO_MESTRE_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isPremium
+                  ? [
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: PREMIUM_ENVELOPAMENTOS_FAQ.map((faq) => ({
                           "@type": "Question",
                           name: faq.q,
                           acceptedAnswer: { "@type": "Answer", text: faq.a },

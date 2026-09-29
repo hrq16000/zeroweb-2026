@@ -6,11 +6,12 @@ import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { PREMIUM_ENVELOPAMENTOS_FAQ } from "@/components/site/premium-envelopamentos-content";
 
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
-  ["01", "Plotagem de móveis", "Portas e frentes renovadas com película aplicada em obra limpa, sem barulho e sem quebra.", "Móveis"],
-  ["02", "Envelopamento de geladeiras", "Mais de 800 opções de imagens e cores para transformar o eletro em peça central da cozinha.", "Eletros"],
+  ["01", "Plotagem de móveis", "Película aplicada sobre superfícies compatíveis para renovar portas e frentes sem substituir o móvel.", "Móveis"],
+  ["02", "Envelopamento de geladeiras", "Renovação visual de geladeiras com películas, cores, estampas e acabamentos escolhidos conforme o projeto.", "Eletros"],
   ["03", "Comunicação visual", "Adesivos para paredes, portas e automóveis, além de lonas, banners e perfurados.", "Ambientes"],
   ["04", "Criação de artes", "Logotipos e artes personalizadas para dar unidade à comunicação da marca.", "Marca"],
 ] as const;
@@ -51,7 +52,7 @@ export function PremiumEnvelopamentosPage() {
             <p className="max-w-2xl text-lg leading-8 text-[#b9d0e6]">
               <ManagedText
                 field="heroSubheadline"
-                fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com aplica\u00e7\u00e3o limpa, cores atuais e acabamento profissional em Curitiba e regi\u00e3o."}
+                fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com pel\u00edculas, cores e acabamentos definidos conforme o projeto em Curitiba e regi\u00e3o."}
               />
             </p>
             <dl className="grid grid-cols-2 gap-4 text-sm md:justify-items-end">
@@ -60,8 +61,8 @@ export function PremiumEnvelopamentosPage() {
                 <dd className="text-lg font-black">Sem obra</dd>
               </div>
               <div>
-                <dt className="text-[#7fa6cd]">Prazo típico</dt>
-                <dd className="text-lg font-black">Mesmo dia</dd>
+                <dt className="text-[#7fa6cd]">Prazo</dt>
+                <dd className="text-lg font-black">Sob avaliação</dd>
               </div>
             </dl>
           </div>
@@ -107,7 +108,7 @@ export function PremiumEnvelopamentosPage() {
             <MotionImageReveal direction="up">
             <PortfolioImage
               src="/images/premium-envelopamentos/galeria-oficina.png"
-              alt="Plotagem de móveis em oficina limpa e moderna"
+              alt="Referência visual de aplicação de envelopamento em móveis"
               width={1536}
               height={1024}
               className="aspect-[16/9] w-full rounded-none object-cover"
@@ -117,8 +118,8 @@ export function PremiumEnvelopamentosPage() {
               <p className="text-xs font-bold uppercase tracking-[.32em] text-[#49d6f3]">Como é feito</p>
               <h2 className="mt-3 text-3xl font-black">Preparo, corte e aplicação no mesmo fluxo.</h2>
               <p className="mt-4 leading-7 text-white/75">
-                A superfície é limpa e nivelada antes da película. O corte é ajustado à peça e o acabamento é conferido
-                borda a borda — sem poeira, sem cheiro forte e sem parar o ambiente por dias.
+                A aplicação começa pela avaliação da superfície, limpeza e preparação da peça. O corte é ajustado ao formato e o acabamento é conferido
+                borda a borda. Medidas, estado da superfície e tipo de película influenciam o escopo e devem ser confirmados no orçamento.
               </p>
               <a
                 href="https://www.instagram.com/premiumenvelopamentos"
@@ -128,6 +129,53 @@ export function PremiumEnvelopamentosPage() {
               >
                 <Instagram className="h-4 w-4" /> Ver aplicações no Instagram
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-5 py-16 lg:px-8" aria-labelledby="premium-aplicacoes">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#9a3d12]">Aplicações e escolha do projeto</p>
+            <h2 id="premium-aplicacoes" className="mt-3 max-w-3xl text-3xl font-black uppercase tracking-[-.01em] sm:text-4xl">
+              Envelopamento para renovar superfícies sem trocar o que ainda funciona.
+            </h2>
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              <div className="space-y-4 leading-7 text-[#46617c]">
+                <p>
+                  A Premium Envelopamentos trabalha com soluções de plotagem e envelopamento para móveis,
+                  geladeiras e outras superfícies, além de adesivos e materiais de comunicação visual.
+                  A escolha de cor, estampa e acabamento depende do item, das medidas e do resultado desejado.
+                </p>
+                <p>
+                  Para iniciar o orçamento, use o funil para escolher o tipo de serviço, o formato do atendimento e o prazo desejado.
+                  Nome e WhatsApp permitem a continuidade da conversa; medidas, fotos, endereço e acabamento desejado são confirmados
+                  no atendimento quando forem necessários para avaliar o projeto.
+                </p>
+              </div>
+              <div className="border-l-4 border-[#49d6f3] bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-black">Quando o envelopamento faz sentido?</h3>
+                <ul className="mt-4 space-y-3 text-[#46617c]">
+                  <li><strong className="text-[#071d41]">Móveis:</strong> atualização visual de portas, frentes e superfícies compatíveis.</li>
+                  <li><strong className="text-[#071d41]">Eletrodomésticos:</strong> mudança de acabamento e aparência externa.</li>
+                  <li><strong className="text-[#071d41]">Ambientes:</strong> adesivos aplicados em paredes, portas e elementos decorativos.</li>
+                  <li><strong className="text-[#071d41]">Comunicação visual:</strong> adesivos, lonas, banners e materiais personalizados.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#eef5f9] px-5 py-16 lg:px-8" aria-labelledby="premium-faq">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#0a2b5e]">Dúvidas frequentes</p>
+            <h2 id="premium-faq" className="mt-3 text-3xl font-black uppercase sm:text-4xl">Antes de solicitar o orçamento</h2>
+            <div className="mt-8 grid gap-px overflow-hidden border border-[#cfdce9] bg-[#cfdce9] md:grid-cols-2">
+              {PREMIUM_ENVELOPAMENTOS_FAQ.map((faq) => (
+                <article key={faq.q} className="bg-white p-6">
+                  <h3 className="text-lg font-black text-[#071d41]">{faq.q}</h3>
+                  <p className="mt-3 leading-7 text-[#46617c]">{faq.a}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

@@ -12,6 +12,8 @@ export function organizationNode() {
     "@id": `${SITE_URL}/#organization`,
     name: "0WEB",
     url: SITE_URL,
+    logo: `${SITE_URL}/0web-logo.png`,
+    image: `${SITE_URL}/og-default.jpg`,
     description:
       "Agência de criação de sites, landing pages de alta conversão, SEO local e marketing digital para pequenos e médios negócios no Brasil.",
     areaServed: "BR",
