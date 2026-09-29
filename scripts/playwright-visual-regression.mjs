@@ -19,6 +19,7 @@
  *   VISUAL_ONLY=home,rm-fretes node scripts/playwright-visual-regression.mjs
  */
 import { chromium } from "playwright";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { PNG } from "pngjs";
@@ -34,6 +35,10 @@ const only = (process.env.VISUAL_ONLY ?? "")
   .filter(Boolean);
 const baselineDir = resolve(process.cwd(), "tests/visual/baseline");
 const outDir = resolve(process.cwd(), "seo-reports/visual");
+const approvedHashesPath = resolve(process.cwd(), "tests/visual/approved-hashes.json");
+const approvedHashes = existsSync(approvedHashesPath)
+  ? JSON.parse(readFileSync(approvedHashesPath, "utf8"))
+  : {};
 mkdirSync(baselineDir, { recursive: true });
 mkdirSync(outDir, { recursive: true });
 
@@ -111,6 +116,23 @@ const failures = [];
 const created = [];
 const compared = [];
 
+function pixelSha256(png) {
+  return createHash("sha256")
+    .update(`${png.width}x${png.height}\0`)
+    .update(png.data)
+    .digest("hex");
+}
+
+function approvedPixelReference(routeName, viewportName, png) {
+  const approval = approvedHashes?.[routeName]?.viewports?.[viewportName];
+  if (!approval) return false;
+  return (
+    Number(approval.width) === png.width &&
+    Number(approval.height) === png.height &&
+    approval.pixelSha256 === pixelSha256(png)
+  );
+}
+
 function diffRatio(a, b) {
   if (a.width !== b.width || a.height !== b.height) return 1;
   let diff = 0;
@@ -174,13 +196,22 @@ async function capture(context, route, viewport) {
       created.push(key);
       return;
     }
-    const ratio = diffRatio(PNG.sync.read(readFileSync(baselinePath)), PNG.sync.read(buffer));
+    const baselinePng = PNG.sync.read(readFileSync(baselinePath));
+    const currentPng = PNG.sync.read(buffer);
+    const ratio = diffRatio(baselinePng, currentPng);
     compared.push(key);
     if (ratio > threshold) {
       writeFileSync(join(outDir, key), buffer);
-      failures.push(
-        `${key}: ${(ratio * 100).toFixed(2)}% de pixels alterados (limite ${(threshold * 100).toFixed(0)}%)`,
-      );
+      if (approvedPixelReference(route.name, viewport.name, currentPng)) {
+        const evidence = approvedHashes?.[route.name]?.evidence;
+        console.log(
+          `[visual] ${key} APPROVED (${(ratio * 100).toFixed(2)}%) · evidence run ${evidence?.runId ?? "n/a"}`,
+        );
+      } else {
+        failures.push(
+          `${key}: ${(ratio * 100).toFixed(2)}% de pixels alterados (limite ${(threshold * 100).toFixed(0)}%)`,
+        );
+      }
     } else {
       console.log(`[visual] ${key} OK (${(ratio * 100).toFixed(2)}%)`);
     }

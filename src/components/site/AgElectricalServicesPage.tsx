@@ -1,6 +1,5 @@
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { motion } from "motion/react";
 import { ArrowRight, CircuitBoard, Network, ShieldCheck, Zap } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -64,7 +63,7 @@ export function AgElectricalServicesPage() {
               </div>
             </div>
           </div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .6 }} className="mx-auto mt-10 max-w-7xl">
+          <div className="mx-auto mt-10 max-w-7xl">
             <PortfolioImage src="/images/ag-electrical-services/rack-2.webp" alt="A&G Electrical Services: soluções integradas em elétrica e infraestrutura" priority width={720} height={960} className="h-[240px] w-full object-cover sm:h-[320px] lg:h-[420px]" managedField="heroImageUrl" />
             <dl className="grid grid-cols-2 divide-[#1c3f66] border-b border-[#1c3f66] text-xs sm:grid-cols-4 sm:divide-x">
               {[["Ambientes", "Residencial a industrial"], ["Escopo", "Projeto e execução"], ["Padrão", "Conformidade técnica"], ["Entrega", "Rack identificado"]].map(([k, v]) => (
@@ -74,7 +73,7 @@ export function AgElectricalServicesPage() {
                 </div>
               ))}
             </dl>
-          </motion.div>
+          </div>
         </section>
 
         {/* CIRCUITO: barramento horizontal com pontos numerados L1..L4 (sem cards flutuantes) */}

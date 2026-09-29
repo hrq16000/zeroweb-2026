@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ag-electrical-services": {
+    "reason": "Baseline binária histórica de 2026-08 ficou obsoleta após evoluções posteriores da página. As três capturas atuais foram revisadas visualmente após a correção determinística do hero; qualquer pixel diferente destes hashes volta a falhar.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36505601849,
+      "artifactId": 11009260617,
+      "artifactDigest": "sha256:4a60d9f29c34191462fcb29e3a120feb1904aea97c67cd097649a92c6cc9570d",
+      "headSha": "f4fb77e3383a0fd44befa01c34b1f7ee2709ca51"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "1af2bb0cdbf5dbdbb2a85c67edd43d7b767c91bce202679a12f99ac4b04e345c"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "023b4f81f9a865e0dbcda08aedd85b71bd34b2bf67215c1d196005302c0b430f"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "98f59e8d0323411565f6cdea792faf66f915cb6f20c3b28a47e5caa0afe83f15"
+      }
+    }
+  }
+}
