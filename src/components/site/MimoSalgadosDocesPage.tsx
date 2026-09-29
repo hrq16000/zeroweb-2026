@@ -47,31 +47,29 @@ export function MimoSalgadosDocesPage() {
           <section id="cardapio" className="bg-white px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><MotionReveal variant="left"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--mimo-red)]">Cardápio da casa</p><h2 className="mt-3 font-display text-4xl font-black">O copo da felicidade é R$ 22,00.</h2><p className="mt-5 text-lg leading-8 text-[#6f3940]">A informação atualizada fica clara no primeiro olhar. Para quantidades, sabores e disponibilidade do dia, fale com a equipe.</p><CTA location="cardapio">Consultar disponibilidade</CTA></div></MotionReveal><div><figure className="overflow-hidden rounded-[2rem] bg-[var(--mimo-red)] shadow-xl"><PortfolioImage src="/images/mimo-salgados-doces/menu-corrected.png" alt="Cardápio Mimo Salgados e Doces" width={1080} height={1920} className="max-h-[760px] w-full object-contain" /><figcaption className="px-6 py-4 text-center text-sm font-semibold text-white">Cardápio sujeito à disponibilidade do dia.</figcaption></figure></div></div></section>
           <section id="como-encomendar" className="border-y border-[var(--mimo-gold)]/35 bg-[var(--mimo-cream)] px-5 py-20 lg:px-8">
             <div className="mx-auto max-w-6xl">
-              <div className="grid gap-10 lg:grid-cols-[.42fr_.58fr]">
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--mimo-red)]">Encomendas na Costeira</p>
-                  <h2 className="mt-3 font-display text-4xl font-black sm:text-5xl">Quantidade, data e forma de receber deixam o pedido mais claro.</h2>
-                  <p className="mt-5 text-lg leading-8 text-[#6f3940]">
-                    A Mimo Salgados e Doces atende na Costeira, em São José dos Pinhais. Para salgados,
-                    doces, copo da felicidade ou encomendas de festa, o primeiro passo é informar o que
-                    procura, a quantidade aproximada e quando precisa.
-                  </p>
-                </div>
-                <div className="divide-y divide-[var(--mimo-gold)]/40 border-y border-[var(--mimo-gold)]/40">
-                  {[
-                    ["01", "Escolha a categoria", "Salgados, doces, copo da felicidade ou uma encomenda para festa."],
-                    ["02", "Informe a quantidade", "Uma estimativa ajuda a equipe a entender o tamanho do pedido antes de confirmar disponibilidade."],
-                    ["03", "Diga a data", "Pedidos para hoje, para a semana ou para eventos são organizados conforme a agenda da loja."],
-                    ["04", "Combine retirada ou entrega", "A página indica retirada na Costeira ou entrega a combinar; a condição final é confirmada no atendimento."],
-                  ].map(([n, title, text]) => (
-                    <article key={n} className="grid gap-4 py-6 sm:grid-cols-[3rem_11rem_1fr]">
-                      <span className="text-sm font-black text-[var(--mimo-red)]">{n}</span>
-                      <h3 className="font-display text-xl font-black">{title}</h3>
-                      <p className="leading-7 text-[#6f3940]">{text}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
+              <header className="max-w-3xl">
+                <p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--mimo-red)]">Encomendas na Costeira</p>
+                <h2 className="mt-3 font-display text-4xl font-black sm:text-5xl">Quantidade, data e forma de receber deixam o pedido mais claro.</h2>
+                <p className="mt-5 text-lg leading-8 text-[#6f3940]">
+                  A Mimo Salgados e Doces atende na Costeira, em São José dos Pinhais. Para salgados,
+                  doces, copo da felicidade ou encomendas de festa, o primeiro passo é informar o que
+                  procura, a quantidade aproximada e quando precisa.
+                </p>
+              </header>
+              <ol className="mt-10 grid gap-0 border-y border-[var(--mimo-gold)]/40 lg:grid-cols-4 lg:divide-x lg:divide-[var(--mimo-gold)]/40">
+                {[
+                  ["01", "Escolha a categoria", "Salgados, doces, copo da felicidade ou uma encomenda para festa."],
+                  ["02", "Informe a quantidade", "Uma estimativa ajuda a equipe a entender o tamanho do pedido antes de confirmar disponibilidade."],
+                  ["03", "Diga a data", "Pedidos para hoje, para a semana ou para eventos são organizados conforme a agenda da loja."],
+                  ["04", "Combine retirada ou entrega", "A página indica retirada na Costeira ou entrega a combinar; a condição final é confirmada no atendimento."],
+                ].map(([n, title, text]) => (
+                  <li key={n} className="border-b border-[var(--mimo-gold)]/40 p-6 last:border-b-0 lg:border-b-0">
+                    <span className="text-sm font-black text-[var(--mimo-red)]">{n}</span>
+                    <h3 className="mt-5 font-display text-xl font-black">{title}</h3>
+                    <p className="mt-3 leading-7 text-[#6f3940]">{text}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
           </section>
 
