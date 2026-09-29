@@ -39,6 +39,42 @@ describe("escopo seguro da regressão visual", () => {
     ).toEqual(["angel-mix-brecho"]);
   });
 
+  test("família local-first usa conjunto representativo estável", () => {
+    expect(
+      resolveVisualRegressionScope(
+        [
+          "src/components/portfolio/PortfolioSeoNetwork.tsx",
+          "src/lib/portfolio-place-directory.ts",
+          "src/lib/portfolio-places.ts",
+          "src/lib/portfolio-seo-network.ts",
+          "src/routes/portfolio-em.$local.tsx",
+          "tests/portfolio/portfolio-place-directory.test.ts",
+          "tests/portfolio/universal-seo-network.test.ts",
+          "scripts/resolve-visual-regression-scope.mjs",
+        ],
+        clients,
+      ),
+    ).toEqual([
+      "ag-electrical-services",
+      "marmitaria-dom-diego",
+      "mirassol-conserta-celular",
+      "guaratuba-oficina-nautica",
+    ]);
+  });
+
+  test("família local-first volta ao global se surgir arquivo amplo fora do contrato", () => {
+    expect(
+      resolveVisualRegressionScope(
+        [
+          "src/lib/portfolio-seo-network.ts",
+          "src/routes/portfolio-em.$local.tsx",
+          "public/0web-logo.png",
+        ],
+        clients,
+      ),
+    ).toEqual([]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(

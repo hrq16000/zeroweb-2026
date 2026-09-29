@@ -60,7 +60,7 @@ export function slugifyPlace(value: string): string {
 }
 
 /** Extrai o bairro do rótulo "Bairro · Cidade — UF", quando existir. */
-function extractNeighborhood(location: string | undefined, city: string): string | undefined {
+export function extractNeighborhood(location: string | undefined, city: string): string | undefined {
   if (!location) return undefined;
   const head = location.split("·")[0]?.trim();
   if (!head) return undefined;

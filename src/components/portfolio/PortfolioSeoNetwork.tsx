@@ -12,7 +12,8 @@ type Props = {
   context?: PortfolioSeoContextOverride;
 };
 
-function relationLabel(reason: "city" | "segment" | "affinity" | "state" | "discovery"): string {
+function relationLabel(reason: "neighborhood" | "city" | "segment" | "affinity" | "state" | "discovery"): string {
+  if (reason === "neighborhood") return "Mesmo bairro";
   if (reason === "city") return "Mesma cidade";
   if (reason === "segment") return "Mesmo segmento";
   if (reason === "affinity") return "Afinidade de serviços";
@@ -29,11 +30,15 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
 
   if (!current || related.length < 3) return null;
 
-  const citySpecific = related.filter((item) => item.reason === "city").length >= 2;
+  const neighborhoodSpecific = related.filter((item) => item.reason === "neighborhood").length >= 2;
+  const citySpecific =
+    related.filter((item) => item.reason === "city" || item.reason === "neighborhood").length >= 2;
   const heading =
-    citySpecific && current.city
-      ? `Outros projetos publicados em ${current.city}`
-      : "Outros projetos relacionados";
+    neighborhoodSpecific && current.neighborhood
+      ? `Negócios e serviços em ${current.neighborhood}`
+      : citySpecific && current.city
+        ? `Negócios e serviços em ${current.city}`
+        : "Outros negócios e projetos relacionados";
 
   return (
     <section
@@ -52,8 +57,8 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
           {heading}
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-neutral-600 sm:text-base">
-          Veja outras presenças digitais publicadas na 0WEB com contexto de mercado, localidade ou
-          serviços relacionados.
+          Descubra outros prestadores e pequenos comércios publicados na 0WEB, priorizando
+          bairro, cidade e afinidade de serviços quando esses dados estão disponíveis.
         </p>
 
         {semantic && (semantic.label || semantic.topics.length || semantic.placeLinks.length) ? (
