@@ -82,14 +82,44 @@ jobs:
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
 
+      - name: Resolver escopo funcional de portfólios
+        id: portfolio-runtime-scope
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "only=" >> "$GITHUB_OUTPUT"
+            echo "escopo funcional: global (workflow_dispatch)"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-portfolio-runtime-scope.mjs)"
+          echo "only=$ONLY" >> "$GITHUB_OUTPUT"
+          echo "escopo funcional: ${ONLY:-global}"
+
       - name: Pop-up único em /portfolio/$slug
         env:
           POPUP_CONCURRENCY: 4
+          POPUP_SLUGS: ${{ steps.portfolio-runtime-scope.outputs.only }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
         env:
+          E2E_ONLY_SLUGS: ${{ steps.portfolio-runtime-scope.outputs.only }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
