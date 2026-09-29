@@ -23,6 +23,7 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { PNG } from "pngjs";
+import { repeatedTopStripRows } from "./visual-screenshot-integrity.mjs";
 
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const update = process.argv.includes("--update");
@@ -188,7 +189,40 @@ async function capture(context, route, viewport) {
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
     await page.waitForTimeout(600);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
-    const buffer = await page.screenshot({ timeout: routeTimeout });
+    let buffer = await page.screenshot({ timeout: routeTimeout });
+    let currentPng = PNG.sync.read(buffer);
+    const longPage = await page
+      .evaluate(() => document.documentElement.scrollHeight > window.innerHeight * 1.25)
+      .catch(() => false);
+    let repeatedRows = longPage ? repeatedTopStripRows(currentPng) : 0;
+
+    if (repeatedRows) {
+      console.warn(
+        `[visual] ${key}: compositor repetiu ${repeatedRows}px do topo no rodapé; refazendo captura`,
+      );
+      await page
+        .evaluate(async () => {
+          window.scrollTo(0, 96);
+          void document.documentElement.getBoundingClientRect();
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          window.scrollTo(0, 0);
+          void document.documentElement.getBoundingClientRect();
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        })
+        .catch(() => {});
+      await page.waitForTimeout(120);
+      buffer = await page.screenshot({ timeout: routeTimeout, animations: "disabled" });
+      currentPng = PNG.sync.read(buffer);
+      repeatedRows = repeatedTopStripRows(currentPng);
+      if (repeatedRows) {
+        writeFileSync(join(outDir, key), buffer);
+        failures.push(
+          `${key}: artefato do compositor persistiu após retry (topo repetido nos últimos ${repeatedRows}px)`,
+        );
+        return;
+      }
+    }
+
     const baselinePath = join(baselineDir, key);
 
     if (update || !existsSync(baselinePath)) {
@@ -197,7 +231,6 @@ async function capture(context, route, viewport) {
       return;
     }
     const baselinePng = PNG.sync.read(readFileSync(baselinePath));
-    const currentPng = PNG.sync.read(buffer);
     const ratio = diffRatio(baselinePng, currentPng);
     compared.push(key);
     if (ratio > threshold) {
