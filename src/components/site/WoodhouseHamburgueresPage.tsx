@@ -96,6 +96,38 @@ export function WoodhouseHamburgueresPage() {
               ))}
             </ul>
 
+            <section id="pedido-woodhouse" className="mt-8 border-y border-dashed border-[var(--wh-amber)]/40 py-7">
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">
+                Como organizar o pedido
+              </p>
+              <dl className="mt-5 space-y-5">
+                <div className="grid gap-2 sm:grid-cols-[8rem_1fr]">
+                  <dt className="font-display font-bold uppercase">Hambúrguer</dt>
+                  <dd className="text-sm leading-7 text-[var(--wh-bone)]/65">
+                    Comece informando se procura um hambúrguer individual ou se o pedido envolve mais pessoas.
+                  </dd>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-[8rem_1fr]">
+                  <dt className="font-display font-bold uppercase">Petisco</dt>
+                  <dd className="text-sm leading-7 text-[var(--wh-bone)]/65">
+                    Para acompanhar a mesa ou dividir, indique que a prioridade são porções e petiscos.
+                  </dd>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-[8rem_1fr]">
+                  <dt className="font-display font-bold uppercase">Combo</dt>
+                  <dd className="text-sm leading-7 text-[var(--wh-bone)]/65">
+                    Se a intenção é combinar itens, use o contato para confirmar as opções disponíveis naquele momento.
+                  </dd>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-[8rem_1fr]">
+                  <dt className="font-display font-bold uppercase">Recebimento</dt>
+                  <dd className="text-sm leading-7 text-[var(--wh-bone)]/65">
+                    Informe se prefere consumir no local, retirar ou combinar entrega em São José dos Pinhais.
+                  </dd>
+                </div>
+              </dl>
+            </section>
+
             <div className="mt-8 border-t border-dashed border-[var(--wh-amber)]/40 pt-7">
               <p className="max-w-[54ch] text-base leading-relaxed text-[var(--wh-bone)]/75">
                 <ManagedText
@@ -125,11 +157,11 @@ export function WoodhouseHamburgueresPage() {
           <aside className="min-w-0 md:sticky md:top-10 md:self-start">
             <MotionImageReveal direction="up" className="rounded-lg">
             <PortfolioImage
-              src="/images/woodhouse-hamburgueres/capa.png"
+              src="/images/woodhouse-hamburgueres/capa-og.jpg"
               alt="Woodhouse Hambúrgueres"
               priority
-              width={1000}
-              height={1400}
+              width={1200}
+              height={630}
               className="h-[48vh] w-full rounded-lg object-cover md:h-[70vh]"
               managedField="heroImageUrl"
             />
