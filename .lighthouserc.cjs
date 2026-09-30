@@ -11,7 +11,10 @@ const fs = require("node:fs");
 const IS_PULL_REQUEST =
   process.env.LHCI_IS_PULL_REQUEST === "1" ||
   process.env.GITHUB_EVENT_NAME === "pull_request";
-const TARGET_URL = IS_PULL_REQUEST
+const USE_LOCAL_SERVER =
+  process.env.LHCI_USE_LOCAL === "1" ||
+  IS_PULL_REQUEST;
+const TARGET_URL = USE_LOCAL_SERVER
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
@@ -55,10 +58,10 @@ module.exports = {
   ci: {
     collect: {
       url: [...regionalUrls, ...commonUrls, ...portfolioUrls],
-      ...(IS_PULL_REQUEST
+      ...(USE_LOCAL_SERVER
         ? {
-            // PR mede o artefato da própria branch, não a produção anterior.
-            // Assim um gate só reprova por regressão presente no código revisado.
+            // PR e push em main medem o artefato do próprio commit.
+            // workflow_dispatch é o modo explícito para auditar URL externa.
             startServerCommand: "bun run build && bun run preview:prod",
             startServerReadyPattern: "Ready on",
             startServerReadyTimeout: 180000,
