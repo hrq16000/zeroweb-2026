@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import { resolveVisualRegressionScope } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
@@ -103,5 +104,11 @@ describe("escopo seguro da regressão visual", () => {
     expect(
       resolveVisualRegressionScope(["public/0web-logo.png"], clients),
     ).toEqual([]);
+  });
+
+  test("remoção do WebPage JSON-LD não dispara gate visual global", () => {
+    const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
+    expect(workflow).toContain("@type.*WebPage");
+    expect(workflow).toContain("isPartOf:");
   });
 });
