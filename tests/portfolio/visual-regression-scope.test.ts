@@ -104,4 +104,10 @@ describe("escopo seguro da regressão visual", () => {
       resolveVisualRegressionScope(["public/0web-logo.png"], clients),
     ).toEqual([]);
   });
+
+  test("remoção do WebPage JSON-LD não dispara gate visual global", () => {
+    const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
+    expect(workflow).toContain("@type.*WebPage");
+    expect(workflow).toContain("isPartOf:");
+  });
 });
