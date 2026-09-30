@@ -107,7 +107,7 @@ describe("SEO universal dos portfolios", () => {
       const schema = portfolioEntityGraphSchema(item.slug);
       expect(schema?.["@context"]).toBe("https://schema.org");
       const graph = schema?.["@graph"] ?? [];
-      expect(graph.some((node: any) => node["@type"] === "WebPage")).toBe(true);
+      expect(graph.filter((node: any) => node["@type"] === "WebPage")).toHaveLength(1);
       expect(graph.some((node: any) => node["@type"] === "Thing")).toBe(true);
       expect(graph.some((node: any) => node["@type"] === "BreadcrumbList")).toBe(true);
 
@@ -147,6 +147,11 @@ describe("SEO universal dos portfolios", () => {
     const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
     expect(Array.isArray(webpage?.about)).toBe(true);
     expect(webpage.about.some((node: any) => node["@type"] === "DefinedTerm")).toBe(true);
+  });
+
+  test("head não duplica WebPage que já pertence à rede universal", () => {
+    expect((route.match(/"@type": "WebPage"/g) ?? [])).toHaveLength(0);
+    expect(shell).toContain("<PortfolioSeoNetwork");
   });
 
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {
