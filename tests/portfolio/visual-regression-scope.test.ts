@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import { resolveVisualRegressionScope } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
