@@ -31,6 +31,11 @@ function isBroadVisualFile(file) {
 }
 
 const PORTFOLIO_INDEX_SCOPE = "portfolio-index";
+const PORTFOLIO_INDEX_SCOPE_SUPPORT_FILES = new Set([
+  ".lighthouserc.cjs",
+  ".github/workflows/lighthouse.yml",
+  ".github/workflows/portfolio-gates.yml",
+]);
 
 function portfolioIndexScope(files) {
   const relevant = files
@@ -39,7 +44,8 @@ function portfolioIndexScope(files) {
     .filter(
       (file) =>
         !file.startsWith("tests/") &&
-        file !== "scripts/resolve-visual-regression-scope.mjs",
+        file !== "scripts/resolve-visual-regression-scope.mjs" &&
+        !PORTFOLIO_INDEX_SCOPE_SUPPORT_FILES.has(file),
     );
 
   if (!relevant.length) return null;
