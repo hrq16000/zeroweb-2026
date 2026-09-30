@@ -84,7 +84,19 @@ const HIDE_FIXED_LAYERS = `
     const hideAll = () => {
       for (const el of document.querySelectorAll('body *')) {
         const pos = getComputedStyle(el).position;
-        if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden';
+        if (pos === 'fixed') {
+          el.style.visibility = 'hidden';
+          continue;
+        }
+        if (pos === 'sticky') {
+          // Chromium pode manter a layer sticky no compositor mesmo invisível e
+          // duplicá-la no rodapé da captura. Rebaixar para fluxo normal remove
+          // somente essa layer no ambiente visual, preservando espaço/layout.
+          el.style.setProperty('position', 'static', 'important');
+          el.style.setProperty('top', 'auto', 'important');
+          el.style.setProperty('bottom', 'auto', 'important');
+          el.style.visibility = 'hidden';
+        }
       }
     };
     hideAll();
@@ -215,9 +227,28 @@ async function capture(context, route, viewport) {
       currentPng = PNG.sync.read(buffer);
       repeatedRows = repeatedTopStripRows(currentPng);
       if (repeatedRows) {
+        console.warn(
+          `[visual] ${key}: retry comum ainda repetiu ${repeatedRows}px; usando captura CDP sem surface compositor`,
+        );
+        let cdp;
+        try {
+          cdp = await context.newCDPSession(page);
+          const shot = await cdp.send("Page.captureScreenshot", {
+            format: "png",
+            fromSurface: false,
+            captureBeyondViewport: false,
+          });
+          buffer = Buffer.from(shot.data, "base64");
+          currentPng = PNG.sync.read(buffer);
+          repeatedRows = repeatedTopStripRows(currentPng);
+        } finally {
+          await cdp?.detach().catch(() => {});
+        }
+      }
+      if (repeatedRows) {
         writeFileSync(join(outDir, key), buffer);
         failures.push(
-          `${key}: artefato do compositor persistiu após retry (topo repetido nos últimos ${repeatedRows}px)`,
+          `${key}: artefato do compositor persistiu após retry + CDP (topo repetido nos últimos ${repeatedRows}px)`,
         );
         return;
       }
