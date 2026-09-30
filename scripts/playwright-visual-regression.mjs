@@ -84,7 +84,19 @@ const HIDE_FIXED_LAYERS = `
     const hideAll = () => {
       for (const el of document.querySelectorAll('body *')) {
         const pos = getComputedStyle(el).position;
-        if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden';
+        if (pos === 'fixed') {
+          el.style.visibility = 'hidden';
+          continue;
+        }
+        if (pos === 'sticky') {
+          // Chromium pode manter a layer sticky no compositor mesmo invisível e
+          // duplicá-la no rodapé da captura. Rebaixar para fluxo normal remove
+          // somente essa layer no ambiente visual, preservando espaço/layout.
+          el.style.setProperty('position', 'static', 'important');
+          el.style.setProperty('top', 'auto', 'important');
+          el.style.setProperty('bottom', 'auto', 'important');
+          el.style.visibility = 'hidden';
+        }
       }
     };
     hideAll();
