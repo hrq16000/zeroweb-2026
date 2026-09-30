@@ -87,6 +87,22 @@ describe("escopo seguro da regressão visual", () => {
     ).toEqual(["portfolio-index"]);
   });
 
+  test("plumbing do próprio CI não amplia o índice para global", () => {
+    expect(
+      resolveVisualRegressionScope(
+        [
+          "src/routes/portfolio.index.tsx",
+          ".lighthouserc.cjs",
+          ".github/workflows/lighthouse.yml",
+          ".github/workflows/portfolio-gates.yml",
+          "scripts/resolve-visual-regression-scope.mjs",
+          "tests/portfolio/lighthouse-scope.test.ts",
+        ],
+        clients,
+      ),
+    ).toEqual(["portfolio-index"]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
