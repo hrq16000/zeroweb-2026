@@ -6,6 +6,29 @@
  * A faixa mínima é deliberadamente alta para não confundir padrões legítimos
  * pequenos. O chamador também exige página maior que o viewport antes de retry.
  */
+function topStripHasVisualSignal(data, width, rows) {
+  const bytesPerRow = width * 4;
+  let strongEdges = 0;
+  const needed = Math.max(24, Math.floor((width * rows) * 0.0005));
+
+  for (let y = 0; y < rows; y += 2) {
+    const row = y * bytesPerRow;
+    for (let x = 2; x < width; x += 2) {
+      const i = row + x * 4;
+      const p = i - 8;
+      const delta =
+        Math.abs(data[i] - data[p]) +
+        Math.abs(data[i + 1] - data[p + 1]) +
+        Math.abs(data[i + 2] - data[p + 2]);
+      if (delta > 36) {
+        strongEdges += 1;
+        if (strongEdges >= needed) return true;
+      }
+    }
+  }
+  return false;
+}
+
 export function repeatedTopStripRows(png, { minRows = 48, maxRows = 128 } = {}) {
   const width = Number(png?.width ?? 0);
   const height = Number(png?.height ?? 0);
@@ -25,7 +48,7 @@ export function repeatedTopStripRows(png, { minRows = 48, maxRows = 128 } = {}) 
         break;
       }
     }
-    if (equal) return rows;
+    if (equal && topStripHasVisualSignal(data, width, rows)) return rows;
   }
   return 0;
 }
