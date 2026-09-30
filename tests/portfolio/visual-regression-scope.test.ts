@@ -75,6 +75,18 @@ describe("escopo seguro da regressão visual", () => {
     ).toEqual([]);
   });
 
+  test("índice de portfólios usa somente a rota portfolio-index", () => {
+    expect(
+      resolveVisualRegressionScope(
+        [
+          "src/routes/portfolio.index.tsx",
+          "tests/portfolio/portfolio-crawl-directory.test.ts",
+        ],
+        clients,
+      ),
+    ).toEqual(["portfolio-index"]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
