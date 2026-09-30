@@ -46,4 +46,10 @@ describe("Lighthouse escopado por portfolios alterados", () => {
     expect(workflow).toContain("include-hidden-files: true");
     expect(workflow).toContain(".lighthouseci/**");
   });
+
+  test("remoção do WebPage JSON-LD não dispara gate visual global", () => {
+    const workflow = readFileSync(".github/workflows/lighthouse.yml", "utf8");
+    expect(workflow).toContain("@type.*WebPage");
+    expect(workflow).toContain("isPartOf:");
+  });
 });
