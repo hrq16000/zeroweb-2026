@@ -918,7 +918,7 @@ function PortfolioPage() {
                 rastreável, mesmo quando a vitrine visual usa paginação progressiva. */}
             <section
               aria-labelledby="portfolio-directory-title"
-              className="rounded-3xl border border-border bg-card p-6 sm:p-8"
+              className="rounded-3xl border border-border bg-card p-6 sm:p-8 [content-visibility:auto] [contain-intrinsic-size:auto_1800px]"
             >
               <div className="max-w-3xl">
                 <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">
@@ -953,7 +953,12 @@ function PortfolioPage() {
                         </span>
                       ) : null}
                     </span>
-                    <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition group-hover:text-primary" />
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-base leading-none text-muted-foreground transition group-hover:text-primary"
+                    >
+                      →
+                    </span>
                   </Link>
                 ))}
               </div>
