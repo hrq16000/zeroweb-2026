@@ -13,6 +13,15 @@ describe("diretório crawlable de portfólios", () => {
 
   test("cada entrada usa link HTML para a rota canônica do projeto", () => {
     expect(source).toContain('id="portfolio-directory-title"');
-    expect(source).toContain("to={item.slug}");
+    expect(source).toContain("href={item.slug}");
+  });
+
+  test("diretório permanece leve, sem componente Link ou ícone por item", () => {
+    const start = source.indexOf('aria-label="Todos os portfólios publicados"');
+    const end = source.indexOf("{/* Banner Callout for Custom Sites */}", start);
+    const directory = source.slice(start, end);
+    expect(directory).toContain("<a");
+    expect(directory).not.toContain("<Link");
+    expect(directory).not.toContain("<ArrowRight");
   });
 });
