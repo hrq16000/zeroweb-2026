@@ -437,7 +437,7 @@ function PortfolioPage() {
   const [sort, setSort] = useState(routeSearch.sort ?? "recent");
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
   const [region, setRegion] = useState("todas");
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visitorCity, setVisitorCity] = useState<string | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
@@ -790,6 +790,8 @@ function PortfolioPage() {
                             <img
                               src={item.image}
                               alt={item.title}
+                              width={640}
+                              height={400}
                               loading={index === 0 ? "eager" : "lazy"}
                               decoding="async"
                               fetchPriority={index === 0 ? "high" : "auto"}
@@ -905,7 +907,7 @@ function PortfolioPage() {
                 <button
                   type="button"
                   onClick={() =>
-                    setVisibleCount((count) => Math.min(count + 12, filteredItems.length))
+                    setVisibleCount((count) => Math.min(count + 6, filteredItems.length))
                   }
                   className="mx-auto flex min-h-11 items-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary"
                 >
