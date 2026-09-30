@@ -22,12 +22,20 @@ const LIGHTHOUSE_ONLY = (process.env.LHCI_ONLY || "")
   .split(",")
   .map((slug) => slug.trim())
   .filter(Boolean);
+const PORTFOLIO_INDEX_TOKEN = "portfolio-index";
+const lighthousePortfolioSlugs = LIGHTHOUSE_ONLY.filter(
+  (slug) => slug !== PORTFOLIO_INDEX_TOKEN,
+);
+const indexUrls =
+  LIGHTHOUSE_ONLY.includes(PORTFOLIO_INDEX_TOKEN) && shardIndex === 0
+    ? [`${TARGET_URL}/portfolio`]
+    : [];
 const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
     ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
     : [];
 const portfolioUrls = LIGHTHOUSE_ONLY.length
-  ? LIGHTHOUSE_ONLY.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
+  ? lighthousePortfolioSlugs.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
   : LIGHTHOUSE_SCOPE === "regional"
     ? []
     : clients
@@ -48,7 +56,7 @@ const commonUrls =
 module.exports = {
   ci: {
     collect: {
-      url: [...regionalUrls, ...commonUrls, ...portfolioUrls],
+      url: [...regionalUrls, ...indexUrls, ...commonUrls, ...portfolioUrls],
       ...(IS_PULL_REQUEST
         ? {
             // PR mede o artefato da própria branch, não a produção anterior.
