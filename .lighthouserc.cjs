@@ -26,24 +26,30 @@ const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
     ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
     : [];
-const portfolioUrls = LIGHTHOUSE_ONLY.length
-  ? LIGHTHOUSE_ONLY.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
-  : LIGHTHOUSE_SCOPE === "regional"
+const portfolioIndexOnly = LIGHTHOUSE_ONLY.includes("portfolio-index");
+const individualPortfolioOnly = LIGHTHOUSE_ONLY.filter((slug) => slug !== "portfolio-index");
+const portfolioUrls = individualPortfolioOnly.length
+  ? individualPortfolioOnly.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
+  : LIGHTHOUSE_ONLY.length
     ? []
-    : clients
-        .filter((_, index) => index % shardCount === shardIndex)
-        .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
+    : LIGHTHOUSE_SCOPE === "regional"
+      ? []
+      : clients
+          .filter((_, index) => index % shardCount === shardIndex)
+          .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
-  LIGHTHOUSE_ONLY.length === 0 && LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
-    ? [
-        `${TARGET_URL}/`,
-        `${TARGET_URL}/blog`,
-        `${TARGET_URL}/blog/3-palavras-chatgpt-respostas-inteligentes`,
-        `${TARGET_URL}/servicos`,
-        `${TARGET_URL}/servicos/criacao-de-sites`,
-        `${TARGET_URL}/portfolio`,
-      ]
-    : [];
+  portfolioIndexOnly && shardIndex === 0
+    ? [`${TARGET_URL}/portfolio`]
+    : LIGHTHOUSE_ONLY.length === 0 && LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
+      ? [
+          `${TARGET_URL}/`,
+          `${TARGET_URL}/blog`,
+          `${TARGET_URL}/blog/3-palavras-chatgpt-respostas-inteligentes`,
+          `${TARGET_URL}/servicos`,
+          `${TARGET_URL}/servicos/criacao-de-sites`,
+          `${TARGET_URL}/portfolio`,
+        ]
+      : [];
 
 module.exports = {
   ci: {
