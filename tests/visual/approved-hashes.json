@@ -26,5 +26,32 @@
         "pixelSha256": "98f59e8d0323411565f6cdea792faf66f915cb6f20c3b28a47e5caa0afe83f15"
       }
     }
+  },
+  "acai-total-araucaria": {
+    "reason": "A onda de indexação adicionou uma seção editorial útil ao portfólio Açaí Total. As três capturas resultantes foram inspecionadas após build, hidratação, funis e acessibilidade aprovados; esta aprovação fixa exatamente os pixels revisados sem alterar o limite global de 2%.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36611714260,
+      "artifactId": 11055032005,
+      "artifactDigest": "sha256:2f5be72580b62dfdcda1a5647109075c2cc75017fcf1a99f4d0cc1fb05dcfdd8",
+      "headSha": "6951ddcbd4dd13515377b5b88cb1891dcc31a8ad"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "09c5364547f09a4926b816ecfe43af2092cb02b0ada33287db695d1817808c9d"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "499482a90c10f93adf72838bb0d3dccf6be8c9bea0e7049a665093defe5d2ccb"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "6871dbc18d042f1c7cefef94bd4d2e4a62eb8a4c34f7df032299925854e5b4d6"
+      }
+    }
   }
 }
