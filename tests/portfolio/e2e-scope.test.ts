@@ -17,6 +17,10 @@ describe("escopo E2E de portfólios no CI", () => {
     expect(workflow).toContain('echo "escopo E2E: ${ONLY:-global}"');
   });
 
+  test("índice de portfólios não dispara funis individuais", () => {
+    expect(workflow).toContain("steps.e2e-scope.outputs.only != 'portfolio-index'");
+  });
+
   test("funil aceita CSV de slugs sem quebrar variável singular legada", () => {
     expect(funnels).toContain("E2E_ONLY_SLUGS");
     expect(funnels).toContain("E2E_ONLY_SLUG");
