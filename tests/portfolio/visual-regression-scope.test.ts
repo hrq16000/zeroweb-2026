@@ -75,6 +75,21 @@ describe("escopo seguro da regressão visual", () => {
     ).toEqual([]);
   });
 
+  test("escopa o índice /portfolio isoladamente sem atingir os 96 projetos", () => {
+    expect(
+      resolveVisualRegressionScope(
+        [
+          "src/routes/portfolio.index.tsx",
+          "tests/portfolio/portfolio-crawl-directory.test.ts",
+          "tests/portfolio/visual-regression-scope.test.ts",
+          "scripts/resolve-visual-regression-scope.mjs",
+          ".lighthouserc.cjs",
+        ],
+        clients,
+      ),
+    ).toEqual(["portfolio-index"]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(

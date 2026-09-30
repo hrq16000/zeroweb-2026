@@ -50,6 +50,23 @@ const LOCAL_DIRECTORY_REPRESENTATIVE_SLUGS = [
   "guaratuba-oficina-nautica",
 ];
 
+function portfolioIndexScope(files) {
+  const relevant = files
+    .map(normalize)
+    .filter(Boolean)
+    .filter(
+      (file) =>
+        !file.startsWith("tests/") &&
+        file !== "scripts/resolve-visual-regression-scope.mjs" &&
+        file !== ".lighthouserc.cjs",
+    );
+
+  if (!relevant.length) return null;
+  return relevant.every((file) => file === "src/routes/portfolio.index.tsx")
+    ? ["portfolio-index"]
+    : null;
+}
+
 function localDirectoryRepresentativeScope(files) {
   const relevant = files
     .map(normalize)
@@ -72,6 +89,9 @@ function localDirectoryRepresentativeScope(files) {
 }
 
 export function resolveVisualRegressionScope(files, clients) {
+  const indexScope = portfolioIndexScope(files);
+  if (indexScope) return indexScope;
+
   const localDirectoryScope = localDirectoryRepresentativeScope(files);
   if (localDirectoryScope) return localDirectoryScope;
 

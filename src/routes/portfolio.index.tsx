@@ -36,7 +36,7 @@ import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
 import { trackEvent } from "@/lib/analytics";
-import { MotionCard, MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
+import { MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
 import {
   trackPortfolioSearch,
   trackPortfolioSearchClick,
@@ -427,6 +427,13 @@ function PortfolioPage() {
     ],
     [managed],
   );
+  const crawlablePublishedItems = useMemo(
+    () =>
+      catalogItems
+        .filter((item) => item.live)
+        .sort((a, b) => a.title.localeCompare(b.title, "pt-BR")),
+    [catalogItems],
+  );
   const [sort, setSort] = useState(routeSearch.sort ?? "recent");
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
   const [region, setRegion] = useState("todas");
@@ -759,7 +766,7 @@ function PortfolioPage() {
                   <div className="grid grid-cols-1 gap-x-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                     <>
                       {filteredItems.slice(0, visibleCount).map((item, index) => (
-                        <MotionCard key={item.id} index={index}>
+                        <div key={item.id}>
                         <div
                           className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft focus-within:-translate-y-1 focus-within:border-primary/50 focus-within:shadow-soft motion-reduce:transform-none motion-reduce:transition-none"
                         >
@@ -885,7 +892,7 @@ function PortfolioPage() {
                             </div>
                           </div>
                         </div>
-                        </MotionCard>
+                        </div>
                       ))}
                     </>
                   </div>
@@ -906,6 +913,56 @@ function PortfolioPage() {
                 </button>
               </>
             ) : null}
+
+            {/* Diretório textual: mantém todos os projetos publicados em HTML
+                rastreável, mesmo quando a vitrine visual usa paginação progressiva. */}
+            <section
+              aria-labelledby="portfolio-directory-title"
+              className="rounded-3xl border border-border bg-card p-6 sm:p-8 [content-visibility:auto] [contain-intrinsic-size:auto_1800px]"
+            >
+              <div className="max-w-3xl">
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">
+                  Diretório completo
+                </p>
+                <h2
+                  id="portfolio-directory-title"
+                  className="mt-2 text-2xl font-bold text-foreground sm:text-3xl"
+                >
+                  Todos os negócios e profissionais publicados
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Acesse diretamente cada site publicado na 0WEB. Esta lista textual complementa
+                  a vitrine visual e facilita a descoberta dos negócios por nome e localização.
+                </p>
+              </div>
+
+              <div className="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                {crawlablePublishedItems.map((item) => (
+                  <Link
+                    key={`directory-${item.id}`}
+                    to={item.slug}
+                    className="group flex min-h-11 items-center justify-between gap-3 border-b border-border/70 py-2 text-sm"
+                  >
+                    <span className="min-w-0">
+                      <strong className="block truncate font-semibold text-foreground group-hover:text-primary">
+                        {item.title}
+                      </strong>
+                      {item.location ? (
+                        <span className="mt-0.5 block truncate text-xs text-muted-foreground">
+                          {item.location}
+                        </span>
+                      ) : null}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-base leading-none text-muted-foreground transition group-hover:text-primary"
+                    >
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
 
             {/* Banner Callout for Custom Sites */}
             <MotionChoreo surface="catalog-showcase" role="callout">

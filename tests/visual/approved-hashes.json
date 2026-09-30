@@ -80,5 +80,32 @@
         "pixelSha256": "c8a4039767cd3e84e754d629967ddce0a7c9cac01bc87ed58c6682b085ed7a77"
       }
     }
+  },
+  "portfolio-index": {
+    "reason": "Baseline atual do índice /portfolio revisada manualmente em desktop, tablet e mobile durante a rodada do diretório crawlable. A aprovação é por hash exato de pixels e não altera o limite global de 2%.",
+    "reviewedAt": "2026-09-30",
+    "evidence": {
+      "runId": 36662219703,
+      "artifactId": 11074887625,
+      "artifactDigest": "sha256:586ead47ab9d660274c5f120b1eea2f445ecfe20dfd84f1fee062952bac180d6",
+      "headSha": "b1708e3fa58e066c71e8a0f99560bbf061b16a64"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "965843ebbb7f330462d8f0a5dc3c8136e304ed7a234df0d5de8cc07669d80e43"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "7b523ae2484889a7fa1ef7f6a9b8841b6d7f071c2b83462e663c97371e9899cb"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "443922f9081b12d711e143f800c38350bb369b419f599299992b7191916adc6f"
+      }
+    }
   }
 }
