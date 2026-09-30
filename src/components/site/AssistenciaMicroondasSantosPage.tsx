@@ -81,6 +81,45 @@ export function AssistenciaMicroondasSantosPage() {
         <section id="servicos" className="bg-[#1b1e21] px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff6a70]">Soluções para o seu aparelho</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Escolha o caminho mais prático.</h2><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{services.map(([title, text, Icon]) => <article key={title} className="rounded-2xl border border-white/10 bg-[#111315] p-6 transition hover:-translate-y-1 hover:border-[#d9282f]/60"><Icon className="h-8 w-8 text-[#ff6a70]" /><h3 className="mt-8 text-xl font-black">{title}</h3><p className="mt-3 leading-7 text-white/65">{text}</p><a href="#atendimento" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#ff9a9f] hover:underline">Quero avaliar <ArrowRight className="h-4 w-4" /></a></article>)}</div></div></section>
         <section id="galeria" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff6a70]">Galeria da assistência</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Restauração e atendimento em um só lugar.</h2><div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-start"><figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#1b1e21]"><PortfolioImage src="/images/assistencia-microondas-santos/hero.png" alt="Comparativo antes e depois da restauração de um micro-ondas" width={1220} height={1198} className="w-full object-cover" /><figcaption className="p-5 text-sm text-white/60">Material enviado pela Assistência Técnica Microondas Santos.</figcaption></figure><figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#1b1e21]"><PortfolioImage src="/images/assistencia-microondas-santos/flyer.png" alt="Flyer da Assistência Técnica Microondas Santos" width={1040} height={585} className="w-full object-cover" /><figcaption className="p-5 text-sm text-white/60">Identidade e contatos apresentados no material original do cliente.</figcaption></figure></div></div></section>
         <section id="como-funciona" className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff6a70]">Como funciona</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Uma conversa clara antes do próximo passo.</h2><div className="mt-8 grid gap-4 sm:grid-cols-3">{[["01", "Conte", "Explique o defeito, a ferrugem ou o modelo que procura."], ["02", "Avalie", "A equipe entende o aparelho e orienta a alternativa adequada."], ["03", "Combine", "Defina atendimento, retirada ou entrega conforme o caso."]].map(([number, title, text]) => <div key={number} className="rounded-2xl border border-white/10 bg-white/[.03] p-5"><span className="text-sm font-bold text-[#ff6a70]">{number}</span><h3 className="mt-5 font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/60">{text}</p></div>)}</div></div><div id="atendimento" className="rounded-[2rem] border border-[#d9282f]/30 bg-[#1b1e21] p-8 shadow-2xl"><Sparkles className="h-8 w-8 text-[#ff6a70]" /><h3 className="mt-6 text-3xl font-black">Precisa de uma orientação?</h3><p className="mt-3 leading-7 text-white/65">Responda algumas perguntas rápidas e envie os detalhes para a equipe avaliar seu atendimento.</p><CTA location="santos_microondas_booking">Solicitar avaliação <ArrowRight className="h-4 w-4" /></CTA><p className="mt-5 text-xs text-white/45"><Clock3 className="mr-1 inline h-4 w-4" />Disponibilidade e condições são confirmadas no atendimento.</p></div></div></section>
+        <section id="diagnostico" className="border-y border-white/10 bg-[#151719] px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-10 lg:grid-cols-[.42fr_.58fr]">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff6a70]">Assistência em São José dos Pinhais</p>
+                <h2 className="mt-3 text-4xl font-black">Defeito, ferrugem ou compra de revisado pedem caminhos diferentes.</h2>
+                <p className="mt-5 text-lg leading-8 text-white/65">
+                  A Assistência Técnica Microondas Santos organiza o contato pela necessidade real do aparelho. Em vez
+                  de presumir a solução, a página coleta marca, modelo, defeito percebido e a forma de atendimento para
+                  que a equipe faça a avaliação antes de confirmar serviço, prazo ou condição.
+                </p>
+              </div>
+              <div className="divide-y divide-white/10 border-y border-white/10">
+                {[
+                  ["01", "O aparelho parou ou apresenta defeito", "Informe marca, modelo e o que acontece quando você tenta usar. O diagnóstico vem antes da definição do reparo."],
+                  ["02", "Há ferrugem ou desgaste interno", "A restauração contra ferrugem é uma das frentes apresentadas pela assistência e precisa ser avaliada caso a caso."],
+                  ["03", "Você procura um micro-ondas revisado", "A assistência também apresenta modelos revisados, sempre sujeitos à disponibilidade do estoque no momento do contato."],
+                  ["04", "Você precisa combinar o atendimento", "O funil permite indicar atendimento em casa, na assistência ou combinar entrega, sem prometer uma modalidade antes da confirmação."],
+                ].map(([n, title, text]) => (
+                  <article key={n} className="grid gap-4 py-6 sm:grid-cols-[3rem_12rem_1fr]">
+                    <span className="text-sm font-black text-[#ff6a70]">{n}</span>
+                    <h3 className="font-black">{title}</h3>
+                    <p className="leading-7 text-white/60">{text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="mt-10 rounded-[2rem] border border-[#d9282f]/30 bg-[#1b1e21] p-7 sm:p-9">
+              <h3 className="text-2xl font-black">O que vale enviar na primeira mensagem?</h3>
+              <div className="mt-5 grid gap-3 text-sm text-white/65 sm:grid-cols-2">
+                <p><Check className="mr-2 inline h-4 w-4 text-[#ff6a70]" />Marca e modelo do micro-ondas.</p>
+                <p><Check className="mr-2 inline h-4 w-4 text-[#ff6a70]" />Defeito percebido ou condição de ferrugem.</p>
+                <p><Check className="mr-2 inline h-4 w-4 text-[#ff6a70]" />Se procura reparo, restauração ou aparelho revisado.</p>
+                <p><Check className="mr-2 inline h-4 w-4 text-[#ff6a70]" />Preferência de atendimento para a equipe confirmar a possibilidade.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="instagram" className="bg-[#d9282f] px-5 py-16 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><Instagram className="h-8 w-8" /><p className="mt-4 text-sm font-bold uppercase tracking-[.2em] text-white/75">Presença digital</p><h2 className="mt-2 text-3xl font-black">Acompanhe a Assistência Santos.</h2><p className="mt-3 max-w-xl leading-7 text-white/80">Veja restaurações, aparelhos e novidades no perfil da assistência.</p></div><a href="https://www.instagram.com/micro_santos" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 py-3 font-black text-[#a7181d]">Abrir Instagram <ArrowRight className="h-4 w-4" /></a></div></section>
       </main>
       <footer className="bg-[#090a0b] px-5 py-8 text-sm text-white/60 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-bold text-white">Assistência Técnica Microondas Santos</p><p className="mt-1">Conserto, restauração e venda de micro-ondas.</p><p className="mt-1 flex items-center gap-1"><MapPin className="h-4 w-4 text-[#ff6a70]" />Atendimento local — consulte a região.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#ff9a9f]" /></div></footer>
