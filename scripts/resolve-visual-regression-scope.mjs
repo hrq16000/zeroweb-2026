@@ -30,6 +30,24 @@ function isBroadVisualFile(file) {
   );
 }
 
+const PORTFOLIO_INDEX_SCOPE = "portfolio-index";
+
+function portfolioIndexScope(files) {
+  const relevant = files
+    .map(normalize)
+    .filter(Boolean)
+    .filter(
+      (file) =>
+        !file.startsWith("tests/") &&
+        file !== "scripts/resolve-visual-regression-scope.mjs",
+    );
+
+  if (!relevant.length) return null;
+  return relevant.every((file) => file === "src/routes/portfolio.index.tsx")
+    ? [PORTFOLIO_INDEX_SCOPE]
+    : null;
+}
+
 const LOCAL_DIRECTORY_FILES = new Set([
   "src/components/portfolio/PortfolioSeoNetwork.tsx",
   "src/lib/portfolio-place-directory.ts",
@@ -72,6 +90,9 @@ function localDirectoryRepresentativeScope(files) {
 }
 
 export function resolveVisualRegressionScope(files, clients) {
+  const indexScope = portfolioIndexScope(files);
+  if (indexScope) return indexScope;
+
   const localDirectoryScope = localDirectoryRepresentativeScope(files);
   if (localDirectoryScope) return localDirectoryScope;
 
