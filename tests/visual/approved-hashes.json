@@ -53,5 +53,32 @@
         "pixelSha256": "6871dbc18d042f1c7cefef94bd4d2e4a62eb8a4c34f7df032299925854e5b4d6"
       }
     }
+  },
+  "ecommerce-on": {
+    "reason": "A onda 3 removeu motion do hero e aprofundou a orientação editorial da Ecommerce On. As capturas desktop, tablet e mobile foram inspecionadas no artefato do portfolio-gates; a composição, CTAs, texto e mídia estão corretos. A aprovação fixa exatamente esses pixels e não altera o limite global de 2%.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36660404819,
+      "artifactId": 11073892716,
+      "artifactDigest": "sha256:eafdd144073fd14944f3069e3e575beff39f49d55573c30550cc01f63ef7b5fd",
+      "headSha": "d55edb2af5a75df64905ab6232227996fac9aed7"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "daa8e9a990715bede259c90bbb0bc3eed2d11edbd216fd6e97e8fdf9d4d48930"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "313b468758c3ee926b59a23d170bb4dfc433d6d0bbe50c0dab87514698068ff3"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "c8a4039767cd3e84e754d629967ddce0a7c9cac01bc87ed58c6682b085ed7a77"
+      }
+    }
   }
 }
