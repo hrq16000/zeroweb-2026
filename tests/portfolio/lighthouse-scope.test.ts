@@ -27,4 +27,23 @@ describe("Lighthouse escopado por portfolios alterados", () => {
     expect(config).toContain('slug !== "portfolio-index"');
     expect(config).toContain('[`${TARGET_URL}/portfolio`]');
   });
+
+  test("push em main mede o próprio commit e não disputa com o deploy", () => {
+    expect(workflow).toContain("LHCI_USE_LOCAL:");
+    expect(workflow).toContain("github.event_name != 'workflow_dispatch'");
+    expect(config).toContain("LHCI_USE_LOCAL");
+    expect(config).toContain("USE_LOCAL_SERVER");
+    expect(config).toContain("startServerCommand");
+  });
+
+  test("workflow_dispatch preserva auditoria explícita de URL externa", () => {
+    expect(workflow).toContain("workflow_dispatch");
+    expect(workflow).toContain("target_url");
+    expect(config).toContain('process.env.LHCI_TARGET_URL || "https://0web.com.br"');
+  });
+
+  test("artefatos ocultos do Lighthouse são publicados", () => {
+    expect(workflow).toContain("include-hidden-files: true");
+    expect(workflow).toContain(".lighthouseci/**");
+  });
 });
