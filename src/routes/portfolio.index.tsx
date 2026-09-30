@@ -936,27 +936,21 @@ function PortfolioPage() {
                 </p>
               </div>
 
-              <div className="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-                {crawlablePublishedItems.map((item) => (
-                  <Link
-                    key={`directory-${item.id}`}
-                    to={item.slug}
-                    className="group flex min-h-11 items-center justify-between gap-3 border-b border-border/70 py-2 text-sm"
-                  >
-                    <span className="min-w-0">
-                      <strong className="block truncate font-semibold text-foreground group-hover:text-primary">
+              <nav aria-label="Todos os portfólios publicados" className="mt-6">
+                <ul className="columns-1 gap-x-8 sm:columns-2 lg:columns-3">
+                  {crawlablePublishedItems.map((item) => (
+                    <li key={`directory-${item.id}`} className="mb-1 break-inside-avoid">
+                      <a
+                        href={item.slug}
+                        className="block border-b border-border/70 py-2 text-sm font-semibold text-foreground hover:text-primary"
+                      >
                         {item.title}
-                      </strong>
-                      {item.location ? (
-                        <span className="mt-0.5 block truncate text-xs text-muted-foreground">
-                          {item.location}
-                        </span>
-                      ) : null}
-                    </span>
-                    <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition group-hover:text-primary" />
-                  </Link>
-                ))}
-              </div>
+                        {item.location ? ` — ${item.location}` : ""}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </section>
 
             {/* Banner Callout for Custom Sites */}
