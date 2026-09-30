@@ -57,11 +57,11 @@ export function DlaraPizzariaPage() {
             <div className="absolute inset-0 -z-0 rounded-full bg-[var(--dl-ember)]/20 blur-2xl" aria-hidden />
             <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-full">
             <PortfolioImage
-              src="/images/dlara-pizzaria/capa.png"
+              src="/images/dlara-pizzaria/capa-og.jpg"
               alt="D’Lara Pizzaria, Esfiharia e Hamburgueria"
               priority
               width={1200}
-              height={800}
+              height={630}
               className="relative aspect-square w-full rounded-full border-[6px] border-[var(--dl-ember)]/70 object-cover"
               managedField="heroImageUrl"
             />
@@ -110,6 +110,46 @@ export function DlaraPizzariaPage() {
               </MotionReveal>
             ))}
           </div>
+        </section>
+
+        <section id="como-pedir" className="mx-auto max-w-5xl px-5 py-16">
+          <div className="grid gap-10 md:grid-cols-[.42fr_.58fr]">
+            <div>
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.32em] text-[var(--dl-ember)]">
+                Pedido no Jardim Itália
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-black leading-tight md:text-4xl">
+                Comece pela cozinha que combina com a sua fome.
+              </h2>
+              <p className="mt-4 max-w-[46ch] text-sm leading-7 text-[var(--dl-light)]/70">
+                A D’Lara reúne pizzaria, esfiharia e hamburgueria em São José dos Pinhais. Em vez de
+                tentar decidir tudo antes de chamar, escolha a categoria principal e informe se o
+                pedido é para você, para dividir ou para uma ocasião com mais pessoas.
+              </p>
+            </div>
+            <ol className="divide-y divide-[var(--dl-ember)]/25 border-y border-[var(--dl-ember)]/25">
+              {[
+                ["01", "Pizza", "Boa referência para começar quando a ideia é compartilhar ou montar uma refeição em torno da mesa."],
+                ["02", "Esfiha", "A página apresenta opções abertas e fechadas; a disponibilidade e os sabores são confirmados no atendimento."],
+                ["03", "Lanche", "Para quem procura a frente de hamburgueria e quer organizar um pedido mais direto."],
+                ["04", "Entrega", "Informe o bairro ou endereço em São José dos Pinhais para confirmar como o pedido pode ser atendido."],
+              ].map(([n, title, text]) => (
+                <li key={n} className="grid gap-3 py-5 sm:grid-cols-[3rem_8rem_1fr]">
+                  <span className="font-mono text-xs font-bold text-[var(--dl-ember)]">{n}</span>
+                  <h3 className="font-display text-lg font-bold">{title}</h3>
+                  <p className="text-sm leading-7 text-[var(--dl-light)]/65">{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <aside className="mt-10 border-l-2 border-[var(--dl-basil)] bg-[var(--dl-light)]/[0.03] p-6">
+            <h3 className="font-display text-xl font-bold">O que ajuda na primeira mensagem</h3>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--dl-light)]/65">
+              Categoria desejada, quantidade aproximada de pessoas e forma de atendimento. Sabores,
+              tamanhos, valores e disponibilidade ficam para confirmação direta com a equipe, sem a
+              página transformar uma intenção em promessa de cardápio.
+            </p>
+          </aside>
         </section>
 
         <section className="mx-auto max-w-3xl px-5 py-16 text-center">
