@@ -168,4 +168,5 @@ jobs:
           path: |
             .lighthouseci/**
             lhci-reports/**
+          include-hidden-files: true
           if-no-files-found: ignore
