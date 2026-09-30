@@ -36,7 +36,7 @@ import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
 import { trackEvent } from "@/lib/analytics";
-import { MotionCard, MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
+import { MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
 import {
   trackPortfolioSearch,
   trackPortfolioSearchClick,
@@ -766,7 +766,7 @@ function PortfolioPage() {
                   <div className="grid grid-cols-1 gap-x-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                     <>
                       {filteredItems.slice(0, visibleCount).map((item, index) => (
-                        <MotionCard key={item.id} index={index}>
+                        <div key={item.id}>
                         <div
                           className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft focus-within:-translate-y-1 focus-within:border-primary/50 focus-within:shadow-soft motion-reduce:transform-none motion-reduce:transition-none"
                         >
@@ -892,7 +892,7 @@ function PortfolioPage() {
                             </div>
                           </div>
                         </div>
-                        </MotionCard>
+                        </div>
                       ))}
                     </>
                   </div>
