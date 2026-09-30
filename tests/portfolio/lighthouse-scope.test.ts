@@ -18,7 +18,13 @@ describe("Lighthouse escopado por portfolios alterados", () => {
 
   test("config mede somente os slugs indicados quando LHCI_ONLY existe", () => {
     expect(config).toContain('process.env.LHCI_ONLY');
-    expect(config).toContain("LIGHTHOUSE_ONLY.map");
+    expect(config).toContain("lighthousePortfolioSlugs.map");
     expect(config).toContain("LIGHTHOUSE_ONLY.length === 0");
+  });
+
+  test("token portfolio-index mede somente /portfolio", () => {
+    expect(config).toContain('PORTFOLIO_INDEX_TOKEN = "portfolio-index"');
+    expect(config).toContain('[`${TARGET_URL}/portfolio`]');
+    expect(config).toContain("...indexUrls");
   });
 });
