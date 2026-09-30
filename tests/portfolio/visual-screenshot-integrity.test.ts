@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import { repeatedTopStripRows } from "../../scripts/visual-screenshot-integrity.mjs";
 
 function fakePng(width: number, height: number) {
@@ -34,5 +35,13 @@ describe("integridade de screenshot visual", () => {
   test("ignora coincidência pequena abaixo do piso de segurança", () => {
     const png = duplicateTopAtBottom(fakePng(12, 220), 24);
     expect(repeatedTopStripRows(png)).toBe(0);
+  });
+
+  test("estabiliza sticky sem afrouxar o threshold visual", () => {
+    const source = readFileSync("scripts/playwright-visual-regression.mjs", "utf8");
+    expect(source).toContain("pos === 'sticky'");
+    expect(source).toContain("setProperty('position', 'static', 'important')");
+    expect(source).toContain("VISUAL_THRESHOLD ?? 0.02");
+    expect(source).toContain("if (ratio > threshold)");
   });
 });
