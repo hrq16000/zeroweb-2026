@@ -98,6 +98,7 @@ jobs:
           echo "escopo E2E: ${ONLY:-global}"
 
       - name: Pop-up único em /portfolio/$slug
+        if: steps.e2e-scope.outputs.only != 'portfolio-index'
         env:
           POPUP_CONCURRENCY: 4
           POPUP_SLUGS: ${{ steps.e2e-scope.outputs.only }}
@@ -105,6 +106,7 @@ jobs:
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
+        if: steps.e2e-scope.outputs.only != 'portfolio-index'
         env:
           E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
