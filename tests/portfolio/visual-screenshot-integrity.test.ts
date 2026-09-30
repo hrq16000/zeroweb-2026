@@ -41,6 +41,9 @@ describe("integridade de screenshot visual", () => {
     const source = readFileSync("scripts/playwright-visual-regression.mjs", "utf8");
     expect(source).toContain("pos === 'sticky'");
     expect(source).toContain("setProperty('position', 'static', 'important')");
+    expect(source).toContain('Page.captureScreenshot');
+    expect(source).toContain("fromSurface: false");
+    expect(source).toContain("captureBeyondViewport: false");
     expect(source).toContain("VISUAL_THRESHOLD ?? 0.02");
     expect(source).toContain("if (ratio > threshold)");
   });
