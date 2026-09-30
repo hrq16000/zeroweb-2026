@@ -55,13 +55,13 @@
     }
   },
   "ecommerce-on": {
-    "reason": "A onda 3 removeu motion do hero e aprofundou a orientação editorial da Ecommerce On. As capturas desktop e mobile foram inspecionadas no artefato do portfolio-gates; a composição, CTAs, texto e mídia estão corretos. A aprovação fixa exatamente esses pixels e não altera o limite global de 2%.",
+    "reason": "A onda 3 removeu motion do hero e aprofundou a orientação editorial da Ecommerce On. As capturas desktop, tablet e mobile foram inspecionadas no artefato do portfolio-gates; a composição, CTAs, texto e mídia estão corretos. A aprovação fixa exatamente esses pixels e não altera o limite global de 2%.",
     "reviewedAt": "2026-09-29",
     "evidence": {
-      "runId": 36659738964,
-      "artifactId": 11073901795,
-      "artifactDigest": "sha256:50cf505a856e9381e967ad0d84f00b7523d7b0a25123cf680a66c69306cea36d",
-      "headSha": "549894ce5c1433180c979041e55f6a6e30b13330"
+      "runId": 36660404819,
+      "artifactId": 11073892716,
+      "artifactDigest": "sha256:eafdd144073fd14944f3069e3e575beff39f49d55573c30550cc01f63ef7b5fd",
+      "headSha": "d55edb2af5a75df64905ab6232227996fac9aed7"
     },
     "viewports": {
       "desktop": {
@@ -69,10 +69,15 @@
         "height": 900,
         "pixelSha256": "daa8e9a990715bede259c90bbb0bc3eed2d11edbd216fd6e97e8fdf9d4d48930"
       },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "313b468758c3ee926b59a23d170bb4dfc433d6d0bbe50c0dab87514698068ff3"
+      },
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "37de33f5da1c8ac424357f7bdf45b13346e7b2c97430e714470f4543d568b664"
+        "pixelSha256": "c8a4039767cd3e84e754d629967ddce0a7c9cac01bc87ed58c6682b085ed7a77"
       }
     }
   }
