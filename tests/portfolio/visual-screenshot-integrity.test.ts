@@ -37,6 +37,13 @@ describe("integridade de screenshot visual", () => {
     expect(repeatedTopStripRows(png)).toBe(0);
   });
 
+  test("não confunde fundo liso igual no topo e no rodapé com artefato", () => {
+    const png = fakePng(64, 220);
+    png.data.fill(0);
+    for (let i = 3; i < png.data.length; i += 4) png.data[i] = 255;
+    expect(repeatedTopStripRows(png)).toBe(0);
+  });
+
   test("estabiliza sticky sem afrouxar o threshold visual", () => {
     const source = readFileSync("scripts/playwright-visual-regression.mjs", "utf8");
     expect(source).toContain("pos === 'sticky'");
