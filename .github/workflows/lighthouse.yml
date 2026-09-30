@@ -108,7 +108,7 @@ jobs:
           fi
 
           if printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
-            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:|@type.*WebPage|@id.*url|^[+-][[:space:]]*url,?$|name: (project\.seoTitle|title),?$|description: (project\.seoDescription|description),?$|inLanguage: "pt-BR"|isPartOf:|^[+-][[:space:]]*[{}],?$' || true)"
+            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:|@type.*WebPage|@id.*url|^[+-][[:space:]]*url,?$|name: (project\.seoTitle|title),?$|description: (project\.seoDescription|description),?$|^[+-][[:space:]]*description,?$|inLanguage: "pt-BR"|isPartOf:|^[+-][[:space:]]*[{}],?$' || true)"
             if [ -n "$ROUTE_DIFF" ]; then
               RUN=true
             fi
