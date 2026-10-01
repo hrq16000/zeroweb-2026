@@ -321,6 +321,58 @@ export function AguiaSulSinalizacaoPage() {
             </div>
           </section>
 
+          <section id="briefing-tecnico" className="border-y border-[#121212]/15 bg-white px-5 py-20 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-10 lg:grid-cols-[.38fr_.62fr]">
+                <div>
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[.2em] text-[#8a6a10]">
+                    Antes do orçamento
+                  </p>
+                  <h2 className="mt-4 max-w-[10ch] font-display text-4xl font-black uppercase leading-[.92] sm:text-5xl">
+                    Quatro dados ajudam a transformar o local em escopo.
+                  </h2>
+                  <p className="mt-5 max-w-md leading-8 text-[#666]">
+                    Para pintura de estacionamento, demarcação, faixas, paredes ou estruturas, a proposta
+                    começa entendendo a função da área e o que precisa ser organizado no espaço.
+                  </p>
+                </div>
+                <div className="overflow-x-auto border border-[#121212]/15">
+                  <table className="w-full min-w-[680px] border-collapse text-left">
+                    <caption className="sr-only">Informações para solicitar orçamento de sinalização e pintura</caption>
+                    <thead className="bg-[#121212] text-white">
+                      <tr>
+                        <th className="px-5 py-4 font-mono text-[10px] uppercase tracking-[.16em] text-[#f5b51b]">Informação</th>
+                        <th className="px-5 py-4 font-mono text-[10px] uppercase tracking-[.16em] text-[#f5b51b]">O que descrever</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        ["Tipo de área", "Estacionamento, condomínio, comércio, empresa, galpão ou outra área operacional."],
+                        ["Objetivo da pintura", "Vagas, faixas, setas, carga e descarga, paredes ou estrutura industrial."],
+                        ["Situação atual", "Se a área já possui pintura, se precisa de renovação ou se será uma demarcação nova."],
+                        ["Local e prazo", "Endereço em Curitiba ou Região Metropolitana e quando você pretende realizar o serviço."],
+                      ].map(([label, text]) => (
+                        <tr key={label} className="border-t border-[#121212]/15">
+                          <th scope="row" className="px-5 py-5 font-display text-lg font-black">{label}</th>
+                          <td className="px-5 py-5 leading-7 text-[#666]">{text}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <aside className="mt-8 grid gap-4 border-l-4 border-[#f5b51b] bg-[#f2efe6] p-6 sm:grid-cols-[1fr_auto] sm:items-center">
+                <p className="leading-7 text-[#565656]">
+                  Medidas, materiais e condições finais são definidos no atendimento. A página organiza o primeiro
+                  briefing sem transformar uma estimativa inicial em escopo fechado.
+                </p>
+                <CTA className="inline-flex min-h-11 items-center gap-2 bg-[#121212] px-5 py-3 text-sm font-black text-white">
+                  Enviar briefing <ArrowRight className="h-4 w-4" />
+                </CTA>
+              </aside>
+            </div>
+          </section>
+
           <section id="proposta" className="bg-[#f5b51b] px-5 py-14 lg:px-8 lg:py-16">
             <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>

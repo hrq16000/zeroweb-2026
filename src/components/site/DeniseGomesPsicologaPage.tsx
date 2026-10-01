@@ -285,6 +285,56 @@ export function DeniseGomesPsicologaPage() {
           </div>
         </section>
 
+        <section id="primeiro-contato" className="border-y border-[var(--denise-primary)]/10 bg-white/60 px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-10 lg:grid-cols-[.4fr_.6fr]">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--denise-sage)]">
+                  Primeiro contato
+                </p>
+                <h2 className="mt-3 font-display text-4xl font-bold text-[var(--denise-primary-strong)] sm:text-5xl">
+                  Você não precisa chegar com tudo explicado.
+                </h2>
+                <p className="mt-5 leading-8 text-[var(--denise-muted)]">
+                  O formulário serve apenas para iniciar a conversa. A disponibilidade, os próximos passos e as
+                  condições do atendimento são confirmados diretamente com Denise Gomes.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  ["Preciso saber exatamente o que estou sentindo?", "Não. Você pode indicar apenas o motivo que mais se aproxima da sua busca e detalhar somente o que se sentir confortável em registrar."],
+                  ["O atendimento é para qual público?", "A página apresenta atendimento e avaliação psicológica para adultos em São José dos Pinhais."],
+                  ["Posso escolher um período?", "Sim. O formulário permite indicar manhã, tarde, noite ou flexibilidade; a disponibilidade real é confirmada no atendimento."],
+                  ["Como valores e agenda são definidos?", "Essas informações são confirmadas diretamente no contato com a profissional, antes do início do atendimento."],
+                ].map(([question, answer]) => (
+                  <details key={question} className="group rounded-2xl border border-[var(--denise-lavender)] bg-[var(--denise-bg)] p-5">
+                    <summary className="cursor-pointer list-none font-bold text-[var(--denise-primary-strong)]">
+                      {question}
+                    </summary>
+                    <p className="mt-3 leading-7 text-[var(--denise-muted)]">{answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+            <aside className="mt-10 rounded-[2rem] bg-[var(--denise-primary-strong)] p-7 text-[var(--denise-cream)] sm:p-9">
+              <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
+                <div>
+                  <h3 className="font-display text-2xl font-bold">O primeiro passo pode ser apenas pedir informações.</h3>
+                  <p className="mt-3 max-w-3xl leading-7 text-white/75">
+                    Se ainda estiver entendendo qual atendimento procura, use o formulário para iniciar uma conversa
+                    sem precisar definir tudo sozinho antes do contato.
+                  </p>
+                </div>
+                <CTA location="denise_first_contact">
+                  Iniciar conversa <ArrowRight className="h-4 w-4" />
+                </CTA>
+              </div>
+            </aside>
+          </div>
+        </section>
+
         <section id="instagram" className="bg-[var(--denise-surface)] px-5 py-16 lg:px-8">
           <div className="mx-auto flex max-w-6xl flex-col justify-between gap-8 md:flex-row md:items-center">
             <div className="max-w-2xl">
