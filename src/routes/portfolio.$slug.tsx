@@ -71,15 +71,6 @@ function managedHead(project: ManagedProject) {
         children: graph([
           organizationNode(),
           {
-            "@type": "WebPage",
-            "@id": url,
-            url,
-            name: project.seoTitle,
-            description: project.seoDescription,
-            inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
-          },
-          {
             "@type": "LocalBusiness",
             "@id": `${url}#localbusiness`,
             name: project.displayName,
@@ -972,15 +963,6 @@ export const Route = createFileRoute("/portfolio/$slug")({
               type: "application/ld+json",
               children: graph([
                 organizationNode(),
-                {
-                  "@type": "WebPage",
-                  "@id": url,
-                  url,
-                  name: title,
-                  description,
-                  inLanguage: "pt-BR",
-                  isPartOf: { "@id": "https://0web.com.br/portfolio" },
-                },
                 ...(isBtb
                   ? [
                       {
