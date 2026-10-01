@@ -14,7 +14,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const quiz = {
   proposalKind: "service" as const,
@@ -207,17 +207,16 @@ export function PopysConservacaoLimpezaPage() {
 
           <section className="px-5 pb-8 lg:px-8 lg:pb-12">
             <div className="mx-auto max-w-7xl overflow-hidden">
-              <MotionImageReveal direction="up">
+              <div>
                 <PortfolioImage
                   managedField="heroImageUrl"
-                  src="/images/popys-conservacao-limpeza/hero-cleaning.png"
+                  src="/images/popys-conservacao-limpeza/hero-cleaning-og.jpg"
                   alt="Profissionais realizando limpeza em um escritório moderno"
-                  priority
-                  width={1536}
-                  height={1024}
+                  width={1200}
+                  height={800}
                   className="h-[360px] w-full object-cover grayscale-[15%] sm:h-[460px] lg:h-[560px]"
                 />
-              </MotionImageReveal>
+              </div>
             </div>
           </section>
 
