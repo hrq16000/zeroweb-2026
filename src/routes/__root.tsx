@@ -118,7 +118,8 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   }, [error]);
 
   const isDev = import.meta.env.DEV;
-  const message = error?.message ?? "";
+  const normalizedError = error instanceof Error ? error : new Error(String(error));
+  const message = normalizedError.message;
   const looksLikeMissingRoute = /Failed to (load|fetch dynamically imported|resolve).*\/routes\//i.test(
     message,
   );
@@ -126,7 +127,7 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   const diagnostics = isDev ? (
     <>
       <p className="font-mono text-[11px] leading-relaxed text-foreground/80 break-words">
-        {error?.name}: {message}
+        {normalizedError.name}: {message}
       </p>
       {looksLikeMissingRoute ? (
         <p className="text-foreground/80">
