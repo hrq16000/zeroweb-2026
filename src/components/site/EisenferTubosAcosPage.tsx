@@ -121,6 +121,21 @@ export function EisenferTubosAcosPage() {
           </div>
         </section>
 
+        <section className="bg-[#e7edf6] px-5 py-16 text-[#0b1d39] lg:px-10" aria-labelledby="eisenfer-cotacao-title">
+          <div className="mx-auto max-w-[1180px]">
+            <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1265bc]">Antes da cotação</p>
+            <h2 id="eisenfer-cotacao-title" className="mt-3 font-display text-2xl font-black uppercase tracking-tight sm:text-3xl">Medida, quantidade e aplicação deixam a consulta mais objetiva.</h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#586a7e]">
+              Tubos, perfis, chapas e telhas têm especificações diferentes. A própria página já indica que medidas ficam sob consulta; por isso o pedido deve informar o tipo de material, dimensões quando conhecidas, quantidade aproximada e onde ele será aplicado.
+            </p>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <article className="border border-[#b9c8db] bg-white p-6"><h3 className="font-display text-lg font-bold">Material</h3><p className="mt-2 text-sm leading-6 text-[#586a7e]">Tubos, perfis U, chapas ou telhas TP40, conforme a necessidade do projeto.</p></article>
+              <article className="border border-[#b9c8db] bg-white p-6"><h3 className="font-display text-lg font-bold">Medidas e quantidade</h3><p className="mt-2 text-sm leading-6 text-[#586a7e]">Informe dimensões e quantidade aproximada para contextualizar a cotação.</p></article>
+              <article className="border border-[#b9c8db] bg-white p-6"><h3 className="font-display text-lg font-bold">Aplicação e entrega</h3><p className="mt-2 text-sm leading-6 text-[#586a7e]">Obra residencial, estrutura comercial, projeto industrial ou comunicação visual, com entrega consultada para SJP e Curitiba.</p></article>
+            </div>
+          </div>
+        </section>
+
         {/* Aplicações em faixas horizontais numeradas */}
         <section id="aplicacoes" className="px-5 py-16 lg:px-10">
           <div className="mx-auto max-w-[1180px]">

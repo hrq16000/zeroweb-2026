@@ -169,6 +169,19 @@ export function MarmitariaDomDiegoPage() {
             />
           </p>
 
+          <section className="mt-10 border-y border-[var(--dd-ink)]/20 py-8" aria-labelledby="dd-pedido-title">
+            <p className="text-xs font-bold uppercase tracking-[0.26em] text-[var(--dd-leaf)]">Antes de pedir</p>
+            <h2 id="dd-pedido-title" className="mt-3 font-display text-2xl font-bold md:text-3xl">Cardápio do dia, quantidade e forma de receber.</h2>
+            <p className="mt-4 max-w-[64ch] leading-7 text-[var(--dd-ink)]/75">
+              O cardápio pode variar conforme a semana, então a página organiza o pedido sem tratar os itens como estoque fixo. Informe o que procura, quantas refeições precisa e se prefere retirada ou entrega para a casa confirmar o que está disponível no dia.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div><h3 className="font-display font-bold">Cardápio</h3><p className="mt-2 text-sm leading-6 text-[var(--dd-ink)]/65">A casa confirma a combinação do almoço do dia antes de fechar o pedido.</p></div>
+              <div><h3 className="font-display font-bold">Quantidade</h3><p className="mt-2 text-sm leading-6 text-[var(--dd-ink)]/65">Informe quantas marmitas precisa para contextualizar o atendimento.</p></div>
+              <div><h3 className="font-display font-bold">Retirada ou entrega</h3><p className="mt-2 text-sm leading-6 text-[var(--dd-ink)]/65">A forma de receber é combinada diretamente com a casa.</p></div>
+            </div>
+          </section>
+
           <MotionReveal variant="up" delay={80}>
             <div className="mt-8 flex flex-wrap items-center gap-4 border-t-2 border-[var(--dd-ink)]/20 pt-8">
               <FunnelCTAButton

@@ -122,6 +122,19 @@ export function EletrovaleEletromecanicaPage() {
             </div>
           </section>
 
+          <section className="mt-12 border-t border-[#3a4048] pt-8" aria-labelledby="eletrovale-avaliacao-title">
+            <p className="font-mono text-[11px] uppercase tracking-[.22em] text-[#e6ad2d]">Dados para avaliação</p>
+            <h2 id="eletrovale-avaliacao-title" className="mt-3 font-display text-2xl font-bold">Equipamento, sintoma e objetivo orientam a ordem de serviço.</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-white/60">
+              Motor elétrico, bomba, motobomba, motoredutor e motofreio exigem avaliações diferentes. No primeiro contato, informe o tipo de equipamento, o comportamento percebido e se a necessidade é corretiva, preventiva ou de melhoria de desempenho.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="border border-[#3a4048] bg-[#22262b] p-5"><h3 className="font-display font-bold text-[#e6ad2d]">Equipamento</h3><p className="mt-2 text-sm leading-6 text-white/60">Identifique motor, bomba, motoredutor, motofreio ou outro conjunto eletromecânico.</p></div>
+              <div className="border border-[#3a4048] bg-[#22262b] p-5"><h3 className="font-display font-bold text-[#e6ad2d]">Sintoma</h3><p className="mt-2 text-sm leading-6 text-white/60">Parada, aquecimento, ruído ou necessidade de revisão ajudam a contextualizar a avaliação.</p></div>
+              <div className="border border-[#3a4048] bg-[#22262b] p-5"><h3 className="font-display font-bold text-[#e6ad2d]">Objetivo</h3><p className="mt-2 text-sm leading-6 text-white/60">Informe se busca reparo, manutenção preventiva, rebobinamento ou análise de desempenho.</p></div>
+            </div>
+          </section>
+
           <section id="bancada" className="mt-12 border-t border-[#3a4048] pt-8">
             <h2 className="font-display text-2xl font-bold">Tranquilidade e clareza em cada etapa.</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60">

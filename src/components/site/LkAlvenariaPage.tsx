@@ -101,6 +101,21 @@ export function LkAlvenariaPage() {
           </div>
         </section>
 
+        <section className="px-5 pb-20 lg:px-8" aria-labelledby="lk-orcamento-title">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-bold uppercase tracking-[.24em] text-[#a2632a]">Antes do orçamento</p>
+            <h2 id="lk-orcamento-title" className="mt-3 font-display text-3xl font-bold sm:text-4xl">Etapa, metragem e local ajudam a dimensionar a conversa.</h2>
+            <p className="mt-4 max-w-3xl leading-8 text-[#5a4839]">
+              Fundação, alvenaria, acabamento e reforma exigem informações diferentes. Para um primeiro orçamento mais contextualizado, informe qual etapa da obra precisa de atendimento, a metragem aproximada quando conhecida, o endereço e o material desejado se já estiver definido.
+            </p>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <article className="border-2 border-[#17100b] bg-[#fdf7f0] p-6"><h3 className="font-display text-xl font-bold">Qual etapa?</h3><p className="mt-3 text-sm leading-7 text-[#5a4839]">Alicerce, estrutura, alvenaria, reboco, piso, drywall, forro, calçada ou reparo.</p></article>
+              <article className="border-2 border-[#17100b] bg-[#fdf7f0] p-6"><h3 className="font-display text-xl font-bold">Qual dimensão?</h3><p className="mt-3 text-sm leading-7 text-[#5a4839]">Metragem aproximada ou quantidade de ambientes ajudam a contextualizar a solicitação.</p></article>
+              <article className="border-2 border-[#17100b] bg-[#fdf7f0] p-6"><h3 className="font-display text-xl font-bold">Onde será a obra?</h3><p className="mt-3 text-sm leading-7 text-[#5a4839]">O atendimento informado é Curitiba e região; o endereço é confirmado no próprio funil.</p></article>
+            </div>
+          </div>
+        </section>
+
         {/* FICHA DA OBRA: tabela de compromissos, não cards */}
         <section id="ficha" className="bg-[#17100b] px-5 py-20 text-[#f4efe7] lg:px-8">
           <div className="mx-auto max-w-5xl">

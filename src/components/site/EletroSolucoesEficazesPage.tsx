@@ -123,6 +123,21 @@ export function EletroSolucoesEficazesPage() {
           </div>
         </section>
 
+        <section className="px-5 pb-16 lg:px-8" aria-labelledby="eletro-escopo-title">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-[11px] font-black uppercase tracking-[.24em] text-[#1276a8]">Antes da visita técnica</p>
+            <h2 id="eletro-escopo-title" className="mt-3 font-display text-3xl font-black">Instalar, corrigir ou automatizar são escopos diferentes.</h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#4a6070]">
+              O primeiro contato fica mais útil quando já informa o tipo de espaço, o serviço desejado e o local. Residência, comércio, condomínio e indústria aparecem como contextos distintos no próprio funil da Eletro Soluções.
+            </p>
+            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="border-2 border-[#08283e] bg-white p-5"><h3 className="font-display font-bold">Instalação</h3><p className="mt-2 text-sm leading-6 text-[#4a6070]">Descreva ponto, iluminação, padrão ou outro serviço elétrico que precisa ser instalado.</p></div>
+              <div className="border-2 border-[#08283e] bg-white p-5"><h3 className="font-display font-bold">Manutenção</h3><p className="mt-2 text-sm leading-6 text-[#4a6070]">Conte o problema percebido e se o suporte é residencial, comercial, predial ou industrial.</p></div>
+              <div className="border-2 border-[#08283e] bg-white p-5"><h3 className="font-display font-bold">Automação</h3><p className="mt-2 text-sm leading-6 text-[#4a6070]">Explique o espaço e o que deseja automatizar para a equipe entender o escopo antes da visita.</p></div>
+            </div>
+          </div>
+        </section>
+
         {/* Etapas em faixa horizontal contínua */}
         <section id="etapas" className="bg-[#08283e] px-5 py-14 text-white lg:px-8">
           <div className="mx-auto max-w-5xl">
