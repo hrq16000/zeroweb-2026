@@ -211,6 +211,49 @@ export function CrisPresentesColoniaRioGrandePage() {
           </div>
         </section>
 
+        <section id="guia-de-escolha" className="border-y-2 border-[#20213a] bg-[#fffdf4] px-5 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+              <div className="lg:sticky lg:top-8">
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#bd3e72]">
+                  mapa rápido de procura
+                </p>
+                <h2 className="mt-3 max-w-[11ch] font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                  Comece pela situação, não pelo produto.
+                </h2>
+                <p className="mt-5 max-w-md leading-7 text-[#665b69]">
+                  A Cris reúne categorias diferentes no mesmo ponto do Colônia Rio Grande.
+                  Use a situação abaixo para deixar a consulta mais objetiva; a loja confirma o que está disponível.
+                </p>
+              </div>
+
+              <div className="border-2 border-[#20213a] bg-white">
+                {[
+                  ["Presente para criança", "Comece por brinquedos e artigos recreativos e informe a idade ou ocasião."],
+                  ["Material para estudo ou rotina", "Papelaria e armarinho são as categorias registradas para esse tipo de procura."],
+                  ["Lembrança ou complemento", "Doces, balas e bombons fazem parte das atividades cadastradas da filial."],
+                  ["Acessório ou presente pessoal", "A filial também possui atividade cadastrada de joalheria e relojoaria."],
+                  ["Ainda não decidiu", "Diga para quem é, a ocasião, a faixa de preço desejada e o prazo para receber opções da loja."],
+                ].map(([title, text], index) => (
+                  <article
+                    key={title}
+                    className="grid gap-3 border-b-2 border-[#20213a] p-5 last:border-b-0 sm:grid-cols-[3.5rem_14rem_1fr] sm:items-start sm:p-6"
+                  >
+                    <span className="font-mono text-xs font-black text-[#bd3e72]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl font-black">{title}</h3>
+                    <p className="text-sm leading-7 text-[#665b69]">{text}</p>
+                  </article>
+                ))}
+                <div className="bg-[#ffca62] p-5 text-sm font-bold leading-6 sm:p-6">
+                  Este guia não representa estoque em tempo real. Ele organiza a conversa antes da confirmação pela unidade.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="ficha" className="bg-[#20213a] px-5 py-16 text-white lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
