@@ -107,5 +107,32 @@
         "pixelSha256": "443922f9081b12d711e143f800c38350bb369b419f599299992b7191916adc6f"
       }
     }
+  },
+  "aguia-sul-sinalizacao": {
+    "reason": "Onda de indexação GSC adicionou briefing técnico útil sem alterar funis, URL ou identidade. As três capturas desktop/tablet/mobile foram inspecionadas visualmente após build, hidratação, Lighthouse e demais gates; esta aprovação fixa exatamente os pixels revisados sem alterar o limite global de 2%.",
+    "reviewedAt": "2026-09-30",
+    "evidence": {
+      "runId": 36806877418,
+      "artifactId": 11137234207,
+      "artifactDigest": "sha256:5adb93734f9901e49d4c92e88bd23a3f544a4c4be5b0d8d15eb3d8e24c0b1e7f",
+      "headSha": "dcf2a8b6a5a369d8c08f322ebd92a8b493638db1"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "614591101768fd4d382fa2e1885bc46099149f70fc3dd6fd3b2069f3a440e188"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "62e2955539e1633869f4145d54d9010cbd6194faac693738c65b4bf5836ba47a"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "a88a25df7ae23fc2df2e869803a50033ae170dacc2d7eafb69dd28a463274fb7"
+      }
+    }
   }
 }
