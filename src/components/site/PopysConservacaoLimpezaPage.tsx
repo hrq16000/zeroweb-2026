@@ -312,6 +312,51 @@ export function PopysConservacaoLimpezaPage() {
             </div>
           </section>
 
+          <section id="como-orcar" className="border-y border-[#c86d86]/20 bg-white px-5 py-20 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="max-w-3xl">
+                <p className="text-xs font-black uppercase tracking-[.2em] text-[#a44863]">
+                  Como preparar o pedido
+                </p>
+                <h2 className="mt-4 font-display text-4xl font-black leading-tight text-[#2a2025] sm:text-5xl">
+                  Limpeza profissional depende mais do contexto do ambiente do que de um pacote genérico.
+                </h2>
+                <p className="mt-5 leading-8 text-[#74676d]">
+                  A POPYS atende empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região.
+                  Para organizar um orçamento útil, vale informar o tipo de espaço, a necessidade principal e se o
+                  serviço será pontual ou periódico.
+                </p>
+              </div>
+
+              <dl className="mt-10 grid gap-px overflow-hidden border border-[#eadde2] bg-[#eadde2] md:grid-cols-2">
+                {[
+                  ["Qual é o ambiente?", "Empresa, escritório, condomínio, obra, casa ou apartamento."],
+                  ["Qual é a prioridade?", "Conservação, pós-obra, vidros, pisos, fachada ou uma combinação a avaliar."],
+                  ["É pontual ou recorrente?", "A frequência muda a forma de organizar equipe, rotina e próximo passo."],
+                  ["Onde será o atendimento?", "Curitiba, Região Metropolitana ou endereço ainda a confirmar."],
+                ].map(([question, answer]) => (
+                  <div key={question} className="bg-[#fffafc] p-7">
+                    <dt className="font-display text-xl font-black text-[#2a2025]">{question}</dt>
+                    <dd className="mt-3 leading-7 text-[#74676d]">{answer}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <div className="mt-8 flex flex-col gap-5 rounded-[1.5rem] bg-[#f4e5ea] p-7 sm:flex-row sm:items-center sm:justify-between">
+                <div className="max-w-3xl">
+                  <h3 className="font-display text-2xl font-black text-[#2a2025]">Sem metragem exata? Ainda dá para começar.</h3>
+                  <p className="mt-2 leading-7 text-[#74676d]">
+                    Informe o tipo de ambiente e a necessidade principal. Metragem, frequência e particularidades
+                    podem ser detalhadas no atendimento antes do fechamento.
+                  </p>
+                </div>
+                <CTA className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-md bg-[#8f3f58] px-6 py-3.5 text-sm font-black text-white">
+                  Organizar orçamento
+                </CTA>
+              </div>
+            </div>
+          </section>
+
           <section id="contato" className="bg-[#c86d86] px-5 py-16 text-white lg:px-8 lg:py-20">
             <div className="mx-auto max-w-7xl">
               <p className="text-xs font-black uppercase tracking-[.2em] text-white/70">
