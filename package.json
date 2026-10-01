@@ -213,6 +213,13 @@
   },
   "overrides": {
     "entities": "4.5.0",
-    "framer-motion": "12.40.0"
+    "framer-motion": "12.40.0",
+    "@tanstack/react-start-client": "1.168.30",
+    "@tanstack/react-start-rsc": "0.1.48",
+    "@tanstack/react-start-server": "1.167.37",
+    "@tanstack/router-utils": "1.162.2",
+    "@tanstack/start-client-core": "1.170.27",
+    "@tanstack/start-plugin-core": "1.171.39",
+    "@tanstack/start-server-core": "1.169.39"
   }
 }
