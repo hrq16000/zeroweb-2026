@@ -73,6 +73,7 @@ export function ClinicaIntegradaSaudePage() {
           </a>
           <nav className="hidden gap-6 text-sm font-medium text-[#41626a] md:flex">
             <a href="#especialidades">Especialidades</a>
+            <a href="#triagem">Triagem</a>
             <a href="#jornada">Como funciona</a>
             <a href="#orientacoes">Orientações</a>
           </nav>
@@ -127,6 +128,60 @@ export function ClinicaIntegradaSaudePage() {
               </article>
             ))}
           </MotionStagger>
+        </section>
+
+        <section id="triagem" className="border-y border-[#dbe8ea] bg-[#f8fbfb]">
+          <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[.78fr_1.22fr]">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#186b4c]">
+                  antes de pedir horário
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+                  Escolha o caminho do contato sem adivinhar a especialidade.
+                </h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[#43626a]">
+                  O funil já pergunta especialidade, tipo de consulta, turno e urgência.
+                  Se você ainda não souber por onde começar, descreva o motivo do contato para a triagem.
+                </p>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-[#dbe8ea] bg-white">
+                {[
+                  ["Já sei a especialidade", "Selecione odontologia, clínica médica, cardiologia, fisioterapia, exames de rotina ou check-up integrado e informe se é primeira consulta ou retorno."],
+                  ["Ainda não sei qual especialidade", "Descreva o motivo do contato. A recepção usa essa informação na triagem antes do agendamento."],
+                  ["É retorno ou acompanhamento", "Identifique que se trata de retorno e leve exames anteriores e a lista atualizada de medicações, quando houver."],
+                ].map(([title, text], index) => (
+                  <div
+                    key={title}
+                    className="grid gap-3 border-b border-[#dbe8ea] p-6 last:border-b-0 sm:grid-cols-[3rem_12rem_1fr]"
+                  >
+                    <span className="text-sm font-semibold text-[#0f5d70]">0{index + 1}</span>
+                    <h3 className="font-semibold text-[#132a30]">{title}</h3>
+                    <p className="text-sm leading-7 text-[#43626a]">{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 rounded-2xl bg-[#132a30] p-6 text-white sm:grid-cols-4">
+              {[
+                ["Motivo", "especialidade ou razão do contato"],
+                ["Vínculo", "primeira consulta, retorno ou acompanhamento"],
+                ["Turno", "manhã, tarde ou sábado"],
+                ["Urgência", "esta semana, próximas semanas ou sem pressa"],
+              ].map(([title, text]) => (
+                <div key={title} className="border-white/15 sm:border-l sm:pl-4 first:border-l-0 first:pl-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#9bcab9]">{title}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/75">{text}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-5 max-w-4xl text-xs leading-6 text-[#5c7a80]">
+              A triagem organiza a solicitação de agenda; diagnóstico e conduta clínica são definidos no atendimento por profissional de saúde.
+            </p>
+          </div>
         </section>
 
         <section id="jornada" className="border-y border-[#dbe8ea] bg-[#0f5d70] text-white">

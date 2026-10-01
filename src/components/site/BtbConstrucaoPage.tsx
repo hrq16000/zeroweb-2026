@@ -402,6 +402,53 @@ export function BtbConstrucaoPage() {
             </div>
           </section>
 
+          <section id="caderno-de-escopo" className="border-y-2 border-[#171717] bg-[#fffdf7] px-5 py-20 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-[#df136e]">
+                    Caderno de escopo
+                  </p>
+                  <h2 className="mt-4 max-w-[11ch] font-display text-5xl font-black uppercase leading-[0.86] sm:text-7xl">
+                    Quatro perguntas antes do orçamento.
+                  </h2>
+                </div>
+                <p className="max-w-2xl text-base leading-7 text-[#4b4b4b] lg:justify-self-end">
+                  A BTB trabalha com frentes que podem coexistir na mesma reforma. Quanto mais claro estiver o ambiente
+                  e o que precisa mudar, menos informação fica faltando na avaliação inicial.
+                </p>
+              </div>
+
+              <div className="mt-10 border-2 border-[#171717]">
+                {[
+                  ["Pintura", "Quais ambientes e superfícies entram no pedido? Há preparação e acabamento no mesmo escopo?"],
+                  ["Elétrica + LED", "Quais pontos precisam de adequação ou instalação e em quais ambientes eles ficam?"],
+                  ["Hidráulica", "Em quais ambientes existem reparos ou intervenções previstas?"],
+                  ["Pisos + drywall / forro", "Quais áreas receberão revestimento, divisória ou forro?"],
+                ].map(([title, text], index) => (
+                  <article
+                    key={title}
+                    className="grid gap-3 border-b-2 border-[#171717] bg-[#f1eee6] p-5 last:border-b-0 sm:grid-cols-[5rem_13rem_1fr] sm:items-start sm:p-6"
+                  >
+                    <span className="font-mono text-xs font-black text-[#df136e]">
+                      Q{String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl font-black uppercase">{title}</h3>
+                    <p className="text-sm leading-7 text-[#4b4b4b]">{text}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-6 grid gap-4 border-l-4 border-[#ffdb19] bg-[#171717] p-6 text-white sm:grid-cols-[1fr_auto] sm:items-center">
+                <p className="max-w-3xl text-sm leading-7 text-white/72">
+                  Use metragem aproximada, ambientes, frentes de serviço, localização e horizonte de início como contexto.
+                  Essa organização não calcula preço, prazo nem viabilidade: esses pontos continuam dependentes da avaliação da BTB.
+                </p>
+                <CTA>Levar meu escopo ao orçamento</CTA>
+              </div>
+            </div>
+          </section>
+
           <section id="processo" className="bg-[#ffdb19] px-5 py-20 lg:px-8 lg:py-24">
             <div className="mx-auto max-w-7xl">
               <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr]">
