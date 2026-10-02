@@ -80,18 +80,23 @@ export function EisenferTubosAcosPage() {
                 </a>
               </div>
             </div>
-            <MotionReveal variant="mask" delay={120}>
-            <PortfolioImage
-              // capa-card.jpg: recorte aprovado, sem a faixa com telefone/site do material original.
-              src="/images/eisenfer-tubos-acos/capa-card.jpg"
-              alt="Telhas metálicas Eisenfer Tubos e Aços"
-              priority
-              decoding="sync"
-              width={1024}
-              height={640}
-              className="mt-10 h-[220px] w-full object-cover object-center grayscale-[.15] sm:h-[300px] lg:h-[360px]"
-              managedField="heroImageUrl"
-            />
+            <MotionReveal
+              variant="mask"
+              delay={120}
+              className="mt-10 h-[220px] overflow-hidden sm:h-[300px] lg:h-[360px]"
+            >
+              <PortfolioImage
+                // A altura fica no wrapper para não oscilar com o carregamento/intrinsic ratio da mídia.
+                // capa-card.jpg: recorte aprovado, sem a faixa com telefone/site do material original.
+                src="/images/eisenfer-tubos-acos/capa-card.jpg"
+                alt="Telhas metálicas Eisenfer Tubos e Aços"
+                priority
+                decoding="sync"
+                width={1024}
+                height={640}
+                className="h-full w-full object-cover object-center grayscale-[.15]"
+                managedField="heroImageUrl"
+              />
             </MotionReveal>
           </div>
         </section>
