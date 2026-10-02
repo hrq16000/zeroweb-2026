@@ -145,18 +145,19 @@ export function BarreiroMarmitasPage() {
             <h2 className="mt-3 max-w-2xl text-3xl font-extrabold uppercase leading-tight">
               Monte a semana a partir do que já está definido.
             </h2>
-            <div className="mt-8 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 md:grid-cols-4">
-              {[
-                ["Dia", "Escolha entre segunda e sábado usando o cardápio fixo exibido acima."],
-                ["Tamanho", "P, M ou G conforme a porção que melhor se encaixa na sua rotina."],
-                ["Recebimento", "Retirada no Barreiro, entrega no bairro ou entrega na empresa, conforme confirmação da cozinha."],
-                ["Frequência", "Só hoje, de segunda a sexta ou semana inteira."],
-              ].map(([title, text]) => (
-                <article key={title} className="bg-[#f7f2e7] p-5">
-                  <h3 className="text-sm font-extrabold uppercase text-[#1f3a26]">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#4a4234]">{text}</p>
-                </article>
-              ))}
+            <div className="mt-8 border-l-4 border-[#1f3a26] pl-5 md:columns-2 md:gap-10">
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">1 · Dia.</strong> Escolha entre segunda e sábado usando o cardápio fixo exibido acima.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">2 · Tamanho.</strong> P, M ou G conforme a porção que melhor se encaixa na sua rotina.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">3 · Recebimento.</strong> Retirada no Barreiro, entrega no bairro ou entrega na empresa, conforme confirmação da cozinha.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">4 · Frequência.</strong> Só hoje, de segunda a sexta ou semana inteira.
+              </p>
             </div>
             <p className="mt-5 max-w-3xl text-sm leading-6 text-[#6b5f4c]">
               O quadro organiza a solicitação; disponibilidade, entrega e eventuais ajustes continuam sujeitos à confirmação da cozinha.
