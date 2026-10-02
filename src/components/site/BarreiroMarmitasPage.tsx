@@ -139,6 +139,31 @@ export function BarreiroMarmitasPage() {
           </dl>
         </section>
 
+        <section id="planejar-semana" className="border-y border-[#241f16]/15 bg-[#fffaf0] px-5 py-14 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-extrabold uppercase tracking-[.22em] text-[#e2621b]">planejamento rápido</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold uppercase leading-tight">
+              Monte a semana a partir do que já está definido.
+            </h2>
+            <div className="mt-8 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 md:grid-cols-4">
+              {[
+                ["Dia", "Escolha entre segunda e sábado usando o cardápio fixo exibido acima."],
+                ["Tamanho", "P, M ou G conforme a porção que melhor se encaixa na sua rotina."],
+                ["Recebimento", "Retirada no Barreiro, entrega no bairro ou entrega na empresa, conforme confirmação da cozinha."],
+                ["Frequência", "Só hoje, de segunda a sexta ou semana inteira."],
+              ].map(([title, text]) => (
+                <article key={title} className="bg-[#f7f2e7] p-5">
+                  <h3 className="text-sm font-extrabold uppercase text-[#1f3a26]">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#4a4234]">{text}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-5 max-w-3xl text-sm leading-6 text-[#6b5f4c]">
+              O quadro organiza a solicitação; disponibilidade, entrega e eventuais ajustes continuam sujeitos à confirmação da cozinha.
+            </p>
+          </div>
+        </section>
+
         <section id="pedir" className="bg-[#f2c744] px-5 py-12 lg:px-8">
           <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
