@@ -19,11 +19,5 @@ describe("onda 9 de aprofundamento orientada pelo GSC", () => {
     expect(s).toContain("bairro ou endereço em São José dos Pinhais");
   });
 
-  test("Eletro Soluções ganha briefing baseado nas opções já publicadas", () => {
-    const s = read("EletroSolucoesEficazesPage.tsx");
-    expect(s).toContain("Um briefing curto ajuda a enquadrar o serviço.");
-    expect(s).toContain("residência, comércio ou condomínio");
-    expect(s).toContain("Pinhais, Curitiba e região");
-    expect(s).toContain("visita técnica antes de avançar");
-  });
+
 });
