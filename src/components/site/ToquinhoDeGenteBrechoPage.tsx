@@ -129,6 +129,29 @@ export function ToquinhoDeGenteBrechoPage() {
             </div>
           </div>
 
+          <aside id="consulta-vitrine" className="mt-10 rounded-[1.4rem] border-2 border-dashed border-[var(--tq-ink)]/35 bg-white/55 p-6 md:p-8" aria-labelledby="consulta-vitrine-title">
+            <p className="text-[0.66rem] font-bold uppercase tracking-[0.3em] text-[var(--tq-coral)]">
+              Consulta da vitrine
+            </p>
+            <h2 id="consulta-vitrine-title" className="mt-3 max-w-[26ch] font-display text-2xl font-black leading-tight">
+              Adulto ou infantil, tamanho e tipo de peça ajudam a começar o garimpo.
+            </h2>
+            <div className="mt-6 grid gap-5 text-sm leading-7 text-[var(--tq-ink)]/75 md:grid-cols-3">
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Faixa da vitrine</strong>
+                Informe se procura uma peça adulta ou infantil para direcionar a consulta.
+              </p>
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Tamanho</strong>
+                Dizer o tamanho que precisa reduz idas e vindas antes de apresentar os achados disponíveis.
+              </p>
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Disponibilidade</strong>
+                Como o brechó trabalha peça a peça, a confirmação acontece no atendimento no momento da consulta.
+              </p>
+            </div>
+          </aside>
+
           {/* tira de lembretes fecha o mural, sem faixa de CTA */}
           <ul className="mt-10 flex flex-wrap items-center gap-3">
             {lembretes.map((item) => (
