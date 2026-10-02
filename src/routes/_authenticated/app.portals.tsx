@@ -6,7 +6,7 @@ import { listAllPortals, upsertPortal } from "@/lib/portal.functions";
 export const Route = createFileRoute("/_authenticated/app/portals")({
   component: PortalsAdmin,
   errorComponent: ({ error }) => (
-    <div className="p-6 text-sm text-destructive">Acesso negado: {(error instanceof Error ? error.message : String(error))}</div>
+    <div className="p-6 text-sm text-destructive">Acesso negado: {(error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error))}</div>
   ),
 });
 
