@@ -113,9 +113,9 @@ export function AutoescolaAptosPage() {
                 <a href="#escolhas" className="aptos-ghost-cta inline-flex min-h-12 items-center gap-2 rounded-md border-2 px-6 py-3 font-bold">Ver opções <ArrowDown className="h-4 w-4" /></a>
               </div>
             </MotionReveal>
-            <MotionImageReveal direction="left" className="aptos-photo-frame aspect-[4/3] md:aspect-[5/6] lg:aspect-[4/3]">
-              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="async" fetchPriority="high" />
-            </MotionImageReveal>
+            <div className="aptos-photo-frame aspect-[4/3] overflow-hidden md:aspect-[5/6] lg:aspect-[4/3]">
+              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="sync" fetchPriority="high" />
+            </div>
           </div>
         </section>
 
