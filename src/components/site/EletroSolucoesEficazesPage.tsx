@@ -164,17 +164,6 @@ export function EletroSolucoesEficazesPage() {
             <p className="mt-2 max-w-xl text-sm leading-6 text-[#08283e]/80">
               Conte o que deseja instalar, corrigir ou automatizar.
             </p>
-            <details id="briefing-eletrico" className="mt-5 max-w-3xl border-t border-[#08283e]/30 pt-4">
-              <summary className="cursor-pointer font-display text-base font-black">
-                Um briefing curto ajuda a enquadrar o serviço.
-              </summary>
-              <div className="mt-4 grid gap-3 text-sm leading-6 text-[#08283e]/80 sm:grid-cols-2">
-                <p><strong>Ambiente:</strong> residência, comércio ou condomínio, empresa ou indústria.</p>
-                <p><strong>Solução:</strong> instalação elétrica, iluminação, padrão, manutenção, automação ou consultoria e projetos.</p>
-                <p><strong>Local:</strong> Pinhais, Curitiba e região ou endereço ainda a confirmar.</p>
-                <p><strong>Momento:</strong> suporte em breve, planejamento ou visita técnica antes de avançar.</p>
-              </div>
-            </details>
             <div className="mt-6">
               <CTA>
                 Solicitar orçamento <ArrowRight className="h-4 w-4" />
