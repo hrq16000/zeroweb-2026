@@ -86,6 +86,7 @@ export function EisenferTubosAcosPage() {
               src="/images/eisenfer-tubos-acos/capa-card.jpg"
               alt="Telhas metálicas Eisenfer Tubos e Aços"
               priority
+              decoding="sync"
               width={1024}
               height={640}
               className="mt-10 h-[220px] w-full object-cover object-center grayscale-[.15] sm:h-[300px] lg:h-[360px]"
@@ -117,6 +118,53 @@ export function EisenferTubosAcosPage() {
                 Consultar disponibilidade <ArrowRight className="h-4 w-4" />
               </CTA>
               <p className="text-sm text-[#586a7e]">Envie medidas e quantidades para receber a cotação.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="roteiro-cotacao" className="border-y border-white/10 bg-[#0a1f3d] px-5 py-16 lg:px-10">
+          <div className="mx-auto max-w-[1180px]">
+            <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-[.28em] text-[#f5b51b]">
+                  antes de pedir a cotação
+                </p>
+                <h2 className="mt-3 max-w-[12ch] font-display text-3xl font-black uppercase leading-tight sm:text-4xl">
+                  Quatro dados deixam o pedido de aço mais claro.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-sm leading-7 text-white/65 lg:justify-self-end">
+                A Eisenfer trabalha com tubos, perfis, chapas e telhas. Organizar família do material,
+                medidas, quantidade e local de entrega ajuda o atendimento a entender o que precisa ser cotado.
+              </p>
+            </div>
+
+            <div className="mt-10 border-y border-white/15">
+              {[
+                ["01", "Família do material", "Tubos e perfis, chapas de aço, telhas TP40 ou perfis U."],
+                ["02", "Medidas", "Informe as dimensões que você já possui e sinalize quando ainda precisa confirmar alguma especificação."],
+                ["03", "Quantidade", "Passe a quantidade necessária ou o volume aproximado do pedido para orientar a cotação."],
+                ["04", "Entrega", "Indique São José dos Pinhais, Curitiba e região ou o endereço que ainda precisa ser confirmado."],
+              ].map(([n, title, text]) => (
+                <article
+                  key={n}
+                  className="grid gap-3 border-b border-white/10 py-5 last:border-b-0 sm:grid-cols-[4rem_14rem_1fr] sm:items-start"
+                >
+                  <span className="font-mono text-sm font-black text-[#2d8cff]">{n}</span>
+                  <h3 className="font-display text-lg font-bold">{title}</h3>
+                  <p className="text-sm leading-7 text-white/60">{text}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-6 grid gap-4 border-l-4 border-[#f5b51b] bg-[#07162e] p-5 sm:grid-cols-[1fr_auto] sm:items-center">
+              <p className="max-w-3xl text-sm leading-7 text-white/65">
+                Este roteiro organiza o pedido comercial. Dimensionamento estrutural, espessura e especificação técnica
+                devem seguir o projeto e a orientação do responsável técnico quando aplicável.
+              </p>
+              <CTA>
+                Organizar minha cotação <ArrowRight className="h-4 w-4" />
+              </CTA>
             </div>
           </div>
         </section>
