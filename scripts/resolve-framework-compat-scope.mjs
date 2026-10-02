@@ -16,6 +16,7 @@ const allowedCiFiles = new Set([
   ".github/workflows/lighthouse.yml",
   ".github/workflows/portfolio-gates.yml",
   "scripts/resolve-framework-compat-scope.mjs",
+  "tests/visual/approved-hashes.json",
 ]);
 const isAllowedFile = (file) =>
   file === "package.json" ||
