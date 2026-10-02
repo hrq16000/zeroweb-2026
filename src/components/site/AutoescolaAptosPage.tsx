@@ -157,6 +157,32 @@ export function AutoescolaAptosPage() {
           </div>
         </section>
 
+        <section id="mapa-de-decisao" className="mx-auto max-w-7xl px-5 pb-6 pt-8 md:px-8 md:pb-12">
+          <div className="grid gap-8 border-y border-border py-10 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+            <div>
+              <p className="text-sm font-bold uppercase text-primary">Mapa de decisão</p>
+              <h2 className="aptos-display mt-3 text-4xl sm:text-5xl">Que informação levar para a APTOS?</h2>
+              <p className="mt-5 max-w-md leading-relaxed text-muted-foreground">
+                A página já separa primeira habilitação, modalidade automática, reteste, renovação e reciclagem.
+                Levar essas quatro informações ajuda a equipe a continuar o atendimento sem refazer o contexto.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                ["Objetivo", "Primeira habilitação, categoria, reteste, renovação ou reciclagem."],
+                ["Modalidade", "Se busca opção manual, carro automático ou moto automática."],
+                ["Momento", "Em que estágio do processo você está hoje."],
+                ["Disponibilidade", "Qual período funciona melhor para a sua rotina."],
+              ].map(([title, text]) => (
+                <article key={title} className="rounded-md border border-border bg-card p-5">
+                  <h3 className="font-bold text-card-foreground">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="processo" className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
           <div className="flex flex-col gap-5 border-b border-border pb-10 md:flex-row md:items-end md:justify-between">
             <div><p className="text-sm font-bold uppercase text-primary">Do interesse ao atendimento</p><h2 className="aptos-display mt-3 max-w-2xl text-4xl sm:text-5xl">Uma rota curta para começar com clareza.</h2></div>
