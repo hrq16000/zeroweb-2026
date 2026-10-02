@@ -107,13 +107,13 @@ export function EisenferTubosAcosPage() {
               <span className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1265bc]">Medidas sob consulta</span>
             </div>
             <ul className="divide-y divide-[#c9d4e2]">
-              {linha.map((item, i) => (
-                <MotionReveal as="li" variant="left" delay={i * 60} key={item.cod} className="flex flex-col gap-1 py-5 transition-colors duration-200 hover:bg-[#e6ecf5] sm:flex-row sm:items-center sm:gap-6">
+              {linha.map((item) => (
+                <li key={item.cod} className="flex flex-col gap-1 py-5 transition-colors duration-200 hover:bg-[#e6ecf5] sm:flex-row sm:items-center sm:gap-6">
                   <span className="w-12 shrink-0 font-mono text-sm font-black text-[#1265bc]">{item.cod}</span>
                   <span className="w-full font-display text-lg font-bold sm:w-64">{item.nome}</span>
                   <span className="flex-1 text-sm text-[#586a7e]">{item.spec}</span>
                   <span className="text-[11px] font-bold uppercase tracking-[.16em] text-[#0b1d39]/70">{item.uso}</span>
-                </MotionReveal>
+                </li>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap items-center gap-4 border-t-2 border-[#0b1d39] pt-6">
