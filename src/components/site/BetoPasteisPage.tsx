@@ -146,6 +146,33 @@ export function BetoPasteisPage() {
           </ul>
         </section>
 
+        <section id="pedido-no-balcao" className="border-t-2 border-dashed border-[var(--bp-ink)]/20 py-10">
+          <div className="grid gap-8 md:grid-cols-[.38fr_.62fr]">
+            <div>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-[var(--bp-tomato)]">
+                Pedido no balcão
+              </p>
+              <h2 className="mt-3 font-display text-2xl font-black uppercase leading-tight md:text-3xl">
+                Sabor, quantidade e horário deixam a conversa mais objetiva.
+              </h2>
+            </div>
+            <dl className="space-y-5 text-sm leading-7 text-[var(--bp-ink)]/75">
+              <div className="border-b border-dotted border-[var(--bp-ink)]/25 pb-4">
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">1 · Sabor</dt>
+                <dd className="mt-1">Use a vitrine da página como ponto de partida e confirme com a equipe o que está disponível no momento do pedido.</dd>
+              </div>
+              <div className="border-b border-dotted border-[var(--bp-ink)]/25 pb-4">
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">2 · Quantidade</dt>
+                <dd className="mt-1">Informe quantos pastéis pretende pedir para a casa organizar a solicitação antes de combinar a retirada.</dd>
+              </div>
+              <div>
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">3 · Horário</dt>
+                <dd className="mt-1">Combine o horário diretamente com a equipe; a página não transforma intenção de pedido em confirmação automática.</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
         <MotionReveal as="section" variant="scale" className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">
           <h2 className="font-display text-2xl font-black uppercase leading-tight md:text-3xl">
             Um pastel bem escolhido muda o ritmo do dia.
