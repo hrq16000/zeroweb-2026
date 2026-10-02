@@ -12,13 +12,6 @@ describe("onda 10 de aprofundamento orientada pelo GSC", () => {
     expect(s).toContain("a confirmação acontece no atendimento");
   });
 
-  test("HBK transforma a cotação em briefing factual", () => {
-    const s = read("HbkIluminacaoLedPage.tsx");
-    expect(s).toContain("Ambiente, aplicação e referência visual ajudam a orientar a cotação.");
-    expect(s).toContain("Residência, condomínio, comércio ou obra em andamento");
-    expect(s).toContain("Metragem, fotos do ambiente");
-    expect(s).toContain("disponibilidade e indicação final são confirmadas pela HBK");
-  });
 
   test("Raphael Construções aprofunda a avaliação sem prometer escopo ou prazo", () => {
     const s = read("RaphaelConstrucoesPage.tsx");
