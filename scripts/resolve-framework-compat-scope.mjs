@@ -73,7 +73,7 @@ const changedRouteLines = routeDiff
 const allowedRouteChange = (line) =>
   /errorComponent/.test(line) ||
   /error:\s*(Error|unknown)/.test(line) ||
-  /error\??\.message/.test(line) ||
+  /error\??\.(message|name)/.test(line) ||
   /String\(error\)/.test(line) ||
   /normalizedError/.test(line) ||
   /function ErrorComponent/.test(line);
