@@ -80,13 +80,11 @@ export function EisenferTubosAcosPage() {
                 </a>
               </div>
             </div>
-            <MotionReveal
-              variant="mask"
-              delay={120}
-              className="mt-10 h-[220px] overflow-hidden sm:h-[300px] lg:h-[360px]"
-            >
+            <div className="mt-10 h-[220px] overflow-hidden sm:h-[300px] lg:h-[360px]">
               <PortfolioImage
-                // A altura fica no wrapper para não oscilar com o carregamento/intrinsic ratio da mídia.
+                // A mídia principal permanece estática: o MotionReveal alternava o estado
+                // capturado pelo Chromium entre execuções, apesar do visual final ser idêntico.
+                // A altura fica no wrapper para não oscilar com o intrinsic ratio da imagem.
                 // capa-card.jpg: recorte aprovado, sem a faixa com telefone/site do material original.
                 src="/images/eisenfer-tubos-acos/capa-card.jpg"
                 alt="Telhas metálicas Eisenfer Tubos e Aços"
@@ -97,7 +95,7 @@ export function EisenferTubosAcosPage() {
                 className="h-full w-full object-cover object-center grayscale-[.15]"
                 managedField="heroImageUrl"
               />
-            </MotionReveal>
+            </div>
           </div>
         </section>
 
