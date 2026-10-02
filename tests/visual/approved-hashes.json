@@ -226,13 +226,13 @@
     }
   },
   "eisenfer-tubos-acos": {
-    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, desktop e mobile foram reinspecionados no run 36959154158 e permanecem visualmente corretos, responsivos e sem corte; tablet continua idêntico à captura já aprovada. Esta aprovação fixa somente os pixels revisados e mantém o limite global em 2%.",
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, o hero passou a usar wrapper com altura determinística por breakpoint. Desktop e mobile repetiram os hashes revisados; tablet foi reinspecionado no run 36966897335 e corresponde à composição correta em 834x1112. O limite global continua 2%.",
     "reviewedAt": "2026-10-02",
     "evidence": {
-      "runId": 36959154158,
-      "artifactId": 11206782896,
-      "artifactDigest": "sha256:3fb0a2c7b0329d93942744de2c52a6273974768808bbd0a0b4ccfda291ec240c",
-      "headSha": "3bdabd3ce9d8ed948185e9b8cfc6cc45f511accf"
+      "runId": 36966897335,
+      "artifactId": 11210550894,
+      "artifactDigest": "sha256:43e5591e4ba432837f57e87c347fcabb1fc54f49106d9e38017bdf9356f8c19f",
+      "headSha": "39da672f32b16736c22a82bff9e91de17fe1d2cc"
     },
     "viewports": {
       "desktop": {
@@ -243,7 +243,7 @@
       "tablet": {
         "width": 834,
         "height": 1112,
-        "pixelSha256": "8fc043104a3b0ed4b9bec2fe0b3f137041515ec6e1b6e436d49de3ff444099f2"
+        "pixelSha256": "a45f1ff9103ab00d3d162f769781ed039ba00d989ec41d14c51f440ada018a5e"
       },
       "mobile": {
         "width": 393,
