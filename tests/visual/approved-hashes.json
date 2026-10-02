@@ -226,22 +226,19 @@
     }
   },
   "eisenfer-tubos-acos": {
-    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Desktop e tablet permanecem nas capturas revisadas do run 36879841895; após o upgrade TanStack da #320, o mobile foi reinspecionado no run 36957865766 e permaneceu visualmente correto, responsivo e sem corte. A aprovação fixa somente os pixels revisados; o limite global continua 2%.",
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, desktop e mobile foram reinspecionados no run 36959154158 e permanecem visualmente corretos, responsivos e sem corte; tablet continua idêntico à captura já aprovada. Esta aprovação fixa somente os pixels revisados e mantém o limite global em 2%.",
     "reviewedAt": "2026-10-02",
     "evidence": {
-      "runId": 36879841895,
-      "artifactId": 11170973381,
-      "artifactDigest": "sha256:fc1838d483ade30ec1ff5f2c890f3b527487dd035b2bc09fbe7a355d65685765",
-      "headSha": "a533abf43cc8b544daefbf3d74e7a93af54d97b7",
-      "mobileRunId": 36957865766,
-      "mobileArtifactId": 11207141629,
-      "mobileArtifactDigest": "sha256:39efbcc960de149ed7237efa16cf9c07c7089cab5195eeddcaef25ba7a376fe5"
+      "runId": 36959154158,
+      "artifactId": 11206782896,
+      "artifactDigest": "sha256:3fb0a2c7b0329d93942744de2c52a6273974768808bbd0a0b4ccfda291ec240c",
+      "headSha": "3bdabd3ce9d8ed948185e9b8cfc6cc45f511accf"
     },
     "viewports": {
       "desktop": {
         "width": 1280,
         "height": 900,
-        "pixelSha256": "b40272b6356ddb4bf87118c6da07e2892f7cf5514fb676ac5278c7c22aa2674b"
+        "pixelSha256": "bf4d6d62dfc7f87ed84f6e72a7667cc143c1183576e41ffaf9fe1ef686d0bb60"
       },
       "tablet": {
         "width": 834,
@@ -251,7 +248,7 @@
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "f3695f4660e166b4bcb823173912fa535e13da62898c73ec748df2b9ac2a8bb4"
+        "pixelSha256": "3a1535b258458121855d7fd66cfc0090bb502d6d963316d9eb3ef268c404fcb9"
       }
     }
   },
