@@ -16,7 +16,7 @@ export const Route = createFileRoute("/privacidade")({
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(lgpdQuery),
   component: PrivacyPage,
-  errorComponent: ({ error }) => <div className="p-6">Erro: {(error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error))}</div>,
+  errorComponent: ({ error }) => <div className="p-6">Erro: {(error instanceof Error ? error.message : String(error))}</div>,
   notFoundComponent: () => <div className="p-6">Página não encontrada.</div>,
 });
 
