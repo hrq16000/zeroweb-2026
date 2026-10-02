@@ -215,7 +215,7 @@ jobs:
             # O upgrade de framework é validado em páginas visualmente estáveis.
             # O limiar continua 2%; mudanças visuais reais continuam usando o
             # escopo normal por slug ou o global.
-            VISUAL_ONLY="dyzpromo,marido-de-aluguel,rm-fretes,rj-servicos-drywall,paraiso-do-hot-dog"
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
