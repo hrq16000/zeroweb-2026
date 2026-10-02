@@ -118,7 +118,7 @@ export function ConfeitariaChyrleyPage() {
                   <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#ffd3df]">
                     balcão de encomendas
                   </p>
-                  <h1 className="mt-4 max-w-[10ch] font-display text-6xl font-black leading-[.86] tracking-[-.045em] sm:text-7xl lg:text-[7rem]">
+                  <h1 className="mt-4 max-w-[10ch] font-display text-5xl font-black leading-[.9] tracking-[-.04em] sm:text-7xl sm:leading-[.86] lg:text-[7rem]">
                     <ManagedText
                       field="heroHeadline"
                       fallback="Sua comemoração merece ser inesquecível."
