@@ -59,7 +59,7 @@ export const Route = createFileRoute("/solicitar-diagnostico")({
     <div className="min-h-screen grid place-items-center text-center p-6">
       <div>
         <h1 className="text-2xl font-semibold mb-2">Algo deu errado</h1>
-        <p className="text-muted-foreground">{(error instanceof Error ? error.message : String(error))}</p>
+        <p className="text-muted-foreground">{(error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error))}</p>
       </div>
     </div>
   ),
