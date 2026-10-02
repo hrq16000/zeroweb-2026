@@ -116,7 +116,7 @@ export const Route = createFileRoute("/servicos/")({
       <div>
         <AlertCircle className="w-10 h-10 text-destructive mx-auto" />
         <h1 className="mt-4 text-2xl font-bold">Não foi possível carregar o catálogo</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{(error instanceof Error ? error.message : String(error))}</p>
         <Link to="/" className="mt-4 inline-block text-primary underline">Voltar ao início</Link>
       </div>
     </div>

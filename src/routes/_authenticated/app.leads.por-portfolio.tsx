@@ -26,7 +26,7 @@ export const Route = createFileRoute("/_authenticated/app/leads/por-portfolio")(
   }),
   component: PortfolioRequestsPage,
   errorComponent: ({ error }) => (
-    <div className="p-6 text-sm text-destructive">Erro: {error.message}</div>
+    <div className="p-6 text-sm text-destructive">Erro: {(error instanceof Error ? error.message : String(error))}</div>
   ),
   notFoundComponent: () => <div className="p-6">Não encontrado.</div>,
 });

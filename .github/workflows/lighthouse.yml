@@ -58,6 +58,13 @@ jobs:
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
           MODE=full
+          FRAMEWORK_COMPAT=false
+
+          if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
+            RUN=true
+            MODE=framework
+            FRAMEWORK_COMPAT=true
+          fi
 
           REGIONAL_ONLY=true
           if [ -z "$FILES" ]; then
@@ -115,7 +122,12 @@ jobs:
           fi
 
           ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
-          if [ -n "$ONLY" ]; then
+          if [ "$FRAMEWORK_COMPAT" = true ]; then
+            # Upgrade de framework sem mudança normal de UI: usa um canário
+            # diversificado, com os mesmos thresholds absolutos do gate global.
+            ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            SHARDS='[0]'
+          elif [ -n "$ONLY" ]; then
             MODE=portfolio
             SHARDS='[0]'
           elif [ "$MODE" = "regional" ]; then

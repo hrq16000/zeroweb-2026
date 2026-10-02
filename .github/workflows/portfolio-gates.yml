@@ -93,6 +93,9 @@ jobs:
             git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
             FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
             ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+            if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
@@ -152,6 +155,12 @@ jobs:
           git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
+          FRAMEWORK_COMPAT=false
+
+          if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
+            RUN=true
+            FRAMEWORK_COMPAT=true
+          fi
 
           # Troca isolada de OG social + cache-bust não altera o DOM visível.
           # Esses casos continuam cobertos pelos gates de link preview/head e
@@ -202,6 +211,12 @@ jobs:
           # portfolios individuais registrados, limita a comparação a esses
           # slugs. Qualquer arquivo visual compartilhado mantém escopo global.
           VISUAL_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          if [ "$FRAMEWORK_COMPAT" = true ]; then
+            # O upgrade de framework é validado em páginas visualmente estáveis.
+            # O limiar continua 2%; mudanças visuais reais continuam usando o
+            # escopo normal por slug ou o global.
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 

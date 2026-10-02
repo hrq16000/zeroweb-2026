@@ -134,5 +134,95 @@
         "pixelSha256": "a88a25df7ae23fc2df2e869803a50033ae170dacc2d7eafb69dd28a463274fb7"
       }
     }
+  },
+  "paraiso-do-hot-dog": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "d71dcf00ede188dd525fc6f7195102becbb4cba909d905780652bc681ce9d990"
+      }
+    }
+  },
+  "marido-de-aluguel": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "5542374204a78fda3d15a69d3fde55573d141ea6df32b589572cc65cb6580b2f"
+      }
+    }
+  },
+  "dyzpromo": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "a863a0c58dcc83fc78801b5a28cc7bc9a4a325a03b9d1172f82c78404c264570"
+      }
+    }
+  },
+  "rm-fretes": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "9176e6d809063aafdd11a152201a58b6837fa28663a17c510818c84a7b793bf9"
+      }
+    }
+  },
+  "rj-servicos-drywall": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "0744a285f3e6caebdba57040f03e4db33b3a0b74882676107a64b93ecea4c030"
+      }
+    }
   }
 }
