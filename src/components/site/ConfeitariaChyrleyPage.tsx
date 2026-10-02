@@ -227,6 +227,46 @@ export function ConfeitariaChyrleyPage() {
           </div>
         </section>
 
+        <section id="planejamento" className="border-y-2 border-[#361d1c] bg-[#fff0ec] px-5 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-[.38fr_.62fr]">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#b95768]">
+                  planejamento da encomenda
+                </p>
+                <h2 className="mt-4 max-w-[10ch] font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                  O que definir antes de pedir orçamento.
+                </h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-[#765955]">
+                  Bolo, kit festa, salgados e Copo da Felicidade entram em pedidos diferentes.
+                  A data, a ocasião e a quantidade ajudam a Chyrley a entender o formato desejado.
+                </p>
+              </div>
+
+              <div className="border-2 border-[#361d1c] bg-[#fff7ef]">
+                {[
+                  ["Ocasião", "Aniversário, festa em casa, presente, evento ou confraternização."],
+                  ["Quantidade", "Informe o número de pessoas ou a quantidade desejada; os kits festa divulgados atendem de 6 a 100 pessoas."],
+                  ["Tema e composição", "Diga o tema do bolo e se o pedido também deve incluir doces ou salgados."],
+                  ["Recebimento", "Escolha retirada no Rio Bonito ou envio por Uber a combinar."],
+                ].map(([title, text], index) => (
+                  <article
+                    key={title}
+                    className="grid gap-3 border-b border-[#361d1c]/20 p-5 last:border-b-0 sm:grid-cols-[3rem_12rem_1fr] sm:p-6"
+                  >
+                    <span className="font-mono text-xs font-black text-[#b95768]">0{index + 1}</span>
+                    <h3 className="font-display text-xl font-black">{title}</h3>
+                    <p className="text-sm leading-7 text-[#765955]">{text}</p>
+                  </article>
+                ))}
+                <div className="bg-[#f5c2a8] p-5 text-sm font-bold leading-6 text-[#6d4f4a] sm:p-6">
+                  Preço, agenda e disponibilidade não são presumidos nesta página: a confirmação acontece no atendimento.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="galeria" className="px-5 py-20 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-4 lg:grid-cols-[.68fr_.32fr]">
