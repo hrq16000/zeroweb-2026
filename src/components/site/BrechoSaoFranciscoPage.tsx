@@ -106,22 +106,20 @@ export function BrechoSaoFranciscoPage() {
 
           {/* coluna de leitura: retrato + araras numeradas */}
           <div className="min-w-0">
-            <MotionReveal variant="mask">
-              <figure className="max-w-md">
-                <PortfolioImage
-                  src="/images/brecho-sao-francisco/capa.png"
-                  alt="Brechó São Francisco"
-                  priority
-                  width={1200}
-                  height={1500}
-                  className="w-full rounded-sm object-cover"
-                  managedField="heroImageUrl"
-                />
-                <figcaption className="mt-3 text-[0.68rem] uppercase tracking-[0.3em] text-[var(--sf-gold)]">
-                  Vitrine da semana
-                </figcaption>
-              </figure>
-            </MotionReveal>
+            <figure className="max-w-md">
+              <PortfolioImage
+                src="/images/brecho-sao-francisco/capa.png"
+                alt="Brechó São Francisco"
+                priority
+                width={1200}
+                height={1500}
+                className="w-full rounded-sm object-cover"
+                managedField="heroImageUrl"
+              />
+              <figcaption className="mt-3 text-[0.68rem] uppercase tracking-[0.3em] text-[var(--sf-gold)]">
+                Vitrine da semana
+              </figcaption>
+            </figure>
 
             <ol className="mt-12 divide-y divide-[var(--sf-gold)]/40 border-y border-[var(--sf-gold)]/40">
               {araras.map((item, i) => (
@@ -145,28 +143,19 @@ export function BrechoSaoFranciscoPage() {
               ))}
             </ol>
 
-            <section id="garimpo-orientado" className="mt-10 border-l border-[var(--sf-gold)]/60 pl-5">
-              <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--sf-terra)]">
-                Garimpo orientado
-              </p>
-              <h2 className="mt-3 max-w-[24ch] font-display text-2xl font-semibold">
+            <aside id="garimpo-orientado" className="mt-10 border-l border-[var(--sf-gold)]/60 pl-5" aria-labelledby="garimpo-title">
+              <h2 id="garimpo-title" className="max-w-[24ch] font-display text-2xl font-semibold">
                 Quanto mais claro o pedido, mais fácil consultar o que está na vitrine.
               </h2>
-              <div className="mt-6 space-y-5 text-sm leading-7 text-[var(--sf-ink)]/75">
-                <p>
-                  <strong className="text-[var(--sf-ink)]">Tipo de peça.</strong> Diga se procura roupa feminina,
-                  masculina ou acessório para direcionar a consulta à arara certa.
-                </p>
-                <p>
-                  <strong className="text-[var(--sf-ink)]">Tamanho e estilo.</strong> Informar medida aproximada,
-                  caimento ou referência ajuda a filtrar as opções antes de mostrar o que está disponível.
-                </p>
-                <p>
-                  <strong className="text-[var(--sf-ink)]">Disponibilidade.</strong> Como cada peça é única na
-                  vitrine de segunda mão, a confirmação acontece no atendimento no momento da consulta.
-                </p>
-              </div>
-            </section>
+              <dl className="mt-6 space-y-5 text-sm leading-7 text-[var(--sf-ink)]/75">
+                <dt className="font-semibold text-[var(--sf-terra)]">Tipo de peça</dt>
+                <dd>Diga se procura roupa feminina, masculina ou acessório para direcionar a consulta à arara certa.</dd>
+                <dt className="font-semibold text-[var(--sf-terra)]">Tamanho e estilo</dt>
+                <dd>Informar medida aproximada, caimento ou referência ajuda a filtrar as opções antes de mostrar o que está disponível.</dd>
+                <dt className="font-semibold text-[var(--sf-terra)]">Disponibilidade</dt>
+                <dd>Como cada peça é única na vitrine de segunda mão, a confirmação acontece no atendimento no momento da consulta.</dd>
+              </dl>
+            </aside>
 
             <p className="mt-8 font-display text-lg italic text-[var(--sf-ink)]/70">
               Roupas com história merecem uma descoberta cuidadosa.
