@@ -224,5 +224,59 @@
         "pixelSha256": "0744a285f3e6caebdba57040f03e4db33b3a0b74882676107a64b93ecea4c030"
       }
     }
+  },
+  "eisenfer-tubos-acos": {
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela e remove MotionReveal apenas das cinco linhas técnicas para eliminar oscilação real do IntersectionObserver nos limites de viewport. Desktop, tablet e mobile do run 36971970370 foram inspecionados após essa estabilização; conteúdo, composição e responsividade estão íntegros. Nenhum threshold foi alterado; o limite global continua 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "runId": 36971970370,
+      "artifactId": 11211208947,
+      "artifactDigest": "sha256:6a0ea5b3386e63880ce763b60975cb12ad81183eb8bb3a6f28e7743facfa8e47",
+      "headSha": "6f555cc23c5361d304ea55e663ce3e1e6abb0f85"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "b40272b6356ddb4bf87118c6da07e2892f7cf5514fb676ac5278c7c22aa2674b"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "877af7c5c32d41db0ee03be54eab91a888addd18dfcf21563fc0bf9ae700f704"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "f3695f4660e166b4bcb823173912fa535e13da62898c73ec748df2b9ac2a8bb4"
+      }
+    }
+  },
+  "confeitaria-chyrley": {
+    "reason": "Onda 6 aprofunda o planejamento de encomenda da Chyrley. Após a primeira revisão, o headline mobile foi reduzido para eliminar overflow real; desktop, tablet e mobile do run 36958485790 foram reinspecionados e estão íntegros, responsivos e sem corte. Esta aprovação fixa somente os pixels revisados; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "runId": 36958485790,
+      "artifactId": 11207650268,
+      "artifactDigest": "sha256:8cccb067301dced33306ee3a04173efc7dfdd17bf6f45e2037caf11184a7797c",
+      "headSha": "ad9bd2e9d5530b611ba3e354cd3a96c22bff228b"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "8abf6a2b3725cdb33568ba92994bcdf093008f881674fff439e56f977610f240"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "55cbf84f1dce614ae91559a7305fcfe96b053f8f8d91eab8d197d685d7067b3e"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "5ed27ab7d575ed75b884ba8c74bd3890fabd6680793ae00cfc034fd6b5f5248e"
+      }
+    }
   }
 }
