@@ -123,33 +123,6 @@ export function EletroSolucoesEficazesPage() {
           </div>
         </section>
 
-        <section id="briefing-eletrico" className="px-5 pb-16 lg:px-8">
-          <div className="mx-auto max-w-5xl border-2 border-[#08283e] bg-white">
-            <div className="grid gap-0 md:grid-cols-[.36fr_.64fr]">
-              <div className="bg-[#ffd447] p-7">
-                <p className="font-mono text-[11px] font-black uppercase tracking-[.22em]">Antes da avaliação</p>
-                <h2 className="mt-3 font-display text-3xl font-black leading-tight">
-                  Um briefing curto ajuda a enquadrar o serviço.
-                </h2>
-              </div>
-              <ol className="divide-y divide-[#cfd9e0]">
-                {[
-                  ["A", "Ambiente", "Residência, comércio ou condomínio, empresa ou indústria: o tipo de local ajuda a contextualizar a necessidade."],
-                  ["B", "Solução", "Instalação elétrica, iluminação, padrão, manutenção, automação ou consultoria e projetos podem seguir caminhos diferentes."],
-                  ["C", "Local", "Informe se o atendimento será em Pinhais, Curitiba e região ou se ainda precisa confirmar o endereço."],
-                  ["D", "Momento", "Diga se precisa de suporte em breve, se está planejando ou se quer uma visita técnica antes de avançar."],
-                ].map(([code, title, text]) => (
-                  <li key={code} className="grid gap-3 px-6 py-5 sm:grid-cols-[2.5rem_8rem_1fr] sm:items-baseline">
-                    <span className="font-mono text-xs font-black text-[#1276a8]">{code}</span>
-                    <h3 className="font-display font-bold">{title}</h3>
-                    <p className="text-sm leading-7 text-[#4a6070]">{text}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
-
         {/* Etapas em faixa horizontal contínua */}
         <section id="etapas" className="bg-[#08283e] px-5 py-14 text-white lg:px-8">
           <div className="mx-auto max-w-5xl">
@@ -191,6 +164,17 @@ export function EletroSolucoesEficazesPage() {
             <p className="mt-2 max-w-xl text-sm leading-6 text-[#08283e]/80">
               Conte o que deseja instalar, corrigir ou automatizar.
             </p>
+            <details id="briefing-eletrico" className="mt-5 max-w-3xl border-t border-[#08283e]/30 pt-4">
+              <summary className="cursor-pointer font-display text-base font-black">
+                Um briefing curto ajuda a enquadrar o serviço.
+              </summary>
+              <div className="mt-4 grid gap-3 text-sm leading-6 text-[#08283e]/80 sm:grid-cols-2">
+                <p><strong>Ambiente:</strong> residência, comércio ou condomínio, empresa ou indústria.</p>
+                <p><strong>Solução:</strong> instalação elétrica, iluminação, padrão, manutenção, automação ou consultoria e projetos.</p>
+                <p><strong>Local:</strong> Pinhais, Curitiba e região ou endereço ainda a confirmar.</p>
+                <p><strong>Momento:</strong> suporte em breve, planejamento ou visita técnica antes de avançar.</p>
+              </div>
+            </details>
             <div className="mt-6">
               <CTA>
                 Solicitar orçamento <ArrowRight className="h-4 w-4" />
