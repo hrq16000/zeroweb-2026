@@ -36,7 +36,10 @@ const basePackage = readJsonAt(base, "package.json");
 const headPackage = readJsonAt(head, "package.json");
 
 const tanstackKeys = [
+  "@tanstack/query-core",
+  "@tanstack/react-query",
   "@tanstack/react-router",
+  "@tanstack/react-router-ssr-query",
   "@tanstack/react-start",
   "@tanstack/router-plugin",
 ];
@@ -56,7 +59,10 @@ if (
 }
 
 const expected = {
+  "@tanstack/query-core": "5.102.0",
+  "@tanstack/react-query": "5.102.0",
   "@tanstack/react-router": "1.170.41",
+  "@tanstack/react-router-ssr-query": "1.167.3",
   "@tanstack/react-start": "1.168.60",
   "@tanstack/router-plugin": "1.168.42",
 };
