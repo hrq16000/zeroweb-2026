@@ -125,7 +125,7 @@ jobs:
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # Upgrade de framework sem mudança normal de UI: usa um canário
             # diversificado, com os mesmos thresholds absolutos do gate global.
-            ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
             SHARDS='[0]'
           elif [ -n "$ONLY" ]; then
             MODE=portfolio
