@@ -4,7 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Beto Pastéis (/portfolio/beto-pasteis).
@@ -56,17 +56,19 @@ export function BetoPasteisPage() {
 
         <div className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:gap-14">
           <figure className="md:w-[38%] md:shrink-0">
-            <MotionImageReveal direction="left" className="rounded-sm">
-            <PortfolioImage
-              src="/images/beto-pasteis/capa.png"
-              alt="Beto Pastéis"
-              priority
-              width={1200}
-              height={800}
-              className="w-full rotate-[-1.5deg] rounded-sm border-8 border-[var(--bp-paper)] object-cover shadow-[0_10px_0_rgba(0,0,0,0.08)]"
-              managedField="heroImageUrl"
-            />
-            </MotionImageReveal>
+            <div className="overflow-hidden rounded-sm">
+              <div>
+                <PortfolioImage
+                  src="/images/beto-pasteis/capa.png"
+                  alt="Beto Pastéis"
+                  priority
+                  width={1200}
+                  height={800}
+                  className="w-full rotate-[-1.5deg] rounded-sm border-8 border-[var(--bp-paper)] object-cover shadow-[0_10px_0_rgba(0,0,0,0.08)]"
+                  managedField="heroImageUrl"
+                />
+              </div>
+            </div>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.25em] text-[var(--bp-ink)]/55">
               Massa fina, fritura na hora
             </figcaption>
@@ -144,6 +146,33 @@ export function BetoPasteisPage() {
               </MotionReveal>
             ))}
           </ul>
+        </section>
+
+        <section id="pedido-no-balcao" className="border-t-2 border-dashed border-[var(--bp-ink)]/20 py-10">
+          <div className="grid gap-8 md:grid-cols-[.38fr_.62fr]">
+            <div>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-[var(--bp-tomato)]">
+                Pedido no balcão
+              </p>
+              <h2 className="mt-3 font-display text-2xl font-black uppercase leading-tight md:text-3xl">
+                Sabor, quantidade e horário deixam a conversa mais objetiva.
+              </h2>
+            </div>
+            <dl className="space-y-5 text-sm leading-7 text-[var(--bp-ink)]/75">
+              <div className="border-b border-dotted border-[var(--bp-ink)]/25 pb-4">
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">1 · Sabor</dt>
+                <dd className="mt-1">Use a vitrine da página como ponto de partida e confirme com a equipe o que está disponível no momento do pedido.</dd>
+              </div>
+              <div className="border-b border-dotted border-[var(--bp-ink)]/25 pb-4">
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">2 · Quantidade</dt>
+                <dd className="mt-1">Informe quantos pastéis pretende pedir para a casa organizar a solicitação antes de combinar a retirada.</dd>
+              </div>
+              <div>
+                <dt className="font-black uppercase tracking-[.08em] text-[var(--bp-ink)]">3 · Horário</dt>
+                <dd className="mt-1">Combine o horário diretamente com a equipe; a página não transforma intenção de pedido em confirmação automática.</dd>
+              </div>
+            </dl>
+          </div>
         </section>
 
         <MotionReveal as="section" variant="scale" className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">
