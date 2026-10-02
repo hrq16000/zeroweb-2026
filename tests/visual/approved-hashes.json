@@ -224,5 +224,32 @@
         "pixelSha256": "0744a285f3e6caebdba57040f03e4db33b3a0b74882676107a64b93ecea4c030"
       }
     }
+  },
+  "eisenfer-tubos-acos": {
+    "reason": "A onda 6 acrescenta um roteiro de cotação técnico abaixo da tabela da Eisenfer e estabiliza a mídia principal sem alterar o limite visual. As capturas desktop, tablet e mobile do run 36879841895 foram inspecionadas individualmente; composição, CTA, conteúdo e responsividade correspondem à mudança editorial pretendida. Esta aprovação fixa somente os pixels revisados e mantém o limite global de 2%.",
+    "reviewedAt": "2026-10-01",
+    "evidence": {
+      "runId": 36879841895,
+      "artifactId": 11170973381,
+      "artifactDigest": "sha256:fc1838d483ade30ec1ff5f2c890f3b527487dd035b2bc09fbe7a355d65685765",
+      "headSha": "a6c3f50a29e2f06a50bffec424ed53c6726ec968"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "b40272b6356ddb4bf87118c6da07e2892f7cf5514fb676ac5278c7c22aa2674b"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "8fc043104a3b0ed4b9bec2fe0b3f137041515ec6e1b6e436d49de3ff444099f2"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "3a1535b258458121855d7fd66cfc0090bb502d6d963316d9eb3ef268c404fcb9"
+      }
+    }
   }
 }
