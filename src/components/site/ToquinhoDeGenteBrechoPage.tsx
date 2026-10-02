@@ -90,7 +90,7 @@ export function ToquinhoDeGenteBrechoPage() {
               </div>
 
               <div className="space-y-6">
-                <MotionReveal variant="scale" delay={160}>
+                <div>
                   <div className="rotate-[2.5deg] rounded-md bg-white p-3 pb-9 shadow-2xl transition-transform duration-300 hover:rotate-0">
                     <PortfolioImage
                       src="/images/toquinho-de-gente-brecho/capa.png"
@@ -105,7 +105,7 @@ export function ToquinhoDeGenteBrechoPage() {
                       Garimpo da semana
                     </p>
                   </div>
-                </MotionReveal>
+                </div>
                 <MotionReveal variant="up" delay={220}>
                   <p className="text-base leading-relaxed text-[var(--tq-ink)]/80">
                     <ManagedText
