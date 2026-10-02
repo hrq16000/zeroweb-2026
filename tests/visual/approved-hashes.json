@@ -226,13 +226,13 @@
     }
   },
   "eisenfer-tubos-acos": {
-    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, a captura desktop do run 36968187471 foi reinspecionada e reproduziu exatamente o hash desktop já revisado na primeira aprovação da onda; tablet e mobile permanecem nos hashes já inspecionados. Nenhum threshold foi alterado; o limite global continua 2%.",
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela e remove MotionReveal apenas das cinco linhas técnicas para eliminar oscilação real do IntersectionObserver nos limites de viewport. Desktop, tablet e mobile do run 36971970370 foram inspecionados após essa estabilização; conteúdo, composição e responsividade estão íntegros. Nenhum threshold foi alterado; o limite global continua 2%.",
     "reviewedAt": "2026-10-02",
     "evidence": {
-      "runId": 36968187471,
-      "artifactId": 11210717363,
-      "artifactDigest": "sha256:4173b47c16ab59003ac0df22b1822840311c7a2e71dbe9db7e2c0b95c6448f70",
-      "headSha": "7a17cbdbfe3c59835d8de2d8c08006bd2d3bf8d2"
+      "runId": 36971970370,
+      "artifactId": 11211208947,
+      "artifactDigest": "sha256:6a0ea5b3386e63880ce763b60975cb12ad81183eb8bb3a6f28e7743facfa8e47",
+      "headSha": "6f555cc23c5361d304ea55e663ce3e1e6abb0f85"
     },
     "viewports": {
       "desktop": {
@@ -243,12 +243,12 @@
       "tablet": {
         "width": 834,
         "height": 1112,
-        "pixelSha256": "a45f1ff9103ab00d3d162f769781ed039ba00d989ec41d14c51f440ada018a5e"
+        "pixelSha256": "877af7c5c32d41db0ee03be54eab91a888addd18dfcf21563fc0bf9ae700f704"
       },
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "3a1535b258458121855d7fd66cfc0090bb502d6d963316d9eb3ef268c404fcb9"
+        "pixelSha256": "f3695f4660e166b4bcb823173912fa535e13da62898c73ec748df2b9ac2a8bb4"
       }
     }
   },
