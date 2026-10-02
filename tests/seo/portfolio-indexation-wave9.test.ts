@@ -24,6 +24,6 @@ describe("onda 9 de aprofundamento orientada pelo GSC", () => {
     expect(s).toContain("Um briefing curto ajuda a enquadrar o serviço.");
     expect(s).toContain("residência, comércio ou condomínio");
     expect(s).toContain("Pinhais, Curitiba e região");
-    expect(s).toContain("quer uma visita técnica");
+    expect(s).toContain("visita técnica antes de avançar");
   });
 });
