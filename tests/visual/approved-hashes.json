@@ -226,19 +226,19 @@
     }
   },
   "eisenfer-tubos-acos": {
-    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, o hero passou a usar wrapper com altura determinística por breakpoint. Desktop e mobile repetiram os hashes revisados; tablet foi reinspecionado no run 36966897335 e corresponde à composição correta em 834x1112. O limite global continua 2%.",
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Após a reancoragem sobre o main seguro pós-#320, a captura desktop do run 36968187471 foi reinspecionada e reproduziu exatamente o hash desktop já revisado na primeira aprovação da onda; tablet e mobile permanecem nos hashes já inspecionados. Nenhum threshold foi alterado; o limite global continua 2%.",
     "reviewedAt": "2026-10-02",
     "evidence": {
-      "runId": 36966897335,
-      "artifactId": 11210550894,
-      "artifactDigest": "sha256:43e5591e4ba432837f57e87c347fcabb1fc54f49106d9e38017bdf9356f8c19f",
-      "headSha": "39da672f32b16736c22a82bff9e91de17fe1d2cc"
+      "runId": 36968187471,
+      "artifactId": 11210717363,
+      "artifactDigest": "sha256:4173b47c16ab59003ac0df22b1822840311c7a2e71dbe9db7e2c0b95c6448f70",
+      "headSha": "7a17cbdbfe3c59835d8de2d8c08006bd2d3bf8d2"
     },
     "viewports": {
       "desktop": {
         "width": 1280,
         "height": 900,
-        "pixelSha256": "bf4d6d62dfc7f87ed84f6e72a7667cc143c1183576e41ffaf9fe1ef686d0bb60"
+        "pixelSha256": "b40272b6356ddb4bf87118c6da07e2892f7cf5514fb676ac5278c7c22aa2674b"
       },
       "tablet": {
         "width": 834,
