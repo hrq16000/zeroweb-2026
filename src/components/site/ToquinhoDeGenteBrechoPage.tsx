@@ -63,14 +63,12 @@ export function ToquinhoDeGenteBrechoPage() {
 
         {/* mural de recados: assinatura do projeto */}
         <section className="mx-auto w-[min(94%,70rem)] py-10 md:py-16">
-          <MotionReveal variant="mask">
-            <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
-              <ManagedText
-                field="heroHeadline"
-                fallback={"Moda circular para todas as idades."}
-              />
-            </h1>
-          </MotionReveal>
+          <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
+            <ManagedText
+              field="heroHeadline"
+              fallback={"Moda circular para todas as idades."}
+            />
+          </h1>
 
           <div className="mt-10 rounded-[2rem] border-[6px] border-[var(--tq-mint)] bg-[var(--tq-mint)]/12 p-5 md:p-10">
             <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start">
