@@ -226,13 +226,16 @@
     }
   },
   "eisenfer-tubos-acos": {
-    "reason": "A onda 6 acrescenta um roteiro de cotação técnico abaixo da tabela da Eisenfer e estabiliza a mídia principal sem alterar o limite visual. As capturas desktop, tablet e mobile do run 36879841895 foram inspecionadas individualmente; composição, CTA, conteúdo e responsividade correspondem à mudança editorial pretendida. Esta aprovação fixa somente os pixels revisados e mantém o limite global de 2%.",
-    "reviewedAt": "2026-10-01",
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela. Desktop e tablet permanecem nas capturas revisadas do run 36879841895; após o upgrade TanStack da #320, o mobile foi reinspecionado no run 36957865766 e permaneceu visualmente correto, responsivo e sem corte. A aprovação fixa somente os pixels revisados; o limite global continua 2%.",
+    "reviewedAt": "2026-10-02",
     "evidence": {
       "runId": 36879841895,
       "artifactId": 11170973381,
       "artifactDigest": "sha256:fc1838d483ade30ec1ff5f2c890f3b527487dd035b2bc09fbe7a355d65685765",
-      "headSha": "a6c3f50a29e2f06a50bffec424ed53c6726ec968"
+      "headSha": "a533abf43cc8b544daefbf3d74e7a93af54d97b7",
+      "mobileRunId": 36957865766,
+      "mobileArtifactId": 11207141629,
+      "mobileArtifactDigest": "sha256:39efbcc960de149ed7237efa16cf9c07c7089cab5195eeddcaef25ba7a376fe5"
     },
     "viewports": {
       "desktop": {
@@ -248,7 +251,7 @@
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "3a1535b258458121855d7fd66cfc0090bb502d6d963316d9eb3ef268c404fcb9"
+        "pixelSha256": "f3695f4660e166b4bcb823173912fa535e13da62898c73ec748df2b9ac2a8bb4"
       }
     }
   }
