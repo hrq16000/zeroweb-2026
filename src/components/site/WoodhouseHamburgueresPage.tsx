@@ -128,6 +128,29 @@ export function WoodhouseHamburgueresPage() {
               </dl>
             </section>
 
+            <section id="consulta-da-noite" className="mt-8 border-t border-[var(--wh-amber)]/40 pt-7">
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">
+                Consulta da noite
+              </p>
+              <h2 className="mt-3 max-w-[22ch] font-display text-2xl font-bold uppercase leading-tight">
+                Três decisões deixam o pedido mais direto.
+              </h2>
+              <div className="mt-6 space-y-4 text-sm leading-7 text-[var(--wh-bone)]/65">
+                <p>
+                  <strong className="text-[var(--wh-bone)]">O que procura:</strong> hambúrguer grelhado, petisco
+                  para dividir ou combinação de itens.
+                </p>
+                <p>
+                  <strong className="text-[var(--wh-bone)]">Como quer receber:</strong> consumo no local, retirada
+                  ou entrega combinada em São José dos Pinhais.
+                </p>
+                <p>
+                  <strong className="text-[var(--wh-bone)]">Disponibilidade:</strong> a vitrine da noite e as
+                  combinações são confirmadas pela casa no atendimento; a página não presume estoque.
+                </p>
+              </div>
+            </section>
+
             <div className="mt-8 border-t border-dashed border-[var(--wh-amber)]/40 pt-7">
               <p className="max-w-[54ch] text-base leading-relaxed text-[var(--wh-bone)]/75">
                 <ManagedText
