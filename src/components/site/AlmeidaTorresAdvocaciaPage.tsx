@@ -103,6 +103,34 @@ export function AlmeidaTorresAdvocaciaPage() {
           </div>
         </section>
 
+        <section id="triagem-inicial" className="mx-auto max-w-4xl px-5 py-16 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[.44fr_.56fr]">
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[.34em] text-[#5c6b60]">Triagem inicial</p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+                Quatro informações ajudam a organizar a primeira orientação.
+              </h2>
+              <p className="mt-5 text-[0.98rem] leading-8 text-[#4a463f]">
+                A conversa inicial não substitui a análise jurídica do caso. Ela serve para situar o assunto,
+                identificar o estágio e entender quais documentos já existem antes de definir o próximo passo.
+              </p>
+            </div>
+            <dl className="border-y border-[#22201c]/20">
+              {[
+                ["Natureza do caso", "Família e sucessões, trabalhista, consumidor, civil e contratos ou consultoria preventiva."],
+                ["Estágio atual", "Informe se ainda não há processo, se houve notificação, se o processo está em andamento ou se a demanda é revisar um contrato."],
+                ["Local", "São Paulo, Grande São Paulo ou outra comarca ajudam a contextualizar onde o caso tramita ou tramitaria."],
+                ["Documentos", "Contratos, comprovantes, mensagens e documentos oficiais relacionados ao fato podem ser separados para a análise posterior."],
+              ].map(([term, description]) => (
+                <div key={term} className="grid gap-2 border-b border-[#22201c]/20 py-5 last:border-b-0 sm:grid-cols-[10rem_1fr]">
+                  <dt className="font-semibold text-[#3a5a49]">{term}</dt>
+                  <dd className="text-[0.95rem] leading-7 text-[#4a463f]">{description}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-3xl px-5 py-16 lg:px-8">
           <blockquote className="border-l-2 border-[#3a5a49] pl-6 text-lg italic leading-8 text-[#3b3830]">
             “A primeira conversa serve para saber se existe caso — e, quando não existe, dizer isso com a mesma
