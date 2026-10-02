@@ -4,7 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Beto Pastéis (/portfolio/beto-pasteis).
@@ -56,17 +56,19 @@ export function BetoPasteisPage() {
 
         <div className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:gap-14">
           <figure className="md:w-[38%] md:shrink-0">
-            <MotionImageReveal direction="left" className="rounded-sm">
-            <PortfolioImage
-              src="/images/beto-pasteis/capa.png"
-              alt="Beto Pastéis"
-              priority
-              width={1200}
-              height={800}
-              className="w-full rotate-[-1.5deg] rounded-sm border-8 border-[var(--bp-paper)] object-cover shadow-[0_10px_0_rgba(0,0,0,0.08)]"
-              managedField="heroImageUrl"
-            />
-            </MotionImageReveal>
+            <div className="overflow-hidden rounded-sm">
+              <div>
+                <PortfolioImage
+                  src="/images/beto-pasteis/capa.png"
+                  alt="Beto Pastéis"
+                  priority
+                  width={1200}
+                  height={800}
+                  className="w-full rotate-[-1.5deg] rounded-sm border-8 border-[var(--bp-paper)] object-cover shadow-[0_10px_0_rgba(0,0,0,0.08)]"
+                  managedField="heroImageUrl"
+                />
+              </div>
+            </div>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.25em] text-[var(--bp-ink)]/55">
               Massa fina, fritura na hora
             </figcaption>
