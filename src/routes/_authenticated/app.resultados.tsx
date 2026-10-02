@@ -29,7 +29,7 @@ export const Route = createFileRoute("/_authenticated/app/resultados")({
   }),
   component: ResultadosPage,
   errorComponent: ({ error }) => (
-    <div className="p-6 text-sm text-destructive">Erro: {(error instanceof Error ? error.message : String(error))}</div>
+    <div className="p-6 text-sm text-destructive">Erro: {(error instanceof Error ? (error instanceof Error ? error.message : String(error)) : String(error))}</div>
   ),
   notFoundComponent: () => <div className="p-6">Não encontrado.</div>,
 });
