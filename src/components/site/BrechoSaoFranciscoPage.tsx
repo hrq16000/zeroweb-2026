@@ -145,6 +145,29 @@ export function BrechoSaoFranciscoPage() {
               ))}
             </ol>
 
+            <section id="garimpo-orientado" className="mt-10 border-l border-[var(--sf-gold)]/60 pl-5">
+              <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--sf-terra)]">
+                Garimpo orientado
+              </p>
+              <h2 className="mt-3 max-w-[24ch] font-display text-2xl font-semibold">
+                Quanto mais claro o pedido, mais fácil consultar o que está na vitrine.
+              </h2>
+              <div className="mt-6 space-y-5 text-sm leading-7 text-[var(--sf-ink)]/75">
+                <p>
+                  <strong className="text-[var(--sf-ink)]">Tipo de peça.</strong> Diga se procura roupa feminina,
+                  masculina ou acessório para direcionar a consulta à arara certa.
+                </p>
+                <p>
+                  <strong className="text-[var(--sf-ink)]">Tamanho e estilo.</strong> Informar medida aproximada,
+                  caimento ou referência ajuda a filtrar as opções antes de mostrar o que está disponível.
+                </p>
+                <p>
+                  <strong className="text-[var(--sf-ink)]">Disponibilidade.</strong> Como cada peça é única na
+                  vitrine de segunda mão, a confirmação acontece no atendimento no momento da consulta.
+                </p>
+              </div>
+            </section>
+
             <p className="mt-8 font-display text-lg italic text-[var(--sf-ink)]/70">
               Roupas com história merecem uma descoberta cuidadosa.
             </p>
