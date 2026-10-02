@@ -114,7 +114,7 @@ export function AutoescolaAptosPage() {
               </div>
             </MotionReveal>
             <div className="aptos-photo-frame aspect-[4/3] overflow-hidden md:aspect-[5/6] lg:aspect-[4/3]">
-              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="sync" fetchPriority="high" />
+              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="async" fetchPriority="high" />
             </div>
           </div>
         </section>
