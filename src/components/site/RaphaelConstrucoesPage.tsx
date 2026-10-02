@@ -138,12 +138,12 @@ export function RaphaelConstrucoesPage() {
             <p className="text-[11px] font-bold uppercase tracking-[.34em] text-primary">
               Construção · engenharia · reformas
             </p>
-            <MotionReveal as="h1" variant="up" intensity="BALANCED" className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Uma vis\u00e3o completa para sua obra."}
               />
-            </MotionReveal>
+            </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
