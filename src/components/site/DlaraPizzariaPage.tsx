@@ -112,6 +112,20 @@ export function DlaraPizzariaPage() {
           </div>
         </section>
 
+        <aside id="escolha-rapida" className="mx-auto max-w-5xl px-5 pt-14">
+          <div className="border-y border-[var(--dl-ember)]/25 py-7">
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.32em] text-[var(--dl-ember)]">
+              Escolha rápida
+            </p>
+            <p className="mt-4 max-w-4xl font-display text-2xl font-black leading-snug md:text-3xl">
+              Pizza para compartilhar, esfiha para variar ou lanche para um pedido direto: comece pela frente principal e deixe sabores, tamanhos e valores para confirmação com a equipe.
+            </p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--dl-light)]/65">
+              Se o pedido envolver mais pessoas, informe uma quantidade aproximada e o bairro ou endereço em São José dos Pinhais para a casa confirmar a forma de atendimento.
+            </p>
+          </div>
+        </aside>
+
         <section id="como-pedir" className="mx-auto max-w-5xl px-5 py-16">
           <div className="grid gap-10 md:grid-cols-[.42fr_.58fr]">
             <div>
