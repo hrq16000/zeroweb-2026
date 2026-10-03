@@ -1,3 +1,4 @@
+// Wave 22 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight, CalendarDays, Check, Eye, Facebook, MapPin, Scissors, Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
