@@ -24,6 +24,8 @@ const empresaCol: { label: string; to: string }[] = [
   { label: "Parceiros", to: "/servicos/parceiros" },
   { label: "Blog", to: "/blog" },
   { label: "Planos", to: "/planos" },
+  { label: "Agência digital integrada", to: "/home2" },
+  { label: "Landing pages autorais", to: "/home3" },
   { label: "Bairros — Curitiba/RMC", to: "/bairros-cwb" },
   { label: "Bairros — Belo Horizonte", to: "/bairros-bh" },
 ];
