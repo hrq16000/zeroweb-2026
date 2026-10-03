@@ -139,33 +139,6 @@ export function EspacoCihLuhPage() {
             </div>
           </section>
 
-          <aside id="ficha-de-agendamento" className="border-t border-white/10 px-5 py-16 lg:px-12" aria-labelledby="ficha-de-agendamento-title">
-            <div className="max-w-4xl">
-              <p className="text-xs font-bold uppercase tracking-[.28em] text-[#cda85a]">Ficha de agendamento</p>
-              <h2 id="ficha-de-agendamento-title" className="mt-4 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-                Cuidado, momento, local e preferência deixam o pedido de horário mais claro.
-              </h2>
-              <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-                <div>
-                  <dt className="font-bold text-white">Cuidado procurado</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#a9b0c9]">Alongamento em gel, reconstrução, pedicure tradicional, pedicure em gel, cuidados podológicos ou combo mãos e pés.</dd>
-                </div>
-                <div>
-                  <dt className="font-bold text-white">Como está hoje</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#a9b0c9]">Primeiro alongamento, manutenção, reconstrução ou vontade de combinar mais de um cuidado ajudam a situar o atendimento.</dd>
-                </div>
-                <div>
-                  <dt className="font-bold text-white">Local</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#a9b0c9]">Manaus e região aparecem no formulário; cidade e endereço podem ser confirmados durante o contato.</dd>
-                </div>
-                <div>
-                  <dt className="font-bold text-white">Preferências</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#a9b0c9]">Formato, comprimento, cor, sensibilidade e horário ideal podem ser informados antes da confirmação da vaga.</dd>
-                </div>
-              </dl>
-            </div>
-          </aside>
-
           {/* Oferta como bilhete numerado, não como faixa de CTA. */}
           <section id="oferta" className="px-5 pb-20 lg:px-12">
             <div className="border border-dashed border-[#cda85a]/60 bg-[#101a38] p-7 lg:p-10">
