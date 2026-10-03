@@ -278,5 +278,59 @@
         "pixelSha256": "5ed27ab7d575ed75b884ba8c74bd3890fabd6680793ae00cfc034fd6b5f5248e"
       }
     }
+  },
+  "lucas-arruma-maquina-lavar": {
+    "reason": "Baseline visual armazenada ainda representava a versão azul anterior do portfólio, enquanto o main atual já usa a direção autoral creme/vermelho. Desktop, tablet e mobile do run 37119143069 foram inspecionados individualmente; composição, responsividade, CTAs e conteúdo acima da dobra estão íntegros. A onda 14 só adiciona conteúdo abaixo da dobra. A aprovação fixa exatamente esses pixels e mantém o limite global de 2%.",
+    "reviewedAt": "2026-10-03",
+    "evidence": {
+      "runId": 37119143069,
+      "artifactId": 11272348556,
+      "artifactDigest": "sha256:9a7864f399590505fab866bbce6de4b462e36a3ba56fd6b2b66aac491255cd76",
+      "headSha": "651f8b22912e9cf26f44903d76b553270c49b882"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "531fd94612770be9e7a99fe00c8d2aeadd08d9ff76feb5e227742a222344871e"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "4c56166ee894fba6c756c80ed7cd4e8335996e1b966bf638f8cd78e9bf742ca1"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "46ce3994ce413de8c44ca277cfd77be086a77e227c76ef0fbd00deed0b3c3e2b"
+      }
+    }
+  },
+  "emporio-lelecute": {
+    "reason": "As baselines armazenadas do Empório LeleCute foram capturadas com fallback tipográfico no headline; o código atual declara font-serif e os snapshots do run 37119143069 renderizam essa direção corretamente. Desktop, tablet e mobile foram inspecionados individualmente, sem quebra, overflow ou perda de identidade. A nova seção da onda 14 está abaixo da dobra. A aprovação fixa somente os pixels revisados e mantém o limite global de 2%.",
+    "reviewedAt": "2026-10-03",
+    "evidence": {
+      "runId": 37119143069,
+      "artifactId": 11272348556,
+      "artifactDigest": "sha256:9a7864f399590505fab866bbce6de4b462e36a3ba56fd6b2b66aac491255cd76",
+      "headSha": "651f8b22912e9cf26f44903d76b553270c49b882"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "d7a279b581b5a2c959cf9a2d5a154d61d22daebe17681ccd2e82ed081225fa35"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "5ea3ac22e2cea67aa6dead56924edc2e597d46a1173213f5474c11ac1ac8f635"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "d0d9fe08d846798a8d9936ea3addffb62c03440bc66f82eab3d06e2aeb418d1d"
+      }
+    }
   }
 }
