@@ -54,7 +54,6 @@ import {
   breadcrumbNode,
   graph,
   itemListNode,
-  localBusinessNode,
   organizationNode,
   serviceNode,
 } from "@/lib/portfolio-seo";
@@ -361,7 +360,6 @@ export const Route = createFileRoute("/portfolio/")({
         type: "application/ld+json",
         children: graph([
           organizationNode(),
-          localBusinessNode(),
           {
             "@type": "CollectionPage",
             "@id": `${URL}#collection`,
@@ -369,7 +367,7 @@ export const Route = createFileRoute("/portfolio/")({
             name: TITLE_Q,
             description: DESC_Q,
             inLanguage: "pt-BR",
-            isPartOf: { "@id": `${SITE_URL}/#organization` },
+            isPartOf: { "@id": `${SITE_URL}/#org` },
             potentialAction: {
               "@type": "SearchAction",
               target: {
