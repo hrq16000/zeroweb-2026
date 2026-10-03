@@ -153,6 +153,33 @@ export function UberlandiaEletricaResidencialPage() {
           </div>
         </section>
 
+        <aside id="ficha-do-chamado" className="border-t border-[#2a251d] px-5 py-16 lg:px-10" aria-labelledby="ficha-do-chamado-title">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-black uppercase tracking-[.24em] text-[#ffd400]">Ficha do chamado</p>
+            <h2 id="ficha-do-chamado-title" className="mt-4 max-w-3xl text-2xl font-black uppercase leading-tight sm:text-3xl">
+              Serviço, tipo de imóvel, situação atual e urgência ajudam a preparar a avaliação elétrica.
+            </h2>
+            <dl className="mt-8 grid gap-px bg-[#2a251d] sm:grid-cols-2">
+              <div className="bg-[#12100c] p-6">
+                <dt className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">Serviço</dt>
+                <dd className="mt-3 text-sm leading-7 text-[#b9b4a7]">Quadro de distribuição, chuveiro ou ducha, aterramento e DR, novos pontos ou curto e queda de energia.</dd>
+              </div>
+              <div className="bg-[#12100c] p-6">
+                <dt className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">Tipo de imóvel</dt>
+                <dd className="mt-3 text-sm leading-7 text-[#b9b4a7]">Casa, apartamento, comércio ou obra em andamento ajudam a situar o atendimento.</dd>
+              </div>
+              <div className="bg-[#12100c] p-6">
+                <dt className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">Situação atual</dt>
+                <dd className="mt-3 text-sm leading-7 text-[#b9b4a7]">Sem energia agora, funcionamento com falhas, instalação nova ou pedido de avaliação preventiva entram na triagem.</dd>
+              </div>
+              <div className="bg-[#12100c] p-6">
+                <dt className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">Quando precisa</dt>
+                <dd className="mt-3 text-sm leading-7 text-[#b9b4a7]">Emergência hoje, atendimento nesta semana ou agendamento podem ser informados antes da confirmação de disponibilidade.</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
+
         <section id="plantao" className="bg-[#ffd400] px-5 py-14 text-[#12100c] lg:px-10">
           <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div>
