@@ -6,18 +6,24 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { CITIES, STATES, type StateInfo } from "@/lib/geo-data";
+import { isGeoCityIndexable, isGeoStateIndexable } from "@/lib/geo-hub-indexability";
 import { GEO_SERVICE_SLUGS, SERVICES } from "@/lib/services-data";
 
 export const Route = createFileRoute("/estados/$state")({
   beforeLoad: ({ params }) => {
     if (!STATES[params.state]) throw notFound();
   },
-  loader: ({ params }) => STATES[params.state] as StateInfo,
+  loader: ({ params }) => {
+    const state = STATES[params.state] as StateInfo;
+    const citySlugs = state.cities.filter((slug) => isGeoCityIndexable(slug));
+    return { state, citySlugs, hasEvidence: isGeoStateIndexable(state.slug) };
+  },
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Estado · 0WEB" }] };
+    const { state, hasEvidence } = loaderData;
     const url = absUrl(`/estados/${params.state}`);
-    const title = `${loaderData.name} (${loaderData.code}) — Marketing Digital e Tecnologia · 0WEB`;
-    const desc = `Serviços de criação de sites, SEO, marketing digital, automação com IA e e-commerce para empresas no ${loaderData.name}.`;
+    const title = `${state.name} (${state.code}) — Atendimento digital · 0WEB`;
+    const desc = `Atendimento remoto da 0WEB para empresas em ${state.name}. Páginas locais são destacadas apenas onde há evidência publicada.`;
     return {
       meta: [
         { title },
@@ -27,6 +33,10 @@ export const Route = createFileRoute("/estados/$state")({
         { property: "og:url", content: url },
         { property: "og:image", content: DEFAULT_OG_IMAGE },
         { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "robots",
+          content: hasEvidence ? "index,follow,max-image-preview:large" : "noindex,follow",
+        },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -46,7 +56,7 @@ export const Route = createFileRoute("/estados/$state")({
               },
               breadcrumbLd([
                 { name: "Estados", path: "/estados" },
-                { name: loaderData.name, path: `/estados/${params.state}` },
+                { name: state.name, path: `/estados/${params.state}` },
               ]),
             ],
           }),
@@ -58,8 +68,8 @@ export const Route = createFileRoute("/estados/$state")({
 });
 
 function EstadoPage() {
-  const state = Route.useLoaderData();
-  const cities = state.cities.map((slug: string) => CITIES[slug]);
+  const { state, citySlugs } = Route.useLoaderData();
+  const cities = citySlugs.map((slug: string) => CITIES[slug]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -80,7 +90,7 @@ function EstadoPage() {
               {state.name} <span className="text-gradient">({state.code})</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Serviços digitais para empresas em {state.name}. Atendimento remoto, com contexto regional.
+              Atendimento remoto para empresas em {state.name}. As páginas locais abaixo aparecem apenas quando há projeto publicado que sustenta a cobertura.
             </p>
           </div>
         </section>
@@ -110,7 +120,7 @@ function EstadoPage() {
 
         <section className="py-16 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-2xl font-bold mb-6">Serviços disponíveis para empresas em {state.name}</h2>
+            <h2 className="text-2xl font-bold mb-6">Serviços digitais com atendimento remoto para {state.name}</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {GEO_SERVICE_SLUGS.map((slug) => {
                 const s = SERVICES[slug];
