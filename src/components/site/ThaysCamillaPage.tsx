@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal } from "@/components/motion";
+import { MotionReveal } from "@/components/motion";
 
 const quiz = {
   services: [
@@ -93,7 +93,7 @@ export function ThaysCamillaPage() {
             </p>
           </div>
           <div className="relative mx-auto mt-10 max-w-2xl">
-            <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-[2.5rem]">
+            <div className="rounded-[2.5rem]">
             <PortfolioImage
               src="/images/thays-camilla/hero.png"
               alt="Kit de caneca e azulejo personalizados Thays Camilla"
@@ -103,7 +103,7 @@ export function ThaysCamillaPage() {
               className="mx-auto w-full rounded-[2.5rem] border-8 border-white object-cover shadow-[0_30px_60px_-25px_rgba(142,76,55,.5)]"
               managedField="heroImageUrl"
             />
-            </MotionImageReveal>
+            </div>
             <MotionReveal variant="down" intensity="BALANCED" delay={240} className="mx-auto -mt-8 w-fit rotate-[-2deg] rounded-2xl bg-[#4b271d] px-6 py-4 text-[#fff9f4] shadow-xl">
               <p className="text-[.68rem] font-bold uppercase tracking-[.28em] text-[#f5b39a]">Kit promocional informado</p>
               <p className="mt-1 font-serif text-3xl">R$ 59,90</p>
