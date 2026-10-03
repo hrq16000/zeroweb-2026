@@ -149,6 +149,33 @@ export function ThaysCamillaPage() {
           </div>
         </section>
 
+        <aside id="briefing-do-presente" className="px-5 py-14 lg:px-8" aria-labelledby="briefing-do-presente-title">
+          <div className="mx-auto max-w-4xl border-y border-[#f1d8ca] py-10">
+            <p className="text-[.7rem] font-bold uppercase tracking-[.28em] text-[#d6654a]">Briefing do presente</p>
+            <h2 id="briefing-do-presente-title" className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
+              Peça, ocasião, conteúdo da arte e forma de receber ajudam a organizar a personalização.
+            </h2>
+            <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+              <div>
+                <dt className="font-semibold text-[#4b271d]">O que personalizar</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Kit com caneca e azulejo, caneca de cerâmica, azulejo 15x15 cm ou outra opção a consultar.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">Para qual ocasião</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Presente, item para casa, data especial ou uma ideia ainda em definição ajudam a dar contexto à criação.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">O que vai na arte</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Frase, imagem, cores, quantidade e data podem ser enviados para combinar a proposta antes da produção.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">Como e quando receber</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Retirada, entrega combinada e prazo desejado entram no atendimento antes da confirmação final.</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
+
         {/* Fechamento centralizado em cartão claro. */}
         <section id="pedido" className="px-5 pb-20 lg:px-8">
           <div className="mx-auto max-w-2xl rounded-[2.5rem] border border-[#edb49c] bg-[#fff9f4] px-8 py-12 text-center shadow-sm">
