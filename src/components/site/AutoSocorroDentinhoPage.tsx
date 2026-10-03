@@ -308,35 +308,6 @@ export function AutoSocorroDentinhoPage() {
             </div>
           </section>
 
-          <aside id="triagem-pratica" className="bg-[#f7f4ee] px-5 py-16 sm:py-20" aria-labelledby="triagem-pratica-title">
-            <div className="mx-auto max-w-7xl border-y border-[#13233a]/15 py-9">
-              <p className="text-xs font-black uppercase tracking-[.22em] text-[#e8500a]">
-                Antes do chamado
-              </p>
-              <h2 id="triagem-pratica-title" className="mt-4 max-w-3xl text-3xl font-black leading-tight tracking-[-.04em] sm:text-4xl">
-                Sintoma, situação do veículo, localização e urgência deixam a triagem mais objetiva.
-              </h2>
-              <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-                <div>
-                  <dt className="font-black text-[#13233a]">O que o carro está mostrando</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#58636e]">Informe se não liga, perdeu força, acendeu uma luz no painel, apresenta falha ou se a necessidade é revisão.</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-[#13233a]">Como o veículo está agora</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#58636e]">Diga se o carro está parado e se a necessidade envolve mecânica, elétrica, diagnóstico, socorro ou reboque.</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-[#13233a]">Onde aconteceu</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#58636e]">O atendimento é voltado a Quatro Barras e Região Metropolitana; a disponibilidade para o local é confirmada no contato.</dd>
-                </div>
-                <div>
-                  <dt className="font-black text-[#13233a]">Quando precisa resolver</dt>
-                  <dd className="mt-2 text-sm leading-7 text-[#58636e]">Explique a urgência para a equipe organizar o encaminhamento. Prazo, orçamento e disponibilidade só são confirmados no canal oficial.</dd>
-                </div>
-              </dl>
-            </div>
-          </aside>
-
           <section className="bg-[#ff6518] px-5 py-14 text-white">
             <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
