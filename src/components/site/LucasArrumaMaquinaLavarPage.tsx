@@ -214,28 +214,6 @@ export function LucasArrumaMaquinaLavarPage() {
           </div>
         </section>
 
-        <aside id="ficha-do-sintoma" className="border-b-2 border-[#23282e] bg-[#f7f3ec]" aria-labelledby="ficha-do-sintoma-title">
-          <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-16">
-            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#c2452d]">Ficha do sintoma</p>
-            <h2 id="ficha-do-sintoma-title" className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">
-              Equipamento, marca, modelo, código de erro e início do problema ajudam a preparar o diagnóstico.
-            </h2>
-            <div className="mt-8 grid gap-px border-2 border-[#23282e] bg-[#23282e] sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["Equipamento", "Máquina de lavar, lava e seca, tanquinho ou outro equipamento a confirmar."],
-                ["Marca e modelo", "Informe os dados que identificar no aparelho para dar contexto ao atendimento."],
-                ["Sintoma ou código", "Não liga, não centrifuga, não drena, vaza, faz ruído ou apresenta código de erro."],
-                ["Quando começou", "Conte quando percebeu a falha e se ela acontece sempre ou em algum ciclo específico."],
-              ].map(([title, text]) => (
-                <div key={title} className="bg-[#f7f3ec] p-5">
-                  <h3 className="font-display text-lg font-bold">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#4a545e]">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </aside>
-
         <section id="garantia" className="bg-[#23282e] text-[#f2efe9]">
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-14 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-16">
             <div>
