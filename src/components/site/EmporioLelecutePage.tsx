@@ -108,33 +108,6 @@ export function EmporioLelecutePage() {
         </div>
       </section>
 
-      <aside id="briefing-da-lembranca" className="px-5 py-16 sm:px-8" aria-labelledby="briefing-da-lembranca-title">
-        <div className="mx-auto max-w-6xl border-y border-[#ead8c7] py-10">
-          <p className="text-xs font-bold uppercase tracking-[.25em] text-[#a55d4f]">Briefing da lembrança</p>
-          <h2 id="briefing-da-lembranca-title" className="mt-3 max-w-3xl font-serif text-4xl">
-            Ocasião, quantidade, data e formato ajudam a transformar a ideia em proposta.
-          </h2>
-          <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-            <div>
-              <dt className="font-semibold text-[#55382c]">Qual é a ocasião</dt>
-              <dd className="mt-2 text-sm leading-7 text-[#745b4d]">Casamento, noivado, maternidade, data especial ou outra celebração ajudam a situar o pedido.</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-[#55382c]">Quantidade</dt>
-              <dd className="mt-2 text-sm leading-7 text-[#745b4d]">Uma estimativa de unidades dá contexto para a proposta antes da confirmação final.</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-[#55382c]">Data do evento</dt>
-              <dd className="mt-2 text-sm leading-7 text-[#745b4d]">Informe quando pretende usar ou entregar as lembranças para organizar a conversa com o ateliê.</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-[#55382c]">Formato desejado</dt>
-              <dd className="mt-2 text-sm leading-7 text-[#745b4d]">Lembrancinhas personalizadas, mini-velas, sabonetes, kit presente ou convites perfumados aparecem entre as opções do formulário.</dd>
-            </div>
-          </dl>
-        </div>
-      </aside>
-
       <section className="bg-[#f1dfcf] px-5 py-20 sm:px-8">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
           <div>
