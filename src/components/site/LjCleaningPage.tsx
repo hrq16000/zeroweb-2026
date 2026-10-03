@@ -110,33 +110,6 @@ export function LjCleaningPage() {
           </div>
         </section>
 
-        <aside id="ficha-do-item" className="px-5 py-16 lg:px-8" aria-labelledby="ficha-do-item-title">
-          <div className="mx-auto max-w-5xl border-y border-[#d7e3f0] py-10">
-            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Ficha do item</p>
-            <h2 id="ficha-do-item-title" className="mt-3 max-w-3xl text-3xl font-black sm:text-4xl">
-              Tipo de superfície, tamanho e uso ajudam a deixar o orçamento mais objetivo.
-            </h2>
-            <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
-              <div>
-                <dt className="font-black text-[#0a2d5c]">O que precisa de higienização</dt>
-                <dd className="mt-2 text-sm leading-7 text-[#5b7899]">Sofá, colchão, cadeira, tapete, carpete, puff, divã ou interior automotivo entram na matriz de atendimento.</dd>
-              </div>
-              <div>
-                <dt className="font-black text-[#0a2d5c]">Tamanho ou quantidade</dt>
-                <dd className="mt-2 text-sm leading-7 text-[#5b7899]">Informe o tamanho aproximado da peça ou quantos itens precisam de cuidado para contextualizar o pedido.</dd>
-              </div>
-              <div>
-                <dt className="font-black text-[#0a2d5c]">Residencial ou automotivo</dt>
-                <dd className="mt-2 text-sm leading-7 text-[#5b7899]">Essa diferença ajuda a equipe a identificar a categoria correta antes de organizar o atendimento.</dd>
-              </div>
-              <div>
-                <dt className="font-black text-[#0a2d5c]">Próximo passo</dt>
-                <dd className="mt-2 text-sm leading-7 text-[#5b7899]">Depois da descrição inicial, a equipe orienta o atendimento e confirma os próximos passos pelo canal oficial.</dd>
-              </div>
-            </dl>
-          </div>
-        </aside>
-
         <section id="orcamento" className="bg-[#0a2d5c] px-5 py-16 text-white lg:px-8">
           <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
