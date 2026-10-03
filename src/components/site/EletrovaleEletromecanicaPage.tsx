@@ -1,3 +1,4 @@
+// Wave 17 baseline probe: comentário neutro; sem alteração de runtime.
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Cog, Gauge, ShieldCheck, Wrench } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
