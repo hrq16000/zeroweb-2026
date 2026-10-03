@@ -306,6 +306,28 @@ export function JsEletricaManutencaoPage() {
           </div>
         </section>
 
+        <aside id="dados-do-chamado" className="px-5 py-16 lg:px-8" aria-labelledby="dados-do-chamado-title">
+          <div className="mx-auto max-w-7xl border-y border-white/15 py-10">
+            <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#55d6ef]">dados do chamado</p>
+            <h2 id="dados-do-chamado-title" className="mt-4 max-w-3xl font-display text-3xl font-black uppercase leading-tight">
+              Equipamento, defeito, quantidade de pontos e foto do quadro ajudam a preparar a avaliação.
+            </h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Equipamento", "Identifique o aparelho, motor, bomba, quadro, ponto de iluminação ou sistema envolvido."],
+                ["Defeito ou serviço", "Descreva o que parou, o que precisa instalar ou qual alteração pretende fazer."],
+                ["Quantidade", "Quando houver vários pontos ou equipamentos, informe a quantidade para contextualizar o escopo."],
+                ["Referência visual", "Uma foto do quadro ou do ponto com problema pode ajudar a equipe a entender o cenário antes da visita."],
+              ].map(([title, text]) => (
+                <div key={title} className="border-l-2 border-[#ffd21d] pl-4">
+                  <h3 className="font-black text-white">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#a9c4cf]">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
+
         <section id="chamado" className="bg-[#ffd21d] px-5 py-14 text-[#07131d] lg:px-8 lg:py-16">
           <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
