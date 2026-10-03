@@ -312,6 +312,51 @@ export function FernandaAmaralDrywallPage() {
         </div>
       </section>
 
+      <section aria-labelledby="fernanda-briefing-title" className="border-y border-border bg-card px-5 py-20 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-black uppercase tracking-[.22em] text-primary">
+            Antes do orçamento
+          </p>
+          <h2 id="fernanda-briefing-title" className="mt-3 max-w-3xl text-4xl font-black uppercase leading-[.98] sm:text-5xl">
+            Quatro informações ajudam a organizar a primeira avaliação.
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+            O formulário desta página já separa a solicitação pelo serviço, pelo contexto do local,
+            pelo que você consegue mostrar da demanda e pelo momento em que pretende começar. Isso
+            ajuda Fernanda e Amaral a entender o pedido antes de confirmar orçamento e disponibilidade.
+          </p>
+          <dl className="mt-10 divide-y divide-border border-y border-border">
+            <div className="grid gap-2 py-5 md:grid-cols-[12rem_1fr]">
+              <dt className="font-black uppercase tracking-[.12em] text-primary">Serviço</dt>
+              <dd className="leading-7 text-muted-foreground">
+                Drywall, pintura, reforma, móveis e madeira, corte de grama ou pequeno frete.
+              </dd>
+            </div>
+            <div className="grid gap-2 py-5 md:grid-cols-[12rem_1fr]">
+              <dt className="font-black uppercase tracking-[.12em] text-primary">Contexto</dt>
+              <dd className="leading-7 text-muted-foreground">
+                Informe se o trabalho é em casa, comércio, um reparo específico ou se você ainda está avaliando a solução.
+              </dd>
+            </div>
+            <div className="grid gap-2 py-5 md:grid-cols-[12rem_1fr]">
+              <dt className="font-black uppercase tracking-[.12em] text-primary">Referências</dt>
+              <dd className="leading-7 text-muted-foreground">
+                Fotos, medidas aproximadas, acabamento desejado, endereço a confirmar ou itens que precisam ser transportados ajudam a explicar a demanda.
+              </dd>
+            </div>
+            <div className="grid gap-2 py-5 md:grid-cols-[12rem_1fr]">
+              <dt className="font-black uppercase tracking-[.12em] text-primary">Momento</dt>
+              <dd className="leading-7 text-muted-foreground">
+                Diga se precisa começar em breve, nos próximos dias, ainda neste mês ou se está apenas planejando.
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-6 max-w-3xl text-sm leading-7 text-muted-foreground">
+            Essas informações não confirmam viabilidade, preço nem agenda automaticamente; a equipe valida cada ponto no atendimento.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-primary px-5 py-20 text-primary-foreground md:py-24">
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div>
