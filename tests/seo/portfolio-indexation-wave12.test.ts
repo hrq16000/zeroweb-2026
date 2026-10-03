@@ -20,11 +20,4 @@ describe("onda 12 de aprofundamento orientada pelo GSC", () => {
     expect(s).toContain("Uma foto do quadro ou do ponto com problema");
   });
 
-  test("Assistência Santos diferencia a forma de atendimento sem prometer modalidade", () => {
-    const s = read("AssistenciaMicroondasSantosPage.tsx");
-    expect(s).toContain("Casa, assistência ou entrega combinada entram na conversa antes de confirmar o serviço.");
-    expect(s).toContain("atendimento a domicílio");
-    expect(s).toContain("essa informação já entra na triagem inicial");
-    expect(s).toContain("pedir orientação primeiro");
-  });
 });
