@@ -1,3 +1,4 @@
+// Wave 18 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight, CalendarDays, Check, Heart, MapPin, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
