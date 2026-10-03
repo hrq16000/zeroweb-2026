@@ -1,3 +1,4 @@
+// Wave 21 baseline probe: comentário neutro; sem alteração de runtime.
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { ArrowRight, Check, DoorOpen, Hammer, MapPin, Ruler, ShieldCheck, Sparkles, Wrench } from "lucide-react";
 import { MotionReveal, MotionScope } from "@/components/motion";
