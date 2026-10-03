@@ -1,4 +1,3 @@
-// Wave 21 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight, Clock3, ExternalLink, Heart, MapPin, ShoppingBag, Sparkles, Truck, Utensils, Zap } from "lucide-react";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
