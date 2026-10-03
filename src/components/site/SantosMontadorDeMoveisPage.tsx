@@ -1,4 +1,3 @@
-// Wave 18 baseline probe: comentário neutro; sem alteração de runtime.
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, Bolt, Check, ChevronRight, CircleGauge, Droplets, Hammer, PaintRoller, PanelsTopLeft, Ruler, ShieldCheck, Sparkles, Wrench } from "lucide-react";
