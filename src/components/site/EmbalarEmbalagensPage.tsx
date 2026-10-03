@@ -1,4 +1,3 @@
-// Wave 23 baseline probe: comentário neutro; sem alteração de runtime.
 import {
   ArrowRight,
   Box,
