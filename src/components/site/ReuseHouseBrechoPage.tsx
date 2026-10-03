@@ -106,6 +106,19 @@ export function ReuseHouseBrechoPage() {
             ))}
           </MotionStagger>
         </section>
+        <aside id="ficha-de-procura" className="mt-12 border-t border-dotted border-[var(--rh-line)] pt-8" aria-labelledby="ficha-de-procura-title">
+          <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
+            Ficha de procura
+          </p>
+          <h2 id="ficha-de-procura-title" className="mt-4 max-w-[28ch] font-display text-2xl font-extrabold uppercase leading-tight">
+            Peça, estilo e disponibilidade organizam o garimpo antes da resposta.
+          </h2>
+          <div className="mt-6 grid gap-5 text-sm leading-7 text-[var(--rh-deep)]/72 md:grid-cols-3">
+            <p><strong className="block text-[var(--rh-deep)]">O que procura</strong>Conte a peça ou o estilo desejado para orientar a busca entre os achados do brechó.</p>
+            <p><strong className="block text-[var(--rh-deep)]">Como a seleção funciona</strong>O garimpo é feito peça a peça, com atenção ao estado e ao caimento antes de entrar na seleção.</p>
+            <p><strong className="block text-[var(--rh-deep)]">Confirmação</strong>As opções dependem do que estiver disponível no momento da consulta e são apresentadas no atendimento.</p>
+          </div>
+        </aside>
       </main>
 
       {/* fotografia só depois do índice, como faixa larga de largura total */}
