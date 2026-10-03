@@ -120,6 +120,21 @@ export function AssistenciaMicroondasSantosPage() {
           </div>
         </section>
 
+        <aside id="forma-de-atendimento" className="px-5 py-16 lg:px-8" aria-labelledby="forma-de-atendimento-title">
+          <div className="mx-auto max-w-6xl border-y border-white/10 py-10">
+            <p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff6a70]">Forma de atendimento</p>
+            <h2 id="forma-de-atendimento-title" className="mt-3 max-w-3xl text-3xl font-black sm:text-4xl">
+              Casa, assistência ou entrega combinada entram na conversa antes de confirmar o serviço.
+            </h2>
+            <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white/[.03] p-5"><dt className="font-black">Em casa</dt><dd className="mt-2 text-sm leading-7 text-white/60">Indique que prefere atendimento a domicílio para a equipe confirmar se essa modalidade atende o seu caso.</dd></div>
+              <div className="rounded-2xl bg-white/[.03] p-5"><dt className="font-black">Na assistência</dt><dd className="mt-2 text-sm leading-7 text-white/60">Se o aparelho puder ser levado até a assistência, essa informação já entra na triagem inicial.</dd></div>
+              <div className="rounded-2xl bg-white/[.03] p-5"><dt className="font-black">Entrega combinada</dt><dd className="mt-2 text-sm leading-7 text-white/60">Quando a necessidade envolver retirada ou entrega, a forma é combinada com Ryan e Pedro no atendimento.</dd></div>
+              <div className="rounded-2xl bg-white/[.03] p-5"><dt className="font-black">Ainda em dúvida</dt><dd className="mt-2 text-sm leading-7 text-white/60">Também é possível pedir orientação primeiro e deixar a modalidade para a equipe confirmar depois de entender o aparelho.</dd></div>
+            </dl>
+          </div>
+        </aside>
+
         <section id="instagram" className="bg-[#d9282f] px-5 py-16 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><Instagram className="h-8 w-8" /><p className="mt-4 text-sm font-bold uppercase tracking-[.2em] text-white/75">Presença digital</p><h2 className="mt-2 text-3xl font-black">Acompanhe a Assistência Santos.</h2><p className="mt-3 max-w-xl leading-7 text-white/80">Veja restaurações, aparelhos e novidades no perfil da assistência.</p></div><a href="https://www.instagram.com/micro_santos" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 py-3 font-black text-[#a7181d]">Abrir Instagram <ArrowRight className="h-4 w-4" /></a></div></section>
       </main>
       <footer className="bg-[#090a0b] px-5 py-8 text-sm text-white/60 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-bold text-white">Assistência Técnica Microondas Santos</p><p className="mt-1">Conserto, restauração e venda de micro-ondas.</p><p className="mt-1 flex items-center gap-1"><MapPin className="h-4 w-4 text-[#ff6a70]" />Atendimento local — consulte a região.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#ff9a9f]" /></div></footer>
