@@ -46,6 +46,7 @@ export const Route = createFileRoute("/cases/$slug")({
         { name: "twitter:title", content: c.seo.title },
         { name: "twitter:description", content: c.seo.description },
         { name: "twitter:image", content: image },
+        { name: "robots", content: "noindex,follow,max-image-preview:large" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

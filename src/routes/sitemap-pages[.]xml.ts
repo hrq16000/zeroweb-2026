@@ -40,21 +40,18 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
           { path: "/cidades", changefreq: "weekly", priority: "0.85" },
           { path: "/estados", changefreq: "weekly", priority: "0.75" },
 
-          { path: "/cases", changefreq: "weekly", priority: "0.8" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/planos", changefreq: "monthly", priority: "0.8" },
           { path: "/faq", changefreq: "monthly", priority: "0.7" },
           { path: "/solucoes", changefreq: "weekly", priority: "0.85" },
           { path: "/mapa-do-site", changefreq: "monthly", priority: "0.4" },
           { path: "/calculadora-orcamento", changefreq: "monthly", priority: "0.8" },
-          { path: "/blog-skyscraper", changefreq: "weekly", priority: "0.85" },
           { path: "/solicitar-diagnostico", changefreq: "monthly", priority: "0.85" },
           { path: "/politica-privacidade", changefreq: "yearly", priority: "0.2" },
           { path: "/privacidade", changefreq: "yearly", priority: "0.2" },
           { path: "/lgpd", changefreq: "yearly", priority: "0.3" },
 
           { path: "/termos", changefreq: "yearly", priority: "0.2" },
-          { path: "/rss.xml", changefreq: "daily", priority: "0.5" },
         ]);
       },
     },

@@ -44,7 +44,7 @@ export const Route = createFileRoute("/blog/")({
               name: "Blog 0WEB",
               url: "https://0web.com.br/blog",
               inLanguage: "pt-BR",
-              publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+              publisher: { "@id": "https://0web.com.br/#org" },
               blogPost: posts.map((p) => ({
                 "@type": "BlogPosting",
                 headline: p.title,

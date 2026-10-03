@@ -47,7 +47,7 @@ export const Route = createFileRoute("/cases/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { name: "robots", content: "index,follow,max-image-preview:large" },
+      { name: "robots", content: "noindex,follow,max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
