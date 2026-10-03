@@ -4,6 +4,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { resolveBaseUrl, renderSitemap } from "@/lib/sitemap-utils";
 import { CAPITAIS } from "@/lib/capitais";
+import { institutionalCapitalHasEvidence } from "@/lib/institutional-capital-evidence";
+import {
+  listLocalPagePublicationStates,
+  localPageIsPublished,
+} from "@/lib/local-pages.server";
 
 export const Route = createFileRoute("/sitemap-institucional.xml")({
   server: {
@@ -14,18 +19,7 @@ export const Route = createFileRoute("/sitemap-institucional.xml")({
         const published = await listPublishedLocalPages();
         const publishedBySlug = new Map(published.map((row) => [row.slug, row]));
 
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server").catch(
-          () => ({ supabaseAdmin: null as any }),
-        );
-        let unpublished = new Set<string>();
-        if (supabaseAdmin) {
-          const { data } = await supabaseAdmin
-            .from("local_pages")
-            .select("slug")
-            .eq("published", false)
-            .limit(500);
-          unpublished = new Set((data ?? []).map((r: any) => String(r.slug)));
-        }
+        const publicationStates = await listLocalPagePublicationStates();
 
         return renderSitemap(resolveBaseUrl(request), [
           {
@@ -34,7 +28,10 @@ export const Route = createFileRoute("/sitemap-institucional.xml")({
             priority: "0.95",
             lastmod: today,
           },
-          ...CAPITAIS.filter((c) => !unpublished.has(c.slug)).map((c) => ({
+          ...CAPITAIS
+            .filter((c) => institutionalCapitalHasEvidence(c))
+            .filter((c) => localPageIsPublished(c.slug, publicationStates))
+            .map((c) => ({
             path: `/criacao-de-site-institucional/${c.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
