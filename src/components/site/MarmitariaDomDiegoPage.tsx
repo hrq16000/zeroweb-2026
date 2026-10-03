@@ -160,6 +160,29 @@ export function MarmitariaDomDiegoPage() {
           </div>
 
 
+          <aside id="pedido-do-dia" className="mt-8 border-y border-dashed border-[var(--dd-ink)]/30 py-7" aria-labelledby="pedido-do-dia-title">
+            <p className="text-[0.66rem] font-bold uppercase tracking-[0.28em] text-[var(--dd-clay)]">
+              Pedido do dia
+            </p>
+            <h2 id="pedido-do-dia-title" className="mt-3 max-w-[28ch] font-display text-2xl font-bold leading-tight">
+              Dia da semana, o que procura e como quer receber deixam o pedido mais claro.
+            </h2>
+            <dl className="mt-6 grid gap-5 text-sm leading-7 text-[var(--dd-ink)]/72 sm:grid-cols-3">
+              <div>
+                <dt className="font-bold text-[var(--dd-ink)]">Quando</dt>
+                <dd className="mt-1">A casa apresenta o cardápio de segunda a sexta, conforme o cardápio da semana.</dd>
+              </div>
+              <div>
+                <dt className="font-bold text-[var(--dd-ink)]">O que procura</dt>
+                <dd className="mt-1">Use o almoço do dia como referência e confirme com a equipe o que está disponível naquele dia.</dd>
+              </div>
+              <div>
+                <dt className="font-bold text-[var(--dd-ink)]">Como receber</dt>
+                <dd className="mt-1">Retirada ou entrega são combinadas diretamente com a casa antes da confirmação do pedido.</dd>
+              </div>
+            </dl>
+          </aside>
+
           <p className="mt-6 max-w-[60ch] text-base leading-[1.8] text-[var(--dd-ink)]/75">
             <ManagedText
               field="heroSubheadline"
