@@ -727,5 +727,18 @@
       "y": 0.45
     },
     "notes": "Capa derivada de foto pública da ficha do Google com painel de marca à esquerda; revisada em 390px e 1440px, sem contato operacional na imagem."
+  },
+  "autoescola-aptos": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverMaterialEvidence": "Media plan 2026-09-21 registra carro-aptos.webp como REAL_BUSINESS_PHOTO proveniente do OFFICIAL_WEBSITE; o próprio plano marca a capa como aprovada, source visible on page, no invented evidence e small-card readable.",
+    "coverSource": "public/images/autoescola-aptos/carro-aptos.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "notes": "Migração do catálogo para fotografia real oficial da frota. O antigo capa-og.jpg permanece somente como mídia social/legada e não satisfaz o contrato de capa.",
+    "reviewedAt": "2026-09-26"
   }
 }
