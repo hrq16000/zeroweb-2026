@@ -73,6 +73,29 @@ export function MimoSalgadosDocesPage() {
             </div>
           </section>
 
+          <aside id="pedido-por-ocasiao" className="px-5 py-14 lg:px-8" aria-labelledby="pedido-por-ocasiao-title">
+            <div className="mx-auto max-w-6xl border-l-4 border-[var(--mimo-red)] bg-white p-7 shadow-sm sm:p-9">
+              <p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--mimo-red)]">Pedido por ocasião</p>
+              <h2 id="pedido-por-ocasiao-title" className="mt-3 max-w-3xl font-display text-3xl font-black sm:text-4xl">
+                Um pedido para hoje e uma encomenda para festa começam com informações diferentes.
+              </h2>
+              <div className="mt-8 divide-y divide-[var(--mimo-gold)]/35">
+                <div className="grid gap-3 py-5 sm:grid-cols-[12rem_1fr]">
+                  <h3 className="font-display text-xl font-black text-[var(--mimo-red)]">Vontade do dia</h3>
+                  <p className="leading-7 text-[#6f3940]">Escolha salgados, doces ou copo da felicidade e confirme sabores, quantidade e disponibilidade do dia com a equipe.</p>
+                </div>
+                <div className="grid gap-3 py-5 sm:grid-cols-[12rem_1fr]">
+                  <h3 className="font-display text-xl font-black text-[var(--mimo-red)]">Festa ou evento</h3>
+                  <p className="leading-7 text-[#6f3940]">Informe a categoria do pedido, quantidade aproximada e data para que a Mimo organize a encomenda conforme a agenda.</p>
+                </div>
+                <div className="grid gap-3 py-5 sm:grid-cols-[12rem_1fr]">
+                  <h3 className="font-display text-xl font-black text-[var(--mimo-red)]">Como receber</h3>
+                  <p className="leading-7 text-[#6f3940]">Retirada na Costeira, entrega a combinar ou uma necessidade ainda em definição são confirmadas no atendimento antes do fechamento.</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+
           <section id="encomendas" className="bg-[var(--mimo-deep)] px-5 py-20 text-white lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[var(--mimo-gold)]">Encomendas e momentos especiais</p><h2 className="mt-3 font-display text-4xl font-black sm:text-5xl">Da vontade do dia à mesa da festa.</h2><p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">Conte o que você imaginou, para quando precisa e como prefere receber. A Mimo combina os próximos passos com você.</p><div className="mt-8 flex flex-wrap gap-3"><CTA location="encomendas">Montar meu pedido</CTA><a href="/f/funnel-mimo-salgados-doces" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-semibold hover:bg-white/10"><MapPin className="h-4 w-4" />Como chegar</a></div></div><div className="rounded-[2rem] border border-[var(--mimo-gold)]/40 bg-white/5 p-8"><MessageCircle className="h-8 w-8 text-[var(--mimo-gold)]" /><h3 className="mt-6 font-display text-3xl font-black">Fale com a Mimo</h3><p className="mt-3 leading-7 text-white/75">R. Giocondo Dall Stella · Costeira<br />São José dos Pinhais — PR · 83085-050</p><p className="mt-4 text-sm font-semibold text-[var(--mimo-gold)]">Atendimento pelo canal oficial da loja</p></div></div></section>
         </main>
         <footer className="bg-[#26040a] px-5 py-8 text-sm text-[var(--mimo-blush)] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-black text-white">Mimo Salgados e Doces</p><p className="mt-1">Sabor que acolhe, feito com amor.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer>
