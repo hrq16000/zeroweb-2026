@@ -50,6 +50,7 @@ export const Route = createFileRoute("/servicos/")({
     // A lista real da loja vem do loader/Supabase. Para não publicar schema
     // divergente do catálogo vivo, o índice declara somente a CollectionPage;
     // cada produto mantém seu próprio schema na rota dedicada.
+    const publicServices = loaderData?.services ?? [];
     const graph: unknown[] = [
       {
         "@type": "CollectionPage",
@@ -62,6 +63,18 @@ export const Route = createFileRoute("/servicos/")({
         publisher: { "@id": `${ORIGIN}/#org` },
       },
       breadcrumbLd([{ name: "Serviços", path: "/servicos" }]),
+      {
+        "@type": "ItemList",
+        "@id": `${ORIGIN}/servicos#service-index`,
+        name: "Serviços publicados da 0WEB",
+        numberOfItems: publicServices.length,
+        itemListElement: publicServices.map((service, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: service.name,
+          url: absUrl(`/servicos/${service.slug}`),
+        })),
+      },
     ];
 
     return {
@@ -423,6 +436,41 @@ function ServicosHub() {
 
               </div>
             )}
+
+            <section
+              id="services-discovery-index"
+              aria-labelledby="services-discovery-index-title"
+              className="mt-10 rounded-2xl border border-border bg-card p-5 sm:p-6"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Índice de serviços publicados
+              </p>
+              <h2 id="services-discovery-index-title" className="mt-2 text-xl font-bold sm:text-2xl">
+                Acesso direto a todos os serviços da loja
+              </h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+                A vitrine acima mostra uma página por vez. Este índice mantém links diretos para todos os serviços
+                com preço publicado, sem alterar filtros, carrinho ou contratação.
+              </p>
+              <details className="mt-4 rounded-xl border border-border/70 bg-muted/20 p-4">
+                <summary className="cursor-pointer font-semibold text-foreground">
+                  Ver todos os {services.length} serviços
+                </summary>
+                <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {services.map((service) => (
+                    <li key={service.slug}>
+                      <Link
+                        to="/servicos/$slug"
+                        params={{ slug: service.slug }}
+                        className="inline-flex py-1 text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition hover:text-primary hover:decoration-primary"
+                      >
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </section>
 
             <div className="mt-10 flex flex-col items-start justify-between gap-3 rounded-xl border border-dashed border-border bg-muted/30 px-4 py-4 text-sm sm:flex-row sm:items-center">
               <span className="text-muted-foreground">Precisa de algo sob medida ou ainda sem preço?</span>
