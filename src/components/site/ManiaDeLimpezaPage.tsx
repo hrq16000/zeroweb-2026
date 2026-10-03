@@ -1,3 +1,4 @@
+// Wave 22 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight, BedDouble, CheckCircle2, ExternalLink, Home, Instagram, Leaf, ShieldCheck, Sofa, Sparkles, Wind } from "lucide-react";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
