@@ -114,51 +114,6 @@ export function ReparosDoLitoralPage() {
           </div>
         </section>
 
-        <section aria-labelledby="reparos-briefing-title" className="px-5 py-10 lg:px-8">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-[#16243a]/10 bg-white p-7 sm:p-9">
-            <p className="text-xs font-extrabold uppercase tracking-[.18em] text-[#b98600]">
-              Antes de pedir orçamento
-            </p>
-            <h2 id="reparos-briefing-title" className="mt-3 max-w-3xl text-2xl font-extrabold leading-tight sm:text-3xl">
-              Quatro dados deixam o primeiro contato mais objetivo.
-            </h2>
-            <p className="mt-4 max-w-3xl leading-8 text-[#4c5b70]">
-              O formulário da página já organiza a solicitação pelo tipo de reparo, pelo imóvel,
-              pela região e pelo momento desejado. Na observação, uma foto e uma descrição curta
-              ajudam a mostrar o problema antes de combinar o próximo passo.
-            </p>
-            <dl className="mt-7 divide-y divide-[#16243a]/10 border-y border-[#16243a]/10">
-              <div className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="font-extrabold text-[#16243a]">Reparo</dt>
-                <dd className="text-[#5b6b82]">
-                  Elétrica pequena, hidráulica pequena, montagem e fixação, acabamento e vedação ou vários itens na mesma solicitação.
-                </dd>
-              </div>
-              <div className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="font-extrabold text-[#16243a]">Imóvel</dt>
-                <dd className="text-[#5b6b82]">
-                  Casa, apartamento, comércio ou casa de temporada.
-                </dd>
-              </div>
-              <div className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="font-extrabold text-[#16243a]">Local</dt>
-                <dd className="text-[#5b6b82]">
-                  Informe o bairro em Guaratuba ou sinalize quando o endereço estiver fora da cidade.
-                </dd>
-              </div>
-              <div className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="font-extrabold text-[#16243a]">Referência</dt>
-                <dd className="text-[#5b6b82]">
-                  Descreva o defeito e, quando possível, envie foto do ponto, peça ou acabamento envolvido.
-                </dd>
-              </div>
-            </dl>
-            <p className="mt-5 text-sm leading-7 text-[#5b6b82]">
-              O envio dessas informações organiza a avaliação inicial; valor, atendimento e agendamento continuam sujeitos à confirmação da equipe.
-            </p>
-          </div>
-        </section>
-
         <section id="funciona" className="px-5 py-12 lg:px-8">
           <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
             {PASSOS.map(([n, titulo, texto], index) => (
