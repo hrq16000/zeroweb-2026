@@ -109,6 +109,21 @@ export function OficinaNauticaGuaratubaPage() {
           </div>
         </section>
 
+        <aside id="antes-do-orcamento" className="px-5 py-14 lg:px-10" aria-labelledby="antes-do-orcamento-title">
+          <div className="mx-auto max-w-5xl border-l-2 border-[#7fd0e6] pl-6">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ff8b2c]">Antes do orçamento</p>
+            <h2 id="antes-do-orcamento-title" className="mt-3 max-w-3xl text-2xl font-bold sm:text-3xl">
+              Serviço, tipo de embarcação, localização e prazo ajudam a oficina a entender o chamado.
+            </h2>
+            <dl className="mt-7 grid gap-x-8 gap-y-5 text-sm leading-7 text-[#bcd7e3] sm:grid-cols-2">
+              <div><dt className="font-bold text-[#dff1f7]">Serviço principal</dt><dd>Revisão de motor, reparo de casco, elétrica de bordo, preparação de temporada ou carreta.</dd></div>
+              <div><dt className="font-bold text-[#dff1f7]">Embarcação</dt><dd>Lancha, barco de pesca, jet ski ou bote inflável ajudam a contextualizar o atendimento.</dd></div>
+              <div><dt className="font-bold text-[#dff1f7]">Onde está agora</dt><dd>Garagem, marina, água ou outra cidade indicam a situação atual da embarcação.</dd></div>
+              <div><dt className="font-bold text-[#dff1f7]">Sintoma e prazo</dt><dd>Descreva o problema percebido e informe se a necessidade é urgente, antes da temporada ou sem pressa.</dd></div>
+            </dl>
+          </div>
+        </aside>
+
         <section id="checklist" className="px-5 py-16 lg:px-10">
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
             <div>
