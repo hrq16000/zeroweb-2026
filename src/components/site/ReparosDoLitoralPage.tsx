@@ -1,3 +1,4 @@
+// Wave 20 baseline probe: comentário neutro; sem alteração de runtime.
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { MotionCounter, MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
