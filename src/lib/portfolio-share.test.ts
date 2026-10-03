@@ -46,3 +46,44 @@ test("override de runtime inválido cai para a copy canônica", () => {
   expect(message).toContain("https://0web.com.br/portfolio/autoescola-aptos");
   expect(message.trimEnd().endsWith("#0WEB")).toBe(true);
 });
+
+
+test("portfolio catalogado ignora override runtime válido porém divergente", () => {
+  const canonical = String(
+    portfolioShareCopy["paulo-mestre-de-obras" as keyof typeof portfolioShareCopy],
+  );
+  const staleRuntime = `🏗️ Paulo Mestre de Obras ganhou um site para mostrar serviços que dão estrutura à sua reforma ou construção.
+
+Alvenaria, revestimentos, elétrica, hidráulica e acabamento agora estão apresentados de forma clara.
+
+🌐 Conheça:
+https://0web.com.br/portfolio/paulo-mestre-de-obras
+
+#PauloMestreDeObras #Pedreiro #Reformas #ConstrucaoCivil #0WEB`;
+
+  expect(isValidPortfolioShareMessage("paulo-mestre-de-obras", staleRuntime)).toBe(true);
+  expect(
+    buildPortfolioShareMessage("paulo-mestre-de-obras", "Paulo Mestre de Obras", staleRuntime),
+  ).toBe(normalizePortfolioShareMessage(canonical));
+});
+
+test("projeto fora do catálogo ainda pode usar override runtime válido", () => {
+  const managedRuntime = `✨ Projeto Managed está com presença digital nova!
+
+Conheça a apresentação, os serviços e os próximos passos organizados em uma página própria.
+
+🌐 Confira:
+https://0web.com.br/portfolio/projeto-managed-teste
+
+📲 Use o atendimento da página para continuar.
+
+#ProjetoManaged #0WEB`;
+
+  expect(
+    buildPortfolioShareMessage(
+      "projeto-managed-teste",
+      "Projeto Managed",
+      managedRuntime,
+    ),
+  ).toBe(normalizePortfolioShareMessage(managedRuntime));
+});
