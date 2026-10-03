@@ -1,4 +1,3 @@
-// Wave 19 baseline probe: comentário neutro; sem alteração de runtime.
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { motion } from "motion/react";
 import { ArrowRight, CakeSlice, Check, Instagram, MapPin, Sparkles, Truck } from "lucide-react";
