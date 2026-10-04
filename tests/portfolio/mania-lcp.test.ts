@@ -10,8 +10,10 @@ describe("Mania de Limpeza · LCP do hero", () => {
     expect(source).not.toContain('<MotionReveal variant="right"><PortfolioImage src="/images/mania-de-limpeza/hero.png"');
   });
 
-  test("preserva o H1 animado e o MotionScope da página", () => {
-    expect(source).toContain('<MotionReveal as="h1" variant="mask"');
+  test("mantém também o H1 crítico fora de MotionReveal", () => {
+    expect(source).toContain('<h1 className="mt-6 max-w-2xl');
+    expect(source).toContain("Limpeza que você sente.");
+    expect(source).not.toContain('<MotionReveal as="h1" variant="mask"');
     expect(source).toContain('<MotionScope intensity="BALANCED">');
   });
 });
