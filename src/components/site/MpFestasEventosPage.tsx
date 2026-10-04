@@ -1,3 +1,4 @@
+// Wave 26 baseline probe: comentário neutro; sem alteração de runtime.
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import {
   ArrowRight,
