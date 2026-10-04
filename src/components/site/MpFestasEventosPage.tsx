@@ -14,7 +14,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionScope } from "@/components/motion";
 
 const quiz = {
   services: [
@@ -149,16 +149,12 @@ export function MpFestasEventosPage() {
                     <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#f4c24c]">
                       uma festa começa por uma cena
                     </p>
-                    <MotionReveal
-                      as="h1"
-                      variant="up"
-                      className="mt-4 max-w-[9ch] font-display text-6xl font-black leading-[.87] tracking-[-.045em] sm:text-7xl lg:text-[6.6rem]"
-                    >
+                    <h1 className="mt-4 max-w-[9ch] font-display text-6xl font-black leading-[.87] tracking-[-.045em] sm:text-7xl lg:text-[6.6rem]">
                       <ManagedText
                         field="heroHeadline"
                         fallback="Sua festa linda, do jeitinho que você sonhou."
                       />
-                    </MotionReveal>
+                    </h1>
                   </div>
                 </div>
               </figure>
