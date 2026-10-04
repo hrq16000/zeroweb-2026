@@ -11,6 +11,12 @@ describe("Your Brutus · LCP do hero", () => {
     expect(source).not.toContain('<MotionReveal variant="scale" className="relative"><PortfolioImage priority managedField="heroImageUrl"');
   });
 
+  test("reserva fetchpriority alto para a imagem hero", () => {
+    expect(source).toContain('<PortfolioImage loading="eager" managedField="logoUrl"');
+    expect(source).not.toContain('<PortfolioImage priority managedField="logoUrl"');
+    expect(source).toContain('<PortfolioImage priority managedField="heroImageUrl"');
+  });
+
   test("mantém também o H1 crítico fora de MotionReveal", () => {
     expect(source).toContain('<h1 className="mt-6 max-w-xl font-serif');
     expect(source).toContain('A rota certa para um ');
