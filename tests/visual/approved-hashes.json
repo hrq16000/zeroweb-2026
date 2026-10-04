@@ -307,5 +307,30 @@
         "pixelSha256": "a5f385cc8e72cf0b966a4c39ff797e31f81f453b347212a2d9b653a22072aa4e"
       }
     }
+  },
+  "vila-da-capivara": {
+    "reason": "A baseline binária histórica da Vila da Capivara ficou desatualizada. A sonda neutra no main atual reproduziu a mesma dívida visual da correção de LCP (desktop 29,24% vs 29,20%; tablet 1,08% em ambos; mobile 4,53% em ambos). Mobile é pixel a pixel idêntico entre sonda e correção; desktop foi inspecionado visualmente nas duas execuções e preserva a mesma composição, variando apenas rasterização do wrapper de motion. Esta aprovação fixa somente os pixels revisados de desktop e mobile; tablet já passa no limite global de 2%.",
+    "reviewedAt": "2026-10-04",
+    "evidence": {
+      "neutralRunId": 37213294438,
+      "neutralArtifactId": 11307192750,
+      "neutralArtifactDigest": "sha256:299d1e8f3154e5c89d86465415a4f4818a914b628bbe5c968365311fe5fffb45",
+      "runId": 37178011535,
+      "artifactId": 11293769765,
+      "artifactDigest": "sha256:fef38a1d09531d93c20d9cbe10640f274c77b9420244eef9e39f515b225db4f1",
+      "headSha": "d30ef4c76efc3a09cf668ed1da35a96416820263"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "8f2cba13f03a44e0e35595a761d7c39847ae7289c33c7b74483266697c613dd8"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "cae241f468c2e9786ef7b69b1723eb27bbe17593f9dccdac5fa2b0f4582ff7fd"
+      }
+    }
   }
 }
