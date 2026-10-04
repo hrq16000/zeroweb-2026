@@ -1,3 +1,4 @@
+// Wave 24 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight, BrushCleaning, House, Paintbrush, PanelsTopLeft, Waves } from "lucide-react";
 import type { ReactNode } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
