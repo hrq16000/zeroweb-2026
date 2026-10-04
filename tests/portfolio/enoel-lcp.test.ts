@@ -10,8 +10,10 @@ describe("Enoel Portas · LCP do hero", () => {
     expect(source).not.toContain('<MotionReveal variant="right" className="relative"><div className="absolute -inset-4');
   });
 
-  test("preserva o H1 animado e a moldura do hero", () => {
-    expect(source).toContain('<MotionReveal as="h1" variant="mask"');
+  test("mantém também o H1 crítico fora de MotionReveal", () => {
+    expect(source).toContain('<h1 className="mt-6 max-w-2xl');
+    expect(source).toContain("Uma boa porta muda a ");
+    expect(source).not.toContain('<MotionReveal as="h1" variant="mask"');
     expect(source).toContain('Portas com quem entende');
     expect(source).toContain('border-[var(--enoel-yellow)]/35');
   });
