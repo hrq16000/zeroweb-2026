@@ -262,6 +262,38 @@ export function EasyCleanPage() {
           </div>
         </section>
 
+        <section aria-labelledby="easy-clean-avaliacao-title" className="px-5 py-18 lg:px-8 lg:py-22">
+          <div className="mx-auto max-w-7xl border-y-2 border-[#0f2d36] py-8">
+            <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-[#117a70]">
+                  antes da avaliação
+                </p>
+                <h2 id="easy-clean-avaliacao-title" className="mt-4 max-w-[11ch] font-display text-4xl font-black leading-[.94] sm:text-5xl">
+                  Cinco dados deixam o pedido mais claro.
+                </h2>
+              </div>
+              <dl className="divide-y divide-[#0f2d36]/15 border-y border-[#0f2d36]/15">
+                {[
+                  ["Peça", "Informe se é sofá, colchão, poltrona, cadeira, puff ou interior automotivo."],
+                  ["Quantidade", "Diga quantas peças precisam de avaliação."],
+                  ["Tecido", "Se souber, informe o tipo de tecido ou material para ajudar na leitura inicial."],
+                  ["Local", "Casa, empresa, condomínio ou veículo, em Curitiba ou Região Metropolitana."],
+                  ["Proteção", "Avise se também deseja consultar impermeabilização."],
+                ].map(([term, detail]) => (
+                  <div key={term} className="grid gap-2 py-4 sm:grid-cols-[8rem_1fr]">
+                    <dt className="font-black uppercase tracking-[.1em] text-[#117a70]">{term}</dt>
+                    <dd className="leading-7 text-[#49646d]">{detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <p className="mt-6 max-w-3xl text-sm leading-7 text-[#49646d]">
+              Essas informações ajudam a organizar a avaliação inicial; valor, tratamento e disponibilidade continuam sendo confirmados no atendimento.
+            </p>
+          </div>
+        </section>
+
         <section id="pedido" className="bg-[#0f2d36] px-5 py-14 text-white lg:px-8 lg:py-16">
           <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
