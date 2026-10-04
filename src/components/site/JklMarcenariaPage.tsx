@@ -1,3 +1,4 @@
+// Wave 25 baseline probe: comentário neutro; sem alteração de runtime.
 import { ArrowRight } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
