@@ -278,5 +278,34 @@
         "pixelSha256": "5ed27ab7d575ed75b884ba8c74bd3890fabd6680793ae00cfc034fd6b5f5248e"
       }
     }
+  },
+  "mp-festas-eventos": {
+    "reason": "Baseline binária histórica da MP Festas corresponde a um layout antigo. A sonda neutra da onda GSC 26 e a correção de LCP produziram capturas pixel a pixel idênticas em desktop, tablet e mobile; as três capturas atuais foram inspecionadas individualmente e preservam a composição vigente. Esta aprovação fixa somente esses pixels e mantém o limite global de 2%.",
+    "reviewedAt": "2026-10-04",
+    "evidence": {
+      "baselineRunId": 37174744016,
+      "baselineArtifactId": 11292589122,
+      "runId": 37175079144,
+      "artifactId": 11292554869,
+      "artifactDigest": "sha256:bbf1aae70d69bbc02dc290095b1e2af001c895590b41be9ffc54d85c2181fa9c",
+      "headSha": "20d94d16044a4b9e01322fe4203b3f990563b827"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "f192d3f33c9c9e52a89d3b5946c5ee21abc6b8ee0f77f84d2e93d93f813eda30"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "4d4dff69153bc86880ecd3ec33c190f802c22321ee5c2573e8968ebec8b108f0"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "a5f385cc8e72cf0b966a4c39ff797e31f81f453b347212a2d9b653a22072aa4e"
+      }
+    }
   }
 }
