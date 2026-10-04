@@ -11,8 +11,10 @@ describe("Your Brutus · LCP do hero", () => {
     expect(source).not.toContain('<MotionReveal variant="scale" className="relative"><PortfolioImage priority managedField="heroImageUrl"');
   });
 
-  test("preserva o motion do H1 não-LCP e a composição", () => {
-    expect(source).toContain('<MotionReveal variant="up"><h1');
+  test("mantém também o H1 crítico fora de MotionReveal", () => {
+    expect(source).toContain('<h1 className="mt-6 max-w-xl font-serif');
+    expect(source).toContain('A rota certa para um ');
+    expect(source).not.toContain('<MotionReveal variant="up"><h1');
     expect(source).toContain('Arte de presença digital · não é foto documental');
   });
 });
