@@ -1,3 +1,4 @@
+// Wave 24 baseline probe: comentário neutro; sem alteração de runtime.
 import { MapPin, Route, UtensilsCrossed } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionReveal, MotionScope } from "@/components/motion";
