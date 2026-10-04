@@ -1,3 +1,4 @@
+// Wave 24 baseline probe: comentário neutro; sem alteração de runtime.
 import { Clock3, MapPin, ShoppingBag, Store, Truck } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
