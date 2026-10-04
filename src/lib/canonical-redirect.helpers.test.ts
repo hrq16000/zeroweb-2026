@@ -100,6 +100,36 @@ describe("computeCanonicalRedirect — trailing slash (308)", () => {
 });
 
 describe("computeCanonicalRedirect — custom redirects table", () => {
+  test("preserva a migração canônica da JKL Marcenaria para JKL Decor", () => {
+    const dynamic = new Map<string, { to: string; status: number }>();
+    const d = computeCanonicalRedirect({
+      method: "GET",
+      url: "https://0web.com.br/portfolio/jkl-marcenaria",
+      forwardedProto: "https",
+      redirects: dynamic,
+    });
+    expect(d).not.toBeNull();
+    expect(d!.status).toBe(301);
+    expect(d!.location).toBe("https://0web.com.br/portfolio/jkl-decor");
+    expect(d!.source).toBe("custom");
+  });
+
+  test("redirect protegido prevalece sobre linha dinâmica conflitante", () => {
+    const dynamic = new Map([
+      ["/portfolio/jkl-marcenaria", { to: "/portfolio/outro-destino", status: 302 }],
+    ]);
+    const d = computeCanonicalRedirect({
+      method: "GET",
+      url: "https://0web.com.br/portfolio/jkl-marcenaria?utm_source=legacy",
+      forwardedProto: "https",
+      redirects: dynamic,
+    });
+    expect(d!.status).toBe(301);
+    expect(d!.location).toBe(
+      "https://0web.com.br/portfolio/jkl-decor?utm_source=legacy",
+    );
+  });
+
   test("applies 301 from table", () => {
     const map = new Map([["/antigo", { to: "/novo", status: 301 }]]);
     const d = computeCanonicalRedirect({

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
-import { resolveVisualRegressionScope } from "../../scripts/resolve-visual-regression-scope.mjs";
+import { resolveVisualRegressionScope, routeComponentClients } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
   {
@@ -89,6 +89,30 @@ describe("escopo seguro da regressão visual", () => {
         clients,
       ),
     ).toEqual(["portfolio-index"]);
+  });
+
+  test("descobre portfólio legado pela rota canônica sem cair no gate global", () => {
+    const routeSource = `
+      const JklMarcenariaPage = lazy(() =>
+        import("@/components/site/JklMarcenariaPage").then((m) => ({ default: m.JklMarcenariaPage })),
+      );
+      const render = slug === "jkl-marcenaria" ? (
+        <JklMarcenariaPage />
+      ) : null;
+    `;
+    const routeClients = routeComponentClients(routeSource);
+    expect(routeClients).toEqual([
+      {
+        slug: "jkl-marcenaria",
+        componentFile: "src/components/site/JklMarcenariaPage.tsx",
+      },
+    ]);
+    expect(
+      resolveVisualRegressionScope(
+        ["src/components/site/JklMarcenariaPage.tsx"],
+        [...clients, ...routeClients],
+      ),
+    ).toEqual(["jkl-marcenaria"]);
   });
 
   test("mantém escopo global para componente compartilhado", () => {

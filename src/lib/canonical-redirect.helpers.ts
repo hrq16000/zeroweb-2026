@@ -7,6 +7,10 @@
 
 export const CANONICAL_HOST = "0web.com.br";
 
+export const PROTECTED_CANONICAL_REDIRECTS = new Map<string, { to: string; status: number }>([
+  ["/portfolio/jkl-marcenaria", { to: "/portfolio/jkl-decor", status: 301 }],
+]);
+
 export interface RedirectEntry {
   from_path: string;
   to_path: string;
@@ -88,8 +92,10 @@ export function computeCanonicalRedirect(
     if (source === "trailing-slash") source = "trailing-slash";
   }
 
-  // 3) Custom redirects table
-  const hit = input.redirects.get(pathname);
+  // 3) Protected canonical redirects take precedence over the dynamic table.
+  // These entries preserve migrations that must keep working even if the
+  // optional redirects table is unavailable or loses a row.
+  const hit = PROTECTED_CANONICAL_REDIRECTS.get(pathname) ?? input.redirects.get(pathname);
   if (hit) {
     const target = /^https?:\/\//i.test(hit.to)
       ? hit.to

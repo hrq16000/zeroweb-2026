@@ -15,6 +15,27 @@ function normalize(file) {
   return String(file ?? "").trim().replace(/\\/g, "/");
 }
 
+export function routeComponentClients(routeSource) {
+  const source = String(routeSource ?? "");
+  const imports = new Map();
+
+  for (const match of source.matchAll(
+    /const\s+(\w+)\s*=\s*lazy\(\(\)\s*=>\s*import\("(@\/components\/site\/[^"]+)"\)/gs,
+  )) {
+    const [, symbol, importPath] = match;
+    imports.set(symbol, importPath.replace(/^@\//, "src/") + ".tsx");
+  }
+
+  const resolved = [];
+  for (const match of source.matchAll(/slug\s*===\s*"([^"]+)"\s*\?\s*\(\s*<(\w+)/gs)) {
+    const [, slug, symbol] = match;
+    const componentFile = imports.get(symbol);
+    if (componentFile) resolved.push({ slug, componentFile });
+  }
+
+  return resolved;
+}
+
 function isBroadVisualFile(file) {
   return (
     file.startsWith("src/components/") ||
@@ -140,9 +161,23 @@ if (invokedAsScript) {
   const clients = JSON.parse(
     readFileSync(resolve(process.cwd(), "src/config/portfolio-clients.json"), "utf8"),
   );
+  const routeClients = routeComponentClients(
+    readFileSync(resolve(process.cwd(), "src/routes/portfolio.$slug.tsx"), "utf8"),
+  );
+  const mergedClients = [
+    ...clients,
+    ...routeClients.filter(
+      (routeClient) =>
+        !clients.some(
+          (client) =>
+            client?.slug === routeClient.slug ||
+            normalize(client?.componentFile) === normalize(routeClient.componentFile),
+        ),
+    ),
+  ];
   const input = readFileSync(0, "utf8")
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
-  process.stdout.write(resolveVisualRegressionScope(input, clients).join(","));
+  process.stdout.write(resolveVisualRegressionScope(input, mergedClients).join(","));
 }
