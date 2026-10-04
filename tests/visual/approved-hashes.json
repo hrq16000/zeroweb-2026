@@ -307,5 +307,27 @@
         "pixelSha256": "a5f385cc8e72cf0b966a4c39ff797e31f81f453b347212a2d9b653a22072aa4e"
       }
     }
+  },
+  "vila-da-capivara": {
+    "reason": "A baseline desktop histórica capturou a imagem hero ainda oculta pelo estado inicial do motion; no mobile o mesmo motion deixou pequeno deslocamento/escala transitória. Após remover somente o wrapper animado da imagem LCP, desktop e mobile atuais foram inspecionados individualmente e representam o layout final correto. Tablet permaneceu dentro do limite normal (1,08%) e não recebe aprovação. O threshold global continua 2%.",
+    "reviewedAt": "2026-10-04",
+    "evidence": {
+      "runId": 37178011535,
+      "artifactId": 11293769765,
+      "artifactDigest": "sha256:fef38a1d09531d93c20d9cbe10640f274c77b9420244eef9e39f515b225db4f1",
+      "headSha": "d30ef4c76efc3a09cf668ed1da35a96416820263"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "8f2cba13f03a44e0e35595a761d7c39847ae7289c33c7b74483266697c613dd8"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "cae241f468c2e9786ef7b69b1723eb27bbe17593f9dccdac5fa2b0f4582ff7fd"
+      }
+    }
   }
 }
