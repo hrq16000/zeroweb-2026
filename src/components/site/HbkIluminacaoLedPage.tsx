@@ -138,12 +138,12 @@ export function HbkIluminacaoLedPage() {
               className="mx-auto h-16 w-auto object-contain"
               managedField="logoUrl"
             />
-            <MotionReveal as="h1" variant="scale" intensity="EXPRESSIVE" className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
+            <h1 className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Iluminando seus projetos com intelig\u00eancia."}
               />
-            </MotionReveal>
+            </h1>
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
