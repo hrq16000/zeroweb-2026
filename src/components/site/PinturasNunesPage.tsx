@@ -140,15 +140,10 @@ export function PinturasNunesPage() {
                   <span className="h-px w-10 bg-[#eab33d]" />
                   Pinturas e acabamentos
                 </p>
-                <MotionReveal
-                  as="h1"
-                  variant="mask"
-                  intensity="BALANCED"
-                  className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[.92] tracking-[-.06em] sm:text-6xl lg:text-8xl"
-                >
+                <h1 className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[.92] tracking-[-.06em] sm:text-6xl lg:text-8xl">
                   Transformando ambientes.{" "}
                   <span className="text-[#eab33d]">Realizando sonhos.</span>
-                </MotionReveal>
+                </h1>
                 <p className="mt-7 max-w-xl border-l-2 border-[#d88a00] pl-5 text-base leading-7 text-[#f7f4ec]/80 sm:text-lg">
                   Pintura residencial e predial, texturas, grafiato, acabamentos decorativos e
                   cuidados para superfícies que pedem atenção.
