@@ -1,3 +1,4 @@
+// perf-neutral-probe: pastelaria-route-66 2026-10-05
 import { Clock3, MapPin, ShoppingBag, Store, Truck } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
