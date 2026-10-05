@@ -161,10 +161,7 @@ export function PinturasNunesPage() {
                   Responsável: Gabriel Nunes
                 </p>
               </div>
-              <MotionReveal
-                variant="left"
-                className="relative mx-auto w-full max-w-[620px] border-[10px] border-[#f7f4ec] bg-[#f7f4ec] shadow-[14px_14px_0_#071c41]"
-              >
+              <div className="relative mx-auto w-full max-w-[620px] border-[10px] border-[#f7f4ec] bg-[#f7f4ec] shadow-[14px_14px_0_#071c41]">
                 <PortfolioImage
                   priority
                   managedField="heroImageUrl"
@@ -177,7 +174,7 @@ export function PinturasNunesPage() {
                 <figcaption className="absolute bottom-0 left-0 bg-[#f7f4ec] px-3 py-2 text-[10px] font-black uppercase tracking-[.12em] text-[#071c41]">
                   Material original fornecido
                 </figcaption>
-              </MotionReveal>
+              </div>
             </div>
           </section>
 
