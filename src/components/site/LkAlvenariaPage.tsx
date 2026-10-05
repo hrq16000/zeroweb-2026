@@ -60,16 +60,16 @@ export function LkAlvenariaPage() {
           <div aria-hidden className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#ff7900]/25 blur-3xl" />
           <div className="relative mx-auto max-w-5xl px-5 pb-24 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
             <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
+            <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
-            </h1>
+            </MotionReveal>
             {heroImage ? (
               <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" fetchPriority="high" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
           </div>
 
           <div className="mx-auto -mt-12 max-w-5xl px-5 lg:px-8">
-            <div className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
               <p className="text-base leading-8 text-[#4a3a2c]">
                 <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
               </p>
@@ -77,7 +77,7 @@ export function LkAlvenariaPage() {
                 <CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA>
                 <a href="#cronograma" className="text-sm font-bold underline decoration-[#ff7900] decoration-2 underline-offset-4">Ver o cronograma da obra</a>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
