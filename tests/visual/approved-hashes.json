@@ -392,5 +392,35 @@
         "pixelSha256": "b14561a1dfc5d7fdbf98754257baef790f2b0da5f7eeaab2b9d21f8b19ac8fbd"
       }
     }
+  },
+  "mary-diarista": {
+    "reason": "A baseline binária histórica da Mary Diarista está incompatível com o layout vigente. A sonda neutra #361 no main atual reproduziu 21,08% / 19,09% / 21,62% contra a baseline versionada, enquanto a correção #362 reproduziu 21,04% / 19,11% / 21,72%. Desktop, tablet e mobile foram inspecionados individualmente e preservam a mesma composição, conteúdo, CTAs e mídia; as capturas da #362 são byte a byte idênticas às da primeira tentativa #359. Esta aprovação fixa somente os três pixels revisados da #362; o limite global permanece 2%. Os hashes registrados seguem o algoritmo do gate: SHA-256 sobre `larguraxaltura\\0` + bytes RGBA, não sobre o arquivo PNG compactado.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37358143895,
+      "neutralArtifactId": 11364963659,
+      "neutralArtifactDigest": "sha256:704d323501cc53ad83561e7493865fdb0a699f5ba7b2c086527ba3e3719f83a6",
+      "runId": 37358506629,
+      "artifactId": 11365229005,
+      "artifactDigest": "sha256:5d0c3ab03c828faef4be48ce8974bc0b4cf4f23be4c2ecf81fc1aa6d47608f9c",
+      "headSha": "a04111113ec9aa2551a56c61d449cbe9d32b0f43"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "bc171e20febb3553d16cffc3ee1d8cf40af41fa0224fc6c74d7cdadd40a0d51f"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "3169ac0d637433b031291ec82d03b8fc1475aa51398fc0551f1d30ec87d1ed51"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "e8cc7ac8f7e08e0ff5169cabc0c3fe081b0960f7de7fe89c6d61fed18b960008"
+      }
+    }
   }
 }
