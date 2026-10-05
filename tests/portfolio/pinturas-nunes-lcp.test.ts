@@ -14,7 +14,8 @@ describe("Pinturas Nunes · LCP do hero", () => {
   test("preserva a mídia hero prioritária e motions não críticos", () => {
     expect(source).toContain('src="/images/pinturas-nunes/material-original.png"');
     expect(source).toContain("priority");
-    expect(source).toContain('<MotionReveal\n                variant="left"');
+    expect(source).toContain('className="relative mx-auto w-full max-w-[620px] border-[10px]');
+    expect(source).not.toContain('variant="left"\n                className="relative mx-auto w-full max-w-[620px]');
     expect(source).toContain('<MotionScope intensity="BALANCED">');
   });
 });
