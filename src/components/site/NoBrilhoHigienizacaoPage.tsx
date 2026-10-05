@@ -99,9 +99,9 @@ export function NoBrilhoHigienizacaoPage() {
             <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#c9a888]">
               Higienização profissional a domicílio
             </p>
-            <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
               Mais limpeza. <span className="text-[#c9a888]">Mais brilho.</span>
-            </MotionReveal>
+            </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-[#cfded6]">
               Sofás, colchões, cadeiras, poltronas e bancos automotivos renovados com atendimento profissional e
               agendamento prévio.
