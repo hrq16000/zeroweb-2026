@@ -1,3 +1,4 @@
+// visual-neutral-probe: mary-diarista 2026-10-05
 import { motion } from "motion/react";
 import { ArrowRight, Check, CalendarDays, Sparkles, WashingMachine } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
