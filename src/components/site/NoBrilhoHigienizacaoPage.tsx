@@ -1,3 +1,4 @@
+// No Brilho visual neutral probe; sem alteração de runtime.
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Home } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
