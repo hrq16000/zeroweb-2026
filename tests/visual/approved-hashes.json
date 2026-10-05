@@ -362,5 +362,35 @@
         "pixelSha256": "4ed71400a695c68b923ffc6989fc2e06ca0b8581bf4809edd9bfc086414dcd4f"
       }
     }
+  },
+  "salao-da-marcia": {
+    "reason": "A baseline binária histórica do Salão da Marcia está incompatível com o layout vigente. A sonda neutra #358 no main atual e a correção de LCP #357 reproduziram exatamente 74,67% / 70,06% / 62,09% contra a baseline versionada. As capturas atuais são byte a byte e pixel a pixel idênticas entre os dois runs nas três viewports, e desktop, tablet e mobile foram inspecionados individualmente. Esta aprovação fixa somente esses pixels revisados; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37330729612,
+      "neutralArtifactId": 11354821047,
+      "neutralArtifactDigest": "sha256:0336d6a2257c702f74f6d37698c645b1e383be5ae07898276c62b3cd81746855",
+      "runId": 37329649765,
+      "artifactId": 11353284510,
+      "artifactDigest": "sha256:6ddf339526e3559a41df8b93d151065d413549f15731aad6cc048d5172de3d4d",
+      "headSha": "e7ceaac71991b1b548fbc7c53333e0f3f6dad4f9"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "2014582fa4f829f5fc6241121c12baa3b66d559d52cc0ed03ac8beb70d8d96c1"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "0b835ad4b5022df3d591f42cc2683f542b129e566cb112d119bb7d0caa262b48"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "ed854b0693597a1617abfe82fe915d55e086b9a570a29027527d7087e3748a09"
+      }
+    }
   }
 }
