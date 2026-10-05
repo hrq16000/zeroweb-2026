@@ -140,15 +140,10 @@ export function PinturasNunesPage() {
                   <span className="h-px w-10 bg-[#eab33d]" />
                   Pinturas e acabamentos
                 </p>
-                <MotionReveal
-                  as="h1"
-                  variant="mask"
-                  intensity="BALANCED"
-                  className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[.92] tracking-[-.06em] sm:text-6xl lg:text-8xl"
-                >
+                <h1 className="mt-6 max-w-3xl text-5xl font-black uppercase leading-[.92] tracking-[-.06em] sm:text-6xl lg:text-8xl">
                   Transformando ambientes.{" "}
                   <span className="text-[#eab33d]">Realizando sonhos.</span>
-                </MotionReveal>
+                </h1>
                 <p className="mt-7 max-w-xl border-l-2 border-[#d88a00] pl-5 text-base leading-7 text-[#f7f4ec]/80 sm:text-lg">
                   Pintura residencial e predial, texturas, grafiato, acabamentos decorativos e
                   cuidados para superfícies que pedem atenção.
@@ -166,10 +161,7 @@ export function PinturasNunesPage() {
                   Responsável: Gabriel Nunes
                 </p>
               </div>
-              <MotionReveal
-                variant="left"
-                className="relative mx-auto w-full max-w-[620px] border-[10px] border-[#f7f4ec] bg-[#f7f4ec] shadow-[14px_14px_0_#071c41]"
-              >
+              <div className="relative mx-auto w-full max-w-[620px] border-[10px] border-[#f7f4ec] bg-[#f7f4ec] shadow-[14px_14px_0_#071c41]">
                 <PortfolioImage
                   priority
                   managedField="heroImageUrl"
@@ -182,7 +174,7 @@ export function PinturasNunesPage() {
                 <figcaption className="absolute bottom-0 left-0 bg-[#f7f4ec] px-3 py-2 text-[10px] font-black uppercase tracking-[.12em] text-[#071c41]">
                   Material original fornecido
                 </figcaption>
-              </MotionReveal>
+              </div>
             </div>
           </section>
 
