@@ -69,7 +69,7 @@ export function LkAlvenariaPage() {
           </div>
 
           <div className="mx-auto -mt-12 max-w-5xl px-5 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
+            <div className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
               <p className="text-base leading-8 text-[#4a3a2c]">
                 <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
               </p>
@@ -77,7 +77,7 @@ export function LkAlvenariaPage() {
                 <CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA>
                 <a href="#cronograma" className="text-sm font-bold underline decoration-[#ff7900] decoration-2 underline-offset-4">Ver o cronograma da obra</a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
