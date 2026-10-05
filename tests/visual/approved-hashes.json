@@ -332,5 +332,35 @@
         "pixelSha256": "cae241f468c2e9786ef7b69b1723eb27bbe17593f9dccdac5fa2b0f4582ff7fd"
       }
     }
+  },
+  "no-brilho-higienizacao": {
+    "reason": "A baseline binária histórica da No Brilho Higienização está incompatível com o layout vigente. A sonda neutra no main atual e a correção de LCP reproduziram 100,00% / 100,00% / 100,00% contra a baseline versionada, mas as capturas atuais são pixel a pixel idênticas entre os dois runs nas três viewports. Desktop, tablet e mobile foram inspecionados individualmente. Esta aprovação fixa somente esses pixels revisados; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37323179473,
+      "neutralArtifactId": 11351495205,
+      "neutralArtifactDigest": "sha256:1302acc7d2fd31536bc737d6fd9e666e48e558fcd606fb3e52eea97f9d79f967",
+      "runId": 37262873628,
+      "artifactId": 11325685355,
+      "artifactDigest": "sha256:545fcd706c83868cb212043bb017a4e79c247046ac673e0db49e1e9330e22c95",
+      "headSha": "3e1a91af011f033519c0c99fe87902e06b395cf3"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "bc5f111be19e36d2256f1530548acca8b92abc91b74cd6533c72298e6670523e"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "6ec5288088b5e5f539aa82a50d5bd57ae6a7a24e2b4f829bfdd68c0c1acf1f7f"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "4ed71400a695c68b923ffc6989fc2e06ca0b8581bf4809edd9bfc086414dcd4f"
+      }
+    }
   }
 }
