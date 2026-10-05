@@ -60,9 +60,9 @@ export function LkAlvenariaPage() {
           <div aria-hidden className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#ff7900]/25 blur-3xl" />
           <div className="relative mx-auto max-w-5xl px-5 pb-24 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
             <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
-            <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
+            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
-            </MotionReveal>
+            </h1>
             {heroImage ? (
               <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" fetchPriority="high" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
