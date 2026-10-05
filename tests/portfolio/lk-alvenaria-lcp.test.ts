@@ -10,9 +10,14 @@ describe("LK Alvenaria · LCP do hero", () => {
     expect(source).not.toContain('<MotionReveal as="h1" variant="up" intensity="EXPRESSIVE"');
   });
 
+  test("mantém o card de proposta crítico fora de motion", () => {
+    expect(source).toContain('<div className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">');
+    expect(source).toContain('field="heroSubheadline"');
+    expect(source).not.toContain('<motion.div initial={{ opacity: 0, y: 16 }}');
+  });
+
   test("preserva motions não críticos e a mídia hero", () => {
     expect(source).toContain('<MotionReveal as="li" variant="left"');
-    expect(source).toContain('<motion.div initial={{ opacity: 0, y: 16 }}');
     expect(source).toContain('fetchPriority="high"');
     expect(source).toContain('<MotionScope intensity="BALANCED">');
   });
