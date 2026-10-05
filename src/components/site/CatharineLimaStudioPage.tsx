@@ -85,9 +85,9 @@ export function CatharineLimaStudioPage() {
             <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[.9fr_1.1fr]">
               <div className="relative z-10">
                 <p className="text-xs font-black uppercase tracking-[.28em] text-[#b26682]">Nail design · cílios · cabelo</p>
-                <h1 className="mt-5 max-w-2xl font-display text-5xl font-black leading-[.93] text-[#4c1d32] sm:text-7xl">
+                <MotionReveal as="h1" variant="up" className="mt-5 max-w-2xl font-display text-5xl font-black leading-[.93] text-[#4c1d32] sm:text-7xl">
                   Seu momento de beleza pode começar com um <span className="text-[#a54e6e]">horário só seu.</span>
-                </h1>
+                </MotionReveal>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-[#715462]">
                   Catharine Lima Studio reúne alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva. Escolha o cuidado que procura e solicite seu horário pelo funil.
                 </p>
