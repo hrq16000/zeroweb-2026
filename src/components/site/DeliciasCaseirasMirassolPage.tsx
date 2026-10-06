@@ -1,3 +1,4 @@
+// perf-neutral-probe: mirassol-delicias-caseiras 2026-10-06
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
