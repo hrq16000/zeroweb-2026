@@ -1,3 +1,4 @@
+// visual-neutral-probe: eletrovale-eletromecanica 2026-10-06
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Cog, Gauge, ShieldCheck, Wrench } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
