@@ -14,6 +14,7 @@ export const Route = createFileRoute("/blog-skyscraper/")({
       },
       { property: "og:title", content: "Skyscraper · 24 guias definitivos · 0WEB" },
       { property: "og:url", content: "https://0web.com.br/blog-skyscraper" },
+      { name: "robots", content: "noindex, follow" },
     ],
     links: [{ rel: "canonical", href: "https://0web.com.br/blog-skyscraper" }],
   }),
