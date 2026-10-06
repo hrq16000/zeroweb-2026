@@ -56,7 +56,7 @@ function Pedir({ children, outline = false }: { children: React.ReactNode; outli
       className={
         outline
           ? "inline-flex min-h-12 items-center justify-center rounded-full border-2 border-[#0b6b74] px-6 py-3 text-sm font-bold uppercase tracking-wide text-[#0b6b74] transition hover:bg-[#0b6b74] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b6b74]"
-          : "inline-flex min-h-12 items-center justify-center rounded-full bg-[#ef5f4c] px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-[#ff7563] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ef5f4c] focus-visible:ring-offset-2"
+          : "inline-flex min-h-12 items-center justify-center rounded-full bg-[#b94436] px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-[#a93b31] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b94436] focus-visible:ring-offset-2"
       }
     >
       {children}
@@ -83,17 +83,15 @@ export function SaboresDaBaiaPage() {
               <a href="#inicio" className="text-lg font-bold tracking-wide">
                 Sabores da Baía
               </a>
-              <span className="text-xs font-semibold uppercase tracking-[.24em] text-[#9fd8d5]">Centro · Guaratuba — PR</span>
+              <span className="text-xs font-semibold uppercase tracking-[.24em] text-[#c9eae8]">Centro · Guaratuba — PR</span>
             </div>
             <div className="mt-14 max-w-3xl">
               <MotionReveal variant="left">
-              <p className="text-sm font-bold uppercase tracking-[.28em] text-[#f6c76a]">Cozinha caiçara</p>
+              <p className="text-sm font-bold uppercase tracking-[.28em] text-[#ffe3a3]">Cozinha caiçara</p>
               </MotionReveal>
-              <MotionReveal variant="up" delay={120}>
               <h1 className="mt-4 text-4xl font-bold leading-[1.06] sm:text-6xl">
             <ManagedText field="heroHeadline" fallback={"Peixe fresco no almo\u00e7o de semana e na mesa cheia de domingo."} />
           </h1>
-              </MotionReveal>
               <MotionReveal variant="up" delay={240}>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#c9eae8]">
             <ManagedText field="heroSubheadline" fallback={"Um restaurante de esquina que serve executivo r\u00e1pido durante a semana e recebe fam\u00edlias inteiras na temporada \u2014 com o mesmo peixe comprado de manh\u00e3."} />
@@ -118,8 +116,8 @@ export function SaboresDaBaiaPage() {
                 {itens.map(([nome, preco, obs], i) => (
                   <MotionReveal as="li" key={nome} variant="left" delay={i * 110} className="group flex flex-wrap items-baseline gap-x-3 border-b border-dashed border-[#173a3d]/25 py-4">
                     <span className="text-lg font-semibold">{nome}</span>
-                    <span className="order-3 w-full text-sm text-[#5a7a7c] sm:order-2 sm:w-auto sm:flex-1">{obs}</span>
-                    <span className="order-2 ml-auto text-lg font-bold text-[#ef5f4c] transition-transform duration-200 group-hover:-translate-y-0.5 sm:order-3">{preco}</span>
+                    <span className="order-3 w-full text-sm text-[#48686a] sm:order-2 sm:w-auto sm:flex-1">{obs}</span>
+                    <span className="order-2 ml-auto text-lg font-bold text-[#b94436] transition-transform duration-200 group-hover:-translate-y-0.5 sm:order-3">{preco}</span>
                   </MotionReveal>
                 ))}
               </ul>
@@ -142,10 +140,10 @@ export function SaboresDaBaiaPage() {
           <h2 className="text-2xl font-bold">Horários</h2>
           <dl className="mt-6 space-y-4">
             {TEMPORADA.map(([k, v], i) => (
-              <MotionReveal key={k} variant="right" delay={i * 120} className="rounded-2xl bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
+              <div key={k} className="rounded-2xl bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
                 <dt className="text-sm font-bold uppercase tracking-wide text-[#0b6b74]">{k}</dt>
                 <dd className="mt-1 text-base leading-7 text-[#3e5a5c]">{v}</dd>
-              </MotionReveal>
+              </div>
             ))}
           </dl>
           <div className="mt-10 flex flex-wrap items-center gap-4">
