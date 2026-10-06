@@ -1,3 +1,4 @@
+// perf-neutral-probe: jc-revestimentos 2026-10-06
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import type { CSSProperties } from "react";
