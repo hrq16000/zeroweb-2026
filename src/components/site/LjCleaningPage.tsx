@@ -41,9 +41,9 @@ export function LjCleaningPage() {
           <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Higienização residencial e automotiva</p>
           <div className="mt-6 grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
             <div>
-              <MotionReveal as="h1" variant="mask" intensity="SUBTLE" className="max-w-2xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+              <h1 className="max-w-2xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
                 <ManagedText field="heroHeadline" fallback={"Limpamos, higienizamos e cuidamos do seu conforto."} />
-              </MotionReveal>
+              </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#5b7899]">
                 <ManagedText field="heroSubheadline" fallback={"Higieniza\u00e7\u00e3o de sof\u00e1s, cadeiras, colch\u00f5es, tapetes, carpetes, puffs e interiores automotivos, com atendimento sob medida."} />
               </p>
