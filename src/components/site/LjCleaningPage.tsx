@@ -1,3 +1,4 @@
+// perf-neutral-probe: lj-cleaning 2026-10-06
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { Car, Sofa } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
