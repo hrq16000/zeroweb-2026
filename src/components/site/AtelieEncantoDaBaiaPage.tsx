@@ -72,13 +72,13 @@ export function AtelieEncantoDaBaiaPage() {
               </span>
             </div>
             <div className="mt-14 grid gap-8 md:grid-cols-[1.15fr_.85fr] md:items-end">
-              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="text-5xl font-black leading-[.95] sm:text-7xl">
+              <h1 className="text-5xl font-black leading-[.95] sm:text-7xl">
             <ManagedRich field="heroHeadline">
                 Presente feito
                 <span className="mx-2 inline-block -rotate-2 bg-[#c25a37] px-3 text-[#fdf6ec]">à mão</span>
                 <br />
                 para gente daqui.</ManagedRich>
-          </MotionReveal>
+          </h1>
               <MotionReveal variant="right" delay={140}>
               <div className="rotate-1 rounded-3xl border-2 border-[#2f2418] bg-white p-6 shadow-[8px_8px_0_#e8c3b0]">
                 <p className="text-[0.95rem] leading-7"><ManagedRich field="heroSubheadline">
