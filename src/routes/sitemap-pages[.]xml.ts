@@ -9,6 +9,8 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
       GET: async ({ request }) => {
         return renderSitemap(resolveBaseUrl(request), [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/home2", changefreq: "weekly", priority: "0.9" },
+          { path: "/home3", changefreq: "weekly", priority: "0.9" },
           { path: "/servicos", changefreq: "weekly", priority: "0.95" },
           { path: "/criacao-de-site-institucional", changefreq: "weekly", priority: "0.95" },
           { path: "/sobre", changefreq: "monthly", priority: "0.7" },
