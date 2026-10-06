@@ -140,6 +140,61 @@ export function AtelieEncantoDaBaiaPage() {
           </div>
         </section>
 
+        <section id="guia-encomenda" className="px-5 pb-16 lg:px-10">
+          <div className="mx-auto max-w-5xl rounded-[2rem] border-2 border-[#2f2418] bg-white p-7 sm:p-9">
+            <p className="text-xs font-bold uppercase tracking-[.24em] text-[#9b452b]">Antes de encomendar</p>
+            <h2 className="mt-3 text-3xl font-black">Escolha pela ocasião e pelo tipo de peça.</h2>
+            <p className="mt-4 max-w-2xl leading-7 text-[#5b4a35]">
+              A própria coleção já separa os caminhos: lembrancinhas para quantidade, caixas montadas para presente,
+              peças de casa em tecido ou crochê e itens prontos quando a necessidade é mais imediata.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <article className="rounded-2xl bg-[#fdf6ec] p-5">
+                <h3 className="font-black">Lembrancinhas para festa</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5b4a35]">
+                  Os kits publicados vão de 20 a 200 peças e podem receber etiqueta personalizada.
+                </p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf6ec] p-5">
+                <h3 className="font-black">Caixa para presente</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5b4a35]">
+                  A montagem é feita com produtos escolhidos por você antes da composição final.
+                </p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf6ec] p-5">
+                <h3 className="font-black">Peças para casa</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5b4a35]">
+                  Panôs, capas e enfeites aparecem entre as peças produzidas em tecido e crochê.
+                </p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf6ec] p-5">
+                <h3 className="font-black">Presente de última hora</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5b4a35]">
+                  A página também apresenta peças prontas no ateliê para retirada no mesmo dia.
+                </p>
+              </article>
+            </div>
+            <dl className="mt-8 grid gap-6 border-t-2 border-dashed border-[#2f2418]/20 pt-8 sm:grid-cols-2">
+              <div>
+                <dt className="font-black">O que enviar no primeiro contato?</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#5b4a35]">Ocasião, quantidade aproximada e cores que você tem em mente.</dd>
+              </div>
+              <div>
+                <dt className="font-black">A produção começa direto?</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#5b4a35]">A página informa que o ateliê monta uma amostra para aprovação antes de iniciar a produção.</dd>
+              </div>
+              <div>
+                <dt className="font-black">Como o prazo é definido?</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#5b4a35]">O prazo é combinado durante a encomenda, junto da produção e da entrega.</dd>
+              </div>
+              <div>
+                <dt className="font-black">Quais datas aparecem como referência?</dt>
+                <dd className="mt-2 text-sm leading-6 text-[#5b4a35]">Dia das Mães, festa junina, formaturas, Natal, chá de bebê e casamentos.</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
         <section id="contato" className="px-5 pb-20 lg:px-10">
           <MotionReveal variant="fade" className="mx-auto max-w-5xl">
           <div className="-rotate-1 rounded-[2.5rem] border-2 border-[#2f2418] bg-[#e8c3b0] p-8 text-center shadow-[10px_10px_0_#2f2418]">
