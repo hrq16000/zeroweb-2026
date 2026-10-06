@@ -10,6 +10,8 @@ import {
 } from "@/components/site/InstitutionalDiagnosticQuiz";
 import { trackEvent } from "@/lib/analytics";
 import { capitaisPorRegiao } from "@/lib/capitais";
+import { getLocalPagePublicationStates } from "@/lib/local-pages.functions";
+import { getInstitutionalCapitalIndexability } from "@/lib/institutional-capital-evidence.functions";
 
 const CANONICAL = "https://0web.com.br/criacao-de-site-institucional";
 const TITLE = "Criação de Site Institucional | Sites Profissionais e Otimizados para Conversão";
@@ -78,6 +80,16 @@ const PROOF: { slug: string; label: string; segment: string }[] = [
 ];
 
 export const Route = createFileRoute("/criacao-de-site-institucional/")({
+  loader: async () => {
+    const [states, indexability] = await Promise.all([
+      getLocalPagePublicationStates().catch(() => []),
+      getInstitutionalCapitalIndexability().catch(() => ({ slugs: [] as string[] })),
+    ]);
+    const unpublished = new Set(states.filter((item) => !item.published).map((item) => item.slug));
+    return {
+      visibleCapitalSlugs: indexability.slugs.filter((slug) => !unpublished.has(slug)),
+    };
+  },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -100,7 +112,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/")({
           description: DESCRIPTION,
           url: CANONICAL,
           areaServed: { "@type": "Country", name: "Brasil" },
-          provider: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+          provider: { "@id": "https://0web.com.br/#org" },
         }),
       },
       {
@@ -133,6 +145,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/")({
 });
 
 function InstitutionalSitePage() {
+  const { visibleCapitalSlugs } = Route.useLoaderData();
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -288,11 +301,17 @@ function InstitutionalSitePage() {
         <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-24">
           <h2 className="text-3xl sm:text-4xl font-bold font-display">Atendimento por capital</h2>
           <p className="mt-3 text-muted-foreground max-w-[65ch]">
-            Atendimento remoto em todo o Brasil. Cada capital tem uma página com contexto local, SEO regional e o
-            mesmo diagnóstico gratuito.
+            O atendimento é remoto em todo o Brasil. Páginas locais indexáveis são destacadas somente nas capitais
+            onde já existe projeto institucional publicado da própria cidade.
           </p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {capitaisPorRegiao().map((g) => (
+            {capitaisPorRegiao()
+              .map((g) => ({
+                ...g,
+                cidades: g.cidades.filter((c) => visibleCapitalSlugs.includes(c.slug)),
+              }))
+              .filter((g) => g.cidades.length > 0)
+              .map((g) => (
               <div key={g.region}>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">{g.region}</h3>
                 <ul className="mt-3 flex flex-wrap gap-2 text-sm">
