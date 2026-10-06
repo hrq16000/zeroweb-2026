@@ -125,6 +125,38 @@ export function SaboresDaBaiaPage() {
           ))}
         </section>
 
+        <section id="guia-pedido" className="mx-auto max-w-4xl px-5 pb-16 lg:px-8">
+          <div className="rounded-[2rem] border border-[#0b6b74]/15 bg-white p-7 shadow-sm md:p-10">
+            <p className="text-sm font-bold uppercase tracking-[.22em] text-[#0b6b74]">Antes de pedir</p>
+            <h2 className="mt-3 text-3xl font-bold">Escolha pelo momento da refeição.</h2>
+            <p className="mt-4 max-w-2xl leading-7 text-[#48686a]">O cardápio já dá pistas para decidir sem complicação: há executivo durante a semana, pratos para dividir, barreado no fim de semana e delivery dentro da área informada pela casa.</p>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <article className="rounded-2xl bg-[#fdf4e6] p-5">
+                <h3 className="font-bold">Almoço de segunda a sexta</h3>
+                <p className="mt-2 text-sm leading-6 text-[#48686a]">O prato executivo é apresentado no cardápio de segunda a sexta, das 11h30 às 14h.</p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf4e6] p-5">
+                <h3 className="font-bold">Mesa para compartilhar</h3>
+                <p className="mt-2 text-sm leading-6 text-[#48686a]">O camarão na moranga é indicado para duas pessoas e a porção de isca de peixe aparece como opção para dividir.</p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf4e6] p-5">
+                <h3 className="font-bold">Barreado no fim de semana</h3>
+                <p className="mt-2 text-sm leading-6 text-[#48686a]">O barreado da casa está indicado para sábados e domingos no cardápio publicado.</p>
+              </article>
+              <article className="rounded-2xl bg-[#fdf4e6] p-5">
+                <h3 className="font-bold">Pedido por delivery</h3>
+                <p className="mt-2 text-sm leading-6 text-[#48686a]">A informação publicada considera raio de 6 km do Centro e pedido até 30 minutos antes do fechamento.</p>
+              </article>
+            </div>
+            <dl className="mt-8 grid gap-6 border-t border-[#173a3d]/15 pt-8 md:grid-cols-2">
+              <div><dt className="font-bold">Qual é o horário na alta temporada?</dt><dd className="mt-2 text-sm leading-6 text-[#48686a]">De dezembro a março, a página informa atendimento todos os dias, das 11h às 23h.</dd></div>
+              <div><dt className="font-bold">E na baixa temporada?</dt><dd className="mt-2 text-sm leading-6 text-[#48686a]">De quarta a domingo, das 11h30 às 21h.</dd></div>
+              <div><dt className="font-bold">Tem opção para retirar?</dt><dd className="mt-2 text-sm leading-6 text-[#48686a]">Sim. O próprio fluxo de pedido oferece retirada no balcão como forma de atendimento.</dd></div>
+              <div><dt className="font-bold">Dá para reservar mesa?</dt><dd className="mt-2 text-sm leading-6 text-[#48686a]">Sim. Reserva de mesa já aparece entre as opções do fluxo desta página.</dd></div>
+            </dl>
+          </div>
+        </section>
+
         <section className="relative bg-[#f6c76a] py-14">
           <Onda className="absolute inset-x-0 -top-px h-10 w-full rotate-180 text-[#fdf4e6]" />
           <MotionReveal variant="scale" className="mx-auto max-w-4xl px-5 text-center lg:px-8">
