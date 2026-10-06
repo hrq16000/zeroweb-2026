@@ -159,13 +159,11 @@ export function AutoSocorroDentinhoPage() {
                 <p className="inline-flex border-l-2 border-[#ff6518] pl-3 text-xs font-black uppercase tracking-[.24em] text-[#ffb18c]">
                   Quatro Barras · Paraná
                 </p>
-                <MotionReveal variant="up">
-                  <h1 className="mt-6 text-5xl font-black leading-[.9] tracking-[-.06em] sm:text-7xl lg:text-[clamp(4rem,7vw,7rem)]">
-                    Seu carro parou.
-                    <br />
-                    <span className="text-[#ff6518]">A solução continua.</span>
-                  </h1>
-                </MotionReveal>
+                <h1 className="mt-6 text-5xl font-black leading-[.9] tracking-[-.06em] sm:text-7xl lg:text-[clamp(4rem,7vw,7rem)]">
+                  Seu carro parou.
+                  <br />
+                  <span className="text-[#ff6518]">A solução continua.</span>
+                </h1>
                 <p className="mt-7 max-w-xl text-lg leading-8 text-slate-200">
                   Auto mecânica, diagnóstico e socorro automotivo para transformar uma parada
                   inesperada em um próximo passo organizado.
