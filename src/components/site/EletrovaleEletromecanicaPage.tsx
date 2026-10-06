@@ -55,7 +55,7 @@ export function EletrovaleEletromecanicaPage() {
         className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 lg:flex-row lg:items-start lg:gap-14 lg:px-8"
       >
         {/* Ficha fixa: identidade + CTA sempre visível no desktop */}
-        <MotionReveal as="aside" variant="left" className="w-full border-l-4 border-[#e6ad2d] bg-[#22262b] p-6 lg:sticky lg:top-8 lg:w-[340px] lg:shrink-0">
+        <aside className="w-full border-l-4 border-[#e6ad2d] bg-[#22262b] p-6 lg:sticky lg:top-8 lg:w-[340px] lg:shrink-0">
           <p className="font-mono text-[11px] uppercase tracking-[.22em] text-[#e6ad2d]">Ordem de serviço</p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight">
             Seu equipamento merece <span className="text-[#e6ad2d]">confiabilidade.</span>
@@ -83,7 +83,7 @@ export function EletrovaleEletromecanicaPage() {
               Solicitar avaliação <ArrowRight className="h-4 w-4" />
             </CTA>
           </div>
-        </MotionReveal>
+        </aside>
 
         <div className="min-w-0 flex-1">
           <div>
