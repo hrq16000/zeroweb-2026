@@ -152,7 +152,7 @@ export function JcRevestimentosPage() {
               className="h-14 w-auto object-contain"
               managedField="logoUrl"
             />
-            <MotionReveal variant="right" className="max-w-2xl pb-6">
+            <div className="max-w-2xl pb-6">
               <p className="text-[11px] font-bold uppercase tracking-[.38em] text-primary">
                 Revestimentos direto da fábrica
               </p>
@@ -176,7 +176,7 @@ export function JcRevestimentosPage() {
               >
                 Ver a linha completa <ArrowRight aria-hidden className="h-4 w-4" />
               </a>
-            </MotionReveal>
+            </div>
           </div>
         </section>
 
