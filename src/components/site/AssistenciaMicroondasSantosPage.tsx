@@ -1,3 +1,4 @@
+// perf-neutral-probe: assistencia-microondas-santos 2026-10-06
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { ArrowRight, Check, Clock3, Home, Instagram, MapPin, Microwave, RotateCcw, ShieldCheck, ShoppingBag, Sparkles, Wrench } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
