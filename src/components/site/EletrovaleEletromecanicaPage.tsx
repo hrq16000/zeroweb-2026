@@ -86,7 +86,7 @@ export function EletrovaleEletromecanicaPage() {
         </MotionReveal>
 
         <div className="min-w-0 flex-1">
-          <MotionReveal variant="mask" delay={80}>
+          <div>
           <PortfolioImage
             src="/images/eletrovale-eletromecanica/equipamentos.webp"
             alt="Motores elétricos e bombas da Eletrovale Eletromecânica"
@@ -96,7 +96,7 @@ export function EletrovaleEletromecanicaPage() {
             className="h-[220px] w-full border border-[#3a4048] object-cover sm:h-[320px]"
             managedField="heroImageUrl"
           />
-          </MotionReveal>
+          </div>
 
           <section id="ordens" className="mt-10">
             <h2 className="font-display text-2xl font-bold">Menos paradas. Mais desempenho.</h2>
