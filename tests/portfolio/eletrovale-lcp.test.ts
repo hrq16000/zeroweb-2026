@@ -12,6 +12,8 @@ describe("Eletrovale · LCP do hero", () => {
 
   test("preserva CTA e motions não críticos", () => {
     expect(source).toContain("Solicitar avaliação");
+    expect(source).toContain('<aside className="w-full border-l-4 border-[#e6ad2d]');
+    expect(source).not.toContain('<MotionReveal as="aside" variant="left"');
     expect(source).toContain('as="article"');
     expect(source).toContain("<MotionReveal");
   });
