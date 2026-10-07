@@ -536,6 +536,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAcai = loaderData?.slug === "acai-total-araucaria";
     const isJkl = loaderData?.slug === "jkl-marcenaria";
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
+    const isMarmitariaDomDiego = loaderData?.slug === "marmitaria-dom-diego";
     const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
     const isCrisPresentesColoniaRioGrande = loaderData?.slug === "cris-presentes-colonia-rio-grande";
     const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
@@ -583,25 +584,25 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
     const description = isArildoMadeiras
-      ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
+      ? "Arildo Madeiras em Pinhais: madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
       : isCrisPresentesColoniaRioGrande
-      ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
+      ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e presentes, com consulta pelo funil."
       : isCatharineLima
-      ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
+      ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho e pé em gel, volume brasileiro, progressiva e agendamento pelo funil."
       : isJklDecor
-      ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
+      ? "JKL Decor em São José dos Pinhais: móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e outros ambientes."
       : isMoreiraAutoMecanica
-      ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
+      ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais: mecânica para carros, avaliação presencial e agendamento pelo formulário do site."
       : isCarecasInfotec
-      ? "Careca's Infotec no Santo Antônio, São José dos Pinhais — PR: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame, com recarga de cartucho e toner e avaliação antes do reparo."
+      ? "Careca's Infotec em São José dos Pinhais: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame."
       : isEstruturaNacional
       ? "EN — Estrutura Nacional em São José dos Pinhais: fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos e arames para solda."
       : isPinturasNunes
       ? "Pinturas Nunes: pintura residencial e predial, texturas, grafiato, acabamentos, telhados, grades e portões."
       : isSscons
-      ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
+      ? "S&S Construções em Curitiba e região: carpintaria, obras, alvenaria, pintura, reforma e azulejo, da fundação ao acabamento, com orçamento personalizado."
       : isMimo
       ? "Mimo Salgados e Doces na Costeira, em São José dos Pinhais: salgados artesanais, doces e copo da felicidade por R$ 22,00."
       : isPopys
@@ -631,13 +632,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
-      ? "Centro Mega em São José dos Pinhais: loja virtual de celulares, acessórios, moda e outlet, com produtos com mídia real, conteúdo social oficial, seleção de itens e pedido pelo funil da loja."
+      ? "Centro Mega em São José dos Pinhais: celulares, acessórios, moda e outlet com mídia real, conteúdo social oficial e pedido pelo funil da loja."
       : isAutoSocorroDentinho
       ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isPastelariaRoute66
-      ? "Pastelaria e Lanchonete Route 66 no Prado Velho, Curitiba: café da manhã, salgados e almoço com atendimento no local, retirada e entrega, de segunda a sábado das 7h às 20h."
+      ? "Pastelaria e Lanchonete Route 66 no Prado Velho, Curitiba: café da manhã, salgados e almoço, com atendimento no local, retirada e entrega."
       : isHbkIluminacaoLed
       ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
       : isJcRevestimentos
@@ -724,9 +725,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                   ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
                                                                                   : isSantos
                                                                                     ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-                                                                                    : (catalogSeo?.summary ??
-                                                                                      loaderData?.vertical?.subheadline ??
-                                                                                      "Projeto de presença digital criado pela 0WEB.");
+                                                                                    : isMarmitariaDomDiego
+                                                                                      ? "Marmitaria Dom Diego em São José dos Pinhais: marmitas, almoço do dia e cardápio prático, com pedidos combinados diretamente com a casa."
+                                                                                      : (catalogSeo?.summary ??
+                                                                                        loaderData?.vertical?.subheadline ??
+                                                                                        "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(
@@ -808,6 +811,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       },
       loaderData?.overrides ?? null,
     );
+    const metaTitle = eff.title.length <= 65 ? eff.title : title;
+    const metaDescription = eff.description.length <= 165 ? eff.description : description;
     const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
     const effIcon = eff.logoUrl
       ? eff.logoUrl.startsWith("http")
@@ -816,8 +821,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : icon;
     return {
       meta: [
-        { title: eff.title },
-        { name: "description", content: eff.description },
+        { title: metaTitle },
+        { name: "description", content: metaDescription },
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
@@ -922,8 +927,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                         : vertical?.keywords ??
                                                                                           "site profissional, criação de sites, SEO local")),
         },
-        { property: "og:title", content: eff.title },
-        { property: "og:description", content: eff.description },
+        { property: "og:title", content: metaTitle },
+        { property: "og:description", content: metaDescription },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
@@ -935,8 +940,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:image:height", content: "630" },
         { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: eff.title },
-        { name: "twitter:description", content: eff.description },
+        { name: "twitter:title", content: metaTitle },
+        { name: "twitter:description", content: metaDescription },
         { name: "twitter:image", content: effSocial },
         { name: "twitter:image:alt", content: eff.title },
       ],
