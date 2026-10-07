@@ -27,8 +27,8 @@ const services = [
   { title: "Reparos em geral", text: "Ajustes e pequenas manutenções para deixar cada detalhe da casa funcionando.", icon: Wrench },
 ];
 
-function CTA({ children, location }: { children: ReactNode; location: string }) {
-  return <PortfolioCTAQuiz clientKey="santos-montador-de-moveis" studioName="Santos Montador de Móveis" recipientName="Santos" theme="gold" mode="proposal" quizConfig={quiz} ariaLabel={`Abrir orçamento — ${location}`} className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:ring-2 focus-visible:ring-ring">{children}</PortfolioCTAQuiz>;
+function CTA({ children }: { children: ReactNode; location: string }) {
+  return <PortfolioCTAQuiz clientKey="santos-montador-de-moveis" studioName="Santos Montador de Móveis" recipientName="Santos" theme="gold" mode="proposal" quizConfig={quiz} className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:ring-2 focus-visible:ring-ring">{children}</PortfolioCTAQuiz>;
 }
 
 const reveal = { initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.2 }, transition: { duration: 0.45 } };
@@ -36,7 +36,7 @@ const reveal = { initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0
 export function SantosMontadorDeMoveisPage() {
   return <div className="portfolio-theme-santos min-h-dvh overflow-hidden bg-background text-foreground">
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 px-4 py-3 backdrop-blur md:px-8"><div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
-      <a href="#inicio" aria-label="Santos Montador de Móveis — início" className="flex min-h-11 items-center gap-3 font-display font-bold"><span className="grid size-10 -rotate-2 place-items-center rounded-lg bg-primary text-lg text-primary-foreground">S</span><span className="leading-none">SANTOS <small className="block pt-1 text-[10px] font-bold uppercase tracking-[.18em] text-muted-foreground">Montador de móveis</small></span></a>
+      <a href="#inicio" className="flex min-h-11 items-center gap-3 font-display font-bold"><span className="grid size-10 -rotate-2 place-items-center rounded-lg bg-primary text-lg text-primary-foreground">S</span><span className="leading-none">SANTOS <small className="block pt-1 text-[10px] font-bold uppercase tracking-[.18em] text-muted-foreground">Montador de móveis</small></span></a>
       <nav aria-label="Navegação principal" className="hidden items-center gap-6 text-sm font-semibold text-muted-foreground lg:flex"><a className="transition hover:text-primary" href="#servicos">Serviços</a><a className="transition hover:text-primary" href="#processo">Como funciona</a><a className="transition hover:text-primary" href="#regiao">Atendimento</a></nav>
       <CTA location="santos_header"><span className="hidden sm:inline">Pedir orçamento</span><span className="sm:hidden">Orçamento</span><ArrowRight className="size-4 transition group-hover:translate-x-1" /></CTA>
     </div></header>
@@ -66,28 +66,28 @@ export function SantosMontadorDeMoveisPage() {
       <section id="briefing" className="bg-surface px-4 py-20 md:px-8 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[.22em] text-primary">Antes do orçamento</p>
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#9a3f00]">Antes do orçamento</p>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Separe as informações que ajudam a entender o serviço.</h2>
             <p className="mt-5 leading-7 text-muted-foreground">O próprio formulário desta página organiza o primeiro contato por tipo de trabalho, região, período, urgência e detalhes do pedido. Fotos, quantidades e medidas podem ajudar na avaliação.</p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <article className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-mono text-xs font-bold text-primary">01</p>
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">01</p>
               <h3 className="mt-4 text-xl font-bold">Qual serviço?</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">Montagem ou desmontagem de móveis, pintura interna, reparo elétrico, limpeza de caixa d'água, instalação de cortina ou persiana ou outro reparo residencial.</p>
             </article>
             <article className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-mono text-xs font-bold text-primary">02</p>
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">02</p>
               <h3 className="mt-4 text-xl font-bold">Onde será?</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">O formulário separa Alphaville, Curitiba, Colombo e outra região. A disponibilidade é confirmada no atendimento.</p>
             </article>
             <article className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-mono text-xs font-bold text-primary">03</p>
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">03</p>
               <h3 className="mt-4 text-xl font-bold">Qual período?</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">Manhã, tarde ou flexibilidade. Também dá para informar se precisa o quanto antes, nesta semana ou se ainda está planejando.</p>
             </article>
             <article className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-mono text-xs font-bold text-primary">04</p>
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">04</p>
               <h3 className="mt-4 text-xl font-bold">Quais detalhes?</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">Tipo de móvel, quantidade, medidas, fotos ou a descrição do reparo ajudam a contextualizar o orçamento.</p>
             </article>
