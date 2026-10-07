@@ -1,3 +1,4 @@
+// perf-neutral-probe: liz-moraes-nail-designer 2026-10-07
 import { ArrowRight, CalendarDays, Check, Heart, MapPin, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
