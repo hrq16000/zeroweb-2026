@@ -26,7 +26,7 @@ for (const row of snapshot?.pages ?? []) {
   try {
     const url=new URL(raw);
     if (url.origin!==CANONICAL_BASE) continue;
-    const match=url.pathname.match(/^\\/portfolio\\/([^/]+)\\/?$/);
+    const match=url.pathname.match(/^\/portfolio\/([^/]+)\/?$/);
     if (!match) continue;
     const slug=match[1];
     if (!clientSlugs.has(slug)) continue;
@@ -74,7 +74,7 @@ const report={
 await mkdir("seo-reports",{recursive:true});
 await writeFile(
   "seo-reports/portfolio-gsc-evidence-latest.json",
-  JSON.stringify(report,null,2)+"\\n",
+  JSON.stringify(report,null,2)+"\n",
 );
 
 console.log(
