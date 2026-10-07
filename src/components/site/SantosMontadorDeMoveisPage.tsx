@@ -27,8 +27,8 @@ const services = [
   { title: "Reparos em geral", text: "Ajustes e pequenas manutenções para deixar cada detalhe da casa funcionando.", icon: Wrench },
 ];
 
-function CTA({ children, location }: { children: ReactNode; location: string }) {
-  return <PortfolioCTAQuiz clientKey="santos-montador-de-moveis" studioName="Santos Montador de Móveis" recipientName="Santos" theme="gold" mode="proposal" quizConfig={quiz} ariaLabel={`Abrir orçamento — ${location}`} className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:ring-2 focus-visible:ring-ring">{children}</PortfolioCTAQuiz>;
+function CTA({ children }: { children: ReactNode; location: string }) {
+  return <PortfolioCTAQuiz clientKey="santos-montador-de-moveis" studioName="Santos Montador de Móveis" recipientName="Santos" theme="gold" mode="proposal" quizConfig={quiz} className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:ring-2 focus-visible:ring-ring">{children}</PortfolioCTAQuiz>;
 }
 
 const reveal = { initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.2 }, transition: { duration: 0.45 } };
@@ -36,7 +36,7 @@ const reveal = { initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0
 export function SantosMontadorDeMoveisPage() {
   return <div className="portfolio-theme-santos min-h-dvh overflow-hidden bg-background text-foreground">
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 px-4 py-3 backdrop-blur md:px-8"><div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
-      <a href="#inicio" aria-label="Santos Montador de Móveis — início" className="flex min-h-11 items-center gap-3 font-display font-bold"><span className="grid size-10 -rotate-2 place-items-center rounded-lg bg-primary text-lg text-primary-foreground">S</span><span className="leading-none">SANTOS <small className="block pt-1 text-[10px] font-bold uppercase tracking-[.18em] text-muted-foreground">Montador de móveis</small></span></a>
+      <a href="#inicio" className="flex min-h-11 items-center gap-3 font-display font-bold"><span className="grid size-10 -rotate-2 place-items-center rounded-lg bg-primary text-lg text-primary-foreground">S</span><span className="leading-none">SANTOS <small className="block pt-1 text-[10px] font-bold uppercase tracking-[.18em] text-muted-foreground">Montador de móveis</small></span></a>
       <nav aria-label="Navegação principal" className="hidden items-center gap-6 text-sm font-semibold text-muted-foreground lg:flex"><a className="transition hover:text-primary" href="#servicos">Serviços</a><a className="transition hover:text-primary" href="#processo">Como funciona</a><a className="transition hover:text-primary" href="#regiao">Atendimento</a></nav>
       <CTA location="santos_header"><span className="hidden sm:inline">Pedir orçamento</span><span className="sm:hidden">Orçamento</span><ArrowRight className="size-4 transition group-hover:translate-x-1" /></CTA>
     </div></header>
@@ -63,6 +63,37 @@ export function SantosMontadorDeMoveisPage() {
         <motion.div {...reveal} className="lg:sticky lg:top-28"><p className="text-xs font-bold uppercase tracking-[.22em] text-primary">Atendimento direto</p><h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Sem complicação, do pedido ao serviço.</h2><p className="mt-5 max-w-lg leading-7 text-muted-foreground">O orçamento começa com as informações certas. Fotos, medidas e uma descrição rápida ajudam a entender o serviço antes de combinar o atendimento.</p><div className="mt-8"><CTA location="santos_processo">Descrever o que preciso <ChevronRight className="size-4" /></CTA></div></motion.div>
         <ol className="border-l border-primary/40">{[["01", "Conte o serviço", "Escolha o tipo de trabalho e informe os detalhes principais."], ["02", "Envie as referências", "Fotos e medidas ajudam a avaliar materiais, ferramentas e tempo."], ["03", "Combine o atendimento", "Alinhe disponibilidade e endereço antes da execução."], ["04", "Confira o resultado", "O acabamento é revisado antes de encerrar o serviço."]].map(([number, title, text]) => <motion.li key={number} {...reveal} className="relative border-b border-border py-8 pl-8 sm:pl-12"><span className="absolute -left-4 top-8 grid size-8 place-items-center rounded-full bg-primary font-mono text-xs font-bold text-primary-foreground">{number}</span><h3 className="text-2xl font-bold">{title}</h3><p className="mt-2 max-w-xl leading-7 text-muted-foreground">{text}</p></motion.li>)}</ol>
       </div></section>
+      <section id="briefing" className="bg-surface px-4 py-20 md:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[.22em] text-[#9a3f00]">Antes do orçamento</p>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">Separe as informações que ajudam a entender o serviço.</h2>
+            <p className="mt-5 leading-7 text-muted-foreground">O próprio formulário desta página organiza o primeiro contato por tipo de trabalho, região, período, urgência e detalhes do pedido. Fotos, quantidades e medidas podem ajudar na avaliação.</p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">01</p>
+              <h3 className="mt-4 text-xl font-bold">Qual serviço?</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">Montagem ou desmontagem de móveis, pintura interna, reparo elétrico, limpeza de caixa d'água, instalação de cortina ou persiana ou outro reparo residencial.</p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">02</p>
+              <h3 className="mt-4 text-xl font-bold">Onde será?</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">O formulário separa Alphaville, Curitiba, Colombo e outra região. A disponibilidade é confirmada no atendimento.</p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">03</p>
+              <h3 className="mt-4 text-xl font-bold">Qual período?</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">Manhã, tarde ou flexibilidade. Também dá para informar se precisa o quanto antes, nesta semana ou se ainda está planejando.</p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <p className="font-mono text-xs font-bold text-[#9a3f00]">04</p>
+              <h3 className="mt-4 text-xl font-bold">Quais detalhes?</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">Tipo de móvel, quantidade, medidas, fotos ou a descrição do reparo ajudam a contextualizar o orçamento.</p>
+            </article>
+          </div>
+        </div>
+      </section>
       <section id="regiao" className="bg-secondary px-4 py-20 text-secondary-foreground md:px-8 lg:py-28"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
         <motion.div {...reveal}><CircleGauge className="size-10 text-primary" /><p className="mt-8 text-xs font-bold uppercase tracking-[.22em] text-primary">Cobertura local</p><h2 className="mt-4 max-w-[12ch] font-display text-4xl font-bold sm:text-5xl">Atendimento em Curitiba e região.</h2><p className="mt-5 max-w-xl leading-7 text-secondary-foreground/70">Serviços sob agendamento em Curitiba, Colombo e Alphaville. Informe seu bairro no orçamento para confirmar disponibilidade.</p></motion.div>
         <motion.div {...reveal} className="relative overflow-hidden rounded-2xl border border-secondary-foreground/15 bg-secondary-foreground/5 p-7 sm:p-10"><Sparkles aria-hidden="true" className="absolute -right-5 -top-5 size-32 text-primary/10" /><ShieldCheck className="size-9 text-primary" /><h3 className="mt-6 text-2xl font-bold">Qualidade, compromisso e preço justo.</h3><p className="mt-3 max-w-lg leading-7 text-secondary-foreground/70">Cada solicitação é avaliada de acordo com o serviço, o local e os detalhes informados. Você recebe um próximo passo claro, sem compromisso.</p><div className="mt-8"><CTA location="santos_regiao">Pedir meu orçamento <ArrowRight className="size-4" /></CTA></div></motion.div>
