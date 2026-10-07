@@ -1,3 +1,4 @@
+// perf-neutral-probe: santos-montador-de-moveis 2026-10-07
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, Bolt, Check, ChevronRight, CircleGauge, Droplets, Hammer, PaintRoller, PanelsTopLeft, Ruler, ShieldCheck, Sparkles, Wrench } from "lucide-react";
