@@ -14,6 +14,12 @@ describe("Santos Montador · briefing factual", () => {
     expect(source).toContain("Tipo de móvel, quantidade, medidas, fotos");
   });
 
+  test("preserva contraste e nomes acessíveis", () => {
+    expect(source).toContain("text-[#9a3f00]");
+    expect(source).not.toContain('aria-label="Santos Montador de Móveis — início"');
+    expect(source).not.toContain("ariaLabel={");
+  });
+
   test("não introduz preço, prazo fixo ou garantia", () => {
     expect(source).not.toContain("R$");
     expect(source).not.toContain("dias úteis");
