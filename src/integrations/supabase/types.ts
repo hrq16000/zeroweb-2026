@@ -6907,6 +6907,8 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_active_company: { Args: { _id: string }; Returns: boolean }
+      is_active_provider: { Args: { _id: string }; Returns: boolean }
       is_admin_or_super: { Args: { _uid: string }; Returns: boolean }
       is_portal_member: {
         Args: { _portal: string; _uid: string }
