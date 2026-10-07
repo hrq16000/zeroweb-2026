@@ -812,6 +812,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       loaderData?.overrides ?? null,
     );
     const metaTitle = eff.title.length <= 65 ? eff.title : title;
+    const metaDescription = eff.description.length <= 165 ? eff.description : description;
     const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
     const effIcon = eff.logoUrl
       ? eff.logoUrl.startsWith("http")
@@ -821,7 +822,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return {
       meta: [
         { title: metaTitle },
-        { name: "description", content: eff.description },
+        { name: "description", content: metaDescription },
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
@@ -927,7 +928,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                           "site profissional, criação de sites, SEO local")),
         },
         { property: "og:title", content: metaTitle },
-        { property: "og:description", content: eff.description },
+        { property: "og:description", content: metaDescription },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
@@ -940,7 +941,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: metaTitle },
-        { name: "twitter:description", content: eff.description },
+        { name: "twitter:description", content: metaDescription },
         { name: "twitter:image", content: effSocial },
         { name: "twitter:image:alt", content: eff.title },
       ],
