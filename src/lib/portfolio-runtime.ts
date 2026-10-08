@@ -126,6 +126,20 @@ function text(value: unknown, max = 400): string | undefined {
   return v;
 }
 
+function fitSeoText(value: string, max: number): string {
+  const normalized = value.trim().replace(/\s+/g, " ");
+  if (normalized.length <= max) return normalized;
+
+  const clipped = normalized.slice(0, max + 1);
+  const boundary = clipped.lastIndexOf(" ");
+  const cutAt = boundary >= Math.floor(max * 0.7) ? boundary : max;
+
+  return normalized
+    .slice(0, cutAt)
+    .replace(/[,:;–—-]+$/u, "")
+    .trim();
+}
+
 function asset(value: unknown): string | undefined {
   const v = text(value, 300);
   if (!v) return undefined;
@@ -217,8 +231,8 @@ export function sanitizePortfolioRuntimeRow(
 
   return {
     displayName: text(row.display_name, 160),
-    seoTitle: text(row.seo_title, 160),
-    seoDescription: text(row.seo_description, 400),
+    seoTitle: text(row.seo_title, 65),
+    seoDescription: text(row.seo_description, 165),
     seoKeywords: text(row.seo_keywords, 400),
     // Canonical é derivada do slug protegido: só aceitamos a própria URL.
     canonicalUrl: canonical === canonicalAllowed ? canonical : undefined,
@@ -280,10 +294,13 @@ export function applyPortfolioRuntime(
   if (overrides?.brandColors) overridden.push("brandColors");
   if (overrides?.motion) overridden.push("motion");
 
+  const resolvedTitle = take("title", overrides?.seoTitle ?? overrides?.displayName, base.title);
+  const resolvedDescription = take("description", overrides?.seoDescription, base.description);
+
   return {
     slug: base.slug,
-    title: take("title", overrides?.seoTitle ?? overrides?.displayName, base.title),
-    description: take("description", overrides?.seoDescription, base.description),
+    title: fitSeoText(resolvedTitle, 65),
+    description: fitSeoText(resolvedDescription, 165),
     keywords: take("keywords", overrides?.seoKeywords, base.keywords),
     canonicalUrl: overrides?.canonicalUrl ?? base.canonicalUrl,
     socialImage,
