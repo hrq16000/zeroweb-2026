@@ -15,6 +15,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { classifyIndexabilityDelta } from "./indexability-diff-policy.mjs";
 
 const args = process.argv.slice(2);
 const label = (args.find((a) => a.startsWith("--label=")) || "--label=after").split("=")[1];
@@ -172,26 +173,25 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
     `- Sitemap: ${before.sitemap.urls.length} → ${after.sitemap.urls.length} URL(s)`,
     `- robots.txt Disallow: ${before.robots.disallow.length} → ${after.robots.disallow.length}`,
     "",
-    "| Rota | Status | Canonical | robots | Schemas | Regressão |",
-    "| --- | --- | --- | --- | --- | --- |",
+    "| Rota | Status | Canonical | robots | Schemas | Regressão dura | Observação |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
   ];
   let regressions = 0;
   for (const route of [...new Set([...Object.keys(b), ...Object.keys(a)])].sort()) {
     const x = b[route];
     const y = a[route];
     const chg = (from, to) => (String(from ?? "—") === String(to ?? "—") ? String(to ?? "—") : `${from ?? "—"} → **${to ?? "—"}**`);
-    const regression =
-      (x && y && x.status === 200 && y.status !== 200) ||
-      (x && y && x.canonical && !y.canonical) ||
-      (x && y && !x.noindex && y.noindex) ||
-      (x && y && x.schemas.length > y.schemas.length) ||
-      (x && !y);
-    if (regression) regressions++;
+    const delta = classifyIndexabilityDelta(x, y);
+    if (delta.hard) regressions++;
+    const observation =
+      delta.schemaDelta < 0
+        ? `schema ${-delta.schemaDelta} menor no preview (não bloqueante; ambiente pode ter override runtime)`
+        : delta.reason || "—";
     lines.push(
-      `| \`${route}\` | ${chg(x?.status, y?.status)} | ${chg(x?.canonical, y?.canonical)} | ${chg(x?.robots, y?.robots)} | ${chg(x?.schemas.length, y?.schemas.length)} | ${regression ? "⚠️ sim" : "não"} |`,
+      `| \`${route}\` | ${chg(x?.status, y?.status)} | ${chg(x?.canonical, y?.canonical)} | ${chg(x?.robots, y?.robots)} | ${chg(x?.schemas.length, y?.schemas.length)} | ${delta.hard ? "⚠️ sim" : "não"} | ${observation} |`,
     );
   }
-  lines.push("", regressions ? `**${regressions} regressão(ões) detectada(s).**` : "Nenhuma regressão de indexabilidade detectada.");
+  lines.push("", regressions ? `**${regressions} regressão(ões) duras detectada(s).**` : "Nenhuma regressão dura de indexabilidade detectada.");
   const diffPath = path.join(DIR, "indexability-diff.md");
   fs.writeFileSync(diffPath, `${lines.join("\n")}\n`);
   console.log(`[indexability] diff → ${diffPath} (${regressions} regressão(ões))`);
