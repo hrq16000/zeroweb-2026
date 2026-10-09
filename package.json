@@ -4,7 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "gsc:export": "node scripts/gsc-daily-export.mjs",\n    "generate:portfolio-perf-images": "node scripts/generate-portfolio-perf-images.mjs",
+    "gsc:export": "node scripts/gsc-daily-export.mjs",
+    "generate:portfolio-perf-images": "node scripts/generate-portfolio-perf-images.mjs",
     "dev": "bun run generate:portfolio-perf-images && vite dev",
     "test": "bun test",
     "check:portfolio-blueprints": "bun scripts/validate-portfolio-blueprints.ts",
