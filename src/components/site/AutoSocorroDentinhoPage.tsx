@@ -230,8 +230,6 @@ export function AutoSocorroDentinhoPage() {
                     alt="Arte conceitual de instrumentos para diagnóstico automotivo"
                     width={1672}
                     height={941}
-                    widths={[640, 960, 1672]}
-                    sizes="(min-width: 1024px) 52vw, 100vw"
                     className="aspect-[16/10] w-full object-cover"
                     loading="lazy"
                   />
