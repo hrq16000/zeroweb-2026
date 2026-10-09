@@ -77,21 +77,6 @@ const responsiveTargets = [
     width: 260,
     output: "public/images/_generated/refrigeracao-maresia/logo-260.webp",
   },
-  {
-    source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
-    width: 640,
-    output: "public/images/_generated/auto-socorro-dentinho/diagnostic-640.webp",
-  },
-  {
-    source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
-    width: 960,
-    output: "public/images/_generated/auto-socorro-dentinho/diagnostic-960.webp",
-  },
-  {
-    source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
-    width: 1672,
-    output: "public/images/_generated/auto-socorro-dentinho/diagnostic-1672.webp",
-  },
 ];
 
 for (const target of responsiveTargets) {
