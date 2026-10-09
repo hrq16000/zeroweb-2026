@@ -14,10 +14,12 @@ const LS_GA4 = "0web_ga4_id";
 const LS_GTM = "0web_gtm_id";
 
 export function isValidGa4(id: string | null | undefined) {
-  return !!id && /^G-[A-Z0-9]{6,}$/.test(id);
+  if (!id || !/^G-[A-Z0-9]{6,}$/.test(id)) return false;
+  return !/^G-X+$/i.test(id);
 }
 export function isValidGtm(id: string | null | undefined) {
-  return !!id && /^GTM-[A-Z0-9]{5,}$/.test(id);
+  if (!id || !/^GTM-[A-Z0-9]{5,}$/.test(id)) return false;
+  return !/^GTM-X+$/i.test(id);
 }
 
 export function getGa4Id(): string {
