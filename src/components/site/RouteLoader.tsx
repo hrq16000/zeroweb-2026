@@ -38,28 +38,30 @@ export function RouteLoader() {
         />
       </div>
 
-      {/* Overlay com logo — só aparece em navegações >120ms */}
-      <div
-        role="status"
-        aria-live="polite"
-        aria-label="Carregando página"
-        className={`fixed inset-0 z-[99] pointer-events-none grid place-items-center transition-opacity duration-300 ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
-        <div className="relative flex flex-col items-center gap-4">
-          <BrandLogo
-            size={72}
-            alt=""
-            priority
-            className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
-          />
-          <span className="text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground">
-            Carregando
-          </span>
+      {/* Overlay com logo — só monta em navegações >120ms.
+          Enquanto invisível, não mantém /0web-logo.png no DOM nem disputa
+          banda com o LCP da rota atual. */}
+      {visible ? (
+        <div
+          role="status"
+          aria-live="polite"
+          aria-label="Carregando página"
+          className="fixed inset-0 z-[99] pointer-events-none grid place-items-center transition-opacity duration-300 opacity-100"
+        >
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+          <div className="relative flex flex-col items-center gap-4">
+            <BrandLogo
+              size={72}
+              alt=""
+              priority
+              className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
+            />
+            <span className="text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground">
+              Carregando
+            </span>
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <style>{`
         @keyframes route-progress {
