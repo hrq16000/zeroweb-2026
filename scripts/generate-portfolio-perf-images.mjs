@@ -35,10 +35,15 @@ for (const target of targets) {
     throw new Error(`[portfolio-perf-images] dimensões divergentes: ${target.source}`);
   }
 
-  const sourcePixels = await sharp(source).ensureAlpha().raw().toBuffer();
-  const outputPixels = await sharp(output).ensureAlpha().raw().toBuffer();
+  // PNGs transparentes podem carregar RGB invisível sob alpha=0. O que
+  // precisa ser idêntico é o resultado realmente composto na página.
+  const background = { r: 248, g: 251, b: 252 };
+  const sourcePixels = await sharp(source).flatten({ background }).raw().toBuffer();
+  const outputPixels = await sharp(output).flatten({ background }).raw().toBuffer();
   if (!sourcePixels.equals(outputPixels)) {
-    throw new Error(`[portfolio-perf-images] variante não é pixel-identical: ${target.output}`);
+    throw new Error(
+      `[portfolio-perf-images] variante alterou pixels visíveis: ${target.output}`,
+    );
   }
 
   if (after >= before) {
