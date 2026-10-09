@@ -16,6 +16,9 @@ dist-ssr
 .nitro
 *.local
 
+# Variantes de imagem reconstruídas por scripts/generate-portfolio-perf-images.mjs
+public/images/_generated/
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
