@@ -453,5 +453,35 @@
         "pixelSha256": "63fdb3192dbb1a1994fd17fdb44b68056a18938fdca83a81990d2c7b07fb1231"
       }
     }
+  },
+  "renata-beauty": {
+    "reason": "A baseline binária histórica da Renata Beauty está desatualizada. A sonda neutra #414 reproduziu 24,33% / 4,13% / 26,55% contra a baseline versionada sem qualquer mudança de runtime. A correção #413 preserva a composição atual e altera somente a estabilização do hero/LCP, a semântica H2→H3 e o contraste dos CTAs verdes; a comparação direta #413 × #414 ficou em 0,68% / 0,84% / 4,30%, sendo a diferença mobile inspecionada visualmente e localizada no CTA de contraste corrigido. Esta aprovação fixa somente os pixels revisados da #413; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-09",
+    "evidence": {
+      "neutralRunId": 37939574358,
+      "neutralArtifactId": 11620592982,
+      "neutralArtifactDigest": "sha256:5c60bbc45828e9d03ac55e1bd54701edef955e08f97c9c262a9692c30f63d0cf",
+      "runId": 37938747697,
+      "artifactId": 11621450711,
+      "artifactDigest": "sha256:59bf71d070fdbff9612ba76cb01ff7dacf850d0ad1d0a47d32f69e6bb0845cf5",
+      "headSha": "ff996368c220af7fa068ab5c20f1dd228e847461"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "42d507d1e05b91cb6abb3399738c50d511b75b41babb9c0a3e1bc27d80572273"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "6b56607ca05c6f4f971e69471fd3a6a325a11be863986a9f7aabe2eb3e3d7d06"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "6e1c16b098ab18be495805092adc545a8184c22946ec1c6849d9d41c19baf28a"
+      }
+    }
   }
 }
