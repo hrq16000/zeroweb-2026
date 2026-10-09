@@ -30,6 +30,7 @@ import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocia
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
+// perf-neutral-probe: renata-beauty 2026-10-09
 const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
 const ADDRESS = "Rua Rondônia, 300 - Boneca do Iguaçu";
 const MAPS_URL = "https://maps.google.com/?q=Rua+Rond%C3%B4nia,+300+-+Boneca+do+Igua%C3%A7u";
