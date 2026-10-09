@@ -112,12 +112,13 @@ export function AutoSocorroDentinhoPage() {
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-5">
             <a href="#inicio" aria-label="Auto Socorro Dentinho, início">
               <PortfolioImage
-                priority
                 managedField="logoUrl"
                 src="/images/auto-socorro-dentinho/logo.svg"
                 alt="Auto Socorro Dentinho"
                 width={280}
                 height={70}
+                loading="eager"
+                fetchPriority="low"
                 className="h-12 w-auto"
               />
             </a>
@@ -146,10 +147,10 @@ export function AutoSocorroDentinhoPage() {
             <PortfolioImage
               priority
               managedField="heroImageUrl"
-              src="/images/auto-socorro-dentinho/hero-v2.png"
+              src="/images/_generated/auto-socorro-dentinho/hero.webp"
               alt="Arte conceitual de diagnóstico automotivo para Auto Socorro Dentinho"
-              width={1536}
-              height={864}
+              width={1672}
+              height={941}
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,21,37,.98)_0%,rgba(9,21,37,.91)_36%,rgba(9,21,37,.35)_66%,rgba(9,21,37,.06)_100%)]" />
@@ -225,10 +226,10 @@ export function AutoSocorroDentinhoPage() {
               <MotionReveal variant="scale">
                 <figure className="overflow-hidden rounded-[2rem] border border-white/15 bg-[#091525] shadow-2xl shadow-black/30">
                   <PortfolioImage
-                    src="/images/auto-socorro-dentinho/diagnostic-v2.png"
+                    src="/images/_generated/auto-socorro-dentinho/diagnostic.webp"
                     alt="Arte conceitual de instrumentos para diagnóstico automotivo"
-                    width={1536}
-                    height={864}
+                    width={1672}
+                    height={941}
                     className="aspect-[16/10] w-full object-cover"
                     loading="lazy"
                   />

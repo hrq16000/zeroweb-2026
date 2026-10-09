@@ -18,6 +18,14 @@ const targets = [
     source: "public/images/refrigeracao-maresia/hero.png",
     output: "public/images/_generated/refrigeracao-maresia/hero.webp",
   },
+  {
+    source: "public/images/auto-socorro-dentinho/hero-v2.png",
+    output: "public/images/_generated/auto-socorro-dentinho/hero.webp",
+  },
+  {
+    source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
+    output: "public/images/_generated/auto-socorro-dentinho/diagnostic.webp",
+  },
 ];
 
 for (const target of targets) {
