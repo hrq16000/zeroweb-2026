@@ -126,6 +126,8 @@ jobs:
         run: node scripts/ci-with-prod-preview.mjs -- bun run validate:head-icons
 
       - name: Indexabilidade do build ("depois") e diff
+        env:
+          INDEXABILITY_STRICT: "1"
         run: node scripts/ci-with-prod-preview.mjs -- bun run audit:indexability -- --label=after
 
       - name: Acessibilidade (axe-core)
