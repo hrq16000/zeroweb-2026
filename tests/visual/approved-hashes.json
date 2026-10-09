@@ -422,5 +422,36 @@
         "pixelSha256": "e8cc7ac8f7e08e0ff5169cabc0c3fe081b0960f7de7fe89c6d61fed18b960008"
       }
     }
+  },
+  "refrigeracao-maresia": {
+    "reason": "A baseline binária histórica da Refrigeração Maresia corresponde a um layout antigo. A sonda neutra #396 reproduziu 40,98% / 47,38% / 31,31% contra essa baseline sem alterar runtime. A otimização #408 foi inspecionada em desktop, tablet e mobile e, comparada à sonda neutra, variou 0,000% / 0,018% / 0,000%. A composição, conteúdo, CTAs e mídia permanecem íntegros. Esta aprovação fixa somente os três pixels revisados; o limite global continua 2%.",
+    "reviewedAt": "2026-10-09",
+    "evidence": {
+      "neutralRunId": 37645100217,
+      "neutralArtifactId": 11494448007,
+      "neutralArtifactDigest": "sha256:cd6b8fc173804eab13e5d7401b25510c66778ff2c8f9410fa1bfb96d1c82a798",
+      "neutralHeadSha": "03a3a091199f48b684b498b60fa1f72e9647e09c",
+      "runId": 37888154709,
+      "artifactId": 11596544523,
+      "artifactDigest": "sha256:edc1a94d79ac72debec764e85740ff5451e7f5a80c9669e301ff3e951d10fce8",
+      "headSha": "00f265ac068071628dcdda72ea3cb74bb1c88e68"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "32ec3f0bf9d4c7b51b499c1427019a76e6fb7be996368b6feee56a8d8b0c1c2f"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "8550a9e1a4649a290eb240298370661773f8e224014d50f5476e8e3c78e5fc75"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "63fdb3192dbb1a1994fd17fdb44b68056a18938fdca83a81990d2c7b07fb1231"
+      }
+    }
   }
 }
