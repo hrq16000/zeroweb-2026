@@ -70,6 +70,11 @@ export function checkNewPortfolioImagePerformance(slug, source, exists = existsS
     const attrs = match[1];
     const line = source.slice(0, match.index).split("\n").length;
     const label = `[PORTFOLIO_LCP_GATE] ${slug} PortfolioImage linha ${line}`;
+    // PortfolioImage espalha props depois do srcSet calculado; impedir que
+    // atributos manuais ou spread sobrescrevam as garantias do componente.
+    if (/(?:^|\\s)srcSet\\s*=/.test(attrs)) errors.push(`${label}: srcSet manual nao e permitido em v4; use widths verificados`);
+    if (/(?:^|\\s)fetchPriority\\s*=/.test(attrs)) errors.push(`${label}: fetchPriority manual pode sobrescrever a prioridade do LCP`);
+    if (/\\{\\s*\\.\\.\\./.test(attrs)) errors.push(`${label}: props spread impedem validacao estatica de LCP/srcset`);
     const priority = priorityFrom(attrs);
     if (priority.error) errors.push(`${label}: ${priority.error}`);
     if (priority.active) lcpCandidates++;
@@ -82,6 +87,7 @@ export function checkNewPortfolioImagePerformance(slug, source, exists = existsS
       errors.push(`${label}: widths requer src literal do proprio portfolio; src dinamico exige gate especifico`);
       continue;
     }
+    if (src.includes("#")) errors.push(`${label}: fragmento de URL nao suportado com widths`);
     const base = localImagePath(slug, src);
     if (!base) {
       errors.push(`${label}: src com widths precisa estar em /images/${slug}/ ou /images/_generated/${slug}/`);
