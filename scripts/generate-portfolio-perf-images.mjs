@@ -5,9 +5,9 @@
  * As variantes ficam fora do Git e são reconstruídas antes do dev/build.
  * O modo lossless preserva os pixels para não mascarar o gate visual.
  */
-import { mkdir, stat } from "node:fs/promises";
+import { mkdir, stat, realpath } from "node:fs/promises";
 import { existsSync, readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { dirname, resolve, sep } from "node:path";
 import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
@@ -192,6 +192,12 @@ for (const [slug, manifest] of Object.entries(managedProjects)) {
     const input = resolve(target.source);
     if (!existsSync(input)) {
       throw new Error(`[portfolio-perf-images] imagem declarada nao existe: ${target.source}`);
+    }
+    // Nao seguir symlinks para fora da pasta do proprio cliente.
+    const allowedRoot = await realpath(resolve(`public/images/${slug}`));
+    const resolvedInput = await realpath(input);
+    if (!resolvedInput.startsWith(allowedRoot + sep)) {
+      throw new Error(`[portfolio-perf-images] asset fora da pasta do cliente: ${target.source}`);
     }
     const { width: originalWidth, height: originalHeight } = await sharp(input).metadata();
     if (!originalWidth || !originalHeight) {
