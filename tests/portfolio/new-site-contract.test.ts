@@ -7,7 +7,11 @@ const existing = JSON.parse(readFileSync("src/config/portfolio-project-manifests
 
 describe("contrato v4 obrigatorio para novos portfolio-sites", () => {
   test("baseline de seis projetos pre-v4 coincide com historico real", () => {
-    expect(new Set(HISTORICAL_MANAGED_PRE_V4_SLUGS)).toEqual(new Set(Object.keys(existing)));
+    // Novos manifestos v4 precisam poder ser adicionados sem alterar o baseline.
+    const preV4 = Object.entries(existing)
+      .filter(([, manifest]) => Number((manifest as { contractVersion?: number }).contractVersion ?? 0) < 4)
+      .map(([slug]) => slug);
+    expect(new Set(HISTORICAL_MANAGED_PRE_V4_SLUGS)).toEqual(new Set(preV4));
     expect(HISTORICAL_MANAGED_PRE_V4_SLUGS).toHaveLength(6);
     for (const slug of HISTORICAL_MANAGED_PRE_V4_SLUGS) {
       expect(checkNewPortfolioIndividualSiteVersion(slug, existing[slug])).toBeNull();
