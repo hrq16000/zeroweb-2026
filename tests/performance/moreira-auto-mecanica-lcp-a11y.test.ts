@@ -25,6 +25,9 @@ describe("Moreira Auto Mecânica — LCP e contraste", () => {
     expect(src).toContain('clientKey="moreira-auto-mecanica"');
     expect(src).toContain('src: "/images/_generated/moreira-auto-mecanica/hero-1200.webp"');
     expect(src).toContain("MEDIA_ATTRIBUTION");
+    expect(src).toContain('/images/_generated/moreira-auto-mecanica/google-fachada-960.webp');
+    expect(src).toContain('/images/_generated/moreira-auto-mecanica/google-motor-aberto-1200.webp');
+    expect(src).toContain('/images/_generated/moreira-auto-mecanica/google-mecanico-atendimento-800.webp');
     expect(src).toContain('src: "/images/_generated/moreira-auto-mecanica/logo-264.webp"');
   });
 });
