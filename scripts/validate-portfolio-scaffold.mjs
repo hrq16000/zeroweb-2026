@@ -13,6 +13,7 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -21,7 +22,10 @@ const errors = [];
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
 const lifecycleManifests =
   JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
-const legacyBaselineRaw = JSON.parse(read("src/config/portfolio-legacy-baseline.json") || "{}");
+const legacyBaselineText = read("src/config/portfolio-legacy-baseline.json");
+const baselineFreezeError = checkFrozenLegacyBaseline(legacyBaselineText);
+if (baselineFreezeError) errors.push(baselineFreezeError);
+const legacyBaselineRaw = JSON.parse(legacyBaselineText || "{}");
 const legacyBaseline = new Set(legacyBaselineRaw.slugs ?? []);
 
 if (legacyBaselineRaw.mode !== "FROZEN_LEGACY_BASELINE") {
