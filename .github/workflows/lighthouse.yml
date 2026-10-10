@@ -121,6 +121,12 @@ jobs:
             fi
           fi
 
+          # Sem alterações HTML/UI: cinco remoções estritas do sitemap XML.
+          # O gate específico de sitemap/SEO permanece no build e testes.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
           ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # Upgrade de framework sem mudança normal de UI: usa um canário
