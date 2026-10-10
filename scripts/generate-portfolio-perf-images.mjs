@@ -110,6 +110,45 @@ for (const target of responsiveTargets) {
   );
 }
 
+// Derivados da Moreira: o original continua versionado e intocado.
+// A validação visual/Lighthouse do PR decide se a compressão da mídia de
+// abertura preserva a composição sem perda perceptível.
+const moreiraTargets = [
+  {
+    source: "public/images/moreira-auto-mecanica/logo.png",
+    output: "public/images/_generated/moreira-auto-mecanica/logo-320.webp",
+    width: 320,
+    lossless: true,
+  },
+  {
+    source: "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+    output: "public/images/_generated/moreira-auto-mecanica/hero-1200.webp",
+    width: 1200,
+    lossless: false,
+  },
+];
+
+for (const target of moreiraTargets) {
+  const input = resolve(target.source);
+  const output = resolve(target.output);
+  await mkdir(dirname(output), { recursive: true });
+  const before = (await stat(input)).size;
+  const pipeline = sharp(input).resize({ width: target.width, withoutEnlargement: true });
+  await (target.lossless
+    ? pipeline.webp({ lossless: true, effort: 6 })
+    : pipeline.webp({ quality: 92, effort: 6 })
+  ).toFile(output);
+  const metadata = await sharp(output).metadata();
+  if (metadata.width !== target.width) {
+    throw new Error(`[portfolio-perf-images] largura da Moreira divergente: ${target.output}`);
+  }
+  const after = (await stat(output)).size;
+  if (after >= before) {
+    throw new Error(`[portfolio-perf-images] asset Moreira não reduziu bytes: ${target.output}`);
+  }
+  console.log(`[portfolio-perf-images] ${target.source} -> ${target.output}: ${before} -> ${after} bytes`);
+}
+
 console.log(
   `[portfolio-perf-images] OK — ${targets.length} lossless + ${responsiveTargets.length} responsiva(s) gerada(s)`,
 );
