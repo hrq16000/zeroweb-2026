@@ -14,6 +14,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
+import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -165,6 +166,9 @@ for (const client of clients) {
   // --- Pipeline oficial de projetos NOVOS (lifecycle gerenciado) ---------
   // Legado protegido: só vale para slugs com manifesto de ciclo de vida.
   if (isManaged) {
+    const versionError = checkNewPortfolioIndividualSiteVersion(client.slug, lifecycleManifest);
+    if (versionError) errors.push(`${label} ${versionError}`);
+
     if (client.contactMode !== "funnelOnly") {
       errors.push(`${label} projeto gerenciado sem contactMode="funnelOnly"`);
     }
