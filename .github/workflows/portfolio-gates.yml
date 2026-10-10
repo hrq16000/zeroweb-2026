@@ -110,6 +110,9 @@ jobs:
       - name: Funis individuais de portfólio
         env:
           E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
+          # Dois contextos independentes: preserva todos os slugs x viewports,
+          # mas reduz o gargalo serial de 192 cenarios na verificacao global.
+          E2E_CONCURRENCY: 2
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
