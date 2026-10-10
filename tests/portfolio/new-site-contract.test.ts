@@ -1,10 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 // @ts-expect-error — validador independente em JS puro
-import {
-  HISTORICAL_MANAGED_PRE_V4_SLUGS,
-  checkNewPortfolioIndividualSiteVersion,
-} from "../../scripts/lib/portfolio-new-site-contract.mjs";
+import { HISTORICAL_MANAGED_PRE_V4_SLUGS, checkNewPortfolioIndividualSiteVersion } from "../../scripts/lib/portfolio-new-site-contract.mjs";
 
 const existing = JSON.parse(readFileSync("src/config/portfolio-project-manifests.json", "utf8")).projects;
 
