@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+// @ts-expect-error — validador em JS puro, usado no script de CI
 import { checkFrozenLegacyBaseline } from "../../scripts/lib/portfolio-frozen-legacy-baseline.mjs";
 
 const raw = readFileSync("src/config/portfolio-legacy-baseline.json", "utf8");
