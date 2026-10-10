@@ -135,7 +135,7 @@ export const blueprint: PortfolioBlueprint = {
      * logo real enviada pelo proprietário substitui este asset.
      */
     logo: {
-      src: "/images/_generated/moreira-auto-mecanica/logo-320.webp",
+      src: "/images/moreira-auto-mecanica/logo.png",
       alt: "Moreira Auto Mecânica",
       width: 1536,
       height: 512,
