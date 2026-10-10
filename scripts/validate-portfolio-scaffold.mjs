@@ -15,6 +15,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
 import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
+import { checkNewPortfolioPublication } from "./lib/portfolio-v4-publication-gate.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -111,6 +112,12 @@ for (const client of clients) {
   const lifecycleManifest = lifecycleManifests[client.slug];
   const isManaged = Boolean(lifecycleManifest);
   const isFrozenLegacy = legacyBaseline.has(client.slug);
+  // Contrato v4: não permitir que o catálogo exponha no sitemap uma URL
+  // cujo manifesto editorial ainda não esteja published.
+  errors.push(...checkNewPortfolioPublication(
+    client.slug, lifecycleManifest, catalogProject, registrySource,
+    client.routeFile.includes("portfolio.$slug.tsx"),
+  ));
 
   // LEGACY GROWTH GATE:
   // Os 90 slugs existentes em 2026-09-22 ficam congelados como dívida histórica.
