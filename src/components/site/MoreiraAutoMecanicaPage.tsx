@@ -110,6 +110,7 @@ const theme = {
 
 /** Quebra de ritmo: um único bloco claro no meio da página (adendo §2). */
 const lightSurface = {
+  backgroundColor: "oklch(0.955 0.006 250)",
   "--background": "oklch(0.955 0.006 250)",
   "--foreground": "oklch(0.21 0.02 249)",
   "--card": "oklch(0.99 0.002 250)",
@@ -550,5 +551,20 @@ export const blueprint: PortfolioBlueprint = {
 };
 
 export function MoreiraAutoMecanicaPage() {
-  return <PortfolioBlueprintRenderer blueprint={blueprint} />;
+  return (
+    <>
+      {/* O H1 já existe no SSR. Não o ocultar por animação no primeiro paint:
+          Lighthouse confirmou render delay no elemento de LCP da Moreira.
+          Escopo deliberadamente local, sem alterar motion de outros portfólios. */}
+      <style>{`
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"] {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          will-change: auto !important;
+        }
+      `}</style>
+      <PortfolioBlueprintRenderer blueprint={blueprint} />
+    </>
+  );
 }
