@@ -122,10 +122,22 @@ jobs:
           fi
 
           ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+
+          # Novos slugs publicados (ou promovidos de draft) entram SEMPRE no
+          # Lighthouse, mesmo quando só portfolio-catalog.json mudou.
+          NEW_PUBLIC="$(node scripts/resolve-new-public-portfolios.mjs --base "$BASE" --head "$HEAD")"
+          if [ -n "$NEW_PUBLIC" ] && { [ "$RUN" = false ] || [ -n "$ONLY" ]; }; then
+            RUN=true
+            ONLY="$(printf '%s,%s' "$ONLY" "$NEW_PUBLIC" | tr ',' '\n' | sed '/^$/d' | sort -u | paste -sd, -)"
+          fi
+
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # Upgrade de framework sem mudança normal de UI: usa um canário
             # diversificado, com os mesmos thresholds absolutos do gate global.
             ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            if [ -n "$NEW_PUBLIC" ]; then
+              ONLY="$(printf '%s,%s' "$ONLY" "$NEW_PUBLIC" | tr ',' '\n' | sort -u | paste -sd, -)"
+            fi
             SHARDS='[0]'
           elif [ -n "$ONLY" ]; then
             MODE=portfolio

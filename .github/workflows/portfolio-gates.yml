@@ -52,6 +52,15 @@ jobs:
       - name: validate:portfolio-scaffold
         run: bun run validate:portfolio-scaffold
 
+      - name: Gate de admissão dos novos portfolios públicos
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA"
+          node scripts/resolve-new-public-portfolios.mjs --base "$PR_BASE_SHA" --head "$PR_HEAD_SHA" --check
+
       - name: Unicidade autoral declarada
         run: bun run check:portfolio-uniqueness
 
@@ -207,6 +216,11 @@ jobs:
             fi
           fi
 
+          NEW_PUBLIC="$(node scripts/resolve-new-public-portfolios.mjs --base "$BASE" --head "$HEAD")"
+          if [ -n "$NEW_PUBLIC" ]; then
+            RUN=true
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
 
           # Quando a mudança visual está restrita a componentes/ativos de
@@ -218,6 +232,16 @@ jobs:
             # O limiar continua 2%; mudanças visuais reais continuam usando o
             # escopo normal por slug ou o global.
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Para publicação por catálogo, limitar aos slugs novos. Se algum
+          # arquivo compartilhado foi alterado, o escopo global prevalece.
+          if [ -n "$NEW_PUBLIC" ] && { [ "$VISUAL_ONLY" != "" ] || [ "$RUN" != true ]; }; then
+            VISUAL_ONLY="$(printf '%s,%s' "$VISUAL_ONLY" "$NEW_PUBLIC" | tr ',' '\n' | sed '/^$/d' | sort -u | paste -sd, -)"
+          elif [ -n "$NEW_PUBLIC" ] && [ "$VISUAL_ONLY" = "" ]; then
+            # Somente catálogo/manifesto => sem arquivo visual amplo.
+            if ! printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets|routes)/|public/|tailwind|vite\.config|bun\.lock)'; then
+              VISUAL_ONLY="$NEW_PUBLIC"
+            fi
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
