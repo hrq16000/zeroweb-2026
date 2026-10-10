@@ -18,6 +18,15 @@ const CONCURRENCY = 5;
 const USER_AGENT = "0web-portfolio-indexability-audit/1.0";
 
 const clients = JSON.parse(await readFile("src/config/portfolio-clients.json", "utf8"));
+const manifests = JSON.parse(await readFile("src/config/portfolio-project-manifests.json", "utf8")).projects ?? {};
+const draftV4Slugs = new Set(
+  Object.entries(manifests)
+    .filter(([, m]) => Number(m?.contractVersion ?? 0) >= 4 && m?.stage !== "published")
+    .map(([slug]) => slug),
+);
+// Novo projeto em draft nao pode ser tratado como URL publicada no monitor
+// HTTP; mesmo assim, seu eventual vazamento no sitemap ainda e falha P0.
+const auditedClients = clients.filter((client) => !draftV4Slugs.has(client.slug));
 
 function decodeEntities(value = "") {
   return value
@@ -153,15 +162,25 @@ const sitemapUrl = `${FETCH_BASE}/sitemap-portfolio.xml`;
 const { response: sitemapResponse, body: sitemapXml } = await fetchText(sitemapUrl);
 if (!sitemapResponse.ok) throw new Error(`${sitemapUrl} retornou HTTP ${sitemapResponse.status}`);
 const sitemapUrls = extractSitemapUrls(sitemapXml);
-const rows = await mapWithConcurrency(clients, CONCURRENCY, (client) => auditClient(client, sitemapUrls));
+const prefix = `${CANONICAL_BASE}/portfolio/`;
+const sitemapClientSlugs = [...sitemapUrls]
+  .filter((url) => url.startsWith(prefix))
+  .map((url) => url.slice(prefix.length))
+  .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug));
+const leakedUnpublishedV4 = sitemapClientSlugs.filter((slug) => draftV4Slugs.has(slug)).sort();
+const rows = await mapWithConcurrency(auditedClients, CONCURRENCY, (client) => auditClient(client, sitemapUrls));
 
 const failures = rows.flatMap((row) => row.failures.map((failure) => `${row.slug}: ${failure}`));
+for (const slug of leakedUnpublishedV4) failures.push(`${slug}: v4 nao publicado apareceu no sitemap`);
 const warnings = rows.flatMap((row) => row.warnings.map((warning) => `${row.slug}: ${warning}`));
 const report = {
   generatedAt: new Date().toISOString(),
   fetchBaseUrl: FETCH_BASE,
   canonicalBaseUrl: CANONICAL_BASE,
   sitemapUrl,
+  skippedDraftV4: [...draftV4Slugs].sort(),
+  sitemapClientSlugs,
+  leakedUnpublishedV4,
   total: rows.length,
   passed: rows.filter((row) => row.failures.length === 0).length,
   failed: rows.filter((row) => row.failures.length > 0).length,
@@ -177,6 +196,7 @@ for (const row of rows) {
 }
 console.log(`\n[portfolio-indexability] ${report.passed}/${report.total} aprovados · ${warnings.length} aviso(s)`);
 console.log("[portfolio-indexability] relatório → seo-reports/portfolio-indexability-latest.json");
+console.log(`[portfolio-indexability] novos v4 ainda em rascunho: ${draftV4Slugs.size} (fora da auditoria HTTP); vazamentos sitemap: ${leakedUnpublishedV4.length}`);
 
 if (failures.length) {
   console.error("\nFalhas:");
