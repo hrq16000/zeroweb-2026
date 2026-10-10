@@ -37,6 +37,16 @@ describe("portfolios novos — gate de publicação automática", () => {
       .toThrow(/duplicado/);
   });
 
+  test("não rejeita slugs legados com underscore sem nova publicação", () => {
+    expect(getNewPublicPortfolioSlugs([project("r_beauty", "published")], [project("r_beauty", "published")]))
+      .toEqual([]);
+  });
+
+  test("novo slug público inválido é bloqueado", () => {
+    expect(() => getNewPublicPortfolioSlugs([], [project("novo_site", "published")]))
+      .toThrow(/inválido/);
+  });
+
   test("publicação exige registro e manifesto gerenciado", () => {
     expect(assertNewPublicPortfolioContracts(["novo-site", "promovido"], clients, manifests))
       .toEqual(["novo-site", "promovido"]);
