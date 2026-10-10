@@ -43,7 +43,7 @@ export function planNewPortfolioResponsiveMedia(slug, manifest, mediaPlan) {
   // Fotos remotas, SVGs e heros editoriais nao devem ser baixados nem
   // convertidos cegamente; a composicao visual permanece autoral.
   if (heroSource && !/^https?:\/\//i.test(heroSource) && RASTER.test(heroSource)
-    && hero.status !== "unsuitable" && hero.approved !== false) {
+    && hero.status !== "unsuitable" && hero.approved === true) {
     entries.push({ source: heroSource, role: "hero" });
   }
 
@@ -53,6 +53,9 @@ export function planNewPortfolioResponsiveMedia(slug, manifest, mediaPlan) {
   for (const entry of mediaPlan.performanceImages ?? []) {
     if (!entry || !ROLES.has(entry.role)) {
       throw new Error(`[${slug}] performanceImages.role invalido (hero|logo|content)`);
+    }
+    if (entry.approved !== true) {
+      throw new Error(`[${slug}] performanceImages exige aprovacao editorial explicita`);
     }
     entries.push(entry);
   }
