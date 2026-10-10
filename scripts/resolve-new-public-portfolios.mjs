@@ -26,7 +26,7 @@ function records(value, label) {
   if (!Array.isArray(rows)) throw new Error(`${label}: esperado array de projetos`);
   const seen = new Set();
   for (const row of rows) {
-    if (!row || typeof row.slug !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.slug)) {
+    if (!row || typeof row.slug !== "string" || !row.slug.trim()) {
       throw new Error(`${label}: slug ausente/inválido`);
     }
     if (seen.has(row.slug)) throw new Error(`${label}: slug duplicado ${row.slug}`);
@@ -39,7 +39,12 @@ export function getNewPublicPortfolioSlugs(previous, next) {
   const before = new Map(records(previous, "catálogo base").map((row) => [row.slug, row]));
   return records(next, "catálogo head")
     .filter((row) => row.status === "published" && before.get(row.slug)?.status !== "published")
-    .map((row) => row.slug)
+    .map((row) => {
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.slug)) {
+        throw new Error(`novo slug público inválido: ${row.slug}`);
+      }
+      return row.slug;
+    })
     .sort();
 }
 
