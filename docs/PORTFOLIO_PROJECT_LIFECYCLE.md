@@ -293,6 +293,30 @@ Os 90 legados, os seis gerenciados históricos pré-v4 e projetos criados
 pelo painel em runtime conservam seus contratos específicos. Nenhuma URL
 existente é automaticamente promovida a `index,follow` por este gate.
 
+### 11.3 Descoberta coerente com a apresentação do negócio (v4+)
+
+Para um novo `/portfolio/:slug` entrar em `published`, o `PORTFOLIO_DISCOVERY_CLAIMS_GATE`
+compara `src/config/portfolio-discovery.json` com as informações do
+catálogo editorial correspondente ao mesmo `slug`:
+
+- `services` e `products` declarados no índice de busca precisam aparecer
+  explicitamente no título, subtítulo, resumo ou tags aprovados do negócio.
+- `locality` precisa corresponder a informações documentadas em
+  `city`, `state`, `location`, subtítulo ou resumo. Não adicionar um
+  bairro ou outra cidade só para ampliar a descoberta.
+- Campos de busca não podem conter placeholders, itens vazios ou termos
+  repetidos após normalização de acentos, espaços e maiúsculas.
+- O índice publicado deve ter ao menos um serviço/produto próprio e uma
+  categoria ou termo de busca. Rascunhos continuam livres para evoluir.
+
+**Importante:** cruzar dois arquivos do mesmo projeto demonstra consistência,
+não comprova atendimento, endereço, licença, estoque ou disponibilidade.
+Cada afirmação ainda precisa de evidência factual no workflow de descoberta,
+com aprovação editorial e demais gates de qualidade.
+
+O novo gate não altera automaticamente o catálogo ou o índice dos 96 projetos
+anteriores nem faz publicação/index-on em massa.
+
 ## 12. Funnel readiness
 
 `funnelType, CTA, campos, WhatsApp/contexto server-side, tracking, slug, origem,
