@@ -10,6 +10,7 @@ const src = readFileSync(
 describe("Moreira Auto Mecânica — LCP e contraste", () => {
   it("mostra o headline SSR sem atraso do motion reveal", () => {
     expect(src).toContain('[data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"]');
+    expect(src).toContain('[data-blueprint="moreira-auto-mecanica"] #inicio-oficina p[data-motion="reveal"]');
     expect(src).toContain("opacity: 1 !important");
     expect(src).toContain("transition: none !important");
   });
