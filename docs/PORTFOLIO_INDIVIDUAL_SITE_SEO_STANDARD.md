@@ -333,6 +333,31 @@ O objetivo técnico é remover barreiras e aumentar qualidade/descoberta até qu
 
 ---
 
+### 9.1 Indicador diário verificável (rodada 9)
+
+A auditoria permanente `.github/workflows/portfolio-seo-runtime.yml` já
+consulta o domínio público diariamente, sem depender de credenciais.
+Após `scripts/audit-portfolio-indexability.mjs`, o painel
+`scripts/report-portfolio-indexation-readiness.mjs` gera
+`seo-reports/portfolio-indexation-readiness-latest.json` e um resumo
+no GitHub Actions:
+
+- Quantidade e percentual de URLs **tecnicamente elegíveis** entre todos
+  os portfólios auditados (HTTP, canonical própria, meta robots, imagem OG,
+  dados estruturados, favicon próprio e presença no sitemap).
+- Quantidade e percentual separados para **novos v4 publicados**.
+  Nenhum novo v4 publicado = **N/A**, nunca 100% estimado.
+- Nome do slug e motivos de bloqueio, inclusive URLs de novos v4 ainda
+  não publicados que apareçam indevidamente no sitemap.
+- Resultado e relatório arquivados como artefato do workflow diário.
+  Auditoria com mais de uma hora ou sem dados não pode gerar falso PASS.
+
+**Regra de comunicação:** estes percentuais NÃO medem URLs efetivamente
+indexadas pelo Google. A constatação dessa indexação depende de dados reais
+do Search Console/inspeção; a ausência de dados GSC não equivale a `noindex`.
+As auditorias operacionais e os gates de publicação anteriores permanecem
+obrigatórios e sem limites reduzidos.
+
 ## 10. Promoção para domínio próprio
 
 O portfolio deve ser criado como projeto suficientemente autônomo para que uma aquisição futura permita:
