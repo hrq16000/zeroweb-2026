@@ -209,6 +209,33 @@ imagens **locais** aprovadas explicitamente para otimização.
   no fluxo existente. Não utilizar conversão como prova de licença,
   origem factual, elegibilidade de indexação ou qualidade editorial.
 
+### 7.5 Contrato de srcset e LCP verificável para novos portfólios
+
+Depois do gerador WebP, `scripts/validate-portfolio-performance.mjs`
+executa o `PORTFOLIO_LCP_GATE` automaticamente para projetos cujo manifesto
+declara `contractVersion >= 4`. O gate impede que a composição publique:
+
+- `<PortfolioImage widths={[480, 960]} />` sem um `src` literal no diretório
+  exclusivo do projeto ou sem a imagem base e **todas** as variantes referidas
+  de fato presentes em disco (`public/images/<slug>/` ou
+  `public/images/_generated/<slug>/`). Nenhum `srcset` 404 é permitido.
+- `widths` dinâmico, fora de ordem, repetido ou arbitrário sem verificação
+  automática. Larguras válidas são inteiros crescentes entre 64 e 2400
+  (máximo seis). O log do pré-build mostra quais foram geradas.
+- `srcSet` ou `fetchPriority` manuais no `PortfolioImage`, ou spread de
+  propriedades (`{...props}`) que poderia sobrescrever os valores seguros.
+- Múltiplas imagens prioritárias (`priority` no `PortfolioImage`,
+  `loading="eager"` em `<img>` cru); no máximo uma candidata a LCP.
+  Uma `<img loading="eager">` crua exige `fetchPriority="high"`.
+  Prioridade dinâmica sem garantia estática não é aceita para novos v4.
+
+Imagens `PortfolioImage` sem `widths` continuam válidas, inclusive para
+origens externas, e continuam com lazy-loading padrão. O gate não escolhe
+a imagem editorial, não adiciona prioridade automaticamente e não modifica
+código/URLs dos portfólios históricos. Ele verifica a integridade das
+referências após a geração de variantes; a avaliação visual e Lighthouse
+permanecem gates independentes e obrigatórios.
+
 ## 8. Cover gate
 
 Verificar `identityMatch, segmentMatch, smallCardReadability, contrast,
