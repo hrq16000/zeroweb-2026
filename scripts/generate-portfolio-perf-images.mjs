@@ -115,6 +115,24 @@ for (const target of responsiveTargets) {
 // abertura preserva a composição sem perda perceptível.
 const moreiraTargets = [
   {
+    source: "public/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+    output: "public/images/_generated/moreira-auto-mecanica/google-mecanico-atendimento-800.webp",
+    width: 800,
+    lossless: false,
+  },
+  {
+    source: "public/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+    output: "public/images/_generated/moreira-auto-mecanica/google-motor-aberto-1200.webp",
+    width: 1200,
+    lossless: false,
+  },
+  {
+    source: "public/images/moreira-auto-mecanica/google-fachada.jpg",
+    output: "public/images/_generated/moreira-auto-mecanica/google-fachada-960.webp",
+    width: 960,
+    lossless: false,
+  },
+  {
     source: "public/images/moreira-auto-mecanica/logo.png",
     output: "public/images/_generated/moreira-auto-mecanica/logo-264.webp",
     width: 264,
