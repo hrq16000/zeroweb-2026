@@ -16,6 +16,7 @@ import { resolve } from "node:path";
 import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
 import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 import { checkNewPortfolioPublication } from "./lib/portfolio-v4-publication-gate.mjs";
+import { checkNewPortfolioDiscoveryClaims } from "./lib/portfolio-v4-discovery-claims-gate.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -49,6 +50,7 @@ const catalogBySlug = new Map(catalogProjects.map((p) => [p.slug, p]));
 const segmentBySlug = new Map(catalogProjects.map((p) => [p.slug, p.segment]));
 const routeSource = read("src/routes/portfolio.$slug.tsx");
 const registrySource = read("src/lib/portfolio-site-registry.ts");
+const discoveryDocs = JSON.parse(read("src/config/portfolio-discovery.json") || "{}").projects ?? {};
 const upsellConfigRaw = read("src/config/portfolio-upsell.json");
 
 const sharedShell = /<PortfolioStandardShell/.test(routeSource);
@@ -112,6 +114,11 @@ for (const client of clients) {
   const lifecycleManifest = lifecycleManifests[client.slug];
   const isManaged = Boolean(lifecycleManifest);
   const isFrozenLegacy = legacyBaseline.has(client.slug);
+  // Apenas novos portfólios publicados: o índice de busca não pode anunciar
+  // serviços/produtos/localidades ausentes da apresentação editorial aprovada.
+  errors.push(...checkNewPortfolioDiscoveryClaims(
+    client.slug, lifecycleManifest, catalogProject, discoveryDocs[client.slug],
+  ));
   // Contrato v4: não permitir que o catálogo exponha no sitemap uma URL
   // cujo manifesto editorial ainda não esteja published.
   errors.push(...checkNewPortfolioPublication(
