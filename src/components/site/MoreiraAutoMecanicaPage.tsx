@@ -111,6 +111,7 @@ const theme = {
 /** Quebra de ritmo: um único bloco claro no meio da página (adendo §2). */
 const lightSurface = {
   backgroundColor: "oklch(0.955 0.006 250)",
+  color: "oklch(0.21 0.02 249)",
   "--background": "oklch(0.955 0.006 250)",
   "--foreground": "oklch(0.21 0.02 249)",
   "--card": "oklch(0.99 0.002 250)",
@@ -134,7 +135,7 @@ export const blueprint: PortfolioBlueprint = {
      * logo real enviada pelo proprietário substitui este asset.
      */
     logo: {
-      src: "/images/moreira-auto-mecanica/logo.png",
+      src: "/images/_generated/moreira-auto-mecanica/logo-320.webp",
       alt: "Moreira Auto Mecânica",
       width: 1536,
       height: 512,
@@ -193,10 +194,10 @@ export const blueprint: PortfolioBlueprint = {
         subheadline:
           "A Moreira Auto Mecânica atende no Cidade Jardim, em São José dos Pinhais, e tem 4,8 de nota pública no Google em 105 avaliações — 93 delas de cinco estrelas. Descreva pelo formulário o que o carro está apresentando e escolha o período para levar.",
         image: {
-          src: "/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+          src: "/images/_generated/moreira-auto-mecanica/hero-1200.webp",
           alt: "Galpão coberto da Moreira Auto Mecânica com vários carros em manutenção e um veículo sobre o elevador",
-          width: 1600,
-          height: 1200,
+          width: 1200,
+          height: 900,
           priority: true,
         },
         highlights: ["Cidade Jardim · SJP", "Segunda a sexta, 08h–18h30", "Atendimento presencial na oficina"],
