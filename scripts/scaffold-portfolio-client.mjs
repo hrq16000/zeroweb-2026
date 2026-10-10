@@ -413,6 +413,11 @@ write(
        * PROVE_CAPABILITY · CREATE_EMOTION · BREAK_VISUAL_RHYTHM · SUPPORT_CONVERSION · BRAND_RECALL
        */
       sections: [],
+      // Prebuild gera WebP do heroMedia.asset local quando aprovado=true.
+      // Para logo/galeria, declarar { source, role, approved: true, widths? }.
+      // Nunca converte referencia remota nem altera o asset original.
+      heroMedia: null,
+      performanceImages: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
     },
