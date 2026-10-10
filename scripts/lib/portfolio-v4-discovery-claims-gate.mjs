@@ -60,7 +60,10 @@ export function checkNewPortfolioDiscoveryClaims(slug, manifest, project, discov
     }
   }
 
-  const offers = [...(discoveryDoc.services ?? []), ...(discoveryDoc.products ?? [])];
+  const offers = [
+    ...(Array.isArray(discoveryDoc.services) ? discoveryDoc.services : []),
+    ...(Array.isArray(discoveryDoc.products) ? discoveryDoc.products : []),
+  ];
   if (offers.length === 0) {
     errors.push(`${label}: registrar ao menos um produto ou servico real do negocio para descoberta`);
   }
