@@ -265,6 +265,34 @@ próprios de cada cliente (`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`).
 `title, description, H1, canonical, OG, alt, hierarquia de headings, schema,
 localidade, entidade, sitemap, links internos`. Schema só com fatos confirmados.
 
+### 11.1 Bloqueio de publicação prematura e sitemap (contrato v4+)
+
+O `validate:portfolio-scaffold` executa automaticamente
+`PORTFOLIO_INDEXABILITY_GATE` de publicação para **novos** manifestos v4.
+O sitemap dinâmico da 0WEB já considera os estados do catálogo
+`approved` e `published` como possíveis URLs públicas; por isso,
+um novo projeto não pode receber nenhum desses estados enquanto o manifesto
+editorial ainda estiver em `draft`, `research`, `enrichment`, `design`
+ou `ready`. Isso evita divulgação/indexação prematura.
+
+Para publicar um novo site v4, exigir simultaneamente:
+
+- Manifesto no estágio `published` e catálogo em `approved/published`,
+  sem `live: false`;
+- `individualSiteContract.gates.PORTFOLIO_INDEXABILITY_GATE = "complete"`
+  com evidências rastreáveis registradas;
+- Para a rota compartilhada `/portfolio/:slug`, uma entrada única em
+  `PORTFOLIO_PROTOTYPES` com `indexable: true`. Esse registro não substitui
+  a análise real dos robôs, canonical, conteúdo, SSR e sitemap;
+- Depois do deploy `READY`, conferência independente da resposta HTTP,
+  `index,follow`, canonical própria e URL publicada no sitemap, com
+  acompanhamento no Google Search Console. **Estar elegível ou enviado
+  ao sitemap não garante indexação pelo Google.**
+
+Os 90 legados, os seis gerenciados históricos pré-v4 e projetos criados
+pelo painel em runtime conservam seus contratos específicos. Nenhuma URL
+existente é automaticamente promovida a `index,follow` por este gate.
+
 ## 12. Funnel readiness
 
 `funnelType, CTA, campos, WhatsApp/contexto server-side, tracking, slug, origem,
