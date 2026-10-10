@@ -221,7 +221,41 @@ bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
 
 Após o scaffold, o próximo passo **não** é publicar: é pesquisa + discovery + creative direction + composição autoral + mídia + funil + QA.
 
-### 9.1 LEGACY GROWTH GATE
+### 9.1 Publicação automática protegida por delta de catálogo
+
+O lançamento de um novo mini-site é detectado quando um `slug` passa a
+`status: "published"` no `src/config/portfolio-catalog.json`, inclusive
+na transição `draft → published`. Um scaffold ainda em `draft` pode evoluir
+sem ser confundido com uma publicação concluída.
+
+A cada PR, o CI compara catálogo anterior e HEAD com
+`scripts/portfolio-new-release-gate.mjs`. Falha explicitamente se não
+conseguir ler o diff Git, se faltar `clientKey`, rota/componente canônicos
+ou o manifesto de lifecycle gerenciado. Não pode entrar no baseline legado.
+
+**Com publicação nova, os gates ficam automáticos e bloqueantes:**
+
+- **Estáticos:** lifecycle, originalidade, SEO, semântica, mídia, privacidade,
+  funil e desempenho estático, usando os validadores já existentes;
+- **Lighthouse do slug novo:** Performance ≥0,90, SEO ≥0,95,
+  acessibilidade ≥0,95, LCP ≤2,5 s, CLS ≤0,10 e TBT ≤200 ms;
+- **Runtime/E2E:** popup, CTA e funil individual, prévias, ícones e
+  indexabilidade canônica do build;
+- **Visual:** desktop/tablet/mobile, com limite global de 2% preservado.
+  Baseline ausente ou divergente exige inspeção e registro de evidência
+  específica; nenhum screenshot/hash novo é autoaprovado.
+
+Quando o mesmo PR mexe em componente compartilhado, o escopo global já
+exigido pelo CI permanece global. Os novos slugs são acrescentados ao
+escopo individual quando for seguro; nunca se estreita uma regressão
+global para mascarar dívida histórica.
+
+`index,follow`, sitemap e gates verdes comprovam **elegibilidade técnica**.
+A indexação efetiva pelo Google só pode ser confirmada com dados frescos
+do Search Console. Um E2E em modo `DRY_RUN` sem credenciais também não
+comprova escrita real de lead no backend; registrar essa limitação.
+
+### 9.2 LEGACY GROWTH GATE
 
 O legado existente foi congelado em
 `src/config/portfolio-legacy-baseline.json` em 2026-09-22.

@@ -136,6 +136,23 @@ jobs:
             SHARDS='[0,1,2,3]'
           fi
 
+          # Novo slug publicado (inclusive draft -> published) nunca pode
+          # passar sem Lighthouse; não reduzir escopo global existente.
+          NEW_PUBLISHED="$(node scripts/portfolio-new-release-gate.mjs --slugs "$BASE" "$HEAD")"
+          if [ -n "$NEW_PUBLISHED" ]; then
+            if [ -n "$ONLY" ]; then
+              ONLY="$(node scripts/portfolio-new-release-gate.mjs --merge "$ONLY" "$NEW_PUBLISHED")"
+              SHARDS='[0]'
+            elif [ "$RUN" = false ] || [ "$MODE" = "regional" ]; then
+              ONLY="$NEW_PUBLISHED"
+              SHARDS='[0]'
+            fi
+            RUN=true
+            if [ "$MODE" != "regional" ] && [ -n "$ONLY" ]; then
+              MODE=portfolio
+            fi
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
