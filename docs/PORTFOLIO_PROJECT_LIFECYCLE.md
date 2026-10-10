@@ -293,6 +293,25 @@ Os 90 legados, os seis gerenciados históricos pré-v4 e projetos criados
 pelo painel em runtime conservam seus contratos específicos. Nenhuma URL
 existente é automaticamente promovida a `index,follow` por este gate.
 
+### 11.2 Originalidade mínima de títulos e resumos (somente novos v4)
+
+A publicação de um novo projeto (`manifest.stage = "published"`) passa também
+pelo `PORTFOLIO_SEO_ORIGINALITY_GATE`:
+
+- `title` próprio, não genérico e sem marcadores de preenchimento;
+- `summary` específico com pelo menos 80 caracteres, sem placeholders;
+- nem o título nem o resumo podem ser cópias **idênticas após normalização**
+  (caixa, acentos e pontuação) de qualquer outro projeto publicado/aprovado
+  e ativo no catálogo da 0WEB;
+- a análise é determinística, não uma licença para produzir conteúdo
+  superficialmente diferente: a originalidade factual e editorial continua
+  sendo responsabilidade dos demais gates e das evidências do negócio.
+
+Projetos em `draft/ready` continuam livres para evoluir o conteúdo; os
+90 legados e seis gerenciados históricos pré-v4 continuam intocados.
+Não é obrigatório inventar endereço, filial, prazo, oferta ou capacidade
+de atendimento para passar o gate.
+
 ## 12. Funnel readiness
 
 `funnelType, CTA, campos, WhatsApp/contexto server-side, tracking, slug, origem,
