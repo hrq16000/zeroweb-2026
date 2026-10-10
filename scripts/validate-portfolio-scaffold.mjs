@@ -16,6 +16,7 @@ import { resolve } from "node:path";
 import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
 import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 import { checkNewPortfolioPublication } from "./lib/portfolio-v4-publication-gate.mjs";
+import { checkNewPortfolioSeoCopy } from "./lib/portfolio-v4-seo-copy-gate.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -117,6 +118,11 @@ for (const client of clients) {
   errors.push(...checkNewPortfolioPublication(
     client.slug, lifecycleManifest, catalogProject, registrySource,
     client.routeFile.includes("portfolio.$slug.tsx"),
+  ));
+  // Apenas novos sites v4 publicados: copy editorial própria,
+  // sem substituir texto nem exigir dados locais sem prova.
+  errors.push(...checkNewPortfolioSeoCopy(
+    client.slug, lifecycleManifest, catalogProject, catalogProjects,
   ));
 
   // LEGACY GROWTH GATE:
