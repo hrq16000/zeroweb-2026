@@ -72,9 +72,9 @@ export function checkNewPortfolioImagePerformance(slug, source, exists = existsS
     const label = `[PORTFOLIO_LCP_GATE] ${slug} PortfolioImage linha ${line}`;
     // PortfolioImage espalha props depois do srcSet calculado; impedir que
     // atributos manuais ou spread sobrescrevam as garantias do componente.
-    if (/(?:^|\\s)srcSet\\s*=/.test(attrs)) errors.push(`${label}: srcSet manual nao e permitido em v4; use widths verificados`);
-    if (/(?:^|\\s)fetchPriority\\s*=/.test(attrs)) errors.push(`${label}: fetchPriority manual pode sobrescrever a prioridade do LCP`);
-    if (/\\{\\s*\\.\\.\\./.test(attrs)) errors.push(`${label}: props spread impedem validacao estatica de LCP/srcset`);
+    if (/(?:^|\s)srcSet\s*=/.test(attrs)) errors.push(`${label}: srcSet manual nao e permitido em v4; use widths verificados`);
+    if (/(?:^|\s)fetchPriority\s*=/.test(attrs)) errors.push(`${label}: fetchPriority manual pode sobrescrever a prioridade do LCP`);
+    if (/\{\s*\.\.\./.test(attrs)) errors.push(`${label}: props spread impedem validacao estatica de LCP/srcset`);
     const priority = priorityFrom(attrs);
     if (priority.error) errors.push(`${label}: ${priority.error}`);
     if (priority.active) lcpCandidates++;
