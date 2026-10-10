@@ -16,12 +16,13 @@ describe("Moreira Auto Mecânica — LCP e contraste", () => {
 
   it("usa fundo claro real na seção de processo com paleta clara", () => {
     expect(src).toContain('backgroundColor: "oklch(0.955 0.006 250)"');
+    expect(src).toContain('color: "oklch(0.21 0.02 249)"');
     expect(src).toContain('theme: lightSurface');
   });
 
   it("preserva hero, fonte real das fotos e funil individual", () => {
     expect(src).toContain('clientKey="moreira-auto-mecanica"');
-    expect(src).toContain('src: "/images/moreira-auto-mecanica/google-oficina-coberta.jpg"');
+    expect(src).toContain('src: "/images/_generated/moreira-auto-mecanica/hero-1200.webp"');
     expect(src).toContain("MEDIA_ATTRIBUTION");
   });
 });
