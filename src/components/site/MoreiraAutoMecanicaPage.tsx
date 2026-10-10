@@ -554,11 +554,12 @@ export const blueprint: PortfolioBlueprint = {
 export function MoreiraAutoMecanicaPage() {
   return (
     <>
-      {/* O H1 já existe no SSR. Não o ocultar por animação no primeiro paint:
+      {/* H1 e subheadline já existem no SSR. Não os ocultar por animação no primeiro paint:
           Lighthouse confirmou render delay no elemento de LCP da Moreira.
           Escopo deliberadamente local, sem alterar motion de outros portfólios. */}
       <style>{`
-        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"] {
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"],
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina p[data-motion="reveal"] {
           opacity: 1 !important;
           transform: none !important;
           transition: none !important;
