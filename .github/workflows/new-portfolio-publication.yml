@@ -1,0 +1,93 @@
+name: New Portfolio Publication Gate
+
+# Detecta toda PR; Lighthouse/E2E só quando há publicação nova.
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: new-portfolio-publish-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  detect:
+    name: Detectar e validar novos portfólios publicados
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      slugs: ${{ steps.detect.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Obter base da PR para comparação determinística
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git fetch --no-tags --depth=1 origin "$PR_BASE_SHA"
+
+      - name: Checar contrato de publicação e as 3 baselines humanas
+        id: detect
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/new-portfolio-publish-gate.mjs --base="$PR_BASE_SHA" --output="$GITHUB_OUTPUT"
+
+  new-portfolio-qa:
+    name: Lighthouse, funis e visual dos novos portfólios
+    needs: detect
+    if: needs.detect.outputs.slugs != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Dependências sem mudança automática de versões
+        run: bun install --frozen-lockfile
+      - name: Chromium para auditoria visual e funis
+        run: bunx playwright install --with-deps chromium
+
+      - name: Build SSR do candidato
+        run: bun run build
+
+      - name: Lighthouse individual (sem reduzir thresholds)
+        env:
+          LHCI_USE_LOCAL: "1"
+          LHCI_IS_PULL_REQUEST: "1"
+          LHCI_SCOPE: "portfolio"
+          LHCI_ONLY: ${{ needs.detect.outputs.slugs }}
+          LHCI_SHARD_COUNT: "1"
+          LHCI_SHARD_INDEX: "0"
+        run: bunx lhci autorun --config=.lighthouserc.cjs
+
+      - name: Popup de cada novo portfólio
+        env:
+          POPUP_SLUGS: ${{ needs.detect.outputs.slugs }}
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
+
+      - name: Funil de cada novo portfólio (sem escrita externa)
+        env:
+          E2E_ONLY_SLUGS: ${{ needs.detect.outputs.slugs }}
+          E2E_DRY_RUN: "1"
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+
+      - name: Visual obrigatório nas 3 viewports, sem update automático
+        env:
+          VISUAL_ONLY: ${{ needs.detect.outputs.slugs }}
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+
+      - name: Guardar evidências para inspeção
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-portfolio-publication-evidence
+          include-hidden-files: true
+          path: |
+            .lighthouseci/**
+            lhci-reports/**
+            seo-reports/visual/**
+            seo-reports/popup-shots/**
+            seo-reports/portfolio-funnels-e2e.json
+          if-no-files-found: ignore
