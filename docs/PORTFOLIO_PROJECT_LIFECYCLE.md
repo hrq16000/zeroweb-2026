@@ -71,6 +71,13 @@ Estados por etapa: `not_started | in_progress | complete | blocked | not_applica
 
 Não existe banco novo nem painel novo: o manifesto é arquivo versionado.
 
+**Baseline histórica protegida:** os 90 slugs existentes em
+`src/config/portfolio-legacy-baseline.json` são imutáveis. O
+`validate:portfolio-scaffold` verifica o blob Git congelado e reprova tanto a
+inclusão quanto a substituição de um slug, mesmo que a contagem continue igual.
+Novo portfólio fora dessa lista exige manifesto gerenciado; mudança excepcional
+na própria baseline exige aprovação explícita e evidência na PR.
+
 ## 3. Bloqueio × pendência
 
 | Situação | Estado correto |
