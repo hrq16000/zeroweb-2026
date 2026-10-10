@@ -78,6 +78,16 @@ inclusão quanto a substituição de um slug, mesmo que a contagem continue igua
 Novo portfólio fora dessa lista exige manifesto gerenciado; mudança excepcional
 na própria baseline exige aprovação explícita e evidência na PR.
 
+**Contrato SEO individual obrigatório para novos gerenciados:** desde
+2026-10-10, qualquer slug novo com manifesto deve declarar
+`contractVersion >= 4` e os seis gates de
+`docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`. Declarar v3, omitir versão
+ou adicionar manifesto manualmente não pode dispensar readiness/SEO. Os seis
+projetos gerenciados anteriores à adoção do v4 seguem como exceção histórica
+fixa em `scripts/lib/portfolio-new-site-contract.mjs`, sem bloquear seu
+conteúdo já publicado. `validate:portfolio-scaffold` e
+`check:portfolio-project-readiness` aplicam a mesma regra.
+
 ## 3. Bloqueio × pendência
 
 | Situação | Estado correto |
