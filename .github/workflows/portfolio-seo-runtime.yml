@@ -32,6 +32,7 @@ jobs:
           name: portfolio-seo-runtime
           path: |
             seo-reports/portfolio-indexability-latest.json
+            seo-reports/portfolio-indexation-readiness-latest.json
             seo-reports/portfolio-discovery-consistency-latest.json
             seo-reports/portfolio-gsc-evidence-latest.json
             seo-reports/structured-data-latest.json
