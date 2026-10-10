@@ -52,6 +52,25 @@ jobs:
       - name: validate:portfolio-scaffold
         run: bun run validate:portfolio-scaffold
 
+      - name: Entrada de novos portfólios publicados (fail-closed)
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Sem diff em workflow_dispatch; os gates de todos os portfólios seguem ativos."
+            exit 0
+          fi
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"; HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"; HEAD="$PUSH_HEAD_SHA"
+          fi
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD"
+          node scripts/portfolio-new-release-gate.mjs --check "$BASE" "$HEAD"
+
       - name: Unicidade autoral declarada
         run: bun run check:portfolio-uniqueness
 
@@ -96,6 +115,11 @@ jobs:
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
+            NEW_PUBLISHED="$(node scripts/portfolio-new-release-gate.mjs --slugs "$PR_BASE_SHA" "$PR_HEAD_SHA")"
+            if [ -n "$NEW_PUBLISHED" ] && [ -n "$ONLY" ]; then
+              ONLY="$(node scripts/portfolio-new-release-gate.mjs --merge "$ONLY" "$NEW_PUBLISHED")"
+            fi
+            # ONLY vazio preserva gate E2E global: inclui os novos clientes.
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
@@ -207,8 +231,6 @@ jobs:
             fi
           fi
 
-          echo "run=$RUN" >> "$GITHUB_OUTPUT"
-
           # Quando a mudança visual está restrita a componentes/ativos de
           # portfolios individuais registrados, limita a comparação a esses
           # slugs. Qualquer arquivo visual compartilhado mantém escopo global.
@@ -219,6 +241,20 @@ jobs:
             # escopo normal por slug ou o global.
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
+          # Uma publicação nova exige baseline/revisão visual 3 viewports.
+          # Se já havia mudança visual global, não estreitar a cobertura.
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            NEW_PUBLISHED="$(node scripts/portfolio-new-release-gate.mjs --slugs "$BASE" "$HEAD")"
+            if [ -n "$NEW_PUBLISHED" ]; then
+              if [ -n "$VISUAL_ONLY" ]; then
+                VISUAL_ONLY="$(node scripts/portfolio-new-release-gate.mjs --merge "$VISUAL_ONLY" "$NEW_PUBLISHED")"
+              elif [ "$RUN" = false ]; then
+                VISUAL_ONLY="$NEW_PUBLISHED"
+              fi
+              RUN=true
+            fi
+          fi
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 
