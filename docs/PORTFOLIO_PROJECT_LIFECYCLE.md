@@ -178,6 +178,37 @@ Inválido: grande área vazia/escura sem função declarada — “ficou assim p
 faltou preencher” reprova a seção.
 
 
+### 7.4 WebP responsivo e LCP para novos sites (contrato v4+)
+
+O prebuild (`bun run generate:portfolio-perf-images`) agora **descobre projetos
+novos pelo manifesto**, sem cadastrar clientes manualmente no script.
+Para cada projeto com `contractVersion >= 4`, lê
+`docs/portfolio/media-plans/<slug>.json` e gera derivados somente de
+imagens **locais** aprovadas explicitamente para otimização.
+
+- `heroMedia.asset` local PNG/JPG/JPEG com `approved: true` é a imagem hero
+  candidata à conversão; a escolha editorial do hero continua sujeita ao
+  Creative Brief e aos gates de qualidade. Hero remoto, SVG, inadequado ou
+  não aprovado não é baixado nem convertido.
+- Para logo ou outras fotos, declarar `performanceImages` no media plan:
+  `[{ "source": "public/images/loja-exemplo/logo.png", "role": "logo", "approved": true }]`.
+  Papéis: `hero`, `logo`, `content`. `widths` opcional, em ordem crescente.
+- Os originais permanecem intocados. Derivados ficam fora do Git, em
+  `public/images/_generated/<slug>/<nome>.webp` e
+  `<nome>-<width>.webp`, reconstruídos automaticamente antes do build.
+  Só são geradas larguras menores/iguais à imagem original; uma versão
+  que não reduza bytes reprova o build. Logos usam WebP lossless, inclusive
+  com comparação dos pixels visíveis. Fotos usam qualidade 92, cuja
+  aparência continua sujeita aos gates visuais e Lighthouse.
+- Após inspecionar as variantes geradas, a composição autoral pode usar
+  `<PortfolioImage src="/images/_generated/loja-exemplo/hero.webp"
+  widths={[480, 960]} priority alt="..." />` **somente** se essas duas larguras
+  constarem no log do build. Declarar um `widths` inexistente cria URLs quebradas.
+  A geração não troca automaticamente o `src` de portfólios publicados.
+- O catálogo histórico (90 legados + seis gerenciados pré-v4) continua
+  no fluxo existente. Não utilizar conversão como prova de licença,
+  origem factual, elegibilidade de indexação ou qualidade editorial.
+
 ## 8. Cover gate
 
 Verificar `identityMatch, segmentMatch, smallCardReadability, contrast,
