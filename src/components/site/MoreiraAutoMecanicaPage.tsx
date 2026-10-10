@@ -135,10 +135,10 @@ export const blueprint: PortfolioBlueprint = {
      * logo real enviada pelo proprietário substitui este asset.
      */
     logo: {
-      src: "/images/moreira-auto-mecanica/logo.png",
+      src: "/images/_generated/moreira-auto-mecanica/logo-264.webp",
       alt: "Moreira Auto Mecânica",
-      width: 1536,
-      height: 512,
+      width: 264,
+      height: 88,
       managedField: "logoUrl",
     },
     tagline: "Mecânica para carros — Cidade Jardim, São José dos Pinhais — PR",
