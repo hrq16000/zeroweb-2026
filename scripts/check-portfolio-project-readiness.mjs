@@ -18,6 +18,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 import {
   COMPOSITION_CONTRACT_VERSION,
   evaluateProjectUniqueness,
@@ -122,6 +123,8 @@ function evaluate(slug, manifest) {
   const project = catalogBySlug.get(slug);
   const client = clients.find((c) => c.slug === slug);
   const published = project?.status === "published";
+  const contractVersionError = checkNewPortfolioIndividualSiteVersion(slug, manifest);
+  if (contractVersionError) blockers.push(contractVersionError);
 
   // --- PORTFOLIO AS INDIVIDUAL SITE CONTRACT (contrato v4+)
   if (Number(manifest.contractVersion ?? 0) >= INDIVIDUAL_SITE_CONTRACT_VERSION) {
