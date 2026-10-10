@@ -10,8 +10,10 @@ const audit = {
     { slug: "historico", failures: [], sitemap: true },
     { slug: "site-novo", failures: [], sitemap: true },
     { slug: "site-bloqueado", failures: ["canonical inválida"], sitemap: true },
-    { slug: "rascunho-v4", failures: ["noindex"], sitemap: true },
   ],
+  // O sitemap e independente das linhas HTTP: os rascunhos v4 nao sao
+  // requisitados pelo audit, mas nao podem aparecer publicados no XML.
+  sitemapClientSlugs: ["historico", "site-novo", "site-bloqueado", "rascunho-v4"],
 };
 const manifests = { projects: {
   "historico": { contractVersion: 3, stage: "published" },
@@ -30,7 +32,7 @@ describe("scorecard de elegibilidade — distinto de indexação GSC", () => {
   test("calcula percentuais factuais da auditoria e mostra blockers por v4", () => {
     const result = buildPortfolioIndexationReadiness(audit, manifests, catalog);
     expect(result.overall).toEqual({
-      checked: 4, technicallyEligible: 2, blocked: 2, percent: 50,
+      checked: 3, technicallyEligible: 2, blocked: 1, percent: 66.7,
     });
     expect(result.newV4.published).toBe(2);
     expect(result.newV4.technicallyEligible).toBe(1);
@@ -89,5 +91,10 @@ describe("scorecard de elegibilidade — distinto de indexação GSC", () => {
     expect(gate).toContain('name:"indexability-scorecard"');
     expect(script).toContain("GITHUB_STEP_SUMMARY");
     expect(script).toContain("portfolio-indexability-latest.json");
+    const auditScript = readFileSync("scripts/audit-portfolio-indexability.mjs", "utf8");
+    expect(auditScript).toContain("auditedClients");
+    expect(auditScript).toContain("draftV4Slugs");
+    expect(auditScript).toContain("sitemapClientSlugs");
+    expect(auditScript).toContain("leakedUnpublishedV4");
   });
 });
