@@ -41,7 +41,15 @@ export function buildPortfolioIndexationReadiness(audit, manifests, catalog) {
     }
     return { slug, eligible: blockers.length === 0, blockers };
   });
-  const hiddenLeaks = hidden.filter((slug) => bySlug.get(slug)?.sitemap === true).sort();
+  // O audit HTTP ignora corretamente rascunhos v4. A presença indevida
+  // deles no sitemap precisa ser analisada da propria listagem XML, e nao
+  // somente das linhas HTTP (que nao incluem esses rascunhos).
+  const sitemapSlugs = new Set(
+    Array.isArray(audit.sitemapClientSlugs)
+      ? audit.sitemapClientSlugs
+      : rows.filter((row) => row.sitemap === true).map((row) => row.slug),
+  );
+  const hiddenLeaks = hidden.filter((slug) => sitemapSlugs.has(slug)).sort();
   const eligible = entries.filter((e) => e.eligible).length;
   const overallPass = rows.filter((row) => row.failures.length === 0).length;
   const overall = {
