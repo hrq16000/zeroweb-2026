@@ -173,7 +173,11 @@ jobs:
           LHCI_ONLY: ${{ needs.scope.outputs.only }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
-      - name: Emitir diagnostico LHCI (nao bloqueante)\n        if: always()\n        run: node scripts/report-lhci-diagnostics.mjs\n\n      - name: Upload Lighthouse reports (JSON/HTML)
+      - name: Emitir diagnostico LHCI (nao bloqueante)
+        if: always()
+        run: node scripts/report-lhci-diagnostics.mjs
+
+      - name: Upload Lighthouse reports (JSON/HTML)
         if: always()
         uses: actions/upload-artifact@v4
         with:
