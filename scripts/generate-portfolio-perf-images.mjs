@@ -115,12 +115,6 @@ for (const target of responsiveTargets) {
 // abertura preserva a composição sem perda perceptível.
 const moreiraTargets = [
   {
-    source: "public/images/moreira-auto-mecanica/logo.png",
-    output: "public/images/_generated/moreira-auto-mecanica/logo-320.webp",
-    width: 320,
-    lossless: true,
-  },
-  {
     source: "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
     output: "public/images/_generated/moreira-auto-mecanica/hero-1200.webp",
     width: 1200,
