@@ -15,6 +15,11 @@ Objetivo: todo projeto novo nasce tecnicamente completo **sem virar um template 
 
 A política `ZERO_GENERIC_TOLERANCE` vale para a família inteira do projeto: landing, card/capa do catálogo, preview/modal/viewer, editor/PR preview, hero, social/OG, thumbnail/share, funil visual, 390/768/1440, reduced-motion, futuras variantes/campanhas e promoção para domínio próprio.
 
+**Gate automático para novos projetos:** [PORTFOLIO_AUTOMATIC_RELEASE_GATES.md](PORTFOLIO_AUTOMATIC_RELEASE_GATES.md).
+Toda primeira publicação e transição `draft → published` aciona automaticamente
+Lighthouse e visual por slug no PR, além do contrato de scaffold/readiness.
+Não há publicação automática após falha, nem aprovação automática de novos hashes.
+
 ## 0. Regra de ouro
 
 **Padronizar a engenharia, nunca a criatividade.**
