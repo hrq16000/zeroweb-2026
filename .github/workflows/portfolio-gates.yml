@@ -210,6 +210,12 @@ jobs:
             fi
           fi
 
+          # Alteração comprovadamente exclusiva de XML não modifica a UI.
+          # A função verifica o diff inteiro; escopo incerto mantém gate global.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
 
           # Quando a mudança visual está restrita a componentes/ativos de
