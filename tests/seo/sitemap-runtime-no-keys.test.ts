@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { selectInstitutionalCapitals } from "../../src/lib/sitemap-publication-policy";
+import { isSitemapRuntimeResilienceOnly } from "../../scripts/classify-sitemap-only-diff.mjs";
 
 const capitals = [{ slug: "curitiba" }, { slug: "recife" }, { slug: "salvador" }];
 
@@ -28,6 +29,23 @@ describe("publicação de sitemaps sem fonte administrativa", () => {
     expect(b).toContain("${ORIGIN}/solicitar-orcamento");
     expect(b).toContain("${ORIGIN}/marketplace");
     expect(b).toContain("catch (error)");
+  });
+
+  test("classifica como XML apenas o conjunto de arquivos permitido", () => {
+    const changed = [
+      "src/routes/sitemap-institucional[.]xml.ts",
+      "src/routes/sitemap-marketplace[.]xml.ts",
+      "src/lib/sitemap-publication-policy.ts",
+      "scripts/check-sitemap-runtime-no-keys.mjs",
+      "tests/seo/sitemap-runtime-no-keys.test.ts",
+      "scripts/classify-sitemap-only-diff.mjs",
+      ".github/workflows/portfolio-gates.yml",
+    ];
+    expect(isSitemapRuntimeResilienceOnly(changed)).toBe(true);
+    expect(isSitemapRuntimeResilienceOnly([...changed, "src/routes/portfolio.$slug.tsx"])).toBe(false);
+    expect(isSitemapRuntimeResilienceOnly([...changed, "src/lib/whatsapp-redirect.ts"])).toBe(false);
+    expect(isSitemapRuntimeResilienceOnly([...changed, "src/styles/index.css"])).toBe(false);
+    expect(isSitemapRuntimeResilienceOnly(changed.slice(1))).toBe(false);
   });
 
   test("CI verifica HTTP efetivo sem service-role key", () => {
