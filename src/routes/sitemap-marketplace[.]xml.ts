@@ -6,7 +6,22 @@ export const Route = createFileRoute("/sitemap-marketplace.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const { providers, companies, categories } = await listSitemapEntries();
+        // O sitemap deve continuar disponível sem credenciais de escrita.
+        // Em falha da fonte de dados, não inventa prestadores ou categorias.
+        let providers: Array<{ slug: string }> = [];
+        let companies: Array<{ slug: string }> = [];
+        let categories: Array<{ slug: string }> = [];
+        try {
+          const entries = await listSitemapEntries();
+          providers = entries.providers ?? [];
+          companies = entries.companies ?? [];
+          categories = entries.categories ?? [];
+        } catch (error) {
+          console.warn(
+            "[sitemap-marketplace] catálogo indisponível; publicando apenas URLs estáveis",
+            error instanceof Error ? error.message : "erro de leitura",
+          );
+        }
         const urls: string[] = [
           `${ORIGIN}/marketplace`,
           `${ORIGIN}/solicitar-orcamento`,

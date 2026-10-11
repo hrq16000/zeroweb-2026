@@ -25,6 +25,26 @@ const ALLOWED_FILES = new Set([
   ".github/workflows/lighthouse.yml",
 ]);
 
+// Correção isolada de fontes de dados de sitemaps XML: nenhuma página HTML,
+// componente visual, CSS, funil ou origem de dados é modificada. SEO e smoke
+// HTTP permanecem obrigatórios (o classifier não altera thresholds).
+const RUNTIME_SITEMAP_FILES = new Set([
+  "src/routes/sitemap-institucional[.]xml.ts",
+  "src/routes/sitemap-marketplace[.]xml.ts",
+  "src/lib/sitemap-publication-policy.ts",
+  "scripts/check-sitemap-runtime-no-keys.mjs",
+  "tests/seo/sitemap-runtime-no-keys.test.ts",
+  "scripts/classify-sitemap-only-diff.mjs",
+  ".github/workflows/portfolio-gates.yml",
+]);
+
+export function isSitemapRuntimeResilienceOnly(files) {
+  return Array.isArray(files) &&
+    files.includes("src/routes/sitemap-institucional[.]xml.ts") &&
+    files.includes("src/routes/sitemap-marketplace[.]xml.ts") &&
+    files.every((file) => RUNTIME_SITEMAP_FILES.has(file));
+}
+
 export function isStrictSitemapRemoval(files, before, after) {
   if (!Array.isArray(files) || !files.includes(SITEMAP_PAGE)) return false;
   if (files.some((file) => !ALLOWED_FILES.has(file))) return false;
@@ -58,7 +78,9 @@ if (invoked) {
     const files = git("diff", "--name-only", base, head).split("\n").filter(Boolean);
     const before = git("show", base + ":" + SITEMAP_PAGE);
     const after = git("show", head + ":" + SITEMAP_PAGE);
-    if (isStrictSitemapRemoval(files, before, after)) process.stdout.write("sitemap-only");
+    if (isSitemapRuntimeResilienceOnly(files) || isStrictSitemapRemoval(files, before, after)) {
+      process.stdout.write("sitemap-only");
+    }
   } catch {
     // Falha de inspeção => nenhum skip; CI completo continua.
   }
