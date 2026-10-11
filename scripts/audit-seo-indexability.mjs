@@ -16,6 +16,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { classifyIndexabilityDelta } from "./indexability-diff-policy.mjs";
+import { classifySitemapInventoryDelta } from "./sitemap-inventory-diff-policy.mjs";
 import { resolveSitemapChildFetchUrl } from "./sitemap-audit-origin.mjs";
 
 const args = process.argv.slice(2);
@@ -200,6 +201,50 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
       `| \`${route}\` | ${chg(x?.status, y?.status)} | ${chg(x?.canonical, y?.canonical)} | ${chg(x?.robots, y?.robots)} | ${chg(x?.schemas.length, y?.schemas.length)} | ${delta.hard ? "⚠️ sim" : "não"} | ${observation} |`,
     );
   }
+  // Comparar toda a malha XML além dos 100 HTMLs inspecionados.
+  // Páginas locais/categorias sem backend entram como pendência explícita;
+  // remoção de portfólio/URL estática ou host temporário bloqueia o gate.
+  const sitemapDelta = classifySitemapInventoryDelta(before.sitemap.urls, after.sitemap.urls);
+  const childErrors = after.sitemap.problems ?? [];
+  const deltaPath = path.join(DIR, "indexability-sitemap-diff.json");
+  fs.writeFileSync(deltaPath, JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    beforeBase: before.base,
+    afterBase: after.base,
+    ...sitemapDelta,
+    childErrors,
+  }, null, 2) + "\n");
+
+  lines.push(
+    "",
+    "## Malha XML — publicações por ambiente",
+    "",
+    "| Evidência | Domínio público / antes | Preview / depois |",
+    "| --- | ---: | ---: |",
+    "| Entradas de sitemap | " + sitemapDelta.beforeCount + " | " + sitemapDelta.afterCount + " |",
+    "| Capitais dinâmicas sem confirmação no preview | — | " + sitemapDelta.dynamicLocal.length + " |",
+    "| Categorias dinâmicas sem confirmação no preview | — | " + sitemapDelta.dynamicCategories.length + " |",
+    "| URLs estáticas/portfólios desaparecidos | — | " + sitemapDelta.missingProtected.length + " |",
+    "| Hosts não canônicos / duplicatas no preview | — | " +
+      (sitemapDelta.nonCanonical.length + sitemapDelta.duplicatePaths.length) + " |",
+    "",
+    "**Atenção:** diferenças dinâmicas não comprovam despublicação no site público",
+    "nem autorização para habilitar indexação sem fonte de publicação.",
+    "",
+  );
+  if (sitemapDelta.warnings.length) {
+    lines.push("### Publicações dinâmicas a verificar", "", ...sitemapDelta.warnings.map((w) => "- " + w), "");
+  }
+  if (sitemapDelta.hardProblems.length || childErrors.length) {
+    lines.push("### Regressões bloqueantes de sitemap", "",
+      ...[...sitemapDelta.hardProblems, ...childErrors].map((p) => "- " + p), "");
+  }
+  regressions += sitemapDelta.hardProblems.length + childErrors.length;
+  console.log("[sitemap-inventory] antes " + sitemapDelta.beforeCount +
+    " · depois " + sitemapDelta.afterCount +
+    " · dinamicas sem prova " + sitemapDelta.warnings.length +
+    " · regressões duras " + (sitemapDelta.hardProblems.length + childErrors.length));
+  console.log("[sitemap-inventory] detalhes → " + deltaPath);
   lines.push("", regressions ? `**${regressions} regressão(ões) duras detectada(s).**` : "Nenhuma regressão dura de indexabilidade detectada.");
   const diffPath = path.join(DIR, "indexability-diff.md");
   fs.writeFileSync(diffPath, `${lines.join("\n")}\n`);
