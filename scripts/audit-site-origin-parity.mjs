@@ -17,8 +17,11 @@ const urlsOf = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[
 export function compareSiteInventories(official, vercel, portfolioSlugs) {
   const delta = classifySitemapInventoryDelta(official.urls, vercel.urls);
   const portfolioPaths = portfolioSlugs.map((slug) => "/portfolio/" + slug);
-  const officialPaths = new Set(official.urls.map((u) => new URL(u).pathname));
-  const vercelPaths = new Set(vercel.urls.map((u) => new URL(u).pathname));
+  const pathSet = (urls) => new Set(urls.flatMap((u) => {
+    try { return [new URL(u).pathname]; } catch { return []; }
+  }));
+  const officialPaths = pathSet(official.urls);
+  const vercelPaths = pathSet(vercel.urls);
   const portfolioMissingOfficial = portfolioPaths.filter((p) => !officialPaths.has(p));
   const portfolioMissingVercel = portfolioPaths.filter((p) => !vercelPaths.has(p));
   const staticLoss = delta.missingProtected;
