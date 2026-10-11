@@ -78,6 +78,11 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Sitemaps XML sem service-role key (HTTP real)
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ""
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/check-sitemap-runtime-no-keys.mjs
+
       - name: Snapshot de indexabilidade (produção = "antes")
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
