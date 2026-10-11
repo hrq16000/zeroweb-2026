@@ -45,6 +45,44 @@ export function isSitemapRuntimeResilienceOnly(files) {
     files.every((file) => RUNTIME_SITEMAP_FILES.has(file));
 }
 
+
+// Política restritiva: apenas troca literal da origem refletida do request
+// pela origem canonica. Qualquer alteração extra dispara gates completos.
+const CANONICAL_SITEMAP_FILES = new Set([
+  "src/routes/sitemap-editorial[.]xml.ts",
+  "src/routes/sitemap-skyscraper[.]xml.ts",
+  "scripts/classify-sitemap-only-diff.mjs",
+  "scripts/check-sitemap-canonical-host.mjs",
+  "tests/seo/sitemap-canonical-host.test.ts",
+  ".github/workflows/portfolio-gates.yml",
+]);
+
+function expectedCanonicalSitemapSource(before) {
+  if (typeof before !== "string") return null;
+  const anchor = 'import type {} from "@tanstack/react-start";';
+  const old = [
+    '        const host = request.headers.get("host") ?? "0web.com.br";',
+    '        const proto = request.headers.get("x-forwarded-proto") ?? "https";',
+    '        const base = ' + String.fromCharCode(96) +
+      "$" + "{proto}://$" + "{host}" + String.fromCharCode(96) + ";",
+  ].join("\n");
+  if (before.split(anchor).length !== 2 || before.split(old).length !== 2) return null;
+  return before.replace(anchor, anchor + '\nimport { resolveBaseUrl } from "@/lib/sitemap-utils";')
+    .replace(old, [
+      "        // Publicar somente URLs canônicas, nunca o hostname de preview.",
+      "        const base = resolveBaseUrl(request);",
+    ].join("\n"));
+}
+
+export function isCanonicalSitemapsOnly(files, beforeEditorial, afterEditorial, beforeSky, afterSky) {
+  return Array.isArray(files) &&
+    files.includes("src/routes/sitemap-editorial[.]xml.ts") &&
+    files.includes("src/routes/sitemap-skyscraper[.]xml.ts") &&
+    files.every((file) => CANONICAL_SITEMAP_FILES.has(file)) &&
+    expectedCanonicalSitemapSource(beforeEditorial) === afterEditorial &&
+    expectedCanonicalSitemapSource(beforeSky) === afterSky;
+}
+
 export function isStrictSitemapRemoval(files, before, after) {
   if (!Array.isArray(files) || !files.includes(SITEMAP_PAGE)) return false;
   if (files.some((file) => !ALLOWED_FILES.has(file))) return false;
@@ -78,7 +116,16 @@ if (invoked) {
     const files = git("diff", "--name-only", base, head).split("\n").filter(Boolean);
     const before = git("show", base + ":" + SITEMAP_PAGE);
     const after = git("show", head + ":" + SITEMAP_PAGE);
-    if (isSitemapRuntimeResilienceOnly(files) || isStrictSitemapRemoval(files, before, after)) {
+    const editorialPath = "src/routes/sitemap-editorial[.]xml.ts";
+    const skyPath = "src/routes/sitemap-skyscraper[.]xml.ts";
+    const canonicalScope = isCanonicalSitemapsOnly(
+      files,
+      git("show", base + ":" + editorialPath),
+      git("show", head + ":" + editorialPath),
+      git("show", base + ":" + skyPath),
+      git("show", head + ":" + skyPath),
+    );
+    if (canonicalScope || isSitemapRuntimeResilienceOnly(files) || isStrictSitemapRemoval(files, before, after)) {
       process.stdout.write("sitemap-only");
     }
   } catch {
