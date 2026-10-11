@@ -16,6 +16,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { classifyIndexabilityDelta } from "./indexability-diff-policy.mjs";
+import { resolveSitemapChildFetchUrl } from "./sitemap-audit-origin.mjs";
 
 const args = process.argv.slice(2);
 const label = (args.find((a) => a.startsWith("--label=")) || "--label=after").split("=")[1];
@@ -96,21 +97,29 @@ async function auditRobots() {
 }
 
 async function auditSitemap() {
-  const out = { status: null, urls: [], children: [], problems: [] };
+  const out = { status: null, urls: [], children: [], childFetches: [], problems: [] };
   try {
     const res = await fetch(`${BASE}/sitemap.xml`);
     out.status = res.status;
+    if (!res.ok) out.problems.push(`sitemap.xml respondeu HTTP ${res.status}`);
     const xml = await res.text();
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
     if (/<sitemapindex/i.test(xml)) {
       out.children = locs;
       for (const child of locs) {
+        let sourceUrl = null;
         try {
-          const sub = await fetch(child);
+          // O index anuncia 0web.com.br, mas o teste deve consultar o
+          // PREVIEW sob auditoria, não URLs remotas da produção antiga.
+          sourceUrl = resolveSitemapChildFetchUrl(child, BASE);
+          const sub = await fetch(sourceUrl);
+          out.childFetches.push({ canonical: child, fetchedFrom: sourceUrl, status: sub.status });
+          if (!sub.ok) throw new Error(`HTTP ${sub.status}`);
           const subXml = await sub.text();
+          if (!/<urlset\b/i.test(subXml)) throw new Error("resposta não contém urlset XML");
           out.urls.push(...[...subXml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim()));
         } catch (error) {
-          out.problems.push(`sitemap filho falhou (${child}): ${error.message}`);
+          out.problems.push(`sitemap filho falhou (${child} em ${sourceUrl ?? "origem recusada"}): ${error.message}`);
         }
       }
     } else {
