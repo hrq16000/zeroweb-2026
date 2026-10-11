@@ -25,6 +25,14 @@ jobs:
       - name: Contratos determinísticos + produção
         run: node scripts/audit-portfolio-seo-permanent-gate.mjs https://0web.com.br https://0web.com.br
 
+      - name: Paridade entre domínio público e Vercel (observacional)
+        # NÃO muda DNS, não requer GSC/Supabase e não autoriza index em massa.
+        # Uma diferença aponta para revisão, não prova remoção no Google.
+        continue-on-error: true
+        env:
+          PARITY_STRICT: "1"
+        run: node scripts/audit-site-origin-parity.mjs
+
       - name: Upload evidências
         if: always()
         uses: actions/upload-artifact@v4
@@ -36,4 +44,6 @@ jobs:
             seo-reports/portfolio-discovery-consistency-latest.json
             seo-reports/portfolio-gsc-evidence-latest.json
             seo-reports/structured-data-latest.json
+            seo-reports/seo-host-parity-latest.json
+            seo-reports/seo-host-parity-latest.md
           if-no-files-found: ignore
