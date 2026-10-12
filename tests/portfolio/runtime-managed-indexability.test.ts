@@ -49,7 +49,7 @@ describe("auditoria HTTP de portfolios criados pelo painel", () => {
     expect(selectPortfolioRuntimeAuditTargets({
       sitemapSlugs: ["porto", "portfolio-em", "cwb/jardim", "../admin", "x?redirect=evil"],
       versionedSlugs,
-    }).runtimeSlugs).toEqual(["porto", "portfolio-em"]);
+    }).runtimeSlugs).toEqual(["portfolio-em", "porto"]);
     for (const requestedSlug of ["../admin", "https://evil.com", "foo/bar", "abc?x=1", "nome com espaco", "x".repeat(81)]) {
       expect(() => selectPortfolioRuntimeAuditTargets({
         sitemapSlugs: [],
