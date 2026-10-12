@@ -13,6 +13,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Site de referência / extração em matrizes sem copiar layout | `.agents/skills/0web-portfolio-art-direction/SKILL.md` §11 · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.1–§4.3 · `docs/PORTFOLIO_CAPABILITY_PALETTE.md` §2.1–§2.2 |
+| ECSPT (referência B2B/field service) — capabilities e motion opcionais, sem copiar template nem alterar legado | `docs/PORTFOLIO_ECSPT_ADDITIVE_REFERENCE_STANDARD.md` · `src/config/portfolio-ecspt-additive-reference.config.ts` |
 | Corpus multi-source / seleção USE-ADAPT-REJECT / clusters de decisão / motion evidence | `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md` · `src/config/portfolio-reference-pattern-library.json` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.5 |
 | Governança canônica de referências, composição, anti-template, truth/freshness | `docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md` |
 | Limites reais, disponibilidade, estoque, preço/prazo e dados que vencem | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` §2.9.1–§2.9.2 · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.4 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §9.1 |
