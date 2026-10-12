@@ -9,6 +9,7 @@
  * precisa ser um caminho interno permitido (`isSafeAssetPath`).
  */
 import { hasAuthorialPortfolioComposition } from "@/config/portfolio-authorial-compositions";
+import { evaluateNewManagedEditorialReadiness } from "@/lib/portfolio-managed-editorial";
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
 import {
   sanitizeManagedAuthorialCompositionPlan,
@@ -369,6 +370,16 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
       "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
       "Novo projeto exige título e descrição SEO próprios; nome e resumo não substituem esses campos.",
     );
+  }
+  if (project.authorialCompositionRequired) {
+    for (const issue of evaluateNewManagedEditorialReadiness({
+      summary: project.summary,
+      about: project.content.about,
+      seoTitle: project.seoTitle,
+      seoDescription: project.seoDescription,
+    })) {
+      blocker(issue.code, issue.message);
+    }
   }
   if (project.seoDescription && project.seoDescription.length < 60) {
     warn("PORTFOLIO_SEO_SHORT", "A descrição de SEO está curta (ideal: 120-160 caracteres).");
