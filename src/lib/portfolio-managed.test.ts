@@ -1,9 +1,11 @@
 import { describe, expect, it } from "bun:test";
+import { readFileSync } from "node:fs";
 import {
   buildManagedRow,
   canTransition,
   evaluateManagedConformance,
   managedStatus,
+  newPublishedManagedConformanceBlockers,
   sanitizeManagedProject,
 } from "@/lib/portfolio-managed";
 
@@ -190,6 +192,75 @@ describe("projetos managed do portfólio", () => {
     expect(managedStatus(legacy).blockers.map((b) => b.code)).not.toContain(
       "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
     );
+  });
+
+  it("bloqueia regressões de SEO, identidade, serviços e funil no SAVE de página publicada", () => {
+    const before = sanitizeManagedProject({
+      ...complete,
+      source_snapshot: {
+        ...complete.source_snapshot,
+        authorial_composition: { required: true },
+      },
+    })!;
+    const after = sanitizeManagedProject({
+      ...complete,
+      logo_url: "",
+      seo_title: "",
+      seo_description: "",
+      services: [],
+      source_snapshot: {
+        authorial_composition: { required: true },
+      },
+    })!;
+    const newCodes = newPublishedManagedConformanceBlockers(before, after).map((b) => b.code);
+
+    expect(newCodes).toEqual(
+      expect.arrayContaining([
+        "PORTFOLIO_LOGO_MISSING",
+        "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+        "PORTFOLIO_SERVICES_MISSING",
+        "PORTFOLIO_FUNNEL_MISSING",
+      ]),
+    );
+  });
+
+  it("preserva a evolução de legados publicados sem introduzir dívidas novas", () => {
+    const previous = sanitizeManagedProject({ ...complete, logo_url: "" })!;
+    const improved = sanitizeManagedProject({
+      ...complete,
+      logo_url: "",
+      summary: "Conteúdo aprimorado, sem apagar dados anteriores ou inventar serviços.",
+    })!;
+    expect(managedStatus(previous).canBeReady).toBe(false);
+    expect(newPublishedManagedConformanceBlockers(previous, improved)).toEqual([]);
+  });
+
+  it("permite rascunhos incompletos e bloqueia apenas regressões novas em publicados", () => {
+    const draft = sanitizeManagedProject({
+      ...complete,
+      published: false,
+      lifecycle_status: "draft",
+    })!;
+    const broken = sanitizeManagedProject({
+      ...complete,
+      logo_url: "",
+      seo_title: "",
+      source_snapshot: {},
+    })!;
+    expect(newPublishedManagedConformanceBlockers(draft, broken)).toEqual([]);
+    expect(newPublishedManagedConformanceBlockers(sanitizeManagedProject(complete)!, broken).length).toBeGreaterThan(0);
+    expect(newPublishedManagedConformanceBlockers(sanitizeManagedProject(complete)!, sanitizeManagedProject(complete)!)).toEqual([]);
+  });
+
+  it("o SAVE valida antes de alterar o funil e os dados de projeto publicado", () => {
+    const serverFns = readFileSync("src/lib/portfolio-managed.functions.ts", "utf8");
+    const save = serverFns.split("export const saveManagedProject =")[1]?.split("/** Lista os projetos Managed")[0] ?? "";
+    const preflightAt = save.indexOf("newPublishedManagedConformanceBlockers(previous, candidate)");
+    const funnelWriteAt = save.indexOf("await syncManagedFunnelForm(admin, {");
+    const databaseWriteAt = save.indexOf('.upsert(patch, { onConflict: "client_key" })');
+    expect(preflightAt).toBeGreaterThanOrEqual(0);
+    expect(funnelWriteAt).toBeGreaterThan(preflightAt);
+    expect(databaseWriteAt).toBeGreaterThan(funnelWriteAt);
   });
 
   it("respeita as transições do ciclo de vida", () => {
