@@ -71,6 +71,9 @@ export type ManagedProject = {
   coverFocal: ManagedFocal;
   seoTitle: string;
   seoDescription: string;
+  /** Proveniência editorial (sem alterar os fallbacks SSR dos projetos históricos). */
+  seoTitleExplicit?: boolean;
+  seoDescriptionExplicit?: boolean;
   seoKeywords: string;
   canonicalUrl: string;
   socialImage: string;
@@ -302,6 +305,8 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     coverFocal: focal(row.cover_focal),
     seoTitle: text(row.seo_title, 160) || displayName,
     seoDescription: text(row.seo_description, 400) || text(row.summary, 300),
+    seoTitleExplicit: Boolean(text(row.seo_title, 160)),
+    seoDescriptionExplicit: Boolean(text(row.seo_description, 400)),
     seoKeywords: text(row.seo_keywords, 400),
     canonicalUrl: `https://0web.com.br/portfolio/${slug}`,
     socialImage: socialImage
@@ -356,6 +361,14 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   }
   if (!project.seoTitle || !project.seoDescription) {
     blocker("PORTFOLIO_SEO_MISSING", "Preencha título e descrição de SEO.");
+  }
+  // Apenas novos Managed: não confundir fallback de renderização com SEO editorial aprovado.
+  // O marcador forward-only já é gravado na criação; legados publicados preservam seu contrato.
+  if (project.authorialCompositionRequired && (!project.seoTitleExplicit || !project.seoDescriptionExplicit)) {
+    blocker(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+      "Novo projeto exige título e descrição SEO próprios; nome e resumo não substituem esses campos.",
+    );
   }
   if (project.seoDescription && project.seoDescription.length < 60) {
     warn("PORTFOLIO_SEO_SHORT", "A descrição de SEO está curta (ideal: 120-160 caracteres).");
