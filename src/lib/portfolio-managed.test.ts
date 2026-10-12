@@ -128,6 +128,70 @@ describe("projetos managed do portfólio", () => {
     );
   });
 
+  it("novos Managed não publicam SEO preenchido apenas por fallbacks", () => {
+    const project = sanitizeManagedProject({
+      ...complete,
+      seo_title: "",
+      seo_description: "",
+      source_snapshot: {
+        ...complete.source_snapshot,
+        authorial_composition: { required: true },
+      },
+    })!;
+
+    // Fallback público permanece visível, mas não é evidência de SEO editorial.
+    expect(project.seoTitle).toBe(project.displayName);
+    expect(project.seoDescription).toBe(project.summary);
+    expect(project.seoTitleExplicit).toBe(false);
+    expect(project.seoDescriptionExplicit).toBe(false);
+    expect(managedStatus(project).canBeReady).toBe(false);
+    expect(managedStatus(project).blockers.map((b) => b.code)).toContain(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+    );
+  });
+
+  it("novos Managed exigem ambos os campos SEO explícitos", () => {
+    const source_snapshot = {
+      ...complete.source_snapshot,
+      authorial_composition: { required: true },
+    };
+    const onlyTitle = sanitizeManagedProject({
+      ...complete,
+      seo_description: "",
+      source_snapshot,
+    })!;
+    const onlyDescription = sanitizeManagedProject({
+      ...complete,
+      seo_title: "",
+      source_snapshot,
+    })!;
+    const withBoth = sanitizeManagedProject({ ...complete, source_snapshot })!;
+
+    expect(managedStatus(onlyTitle).blockers.map((b) => b.code)).toContain(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+    );
+    expect(managedStatus(onlyDescription).blockers.map((b) => b.code)).toContain(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+    );
+    expect(managedStatus(withBoth).blockers.map((b) => b.code)).not.toContain(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+    );
+  });
+
+  it("preserva os fallbacks e não bloqueia legados históricos pela regra nova", () => {
+    const legacy = sanitizeManagedProject({
+      ...complete,
+      seo_title: "",
+      seo_description: "",
+    })!;
+    expect(legacy.authorialCompositionRequired).toBe(false);
+    expect(legacy.seoTitle).toBe(legacy.displayName);
+    expect(legacy.seoDescription).toBe(legacy.summary);
+    expect(managedStatus(legacy).blockers.map((b) => b.code)).not.toContain(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+    );
+  });
+
   it("respeita as transições do ciclo de vida", () => {
     expect(canTransition("draft", "ready")).toBe(true);
     expect(canTransition("draft", "published")).toBe(false);
