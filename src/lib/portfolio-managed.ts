@@ -418,6 +418,30 @@ export function managedStatus(project: ManagedProject) {
   };
 }
 
+/**
+ * Forward-only protection against degrading an already published Managed page
+ * through the SAVE editor action (which does not invoke lifecycle transitions).
+ *
+ * Historical projects may have outstanding blockers: only newly introduced
+ * blocker codes prevent an edit; improvements to existing partial pages remain
+ * possible. New publication continues to use the complete managedStatus gate.
+ */
+export function newPublishedManagedConformanceBlockers(
+  previous: ManagedProject,
+  candidate: ManagedProject,
+): ManagedConformanceIssue[] {
+  if (previous.lifecycle !== "published" || !previous.published) return [];
+
+  const previousBlockers = new Set(
+    evaluateManagedConformance(previous)
+      .filter((issue) => issue.level === "blocker")
+      .map((issue) => issue.code),
+  );
+  return evaluateManagedConformance(candidate).filter(
+    (issue) => issue.level === "blocker" && !previousBlockers.has(issue.code),
+  );
+}
+
 /** Transições permitidas do ciclo de vida (o admin não pode pular etapas). */
 export const LIFECYCLE_TRANSITIONS: Record<ManagedLifecycle, ManagedLifecycle[]> = {
   draft: ["ready", "archived"],
