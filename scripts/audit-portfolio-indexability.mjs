@@ -11,11 +11,13 @@
  *   node scripts/audit-portfolio-indexability.mjs [fetchBaseUrl] [canonicalBaseUrl]
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { selectPortfolioRuntimeAuditTargets } from "./lib/portfolio-runtime-audit-targets.mjs";
 
 const FETCH_BASE = (process.argv[2] || "https://0web.com.br").replace(/\/$/, "");
 const CANONICAL_BASE = (process.argv[3] || "https://0web.com.br").replace(/\/$/, "");
 const CONCURRENCY = 5;
 const USER_AGENT = "0web-portfolio-indexability-audit/1.0";
+const REQUESTED_SLUG = process.argv[4] || process.env.PORTFOLIO_AUDIT_SLUG || "";
 
 const clients = JSON.parse(await readFile("src/config/portfolio-clients.json", "utf8"));
 const manifests = JSON.parse(await readFile("src/config/portfolio-project-manifests.json", "utf8")).projects ?? {};
@@ -168,10 +170,31 @@ const sitemapClientSlugs = [...sitemapUrls]
   .map((url) => url.slice(prefix.length))
   .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug));
 const leakedUnpublishedV4 = sitemapClientSlugs.filter((slug) => draftV4Slugs.has(slug)).sort();
-const rows = await mapWithConcurrency(auditedClients, CONCURRENCY, (client) => auditClient(client, sitemapUrls));
+const versionedSlugs = new Set(clients.map((client) => client.slug));
+const runtimeTargets = selectPortfolioRuntimeAuditTargets({
+  sitemapSlugs: sitemapClientSlugs,
+  versionedSlugs,
+  requestedSlug: REQUESTED_SLUG,
+});
+const alreadyAudited = new Set(auditedClients.map((client) => client.slug));
+const auditTargets = [
+  ...auditedClients,
+  ...[...runtimeTargets.runtimeSlugs, ...runtimeTargets.requestedExtraSlugs]
+    .filter((slug) => !alreadyAudited.has(slug))
+    .map((slug) => ({ slug })),
+];
+// A targeted versioned draft is also inspected: absence from the public
+// sitemap must report failure, rather than claiming it was published.
+if (runtimeTargets.requestedSlug && !auditTargets.some((client) => client.slug === runtimeTargets.requestedSlug)) {
+  auditTargets.push({ slug: runtimeTargets.requestedSlug });
+}
+const rows = await mapWithConcurrency(auditTargets, CONCURRENCY, (client) => auditClient(client, sitemapUrls));
 
 const failures = rows.flatMap((row) => row.failures.map((failure) => `${row.slug}: ${failure}`));
 for (const slug of leakedUnpublishedV4) failures.push(`${slug}: v4 nao publicado apareceu no sitemap`);
+if (runtimeTargets.requestedMissingSitemap) {
+  failures.push(`${runtimeTargets.requestedMissingSitemap}: URL solicitada ausente do sitemap-portfolio.xml`);
+}
 const warnings = rows.flatMap((row) => row.warnings.map((warning) => `${row.slug}: ${warning}`));
 const report = {
   generatedAt: new Date().toISOString(),
@@ -181,6 +204,9 @@ const report = {
   skippedDraftV4: [...draftV4Slugs].sort(),
   sitemapClientSlugs,
   leakedUnpublishedV4,
+  runtimeDiscoveredSlugs: runtimeTargets.runtimeSlugs,
+  requestedSlug: runtimeTargets.requestedSlug,
+  requestedMissingSitemap: runtimeTargets.requestedMissingSitemap,
   total: rows.length,
   passed: rows.filter((row) => row.failures.length === 0).length,
   failed: rows.filter((row) => row.failures.length > 0).length,
@@ -197,6 +223,8 @@ for (const row of rows) {
 console.log(`\n[portfolio-indexability] ${report.passed}/${report.total} aprovados · ${warnings.length} aviso(s)`);
 console.log("[portfolio-indexability] relatório → seo-reports/portfolio-indexability-latest.json");
 console.log(`[portfolio-indexability] novos v4 ainda em rascunho: ${draftV4Slugs.size} (fora da auditoria HTTP); vazamentos sitemap: ${leakedUnpublishedV4.length}`);
+console.log(`[portfolio-indexability] URLs runtime não versionadas descobertas e auditadas: ${runtimeTargets.runtimeSlugs.length}`);
+if (runtimeTargets.requestedSlug) console.log(`[portfolio-indexability] verificação direcionada: /portfolio/${runtimeTargets.requestedSlug}`);
 
 if (failures.length) {
   console.error("\nFalhas:");

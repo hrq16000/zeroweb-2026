@@ -2,6 +2,11 @@ name: Portfolio SEO runtime audit
 
 on:
   workflow_dispatch:
+    inputs:
+      portfolio_slug:
+        description: "Opcional: slug para verificar URL mesmo ausente do sitemap"
+        required: false
+        type: string
   schedule:
     - cron: "17 10 * * *"
 
@@ -22,7 +27,9 @@ jobs:
       - name: Install (frozen lockfile)
         run: bun install --frozen-lockfile
 
-      - name: Contratos determinísticos + produção
+      - name: Contratos determinísticos + produção (inclui Managed em runtime)
+        env:
+          PORTFOLIO_AUDIT_SLUG: ${{ inputs.portfolio_slug || '' }}
         run: node scripts/audit-portfolio-seo-permanent-gate.mjs https://0web.com.br https://0web.com.br
 
       - name: Paridade entre domínio público e Vercel (observacional)
