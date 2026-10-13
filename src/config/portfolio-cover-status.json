@@ -2,19 +2,19 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-21",
+  "generatedAt": "2026-09-26",
   "summary": {
     "total": 96,
-    "valid": 48,
-    "pending": 48,
+    "valid": 49,
+    "pending": 47,
     "byStatus": {
-      "VALID": 48,
+      "VALID": 49,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 15
+      "UNCERTAIN_ORIGIN": 14
     },
     "balanced": true
   },
@@ -138,14 +138,14 @@
     },
     {
       "slug": "autoescola-aptos",
-      "asset": "/images/autoescola-aptos/capa-og.jpg",
-      "catalogImage": "/images/autoescola-aptos/capa-og.jpg",
-      "catalogImageRole": "SOCIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
+      "asset": "public/images/autoescola-aptos/carro-aptos.webp",
+      "catalogImage": "/images/autoescola-aptos/carro-aptos.webp",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": "2026-09-26",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
       "businessName": "Autoescola APTOS",
       "segment": "servicos"
     },
