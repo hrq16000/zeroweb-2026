@@ -366,7 +366,7 @@ function ServicePage() {
                   onImageError={onImageFailure}
                   className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
                 />
-              </a>}
+              </a>
               <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
                 <ServiceCTA
                   serviceSlug={slug}
