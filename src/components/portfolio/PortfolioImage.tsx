@@ -1,4 +1,5 @@
-import type { ImgHTMLAttributes } from "react";
+import { useState, type ImgHTMLAttributes } from "react";
+import { portfolioImageCandidates } from "@/lib/portfolio-image-recovery";
 import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src"> & {
@@ -40,27 +41,62 @@ export function PortfolioImage({
   sizes = "(min-width: 1024px) 960px, 100vw",
   managedField,
   loading,
+  onError,
+  className,
+  style,
+  width,
+  height,
+  srcSet: suppliedSrcSet,
   ...rest
 }: Props) {
   const runtime = usePortfolioRuntime();
   const override = managedField ? runtime?.[managedField] : undefined;
-  const managedSrc = typeof override === "string" && override.trim() ? override : src;
+  const managedSrc = typeof override === "string" && override.trim() ? override.trim() : src;
   const isManaged = managedSrc !== src;
-  const srcSet =
-    !isManaged && widths && widths.length > 0
-      ? widths.map((w) => `${variantSrc(managedSrc, w)} ${w}w`).join(", ")
-      : undefined;
+  const responsiveSrcSet = isManaged ? undefined : suppliedSrcSet ?? (
+    widths?.length ? widths.map((w) => `${variantSrc(managedSrc, w)} ${w}w`).join(", ") : undefined
+  );
+  const candidates = portfolioImageCandidates({ authoredSrc: src, managedSrc, responsiveSrcSet });
+  const signature = [src, managedSrc, responsiveSrcSet ?? ""].join("|");
+  const [failure, setFailure] = useState({ signature: "", index: 0 });
+  // Quando o CMS troca uma imagem, a nova URL sempre recomeça a sequência.
+  const activeIndex = failure.signature === signature ? failure.index : 0;
+  const candidate = candidates[activeIndex];
+
+  if (!candidate) {
+    // Último recurso: superfície acessível e estável, sem ícone de imagem quebrada.
+    return (
+      <div
+        role="img"
+        aria-label={`Imagem temporariamente indisponível: ${alt}`}
+        data-portfolio-image-fallback="true"
+        className={`bg-gradient-to-br from-primary/10 via-muted to-muted/70 ${className ?? ""}`}
+        style={{ width, height, ...style }}
+      />
+    );
+  }
 
   return (
     <img
-      src={managedSrc}
+      {...rest}
+      width={width}
+      height={height}
+      src={candidate.src}
       alt={alt}
-      srcSet={srcSet}
-      sizes={srcSet ? sizes : undefined}
+      srcSet={candidate.srcSet}
+      sizes={candidate.srcSet ? sizes : undefined}
       loading={priority ? "eager" : loading ?? "lazy"}
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"
-      {...rest}
+      className={className}
+      style={style}
+      onError={(event) => {
+        onError?.(event);
+        setFailure((previous) => ({
+          signature,
+          index: (previous.signature === signature ? previous.index : 0) + 1,
+        }));
+      }}
     />
   );
 }
