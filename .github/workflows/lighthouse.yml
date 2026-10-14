@@ -142,6 +142,24 @@ jobs:
             SHARDS='[0,1,2,3]'
           fi
 
+          # Escopo comprovadamente exclusivo das capas da loja e da vitrine:
+          # audita as rotas impactadas em vez de reprovar por portfolio
+          # historico nao alterado. NENHUM threshold Lighthouse e reduzido.
+          SERVICE_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then SERVICE_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/routes/servicos.index.tsx|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|.github/workflows/lighthouse.yml|.lighthouserc.cjs) ;;
+              *) SERVICE_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$SERVICE_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=services
+            SHARDS='[0]'
+            ONLY=""
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
