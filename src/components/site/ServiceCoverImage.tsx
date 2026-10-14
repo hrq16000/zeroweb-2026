@@ -8,6 +8,8 @@ type Props = Omit<ComponentProps<"img">, "src" | "alt" | "onError"> & {
   slug: string;
   name: string;
   category?: string | null;
+  /** Notifica o pai para atualizar links de ampliação quando uma URL falha. */
+  onImageError?: (failedUrl: string) => void;
 };
 
 /**
@@ -16,7 +18,7 @@ type Props = Omit<ComponentProps<"img">, "src" | "alt" | "onError"> & {
  * local empacotada no build; se ambas falharem, renderiza um fallback visual
  * determinístico (nunca o ícone/alt de imagem quebrada).
  */
-export function ServiceCoverImage({ src, alt, slug, name, category, className, ...imgProps }: Props) {
+export function ServiceCoverImage({ src, alt, slug, name, category, className, onImageError, ...imgProps }: Props) {
   const [failedUrls, setFailedUrls] = useState<string[]>([]);
 
   useEffect(() => {
@@ -39,7 +41,10 @@ export function ServiceCoverImage({ src, alt, slug, name, category, className, .
       src={current}
       alt={alt || `Ilustração do serviço ${name}`}
       className={className}
-      onError={() => setFailedUrls((previous) => previous.includes(current) ? previous : [...previous, current])}
+      onError={() => {
+        setFailedUrls((previous) => previous.includes(current) ? previous : [...previous, current]);
+        onImageError?.(current);
+      }}
     />
   );
 }

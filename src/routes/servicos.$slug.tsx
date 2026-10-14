@@ -1,4 +1,5 @@
 import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2, XCircle, HelpCircle, MapPin, Timer, BadgeCheck } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -13,6 +14,8 @@ import { AddToCartButton } from "@/components/site/AddToCartButton";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { RelatedServicesCarousel } from "@/components/site/RelatedServicesCarousel";
 import { ProductGallery } from "@/components/site/ProductGallery";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
+import { serviceCoverFallback } from "@/lib/service-cover-fallback";
 import { WorkProcess } from "@/components/site/WorkProcess";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -205,6 +208,15 @@ function ServicePage() {
   const hasGeo = GEO_SET.has(slug);
   const funnels = data.funnels ?? {};
   const isTrafegoPago = slug === "trafego-pago";
+  const [failedImageUrls, setFailedImageUrls] = useState<string[]>([]);
+  useEffect(() => setFailedImageUrls([]), [slug]);
+  const institutionalCover = serviceCoverFallback(slug, data.category);
+  const imageHref = (url: string | null | undefined) =>
+    [url, institutionalCover].find((candidate): candidate is string =>
+      Boolean(candidate) && !failedImageUrls.includes(candidate!),
+    );
+  const onImageFailure = (url: string) =>
+    setFailedImageUrls((previous) => previous.includes(url) ? previous : [...previous, url]);
 
   const priceLabel =
     isTrafegoPago
@@ -233,14 +245,14 @@ function ServicePage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main className="pt-6">
-        {isProduct && shopImages.length > 0 ? (
+        {isProduct ? (
           // Layout estilo loja virtual: galeria à esquerda, info do produto à direita.
           <section className="py-10 lg:py-14">
             <div className="mx-auto max-w-6xl px-5 lg:px-8">
               <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-2">{data.category}</p>
               <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] gap-8 lg:gap-12 items-start">
                 <div>
-                  <ProductGallery images={shopImages} productName={data.name} />
+                  <ProductGallery key={slug} images={shopImages} productName={data.name} slug={slug} category={data.category} />
                 </div>
                 <aside className="space-y-5 lg:sticky lg:top-24">
                   <h1 className="text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
@@ -333,24 +345,28 @@ function ServicePage() {
                 </div>
               )}
 
-              {data.imageUrl && (
-                <a
-                  href={data.imageUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Abrir imagem em tamanho real: ${data.imageAlt || data.h1}`}
-                  className="mt-8 mx-auto max-w-3xl block overflow-hidden rounded-3xl border border-border shadow-elegant bg-muted cursor-zoom-in group"
-                >
-                  <img
-                    src={data.imageUrl}
-                    alt={data.imageAlt || data.h1}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                    className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
-                  />
-                </a>
-              )}
+              <a
+                href={imageHref(data.imageUrl)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir imagem em tamanho real: ${data.imageAlt || data.h1}`}
+                className="mt-8 mx-auto max-w-3xl block overflow-hidden rounded-3xl border border-border shadow-elegant bg-muted group"
+              >
+                <ServiceCoverImage
+                  src={data.imageUrl}
+                  slug={slug}
+                  name={data.name}
+                  category={data.category}
+                  alt={data.imageAlt || data.h1}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={1280}
+                  height={720}
+                  onImageError={onImageFailure}
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                />
+              </a>}
               <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
                 <ServiceCTA
                   serviceSlug={slug}
@@ -438,16 +454,22 @@ function ServicePage() {
                   .map((g: GalleryItem, i: number) => (
                     <a
                       key={`${g.path}-${i}`}
-                      href={g.url ?? ""}
+                      href={imageHref(g.url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Abrir em tamanho real: ${g.alt || `${data.name} — imagem ${i + 1}`}`}
                       className="block overflow-hidden rounded-2xl border border-border bg-muted cursor-zoom-in group"
                     >
-                      <img
-                        src={g.url ?? ""}
+                      <ServiceCoverImage
+                        src={g.url}
+                        slug={slug}
+                        name={data.name}
+                        category={data.category}
                         alt={g.alt || `${data.name} — imagem ${i + 1}`}
                         loading="lazy"
+                        width={640}
+                        height={400}
+                        onImageError={onImageFailure}
                         className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                     </a>
