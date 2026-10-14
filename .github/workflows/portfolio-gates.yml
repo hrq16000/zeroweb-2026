@@ -123,7 +123,8 @@ jobs:
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
           echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
-          echo "escopo E2E: ${ONLY:-global}; exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
+          echo "escopo E2E: ${ONLY:-global}"
+          echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
 
       - name: Pop-up único em /portfolio/$slug
         env:
