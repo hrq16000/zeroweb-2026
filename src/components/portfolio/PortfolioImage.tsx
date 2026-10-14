@@ -62,6 +62,7 @@ export function PortfolioImage({
   // Quando o CMS troca uma imagem, a nova URL sempre recomeça a sequência.
   const activeIndex = failure.signature === signature ? failure.index : 0;
   const candidate = candidates[activeIndex];
+  const srcSet = candidate?.srcSet;
 
   if (!candidate) {
     // Último recurso: superfície acessível e estável, sem ícone de imagem quebrada.
@@ -83,8 +84,8 @@ export function PortfolioImage({
       height={height}
       src={candidate.src}
       alt={alt}
-      srcSet={candidate.srcSet}
-      sizes={candidate.srcSet ? sizes : undefined}
+      srcSet={srcSet}
+      sizes={srcSet ? sizes : undefined}
       loading={priority ? "eager" : loading ?? "lazy"}
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"
