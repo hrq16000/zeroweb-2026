@@ -29,9 +29,21 @@ const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
     ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
     : [];
+// Mesmo orçamento (>=90 performance, >=95 SEO/A11y) aplicado às páginas
+// afetadas por mudanças exclusivas de imagens da loja e dos destaques.
+const serviceUrls = LIGHTHOUSE_SCOPE === "services" && shardIndex === 0
+  ? [
+      `${TARGET_URL}/`,
+      `${TARGET_URL}/servicos`,
+      `${TARGET_URL}/servicos/site-express`,
+      `${TARGET_URL}/servicos/google-ads-299`,
+      `${TARGET_URL}/servicos/google-meu-negocio`,
+      `${TARGET_URL}/servicos/seo`,
+    ]
+  : [];
 const portfolioIndexOnly = LIGHTHOUSE_ONLY.includes("portfolio-index");
 const individualPortfolioOnly = LIGHTHOUSE_ONLY.filter((slug) => slug !== "portfolio-index");
-const portfolioUrls = individualPortfolioOnly.length
+const portfolioUrls = LIGHTHOUSE_SCOPE === "services" ? [] : individualPortfolioOnly.length
   ? individualPortfolioOnly.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
   : LIGHTHOUSE_ONLY.length
     ? []
@@ -41,6 +53,7 @@ const portfolioUrls = individualPortfolioOnly.length
           .filter((_, index) => index % shardCount === shardIndex)
           .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
+  LIGHTHOUSE_SCOPE === "services" ? [] :
   portfolioIndexOnly && shardIndex === 0
     ? [`${TARGET_URL}/portfolio`]
     : LIGHTHOUSE_ONLY.length === 0 && LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
@@ -57,7 +70,7 @@ const commonUrls =
 module.exports = {
   ci: {
     collect: {
-      url: [...regionalUrls, ...commonUrls, ...portfolioUrls],
+      url: [...regionalUrls, ...serviceUrls, ...commonUrls, ...portfolioUrls],
       ...(USE_LOCAL_SERVER
         ? {
             // PR e push em main medem o artefato do próprio commit.

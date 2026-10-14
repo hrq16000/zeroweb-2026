@@ -16,10 +16,10 @@ import coverLocal from "@/assets/cover-local.jpg";
 import coverSeo from "@/assets/cover-seo.jpg";
 import coverSiteExpress from "@/assets/cover-site-express.jpg";
 import coverTrafegoPago from "@/assets/cover-trafego-pago.jpg";
-import googleAds299Cover from "@/assets/google-ads-299-capa.png.asset.json";
-import googleMeuNegocioCover from "@/assets/google-meu-negocio-capa.png.asset.json";
-import presencaDigitalCover from "@/assets/presenca-digital-google-capa.png.asset.json";
-import trafegoPagoCover from "@/assets/trafego-pago-499-capa.png.asset.json";
+import coverGoogleAds from "@/assets/cover-google-ads.jpg";
+
+
+
 import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 
@@ -319,9 +319,9 @@ export const RECOVERED_COVERS: Record<string, string> = {
   "loja-virtual": heroDashboardCover,
   "trafego-pago": coverTrafegoPago,
   "trafego-pago-local": coverLocal,
-  "google-ads-299": googleAds299Cover.url,
+  "google-ads-299": coverGoogleAds,
   seo: coverSeo,
-  "google-meu-negocio": googleMeuNegocioCover.url,
+  "google-meu-negocio": coverLocal,
   "marketing-digital": blogMarketingCover,
   "automacao-com-ia": blogAutomacaoCover,
   "chatbot-whatsapp": blogChatbotCover,

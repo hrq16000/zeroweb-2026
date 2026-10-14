@@ -97,6 +97,7 @@ jobs:
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           ONLY=""
+          SERVICE_IMAGES_ONLY=false
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
             FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
@@ -104,9 +105,26 @@ jobs:
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
+
+            # Isolado a imagens da loja: 6 canarios de portfolio x 2 viewports.
+            # Mudancas em portfolios, funis, CTAs ou push no main seguem globais.
+            if [ -n "$FILES" ]; then
+              SERVICE_IMAGES_ONLY=true
+              while IFS= read -r FILE; do
+                case "$FILE" in
+                  src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/routes/servicos.index.tsx|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|.github/workflows/lighthouse.yml|.lighthouserc.cjs|.github/workflows/portfolio-gates.yml) ;;
+                  *) SERVICE_IMAGES_ONLY=false ;;
+                esac
+              done < <(printf '%s\n' "$FILES")
+            fi
+            if [ "$SERVICE_IMAGES_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
+          echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
+          echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
 
       - name: Pop-up único em /portfolio/$slug
         env:
@@ -234,6 +252,9 @@ jobs:
             # O upgrade de framework é validado em páginas visualmente estáveis.
             # O limiar continua 2%; mudanças visuais reais continuam usando o
             # escopo normal por slug ou o global.
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ]; then
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
