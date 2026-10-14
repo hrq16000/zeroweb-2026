@@ -120,6 +120,21 @@ jobs:
             if [ "$SERVICE_IMAGES_ONLY" = true ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
+
+            # Somente verificadores offline do inventário de imagens, sem
+            # alteração de componentes, assets nem HTML: exercita canários
+            # reais mantendo os mesmos gates, sem simular impacto global.
+            IMAGE_VALIDATORS_ONLY=true
+            if [ -z "$FILES" ]; then IMAGE_VALIDATORS_ONLY=false; fi
+            while IFS= read -r FILE; do
+              case "$FILE" in
+                scripts/validate-portfolio-assets.mjs|scripts/validate-service-fallback-assets.mjs|tests/services/service-fallback-assets.test.ts|package.json|.github/workflows/portfolio-gates.yml) ;;
+                *) IMAGE_VALIDATORS_ONLY=false ;;
+              esac
+            done < <(printf '%s\n' "$FILES")
+            if [ "$IMAGE_VALIDATORS_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
           echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
