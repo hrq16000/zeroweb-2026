@@ -104,6 +104,9 @@ const COVER_BASE_PATH = String(COVER_BINDINGS_MANIFEST.basePath || "/api/public/
 const CANONICAL_FALLBACK_COVERS = new Map(
   Object.entries(COVER_BINDINGS_MANIFEST.bindings || {}),
 );
+const KNOWN_LEGACY_COVERS = JSON.parse(
+  readFileSync("src/config/service-legacy-image-recovery.json", "utf8"),
+);
 
 // O manifesto JSON é a fonte única slug → arquivo.
 const BUNDLED_ROUTE_SOURCE = readFileSync(
@@ -179,6 +182,7 @@ async function headOk(target) {
 
   const orphans = [];
   const canonicalFallbacks = [];
+  const recoveredLegacy = [];
   const broken = [];
 
   for (const s of services) {
@@ -192,10 +196,36 @@ async function headOk(target) {
       continue;
     }
     const target = imageTarget(path);
+    const legacy = KNOWN_LEGACY_COVERS[s.slug];
+    if (legacy && legacy.brokenPath === path) {
+      // Não mascara URLs arbitrárias: esta única referência histórica é
+      // substituída em runtime pela capa JPEG local versionada. O guard
+      // exige bytes válidos e o helper ligado aos dois loaders públicos.
+      const asset = legacy.fallbackAsset;
+      const bytes = existsSync(asset) ? readFileSync(asset) : null;
+      const validJpeg = bytes && bytes.length > 64 && bytes[0] === 0xff && bytes[1] === 0xd8;
+      const runtimeHasRecovery =
+        SERVICE_PUBLIC_SOURCE.includes("isKnownLegacyServiceImage") &&
+        SERVICE_NAV_SOURCE.includes("isKnownLegacyServiceImage") &&
+        SERVICE_PUBLIC_SOURCE.includes('"google-meu-negocio": coverLocal');
+      if (validJpeg && runtimeHasRecovery) {
+        recoveredLegacy.push(s.slug);
+        continue;
+      }
+      broken.push({ slug: s.slug, url: target.url, reason: "fallback local ausente ou não conectado" });
+      continue;
+    }
     const r = await headOk(target);
     if (!r.ok) broken.push({ slug: s.slug, url: target.url, reason: r.reason });
   }
 
+
+  if (recoveredLegacy.length) {
+    console.warn(
+      `[catalog-images] ⚠️ ${recoveredLegacy.length} capa(s) legadas inválidas substituídas na página pública por imagem JPEG local válida; reenvio no CMS ainda recomendado:`,
+    );
+    for (const slug of recoveredLegacy) console.warn(`  - ${slug}`);
+  }
 
   if (canonicalFallbacks.length) {
     console.log(

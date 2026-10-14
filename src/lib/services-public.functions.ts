@@ -3,6 +3,7 @@
 // o serviço não exista lá ainda. Usado por /servicos e /servicos/$slug.
 import { createServerFn } from "@tanstack/react-start";
 import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
+import { isKnownLegacyServiceImage } from "@/lib/service-legacy-image-recovery";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
 import blogMarketingCover from "@/assets/blog-marketing.webp";
@@ -196,6 +197,10 @@ function normalizePublicServiceRow(row: DbServiceRow): DbServiceRow {
   if (row.slug === "google-meu-negocio") {
     return {
       ...row,
+      // A URL /__l5e legada deu 502 no host público; preferir coverLocal
+      // já versionado. Qualquer upload novo, diferente, continua prioritário.
+      image_path: isKnownLegacyServiceImage(row.slug, row.image_path) ? null : row.image_path,
+      og_image_path: isKnownLegacyServiceImage(row.slug, row.og_image_path) ? null : row.og_image_path,
       price: 397,
       price_period: null,
       conditions: "Plano Único: R$397 em pagamento único. Plano PRO: R$247/mês por 3 meses.",
@@ -415,7 +420,12 @@ function normalizeStorefrontRow(row: DbStorefrontRow): DbStorefrontRow {
     };
   }
   if (row.slug === "google-meu-negocio") {
-    return { ...row, price: 397, price_period: null };
+    return {
+      ...row,
+      image_path: isKnownLegacyServiceImage(row.slug, row.image_path) ? null : row.image_path,
+      price: 397,
+      price_period: null,
+    };
   }
   if (row.slug === "trafego-pago") {
     return { ...row, price: 0, price_period: null };
