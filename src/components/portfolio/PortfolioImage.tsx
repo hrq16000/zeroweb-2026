@@ -54,7 +54,7 @@ export function PortfolioImage({
   const managedSrc = typeof override === "string" && override.trim() ? override.trim() : src;
   const isManaged = managedSrc !== src;
   const responsiveSrcSet = isManaged ? undefined : suppliedSrcSet ?? (
-    widths?.length ? widths.map((w) => `${variantSrc(managedSrc, w)} ${w}w`).join(", ") : undefined
+    widths && widths.length > 0 ? widths.map((w) => `${variantSrc(managedSrc, w)} ${w}w`).join(", ") : undefined
   );
   const candidates = portfolioImageCandidates({ authoredSrc: src, managedSrc, responsiveSrcSet });
   const signature = [src, managedSrc, responsiveSrcSet ?? ""].join("|");
