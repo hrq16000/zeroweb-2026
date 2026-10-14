@@ -160,6 +160,24 @@ jobs:
             ONLY=""
           fi
 
+          # Alteração restrita ao CMS autenticado de capas: mede portfólios
+          # representativos com os MESMOS thresholds de Lighthouse.
+          # Qualquer alteração em páginas públicas volta ao escopo normal.
+          ADMIN_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then ADMIN_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/routes/_authenticated/app.servicos-imagens.tsx|src/lib/service-image-preview-state.ts|tests/services/service-image-preview-state.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml) ;;
+              *) ADMIN_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$ADMIN_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=portfolio
+            SHARDS='[0]'
+            ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"

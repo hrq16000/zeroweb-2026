@@ -121,6 +121,20 @@ jobs:
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
 
+            # Verificação do painel autenticado: seis canários sem alteração
+            # de limiares; o push em main permanece 100% global.
+            ADMIN_IMAGES_ONLY=true
+            if [ -z "$FILES" ]; then ADMIN_IMAGES_ONLY=false; fi
+            while IFS= read -r FILE; do
+              case "$FILE" in
+                src/routes/_authenticated/app.servicos-imagens.tsx|src/lib/service-image-preview-state.ts|tests/services/service-image-preview-state.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml) ;;
+                *) ADMIN_IMAGES_ONLY=false ;;
+              esac
+            done < <(printf '%s\n' "$FILES")
+            if [ "$ADMIN_IMAGES_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
+
             # Somente verificadores offline do inventário de imagens, sem
             # alteração de componentes, assets nem HTML: exercita canários
             # reais mantendo os mesmos gates, sem simular impacto global.
@@ -138,6 +152,7 @@ jobs:
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
           echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
+          echo "admin_images_only=$ADMIN_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
           echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
 
@@ -269,7 +284,7 @@ jobs:
             # escopo normal por slug ou o global.
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
-          if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ]; then
+          if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
