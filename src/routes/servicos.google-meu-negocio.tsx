@@ -10,6 +10,7 @@ import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { trackEvent } from "@/lib/analytics";
 // JPEG institucional versionado: o antigo asset Lovable da capa retornava HTTP 502.
 import coverLocal from "@/assets/cover-local.jpg";
+import { absUrl } from "@/lib/seo";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
@@ -70,11 +71,11 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: coverLocal },
+      { property: "og:image", content: absUrl(coverLocal) },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: coverLocal },
+      { name: "twitter:image", content: absUrl(coverLocal) },
     ],
     links: [
       { rel: "canonical", href: URL },
