@@ -8,6 +8,7 @@ import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
 import { serviceCoverFallback } from "@/lib/service-cover-fallback";
+import { isKnownLegacyServiceImage } from "@/lib/service-legacy-image-recovery";
 
 export type NavService = {
   slug: string;
@@ -92,7 +93,9 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
       category: r.category,
       description: r.description,
       imageUrl:
-        signedMap.get(r.slug) ??
+        isKnownLegacyServiceImage(r.slug, r.image_path)
+          ? serviceCoverFallback(r.slug, r.category)
+          : signedMap.get(r.slug) ??
         canonicalServiceCoverUrl(r.slug) ??
         (Number(r.price) > 0 ? serviceCoverFallback(r.slug, r.category) : null),
       imageAlt: r.image_alt,

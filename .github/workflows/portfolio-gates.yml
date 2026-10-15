@@ -112,7 +112,7 @@ jobs:
               SERVICE_IMAGES_ONLY=true
               while IFS= read -r FILE; do
                 case "$FILE" in
-                  src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/components/site/ProductGallery.tsx|src/components/site/RelatedServicesCarousel.tsx|src/routes/servicos.index.tsx|'src/routes/servicos.$slug.tsx'|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|tests/services/service-gallery-image-recovery.test.ts|.github/workflows/lighthouse.yml|.lighthouserc.cjs|.github/workflows/portfolio-gates.yml) ;;
+                  src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/components/site/ProductGallery.tsx|src/components/site/RelatedServicesCarousel.tsx|src/routes/servicos.index.tsx|'src/routes/servicos.$slug.tsx'|src/routes/servicos.google-meu-negocio.tsx|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|tests/services/service-gallery-image-recovery.test.ts|src/lib/services-nav.functions.ts|src/lib/service-legacy-image-recovery.ts|src/config/service-legacy-image-recovery.json|scripts/validate-catalog-images.mjs|tests/services/service-legacy-image-recovery.test.ts|.github/workflows/lighthouse.yml|.lighthouserc.cjs|.github/workflows/portfolio-gates.yml) ;;
                   *) SERVICE_IMAGES_ONLY=false ;;
                 esac
               done < <(printf '%s\n' "$FILES")
