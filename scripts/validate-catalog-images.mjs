@@ -125,6 +125,10 @@ const SERVICE_NAV_SOURCE = readFileSync(
   "src/lib/services-nav.functions.ts",
   "utf8",
 );
+const GMB_ROUTE_SOURCE = readFileSync(
+  "src/routes/servicos.google-meu-negocio.tsx",
+  "utf8",
+);
 
 function hasCanonicalFallback(slug) {
   const file = CANONICAL_FALLBACK_COVERS.get(slug);
@@ -207,7 +211,10 @@ async function headOk(target) {
       const runtimeHasRecovery =
         SERVICE_PUBLIC_SOURCE.includes("isKnownLegacyServiceImage") &&
         SERVICE_NAV_SOURCE.includes("isKnownLegacyServiceImage") &&
-        SERVICE_PUBLIC_SOURCE.includes('"google-meu-negocio": coverLocal');
+        SERVICE_PUBLIC_SOURCE.includes('"google-meu-negocio": coverLocal') &&
+        GMB_ROUTE_SOURCE.includes('import coverLocal from "@/assets/cover-local.jpg"') &&
+        !GMB_ROUTE_SOURCE.includes('google-meu-negocio-capa.png.asset.json') &&
+        !GMB_ROUTE_SOURCE.includes("cover.url");
       if (validJpeg && runtimeHasRecovery) {
         recoveredLegacy.push(s.slug);
         continue;

@@ -25,6 +25,14 @@ describe("correção estrita da capa histórica Google Meu Negócio", () => {
     const check = readFileSync("scripts/validate-catalog-images.mjs", "utf8");
     expect(nav).toContain("isKnownLegacyServiceImage(r.slug, r.image_path)");
     expect(check).toContain("runtimeHasRecovery");
+    const page = readFileSync("src/routes/servicos.google-meu-negocio.tsx", "utf8");
+    expect(page).toContain('import coverLocal from "@/assets/cover-local.jpg"');
+    expect(page).toContain("src={coverLocal}");
+    expect(page).toContain('content: coverLocal');
+    expect(page).toContain("imageUrl: coverLocal");
+    expect(page).not.toContain("cover.url");
+    expect(page).not.toContain('import cover from "@/assets/google-meu-negocio-capa.png.asset.json"');
+    expect(check).toContain("GMB_ROUTE_SOURCE");
     expect(check).toContain("recoveredLegacy.push(s.slug)");
     expect(check).toContain("broken.push({ slug: s.slug, url: target.url");
   });
