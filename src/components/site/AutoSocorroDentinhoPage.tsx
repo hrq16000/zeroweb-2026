@@ -1,3 +1,4 @@
+// perf-neutral-probe: auto-socorro-dentinho 2026-10-06
 import {
   ArrowRight,
   CarFront,
