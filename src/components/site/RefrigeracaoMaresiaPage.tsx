@@ -1,3 +1,4 @@
+// perf-neutral-probe: refrigeracao-maresia 2026-10-07
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { ArrowRight, Check, Clock3, Droplets, Snowflake, Wrench } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
