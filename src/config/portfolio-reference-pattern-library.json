@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "updatedAt": "2026-09-24",
+  "version": 9,
+  "updatedAt": "2026-09-25",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
     "absorbGrammarNeverCopySilhouette": true,
@@ -15,7 +15,10 @@
     ],
     "primaryExperienceEngineRequired": true,
     "counterpointEngineMaximum": 1,
-    "segmentDefaultEngineForbidden": true
+    "segmentDefaultEngineForbidden": true,
+    "classifySourceBeforeUse": true,
+    "entitySourceMustNotDefineComposition": true,
+    "metaMethodMustNotActAsClientEvidence": true
   },
   "clusters": [
     "DIAGNOSTIC_LED",
@@ -48,7 +51,12 @@
         "decision_aid_repair_vs_replace",
         "scope_limits"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.especell.com.br/",
@@ -66,7 +74,12 @@
         "process_before_price",
         "physical_store_proof"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "LOCATION_AND_NETWORK",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://serviceonesjp.com.br/",
@@ -84,7 +97,12 @@
         "b2b_repair_path",
         "campaign_fast_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://gruposmarttv.com.br/",
@@ -101,7 +119,12 @@
         "lab_proof",
         "b2b_segment"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PROBLEM_TO_DIAGNOSIS",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.linkinformaticasjp.com.br/",
@@ -121,7 +144,12 @@
         "unverified_metrics_or_reviews",
         "zero_counter_state"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PRODUCT_OR_SERVICE_FINDER",
+        "CRAFT_AND_PHYSICAL_PROOF"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://speedcellsjp.com/",
@@ -142,7 +170,12 @@
         "zero_counter_state",
         "generic_testimonials_without_provenance"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://tecnicahouse.my.canva.site/",
@@ -159,7 +192,12 @@
         "pickup_delivery",
         "explicit_region_conditions"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PRODUCT_OR_SERVICE_FINDER"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://assistenciatecnicasantos.com.br/",
@@ -172,7 +210,8 @@
       "reject": [
         "infer_segment_from_domain_name"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "ANTI_PATTERN_REFERENCE"
     },
     {
       "url": "https://profitize.com.br/",
@@ -190,7 +229,12 @@
         "pricing_transparency",
         "founder_faq"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "PLAN_OR_SCOPE_CONFIGURATION",
+        "FOUNDER_OR_SPECIALIST_TRUST"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/",
@@ -208,7 +252,12 @@
         "qr_continuity",
         "pricing_packages"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "PLAN_OR_SCOPE_CONFIGURATION"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/dentistas",
@@ -223,7 +272,12 @@
         "compliance_faq",
         "persistent_contact_path"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "URGENT_FAST_PATH",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://ffjuris.com.br/",
@@ -240,7 +294,12 @@
         "risk_faq",
         "contextual_contact"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "FOUNDER_OR_SPECIALIST_TRUST",
+        "EDUCATION_AND_RISK_REDUCTION"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://soumoratta.com.br/",
@@ -256,7 +315,12 @@
         "countdown_state",
         "job_based_feature_chapters"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "experienceEngine": [
+        "EDUCATION_AND_RISK_REDUCTION",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.4irefrigeracao.com.br/",
@@ -280,7 +344,8 @@
         "PROCESS_AND_TRANSPARENCY",
         "CRAFT_AND_PHYSICAL_PROOF"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://proautoservice.com.br/",
@@ -300,7 +365,8 @@
         "URGENT_FAST_PATH",
         "FOUNDER_OR_SPECIALIST_TRUST"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://centroautomotivofera.com.br/",
@@ -320,7 +386,8 @@
         "LOCATION_AND_NETWORK",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://impactoprime.com.br/",
@@ -342,7 +409,8 @@
         "PRODUCT_OR_SERVICE_FINDER",
         "LOCATION_AND_NETWORK"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.azmotorsoficina.com.br/",
@@ -366,7 +434,8 @@
         "FOUNDER_OR_SPECIALIST_TRUST",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.rdstation.com/blog/marketing/exemplos-de-landing-pages/",
@@ -385,7 +454,8 @@
         "URGENT_FAST_PATH",
         "EDUCATION_AND_RISK_REDUCTION"
       ],
-      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://unbounce.com/landing-page-examples/best-landing-page-examples/",
@@ -405,7 +475,8 @@
         "URGENT_FAST_PATH",
         "EDUCATION_AND_RISK_REDUCTION"
       ],
-      "motionObserved": "NOT_APPLICABLE_META_REFERENCE"
+      "motionObserved": "NOT_APPLICABLE_META_REFERENCE",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://www.hostinger.com/br/criador-de-sites-com-ia",
@@ -426,7 +497,8 @@
         "PLAN_OR_SCOPE_CONFIGURATION",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "META_METHOD_REFERENCE"
     },
     {
       "url": "https://bryytech.com.br/",
@@ -451,7 +523,8 @@
         "PROBLEM_TO_DIAGNOSIS",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.eletronicafast.com.br/",
@@ -477,7 +550,8 @@
         "LOCATION_AND_NETWORK",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://grupordmcuritiba.com.br/",
@@ -501,7 +575,8 @@
         "PROBLEM_TO_DIAGNOSIS",
         "URGENT_FAST_PATH"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.rssolution.com.br/",
@@ -528,7 +603,8 @@
         "PROCESS_AND_TRANSPARENCY",
         "PRODUCT_OR_SERVICE_FINDER"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://infocaseinformatica.com.br/",
@@ -551,7 +627,8 @@
         "PRODUCT_OR_SERVICE_FINDER",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://aiconbr.com.br/",
@@ -562,7 +639,8 @@
         "computers_notebooks_cells_assistance_sjp"
       ],
       "evidenceStatus": "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "INSUFFICIENT_EVIDENCE"
     },
     {
       "url": "https://becleanfacilites.com.br/",
@@ -597,7 +675,8 @@
         "unverified_savings_percentage",
         "artificial_urgency_without_availability_evidence"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://www.youssefterceirizacao.com.br/",
@@ -620,7 +699,8 @@
         "PROCESS_AND_TRANSPARENCY",
         "PLAN_OR_SCOPE_CONFIGURATION"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://assertivafacilities.com.br/",
@@ -643,7 +723,8 @@
         "PLAN_OR_SCOPE_CONFIGURATION",
         "PROCESS_AND_TRANSPARENCY"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://facilities.megavig.com.br/",
@@ -671,7 +752,8 @@
       "reject": [
         "unverified_scale_retention_or_contract_metrics_must_not_be_imported"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://mecanicabeto.com.br/agendamento/",
@@ -702,7 +784,8 @@
         "diagnosis_cta_as_implicit_repair_authorization",
         "direct_external_booking_or_whatsapp_bypass_in_0web"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://grupordmcuritiba.com.br/sjp/",
@@ -732,7 +815,8 @@
       "reject": [
         "city_name_swap_without_operational_difference"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://vendas.infocaseinformatica.com.br/",
@@ -758,7 +842,8 @@
       "reject": [
         "import_unverified_scale_or_customer_count"
       ],
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/psicologos",
@@ -779,7 +864,8 @@
         "EDUCATION_AND_RISK_REDUCTION"
       ],
       "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/fisioterapeutas",
@@ -801,7 +887,8 @@
         "LOCATION_AND_NETWORK"
       ],
       "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/medicos",
@@ -823,7 +910,8 @@
         "PROCESS_AND_TRANSPARENCY"
       ],
       "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     },
     {
       "url": "https://henriquefigueiroa.com.br/advogados",
@@ -846,7 +934,8 @@
         "EDUCATION_AND_RISK_REDUCTION"
       ],
       "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
-      "motionObserved": "NOT_VERIFIED"
+      "motionObserved": "NOT_VERIFIED",
+      "sourceClass": "COMPOSITION_REFERENCE"
     }
   ],
   "experienceEngines": [
@@ -879,5 +968,27 @@
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
     "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
-  ]
+  ],
+  "sourceClasses": [
+    "COMPOSITION_REFERENCE",
+    "ENTITY_DISCOVERY_SOURCE",
+    "META_METHOD_REFERENCE",
+    "ANTI_PATTERN_REFERENCE",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "sourceExperienceEngineMapping": {
+    "requiredFor": [
+      "USE",
+      "ADAPT"
+    ],
+    "maximum": 2,
+    "exemptWhen": {
+      "use": [
+        "REJECT"
+      ],
+      "evidenceStatus": [
+        "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN"
+      ]
+    }
+  }
 }

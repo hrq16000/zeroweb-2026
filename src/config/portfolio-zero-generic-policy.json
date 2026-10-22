@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 10,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -224,7 +224,27 @@
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
       "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
-    ]
+    ],
+    "classifySourceBeforeUse": true,
+    "allowedSourceClasses": [
+      "COMPOSITION_REFERENCE",
+      "ENTITY_DISCOVERY_SOURCE",
+      "META_METHOD_REFERENCE",
+      "ANTI_PATTERN_REFERENCE",
+      "INSUFFICIENT_EVIDENCE"
+    ],
+    "entitySourceMustNotDefineComposition": true,
+    "metaMethodMustNotActAsClientEvidence": true,
+    "sourceExperienceEngineMappingRequired": true,
+    "sourceExperienceEngineMaximum": 2,
+    "engineMappingExemptWhen": {
+      "useClass": [
+        "REJECT"
+      ],
+      "evidenceStatus": [
+        "INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN"
+      ]
+    }
   },
   "experienceEnginePolicy": {
     "primaryRequiredForNewProjects": true,
