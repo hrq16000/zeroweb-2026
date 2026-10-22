@@ -6,6 +6,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { CITIES, STATES } from "@/lib/geo-data";
+import { isGeoCityIndexable, isGeoStateIndexable } from "@/lib/geo-hub-indexability";
 import { GEO_SERVICE_SLUGS, SERVICES } from "@/lib/services-data";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/cidades")({
   head: () => {
     const url = absUrl("/cidades");
     const title = "Cidades atendidas pela 0WEB · Marketing Digital, SEO e Sites";
-    const desc = "Veja todas as cidades brasileiras atendidas pela 0WEB para criação de sites, SEO, landing pages, e-commerce e marketing digital.";
+    const desc = "Veja as cidades com páginas locais sustentadas por evidência publicada. O atendimento remoto da 0WEB continua disponível em todo o Brasil.";
     return {
       meta: [
         { title },
@@ -51,10 +52,14 @@ export const Route = createFileRoute("/cidades")({
 });
 
 function CidadesHub() {
-  const grouped = Object.values(STATES).map((s) => ({
-    state: s,
-    cities: s.cities.map((slug) => CITIES[slug]),
-  }));
+  const grouped = Object.values(STATES)
+    .filter((state) => isGeoStateIndexable(state.slug))
+    .map((state) => ({
+      state,
+      cities: state.cities
+        .filter((slug) => isGeoCityIndexable(slug))
+        .map((slug) => CITIES[slug]),
+    }));
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -70,7 +75,7 @@ function CidadesHub() {
               Cidades <span className="text-gradient">atendidas</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Atendemos remotamente todo o Brasil. Selecione sua cidade para ver os serviços disponíveis com contexto local.
+              Atendemos remotamente todo o Brasil. A lista abaixo destaca somente cidades que já possuem páginas locais sustentadas por projetos publicados.
             </p>
           </div>
         </section>
@@ -125,7 +130,7 @@ function CidadesHub() {
         {/* Quick access — services */}
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-2xl font-bold mb-6">Serviços disponíveis em todas as cidades</h2>
+            <h2 className="text-2xl font-bold mb-6">Serviços digitais com atendimento remoto</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {GEO_SERVICE_SLUGS.map((slug) => {
                 const s = SERVICES[slug];
