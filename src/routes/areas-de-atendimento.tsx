@@ -8,34 +8,35 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
 import { BH_NEIGHBORHOODS } from "@/lib/bh-neighborhoods";
 import { CWB_NEIGHBORHOODS } from "@/lib/curitiba-neighborhoods";
+import { localPlaceHasEvidence } from "@/lib/local-page-enrichment";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { SATELLITES as SITES_ROBUSTOS } from "@/lib/sites-robustos";
 
-const TITLE = "Áreas de Atendimento | Agência de Marketing Digital 0web";
+const TITLE = "Áreas de Atendimento Remoto | 0WEB";
 const DESC =
-  "Veja onde a 0web atende: 30 bairros de Belo Horizonte, Curitiba e região metropolitana, além de cidades e estados de todo o Brasil. Encontre a sua região.";
+  "Atendimento remoto da 0WEB em todo o Brasil. Páginas locais são destacadas apenas onde já existem projetos publicados que comprovam aquela localidade.";
 const URL = `${ORIGIN}/areas-de-atendimento`;
 
 const FAQ = [
   {
-    q: "A 0web atende empresas fora de Belo Horizonte e Curitiba?",
-    a: "Sim. Belo Horizonte e Curitiba concentram nosso atendimento presencial e as páginas por bairro, mas todo o portfólio (sites, SEO, Google Ads, redes sociais e automação) é entregue remotamente para empresas de qualquer cidade do Brasil.",
+    q: "A 0WEB atende empresas fora de Curitiba e Belo Horizonte?",
+    a: "Sim. O atendimento descrito neste portal é remoto e pode alcançar empresas de qualquer região do Brasil. Páginas locais indexáveis são destacadas somente onde já existe evidência publicada.",
   },
   {
-    q: "Qual a vantagem de contratar uma agência que trabalha por bairro?",
-    a: "Busca local é decidida no raio de poucos quilômetros. Trabalhar por bairro permite calibrar palavras-chave, raio de anúncio, Google Meu Negócio e conteúdo com a linguagem e a concorrência reais daquela microrregião — o que aumenta a taxa de contato por visita.",
+    q: "Por que algumas localidades têm página própria e outras não?",
+    a: "Uma página local só deve ser promovida quando há projeto publicado ou outra evidência suficiente para sustentar aquele contexto. Sem essa prova, o atendimento remoto continua disponível, mas a página local não é tratada como ativo de indexação.",
   },
   {
-    q: "Preciso ter endereço físico no bairro para ranquear nele?",
-    a: "Não é obrigatório para SEO orgânico e para anúncios com segmentação por raio. Para o pacote completo de Google Meu Negócio, um endereço ou área de serviço declarada aumenta muito a força do resultado no mapa.",
+    q: "Preciso ter endereço físico no bairro para aparecer em buscas locais?",
+    a: "Endereço e área de serviço devem representar a operação real do negócio. Regras de mapas e busca local variam por plataforma e categoria; não criamos localização fictícia para tentar melhorar posicionamento.",
   },
   {
-    q: "Como sei qual página da minha região devo abrir?",
-    a: "Se sua empresa está em BH, escolha o bairro na lista de Belo Horizonte. Em Curitiba ou região metropolitana, use a lista de Curitiba. Fora dessas regiões, comece pela página da sua cidade ou do seu estado.",
+    q: "Como escolho a página da minha região?",
+    a: "Use as localidades destacadas abaixo quando houver uma página comprovada. Se a sua cidade ou bairro não estiver listado, o funil continua disponível para atendimento remoto.",
   },
   {
-    q: "O atendimento é o mesmo em todas as regiões?",
-    a: "Sim. O escopo, o processo e os prazos são idênticos. O que muda é a pesquisa de palavras-chave, a análise de concorrência local e a segmentação geográfica das campanhas.",
+    q: "O escopo é igual em todas as regiões?",
+    a: "Não necessariamente. O escopo depende do negócio, objetivo, conteúdo disponível, integrações e canais contratados. A localização só entra quando ela é relevante para o projeto.",
   },
 ];
 
@@ -85,12 +86,16 @@ export const Route = createFileRoute("/areas-de-atendimento")({
 });
 
 function AreasPage() {
-  const bhByRegion = BH_NEIGHBORHOODS.reduce<Record<string, typeof BH_NEIGHBORHOODS>>((acc, n) => {
+  const bhEvidenced = BH_NEIGHBORHOODS
+    .map((place) => ({ ...place, city: "Belo Horizonte" }))
+    .filter((place) => localPlaceHasEvidence(place));
+  const bhByRegion = bhEvidenced.reduce<Record<string, typeof BH_NEIGHBORHOODS>>((acc, n) => {
     (acc[n.region] ||= []).push(n);
     return acc;
   }, {});
 
-  const cwbByCity = CWB_NEIGHBORHOODS.reduce<Record<string, typeof CWB_NEIGHBORHOODS>>((acc, n) => {
+  const cwbEvidenced = CWB_NEIGHBORHOODS.filter((place) => localPlaceHasEvidence(place));
+  const cwbByCity = cwbEvidenced.reduce<Record<string, typeof CWB_NEIGHBORHOODS>>((acc, n) => {
     (acc[n.city] ||= []).push(n);
     return acc;
   }, {});
@@ -111,13 +116,13 @@ function AreasPage() {
           <div className="absolute inset-0 bg-mesh opacity-50 pointer-events-none" />
           <div className="relative mx-auto max-w-5xl px-5 lg:px-8">
             <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-semibold">
-              <Globe2 className="w-3.5 h-3.5 text-accent" /> Cobertura nacional · Presença local
+              <Globe2 className="w-3.5 h-3.5 text-accent" /> Cobertura nacional · Atendimento remoto
             </span>
             <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               Áreas de <span className="text-gradient">Atendimento</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-              A 0web trabalha perto de quem compra de você. Escolha o seu bairro, a sua cidade ou o seu estado e veja a estratégia de marketing digital desenhada para aquela realidade.
+              A 0WEB atende remotamente em todo o Brasil. As localidades destacadas nesta página aparecem porque já possuem projetos publicados que sustentam o contexto local.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <FunnelCTAButton
@@ -140,16 +145,16 @@ function AreasPage() {
         <section className="py-14">
           <div className="mx-auto max-w-4xl px-5 lg:px-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <h2 className="text-3xl font-bold font-display text-foreground">
-              Marketing local funciona por proximidade, não por volume
+              Contexto local só deve ser usado quando é real
             </h2>
             <p>
-              Uma clínica na Savassi não disputa o mesmo cliente que uma clínica no Barreiro. O bairro muda o poder aquisitivo, o vocabulário da busca, o horário de pico e a lista de concorrentes que aparecem no mapa. Tratar tudo como “Belo Horizonte” desperdiça verba em cliques de gente que nunca vai até a sua porta.
+              A localização pode influenciar conteúdo, campanhas e páginas de serviço, mas isso depende da operação real do negócio. Não tratamos bairro ou cidade como prova automática de experiência.
             </p>
             <p>
-              Por isso o atendimento da 0web é organizado por região. Cada página de bairro carrega a pesquisa de palavras-chave daquela microrregião, os tipos de negócio predominantes e o raio de segmentação que faz sentido para campanhas pagas. O mesmo vale para as páginas de cidade e de estado, usadas por empresas que atendem áreas maiores.
+              Por isso as páginas locais do portal são governadas por evidência. Quando existe projeto publicado que sustenta uma localidade, ela pode ganhar uma página indexável e interligada ao restante da malha.
             </p>
             <p>
-              Se a sua região ainda não tem página própria, o atendimento continua o mesmo — é só solicitar um orçamento e montamos a pesquisa local do zero.
+              Se a sua região ainda não tem página própria, o atendimento remoto continua disponível pelo funil.
             </p>
           </div>
         </section>
@@ -159,9 +164,9 @@ function AreasPage() {
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
             <div className="flex items-end justify-between flex-wrap gap-4">
               <div>
-                <h2 className="text-3xl font-bold font-display">Belo Horizonte · 30 bairros</h2>
+                <h2 className="text-3xl font-bold font-display">Belo Horizonte · localidades comprovadas</h2>
                 <p className="mt-2 text-muted-foreground">
-                  Silo completo de landing pages locais por bairro da capital mineira.
+                  Somente localidades com projeto publicado são destacadas.
                 </p>
               </div>
               <Link
@@ -204,7 +209,7 @@ function AreasPage() {
               <div>
                 <h2 className="text-3xl font-bold font-display">Curitiba e Região Metropolitana</h2>
                 <p className="mt-2 text-muted-foreground">
-                  Bairros de Curitiba e cidades da RMC com estratégia local dedicada.
+                  Somente bairros e localidades com projeto publicado são destacados.
                 </p>
               </div>
               <Link
@@ -243,9 +248,9 @@ function AreasPage() {
         {/* CIDADES E ESTADOS */}
         <section className="py-14 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-3xl font-bold font-display">Resto do Brasil</h2>
+            <h2 className="text-3xl font-bold font-display">Outras regiões do Brasil</h2>
             <p className="mt-2 text-muted-foreground">
-              Atendimento remoto com a mesma estrutura de pesquisa local.
+              Atendimento remoto disponível; páginas locais só são promovidas quando há evidência publicada.
             </p>
             <div className="mt-8 grid sm:grid-cols-2 gap-5">
               <Link
@@ -255,7 +260,7 @@ function AreasPage() {
                 <Building2 className="w-6 h-6 text-primary" />
                 <h3 className="mt-3 text-lg font-semibold">Cidades atendidas</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Páginas por capital e cidades-chave, com serviços cruzados por cidade.
+                  Cidades com páginas locais qualificadas por evidência publicada.
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                   Ver cidades <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
@@ -268,7 +273,7 @@ function AreasPage() {
                 <Globe2 className="w-6 h-6 text-primary" />
                 <h3 className="mt-3 text-lg font-semibold">Estados atendidos</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Visão por unidade federativa para empresas com operação regional.
+                  Estados que já possuem ao menos uma cidade com página local qualificada.
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                   Ver estados <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
@@ -339,11 +344,11 @@ function AreasPage() {
               Não achou a sua região na lista?
             </h2>
             <p className="mt-4 text-background/70 text-lg">
-              Fazemos a pesquisa local da sua cidade do zero. Em 24h você recebe um diagnóstico com o que falta para dominar as buscas na sua área.
+              Use o funil para descrever sua região, objetivo e escopo. A proposta de atendimento é definida a partir das informações reais do seu negócio.
             </p>
             <FunnelCTAButton
               intent={{ purpose: "proposal", source: "areas_atendimento_final", pagePath: "/areas-de-atendimento", placement: "section" }}
-              label="Falar com um especialista"
+              label="Descrever minha necessidade"
               location="areas_atendimento_final"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-7 py-4 shadow-glow-primary"
             />
