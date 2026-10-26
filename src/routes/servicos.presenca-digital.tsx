@@ -10,7 +10,8 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { trackEvent } from "@/lib/analytics";
-import cover from "@/assets/presenca-digital-google-capa.png.asset.json";
+import coverLocal from "@/assets/cover-local.jpg";
+import { absUrl } from "@/lib/seo";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { ProductActionGate } from "@/components/site/ProductActionGate";
 
@@ -43,11 +44,11 @@ export const Route = createFileRoute("/servicos/presenca-digital")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: cover.url },
+      { property: "og:image", content: absUrl(coverLocal) },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: cover.url },
+      { name: "twitter:image", content: absUrl(coverLocal) },
     ],
     links: [
       { rel: "canonical", href: URL },
@@ -122,7 +123,7 @@ function PresencaDigitalPage() {
     category: "Marketing",
     price: 399,
     pricePeriod: "mês",
-    imageUrl: cover.url,
+    imageUrl: coverLocal,
   };
 
   return (
@@ -174,7 +175,7 @@ function PresencaDigitalPage() {
           >
             <div className="absolute -inset-6 bg-gradient-to-tr from-amber-400/30 to-primary/30 rounded-[3rem] blur-3xl" />
             <img
-              src={cover.url}
+              src={coverLocal}
               alt="Seus clientes estão no Google. E a sua empresa? Marketing digital da 0WEB com planos a partir de R$399/mês."
               width={1248}
               height={1248}
