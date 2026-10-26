@@ -38,6 +38,8 @@ const serviceUrls = LIGHTHOUSE_SCOPE === "services" && shardIndex === 0
       `${TARGET_URL}/servicos/site-express`,
       `${TARGET_URL}/servicos/google-ads-299`,
       `${TARGET_URL}/servicos/google-meu-negocio`,
+      `${TARGET_URL}/servicos/presenca-digital`,
+      `${TARGET_URL}/servicos/trafego-pago-local`,
       `${TARGET_URL}/servicos/seo`,
     ]
   : [];
