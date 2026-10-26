@@ -287,6 +287,10 @@ jobs:
           if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
+          # Main sempre verifica o universo completo; escopo por slug só no PR.
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            VISUAL_ONLY=""
+          fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 

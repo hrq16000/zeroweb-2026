@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
-import { resolveVisualRegressionScope, routeComponentClients } from "../../scripts/resolve-visual-regression-scope.mjs";
+import { compositionRegistryClients, resolveVisualRegressionScope, routeComponentClients } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
   {
@@ -113,6 +113,19 @@ describe("escopo seguro da regressão visual", () => {
         [...clients, ...routeClients],
       ),
     ).toEqual(["jkl-marcenaria"]);
+  });
+
+  test("mapeia composição autoral ADHONEP sem escopar outros portfólios", () => {
+    const registry = readFileSync("src/components/portfolio/composition/registry.ts", "utf8");
+    const authors = compositionRegistryClients(registry);
+    expect(authors).toContainEqual({
+      slug: "adhonep-curitiba",
+      componentFile: "src/components/site/AdhonepCuritibaPage.tsx",
+    });
+    expect(resolveVisualRegressionScope(
+      ["src/components/site/AdhonepCuritibaPage.tsx"],
+      [...clients, ...authors],
+    )).toEqual(["adhonep-curitiba"]);
   });
 
   test("mantém escopo global para componente compartilhado", () => {
