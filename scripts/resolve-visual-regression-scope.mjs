@@ -36,6 +36,18 @@ export function routeComponentClients(routeSource) {
   return resolved;
 }
 
+export function compositionRegistryClients(registrySource) {
+  const source = String(registrySource ?? "");
+  const resolved = [];
+  for (const match of source.matchAll(
+    /"([a-z0-9-]+)"\s*:\s*lazy\(\(\)\s*=>\s*import\("(@\/components\/site\/[A-Za-z0-9_-]+)"\)/gs,
+  )) {
+    const [, slug, importPath] = match;
+    resolved.push({ slug, componentFile: importPath.replace(/^@\//, "src/") + ".tsx" });
+  }
+  return resolved;
+}
+
 function isBroadVisualFile(file) {
   return (
     file.startsWith("src/components/") ||
@@ -164,17 +176,19 @@ if (invokedAsScript) {
   const routeClients = routeComponentClients(
     readFileSync(resolve(process.cwd(), "src/routes/portfolio.$slug.tsx"), "utf8"),
   );
-  const mergedClients = [
-    ...clients,
-    ...routeClients.filter(
-      (routeClient) =>
-        !clients.some(
-          (client) =>
-            client?.slug === routeClient.slug ||
-            normalize(client?.componentFile) === normalize(routeClient.componentFile),
-        ),
-    ),
-  ];
+  const compositionClients = compositionRegistryClients(
+    readFileSync(resolve(process.cwd(), "src/components/portfolio/composition/registry.ts"), "utf8"),
+  );
+  const mergedClients = [...clients];
+  for (const discovered of [...routeClients, ...compositionClients]) {
+    if (!mergedClients.some(
+      (client) =>
+        client?.slug === discovered.slug ||
+        normalize(client?.componentFile) === normalize(discovered.componentFile),
+    )) {
+      mergedClients.push(discovered);
+    }
+  }
   const input = readFileSync(0, "utf8")
     .split(/\r?\n/)
     .map((line) => line.trim())
