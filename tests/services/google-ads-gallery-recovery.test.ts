@@ -32,6 +32,14 @@ describe("Google Ads — galeria legada sem imagens", () => {
     expect(detailHandler).toContain("await signImage(signer, r.og_image_path)");
   });
 
+  test("auditoria do CMS inclui galerias e imagem social distinta", () => {
+    const code = readFileSync("scripts/validate-catalog-images.mjs", "utf8");
+    expect(code).toContain("image_path,og_image_path,gallery,is_active");
+    expect(code).toContain("recoveredGalleryHasValidAsset");
+    expect(code).toContain("await headOk(imageTarget(path))");
+    expect(code).toContain("await headOk(imageTarget(s.og_image_path))");
+  });
+
   test("o carregamento público usa os assets locais e mantém o checkout", () => {
     const src = readFileSync("src/lib/services-public.functions.ts", "utf8");
     expect(src).toContain("recoverGoogleAdsGallery(");
