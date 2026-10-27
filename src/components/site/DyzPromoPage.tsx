@@ -145,6 +145,7 @@ export function DyzPromoPage() {
   }, []);
   return (
     <div className="portfolio-theme-dyz min-h-screen bg-background text-foreground">
+      <link rel="preload" as="image" href="/images/dyzpromo/faixa-equipe.jpeg" fetchPriority="high" />
       <DyzHeader />
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
