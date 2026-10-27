@@ -85,7 +85,7 @@ const regionalCoverage = [
 function DyzImage({ src, alt, className = "", imageClassName = "", priority = false }: { src: string; alt: string; className?: string; imageClassName?: string; priority?: boolean }) {
   return (
     <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
-      <img src={src} alt={alt} srcSet={priority ? "/images/_generated/dyzpromo/faixa-equipe-420.webp 420w, /images/_generated/dyzpromo/faixa-equipe-840.webp 840w" : undefined} sizes={priority ? "(min-width: 1024px) 410px, 55vw" : undefined} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
+      <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
     </button>
   );
 }

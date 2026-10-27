@@ -128,25 +128,6 @@ for (const target of responsiveTargets) {
   );
 }
 
-// A foto principal D.Y.Z mantém o JPEG original como fallback; gerar somente
-// variantes reduzidas na pasta _generated para evitar drift no inventário managed.
-for (const width of [420, 840]) {
-  const source = resolve("public/images/dyzpromo/faixa-equipe.jpeg");
-  const output = resolve(`public/images/_generated/dyzpromo/faixa-equipe-${width}.webp`);
-  await mkdir(dirname(output), { recursive: true });
-  await sharp(source)
-    .resize({ width, withoutEnlargement: true })
-    .webp({ quality: 92, effort: 6 })
-    .toFile(output);
-  const meta = await sharp(output).metadata();
-  const size = (await stat(output)).size;
-  const originalSize = (await stat(source)).size;
-  if (meta.width !== width || size >= originalSize) {
-    throw new Error(`[portfolio-perf-images] variante D.Y.Z invalida: ${output} (${size} bytes)`);
-  }
-  console.log(`[portfolio-perf-images] dyz hero ${width}px: ${originalSize} -> ${size} bytes`);
-}
-
 // Derivados da Moreira: o original continua versionado e intocado.
 // A validação visual/Lighthouse do PR decide se a compressão da mídia de
 // abertura preserva a composição sem perda perceptível.
