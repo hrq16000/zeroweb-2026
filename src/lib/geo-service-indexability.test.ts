@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { ALL_CITY_SLUGS } from "./geo-data";
+import { ALL_CITY_SLUGS, CITIES } from "./geo-data";
 import { GEO_SERVICE_SLUGS } from "./services-data";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import {
@@ -55,6 +55,34 @@ describe("indexabilidade cidade x servico", () => {
       expect(getGeoServiceEvidence(evidence.citySlug, evidence.serviceSlug)).toEqual(evidence);
     }
   });
+  it("nunca usa projeto indisponivel ou de outra cidade como prova local", () => {
+    const catalog = portfolioCatalog as Array<{
+      slug: string;
+      status?: string;
+      city?: string;
+      live?: boolean;
+    }>;
+    // A cidade real vem do catálogo versionado, não de palavras-chave,
+    // tags, títulos ou supostos locais de atendimento.
+    const normalize = (value: string) => value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+
+    for (const evidence of listIndexableGeoServicePairs()) {
+      const city = CITIES[evidence.citySlug];
+      expect(city).toBeDefined();
+      for (const project of evidence.projects) {
+        const item = catalog.find((candidate) => candidate.slug === project.slug);
+        expect(item).toBeDefined();
+        expect(item?.live).not.toBe(false);
+        expect(item?.status).toBe("published");
+        expect(normalize(item?.city ?? "")).toBe(normalize(city.name));
+      }
+    }
+  });
+
   it("toda evidencia aponta para projeto publicado no catálogo", () => {
     const catalog = portfolioCatalog as Array<{
       slug: string;
