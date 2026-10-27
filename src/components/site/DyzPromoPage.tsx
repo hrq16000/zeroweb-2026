@@ -150,8 +150,8 @@ export function DyzPromoPage() {
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.28),transparent_35%),radial-gradient(circle_at_90%_10%,hsl(var(--accent)/0.16),transparent_30%)]" aria-hidden="true" />
-          <motion.div animate={{ x: [0, 24, 0], y: [0, -16, 0], scale: [1, 1.08, 1] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
-          <motion.div animate={{ x: [0, -20, 0], y: [0, 18, 0], scale: [1, 0.92, 1] }} transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#f7c948]/10 blur-3xl" aria-hidden="true" />
+          <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
+          <div className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#f7c948]/10 blur-3xl" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1fr_0.9fr] lg:px-8">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
