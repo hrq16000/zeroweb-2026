@@ -88,7 +88,7 @@ const URL_BASE = resolvePublicSupabaseUrl();
 const ANON = resolvePublicSupabaseKey();
 
 async function fetchServices() {
-  const url = `${URL_BASE.replace(/\/$/, "")}/rest/v1/services?select=slug,name,image_path,og_image_path,is_active&is_active=eq.true&order=slug.asc`;
+  const url = `${URL_BASE.replace(/\/$/, "")}/rest/v1/services?select=slug,name,image_path,og_image_path,gallery,is_active&is_active=eq.true&order=slug.asc`;
   const r = await fetch(url, {
     headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
   });
@@ -129,6 +129,28 @@ const GMB_ROUTE_SOURCE = readFileSync(
   "src/routes/servicos.google-meu-negocio.tsx",
   "utf8",
 );
+
+// O CMS conserva três URLs comprovadamente 404 até o reenvio. Somente essas
+// referências podem passar pelo recuperador editorial da PR #449.
+const GALLERY_RECOVERY_SOURCE = readFileSync("src/lib/service-gallery-recovery.ts", "utf8");
+const GOOGLE_ADS_LEGACY_GALLERY = new Map([
+  ["/__l5e/assets-v1/bdb41320-73ca-45ee-bbef-8bdc4eed77e5/google-ads-299-capa.png", "src/assets/cover-google-ads.jpg"],
+  ["/__l5e/assets-v1/52dfe9c7-f306-4a1c-befc-23f196b0c1c0/google-ads-299-horizontal.png", "src/assets/blog-google-ads.jpg"],
+  ["/__l5e/assets-v1/c72d8859-f2ab-4ae1-b156-2033d42fd469/google-ads-299-vertical.png", "src/assets/blog-roi-trafego.jpg"],
+]);
+const GALLERY_RECOVERY_LINKED =
+  (SERVICE_PUBLIC_SOURCE.match(/recoverGoogleAdsGallery\(/g) ?? []).length >= 2 &&
+  SERVICE_PUBLIC_SOURCE.includes('import blogGoogleAdsCover from "@/assets/blog-google-ads.jpg"') &&
+  SERVICE_PUBLIC_SOURCE.includes('import blogRoiTrafegoCover from "@/assets/blog-roi-trafego.jpg"');
+
+function recoveredGalleryHasValidAsset(slug, path) {
+  if (slug !== "google-ads-299" || !GOOGLE_ADS_LEGACY_GALLERY.has(path)) return false;
+  if (!GALLERY_RECOVERY_LINKED || !GALLERY_RECOVERY_SOURCE.includes(path)) return false;
+  const file = GOOGLE_ADS_LEGACY_GALLERY.get(path);
+  if (!existsSync(file)) return false;
+  const bytes = readFileSync(file);
+  return bytes.length > 64 && bytes[0] === 0xff && bytes[1] === 0xd8;
+}
 
 function hasCanonicalFallback(slug) {
   const file = CANONICAL_FALLBACK_COVERS.get(slug);
@@ -187,6 +209,7 @@ async function headOk(target) {
   const orphans = [];
   const canonicalFallbacks = [];
   const recoveredLegacy = [];
+  const recoveredGallery = [];
   const broken = [];
 
   for (const s of services) {
@@ -226,6 +249,51 @@ async function headOk(target) {
     if (!r.ok) broken.push({ slug: s.slug, url: target.url, reason: r.reason });
   }
 
+  // A checagem antiga cobria a capa, não as imagens secundárias.
+  // URLs novas do CMS são verificadas individualmente por HTTP/Content-Type.
+  for (const s of services) {
+    if (s.gallery != null && !Array.isArray(s.gallery)) {
+      broken.push({ slug: s.slug, url: "(gallery)", reason: "formato inválido no CMS (esperado array)" });
+    }
+    for (const [index, image] of (Array.isArray(s.gallery) ? s.gallery : []).entries()) {
+      const raw = image && typeof image === "object" && !Array.isArray(image)
+        ? image.path ?? image.url : null;
+      const path = typeof raw === "string" ? raw.trim() : "";
+      if (!path) {
+        broken.push({ slug: s.slug, url: "gallery[" + index + "]", reason: "imagem sem path/url válido" });
+        continue;
+      }
+      if (s.slug === "google-ads-299" && GOOGLE_ADS_LEGACY_GALLERY.has(path)) {
+        if (recoveredGalleryHasValidAsset(s.slug, path)) {
+          recoveredGallery.push(s.slug + ": " + path);
+        } else {
+          broken.push({ slug: s.slug, url: path, reason: "recuperação editorial ausente/inválida" });
+        }
+        continue;
+      }
+      const check = await headOk(imageTarget(path));
+      if (!check.ok) broken.push({ slug: s.slug, url: path, reason: "galeria[" + index + "]: " + check.reason });
+    }
+
+    // Imagem social própria: auditar sem substituir pelo arquivo da capa.
+    if (s.image_path && s.og_image_path && s.og_image_path !== s.image_path) {
+      const legacy = KNOWN_LEGACY_COVERS[s.slug];
+      if (legacy?.brokenPath === s.og_image_path &&
+          SERVICE_PUBLIC_SOURCE.includes("og_image_path: isKnownLegacyServiceImage(row.slug, row.og_image_path) ? null : row.og_image_path")) {
+        const bytes = existsSync(legacy.fallbackAsset) ? readFileSync(legacy.fallbackAsset) : null;
+        if (bytes && bytes.length > 64 && bytes[0] === 0xff && bytes[1] === 0xd8) {
+          recoveredLegacy.push(s.slug + " (OG)");
+          continue;
+        }
+      }
+      const check = await headOk(imageTarget(s.og_image_path));
+      if (!check.ok) broken.push({ slug: s.slug, url: s.og_image_path, reason: "og:image: " + check.reason });
+    }
+  }
+  if (recoveredGallery.length) {
+    console.warn("[catalog-images] ⚠️ " + recoveredGallery.length + " imagem(ns) de galeria recuperadas por assets locais válidos; reenvio no CMS recomendado:");
+    for (const entry of recoveredGallery) console.warn("  - " + entry);
+  }
 
   if (recoveredLegacy.length) {
     console.warn(
