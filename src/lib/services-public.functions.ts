@@ -4,6 +4,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
 import { isKnownLegacyServiceImage } from "@/lib/service-legacy-image-recovery";
+import { recoverGoogleAdsGallery } from "@/lib/service-gallery-recovery";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
 import blogMarketingCover from "@/assets/blog-marketing.webp";
@@ -12,6 +13,7 @@ import blogChatbotCover from "@/assets/blog-ia-whatsapp.jpg";
 import blogSocialCover from "@/assets/blog-meta-ads.jpg";
 import blogSitesCover from "@/assets/blog-sites.webp";
 import blogRoiTrafegoCover from "@/assets/blog-roi-trafego.jpg";
+import blogGoogleAdsCover from "@/assets/blog-google-ads.jpg";
 import heroDashboardCover from "@/assets/hero-dashboard.webp";
 import coverLocal from "@/assets/cover-local.jpg";
 import coverSeo from "@/assets/cover-seo.jpg";
@@ -567,7 +569,14 @@ export const getServicePublic = createServerFn({ method: "GET" })
       if (row) {
         const r = normalizePublicServiceRow(row as unknown as DbServiceRow);
         const imageUrl = await signImage(signer, r.image_path);
-        const gallery = await signGallery(signer, r.gallery);
+        // A galeria antiga do Google Ads referencia três assets Lovable 404.
+        // Capa repetida é omitida; duas imagens editoriais locais substituem
+        // somente os itens históricos conhecidos, sem mudar novos uploads.
+        const gallery = recoverGoogleAdsGallery(
+          r.slug,
+          await signGallery(signer, r.gallery),
+          { campaigns: blogGoogleAdsCover, results: blogRoiTrafegoCover },
+        );
         const ogImageUrl = await signImage(signer, r.og_image_path);
         return { service: mapRow(r, imageUrl, gallery, ogImageUrl), source: "db" as const };
       }
