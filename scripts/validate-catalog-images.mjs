@@ -72,6 +72,7 @@ function prTouchesServiceCatalog() {
     .map((line) => line.trim())
     .filter(Boolean);
   const serviceScoped = files.some((path) =>
+    path === "scripts/validate-catalog-images.mjs" ||
     /^(src\/(routes\/servicos|lib\/services?|components\/servic|config\/servic|data\/servic)|supabase\/migrations\/.*servic)/i.test(path),
   );
   if (!serviceScoped) {
