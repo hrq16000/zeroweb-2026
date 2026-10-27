@@ -5,7 +5,7 @@
  * As variantes ficam fora do Git e são reconstruídas antes do dev/build.
  * O modo lossless preserva os pixels para não mascarar o gate visual.
  */
-import { mkdir, stat, realpath } from "node:fs/promises";
+import { copyFile, mkdir, stat, realpath } from "node:fs/promises";
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve, sep } from "node:path";
 import sharp from "sharp";
@@ -68,6 +68,11 @@ for (const target of targets) {
   );
 }
 
+// Alias byte a byte do logo D.Y.Z na pasta de derivados: evita alterar o inventário administrativo.
+const dyzLogoAlias = resolve("public/images/_generated/dyzpromo/logo.webp");
+await mkdir(dirname(dyzLogoAlias), { recursive: true });
+await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
+
 const responsiveTargets = [
   {
     source: "public/images/refrigeracao-maresia/logo.png",
@@ -83,12 +88,12 @@ const responsiveTargets = [
   {
     source: "public/images/dyzpromo/logo-dyz-promo.webp",
     width: 260,
-    output: "public/images/dyzpromo/logo-dyz-promo-260.webp",
+    output: "public/images/_generated/dyzpromo/logo-260.webp",
   },
   {
     source: "public/images/dyzpromo/logo-dyz-promo.webp",
     width: 390,
-    output: "public/images/dyzpromo/logo-dyz-promo-390.webp",
+    output: "public/images/_generated/dyzpromo/logo-390.webp",
   },
 ];
 
