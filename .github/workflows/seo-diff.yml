@@ -11,6 +11,7 @@ on:
       - 'src/lib/services-*'
       - 'seo-reports/seo-diff.config.json'
       - 'scripts/run-seo-diff.mjs'
+      - 'scripts/validate-catalog-images.mjs'
   workflow_dispatch:
     inputs:
       base_url:
