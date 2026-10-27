@@ -21,6 +21,17 @@ describe("Google Ads — galeria legada sem imagens", () => {
     expect(recoverGoogleAdsGallery("google-ads-299", [upload], editorial)).toEqual([upload]);
     expect(recoverGoogleAdsGallery("outro-servico", oldGallery, editorial)).toEqual(oldGallery);
   });
+  test("listagem e página individual compartilham a recuperação pontual", () => {
+    const src = readFileSync("src/lib/services-public.functions.ts", "utf8");
+    const handlers = src.slice(src.indexOf("export const listServicesPublic"));
+    const listHandler = handlers.split("export const getServicePublic")[0];
+    const detailHandler = handlers.split("export const getServicePublic")[1];
+    expect(listHandler).toContain("recoverGoogleAdsGallery(");
+    expect(detailHandler).toContain("recoverGoogleAdsGallery(");
+    expect(listHandler).toContain("await signImage(signer, r.og_image_path)");
+    expect(detailHandler).toContain("await signImage(signer, r.og_image_path)");
+  });
+
   test("o carregamento público usa os assets locais e mantém o checkout", () => {
     const src = readFileSync("src/lib/services-public.functions.ts", "utf8");
     expect(src).toContain("recoverGoogleAdsGallery(");
