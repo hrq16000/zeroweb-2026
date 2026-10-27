@@ -518,10 +518,15 @@ export const listServicesPublic = createServerFn({ method: "GET" }).handler(asyn
     const mapped = await Promise.all(
       rows.map(async (raw) => {
         const r = normalizePublicServiceRow(raw);
+        const gallery = recoverGoogleAdsGallery(
+          r.slug,
+          await signGallery(signer, r.gallery),
+          { campaigns: blogGoogleAdsCover, results: blogRoiTrafegoCover },
+        );
         return mapRow(
           r,
           await signImage(signer, r.image_path),
-          await signGallery(signer, r.gallery),
+          gallery,
           await signImage(signer, r.og_image_path),
         );
       }),
