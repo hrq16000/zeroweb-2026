@@ -34,6 +34,17 @@ jobs:
             },
             signal: AbortSignal.timeout(20000)
           });
+          // Diagnose whether the Lovable default host and custom domain are in sync.
+          for (const host of ["https://zeroweb-growth-engine.lovable.app", "https://zeroweb-2026.vercel.app"]) {
+            try {
+              const diagnostic = await request(host + "/servicos/google-ads-299?verify_gallery=" + Date.now());
+              const diagnosticHtml = await diagnostic.text();
+              const firstImage = diagnosticHtml.match(/aria-label="Ver imagem 1 de 3"[^>]*>\s*<img[^>]*src="([^"]+)"/i)?.[1] ?? "not-found";
+              console.log("comparison", host, "HTTP", diagnostic.status, "first thumbnail:", firstImage);
+            } catch (error) {
+              console.log("comparison", host, "ERROR", error.message);
+            }
+          }
           try {
             const response = await request(withCacheBuster);
             console.log("public page:", response.status, response.url);
