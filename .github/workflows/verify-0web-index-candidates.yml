@@ -1,0 +1,81 @@
+name: Audit indexed candidate URLs from 0WEB sitemaps (read-only)
+
+on:
+  push:
+    branches:
+      - fix/verify-0web-domain-gallery-20261027
+    paths:
+      - .github/workflows/verify-0web-index-candidates.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  seo-index-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Read status and index directives for URLs present in public sitemaps
+        run: |
+          node --input-type=module <<'NODE'
+          const base = "https://0web.com.br";
+          const timeout = 16000;
+          async function get(url) {
+            return fetch(url, {headers:{"Cache-Control":"no-cache","User-Agent":"0WEB SEO validation (GitHub Actions)"},signal:AbortSignal.timeout(timeout),redirect:"follow"});
+          }
+          function attr(tag,key) {
+            return tag.match(new RegExp("\\b"+key+"\\s*=\\s*[\"']([^\"']*)[\"']","i"))?.[1]??null;
+          }
+          const index = await get(base+"/sitemap.xml");
+          const indexText = await index.text();
+          const sitemapUrls = [...indexText.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(m=>m[1]);
+          console.log("SITEMAP_INDEX", JSON.stringify({status:index.status,childSitemaps:sitemapUrls.length}));
+          const map = new Map();let count=0, failures=[];
+          for (const sitemapUrl of sitemapUrls) {
+            try {
+              const res=await get(sitemapUrl);const t=await res.text();
+              if(!res.ok){failures.push({url:sitemapUrl,http:res.status});continue;}
+              const urls=[...t.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(m=>m[1]);
+              count+=urls.length;
+              for(const url of urls){
+                const list=map.get(url)??[];
+                list.push(new URL(sitemapUrl).pathname);
+                map.set(url,list);
+              }
+              console.log("SITEMAP_CHILD",JSON.stringify({name:new URL(sitemapUrl).pathname,http:res.status,entries:urls.length}));
+            }catch(e){failures.push({url:sitemapUrl,error:String(e.message??e)})}
+          }
+          const results=[];const queue=[...map];
+          async function worker() {
+            while(queue.length) {
+              const pair=queue.shift();if(!pair)continue;const [url,sitemaps]=pair;
+              try {
+                const res=await get(url);
+                const text=await res.text();
+                const metas=[...text.matchAll(/<meta\b[^>]*>/gi)].map(m=>m[0]);
+                const robots=metas.filter(t=>["robots","googlebot"].includes(attr(t,"name")?.toLowerCase())).map(t=>attr(t,"content")??"");
+                const canonTag=[...text.matchAll(/<link\b[^>]*>/gi)].map(m=>m[0]).find(t=>attr(t,"rel")?.toLowerCase()==="canonical");
+                const canonical=canonTag?attr(canonTag,"href"):null;
+                const expected=new URL(url);expected.search="";expected.hash="";
+                const actual=canonical?new URL(canonical,res.url):null;
+                const same=actual?actual.href.replace(/\/$/,"")===expected.href.replace(/\/$/,""):false;
+                const noindex=robots.some(t=>/\bnoindex\b/i.test(t))||/noindex/i.test(res.headers.get("x-robots-tag")??"");
+                const nofollow=robots.some(t=>/\bnofollow\b/i.test(t));
+                results.push({url,status:res.status,noindex,nofollow,canonical,canonicalSelf:same,robots,sitemaps});
+              } catch(e){results.push({url,error:String(e.message??e),sitemaps})}
+            }
+          }
+          await Promise.all(Array.from({length:6},()=>worker()));
+          const byStatus={};for(const r of results){const k=String(r.status??"ERROR");byStatus[k]=(byStatus[k]??0)+1}
+          const errors=results.filter(x=>!x.status||x.status>=400);
+          const nonIndex=results.filter(x=>x.noindex);
+          const wrongCanonical=results.filter(x=>x.status===200 && !x.canonicalSelf);
+          const duplicateUrls=[...map].filter(([u,sites])=>sites.length>1).map(([u,s])=>({url:u,sites:s}));
+          console.log("SUMMARY",JSON.stringify({sitemapEntries:count,uniqueUrls:map.size,duplicateAcrossSitemaps:duplicateUrls.length,responses:byStatus,nonIndexCount:nonIndex.length,noFollowCount:results.filter(x=>x.nofollow).length,canonicalWrongOrMissing:wrongCanonical.length,sitemapErrors:failures}));
+          console.log("HTTP_ERRORS",JSON.stringify(errors.slice(0,35)));
+          console.log("SITEMAPPED_NOINDEX",JSON.stringify(nonIndex.slice(0,35)));
+          console.log("CANONICAL_MISMATCH",JSON.stringify(wrongCanonical.slice(0,35)));
+          console.log("DUPLICATES",JSON.stringify(duplicateUrls.slice(0,20)));
+          console.log("NOTE", "SEO indexable status only; Google's actual index coverage requires Search Console.");
+          NODE
