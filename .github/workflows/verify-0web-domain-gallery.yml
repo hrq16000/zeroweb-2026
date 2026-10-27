@@ -1,0 +1,67 @@
+name: Verify 0WEB custom-domain gallery
+
+on:
+  push:
+    branches:
+      - main
+      - fix/verify-0web-domain-gallery-20261027
+    paths:
+      - .github/workflows/verify-0web-domain-gallery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-gallery:
+    name: Real HTTP gallery verification on 0web.com.br
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify no-cache SSR thumbnails and their actual image responses
+        shell: bash
+        env:
+          PAGE_URL: https://0web.com.br/servicos/google-ads-299
+        run: |
+          node --input-type=module <<'NODE'
+          const base = process.env.PAGE_URL;
+          const withCacheBuster = base + "?verify_gallery=" + Date.now();
+          const request = (url) => fetch(url, {
+            headers: {
+              "Cache-Control": "no-cache, no-store",
+              "Pragma": "no-cache",
+              "User-Agent": "Mozilla/5.0 (0WEB CI gallery validation)"
+            },
+            signal: AbortSignal.timeout(20000)
+          });
+          try {
+            const response = await request(withCacheBuster);
+            console.log("public page:", response.status, response.url);
+            if (!response.ok) throw new Error("public page HTTP " + response.status);
+            const html = await response.text();
+            const expected = [
+              /cover-google-ads[^"\/]*\.jpg/i,
+              /blog-google-ads[^"\/]*\.jpg/i,
+              /blog-roi-trafego[^"\/]*\.jpg/i
+            ];
+            const extracted = [1, 2, 3].map((index) => {
+              const block = html.match(new RegExp('aria-label="Ver imagem ' + index + ' de 3"[^>]*>([\\s\\S]*?)<\\/button>', "i"))?.[1];
+              const src = block?.match(/<img\b[^>]*\bsrc="([^"]+)"/i)?.[1];
+              if (!src) throw new Error("missing server-rendered thumbnail " + index);
+              return new URL(src.replace(/&amp;/g, "&"), response.url).href;
+            });
+            for (const [index, url] of extracted.entries()) {
+              const filename = new URL(url).pathname.split("/").pop();
+              console.log("image " + (index + 1) + ":", filename);
+              if (!expected[index].test(filename)) throw new Error("stale/unexpected thumbnail " + (index + 1) + ": " + url);
+              const asset = await request(url);
+              const type = asset.headers.get("content-type") ?? "";
+              console.log("image response:", asset.status, type);
+              if (!asset.ok || !type.startsWith("image/")) throw new Error("invalid image: " + asset.status + " " + type + " " + url);
+            }
+            console.log("PASS: 3/3 live public-domain gallery images");
+          } catch (error) {
+            console.error("FAIL: 0WEB custom-domain gallery has not been verified:", error.message);
+            process.exitCode = 1;
+          }
+          NODE
