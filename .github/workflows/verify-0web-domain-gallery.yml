@@ -51,7 +51,7 @@ jobs:
             if (!response.ok) throw new Error("public page HTTP " + response.status);
             const html = await response.text();
             const expected = [
-              /cover-google-ads[^"\/]*\.jpg/i,
+              /(?:google-ads-299-capa\.png|cover-google-ads[^"\/]*\.jpg)$/i,
               /blog-google-ads[^"\/]*\.jpg/i,
               /blog-roi-trafego[^"\/]*\.jpg/i
             ];
@@ -70,7 +70,7 @@ jobs:
               console.log("image response:", asset.status, type);
               if (!asset.ok || !type.startsWith("image/")) throw new Error("invalid image: " + asset.status + " " + type + " " + url);
             }
-            console.log("PASS: 3/3 live public-domain gallery images");
+            console.log("PASS: 3/3 live gallery images; cover may be valid Lovable PNG, 2 editorial images JPEG");
           } catch (error) {
             console.error("FAIL: 0WEB custom-domain gallery has not been verified:", error.message);
             process.exitCode = 1;
