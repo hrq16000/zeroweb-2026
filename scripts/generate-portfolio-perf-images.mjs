@@ -79,6 +79,17 @@ const responsiveTargets = [
     width: 260,
     output: "public/images/_generated/refrigeracao-maresia/logo-260.webp",
   },
+  // O logo original do D.Y.Z permanece preservado; srcSet escolhe só o tamanho necessário.
+  {
+    source: "public/images/dyzpromo/logo-dyz-promo.webp",
+    width: 260,
+    output: "public/images/dyzpromo/logo-dyz-promo-260.webp",
+  },
+  {
+    source: "public/images/dyzpromo/logo-dyz-promo.webp",
+    width: 390,
+    output: "public/images/dyzpromo/logo-dyz-promo-390.webp",
+  },
 ];
 
 for (const target of responsiveTargets) {
