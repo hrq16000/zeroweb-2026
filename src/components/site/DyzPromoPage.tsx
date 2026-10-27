@@ -193,7 +193,7 @@ export function DyzPromoPage() {
         <section className="border-y border-white/10 bg-[#0a204f] px-5 py-6 text-white" aria-label="Diferenciais da D.Y.Z Promo">
           <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-3 sm:gap-6">
             {impactPoints.map(({ icon: Icon, value, text }) => (
-              <motion.div key={value} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+              <motion.div key={value} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                 <div><p className="font-bold">{value}</p><p className="mt-1 text-xs leading-relaxed text-blue-100">{text}</p></div>
               </motion.div>
