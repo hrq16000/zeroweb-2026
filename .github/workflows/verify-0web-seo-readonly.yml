@@ -22,7 +22,7 @@ jobs:
           const base = "https://0web.com.br";
           const paths = [
             "/robots.txt", "/sitemap.xml", "/sitemap-portfolio.xml",
-            "/sitemap-services.xml", "/",
+            "/sitemap-services.xml", "/sitemap-city-services.xml", "/sitemap-pages.xml", "/sitemap-solutions.xml", "/sitemap-cities.xml", "/sitemap-blog.xml", "/sitemap-cases.xml", "/sitemap-marketplace.xml", "/sitemap-editorial.xml", "/sitemap-bh-neighborhoods.xml", "/sitemap-cwb-neighborhoods.xml", "/sitemap-skyscraper.xml", "/sitemap-institucional.xml", "/",
             "/portfolio", "/portfolio/centro-mega", "/portfolio/arildo-madeiras",
             "/servicos", "/servicos/google-ads-299",
             "/servicos/conserto-tv/curitiba", "/checkout", "/obrigado"
@@ -48,7 +48,14 @@ jobs:
                 const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(x=>x[1]);
                 console.log(JSON.stringify({path,http:res.status,contentType,locCount:locs.length,sample:locs.slice(0,4),hasXml:body.includes("<?xml")||body.includes("<urlset")||body.includes("<sitemapindex")}));
               } else {
-                console.log(JSON.stringify({path,http:res.status,contentType,...inspect(body),length:body.length}));
+                const detail = inspect(body);
+                console.log(JSON.stringify({path,http:res.status,contentType,...detail,length:body.length}));
+                if(path === "/servicos/google-ads-299" && detail.ogImage) {
+                  try {
+                    const imageResponse = await fetch(detail.ogImage,{signal:AbortSignal.timeout(12000)});
+                    console.log(JSON.stringify({check:"google-ads-og:image",url:detail.ogImage,http:imageResponse.status,contentType:imageResponse.headers.get("content-type")}));
+                  } catch(e) { console.log(JSON.stringify({check:"google-ads-og:image",error:String(e.message??e)})); }
+                }
               }
             } catch (e) {console.log(JSON.stringify({path,error:String(e?.message??e)}));}
           }
