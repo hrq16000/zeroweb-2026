@@ -35,7 +35,7 @@ jobs:
             signal: AbortSignal.timeout(20000)
           });
           // Diagnose whether the Lovable default host and custom domain are in sync.
-          for (const host of ["https://zeroweb-growth-engine.lovable.app", "https://zeroweb-2026.vercel.app"]) {
+          for (const host of ["https://id-preview--18313c7b-223e-4a34-8548-d2c238b6caf1.lovable.app", "https://zeroweb-growth-engine.lovable.app", "https://zeroweb-2026.vercel.app"]) {
             try {
               const diagnostic = await request(host + "/servicos/google-ads-299?verify_gallery=" + Date.now());
               const diagnosticHtml = await diagnostic.text();
