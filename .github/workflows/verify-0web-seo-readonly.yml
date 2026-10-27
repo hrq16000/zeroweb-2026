@@ -1,0 +1,55 @@
+name: Audit 0WEB SEO public HTML (read-only)
+
+on:
+  push:
+    branches:
+      - fix/verify-0web-domain-gallery-20261027
+    paths:
+      - .github/workflows/verify-0web-seo-readonly.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-technical-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read public robots, sitemaps and representative SEO tags
+        run: |
+          node --input-type=module <<'NODE'
+          const base = "https://0web.com.br";
+          const paths = [
+            "/robots.txt", "/sitemap.xml", "/sitemap-portfolio.xml",
+            "/sitemap-services.xml", "/",
+            "/portfolio", "/portfolio/centro-mega", "/portfolio/arildo-madeiras",
+            "/servicos", "/servicos/google-ads-299",
+            "/servicos/conserto-tv/curitiba", "/checkout", "/obrigado"
+          ];
+          const attr = (tag, key) => tag.match(new RegExp("\\b"+key+"\\s*=\\s*[\"']([^\"']*)[\"']","i"))?.[1] ?? null;
+          const tags = (html, element) => [...html.matchAll(new RegExp("<"+element+"\\b[^>]*>","gi"))].map(m => m[0]);
+          const inspect = (html) => {
+            const robot = tags(html,"meta").filter(t => ["robots","googlebot"].includes(attr(t,"name")?.toLowerCase())).map(t=>({name:attr(t,"name"),content:attr(t,"content")}));
+            const canonical = tags(html,"link").find(t=>attr(t,"rel")?.toLowerCase() === "canonical");
+            const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? null;
+            const og = tags(html,"meta").find(t=>attr(t,"property")==="og:image");
+            return {title, robots:robot, canonical:canonical?attr(canonical,"href"):null, ogImage:og?attr(og,"content"):null};
+          };
+          for (const path of paths) {
+            try {
+              const url = base + path + "?_seo_verification=" + Date.now();
+              const res = await fetch(url, {headers:{"Cache-Control":"no-cache","Pragma":"no-cache"},redirect:"follow",signal:AbortSignal.timeout(18000)});
+              const contentType = res.headers.get("content-type") ?? "";
+              const body = await res.text();
+              if (path === "/robots.txt") {
+                console.log(JSON.stringify({path,http:res.status,contentType,sitemap:(body.match(/^Sitemap:\s*(.+)$/gmi)||[]),disallow:(body.match(/^Disallow:\s*(.+)$/gmi)||[]).slice(0,20)}));
+              } else if (path.endsWith(".xml")) {
+                const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(x=>x[1]);
+                console.log(JSON.stringify({path,http:res.status,contentType,locCount:locs.length,sample:locs.slice(0,4),hasXml:body.includes("<?xml")||body.includes("<urlset")||body.includes("<sitemapindex")}));
+              } else {
+                console.log(JSON.stringify({path,http:res.status,contentType,...inspect(body),length:body.length}));
+              }
+            } catch (e) {console.log(JSON.stringify({path,error:String(e?.message??e)}));}
+          }
+          NODE
