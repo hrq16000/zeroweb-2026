@@ -178,7 +178,7 @@ export function DyzPromoPage() {
               </div>
               <motion.a href="#servicos" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
             </div>
-            <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
+            <motion.div initial={false} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
                 <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" priority className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
