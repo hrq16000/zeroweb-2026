@@ -1,0 +1,41 @@
+name: Diagnostic - compare saved visual baselines (read-only)
+
+on:
+  push:
+    branches:
+      - diag/seo-visual-baseline-compare-20261027
+    paths:
+      - .github/workflows/diagnose-baselines-readonly.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Describe saved screenshots
+        run: |
+          for p in home-desktop r_beauty-desktop emporio-lelecute-desktop emporio-lelecute-tablet emporio-lelecute-mobile dyzpromo-desktop; do
+            f="tests/visual/baseline/${p}.png"
+            if [ -f "$f" ]; then
+              printf '%s | bytes=%s | sha256=%s\n' "$f" "$(wc -c < "$f")" "$(sha256sum "$f" | cut -d ' ' -f 1)"
+            else
+              printf 'MISSING %s\n' "$f"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: target-visual-baselines
+          path: |
+            tests/visual/baseline/home-desktop.png
+            tests/visual/baseline/r_beauty-desktop.png
+            tests/visual/baseline/emporio-lelecute-desktop.png
+            tests/visual/baseline/emporio-lelecute-tablet.png
+            tests/visual/baseline/emporio-lelecute-mobile.png
+            tests/visual/baseline/dyzpromo-desktop.png
+          if-no-files-found: warn
+          retention-days: 1
