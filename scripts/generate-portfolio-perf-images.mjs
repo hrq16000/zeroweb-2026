@@ -34,6 +34,19 @@ const targets = [
     source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
     output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas.webp",
   },
+  // Três imagens adicionais do mural: mantém pixels idênticos e rejeita saída maior.
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp",
+  },
 ];
 
 for (const target of targets) {

@@ -90,10 +90,19 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas.webp"');
     expect(generator).toContain("webp({ lossless: true, effort: 6 })");
     expect(generator).toContain("sourcePixels.equals(outputPixels)");
+    expect(generator).toContain('source: "public/images/lolipa-arte-em-festas/decoracao-branca.png"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp"');
+    expect(generator).toContain('source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp"');
+    expect(generator).toContain('source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp"');
   });
 
   test("primeira imagem do hero usa a variante local sem mudar o funil", () => {
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/galeria-temas.webp"');
+    expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp"');
+    expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp"');
+    expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp"');
     expect(page).toContain('managedField: "heroImageUrl"');
     expect(page).toContain('formSlug="funnel-lolipa-arte-em-festas"');
     expect(page).toContain('clientKey="lolipa-arte-em-festas"');
