@@ -13,7 +13,6 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { InstagramEmbedOnDemand } from "@/components/site/InstagramEmbedOnDemand";
 
 const INSTAGRAM_URL = "https://www.instagram.com/emporiolelecute/";
 const FACEBOOK_URL = "https://www.facebook.com/emporiolelecute/";
@@ -139,10 +138,14 @@ export function EmporioLelecutePage() {
             marca.
           </p>
           <div className="mx-auto mt-8 max-w-xl overflow-hidden rounded-3xl border border-[#f4c99f]/30 bg-white shadow-2xl">
-            <InstagramEmbedOnDemand
-              embedUrl={`${INSTAGRAM_URL}embed/`}
-              profileUrl={INSTAGRAM_URL}
+            <iframe
+              src={`${INSTAGRAM_URL}embed/`}
               title="Instagram oficial do Empório LeleCute"
+              className="h-[620px] w-full"
+              loading="lazy"
+              scrolling="no"
+              referrerPolicy="strict-origin-when-cross-origin"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
             />
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
