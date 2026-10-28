@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { InstagramEmbedOnDemand } from "./InstagramEmbedOnDemand";
+import { InstagramEmbedOnDemand } from "../../src/components/site/EmporioLelecutePage";
 
 describe("Instagram do portfólio sob solicitação explícita", () => {
   test("SSR inicial não inclui iframe ou requisição incorporada do Instagram", () => {
