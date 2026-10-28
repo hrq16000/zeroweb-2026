@@ -1,0 +1,52 @@
+name: One-time reviewed Emporio visual baseline refresh
+on:
+  push:
+    branches:
+      - fix/emporio-instagram-on-demand-isolated-20261027
+    paths:
+      - .github/workflows/emporio-reviewed-baselines-once.yml
+permissions:
+  contents: write
+jobs:
+  pin-reviewed-emporio:
+    if: github.repository == 'hrq16000/zeroweb-2026'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify reviewed artifact and update only Emporio screenshots
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          artifact="$RUNNER_TEMP/reviewed-emporio.zip"
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/12786239177/zip" \
+            -o "$artifact"
+          echo "bdcce55a5498a27411ce2a89518fbcafc5191d3981a6a6fce1f9d9866cc45a53  $artifact" | sha256sum --check --status
+          for viewport in desktop tablet mobile; do
+            unzip -p "$artifact" "seo-reports/visual/emporio-lelecute-${viewport}.png" > "tests/visual/baseline/emporio-lelecute-${viewport}.png"
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          expected = {'desktop':(1280,900),'tablet':(834,1112),'mobile':(393,852)}
+          for name, wh in expected.items():
+            b = Path(f'tests/visual/baseline/emporio-lelecute-{name}.png').read_bytes()
+            assert b[:8] == b'\x89PNG\r\n\x1a\n' and b[12:16] == b'IHDR'
+            assert struct.unpack('>II',b[16:24]) == wh
+            print(f'[emporio-visual] {name} dimensions {wh}; {len(b)} bytes')
+          PY
+          git add -- tests/visual/baseline/emporio-lelecute-desktop.png tests/visual/baseline/emporio-lelecute-tablet.png tests/visual/baseline/emporio-lelecute-mobile.png
+          changed="$(git diff --cached --name-only)"
+          expected="$(printf '%s\n' tests/visual/baseline/emporio-lelecute-desktop.png tests/visual/baseline/emporio-lelecute-mobile.png tests/visual/baseline/emporio-lelecute-tablet.png)"
+          test "$changed" = "$expected"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "test(emporio): pin reviewed desktop/tablet/mobile visual references"
+          git push origin HEAD:fix/emporio-instagram-on-demand-isolated-20261027
