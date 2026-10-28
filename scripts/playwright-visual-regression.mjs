@@ -204,6 +204,28 @@ async function capture(context, route, viewport) {
       })
       .catch(() => {});
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
+    // R_Beauty: os dois cards do hero usam Motion (opacity, translateY, scale).
+    // FREEZE_CSS congela somente animações CSS, não a animação JS/inline Motion.
+    // Aguarda o estado final antes da captura, sem alterar a UI em produção
+    // nem elevar o limite de regressão visual de 2%.
+    if (route.name === "r_beauty") {
+      await page.waitForFunction(() => {
+        const hero = document.querySelector(".portfolio-theme-rbeauty > section > div.max-w-6xl");
+        if (!hero || hero.children.length < 2) return false;
+        return [...hero.children].slice(0, 2).every((el) => {
+          const style = getComputedStyle(el);
+          if (Number(style.opacity) < 0.999) return false;
+          if (style.transform === "none") return true;
+          const matrix = new DOMMatrixReadOnly(style.transform);
+          return (
+            Math.abs(matrix.m11 - 1) < 0.001 &&
+            Math.abs(matrix.m22 - 1) < 0.001 &&
+            Math.abs(matrix.m41) < 0.1 &&
+            Math.abs(matrix.m42) < 0.1
+          );
+        });
+      }, undefined, { timeout: Math.min(routeTimeout, 5000) });
+    }
     await page.waitForTimeout(600);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
     let buffer = await page.screenshot({ timeout: routeTimeout });
