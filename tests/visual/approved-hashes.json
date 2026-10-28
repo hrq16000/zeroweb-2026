@@ -171,28 +171,6 @@
       }
     }
   },
-  "dyzpromo": {
-    "reason": "Inspeção individual D.Y.Z Promo dos snapshots tablet e mobile do CI #40565123347: conteúdo, posição, tipografia aparente, botões e imagens preservados em relação às baselines; desvio antigo de pixels reproduzido em múltiplas execuções. Aprovação por hash exato dos dois screenshots revisados, sem mudança do threshold global (2%) nem de outros portfólios.",
-    "reviewedAt": "2026-10-27",
-    "evidence": {
-      "runId": 40565123347,
-      "artifactId": 12763645666,
-      "artifactDigest": "sha256:9d5b44400049927da1c0806e09ee988820f374e03b1b1a861092af8146d0b1f8",
-      "headSha": "ab0f5b24a1f09de760d0ec1054528293e71c2652"
-    },
-    "viewports": {
-      "mobile": {
-        "width": 393,
-        "height": 852,
-        "pixelSha256": "6389235b7fec48dc39df5ab150b72dae9621b6f398673bd9325465450893f61f"
-      },
-      "tablet": {
-        "width": 834,
-        "height": 1112,
-        "pixelSha256": "32f7213797b4999710291399aaf06e877d5f3c3f1118159e4d27f89842e0ed51"
-      }
-    }
-  },
   "rm-fretes": {
     "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
     "reviewedAt": "2026-10-02",
