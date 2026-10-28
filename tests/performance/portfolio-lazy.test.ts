@@ -79,3 +79,21 @@ describe("loader global: não carregar logo 0WEB antes de a navegação ficar pe
     expect(loader).toContain('aria-label="Carregando página"');
   });
 });
+
+describe("captura visual determinística do R_Beauty", () => {
+  const runner = read("scripts/playwright-visual-regression.mjs");
+
+  test("espera o Motion do hero R_Beauty atingir opacity e transform finais", () => {
+    expect(runner).toContain('if (route.name === "r_beauty")');
+    expect(runner).toContain('new DOMMatrixReadOnly(style.transform)');
+    expect(runner).toContain('Number(style.opacity) < 0.999');
+    expect(runner).toContain('Math.abs(matrix.m42) < 0.1');
+    expect(runner).toContain("timeout: Math.min(routeTimeout, 5000)");
+  });
+
+  test("preserva limite global de 2% e não regrava baselines", () => {
+    expect(runner).toContain('process.env.VISUAL_THRESHOLD ?? 0.02');
+    expect(runner).toContain("if (update || !existsSync(baselinePath))");
+    expect(runner).toContain("approvedPixelReference(route.name, viewport.name, currentPng)");
+  });
+});
