@@ -71,6 +71,11 @@ const FREEZE_CSS = `
   scroll-behavior: auto !important;
   caret-color: transparent !important;
 }
+/* O cue Framer da D.Y.Z escreve transform inline mesmo quando CSS animations=none.
+   Congelar só nos screenshots torna a comparação determinística, sem tocar no produto. */
+[data-visual-freeze-dyz-arrow="true"] {
+  transform: none !important;
+}
 #servicos-destaque,
 #spotlight,
 [data-visual-volatile="true"] {

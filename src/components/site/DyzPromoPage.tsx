@@ -1,4 +1,5 @@
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
@@ -82,10 +83,10 @@ const regionalCoverage = [
   { title: "Rotas sob medida", text: "Definimos os pontos conforme o público, o objetivo e o raio da campanha.", image: "/images/dyzpromo/faixa-equipe.jpeg", badge: "Planejamento" },
 ];
 
-function DyzImage({ src, alt, className = "", imageClassName = "" }: { src: string; alt: string; className?: string; imageClassName?: string }) {
+function DyzImage({ src, alt, className = "", imageClassName = "", priority = false }: { src: string; alt: string; className?: string; imageClassName?: string; priority?: boolean }) {
   return (
     <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
-      <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
+      <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
     </button>
   );
 }
@@ -114,13 +115,36 @@ function DyzCTA({ label, className }: { label: string; className?: string }) {
   );
 }
 
+function DyzLogo() {
+  // Não requisitar a mesma marca duas vezes após carregar o campo administrável.
+  // O admin continua livre para selecionar uma imagem personalizada.
+  const override = useManagedValue("logoUrl", "/images/dyzpromo/logo-dyz-promo.webp");
+  const managedLogo = typeof override === "string" ? override.trim() : "";
+  const isOfficialLogo = !managedLogo || /\/images\/dyzpromo\/logo-dyz-promo\.webp(?:\?.*)?$/i.test(managedLogo);
+
+  return (
+    <PortfolioImage
+      priority
+      managedField={isOfficialLogo ? undefined : "logoUrl"}
+      src={isOfficialLogo ? "/images/_generated/dyzpromo/logo.webp" : managedLogo}
+      widths={isOfficialLogo ? [260, 390] : undefined}
+      sizes="(min-width: 640px) 140px, 126px"
+      alt="D.Y.Z Promo — divulgação em campo"
+      className="h-10 w-auto object-contain sm:h-11"
+      decoding="sync"
+      width={2123}
+      height={741}
+    />
+  );
+}
+
 function DyzHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#071b49]/95 text-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
           <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] ring-1 ring-white/40 sm:px-3">
-            <PortfolioImage managedField="logoUrl" priority src="/images/dyzpromo/logo-dyz-promo.webp" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" decoding="async" width={2123} height={741} />
+            <DyzLogo />
           </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
@@ -175,12 +199,12 @@ export function DyzPromoPage() {
                   </div>
                 ))}
               </div>
-              <motion.a href="#servicos" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
+              <motion.a href="#servicos" data-visual-freeze-dyz-arrow="true" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
             </div>
-            <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
+            <motion.div initial={false} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-                <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" priority className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <DyzImage src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 min-h-28 rounded-2xl bg-slate-950/30 sm:min-h-32" />
                 <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
@@ -192,7 +216,7 @@ export function DyzPromoPage() {
         <section className="border-y border-white/10 bg-[#0a204f] px-5 py-6 text-white" aria-label="Diferenciais da D.Y.Z Promo">
           <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-3 sm:gap-6">
             {impactPoints.map(({ icon: Icon, value, text }) => (
-              <motion.div key={value} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+              <motion.div key={value} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                 <div><p className="font-bold">{value}</p><p className="mt-1 text-xs leading-relaxed text-blue-100">{text}</p></div>
               </motion.div>
