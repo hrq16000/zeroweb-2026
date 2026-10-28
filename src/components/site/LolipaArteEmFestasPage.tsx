@@ -9,7 +9,7 @@ import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motio
 
 /** Mural de festa: o próprio hero é o mosaico de decorações reais da Lolipa. */
 const mural = [
-  ["/images/lolipa-arte-em-festas/galeria-temas.png", "Decorações personalizadas para temas infantis e comemorações", "sm:col-span-2 sm:row-span-2"],
+  ["/images/_generated/lolipa-arte-em-festas/galeria-temas.webp", "Decorações personalizadas para temas infantis e comemorações", "sm:col-span-2 sm:row-span-2"],
   ["/images/lolipa-arte-em-festas/decoracao-branca.png", "Decoração elegante em tons claros para celebrações especiais", ""],
   ["/images/lolipa-arte-em-festas/decoracao-colorida.png", "Mesa temática colorida com composição sob medida", ""],
   ["/images/lolipa-arte-em-festas/decoracao-infantil.png", "Decoração infantil com balões e elementos personalizados", "sm:col-span-2"],
