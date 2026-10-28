@@ -49,12 +49,14 @@ export function RouteLoader() {
       >
         <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
         <div className="relative flex flex-col items-center gap-4">
-          <BrandLogo
-            size={72}
-            alt=""
-            priority
-            className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
-          />
+          {visible && (
+            <BrandLogo
+              size={72}
+              alt=""
+              priority
+              className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
+            />
+          )}
           <span className="text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground">
             Carregando
           </span>
