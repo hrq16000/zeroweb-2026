@@ -128,6 +128,29 @@ describe("escopo seguro da regressão visual", () => {
     )).toEqual(["adhonep-curitiba"]);
   });
 
+  test("rota dedicada do D.Y.Z usa apenas seu slug, sem afrouxar limite visual", () => {
+    const dedicatedClients = [
+      ...clients,
+      { slug: "dyzpromo", componentFile: "src/components/site/DyzPromoPage.tsx" },
+    ];
+    expect(resolveVisualRegressionScope(
+      [
+        "src/routes/portfolio.dyzpromo.tsx",
+        "tests/portfolio/visual-regression-scope.test.ts",
+        "scripts/resolve-visual-regression-scope.mjs",
+      ],
+      dedicatedClients,
+    )).toEqual(["dyzpromo"]);
+    expect(resolveVisualRegressionScope(
+      ["src/routes/portfolio.dyzpromo.tsx", "src/components/portfolio/PortfolioStandardShell.tsx"],
+      dedicatedClients,
+    )).toEqual([]);
+    expect(resolveVisualRegressionScope(
+      ["src/routes/portfolio.nao-registrado.tsx"],
+      dedicatedClients,
+    )).toEqual([]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
