@@ -28,6 +28,12 @@ const targets = [
     source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
     output: "public/images/_generated/auto-socorro-dentinho/diagnostic.webp",
   },
+  // Foto LCP real da Lolipa: WebP lossless, pixels e dimensões verificados abaixo.
+  // O PNG original permanece disponível para o administrador.
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas.webp",
+  },
 ];
 
 for (const target of targets) {
