@@ -7,8 +7,10 @@ const DESC =
   "Divulgação, panfletagem, promotores e ações promocionais da D.Y.Z Promo em Curitiba e região metropolitana.";
 const URL = "https://0web.com.br/portfolio/dyzpromo";
 const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
-const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.webp";
-const TOUCH_ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-touch.png";
+// Favicons são recursos do navegador: evitar acesso cross-origin ao próprio domínio.
+// Canonical e imagens sociais permanecem absolutos para SEO e compartilhamento.
+const ICON = "/images/dyzpromo/logo-dyz-promo.webp";
+const TOUCH_ICON = "/images/dyzpromo/logo-dyz-promo-touch.png";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
   head: () => ({
