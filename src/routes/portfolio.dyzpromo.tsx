@@ -9,7 +9,8 @@ const URL = "https://0web.com.br/portfolio/dyzpromo";
 const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
 // Favicons são recursos do navegador: evitar acesso cross-origin ao próprio domínio.
 // Canonical e imagens sociais permanecem absolutos para SEO e compartilhamento.
-const ICON = "/images/dyzpromo/logo-dyz-promo.webp";
+// O PNG 180x180 ja existente cobre favicon e touch, reduzindo ~188 KB para ~27 KB.
+const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png";
 const TOUCH_ICON = "/images/dyzpromo/logo-dyz-promo-touch.png";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: TOUCH_ICON }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: TOUCH_ICON }],
     scripts: [
       {
         type: "application/ld+json",
