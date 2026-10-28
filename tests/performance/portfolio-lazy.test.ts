@@ -98,4 +98,12 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(page).toContain('formSlug="funnel-lolipa-arte-em-festas"');
     expect(page).toContain('clientKey="lolipa-arte-em-festas"');
   });
+
+  test("primeiro tile LCP não usa máscara animada; demais imagens mantêm MotionImageReveal", () => {
+    expect(page).toContain("return index === 0 ? (");
+    expect(page).toContain("const image = (");
+    expect(page).toContain('<div key={src} className={`overflow-hidden ${span}`}>');
+    expect(page).toContain('<MotionImageReveal key={src}');
+    expect(page).toContain("priority={index === 0}");
+  });
 });
