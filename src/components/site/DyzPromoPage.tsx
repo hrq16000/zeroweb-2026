@@ -176,7 +176,7 @@ export function DyzPromoPage() {
                   </div>
                 ))}
               </div>
-              <motion.a href="#servicos" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
+              <motion.a href="#servicos" data-visual-freeze-dyz-arrow="true" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
             </div>
             <motion.div initial={false} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
