@@ -171,7 +171,8 @@ describe("escopo seguro da regressão visual", () => {
     expect(workflow).toContain("@type.*WebPage");
     expect(workflow).toContain("isPartOf:");
   });
-\n  test("favicon da D.Y.Z reutiliza PNG local e leve, sem alterar canonical nem OG", () => {
+
+  test("favicon da D.Y.Z reutiliza PNG local e leve, sem alterar canonical nem OG", () => {
     const route = readFileSync("src/routes/portfolio.dyzpromo.tsx", "utf8");
     expect(route).toContain('const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
     expect(route).toContain('{ rel: "icon", type: "image/png", href: ICON }');
