@@ -145,7 +145,6 @@ export function DyzPromoPage() {
   }, []);
   return (
     <div className="portfolio-theme-dyz min-h-screen bg-background text-foreground">
-      <link rel="preload" as="image" href="/images/dyzpromo/faixa-equipe.jpeg" fetchPriority="high" />
       <DyzHeader />
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
@@ -183,7 +182,7 @@ export function DyzPromoPage() {
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
                 <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" priority className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <DyzImage src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 min-h-28 rounded-2xl bg-slate-950/30 sm:min-h-32" />
-                <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" priority className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
               </div>
             </motion.div>
