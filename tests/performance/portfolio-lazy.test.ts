@@ -79,3 +79,23 @@ describe("loader global: não carregar logo 0WEB antes de a navegação ficar pe
     expect(loader).toContain('aria-label="Carregando página"');
   });
 });
+
+describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
+  const generator = read("scripts/generate-portfolio-perf-images.mjs");
+  const page = read("src/components/site/LolipaArteEmFestasPage.tsx");
+
+  test("variante é gerada do PNG original, sem baixar nem trocar a imagem", () => {
+    expect(existsSync(resolve(root, "public/images/lolipa-arte-em-festas/galeria-temas.png"))).toBe(true);
+    expect(generator).toContain('source: "public/images/lolipa-arte-em-festas/galeria-temas.png"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas.webp"');
+    expect(generator).toContain("webp({ lossless: true, effort: 6 })");
+    expect(generator).toContain("sourcePixels.equals(outputPixels)");
+  });
+
+  test("primeira imagem do hero usa a variante local sem mudar o funil", () => {
+    expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/galeria-temas.webp"');
+    expect(page).toContain('managedField: "heroImageUrl"');
+    expect(page).toContain('formSlug="funnel-lolipa-arte-em-festas"');
+    expect(page).toContain('clientKey="lolipa-arte-em-festas"');
+  });
+});
