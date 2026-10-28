@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import { compositionRegistryClients, resolveVisualRegressionScope, routeComponentClients } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
@@ -170,5 +170,15 @@ describe("escopo seguro da regressão visual", () => {
     const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
     expect(workflow).toContain("@type.*WebPage");
     expect(workflow).toContain("isPartOf:");
+  });
+\n  test("favicon da D.Y.Z reutiliza PNG local e leve, sem alterar canonical nem OG", () => {
+    const route = readFileSync("src/routes/portfolio.dyzpromo.tsx", "utf8");
+    expect(route).toContain('const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
+    expect(route).toContain('{ rel: "icon", type: "image/png", href: ICON }');
+    expect(route).toContain('const TOUCH_ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
+    expect(route).toContain('const URL = "https://0web.com.br/portfolio/dyzpromo"');
+    expect(route).toContain('const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg');
+    const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
+    expect(size).toBeLessThan(40_000);
   });
 });
