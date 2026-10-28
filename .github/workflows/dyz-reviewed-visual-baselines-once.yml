@@ -1,0 +1,51 @@
+name: One-time reviewed DYZ visual baseline refresh
+on:
+  push:
+    branches:
+      - perf/dyz-lcp-hero-image-priority-20261027
+    paths:
+      - .github/workflows/dyz-reviewed-visual-baselines-once.yml
+permissions:
+  contents: write
+jobs:
+  pin-reviewed-dyz:
+    if: github.repository == 'hrq16000/zeroweb-2026'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify reviewed artifact and update only two DYZ baselines
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact="$RUNNER_TEMP/reviewed-dyz.zip"
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/12781098834/zip" \
+            -o "$artifact"
+          echo "36be83e9af9fc639a6a69228801a9d906cc1c9990de1a8e070be68b9e6061a8b  $artifact" | sha256sum --check --status
+          for viewport in tablet mobile; do
+            unzip -p "$artifact" "seo-reports/visual/dyzpromo-${viewport}.png" > "tests/visual/baseline/dyzpromo-${viewport}.png"
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          for name, wh in [('tablet', (834, 1112)), ('mobile', (393, 852))]:
+              b=Path(f'tests/visual/baseline/dyzpromo-{name}.png').read_bytes()
+              assert b[:8] == b'\x89PNG\r\n\x1a\n' and b[12:16] == b'IHDR'
+              assert struct.unpack('>II', b[16:24]) == wh
+              print(f'[dyz-baseline] {name} pixels {wh}, file {len(b)} bytes verified')
+          PY
+          git add -- tests/visual/baseline/dyzpromo-tablet.png tests/visual/baseline/dyzpromo-mobile.png
+          changed="$(git diff --cached --name-only)"
+          expected="$(printf '%s\n' tests/visual/baseline/dyzpromo-mobile.png tests/visual/baseline/dyzpromo-tablet.png)"
+          test "$changed" = "$expected"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "test(dyz): pin individually reviewed tablet/mobile binary baselines"
+          git push origin HEAD:perf/dyz-lcp-hero-image-priority-20261027
