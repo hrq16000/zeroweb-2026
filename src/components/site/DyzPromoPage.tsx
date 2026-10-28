@@ -1,5 +1,5 @@
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
@@ -118,13 +118,14 @@ function DyzCTA({ label, className }: { label: string; className?: string }) {
 function DyzLogo() {
   // Não requisitar a mesma marca duas vezes após carregar o campo administrável.
   // O admin continua livre para selecionar uma imagem personalizada.
-  const override = usePortfolioRuntime()?.logoUrl;
+  const override = useManagedValue("logoUrl", "/images/dyzpromo/logo-dyz-promo.webp");
   const managedLogo = typeof override === "string" ? override.trim() : "";
   const isOfficialLogo = !managedLogo || /\/images\/dyzpromo\/logo-dyz-promo\.webp(?:\?.*)?$/i.test(managedLogo);
 
   return (
     <PortfolioImage
       priority
+      managedField={isOfficialLogo ? undefined : "logoUrl"}
       src={isOfficialLogo ? "/images/_generated/dyzpromo/logo.webp" : managedLogo}
       widths={isOfficialLogo ? [260, 390] : undefined}
       sizes="(min-width: 640px) 140px, 126px"
