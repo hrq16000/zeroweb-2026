@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
+import { browserIconHref } from "@/lib/browser-icon-href";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
@@ -62,7 +63,7 @@ function managedHead(project: ManagedProject) {
       { rel: "canonical", href: url },
       { rel: "alternate", hrefLang: "pt-BR", href: url },
       { rel: "alternate", hrefLang: "x-default", href: url },
-      { rel: "icon", href: icon },
+      { rel: "icon", href: browserIconHref(icon) },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
     scripts: [
@@ -944,7 +945,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { rel: "canonical", href: eff.canonicalUrl },
         { rel: "alternate", hrefLang: "pt-BR", href: eff.canonicalUrl },
         { rel: "alternate", hrefLang: "x-default", href: eff.canonicalUrl },
-        { rel: "icon", href: effIcon },
+        { rel: "icon", href: browserIconHref(effIcon) },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
         ...(isArildoMadeiras
           ? [

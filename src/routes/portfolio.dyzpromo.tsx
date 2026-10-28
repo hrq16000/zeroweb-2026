@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { DyzPromoPage } from "@/components/site/DyzPromoPage";
+import { browserIconHref } from "@/lib/browser-icon-href";
 
 const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
 const DESC =
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: TOUCH_ICON }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: browserIconHref(ICON) }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: browserIconHref(TOUCH_ICON) }],
     scripts: [
       {
         type: "application/ld+json",
