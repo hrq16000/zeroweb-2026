@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import { compositionRegistryClients, resolveVisualRegressionScope, routeComponentClients } from "../../scripts/resolve-visual-regression-scope.mjs";
 
 const clients = [
@@ -128,6 +128,29 @@ describe("escopo seguro da regressão visual", () => {
     )).toEqual(["adhonep-curitiba"]);
   });
 
+  test("rota dedicada do D.Y.Z usa apenas seu slug, sem afrouxar limite visual", () => {
+    const dedicatedClients = [
+      ...clients,
+      { slug: "dyzpromo", componentFile: "src/components/site/DyzPromoPage.tsx" },
+    ];
+    expect(resolveVisualRegressionScope(
+      [
+        "src/routes/portfolio.dyzpromo.tsx",
+        "tests/portfolio/visual-regression-scope.test.ts",
+        "scripts/resolve-visual-regression-scope.mjs",
+      ],
+      dedicatedClients,
+    )).toEqual(["dyzpromo"]);
+    expect(resolveVisualRegressionScope(
+      ["src/routes/portfolio.dyzpromo.tsx", "src/components/portfolio/PortfolioStandardShell.tsx"],
+      dedicatedClients,
+    )).toEqual([]);
+    expect(resolveVisualRegressionScope(
+      ["src/routes/portfolio.nao-registrado.tsx"],
+      dedicatedClients,
+    )).toEqual([]);
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
@@ -147,5 +170,33 @@ describe("escopo seguro da regressão visual", () => {
     const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
     expect(workflow).toContain("@type.*WebPage");
     expect(workflow).toContain("isPartOf:");
+  });
+
+  test("galeria responsiva da D.Y.Z preserva JPEGs originais e o lightbox", () => {
+    const generator = readFileSync("scripts/generate-portfolio-perf-images.mjs", "utf8");
+    const page = readFileSync("src/components/site/DyzPromoPage.tsx", "utf8");
+    for (const image of ["faixa-equipe","cancela-mall","cancela-shopping","acao-semaforo","entrega-residencial","panfletagem-praca","bandeira-centro"]) {
+      expect(generator).toContain('"' + image + '"');
+      expect(statSync("public/images/dyzpromo/" + image + ".jpeg").size).toBeGreaterThan(0);
+    }
+    expect(generator).toContain("for (const width of [480, upperWidth])");
+    expect(generator).toContain('["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800');
+    expect(page).toContain("const upperWidth = imageName");
+    expect(generator).toContain("converted[0] >= converted[1]");
+    expect(page).toContain("srcSet={srcSet}");
+    expect(page).toContain("detail: { src, alt }");
+    expect(page).toContain('imageName !== "panfletagem-semaforo"');
+    expect(page).toContain("loading={priority ? \"eager\" : \"lazy\"}");
+  });
+
+  test("favicon da D.Y.Z reutiliza PNG local e leve, sem alterar canonical nem OG", () => {
+    const route = readFileSync("src/routes/portfolio.dyzpromo.tsx", "utf8");
+    expect(route).toContain('const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
+    expect(route).toContain('{ rel: "icon", type: "image/png", href: ICON }');
+    expect(route).toContain('const TOUCH_ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
+    expect(route).toContain('const URL = "https://0web.com.br/portfolio/dyzpromo"');
+    expect(route).toContain('const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg');
+    const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
+    expect(size).toBeLessThan(40_000);
   });
 });

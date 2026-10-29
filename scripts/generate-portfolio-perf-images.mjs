@@ -213,6 +213,44 @@ for (const filename of ["galeria-temas", "decoracao-branca", "decoracao-colorida
   }
 }
 
+// D.Y.Z: fotografias autênticas nos cards. Os JPEGs originais permanecem intactos
+// para fallback e lightbox; versões WebP dimensionadas são usadas apenas no display.
+// Limites de bytes, dimensões e ordenação mobile < desktop são obrigatórios.
+const dyzGalleryImages = [
+  "faixa-equipe",
+  "cancela-mall",
+  "cancela-shopping",
+  "acao-semaforo",
+  "entrega-residencial",
+  "panfletagem-praca",
+  "bandeira-centro"
+];
+for (const imageName of dyzGalleryImages) {
+  const input = resolve(`public/images/dyzpromo/${imageName}.jpeg`);
+  const base = resolve("public/images/_generated/dyzpromo");
+  const originalSize = (await stat(input)).size;
+  await mkdir(base, { recursive: true });
+  // A foto vertical de 896px geraria mais bytes em WebP de 800px q92;
+  // 640px preserva detalhe sem tornar a variante mais pesada que o JPEG.
+  const upperWidth = ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800;
+  const converted = [];
+  for (const width of [480, upperWidth]) {
+    const output = resolve(`public/images/_generated/dyzpromo/${imageName}-${width}.webp`);
+    await sharp(input).resize({ width, withoutEnlargement: true })
+      .webp({ quality: 92, effort: 6 }).toFile(output);
+    const meta = await sharp(output).metadata();
+    const size = (await stat(output)).size;
+    if (meta.width !== width || size >= originalSize) {
+      throw new Error(`[portfolio-perf-images] D.Y.Z responsive invalid: ${imageName}-${width} (${originalSize} -> ${size})`);
+    }
+    converted.push(size);
+    console.log(`[portfolio-perf-images] D.Y.Z ${imageName}-${width}.webp: ${originalSize} -> ${size} bytes`);
+  }
+  if (converted[0] >= converted[1]) {
+    throw new Error(`[portfolio-perf-images] D.Y.Z mobile image is heavier: ${imageName} (${converted[0]} >= ${converted[1]})`);
+  }
+}
+
 // Derivados da Moreira: o original continua versionado e intocado.
 // A validação visual/Lighthouse do PR decide se a compressão da mídia de
 // abertura preserva a composição sem perda perceptível.

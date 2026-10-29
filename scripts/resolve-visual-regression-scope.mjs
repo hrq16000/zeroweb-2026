@@ -148,6 +148,15 @@ export function resolveVisualRegressionScope(files, clients) {
       continue;
     }
 
+    // Uma rota dedicada e registrada afeta só seu portfólio; rotas genéricas
+    // (como portfolio.$slug.tsx) continuam sujeitas ao gate global.
+    const dedicatedRoute = file.match(/^src\/routes\/portfolio\.([a-z0-9-]+)\.tsx$/);
+    if (dedicatedRoute && knownSlugs.has(dedicatedRoute[1])) {
+      sawVisualFile = true;
+      scoped.add(dedicatedRoute[1]);
+      continue;
+    }
+
     const assetMatch = file.match(/^public\/images\/([^/]+)\//);
     if (assetMatch && knownSlugs.has(assetMatch[1])) {
       sawVisualFile = true;

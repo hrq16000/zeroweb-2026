@@ -83,10 +83,27 @@ const regionalCoverage = [
   { title: "Rotas sob medida", text: "Definimos os pontos conforme o público, o objetivo e o raio da campanha.", image: "/images/dyzpromo/faixa-equipe.jpeg", badge: "Planejamento" },
 ];
 
-function DyzImage({ src, alt, className = "", imageClassName = "", priority = false }: { src: string; alt: string; className?: string; imageClassName?: string; priority?: boolean }) {
+function DyzImage({ src, alt, className = "", imageClassName = "", priority = false, heroImage = false, desktopOriginal = false }: { src: string; alt: string; className?: string; imageClassName?: string; priority?: boolean; heroImage?: boolean; desktopOriginal?: boolean }) {
+  // As imagens originais seguem na lightbox. Somente fotos com derivados
+  // existentes recebem srcSet; a foto de 600px mantém o JPEG original.
+  const imageName = src.match(/^\/images\/dyzpromo\/([a-z-]+)\.jpeg$/)?.[1];
+  const hasResponsive = !!imageName && imageName !== "panfletagem-semaforo";
+  const upperWidth = imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800;
+  // O hero de desktop recebe o derivado mais nítido (800px), sem alterar
+  // a seleção 480px no mobile/tablet nem as fotos originais do lightbox.
+  const srcSet = hasResponsive
+    ? `/images/_generated/dyzpromo/${imageName}-480.webp 480w, /images/_generated/dyzpromo/${imageName}-${upperWidth}.webp ${upperWidth}w`
+    : undefined;
+  const image = <img src={src} srcSet={srcSet} sizes={srcSet ? (heroImage ? "(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw") : undefined} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />;
   return (
     <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
-      <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
+      {desktopOriginal ? (
+        <picture className="block h-full w-full">
+          {/* No hero amplo a fotografia original evita detalhes perdidos pelo redimensionamento. */}
+          <source media="(min-width: 1024px)" srcSet={src} type="image/jpeg" />
+          {image}
+        </picture>
+      ) : image}
     </button>
   );
 }
@@ -204,9 +221,9 @@ export function DyzPromoPage() {
             <motion.div initial={false} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-                <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" priority className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" priority heroImage desktopOriginal className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <DyzImage src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 min-h-28 rounded-2xl bg-slate-950/30 sm:min-h-32" />
-                <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" heroImage className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
               </div>
             </motion.div>
