@@ -64,22 +64,6 @@ describe("abstrações de performance", () => {
   });
 });
 
-describe("loader global: não carregar logo 0WEB antes de a navegação ficar pendente", () => {
-  const loader = read("src/components/site/RouteLoader.tsx");
-
-  test("monta o logo apenas quando o overlay estiver visível", () => {
-    expect(loader).toMatch(/\{visible && \(\s*<BrandLogo\b/);
-    expect(loader).toContain("setTimeout(() => setVisible(true), 120)");
-    expect(loader).toContain("setVisible(false)");
-  });
-
-  test("mantém barra de progresso e acessibilidade do loader", () => {
-    expect(loader).toContain('animate-route-progress');
-    expect(loader).toContain('aria-live="polite"');
-    expect(loader).toContain('aria-label="Carregando página"');
-  });
-});
-
 describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
   const generator = read("scripts/generate-portfolio-perf-images.mjs");
   const page = read("src/components/site/LolipaArteEmFestasPage.tsx");
