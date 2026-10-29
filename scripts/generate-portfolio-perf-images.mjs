@@ -123,6 +123,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
     width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-960.webp",
   },
   {
@@ -133,6 +134,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
     width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-960.webp",
   },
   {
@@ -143,6 +145,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
     width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-960.webp",
   },
   {
@@ -153,6 +156,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
     width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp",
   },
 ];
@@ -163,10 +167,14 @@ for (const target of responsiveTargets) {
   await mkdir(dirname(output), { recursive: true });
 
   const before = (await stat(source)).size;
-  await sharp(source)
-    .resize({ width: target.width, withoutEnlargement: true })
-    .webp({ lossless: true, effort: 6 })
-    .toFile(output);
+  const pipeline = sharp(source).resize({ width: target.width, withoutEnlargement: true });
+  // At 960px, photo WebP lossless could be bigger than the source PNG.
+  // Preserve the strict byte-saving gate; use existing quality-92 policy for large
+  // responsive variants, and lossless for small variants and original-size images.
+  await (target.quality
+    ? pipeline.webp({ quality: target.quality, effort: 6 })
+    : pipeline.webp({ lossless: true, effort: 6 })
+  ).toFile(output);
 
   const meta = await sharp(output).metadata();
   if (meta.width !== target.width) {

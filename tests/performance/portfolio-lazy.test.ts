@@ -104,6 +104,9 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-960.webp"');
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-480.webp"');
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp"');
+    expect(generator).toContain("quality: 92");
+    expect(generator).toContain("pipeline.webp({ quality: target.quality, effort: 6 })");
+    expect(generator).toContain("pipeline.webp({ lossless: true, effort: 6 })");
   });
 
   test("primeira imagem do hero usa a variante local sem mudar o funil", () => {
