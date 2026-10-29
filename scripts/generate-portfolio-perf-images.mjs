@@ -114,6 +114,47 @@ const responsiveTargets = [
     width: 390,
     output: "public/images/_generated/dyzpromo/logo-390.webp",
   },
+  // Responsive sources from authentic images: never upscale or overwrite the originals.
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    width: 480,
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    width: 960,
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    width: 480,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    width: 960,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    width: 480,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    width: 960,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    width: 480,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    width: 960,
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp",
+  },
 ];
 
 for (const target of responsiveTargets) {

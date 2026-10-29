@@ -96,6 +96,14 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp"');
     expect(generator).toContain('source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png"');
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-480.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-960.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-480.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-960.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-480.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-960.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-480.webp"');
+    expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp"');
   });
 
   test("primeira imagem do hero usa a variante local sem mudar o funil", () => {
@@ -103,6 +111,8 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp"');
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp"');
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp"');
+    expect(page).toContain("widths={[480, 960]}");
+    expect(page).toContain('(min-width: 640px) 25vw, 50vw');
     expect(page).toContain('managedField: "heroImageUrl"');
     expect(page).toContain('formSlug="funnel-lolipa-arte-em-festas"');
     expect(page).toContain('clientKey="lolipa-arte-em-festas"');

@@ -37,6 +37,8 @@ export function LolipaArteEmFestasPage() {
                 src={src}
                 alt={alt}
                 priority={index === 0}
+                widths={[480, 960]}
+                sizes={index === 0 || index === 3 ? "50vw" : "(min-width: 640px) 25vw, 50vw"}
                 width={1100}
                 height={800}
                 className="h-32 w-full object-cover sm:h-52"
