@@ -29,29 +29,44 @@ try {
         waitUntil: "domcontentloaded",
         timeout: 30000,
       });
-      const hero = page.locator("section#inicio");
-      await hero.waitFor({ state: "visible", timeout: 20000 });
-      const heading = hero.locator("h1");
-      if (!(await heading.isVisible()) || (await heading.innerText()).trim().length < 15) {
-        throw new Error("Título do hero invisível em " + viewport.name);
+      // SSR/React hidrata e substitui nós do mosaico. Não segurar handles
+      // nem rolar por imagem: isso gerava 'Element is not attached to the DOM'.
+      // Aguardar todos os assets reais e então inspecionar o DOM atomicamente.
+      await page.waitForFunction(() => {
+        const root = document.querySelector("section#inicio");
+        const photos = root?.querySelectorAll(":scope > div.grid img");
+        const title = root?.querySelector("h1");
+        return title?.textContent?.trim().length >= 15 &&
+          photos?.length === 4 &&
+          Array.from(photos).every((img) =>
+            img.complete && img.naturalWidth > 0 && img.naturalHeight > 0 &&
+            img.getBoundingClientRect().width > 0
+          );
+      }, undefined, { timeout: 30000 });
+      await page.evaluate(() => new Promise((done) =>
+        requestAnimationFrame(() => requestAnimationFrame(done))
+      ));
+
+      const { media, heroTitle, overflow } = await page.evaluate(() => {
+        const root = document.querySelector("section#inicio");
+        const photos = Array.from(root.querySelectorAll(":scope > div.grid img"));
+        return {
+          heroTitle: root.querySelector("h1")?.textContent?.trim() ?? "",
+          media: photos.map((img) => ({
+            currentSrc: img.currentSrc,
+            srcSet: img.getAttribute("srcset"),
+            naturalWidth: img.naturalWidth,
+            naturalHeight: img.naturalHeight,
+            displayWidth: Math.round(img.getBoundingClientRect().width),
+            complete: img.complete,
+          })),
+          overflow: document.documentElement.scrollWidth > window.innerWidth + 2,
+        };
+      });
+      if (heroTitle.length < 15 || media.length !== 4) {
+        throw new Error("Título ou número de fotos inválidos em " + viewport.name);
       }
-      const photos = hero.locator(":scope > div.grid img");
-      if ((await photos.count()) !== 4) {
-        throw new Error("Mural não possui quatro fotografias em " + viewport.name);
-      }
-      const media = [];
-      for (let i = 0; i < 4; i++) {
-        const img = photos.nth(i);
-        await img.scrollIntoViewIfNeeded({ timeout: 15000 });
-        await img.evaluate(async (el) => { if (el.decode) await el.decode().catch(() => {}); });
-        const result = await img.evaluate(el => ({
-          currentSrc: el.currentSrc,
-          srcSet: el.getAttribute("srcset"),
-          naturalWidth: el.naturalWidth,
-          naturalHeight: el.naturalHeight,
-          displayWidth: Math.round(el.getBoundingClientRect().width),
-          complete: el.complete,
-        }));
+      for (const [i, result] of media.entries()) {
         if (!result.complete || !result.naturalWidth || !result.naturalHeight || !result.displayWidth) {
           throw new Error("Falha na fotografia " + i + " em " + viewport.name);
         }
@@ -59,18 +74,16 @@ try {
             (!result.srcSet?.includes("-480.webp 480w") || !result.srcSet?.includes("-960.webp 960w"))) {
           throw new Error("srcSet incompleto na fotografia " + i + " em " + viewport.name);
         }
-        media.push(result);
       }
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 2);
       if (overflow) throw new Error("Overflow horizontal em " + viewport.name);
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.addStyleTag({ content: "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
-      await hero.screenshot({
+      await page.locator("section#inicio").screenshot({
         path: output + "/lolipa-hero-" + viewport.name + ".png",
         animations: "disabled",
         timeout: 20000,
       });
-      report.push({ viewport: viewport.name, heroTitle: (await heading.innerText()).trim(), photos: media });
+      report.push({ viewport: viewport.name, heroTitle, photos: media });
       console.log("[lolipa-hero] " + viewport.name + ": quatro fotos válidas, título visível, sem overflow");
     } finally {
       await page.close();

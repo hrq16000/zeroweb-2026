@@ -116,3 +116,16 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(page).toContain("priority={index === 0}");
   });
 });
+
+describe("Lolipa: auditor visual resistente à hidratação SSR", () => {
+  const audit = read("scripts/verify-lolipa-hero.mjs");
+  test("aguarda quatro fotos carregadas e não rola por nós substituíveis", () => {
+    expect(audit).toContain("await page.waitForFunction(");
+    expect(audit).toContain("Array.from(photos).every(");
+    expect(audit).not.toContain("scrollIntoViewIfNeeded(");
+    expect(audit).toContain('page.locator("section#inicio").screenshot({');
+    expect(audit).toContain('name: "mobile"');
+    expect(audit).toContain('name: "tablet"');
+    expect(audit).toContain('name: "desktop"');
+  });
+});
