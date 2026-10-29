@@ -230,8 +230,11 @@ for (const imageName of dyzGalleryImages) {
   const base = resolve("public/images/_generated/dyzpromo");
   const originalSize = (await stat(input)).size;
   await mkdir(base, { recursive: true });
+  // A foto vertical de 896px geraria mais bytes em WebP de 800px q92;
+  // 640px preserva detalhe sem tornar a variante mais pesada que o JPEG.
+  const upperWidth = ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800;
   const converted = [];
-  for (const width of [480, 800]) {
+  for (const width of [480, upperWidth]) {
     const output = resolve(`public/images/_generated/dyzpromo/${imageName}-${width}.webp`);
     await sharp(input).resize({ width, withoutEnlargement: true })
       .webp({ quality: 92, effort: 6 }).toFile(output);

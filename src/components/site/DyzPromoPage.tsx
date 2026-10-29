@@ -88,8 +88,9 @@ function DyzImage({ src, alt, className = "", imageClassName = "", priority = fa
   // existentes recebem srcSet; a foto de 600px mantém o JPEG original.
   const imageName = src.match(/^\/images\/dyzpromo\/([a-z-]+)\.jpeg$/)?.[1];
   const hasResponsive = !!imageName && imageName !== "panfletagem-semaforo";
+  const upperWidth = imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800;
   const srcSet = hasResponsive
-    ? `/images/_generated/dyzpromo/${imageName}-480.webp 480w, /images/_generated/dyzpromo/${imageName}-800.webp 800w`
+    ? `/images/_generated/dyzpromo/${imageName}-480.webp 480w, /images/_generated/dyzpromo/${imageName}-${upperWidth}.webp ${upperWidth}w`
     : undefined;
   return (
     <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
