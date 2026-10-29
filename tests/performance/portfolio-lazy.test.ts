@@ -106,6 +106,9 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(generator).toContain('output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp"');
     expect(generator).toContain("quality: 92");
     expect(generator).toContain("pipeline.webp({ quality: target.quality, effort: 6 })");
+    expect(generator).toContain('Lolipa responsive variants must be ordered by size');
+    expect(generator).toContain('if (smaller >= larger)');
+    expect(generator.match(/quality: 92/g)?.length).toBe(8);
     expect(generator).toContain("pipeline.webp({ lossless: true, effort: 6 })");
   });
 

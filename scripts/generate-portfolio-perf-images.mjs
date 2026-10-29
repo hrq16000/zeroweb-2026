@@ -118,6 +118,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
     width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
     output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-480.webp",
   },
   {
@@ -129,6 +130,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
     width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-480.webp",
   },
   {
@@ -140,6 +142,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
     width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-480.webp",
   },
   {
@@ -151,6 +154,7 @@ const responsiveTargets = [
   {
     source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
     width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-480.webp",
   },
   {
@@ -194,6 +198,19 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// Lolipa responsive variants must be ordered by size, not just by pixel width.
+// A 480px lossless WebP previously outweighed its own quality-92 960px
+// variant; that made srcSet serve MORE bytes on smaller screens.
+// Keep the existing strict smaller-than-original guard and enforce 480 < 960.
+for (const filename of ["galeria-temas", "decoracao-branca", "decoracao-colorida", "decoracao-infantil"]) {
+  const dir = "public/images/_generated/lolipa-arte-em-festas";
+  const smaller = (await stat(resolve(`${dir}/${filename}-480.webp`))).size;
+  const larger = (await stat(resolve(`${dir}/${filename}-960.webp`))).size;
+  if (smaller >= larger) {
+    throw new Error(`[portfolio-perf-images] Lolipa responsive sizes out of order: ${filename} (${smaller} >= ${larger})`);
+  }
 }
 
 // Derivados da Moreira: o original continua versionado e intocado.
