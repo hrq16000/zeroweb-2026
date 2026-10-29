@@ -1,4 +1,3 @@
-import logoAsset from "@/assets/logo-0web.png.asset.json";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -26,7 +25,7 @@ export function BrandLogo({ size = 32, className, alt = "0WEB", priority }: Prop
   const width = Math.round(size * LOGO_ASPECT_RATIO);
   return (
     <img
-      src={logoAsset.url}
+      src="/images/_generated/0web/logo.webp"
       alt={alt}
       width={width}
       height={size}
