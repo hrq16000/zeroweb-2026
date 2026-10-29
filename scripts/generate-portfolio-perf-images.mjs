@@ -12,6 +12,11 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
+  // SOS Presentes LCP: pixels originais preservados para evitar regressão visual.
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas.webp",
+  },
   {
     source: "public/images/refrigeracao-maresia/logo.png",
     output: "public/images/_generated/refrigeracao-maresia/logo.webp",
@@ -85,6 +90,28 @@ for (const target of targets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// Fotos secundárias da SOS Presentes: alta qualidade, sem ampliar dimensões.
+// O PNG de origem permanece intacto, e o build rejeita conversões sem ganho real.
+for (const name of ["cestas-feliz-aniversario", "canecas-combo"]) {
+  const source = resolve(`public/images/sos-presentes-cosmeticos/${name}.png`);
+  const output = resolve(`public/images/_generated/sos-presentes-cosmeticos/${name}.webp`);
+  await mkdir(dirname(output), { recursive: true });
+  await sharp(source).webp({ quality: 92, effort: 6 }).toFile(output);
+  const [before, after] = await Promise.all([stat(source), stat(output)]);
+  const [original, optimized] = await Promise.all([
+    sharp(source).metadata(),
+    sharp(output).metadata(),
+  ]);
+  if (
+    optimized.width !== original.width ||
+    optimized.height !== original.height ||
+    after.size >= before.size
+  ) {
+    throw new Error(`[portfolio-perf-images] SOS foto não otimizada: ${name}`);
+  }
+  console.log(`[portfolio-perf-images] SOS ${name}: ${before.size} -> ${after.size} bytes`);
 }
 
 // Alias byte a byte do logo D.Y.Z na pasta de derivados: evita alterar o inventário administrativo.
