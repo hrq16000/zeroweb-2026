@@ -172,6 +172,21 @@ describe("escopo seguro da regressão visual", () => {
     expect(workflow).toContain("isPartOf:");
   });
 
+  test("galeria responsiva da D.Y.Z preserva JPEGs originais e o lightbox", () => {
+    const generator = readFileSync("scripts/generate-portfolio-perf-images.mjs", "utf8");
+    const page = readFileSync("src/components/site/DyzPromoPage.tsx", "utf8");
+    for (const image of ["faixa-equipe","cancela-mall","cancela-shopping","acao-semaforo","entrega-residencial","panfletagem-praca","bandeira-centro"]) {
+      expect(generator).toContain('"' + image + '"');
+      expect(statSync("public/images/dyzpromo/" + image + ".jpeg").size).toBeGreaterThan(0);
+    }
+    expect(generator).toContain("for (const width of [480, 800])");
+    expect(generator).toContain("converted[0] >= converted[1]");
+    expect(page).toContain("srcSet={srcSet}");
+    expect(page).toContain("detail: { src, alt }");
+    expect(page).toContain('imageName !== "panfletagem-semaforo"');
+    expect(page).toContain("loading={priority ? \"eager\" : \"lazy\"}");
+  });
+
   test("favicon da D.Y.Z reutiliza PNG local e leve, sem alterar canonical nem OG", () => {
     const route = readFileSync("src/routes/portfolio.dyzpromo.tsx", "utf8");
     expect(route).toContain('const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
