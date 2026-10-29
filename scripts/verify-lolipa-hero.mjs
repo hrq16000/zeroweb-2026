@@ -78,8 +78,24 @@ try {
       if (overflow) throw new Error("Overflow horizontal em " + viewport.name);
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.addStyleTag({ content: "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
-      await page.locator("section#inicio").screenshot({
+      // page.screenshot com clip não mantém referência a um node React:
+      // a hidratação pode substituir a seção durante o screenshot.
+      const clip = await page.evaluate(() => {
+        const root = document.querySelector("section#inicio");
+        if (!root) throw new Error("Hero Lolipa ausente durante captura");
+        const r = root.getBoundingClientRect();
+        const x = Math.max(0, Math.floor(r.x + window.scrollX));
+        const y = Math.max(0, Math.floor(r.y + window.scrollY));
+        const width = Math.ceil(r.width);
+        const height = Math.ceil(r.height);
+        if (width <= 0 || height <= 0 || width > window.innerWidth + 2) {
+          throw new Error("Geometria hero inválida para captura: " + width + "x" + height);
+        }
+        return { x, y, width, height };
+      });
+      await page.screenshot({
         path: output + "/lolipa-hero-" + viewport.name + ".png",
+        clip,
         animations: "disabled",
         timeout: 20000,
       });

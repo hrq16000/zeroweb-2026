@@ -123,7 +123,10 @@ describe("Lolipa: auditor visual resistente à hidratação SSR", () => {
     expect(audit).toContain("await page.waitForFunction(");
     expect(audit).toContain("Array.from(photos).every(");
     expect(audit).not.toContain("scrollIntoViewIfNeeded(");
-    expect(audit).toContain('page.locator("section#inicio").screenshot({');
+    expect(audit).toContain('const clip = await page.evaluate(() => {');
+    expect(audit).toContain('await page.screenshot({');
+    expect(audit).toContain('clip,');
+    expect(audit).not.toContain('page.locator("section#inicio").screenshot({');
     expect(audit).toContain('name: "mobile"');
     expect(audit).toContain('name: "tablet"');
     expect(audit).toContain('name: "desktop"');
