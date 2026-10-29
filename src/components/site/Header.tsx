@@ -11,6 +11,7 @@ import { servicesNavQuery } from "@/lib/services-nav-query";
 const GlobalSearch = lazy(() =>
   import("@/components/site/GlobalSearch").then((m) => ({ default: m.GlobalSearch })),
 );
+import logoAsset from "@/assets/logo-0web.png.asset.json";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
 // Desktop nav (Cases, Planos, FAQ ficam só no footer — Header enxuto)
@@ -128,7 +129,7 @@ export function Header() {
       >
         <Link to="/" aria-label="0WEB — Início" className="flex items-center">
           <img
-            src="/images/_generated/0web/logo.webp"
+            src={logoAsset.url}
             alt="0WEB — do zero ao digital"
             width={920}
             height={250}

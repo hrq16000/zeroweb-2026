@@ -12,12 +12,6 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
-  // Logo global 0WEB: mesmo conteúdo visual do PNG original, menos bytes.
-  // Compartilhado entre Header, Footer (BrandLogo) e RouteLoader.
-  {
-    source: "public/0web-logo.png",
-    output: "public/images/_generated/0web/logo.webp",
-  },
   {
     source: "public/images/refrigeracao-maresia/logo.png",
     output: "public/images/_generated/refrigeracao-maresia/logo.webp",
