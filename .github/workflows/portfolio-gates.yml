@@ -300,6 +300,10 @@ jobs:
           VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
 
+      - name: Evidência visual hero Lolipa (desktop, tablet e mobile)
+        if: github.event_name == 'pull_request' && contains(steps.visual-scope.outputs.only, 'lolipa-arte-em-festas')
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/verify-lolipa-hero.mjs
+
       - name: Relatório comparativo consolidado
         if: always()
         run: bun run audit:report
