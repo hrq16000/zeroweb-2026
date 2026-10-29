@@ -28,6 +28,25 @@ const targets = [
     source: "public/images/auto-socorro-dentinho/diagnostic-v2.png",
     output: "public/images/_generated/auto-socorro-dentinho/diagnostic.webp",
   },
+  // Foto LCP real da Lolipa: WebP lossless, pixels e dimensões verificados abaixo.
+  // O PNG original permanece disponível para o administrador.
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas.webp",
+  },
+  // Três imagens adicionais do mural: mantém pixels idênticos e rejeita saída maior.
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp",
+  },
 ];
 
 for (const target of targets) {
@@ -95,6 +114,55 @@ const responsiveTargets = [
     width: 390,
     output: "public/images/_generated/dyzpromo/logo-390.webp",
   },
+  // Responsive sources from authentic images: never upscale or overwrite the originals.
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/galeria-temas.png",
+    width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
+    output: "public/images/_generated/lolipa-arte-em-festas/galeria-temas-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-branca-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-colorida.png",
+    width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-colorida-960.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    width: 480,
+    quality: 92, // responsive photo: smaller download than the 960px variant
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-480.webp",
+  },
+  {
+    source: "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
+    width: 960,
+    quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
+    output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp",
+  },
 ];
 
 for (const target of responsiveTargets) {
@@ -103,10 +171,14 @@ for (const target of responsiveTargets) {
   await mkdir(dirname(output), { recursive: true });
 
   const before = (await stat(source)).size;
-  await sharp(source)
-    .resize({ width: target.width, withoutEnlargement: true })
-    .webp({ lossless: true, effort: 6 })
-    .toFile(output);
+  const pipeline = sharp(source).resize({ width: target.width, withoutEnlargement: true });
+  // At 960px, photo WebP lossless could be bigger than the source PNG.
+  // Preserve the strict byte-saving gate; use existing quality-92 policy for large
+  // responsive variants, and lossless for small variants and original-size images.
+  await (target.quality
+    ? pipeline.webp({ quality: target.quality, effort: 6 })
+    : pipeline.webp({ lossless: true, effort: 6 })
+  ).toFile(output);
 
   const meta = await sharp(output).metadata();
   if (meta.width !== target.width) {
@@ -126,6 +198,19 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// Lolipa responsive variants must be ordered by size, not just by pixel width.
+// A 480px lossless WebP previously outweighed its own quality-92 960px
+// variant; that made srcSet serve MORE bytes on smaller screens.
+// Keep the existing strict smaller-than-original guard and enforce 480 < 960.
+for (const filename of ["galeria-temas", "decoracao-branca", "decoracao-colorida", "decoracao-infantil"]) {
+  const dir = "public/images/_generated/lolipa-arte-em-festas";
+  const smaller = (await stat(resolve(`${dir}/${filename}-480.webp`))).size;
+  const larger = (await stat(resolve(`${dir}/${filename}-960.webp`))).size;
+  if (smaller >= larger) {
+    throw new Error(`[portfolio-perf-images] Lolipa responsive sizes out of order: ${filename} (${smaller} >= ${larger})`);
+  }
 }
 
 // Derivados da Moreira: o original continua versionado e intocado.
