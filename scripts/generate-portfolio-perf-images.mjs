@@ -12,6 +12,11 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
+  // SOS Presentes LCP: pixels originais preservados para evitar regressão visual.
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas.webp",
+  },
   {
     source: "public/images/refrigeracao-maresia/logo.png",
     output: "public/images/_generated/refrigeracao-maresia/logo.webp",
@@ -87,12 +92,71 @@ for (const target of targets) {
   );
 }
 
+// Fotos secundárias da SOS Presentes: alta qualidade, sem ampliar dimensões.
+// O PNG de origem permanece intacto, e o build rejeita conversões sem ganho real.
+for (const name of ["cestas-feliz-aniversario", "canecas-combo"]) {
+  const source = resolve(`public/images/sos-presentes-cosmeticos/${name}.png`);
+  const output = resolve(`public/images/_generated/sos-presentes-cosmeticos/${name}.webp`);
+  await mkdir(dirname(output), { recursive: true });
+  await sharp(source).webp({ quality: 92, effort: 6 }).toFile(output);
+  const [before, after] = await Promise.all([stat(source), stat(output)]);
+  const [original, optimized] = await Promise.all([
+    sharp(source).metadata(),
+    sharp(output).metadata(),
+  ]);
+  if (
+    optimized.width !== original.width ||
+    optimized.height !== original.height ||
+    after.size >= before.size
+  ) {
+    throw new Error(`[portfolio-perf-images] SOS foto não otimizada: ${name}`);
+  }
+  console.log(`[portfolio-perf-images] SOS ${name}: ${before.size} -> ${after.size} bytes`);
+}
+
 // Alias byte a byte do logo D.Y.Z na pasta de derivados: evita alterar o inventário administrativo.
 const dyzLogoAlias = resolve("public/images/_generated/dyzpromo/logo.webp");
 await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // SOS Presentes: formatos 480/960px permitem downloads proporcionais ao viewport.
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    width: 480,
+    quality: 96, // Smaller responsive photo; the original full-size hero remains pixel-identical.
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    width: 960,
+    quality: 96, // 960px lossless exceeded source bytes; preserve 1200px lossless fallback and enforce visual gate.
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-960.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cestas-feliz-aniversario-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cestas-feliz-aniversario-960.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/canecas-combo.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/canecas-combo-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/canecas-combo.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/canecas-combo-960.webp",
+  },
   {
     source: "public/images/refrigeracao-maresia/logo.png",
     width: 130,
@@ -198,6 +262,17 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// SOS Presentes: a variante móvel deve pesar menos que a desktop.
+// Imagens reais e originais intocados; falhar se a conversão aumentar bytes.
+for (const name of ["cesta-lilas", "cestas-feliz-aniversario", "canecas-combo"]) {
+  const dir = "public/images/_generated/sos-presentes-cosmeticos";
+  const mobile = (await stat(resolve(`${dir}/${name}-480.webp`))).size;
+  const desktop = (await stat(resolve(`${dir}/${name}-960.webp`))).size;
+  if (mobile >= desktop) {
+    throw new Error(`[portfolio-perf-images] SOS mobile >= desktop: ${name} (${mobile} >= ${desktop})`);
+  }
 }
 
 // Lolipa responsive variants must be ordered by size, not just by pixel width.
