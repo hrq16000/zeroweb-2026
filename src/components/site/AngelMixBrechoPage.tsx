@@ -44,9 +44,11 @@ export function AngelMixBrechoPage() {
         <section className="relative isolate">
           <MotionImageReveal direction="up">
             <PortfolioImage
-              src="/images/angel-mix-brecho/capa.png"
+              src="/images/_generated/angel-mix-brecho/capa.webp"
               alt="Angel Mix Brechó"
               priority
+              widths={[480, 960, 1536]}
+              sizes="100vw"
               width={1536}
               height={1024}
               className="h-[78vh] w-full object-cover md:h-[88vh]"

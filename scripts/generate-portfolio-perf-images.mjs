@@ -12,6 +12,11 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
+  // Angel Mix: imagem LCP autêntica preservada pixel a pixel em WebP lossless.
+  {
+    source: "public/images/angel-mix-brecho/capa.png",
+    output: "public/images/_generated/angel-mix-brecho/capa.webp",
+  },
   // SOS Presentes LCP: pixels originais preservados para evitar regressão visual.
   {
     source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
@@ -120,6 +125,24 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // Foto editorial real do Angel Mix: mobile/tablet proporcionais ao viewport.
+  {
+    source: "public/images/angel-mix-brecho/capa.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/angel-mix-brecho/capa-480.webp",
+  },
+  {
+    source: "public/images/angel-mix-brecho/capa.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/angel-mix-brecho/capa-960.webp",
+  },
+  {
+    source: "public/images/angel-mix-brecho/capa.png",
+    width: 1536,
+    output: "public/images/_generated/angel-mix-brecho/capa-1536.webp",
+  },
   // SOS Presentes: formatos 480/960px permitem downloads proporcionais ao viewport.
   {
     source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
@@ -272,6 +295,17 @@ for (const name of ["cesta-lilas", "cestas-feliz-aniversario", "canecas-combo"])
   const desktop = (await stat(resolve(`${dir}/${name}-960.webp`))).size;
   if (mobile >= desktop) {
     throw new Error(`[portfolio-perf-images] SOS mobile >= desktop: ${name} (${mobile} >= ${desktop})`);
+  }
+}
+
+// Angel Mix: nunca baixar mais bytes em viewports menores.
+{
+  const dir = "public/images/_generated/angel-mix-brecho";
+  const small = (await stat(resolve(`${dir}/capa-480.webp`))).size;
+  const medium = (await stat(resolve(`${dir}/capa-960.webp`))).size;
+  const large = (await stat(resolve(`${dir}/capa-1536.webp`))).size;
+  if (!(small < medium && medium < large)) {
+    throw new Error(`[portfolio-perf-images] Angel Mix responsive sizes out of order: ${small}, ${medium}, ${large}`);
   }
 }
 
