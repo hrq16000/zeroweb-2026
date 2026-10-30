@@ -124,6 +124,7 @@ const responsiveTargets = [
   {
     source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
     width: 480,
+    quality: 96, // Smaller responsive photo; the original full-size hero remains pixel-identical.
     output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-480.webp",
   },
   {
@@ -261,6 +262,17 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// SOS Presentes: a variante móvel deve pesar menos que a desktop.
+// Imagens reais e originais intocados; falhar se a conversão aumentar bytes.
+for (const name of ["cesta-lilas", "cestas-feliz-aniversario", "canecas-combo"]) {
+  const dir = "public/images/_generated/sos-presentes-cosmeticos";
+  const mobile = (await stat(resolve(`${dir}/${name}-480.webp`))).size;
+  const desktop = (await stat(resolve(`${dir}/${name}-960.webp`))).size;
+  if (mobile >= desktop) {
+    throw new Error(`[portfolio-perf-images] SOS mobile >= desktop: ${name} (${mobile} >= ${desktop})`);
+  }
 }
 
 // Lolipa responsive variants must be ordered by size, not just by pixel width.
