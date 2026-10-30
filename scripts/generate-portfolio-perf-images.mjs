@@ -129,6 +129,7 @@ const responsiveTargets = [
   {
     source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
     width: 960,
+    quality: 96, // 960px lossless exceeded source bytes; preserve 1200px lossless fallback and enforce visual gate.
     output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-960.webp",
   },
   {
