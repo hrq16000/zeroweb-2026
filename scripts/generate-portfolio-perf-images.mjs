@@ -120,6 +120,41 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // SOS Presentes: formatos 480/960px permitem downloads proporcionais ao viewport.
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    width: 480,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    width: 960,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cesta-lilas-960.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cestas-feliz-aniversario-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/cestas-feliz-aniversario-960.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/canecas-combo.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/canecas-combo-480.webp",
+  },
+  {
+    source: "public/images/sos-presentes-cosmeticos/canecas-combo.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/sos-presentes-cosmeticos/canecas-combo-960.webp",
+  },
   {
     source: "public/images/refrigeracao-maresia/logo.png",
     width: 130,
