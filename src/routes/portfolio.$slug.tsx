@@ -62,7 +62,7 @@ function managedHead(project: ManagedProject) {
       { rel: "canonical", href: url },
       { rel: "alternate", hrefLang: "pt-BR", href: url },
       { rel: "alternate", hrefLang: "x-default", href: url },
-      { rel: "icon", href: icon },
+      { rel: "icon", href: icon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
     scripts: [
@@ -944,7 +944,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { rel: "canonical", href: eff.canonicalUrl },
         { rel: "alternate", hrefLang: "pt-BR", href: eff.canonicalUrl },
         { rel: "alternate", hrefLang: "x-default", href: eff.canonicalUrl },
-        { rel: "icon", href: effIcon },
+        { rel: "icon", href: effIcon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
         ...(isArildoMadeiras
           ? [
