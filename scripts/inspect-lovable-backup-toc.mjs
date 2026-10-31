@@ -39,7 +39,9 @@ export function inspectToc(content) {
     countByType[type] = (countByType[type] || 0) + 1;
     if (type === "SCHEMA") {
       const v = rest.slice(type.length).trim().split(/\s+/);
-      if (v.length >= 1) schemas.add(v[0]);
+      // Formato comum: "SCHEMA - public postgres"; "-" é namespace do objeto, não o nome.
+      const name = v[0] === "-" ? v[1] : v[0];
+      if (name && name !== "-") schemas.add(name);
     }
     if (type === "TABLE" || type === "TABLE DATA") {
       const payload = rest.slice(type.length).trim();

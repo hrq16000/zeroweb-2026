@@ -29,6 +29,7 @@ describe("Auditoria offline do índice PostgreSQL Lovable", () => {
     assert.deepEqual(report.missingManagedTables, []);
     assert.deepEqual(report.missingDataEntries, []);
     assert.equal(report.countByType.FUNCTION, 1);
+    assert.deepEqual(report.schemas, ["auth", "public", "storage"]);
   });
   it("bloqueia archive incompleto sem aceitar ausência de dados auth", () => {
     const rows = toc().filter(x=> !x.includes("TABLE DATA auth users") && !x.includes("TABLE public lead_submissions"));
