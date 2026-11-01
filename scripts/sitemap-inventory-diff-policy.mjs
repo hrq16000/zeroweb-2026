@@ -7,6 +7,9 @@
  * ausência no preview gera PENDENCIA VISIVEL, nao uma aprovação de remoção.
  */
 const CANONICAL = "https://0web.com.br";
+// Redirecionamento 301 comprovado em src/routes/marketplace.tsx.
+// Só classifica como correção se o destino canônico existia antes e permanece depois.
+const KNOWN_CANONICAL_REDIRECTS = new Map([["/marketplace", "/servicos/marketplace"]]);
 
 function keyFromUrl(value) {
   try {
@@ -58,7 +61,12 @@ export function classifySitemapInventoryDelta(beforeUrls, afterUrls) {
   const dynamicCategories = disappeared.filter((p) =>
     /^\/categoria\/[a-z0-9-]+$/.test(p));
   const uncertain = new Set([...dynamicLocal, ...dynamicCategories]);
-  const missingProtected = disappeared.filter((p) => !uncertain.has(p));
+  const resolvedRedirects = disappeared.filter((p) => {
+    const target = KNOWN_CANONICAL_REDIRECTS.get(p);
+    return Boolean(target && before.keys.has(target) && after.keys.has(target));
+  });
+  const knownRedirects = new Set(resolvedRedirects);
+  const missingProtected = disappeared.filter((p) => !uncertain.has(p) && !knownRedirects.has(p));
   const hardProblems = [
     ...missingProtected.map((p) => "URL estática ausente no preview: " + p),
     ...after.nonCanonical.map((p) => "URL não canônica no preview: " + p),
@@ -74,6 +82,7 @@ export function classifySitemapInventoryDelta(beforeUrls, afterUrls) {
     dynamicLocal,
     dynamicCategories,
     missingProtected,
+    resolvedRedirects,
     nonCanonical: after.nonCanonical,
     invalid: after.invalid,
     duplicatePaths: after.duplicatePaths,
