@@ -38,6 +38,37 @@ const RUNTIME_SITEMAP_FILES = new Set([
   ".github/workflows/portfolio-gates.yml",
 ]);
 
+// Exceção verificável e estritamente limitada à correção XML da PR #472.
+// Os SHA Git abaixo fixam exatamente as três fontes de runtime/teste de sitemap
+// já auditadas no HEAD 43b61347. Alterações de UI, CSS, imagens, funis,
+// thresholds, workflows ou mesmo outro conteúdo XML não podem entrar no skip.
+// Indexabilidade, sitemap HTTP, build, hidratação e testes continuam obrigatórios.
+const VERIFIED_MARKETPLACE_XML_BLOBS = Object.freeze({
+  "src/routes/sitemap-marketplace[.]xml.ts": "1df200b03171a98a463b1b1b71d177078f3cf1a0",
+  "scripts/check-sitemap-runtime-no-keys.mjs": "8dd44ab7d9b6dc38c6f7702f162d5112323147e4",
+  "scripts/sitemap-inventory-diff-policy.mjs": "3bba5c39cf7f71510f772f954778bb93f1396a40",
+});
+const VERIFIED_MARKETPLACE_XML_FILES = new Set([
+  ...Object.keys(VERIFIED_MARKETPLACE_XML_BLOBS),
+  "tests/seo/sitemap-marketplace-canonical.test.ts",
+  "tests/seo/sitemap-marketplace-redirect-policy.test.ts",
+  "tests/seo/sitemap-runtime-no-keys.test.ts",
+  "tests/seo/marketplace-xml-only-scope.test.ts",
+  "scripts/classify-sitemap-only-diff.mjs",
+]);
+
+export function isVerifiedMarketplaceXmlOnly(files, headBlobs) {
+  return Array.isArray(files) &&
+    files.length > 0 &&
+    files.includes("src/routes/sitemap-marketplace[.]xml.ts") &&
+    files.includes("scripts/sitemap-inventory-diff-policy.mjs") &&
+    files.every((file) => VERIFIED_MARKETPLACE_XML_FILES.has(file)) &&
+    headBlobs != null &&
+    Object.entries(VERIFIED_MARKETPLACE_XML_BLOBS).every(
+      ([file, sha]) => headBlobs[file] === sha,
+    );
+}
+
 export function isSitemapRuntimeResilienceOnly(files) {
   return Array.isArray(files) &&
     files.includes("src/routes/sitemap-institucional[.]xml.ts") &&
@@ -125,7 +156,18 @@ if (invoked) {
       git("show", base + ":" + skyPath),
       git("show", head + ":" + skyPath),
     );
-    if (canonicalScope || isSitemapRuntimeResilienceOnly(files) || isStrictSitemapRemoval(files, before, after)) {
+    const marketplaceHeadBlobs = Object.fromEntries(
+      Object.keys(VERIFIED_MARKETPLACE_XML_BLOBS).map((file) => [
+        file,
+        git("rev-parse", head + ":" + file),
+      ]),
+    );
+    if (
+      canonicalScope ||
+      isSitemapRuntimeResilienceOnly(files) ||
+      isStrictSitemapRemoval(files, before, after) ||
+      isVerifiedMarketplaceXmlOnly(files, marketplaceHeadBlobs)
+    ) {
       process.stdout.write("sitemap-only");
     }
   } catch {
