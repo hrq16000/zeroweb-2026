@@ -9,7 +9,7 @@ const smoke = readFileSync("scripts/check-sitemap-runtime-no-keys.mjs", "utf8");
 describe("Sitemap marketplace: somente URL canônica e perfis indexáveis", () => {
   test("não publica endereço redirecionado nem categorias noindex por padrão", () => {
     expect(marketplaceRedirect).toContain('statusCode: 301');
-    expect(sitemap).toContain("${ORIGIN}/servicos/marketplace");
+    expect(sitemap).not.toContain("`${ORIGIN}/servicos/marketplace`");
     expect(sitemap).not.toContain("`${ORIGIN}/marketplace`");
     expect(sitemap).not.toContain("/categoria/${c.slug}");
   });
@@ -22,7 +22,7 @@ describe("Sitemap marketplace: somente URL canônica e perfis indexáveis", () =
   test("não promove categoria antes de haver perfis ativos", () => {
     expect(categoryPage).toContain("const indexable = Boolean(category) && total > 0");
     expect(categoryPage).toContain('"noindex, follow"');
-    expect(smoke).toContain('https://0web.com.br/servicos/marketplace');
+    expect(smoke).toContain('urls.includes("https://0web.com.br/servicos/marketplace")');
     expect(smoke).toContain('u.startsWith("https://0web.com.br/categoria/")');
   });
 });

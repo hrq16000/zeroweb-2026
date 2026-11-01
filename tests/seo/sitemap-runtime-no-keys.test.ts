@@ -27,7 +27,7 @@ describe("publicação de sitemaps sem fonte administrativa", () => {
     expect(a).toContain('path: "/criacao-de-site-institucional"');
     expect(a).toContain("selectInstitutionalCapitals");
     expect(b).toContain("${ORIGIN}/solicitar-orcamento");
-    expect(b).toContain("${ORIGIN}/servicos/marketplace");
+    expect(b).not.toContain("`${ORIGIN}/servicos/marketplace`");
     expect(b).not.toContain("`${ORIGIN}/marketplace`");
     expect(b).not.toContain("`${ORIGIN}/categoria/${c.slug}`");
     expect(b).toContain("catch (error)");

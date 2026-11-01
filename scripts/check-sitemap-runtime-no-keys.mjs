@@ -28,13 +28,13 @@ for (const [path, requiredUrl] of cases) {
     throw new Error("Sem fonte de publicação, capitais sem prova não podem ser indexadas");
   }
   if (path === "/sitemap-marketplace.xml") {
-    if (!urls.includes("https://0web.com.br/servicos/marketplace")) {
-      throw new Error("Marketplace precisa publicar seu endereço canônico");
+    if (urls.includes("https://0web.com.br/servicos/marketplace")) {
+      throw new Error("URL canônica do marketplace já consta de outro sitemap; não duplicar");
     }
     if (urls.some((u) => u === "https://0web.com.br/marketplace" || u.startsWith("https://0web.com.br/categoria/"))) {
       throw new Error("Sitemap não pode divulgar redirects ou categorias sem comprovação de indexabilidade");
     }
-    if (urls.length !== 2) {
+    if (urls.length !== 1) {
       throw new Error("Sem fonte do marketplace, prestadores não podem ser inventados");
     }
   }

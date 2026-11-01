@@ -20,10 +20,9 @@ export const Route = createFileRoute("/sitemap-marketplace.xml")({
             error instanceof Error ? error.message : "erro de leitura",
           );
         }
-        const urls: string[] = [
-          `${ORIGIN}/servicos/marketplace`,
-          `${ORIGIN}/solicitar-orcamento`,
-        ];
+        // /servicos/marketplace já consta de outro sitemap do índice.
+        // Evita entrada duplicada, mantendo a URL canônica publicável.
+        const urls: string[] = [`${ORIGIN}/solicitar-orcamento`];
         // As categorias sem perfis ativos retornam noindex; somente URLs
         // comprovadamente elegíveis devem aparecer em sitemaps.
         // Manter as páginas acessíveis e promover categorias em rodada própria,
