@@ -24,7 +24,11 @@ export const Route = createFileRoute("/sitemap-marketplace.xml")({
           `${ORIGIN}/servicos/marketplace`,
           `${ORIGIN}/solicitar-orcamento`,
         ];
-        // As categorias sem perfis ativos retornam noindex; somente URLs\n        // comprovadamente elegíveis devem aparecer em sitemaps.\n        // Manter as páginas acessíveis e promover categorias em rodada própria,\n        // quando a fonte confirmar perfis ativos e canonical próprio.\n        for (const p of providers) urls.push(`${ORIGIN}/profissional/${p.slug}`);
+        // As categorias sem perfis ativos retornam noindex; somente URLs
+        // comprovadamente elegíveis devem aparecer em sitemaps.
+        // Manter as páginas acessíveis e promover categorias em rodada própria,
+        // quando a fonte confirmar perfis ativos e canonical próprio.
+        for (const p of providers) urls.push(`${ORIGIN}/profissional/${p.slug}`);
         for (const co of companies) urls.push(`${ORIGIN}/empresa/${co.slug}`);
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>`;
         return new Response(xml, { headers: { "Content-Type": "application/xml" } });

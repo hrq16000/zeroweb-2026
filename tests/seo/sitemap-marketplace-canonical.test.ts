@@ -10,7 +10,7 @@ describe("Sitemap marketplace: somente URL canônica e perfis indexáveis", () =
   test("não publica endereço redirecionado nem categorias noindex por padrão", () => {
     expect(marketplaceRedirect).toContain('statusCode: 301');
     expect(sitemap).toContain("${ORIGIN}/servicos/marketplace");
-    expect(sitemap).not.toContain("${ORIGIN}/marketplace`");
+    expect(sitemap).not.toContain("`${ORIGIN}/marketplace`");
     expect(sitemap).not.toContain("/categoria/${c.slug}");
   });
   test("preserva URL pública de orçamento e perfis ativos do catálogo", () => {
