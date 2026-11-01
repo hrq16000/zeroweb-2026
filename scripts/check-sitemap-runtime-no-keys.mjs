@@ -27,8 +27,16 @@ for (const [path, requiredUrl] of cases) {
   if (path === "/sitemap-institucional.xml" && urls.length !== 1) {
     throw new Error("Sem fonte de publicação, capitais sem prova não podem ser indexadas");
   }
-  if (path === "/sitemap-marketplace.xml" && urls.length !== 2) {
-    throw new Error("Sem fonte do marketplace, prestadores e categorias não podem ser inventados");
+  if (path === "/sitemap-marketplace.xml") {
+    if (!urls.includes("https://0web.com.br/servicos/marketplace")) {
+      throw new Error("Marketplace precisa publicar seu endereço canônico");
+    }
+    if (urls.some((u) => u === "https://0web.com.br/marketplace" || u.startsWith("https://0web.com.br/categoria/"))) {
+      throw new Error("Sitemap não pode divulgar redirects ou categorias sem comprovação de indexabilidade");
+    }
+    if (urls.length !== 2) {
+      throw new Error("Sem fonte do marketplace, prestadores não podem ser inventados");
+    }
   }
   console.log(`[sitemap-no-keys] ${path}: HTTP 200 · ${urls.length} URL(s) · XML válido`);
 }
