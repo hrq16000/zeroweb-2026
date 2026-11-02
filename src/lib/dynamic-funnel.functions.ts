@@ -73,12 +73,15 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: form, error } = await supabaseAdmin
       .from("dynamic_forms")
-      .select("id, slug, name, description, status, config_json, whatsapp_config")
+      .select("id, slug, name, description, status, published_version_id, config_json, whatsapp_config")
       .eq("slug", data.slug)
       .eq("status", "published")
       .maybeSingle();
     if (error) throw new Error(error.message);
     if (!form) return null;
+    // Apenas este portfolio exige prova de uma versão realmente publicada.
+    // Um UPDATE isolado de status não pode expor o funil em estado incompleto.
+    if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) return null;
 
     // Não exibir um formulário publicado acidentalmente pelo painel antes
     // de existir cliente/catálogo/destino próprios da Dona Garimpeira.
@@ -238,11 +241,14 @@ export const submitFunnel = createServerFn({ method: "POST" })
 
     const { data: form, error: fErr } = await supabaseAdmin
       .from("dynamic_forms")
-      .select("id, name, slug, status, whatsapp_config")
+      .select("id, name, slug, status, published_version_id, whatsapp_config")
       .eq("id", data.form_id)
       .maybeSingle();
     if (fErr) throw new Error(fErr.message);
     if (!form || form.status !== "published") throw new Error("Funil não disponível");
+    if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) {
+      throw new Error("Funil não disponível");
+    }
 
     // Fail closed: um rascunho do brechó publicado por engano no banco não
     // pode enviar o lead à 0WEB ou a outro cliente. Exigir registros canônicos

@@ -99,6 +99,20 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     deny(withChanges({ answers: { ...good.answers, privacidade: ["não"] } }), "PRIVACY_NOT_ACKNOWLEDGED");
   });
 
+  test("não libera o funil por simples UPDATE de status sem versão publicada", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const source = readFileSync(resolve(process.cwd(), "src/lib/dynamic-funnel.functions.ts"), "utf8");
+    const publicRead = source.slice(source.indexOf("export const getPublicFunnel ="), source.indexOf("// ============ submitFunnel"));
+    const submit = source.slice(source.indexOf("export const submitFunnel ="));
+    expect(publicRead).toContain('.select("id, slug, name, description, status, published_version_id, config_json, whatsapp_config")');
+    expect(publicRead).toContain('if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) return null;');
+    expect(submit).toContain('.select("id, name, slug, status, published_version_id, whatsapp_config")');
+    expect(submit).toContain('if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id)');
+    // Os outros funis usam as mesmas regras de status que já existiam.
+    expect(submit).toContain('if (!form || form.status !== "published")');
+  });
+
   test("a leitura pública retorna null antes do registro completo", async () => {
     expect(donaGarimpeiraIntakeReady(false, true, true)).toBe(false);
     expect(donaGarimpeiraIntakeReady(true, false, true)).toBe(false);
