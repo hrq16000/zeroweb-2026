@@ -85,11 +85,22 @@
     "QA de mobile e acessibilidade em rota final"
   ],
   "pending": [
-    "Identificar acesso válido ao banco Supabase lxajhxocyqzwwbcfahya antes de alterar dados",
-    "Revisar perguntas com a responsável e conferir aviso de privacidade efetivamente exibido",
-    "Criar dynamic_form, dynamic_form_questions, permissionamento e testar inserção real",
-    "Validar canal WhatsApp e token de redirect sem expor número em URL de front-end",
-    "Manter sem publicação enquanto routing/clientKey e gates v4 incompletos"
+    "Confirmar diretamente no backend o ID, status e cinco questões quando acesso autorizado estiver disponível (sem recriar formulário)",
+    "Revisar com Luiza a redação das perguntas e o aviso de privacidade",
+    "Registrar clientKey, catálogo, rota e destino canônico ao mesmo tempo, após requisitos de mídia e prontidão",
+    "Executar teste real que comprove persistência em dynamic_form_leads antes do token e destino da Dona Garimpeira",
+    "Manter draft/no redirect até CI, mídia oficial e segurança efetiva aprovados"
   ],
-  "lastUpdatedAt": "2026-11-02"
+  "lastUpdatedAt": "2026-11-02",
+  "backendReport": {
+    "formId": "05aff8a3-0358-43a4-ab3f-55f271688796",
+    "projectId": "lxajhxocyqzwwbcfahya",
+    "reportedBy": "Lovable (relatório compartilhado pelo usuário)",
+    "reportedAt": "2026-11-02",
+    "status": "draft",
+    "persistedQuestionCount": 5,
+    "redirectedToWhatsApp": false,
+    "verifiedDirectlyByThisConnection": false,
+    "note": "O Lovable confirmou criação e cinco perguntas. Esta conexão ainda não possui leitura do projeto Supabase; não considerar E2E realizado."
+  }
 }
