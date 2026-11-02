@@ -80,6 +80,26 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
     if (!form) return null;
 
+    // Não exibir um formulário publicado acidentalmente pelo painel antes
+    // de existir cliente/catálogo/destino próprios da Dona Garimpeira.
+    if (form.slug === "funnel-dona-garimpeira-brecho") {
+      const [
+        { donaGarimpeiraIntakeReady, DONA_GARIMPEIRA_CLIENT_KEY },
+        { resolveVersionedPortfolioWhatsApp },
+        { default: catalog },
+      ] = await Promise.all([
+        import("@/lib/dona-garimpeira-funnel-guard"),
+        import("@/lib/portfolio-whatsapp-registry.server"),
+        import("@/config/portfolio-catalog.json"),
+      ]);
+      if (!donaGarimpeiraIntakeReady(
+        isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
+        (catalog as Array<{ slug: string; status?: string; live?: boolean }>)
+          .some((p) => p.slug === DONA_GARIMPEIRA_CLIENT_KEY && p.status === "published" && p.live === true),
+        Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
+      )) return null;
+    }
+
     const [{ data: qs }, { data: cs }] = await Promise.all([
       supabaseAdmin
         .from("dynamic_form_questions")
