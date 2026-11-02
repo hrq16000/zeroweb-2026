@@ -10,13 +10,13 @@
     "entityResolution": "in_progress",
     "evidence": "in_progress",
     "media": "not_started",
-    "mediaPlan": "not_started",
+    "mediaPlan": "in_progress",
     "content": "in_progress",
-    "discovery": "not_started",
+    "discovery": "in_progress",
     "blueprint": "not_started",
     "composition": "in_progress",
-    "seo": "not_started",
-    "funnel": "not_started",
+    "seo": "in_progress",
+    "funnel": "in_progress",
     "cover": "not_started",
     "qa": "not_started",
     "publish": "not_started"
@@ -27,13 +27,19 @@
     "gates": {
       "PORTFOLIO_INDIVIDUAL_SITE_GATE": "not_started",
       "PORTFOLIO_ENTITY_GATE": "in_progress",
-      "PORTFOLIO_LOCAL_SEO_GATE": "not_started",
+      "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
       "PORTFOLIO_MEDIA_RICHNESS_GATE": "not_started",
       "PORTFOLIO_DISCOVERY_GRAPH_GATE": "not_started",
       "PORTFOLIO_INDEXABILITY_GATE": "not_started"
     },
-    "evidence": {},
-    "notes": "Contract v4 declarado somente para novo projeto em DRAFT. Nenhum gate de indexabilidade ou publicação foi aprovado."
+    "evidence": {
+      "prospectiveSeoModule": "src/lib/dona-garimpeira-seo.ts",
+      "authorialVisualRegistry": "src/components/portfolio/composition/registry.ts",
+      "serverCompositionContract": "src/config/portfolio-authorial-compositions.ts",
+      "seoPrepublishTests": "tests/portfolio/dona-garimpeira-seo-prepublish.test.ts",
+      "mediaProvenance": "docs/portfolio/media-plans/dona-garimpeira-brecho.json"
+    },
+    "notes": "DRAFT: composição e metadados SEO individual preparados mas não publicados; gates de mídia, rota, funil e indexação não aprovados."
   },
   "contentFacts": {
     "ownSourcedContent": true,
@@ -47,9 +53,9 @@
     "SOCIAL_LATEST_6_NOT_VERIFIED: publicações reais/permalinks/imagens Instagram ainda não ingeridos",
     "REAL_MEDIA_REQUIRED: não usar stock nem fotos de outro brechó",
     "PRIVATE_FUNNEL_NOT_READY: persistência do lead e destino server-only precisam de configuração e teste",
-    "COMPOSITION_NOT_REGISTERED: implementação JSX ainda isolada do roteamento por segurança",
+    "AUTHORIAL_REGISTERED_BUT_URL_NOT_PUBLISHED: sem clientKey/catalog/prototype, rota mantém 404",
     "MANAGED_EDITOR_RBAC_NOT_READY: Google OAuth/tenant/auditoria ainda não construídos",
-    "SITE_SEO_AND_READINESS_NOT_VALIDATED: sem publicar nem incluir URL em Google Business Profile"
+    "SEO_DRAFT_NOT_WIRED_TO_HEAD: candidato com noindex fail-closed, mídia/capa e readiness ainda bloqueados"
   ],
   "warnings": [
     "Google Business Profile informado como criado mas não visível, verificação em processamento",
