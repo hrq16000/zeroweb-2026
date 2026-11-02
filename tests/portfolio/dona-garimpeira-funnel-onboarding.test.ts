@@ -9,14 +9,18 @@ const slug = "dona-garimpeira-brecho";
 describe("Dona Garimpeira — funnel onboarding (not published)", () => {
   test("the contact belongs to exactly the intended future portfolio", () => {
     const contacts = json("src/config/portfolio-whatsapp.json").contacts;
+    const reserved = json("docs/portfolio/drafts/dona-garimpeira-brecho-contact.json");
     const ledger = json("src/config/portfolio-funnel-destinations.json").entries;
-    expect(contacts[slug].whatsapp).toBe("5541998379642");
+    expect(contacts[slug]).toBeUndefined();
+    expect(reserved.operationalContact.whatsapp).toBe("5541998379642");
+    expect(reserved.provenance.status).toBe("CONFIGURED_UNVERIFIED");
+    expect(reserved.stage).toBe("draft");
     expect(ledger[slug].status).toBe("CONFIGURED_UNVERIFIED");
     expect(ledger[slug].source).toBe("CLIENT_SUPPLIED");
     expect(ledger[slug].verifiedAt).toBeUndefined();
     expect(Object.entries(contacts).filter(([, entry]) =>
       (entry as { whatsapp: string | null }).whatsapp === "5541998379642",
-    ).map(([key]) => key)).toEqual([slug]);
+    )).toEqual([]);
   });
 
   test("not a published/registered client or available public form", () => {
