@@ -87,7 +87,8 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(store.address.addressLocality).toBe("São José dos Pinhais");
     expect(store.address.postalCode).toBe("83040-170");
     expect(store.sameAs).toEqual(["https://www.instagram.com/donagarimpeirasjp/"]);
-    expect(store.openingHoursSpecification[0].dayOfWeek).toHaveLength(7);
+    // Horário de funcionamento não informado: nunca inventar expediente no JSON-LD.
+    expect(store).not.toHaveProperty("openingHoursSpecification");
     expect(store).not.toHaveProperty("review");
     expect(store).not.toHaveProperty("aggregateRating");
     expect(store).not.toHaveProperty("telephone");

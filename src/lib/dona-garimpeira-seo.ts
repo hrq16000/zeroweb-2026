@@ -1,9 +1,9 @@
 /**
  * SEO individual planejado para Dona Garimpeira.
  *
- * Falha de forma segura: não produz instrução de indexação nem schema
- * publicável enquanto não houver aprovação da mídia e liberação editorial.
- * Não registrar este resultado na rota /portfolio/:slug antes do gate v4.
+ * Falha de forma segura: indexação e schema somente quando os gates de
+ * publicação, funil e autorização estiverem aprovados.
+ * Imagens são opcionais; não inventar horários, mídia nem dados comerciais.
  */
 export const DONA_GARIMPEIRA_SEO = {
   slug: "dona-garimpeira-brecho",
@@ -90,15 +90,6 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
           postalCode: s.postalCode,
           addressCountry: "BR",
         },
-        openingHoursSpecification: [{
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday", "Tuesday", "Wednesday", "Thursday",
-            "Friday", "Saturday", "Sunday",
-          ],
-          opens: "09:00",
-          closes: "18:00",
-        }],
       },
       {
         "@type": "WebPage",
