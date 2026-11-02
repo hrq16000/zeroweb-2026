@@ -600,6 +600,45 @@
         "Madeira de Cambará Pinhais",
         "móveis rústicos Pinhais"
       ]
+    },
+    "dona-garimpeira-brecho": {
+      "aliases": [
+        "Dona Garimpeira",
+        "Dona Garimpeira SJP",
+        "Dona Garimpeira Brechó"
+      ],
+      "categories": [
+        "brechó",
+        "loja de roupas usadas",
+        "moda circular"
+      ],
+      "services": [
+        "compra de roupas usadas",
+        "recebimento de doações de roupas"
+      ],
+      "products": [
+        "roupas femininas de segunda mão",
+        "roupas masculinas de segunda mão",
+        "roupas infantis de segunda mão",
+        "acessórios de segunda mão"
+      ],
+      "useCases": [
+        "comprar roupas presencialmente",
+        "avaliar roupas usadas para vender",
+        "entregar doações de roupas",
+        "consultar peças pelo WhatsApp"
+      ],
+      "locality": [
+        "Boneca do Iguaçu",
+        "São José dos Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Dona Garimpeira brechó",
+        "brechó São José dos Pinhais",
+        "brechó Boneca do Iguaçu",
+        "comprar roupas usadas em São José dos Pinhais"
+      ]
     }
   }
 }
