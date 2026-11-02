@@ -92,7 +92,6 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
           opens: "09:00",
           closes: "18:00",
         }],
-        hasMap: "https://www.google.com/maps/search/?api=1&query=Rua%20Loanda%2060%20Boneca%20do%20Igua%C3%A7u%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais",
       },
       {
         "@type": "WebPage",
