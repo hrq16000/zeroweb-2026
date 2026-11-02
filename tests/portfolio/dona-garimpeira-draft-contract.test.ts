@@ -13,13 +13,15 @@ const slug = "dona-garimpeira-brecho";
 
 describe("Dona Garimpeira draft lifecycle — fail closed", () => {
   test("individual SEO contract v4 stays draft with explicit blockers", () => {
-    const project = parse("src/config/portfolio-project-manifests.json").projects[slug];
+    const project = parse(`docs/portfolio/drafts/${slug}-manifest-v4.json`);
     expect(project).toBeDefined();
     expect(project.stage).toBe("draft");
     expect(project.contractVersion).toBeGreaterThanOrEqual(4);
     expect(project.individualSiteContract.version).toBe(1);
     expect(project.individualSiteContract.gates.PORTFOLIO_INDEXABILITY_GATE).not.toBe("complete");
     expect(project.blockers.length).toBeGreaterThan(0);
+    const activated = parse("src/config/portfolio-project-manifests.json").projects[slug];
+    expect(activated).toBeUndefined();
   });
 
   test("no public catalog or routing exists before readiness", () => {
