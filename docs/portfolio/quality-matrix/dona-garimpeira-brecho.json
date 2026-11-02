@@ -29,11 +29,13 @@
   "p0": [
     "UNVERIFIED_SOCIAL_MEDIA",
     "FUNNEL_NOT_ACTIVE",
-    "ROUTE_NOT_REGISTERED",
-    "SEO_AND_QA_PENDING"
+    "ROUTE_NOT_PUBLISHED",
+    "SEO_DRAFT_PREPARED_NOT_CONNECTED_QA_PENDING"
   ],
   "warnings": [
-    "No Lighthouse, SSR or screen QA has been executed for this slug"
+    "No Lighthouse, SSR or screen QA has been executed for this slug",
+    "Composição autoral registrada, mas sem public prototype ou catálogo; SSR/SEO no head ainda não conectado.",
+    "O SEO individual está preparado com noindex fail-closed; a imagem social e 6 posts reais continuam sem comprovação."
   ],
   "ownerRequired": [
     "Enviar fotos da fachada quando possível",
