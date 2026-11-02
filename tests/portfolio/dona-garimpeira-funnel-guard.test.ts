@@ -70,7 +70,7 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     const submit = source.slice(source.indexOf("export const submitFunnel ="));
     expect(submit).toContain('String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho"');
     expect(submit.indexOf('String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho"'))
-      .toBeLessThan(submit.indexOf('.from("dynamic_form_leads")\\n      .insert('));
+      .toBeLessThan(submit.indexOf('.from("dynamic_form_leads")'));
   });
 
   test("aceita somente as três intenções comerciais corretas", () => {
