@@ -190,3 +190,11 @@ Não marcar `100% DOCUMENTADO`, `100% FUNCIONAL`, `PUBLICADO` ou `INDEXADO` enqu
 Ver [DELIVERY_STOREFRONT_UX_STATE_MATRIX.md](./DELIVERY_STOREFRONT_UX_STATE_MATRIX.md): arquitetura de informação mobile-first, 26 estados de UI, 16 cenários E2E para implementar, distinção entre **pedido confirmado** e **lead/WhatsApp**, gaps confirmados nos componentes legados e ledger de evidência/limitações da referência Juma.
 
 **Estado honesto de R2:** especificação de UX registrada, mas inspeção interativa da loja Juma permanece `BLOCKED` por indisponibilidade do conteúdo dinâmico nas ferramentas de leitura. Nenhum cenário E2E deve ser marcado como executado antes de validação em runtime.
+
+## 14. Motor de cardápio, pizza, combos e precificação — R3
+
+Documentação de domínio: [DELIVERY_MENU_PRICING_STANDARD.md](./DELIVERY_MENU_PRICING_STANDARD.md) e [PRICE_CALCULATION_FIXTURES.v1.json](./delivery/PRICE_CALCULATION_FIXTURES.v1.json).
+
+A especificação formaliza categorias, variantes/tamanhos, seleção de adicionais, pizzas fracionadas com política configurável por loja, combos, promoções, centavos inteiros, versionamento de catálogo, estados de indisponibilidade e erros bloqueantes. **Sete expectativas numéricas foram conferidas com aritmética racional BigInt em ferramenta de validação independente; cinco fixtures de erro permanecerão a validar no motor real.** O motor ainda não existe como implementação operacional homologada, e a R7 terá que executar os testes de integração sobre ele.
+
+Padrão preservado: **a identidade visual do restaurante continua autoral, mas a matemática e a integridade do pedido são contratos técnicos compartilháveis**, sempre com isolamento por loja. Nada foi habilitado nos projetos publicados nesta rodada.
