@@ -66,6 +66,12 @@ function fractionsWithExactUnitSum(fractions) {
   return { parts, denominator };
 }
 
+/** Validates rational pizza portions independently from product catalog resolution. */
+export function validatePizzaFractions(fractions) {
+  fractionsWithExactUnitSum(fractions);
+  return true;
+}
+
 function weightedBase(prices, fractionInfo) {
   if (!Array.isArray(prices) || prices.length !== fractionInfo.parts.length) {
     invalid("FLAVOR_PRICE_MISSING", "Each pizza fraction must have a configured flavor price");
