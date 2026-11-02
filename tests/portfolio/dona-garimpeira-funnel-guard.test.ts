@@ -3,6 +3,7 @@ import {
   checkDonaGarimpeiraSubmission,
   DONA_GARIMPEIRA_CLIENT_KEY,
   DONA_GARIMPEIRA_FORM_SLUG,
+  donaGarimpeiraIntakeReady,
   type DonaGarimpeiraSubmissionContext,
 } from "@/lib/dona-garimpeira-funnel-guard";
 
@@ -77,6 +78,20 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     deny(withChanges({ answers: { ...good.answers, privacidade: [] } }), "PRIVACY_NOT_ACKNOWLEDGED");
     deny(withChanges({ answers: { ...good.answers, privacidade: "ciente" } }), "PRIVACY_NOT_ACKNOWLEDGED");
     deny(withChanges({ answers: { ...good.answers, privacidade: ["não"] } }), "PRIVACY_NOT_ACKNOWLEDGED");
+  });
+
+  test("a leitura pública retorna null antes do registro completo", async () => {
+    expect(donaGarimpeiraIntakeReady(false, true, true)).toBe(false);
+    expect(donaGarimpeiraIntakeReady(true, false, true)).toBe(false);
+    expect(donaGarimpeiraIntakeReady(true, true, false)).toBe(false);
+    expect(donaGarimpeiraIntakeReady(true, true, true)).toBe(true);
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const src = readFileSync(resolve(process.cwd(), "src/lib/dynamic-funnel.functions.ts"), "utf8");
+    const publicHandler = src.slice(src.indexOf("export const getPublicFunnel ="), src.indexOf("export const submitFunnel ="));
+    expect(publicHandler).toContain('form.slug === "funnel-dona-garimpeira-brecho"');
+    expect(publicHandler).toContain("donaGarimpeiraIntakeReady(");
+    expect(publicHandler).toContain(")) return null;");
   });
 
   test("não envia dados sensíveis ao contato institucional da 0WEB", async () => {
