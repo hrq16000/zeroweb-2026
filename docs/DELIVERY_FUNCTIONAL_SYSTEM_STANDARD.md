@@ -198,3 +198,11 @@ Documentação de domínio: [DELIVERY_MENU_PRICING_STANDARD.md](./DELIVERY_MENU_
 A especificação formaliza categorias, variantes/tamanhos, seleção de adicionais, pizzas fracionadas com política configurável por loja, combos, promoções, centavos inteiros, versionamento de catálogo, estados de indisponibilidade e erros bloqueantes. **Sete expectativas numéricas foram conferidas com aritmética racional BigInt em ferramenta de validação independente; cinco fixtures de erro permanecerão a validar no motor real.** O motor ainda não existe como implementação operacional homologada, e a R7 terá que executar os testes de integração sobre ele.
 
 Padrão preservado: **a identidade visual do restaurante continua autoral, mas a matemática e a integridade do pedido são contratos técnicos compartilháveis**, sempre com isolamento por loja. Nada foi habilitado nos projetos publicados nesta rodada.
+
+## 15. Checkout transacional, pedidos e pagamentos — R4
+
+Norma detalhada: [DELIVERY_CHECKOUT_ORDER_STANDARD.md](./DELIVERY_CHECKOUT_ORDER_STANDARD.md). Máquinas de estado e casos de aceitação estruturados: [ORDER_PAYMENT_STATE_MACHINES.v1.json](./delivery/ORDER_PAYMENT_STATE_MACHINES.v1.json).
+
+R4 especifica carrinho persistente e revalidável, cotação servidor de preço e entrega, criação durável idempotente do pedido, pagamento online com conciliação por webhook verificado, pagamento na entrega, operações de status independentes, segurança e falhas/retries. **Um clique, um redirect ou um lead não é um pedido confirmado.** O padrão exige identificação imutável e auditável do pedido, com consulta de status para recuperá-lo após timeouts.
+
+**Estado:** especificação concluída, endpoints/banco/gateway/painel/E2E não implementados por esta documentação. Nenhuma loja foi ativada ou publicada com esse contrato. Os 22 cenários CK-01–CK-22 são critérios futuros, não testes já executados.
