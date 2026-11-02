@@ -29,10 +29,18 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).not.toBe("published");
+    // A composição autoral pode existir sem expor a rota: o loader exige
+    // prototype público ou projeto Managed publicado para resolver o slug.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
-    expect(authorial).not.toContain(`"${slug}"`);
+    expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
-    expect(registry).not.toContain(`"${slug}"`);
+    expect(registry).toContain(`"${slug}": lazy(`);
+    const prototypes = read("src/lib/portfolio-site-registry.ts");
+    expect(prototypes).not.toContain(`slug: "${slug}"`);
+    const clients = parse("src/config/portfolio-clients.json");
+    expect(clients.find((entry: { slug: string }) => entry.slug === slug)).toBeUndefined();
+    const active = parse("src/config/portfolio-project-manifests.json").projects[slug];
+    expect(active).toBeUndefined();
   });
 
   test("media is documented but no unverified Instagram items are published", () => {
