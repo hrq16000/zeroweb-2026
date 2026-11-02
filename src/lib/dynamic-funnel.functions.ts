@@ -247,7 +247,10 @@ export const submitFunnel = createServerFn({ method: "POST" })
     // Fail closed: um rascunho do brechó publicado por engano no banco não
     // pode enviar o lead à 0WEB ou a outro cliente. Exigir registros canônicos
     // e os dados mínimos da jornada antes de qualquer INSERT/redirect.
-    if (form.slug === "funnel-dona-garimpeira-brecho") {
+    // Proteger também o caminho inverso: ninguém envia um formulário de outro
+    // cliente usando o clientKey reservado para Dona Garimpeira.
+    if (form.slug === "funnel-dona-garimpeira-brecho" ||
+        String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho") {
       const [
         { checkDonaGarimpeiraSubmission, DONA_GARIMPEIRA_CLIENT_KEY },
         { resolveVersionedPortfolioWhatsApp },

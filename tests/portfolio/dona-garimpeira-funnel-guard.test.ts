@@ -54,6 +54,25 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     deny(withChanges({ clientKey: "0web" }), "WRONG_CLIENT");
   });
 
+  test("recusa usar clientKey da Dona Garimpeira com formulário de outro cliente", async () => {
+    deny(withChanges({
+      formSlug: "funnel-arildo-madeiras",
+      clientKey: DONA_GARIMPEIRA_CLIENT_KEY,
+    }), "WRONG_CLIENT");
+    deny(withChanges({
+      formSlug: "funnel-0web",
+      clientKey: DONA_GARIMPEIRA_CLIENT_KEY,
+    }), "WRONG_CLIENT");
+
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const source = readFileSync(resolve(process.cwd(), "src/lib/dynamic-funnel.functions.ts"), "utf8");
+    const submit = source.slice(source.indexOf("export const submitFunnel ="));
+    expect(submit).toContain('String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho"');
+    expect(submit.indexOf('String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho"'))
+      .toBeLessThan(submit.indexOf('.from("dynamic_form_leads")\\n      .insert('));
+  });
+
   test("aceita somente as três intenções comerciais corretas", () => {
     for (const interesse of ["comprar", "vender", "doar"]) {
       expect(checkDonaGarimpeiraSubmission(withChanges({

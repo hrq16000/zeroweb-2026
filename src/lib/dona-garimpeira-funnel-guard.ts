@@ -41,7 +41,13 @@ export type DonaGarimpeiraFunnelDecision =
 export function checkDonaGarimpeiraSubmission(
   ctx: DonaGarimpeiraSubmissionContext,
 ): DonaGarimpeiraFunnelDecision {
-  if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) return { ok: true };
+  // Um formulário de OUTRO cliente nunca pode usar o destino da Dona Garimpeira.
+  // Verificar os dois sentidos evita contaminação cruzada após a futura ativação.
+  if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) {
+    return ctx.clientKey === DONA_GARIMPEIRA_CLIENT_KEY
+      ? { ok: false, reason: "WRONG_CLIENT" }
+      : { ok: true };
+  }
   if (!donaGarimpeiraIntakeReady(ctx.registered, ctx.catalogPublished, ctx.ownWhatsAppConfigured)) {
     return { ok: false, reason: "NOT_READY" };
   }
