@@ -18,6 +18,15 @@ export type DonaGarimpeiraSubmissionContext = Readonly<{
   answers: Readonly<Record<string, unknown>>;
 }>;
 
+/** Publicação do formulário precisa de três registros canônicos ativos. */
+export function donaGarimpeiraIntakeReady(
+  registered: boolean,
+  catalogPublished: boolean,
+  ownWhatsAppConfigured: boolean,
+): boolean {
+  return registered && catalogPublished && ownWhatsAppConfigured;
+}
+
 export type DonaGarimpeiraFunnelDecision =
   | Readonly<{ ok: true }>
   | Readonly<{ ok: false; reason:
@@ -33,7 +42,7 @@ export function checkDonaGarimpeiraSubmission(
   ctx: DonaGarimpeiraSubmissionContext,
 ): DonaGarimpeiraFunnelDecision {
   if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) return { ok: true };
-  if (!ctx.registered || !ctx.catalogPublished || !ctx.ownWhatsAppConfigured) {
+  if (!donaGarimpeiraIntakeReady(ctx.registered, ctx.catalogPublished, ctx.ownWhatsAppConfigured)) {
     return { ok: false, reason: "NOT_READY" };
   }
   if (ctx.clientKey !== DONA_GARIMPEIRA_CLIENT_KEY) {
