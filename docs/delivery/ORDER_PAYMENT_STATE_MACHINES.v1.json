@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "contract": "0web.delivery.state-machine.v1",
+  "status": "SPECIFICATION_ONLY_NOT_IMPLEMENTED",
+  "notes": [
+    "Independent order and payment states",
+    "For COD order may be PLACED while payment=PENDING",
+    "Online gateway confirms PAID asynchronously; browser redirect alone cannot mark paid",
+    "No transitions without expectedVersion + actor authorization + durable audit event"
+  ],
+  "orderStates": [
+    "PENDING_PAYMENT",
+    "PLACED",
+    "ACCEPTED",
+    "PREPARING",
+    "READY",
+    "DISPATCHED",
+    "COMPLETED",
+    "REJECTED",
+    "CANCELLED",
+    "EXPIRED"
+  ],
+  "paymentStates": [
+    "NOT_REQUIRED",
+    "PENDING",
+    "AUTHORIZED",
+    "PAID",
+    "FAILED",
+    "EXPIRED",
+    "CANCELLED",
+    "REFUND_PENDING",
+    "PARTIALLY_REFUNDED",
+    "REFUNDED",
+    "DISPUTED"
+  ],
+  "orderTransitions": [
+    {
+      "from": "PENDING_PAYMENT",
+      "to": "PLACED",
+      "actor": "SYSTEM",
+      "condition": "payment provider event confirms PAID, or explicitly approved alternative commitment method"
+    },
+    {
+      "from": "PENDING_PAYMENT",
+      "to": "EXPIRED",
+      "actor": "SYSTEM",
+      "condition": "payment intent expired and no confirmed charge; if uncertain reconcile first"
+    },
+    {
+      "from": "PENDING_PAYMENT",
+      "to": "CANCELLED",
+      "actor": "BUYER_OR_OPERATOR",
+      "condition": "authorized cancellation; cancel/void payment attempt with provider"
+    },
+    {
+      "from": "PLACED",
+      "to": "ACCEPTED",
+      "actor": "OPERATOR",
+      "condition": "store online, fulfillment capacity confirmed; offer acceptance configurable"
+    },
+    {
+      "from": "PLACED",
+      "to": "REJECTED",
+      "actor": "OPERATOR",
+      "condition": "reject reason and compensation/refund if charged"
+    },
+    {
+      "from": "PLACED",
+      "to": "CANCELLED",
+      "actor": "BUYER_OR_OPERATOR",
+      "condition": "within cancellation policy, compensation if needed"
+    },
+    {
+      "from": "ACCEPTED",
+      "to": "PREPARING",
+      "actor": "OPERATOR",
+      "condition": "confirmed preparation"
+    },
+    {
+      "from": "ACCEPTED",
+      "to": "CANCELLED",
+      "actor": "MANAGER",
+      "condition": "explicit documented exception; compensate charged payment"
+    },
+    {
+      "from": "PREPARING",
+      "to": "READY",
+      "actor": "OPERATOR",
+      "condition": "food prepared"
+    },
+    {
+      "from": "PREPARING",
+      "to": "CANCELLED",
+      "actor": "MANAGER",
+      "condition": "exception, audit and compensation"
+    },
+    {
+      "from": "READY",
+      "to": "DISPATCHED",
+      "actor": "OPERATOR",
+      "condition": "delivery mode only; assigned handoff confirmed"
+    },
+    {
+      "from": "READY",
+      "to": "COMPLETED",
+      "actor": "OPERATOR",
+      "condition": "pickup mode only; pickup confirmed"
+    },
+    {
+      "from": "DISPATCHED",
+      "to": "COMPLETED",
+      "actor": "OPERATOR",
+      "condition": "delivery confirmation"
+    },
+    {
+      "from": "DISPATCHED",
+      "to": "CANCELLED",
+      "actor": "MANAGER",
+      "condition": "exception with compensation and detailed audit"
+    }
+  ],
+  "paymentTransitions": [
+    {
+      "from": "PENDING",
+      "to": "AUTHORIZED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "only gateway validated event"
+    },
+    {
+      "from": "PENDING",
+      "to": "PAID",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "only gateway validated event OR verified COD settlement"
+    },
+    {
+      "from": "PENDING",
+      "to": "FAILED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "validated failure event"
+    },
+    {
+      "from": "PENDING",
+      "to": "EXPIRED",
+      "actor": "SYSTEM",
+      "condition": "gateway reconciliation proves unpaid expiration"
+    },
+    {
+      "from": "AUTHORIZED",
+      "to": "PAID",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "verified capture"
+    },
+    {
+      "from": "AUTHORIZED",
+      "to": "CANCELLED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "verified void"
+    },
+    {
+      "from": "PAID",
+      "to": "REFUND_PENDING",
+      "actor": "MANAGER",
+      "condition": "approved refund request, recorded reason"
+    },
+    {
+      "from": "REFUND_PENDING",
+      "to": "PARTIALLY_REFUNDED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "validated partial refund"
+    },
+    {
+      "from": "REFUND_PENDING",
+      "to": "REFUNDED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "validated full refund"
+    },
+    {
+      "from": "PARTIALLY_REFUNDED",
+      "to": "REFUND_PENDING",
+      "actor": "MANAGER",
+      "condition": "approved additional refund request"
+    },
+    {
+      "from": "PARTIALLY_REFUNDED",
+      "to": "DISPUTED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "validated dispute"
+    },
+    {
+      "from": "PAID",
+      "to": "DISPUTED",
+      "actor": "PAYMENT_PROVIDER",
+      "condition": "validated dispute"
+    }
+  ],
+  "testVectors": [
+    {
+      "id": "ST-01",
+      "dimension": "order",
+      "from": "PENDING_PAYMENT",
+      "to": "PLACED",
+      "actor": "SYSTEM",
+      "fulfillment": "DELIVERY",
+      "allowed": true,
+      "when": "provider proof of paid online payment"
+    },
+    {
+      "id": "ST-02",
+      "dimension": "order",
+      "from": "PENDING_PAYMENT",
+      "to": "PLACED",
+      "actor": "BUYER",
+      "fulfillment": "DELIVERY",
+      "allowed": false,
+      "when": "buyer page says success, no validated provider event"
+    },
+    {
+      "id": "ST-03",
+      "dimension": "order",
+      "from": "PLACED",
+      "to": "ACCEPTED",
+      "actor": "OPERATOR",
+      "fulfillment": "DELIVERY",
+      "allowed": true,
+      "when": "valid operator and store capacity"
+    },
+    {
+      "id": "ST-04",
+      "dimension": "order",
+      "from": "PLACED",
+      "to": "COMPLETED",
+      "actor": "OPERATOR",
+      "fulfillment": "DELIVERY",
+      "allowed": false,
+      "when": "cannot skip preparation"
+    },
+    {
+      "id": "ST-05",
+      "dimension": "order",
+      "from": "PREPARING",
+      "to": "READY",
+      "actor": "OPERATOR",
+      "fulfillment": "DELIVERY",
+      "allowed": true,
+      "when": "kitchen ready"
+    },
+    {
+      "id": "ST-06",
+      "dimension": "order",
+      "from": "READY",
+      "to": "COMPLETED",
+      "actor": "OPERATOR",
+      "fulfillment": "PICKUP",
+      "allowed": true,
+      "when": "confirmed pickup"
+    },
+    {
+      "id": "ST-07",
+      "dimension": "order",
+      "from": "READY",
+      "to": "COMPLETED",
+      "actor": "OPERATOR",
+      "fulfillment": "DELIVERY",
+      "allowed": false,
+      "when": "must dispatch delivery"
+    },
+    {
+      "id": "ST-08",
+      "dimension": "order",
+      "from": "READY",
+      "to": "DISPATCHED",
+      "actor": "OPERATOR",
+      "fulfillment": "DELIVERY",
+      "allowed": true,
+      "when": "courier handoff"
+    },
+    {
+      "id": "ST-09",
+      "dimension": "order",
+      "from": "READY",
+      "to": "DISPATCHED",
+      "actor": "OPERATOR",
+      "fulfillment": "PICKUP",
+      "allowed": false,
+      "when": "pickup not dispatched"
+    },
+    {
+      "id": "ST-10",
+      "dimension": "order",
+      "from": "COMPLETED",
+      "to": "PREPARING",
+      "actor": "MANAGER",
+      "fulfillment": "DELIVERY",
+      "allowed": false,
+      "when": "terminal state"
+    },
+    {
+      "id": "ST-11",
+      "dimension": "payment",
+      "from": "PENDING",
+      "to": "PAID",
+      "actor": "BUYER",
+      "allowed": false,
+      "when": "client cannot declare payment success"
+    },
+    {
+      "id": "ST-12",
+      "dimension": "payment",
+      "from": "PENDING",
+      "to": "PAID",
+      "actor": "PAYMENT_PROVIDER",
+      "allowed": true,
+      "when": "verified signed callback"
+    },
+    {
+      "id": "ST-13",
+      "dimension": "payment",
+      "from": "PAID",
+      "to": "REFUND_PENDING",
+      "actor": "MANAGER",
+      "allowed": true,
+      "when": "audited authorization"
+    },
+    {
+      "id": "ST-14",
+      "dimension": "payment",
+      "from": "PAID",
+      "to": "REFUNDED",
+      "actor": "BUYER",
+      "allowed": false,
+      "when": "buyer cannot self-mark refund"
+    },
+    {
+      "id": "ST-15",
+      "dimension": "order",
+      "from": "PLACED",
+      "to": "ACCEPTED",
+      "actor": "OPERATOR",
+      "allowed": false,
+      "when": "actor tenant does not match order store"
+    }
+  ]
+}
