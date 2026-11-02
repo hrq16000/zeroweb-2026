@@ -11,6 +11,7 @@
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "arildo-madeiras",
+  "dona-garimpeira-brecho",
   "autoescola-aptos",
   "adhonep-curitiba",
 ] as const;
