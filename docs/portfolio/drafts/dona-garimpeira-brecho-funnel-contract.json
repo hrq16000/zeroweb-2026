@@ -1,0 +1,95 @@
+{
+  "schema": "0WEB_FUTURE_DYNAMIC_FORM_DRAFT_V1",
+  "clientKey": "dona-garimpeira-brecho",
+  "slug": "funnel-dona-garimpeira-brecho",
+  "status": "draft",
+  "publicationAllowed": false,
+  "name": "Dona Garimpeira — comprar, vender ou doar",
+  "description": "Pré-atendimento da loja física em São José dos Pinhais. A loja confirma reservas, avaliação de roupas e recebimento de doações individualmente.",
+  "config_json": {
+    "kind": "portfolio",
+    "leadOnlyUntilValidated": true
+  },
+  "whatsapp_config": {
+    "enabled": false
+  },
+  "sourceOfTruth": "src/config/portfolio-whatsapp.json",
+  "flow": "lead first -> dynamic_form_leads persisted -> token /r/whatsapp/... -> clientKey exact -> 5541998379642",
+  "questions": [
+    {
+      "key": "interesse",
+      "type": "radio",
+      "label": "Como podemos ajudar?",
+      "required": true,
+      "order_index": 0,
+      "options": [
+        {
+          "value": "comprar",
+          "label": "Comprar ou consultar uma peça"
+        },
+        {
+          "value": "vender",
+          "label": "Vender roupas usadas"
+        },
+        {
+          "value": "doar",
+          "label": "Doar roupas"
+        }
+      ]
+    },
+    {
+      "key": "detalhes",
+      "type": "long_text",
+      "label": "Conte um pouco mais sobre o que procura ou deseja trazer",
+      "required": false,
+      "order_index": 1,
+      "placeholder": "Ex.: tipo de peça, tamanho, quantidade ou dúvida. Não garantimos disponibilidade."
+    },
+    {
+      "key": "nome",
+      "type": "short_text",
+      "label": "Como podemos chamar você?",
+      "required": true,
+      "order_index": 2
+    },
+    {
+      "key": "whatsapp",
+      "type": "phone",
+      "label": "Seu WhatsApp com DDD para contato",
+      "required": true,
+      "order_index": 3
+    },
+    {
+      "key": "privacidade",
+      "type": "checkbox",
+      "label": "Li o aviso de privacidade e autorizo o uso dos dados para responder a este contato",
+      "required": true,
+      "order_index": 4,
+      "options": [
+        {
+          "value": "ciente",
+          "label": "Estou ciente do uso dos dados para esta solicitação"
+        }
+      ]
+    }
+  ],
+  "conditions": [],
+  "requiredE2E": [
+    "formulário resolvido pelo slug exato, status published apenas após autorização",
+    "respostas gravadas no dynamic_form_leads com client_key e source",
+    "falha de persistência impede criar token, navegar ao WhatsApp e confirmar sucesso",
+    "redirecionamento por token apenas para o client_key da Dona Garimpeira",
+    "testes das intenções comprar/vender/doar incluindo prefill interesse",
+    "com consentimento, duplicidade, antiabuso e falhas de rede",
+    "auditoria de destino e ausência de fallback para WhatsApp da 0WEB",
+    "QA de mobile e acessibilidade em rota final"
+  ],
+  "pending": [
+    "Identificar acesso válido ao banco Supabase lxajhxocyqzwwbcfahya antes de alterar dados",
+    "Revisar perguntas com a responsável e conferir aviso de privacidade efetivamente exibido",
+    "Criar dynamic_form, dynamic_form_questions, permissionamento e testar inserção real",
+    "Validar canal WhatsApp e token de redirect sem expor número em URL de front-end",
+    "Manter sem publicação enquanto routing/clientKey e gates v4 incompletos"
+  ],
+  "lastUpdatedAt": "2026-11-02"
+}
