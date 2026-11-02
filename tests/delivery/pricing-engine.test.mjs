@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { DeliveryPricingError, priceConfiguredLine, validateMinimumOrder } from "../../src/lib/delivery/pricing.mjs";
+import { DeliveryPricingError, priceConfiguredLine, validateMinimumOrder, validatePizzaFractions } from "../../src/lib/delivery/pricing.mjs";
 
 const fixtures = JSON.parse(readFileSync(
   fileURLToPath(new URL("../../docs/delivery/PRICE_CALCULATION_FIXTURES.v1.json", import.meta.url)),
@@ -17,6 +17,11 @@ for (const fixture of fixtures.cases) {
       for (const [key, value] of Object.entries(expected)) {
         assert.equal(actual[key], value, fixture.id + " → " + key);
       }
+    } else if (fixture.id === "INVALID_FRACTIONS_BLOCK") {
+      assert.throws(
+        () => validatePizzaFractions(input.fractions),
+        (err) => err instanceof DeliveryPricingError && err.code === expected.errorCode
+      );
     } else if (fixture.id === "MINIMUM_ORDER_BLOCK") {
       assert.throws(
         () => validateMinimumOrder(input.eligibleMerchandiseCents, input.minimumOrderCents),
