@@ -453,6 +453,10 @@ Regras permanentes aplicáveis a todo `/portfolio/:slug` novo:
 Gates obrigatórios: `CONTACT_FUNNEL_GATE` e `MEDIA_PURPOSE_GATE`
 (`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21.4 e §22.5).
 
+## Adendo condicional — restaurante com delivery transacional
+
+Para um projeto de restaurante, **não** presumir checkout a partir do segmento. Classificar `RESTAURANT_LANDING`, `MENU_LEAD_ONLY`, `TRANSACTIONAL_DELIVERY` ou escopo avançado de PDV conforme `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md`. Quando o contrato pedir loja transacional, somar um **módulo opt-in** de catálogo/quote/order/operação à landing autoral existente; o scaffold `--delivery-transactional` cria apenas manifesto com 17 gates `NOT_EXECUTED`, `orderEnabled=false` como política-alvo e `DELIVERY_READY=BLOCKED`, nunca um pedido funcional. Gates de SEO/funil/identidade continuam exigidos para a landing; o gate delivery é independente e exige E2E real, banco e segurança antes de ativar a operação.
+
 ## 13. Pipeline canônico de projetos NOVOS (piloto Careca's promovido a padrão)
 
 Fluxo obrigatório, sem etapa pulada em silêncio:
