@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -161,14 +161,51 @@ function RealGallery() {
   const [selected, setSelected] = useState<number | null>(null);
   const visible = GALLERY_ITEMS.filter((item) => category === "todos" || item.category === category);
   const current = selected === null ? null : visible[selected];
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const originalFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (selected === null) return;
-    function onEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setSelected(null);
+    if (!originalFocusRef.current && document.activeElement instanceof HTMLElement) {
+      originalFocusRef.current = document.activeElement;
     }
-    document.addEventListener("keydown", onEscape);
-    return () => document.removeEventListener("keydown", onEscape);
+    closeButtonRef.current?.focus();
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setSelected(null);
+      } else if (event.key === "ArrowLeft" && visible.length > 0) {
+        event.preventDefault();
+        setSelected((index) => index === null ? null : (index - 1 + visible.length) % visible.length);
+      } else if (event.key === "ArrowRight" && visible.length > 0) {
+        event.preventDefault();
+        setSelected((index) => index === null ? null : (index + 1) % visible.length);
+      } else if (event.key === "Tab") {
+        const controls = Array.from(
+          lightboxRef.current?.querySelectorAll<HTMLButtonElement>("button:not([disabled])") ?? [],
+        );
+        if (!controls.length) return;
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [selected, visible.length]);
+
+  useEffect(() => {
+    if (selected !== null) return;
+    const original = originalFocusRef.current;
+    if (original?.isConnected) original.focus();
+    originalFocusRef.current = null;
   }, [selected]);
 
   useEffect(() => setSelected(null), [category]);
@@ -230,15 +267,16 @@ function RealGallery() {
           </div>
         )}
         <p className="dg-gallery-note">
-          Fotos ilustrativas do acervo, sem preço e sem estoque em tempo real.
-          Para saber sobre uma peça, faça uma consulta pelo atendimento.
+          {GALLERY_ITEMS.length > 0
+            ? "As fotos reais do acervo não indicam disponibilidade ou preço em tempo real. Consulte pelo atendimento."
+            : "A galeria será publicada quando as fotografias oficiais forem verificadas. Consulte peças pelo atendimento."}
         </p>
         <InterestCta interest="comprar" placement="galeria">Consultar uma peça <ArrowUpRight size={17} aria-hidden="true" /></InterestCta>
       </div>
       {current && selected !== null && (
         <div className="dg-lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotografias" onClick={() => setSelected(null)}>
-          <div className="dg-lightbox-inner" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="dg-lightbox-close" onClick={() => setSelected(null)} aria-label="Fechar fotografia"><X /></button>
+          <div className="dg-lightbox-inner" ref={lightboxRef} onClick={(event) => event.stopPropagation()}>
+            <button type="button" ref={closeButtonRef} className="dg-lightbox-close" onClick={() => setSelected(null)} aria-label="Fechar fotografia"><X /></button>
             <img src={current.src} alt={current.alt} />
             <div className="dg-lightbox-controls">
               <button type="button" aria-label="Foto anterior" onClick={() => setSelected((selected - 1 + visible.length) % visible.length)}><ChevronLeft /></button>
