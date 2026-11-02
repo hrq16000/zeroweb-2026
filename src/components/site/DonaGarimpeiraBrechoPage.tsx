@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -62,6 +62,7 @@ export const composition: PortfolioComposition = {
       formSlug={FORM}
       location={`${SLUG}_${placement}`}
       className={className}
+      showArrow={false}
     >
       {children}
     </FunnelCTAButton>
@@ -136,7 +137,7 @@ function InterestCta({
 }: {
   interest: "comprar" | "vender" | "doar";
   placement: string;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (
@@ -148,6 +149,7 @@ function InterestCta({
       prefill={{ interesse: interest }}
       context={{ business: "Dona Garimpeira", interest, source: "portfolio-dona-garimpeira-brecho" }}
       className={className}
+      showArrow={false}
     >
       {children}
     </FunnelCTAButton>
