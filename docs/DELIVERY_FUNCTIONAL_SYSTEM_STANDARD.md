@@ -214,3 +214,11 @@ Norma operacional: [DELIVERY_RESTAURANT_OPERATIONS_STANDARD.md](./DELIVERY_RESTA
 A Rodada 5 especifica o **painel separado por loja**, fila de pedidos reais, aceite/rejeição, cozinha/KDS mínimo, preparo, retirada, despacho, conclusão, administração do cardápio, auditoria, eventos em tempo real, comportamento offline honesto e reconciliação de falhas. O mínimo de delivery exige que a cozinha/loja realmente receba o pedido persistido. Módulos avançados de PDV completo (mesas, comanda, fechamento de caixa, fiscal, estoque por ingredientes e multiloja consolidado) não são alegados como implementados, nem se tornam obrigatórios sem escopo explícito.
 
 **Validação documental:** matriz JSON com 7 papéis e 25 cenários de autorização; a norma inclui 16 cenários operacionais E2E a executar na R7. Nenhum desses testes executou transações reais; painel, banco, KDS e integrações continuam `IMPLEMENTATION_PENDING`. Dados da loja Juma e do PDV Slim autenticado não foram acessados.
+
+## 17. Dados, isolamento multiempresa, segurança e LGPD — R6
+
+Norma de arquitetura: [DELIVERY_DATA_SECURITY_STANDARD.md](./DELIVERY_DATA_SECURITY_STANDARD.md). Cenários de aceitação por camada: [DATA_SECURITY_ACCEPTANCE.v1.json](./delivery/DATA_SECURITY_ACCEPTANCE.v1.json).
+
+A Rodada 6 define o modelo de dados de loja, pedidos, snapshots, pagamentos, eventos, outbox e auditoria, com **escopo obrigatório por `tenantId` e `storeId`** em cada relacionamento. Se a implementação adotar PostgreSQL/RLS, policies de delivery e testes cross-tenant são obrigatórios. `SKIP` **não** é aprovação; service role também exige verificação de escopo no servidor. O padrão cobre proteção de endereço/telefone, autorização por papel, emissão segura de eventos, pagamentos, idempotência, backups, retenção e direitos LGPD.
+
+**Estado honesto:** modelo documentado e **30 cenários de segurança especificados**, mas sem banco/migrations/policies/testes RLS de delivery implementados ou executados nesta rodada. Nenhuma credencial, endpoint, dado de cliente ou DNS foi alterado.
