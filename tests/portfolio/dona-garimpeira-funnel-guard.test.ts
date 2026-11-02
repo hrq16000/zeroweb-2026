@@ -91,6 +91,7 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     const publicHandler = src.slice(src.indexOf("export const getPublicFunnel ="), src.indexOf("export const submitFunnel ="));
     expect(publicHandler).toContain('form.slug === "funnel-dona-garimpeira-brecho"');
     expect(publicHandler).toContain("donaGarimpeiraIntakeReady(");
+    expect(publicHandler).toContain('form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled');
     expect(publicHandler).toContain(")) return null;");
   });
 
