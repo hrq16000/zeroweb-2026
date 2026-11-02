@@ -474,6 +474,26 @@ const CarecasInfotecPage = lazy(() =>
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
+    // Dona Garimpeira: composição pré-registrada, mas nunca servir uma
+    // página com CTA operacional antes de o banco e o catálogo autorizarem.
+    // O status DRAFT mantém HTTP 404, sem publicação/indexação acidental.
+    if (params.slug === "dona-garimpeira-brecho") {
+      const { default: catalog } = await import("@/config/portfolio-catalog.json");
+      const released = catalog.some(
+        (item) => item.slug === params.slug && item.status === "published" && item.live === true,
+      );
+      if (!released) throw notFound();
+      const { getPublicFunnel } = await import("@/lib/dynamic-funnel.functions");
+      let available = false;
+      try {
+        const form = await getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } });
+        available = form?.slug === "funnel-dona-garimpeira-brecho";
+      } catch {
+        // Falhas do banco/segredos nunca expõem o cliente ou fazem fallback.
+        available = false;
+      }
+      if (!available) throw notFound();
+    }
     const site = findPortfolioPrototype(params.slug);
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;

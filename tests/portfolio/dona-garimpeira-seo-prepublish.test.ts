@@ -77,7 +77,11 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(visual).toContain('"dona-garimpeira-brecho": lazy(');
     expect(server).toContain('"dona-garimpeira-brecho"');
     const prototypes = read("src/lib/portfolio-site-registry.ts");
-    expect(prototypes).not.toContain('slug: "dona-garimpeira-brecho"');
+    expect(prototypes).toContain('slug: "dona-garimpeira-brecho"');
+    expect(prototypes).toContain("indexable: false");
+    const loader = read("src/routes/portfolio.$slug.tsx");
+    expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
+    expect(loader).toContain('if (!available) throw notFound()');
     const clients = JSON.parse(read("src/config/portfolio-clients.json"));
     expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
     const catalog = JSON.parse(read("src/config/portfolio-catalog.json"));

@@ -24,19 +24,26 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(activated).toBeUndefined();
   });
 
-  test("no public catalog or routing exists before readiness", () => {
+  test("rota pré-registrada recusa exposição antes da prontidão", () => {
     const raw = parse("src/config/portfolio-catalog.json");
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).not.toBe("published");
-    // A composição autoral pode existir sem expor a rota: o loader exige
-    // prototype público ou projeto Managed publicado para resolver o slug.
+    // O protótipo existe para preparação e build, mas o loader exige catálogo
+    // publicado e formulário efetivamente disponível para servir a página.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
     expect(registry).toContain(`"${slug}": lazy(`);
     const prototypes = read("src/lib/portfolio-site-registry.ts");
-    expect(prototypes).not.toContain(`slug: "${slug}"`);
+    expect(prototypes).toContain(`slug: "${slug}"`);
+    expect(prototypes).toContain(`slug: "${slug}", vertical: "comercios"`);
+    expect(prototypes).toContain("indexable: false");
+    const route = read("src/routes/portfolio.$slug.tsx");
+    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho")');
+    expect(route).toContain('item.status === "published" && item.live === true');
+    expect(route).toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
+    expect(route).toContain("if (!available) throw notFound()");
     const clients = parse("src/config/portfolio-clients.json");
     expect(clients.find((entry: { slug: string }) => entry.slug === slug)).toBeUndefined();
     const active = parse("src/config/portfolio-project-manifests.json").projects[slug];
