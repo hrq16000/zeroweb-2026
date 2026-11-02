@@ -30,6 +30,8 @@ const siteName = flag("name");
 const ctaMode = flag("cta") ?? "proposal";
 const clientKey = flag("client-key") ?? slug;
 const dryRun = args.includes("--dry-run");
+// Opt-in: only adds a BLOCKED delivery-readiness draft; it never enables orders.
+const transactionalDelivery = args.includes("--delivery-transactional");
 
 /** Canal comercial: o funil individual nasce com o tipo do negócio. */
 const FUNNEL_TYPES = {
@@ -82,6 +84,42 @@ const write = (relPath, content) => {
   }
   written.push(relPath);
 };
+
+/**
+ * DELIVERY — opt-in classification only. Scaffolding a landing with
+ * "--funnel-type pedido" is NOT a transactional checkout.
+ * Never mutate shared storefront routes or publish payment/order capability.
+ */
+if (transactionalDelivery) {
+  const reference = JSON.parse(
+    readFileSync(resolve(root, "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"), "utf8"),
+  );
+  const deliveryManifestPath = `docs/portfolio/delivery-readiness/${slug}.json`;
+  const deliveryManifest = {
+    ...reference,
+    storeId: null, // Never invent or assume an onboarded store ID.
+    clientKey,
+    projectSlug: slug,
+    environment: "draft-only",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    notes: [
+      "DRAFT ONLY: this file does not implement or enable a delivery storefront.",
+      "An order/checkout/operational system must be built and tested separately.",
+      "All readiness gates start NOT_EXECUTED; the fail-closed preflight returns BLOCKED.",
+      "No storeId or production permissions are inferred from the portfolio slug.",
+    ],
+    gates: reference.gates.map((gate) => ({
+      id: gate.id,
+      status: "NOT_EXECUTED",
+      evidence: null,
+    })),
+  };
+  write(deliveryManifestPath, `${JSON.stringify(deliveryManifest, null, 2)}\n`);
+  console.warn(
+    `[scaffold:delivery] ${slug}: apenas manifesto BLOCKED; sem checkout, pedido ou pagamento implementado.`,
+  );
+}
 
 /**
  * SCAFFOLD DE COMPOSIÇÃO — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §16.
@@ -700,6 +738,10 @@ if (existsSync(compositionRegistryPath)) {
 }
 
 console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
+if (transactionalDelivery) {
+  console.log(`[scaffold:delivery] readiness: docs/portfolio/delivery-readiness/${slug}.json — DELIVERY_READY=BLOCKED`);
+}
+
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`

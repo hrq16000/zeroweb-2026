@@ -1,6 +1,6 @@
 # 0WEB — DELIVERY FUNCTIONAL SYSTEM STANDARD
 
-**Status:** CANONICAL_REQUIREMENTS / IMPLEMENTATION_PENDING  
+**Status:** CANONICAL_REQUIREMENTS / DOCUMENTATION_INTEGRATION_R8 / IMPLEMENTATION_PENDING  
 **Versão:** 0.1 · **Data:** 2026-11-01  
 **Escopo:** novos projetos de delivery em `/portfolio/:slug`, suas lojas operacionais, domínios próprios e eventuais aplicações SaaS de restaurantes.  
 **Não altera:** a loja `/servicos` da 0WEB, os projetos legados, sua identidade visual, dados, DNS, funis existentes ou o motor administrativo institucional.
@@ -222,3 +222,11 @@ Norma de arquitetura: [DELIVERY_DATA_SECURITY_STANDARD.md](./DELIVERY_DATA_SECUR
 A Rodada 6 define o modelo de dados de loja, pedidos, snapshots, pagamentos, eventos, outbox e auditoria, com **escopo obrigatório por `tenantId` e `storeId`** em cada relacionamento. Se a implementação adotar PostgreSQL/RLS, policies de delivery e testes cross-tenant são obrigatórios. `SKIP` **não** é aprovação; service role também exige verificação de escopo no servidor. O padrão cobre proteção de endereço/telefone, autorização por papel, emissão segura de eventos, pagamentos, idempotência, backups, retenção e direitos LGPD.
 
 **Estado honesto:** modelo documentado e **30 cenários de segurança especificados**, mas sem banco/migrations/policies/testes RLS de delivery implementados ou executados nesta rodada. Nenhuma credencial, endpoint, dado de cliente ou DNS foi alterado.
+
+## 18. Onboarding, roteamento, scaffold e fechamento documental — R8
+
+Playbook definitivo: [DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md](./DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md). Gate executável com status **`BLOCKED` por padrão** e política de evidência: [DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md](./DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md).
+
+A Rodada 8 integra as especificações R1–R7 no `AGENTS.md`, no skill router, na orquestração, no lifecycle de portfolio e na arquitetura de funis. O scaffold existente admite `--delivery-transactional` apenas para gerar `docs/portfolio/delivery-readiness/<slug>.json` com 17 itens `NOT_EXECUTED`, sem credencial, `storeId` inventado, checkout, publicação ou ativação de pedidos. O comportamento padrão do scaffold e as rotas existentes continuam protegidos.
+
+**Estado de conclusão:** `DOCUMENTATION_AND_GOVERNANCE_COMPLETE` somente após R8 integrada e checks aprovados. Estado distinto do produto: `TRANSACTIONAL_DELIVERY_IMPLEMENTATION_PENDING`; nenhum projeto delivery novo deve ser classificado `DELIVERY_READY=PASS` antes de backend, banco, autenticação, pagamentos e operação reais, com CI e smoke comprovados. A inspeção interativa da referência Juma permanece sem evidência; não simular essa verificação nem copiar implementação de terceiros.

@@ -52,6 +52,10 @@ Regras invioláveis:
 
 Gate: `bun run check:portfolio-funnel-operational` (roda no `prebuild`).
 
+## Separação: intenção de pedido, loja externa e delivery próprio
+
+`funnelType=pedido` e `PortfolioCTAQuiz` registram uma **intenção comercial/lead**, não um pedido transacional durável. `external_store` é a conversão na loja real **externa** do cliente, não prova de que a 0WEB implementou checkout. Quando o escopo contratado exigir delivery próprio, seguir `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` e `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md`: o CTA de compra só poderá finalizar por quote/order no servidor, pagamento conforme modalidade e protocolo verdadeiro, com `DELIVERY_READY=PASS` comprovado por testes reais. O funil atual permanece disponível como canal auxiliar, sem reclassificação retroativa dos projetos legados.
+
 ## Invariante: botão flutuante = funil do CTA da página
 
 `scripts/sync-portfolio-quiz-configs.mjs` extrai o funil declarado em cada

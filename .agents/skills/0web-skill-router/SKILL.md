@@ -18,7 +18,7 @@ Pick every label that applies:
 `landing-page` · `portfolio-client-site` · `portfolio-derivative` · `institutional-page` · `dashboard`
 `form` · `checkout/cart` · `funnel` · `component-refactor` · `design-system`
 `content/SEO` · `motion` · `layout-engineering` · `accessibility-fix` · `performance` · `bugfix`
-`backend/RLS` · `docs`
+`backend/RLS` · `docs` · `transactional-delivery` · `restaurant-operations`
 
 ## Step 1.5 — Discover skills dynamically
 
@@ -36,6 +36,7 @@ For any material UI task, `0web-experience-design-max` is mandatory after discov
 | Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md` → `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → Flexbox/Grid/intrinsic layout review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
 | Portfolio derivative (cover/modal/OG/preview/variant/domain) | `PORTFOLIO_ZERO_GENERIC_STANDARD` → `0web-skill-discovery` → `0web-experience-design-max` → reuse **identity**, never generic skeleton → media-purpose + crop/aspect review → responsive/browser QA → drift check against canonical client composition |
 | Material redesign / material maintenance | `PORTFOLIO_ZERO_GENERIC_STANDARD` when portfolio → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → `0web-design-system` → layout engineering → Apple HIG review → `0web-ui-quality-gates` |
+| Transactional delivery (restaurant storefront + backoffice) | `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` → `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` → `docs/DELIVERY_MENU_PRICING_STANDARD.md` → `docs/DELIVERY_CHECKOUT_ORDER_STANDARD.md` → `docs/DELIVERY_RESTAURANT_OPERATIONS_STANDARD.md` → `docs/DELIVERY_DATA_SECURITY_STANDARD.md` → `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md` → UX/mobile/a11y + server-side tenant isolation + real E2E; **NOT** a lead-only landing; no `DELIVERY_READY=PASS` without trusted CI evidence |
 | Dashboard / admin panel | `0web-skill-discovery` → `0web-experience-design-max` → `0web-design-system` (density, tables, states) → layout engineering → `0web-ui-quality-gates` (keyboard, empty/loading/error) |
 | Form / funnel step | `0web-experience-design-max` → `0web-ui-quality-gates` (labels, errors, touch targets) → funnel rules in `docs/PORTFOLIO_FUNNELS.md` |
 | React refactor | `react-best-practices` when relevant → composition first (see `0web-design-system` → Component API), then `bun test` + typecheck |

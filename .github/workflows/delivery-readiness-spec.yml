@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "scripts/delivery/**"
+      - "scripts/scaffold-portfolio-client.mjs"
+      - "docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md"
       - "tests/delivery/**"
       - "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"
       - "docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md"
@@ -12,6 +14,8 @@ on:
     branches: [main]
     paths:
       - "scripts/delivery/**"
+      - "scripts/scaffold-portfolio-client.mjs"
+      - "docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md"
       - "tests/delivery/**"
       - "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"
       - "docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md"
@@ -31,7 +35,7 @@ jobs:
         with:
           node-version: "22"
       - name: Test preflight invariants
-        run: node --test tests/delivery/readiness-gate.test.mjs
+        run: node --test tests/delivery/readiness-gate.test.mjs tests/delivery/scaffold-intent.test.mjs
       - name: Assert example delivery manifest is BLOCKED
         shell: bash
         run: |
