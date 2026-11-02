@@ -312,7 +312,14 @@ export const submitFunnel = createServerFn({ method: "POST" })
     // ---- Internal notification metadata ----
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
     const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
-    const operationalAlert = wa.enabled ? resolveOperationalWhatsAppContact() : null;
+    // A opção WhatsApp do formulário é um alerta operacional da 0WEB.
+    // Para a Dona Garimpeira, nunca encaminhar conteúdo/PII do lead ao
+    // WhatsApp institucional; o único destino futuro é o clientKey próprio,
+    // resolvido após a gravação pela rotina de token.
+    const operationalAlert =
+      form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled
+        ? resolveOperationalWhatsAppContact()
+        : null;
     const answersText = fmtAnswers(data.answers, questions);
     const metadataText = fmtMetadata(metadata);
     const whatsapp_user_url: string | null = null;
