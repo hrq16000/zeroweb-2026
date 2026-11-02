@@ -12,6 +12,11 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
   "arildo-madeiras": lazy(() =>
     import("@/components/site/ArildoMadeirasPage").then((m) => ({ default: m.ArildoMadeirasPage })),
   ),
+  // Autorada e preparada, mas inacessível via /portfolio/:slug enquanto
+  // não houver prototype publicado ou Managed PUBLISHED no loader.
+  "dona-garimpeira-brecho": lazy(() =>
+    import("@/components/site/DonaGarimpeiraBrechoPage").then((m) => ({ default: m.DonaGarimpeiraBrechoPage })),
+  ),
   "autoescola-aptos": lazy(() =>
     import("@/components/site/AutoescolaAptosPage").then((m) => ({ default: m.AutoescolaAptosPage })),
   ),
