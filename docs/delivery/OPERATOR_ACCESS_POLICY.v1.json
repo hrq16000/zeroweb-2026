@@ -1,0 +1,338 @@
+{
+  "schemaVersion": "0web.delivery.operator-access.v1",
+  "status": "SPECIFICATION_ONLY_NOT_IMPLEMENTED",
+  "note": "Static reference matrix for future server-side implementation. Every action additionally requires store membership, tenant isolation, field restrictions, expectedVersion and transition guards. Not proof of authorization tests.",
+  "roles": [
+    "OWNER",
+    "MANAGER",
+    "COUNTER",
+    "KITCHEN",
+    "COURIER",
+    "CASHIER",
+    "VIEWER"
+  ],
+  "rolePermissions": {
+    "OWNER": [
+      "order.list",
+      "order.view",
+      "order.accept",
+      "order.reject",
+      "order.start_preparation",
+      "order.mark_ready",
+      "order.dispatch",
+      "order.complete_pickup",
+      "order.complete_delivery",
+      "order.cancel",
+      "order.assign_courier",
+      "order.delivery_evidence",
+      "kds.view",
+      "kds.acknowledge",
+      "kds.reprint",
+      "print.reprint",
+      "payment.view",
+      "payment.record_offline",
+      "payment.refund_request",
+      "payment.refund_approve",
+      "catalog.manage",
+      "store.settings.manage",
+      "users.manage",
+      "audit.read",
+      "reports.read",
+      "operation.pause",
+      "operation.resume"
+    ],
+    "MANAGER": [
+      "order.list",
+      "order.view",
+      "order.accept",
+      "order.reject",
+      "order.start_preparation",
+      "order.mark_ready",
+      "order.dispatch",
+      "order.complete_pickup",
+      "order.complete_delivery",
+      "order.cancel",
+      "order.assign_courier",
+      "order.delivery_evidence",
+      "kds.view",
+      "kds.acknowledge",
+      "kds.reprint",
+      "print.reprint",
+      "payment.view",
+      "payment.record_offline",
+      "payment.refund_request",
+      "payment.refund_approve",
+      "catalog.manage",
+      "store.settings.manage",
+      "audit.read",
+      "reports.read",
+      "operation.pause",
+      "operation.resume"
+    ],
+    "COUNTER": [
+      "order.list",
+      "order.view",
+      "order.accept",
+      "order.dispatch",
+      "order.complete_pickup",
+      "order.assign_courier",
+      "print.reprint",
+      "operation.pause"
+    ],
+    "KITCHEN": [
+      "order.list",
+      "order.view",
+      "order.start_preparation",
+      "order.mark_ready",
+      "kds.view",
+      "kds.acknowledge",
+      "kds.reprint"
+    ],
+    "COURIER": [
+      "order.view",
+      "order.complete_delivery",
+      "order.delivery_evidence"
+    ],
+    "CASHIER": [
+      "order.list",
+      "order.view",
+      "payment.view",
+      "payment.record_offline"
+    ],
+    "VIEWER": [
+      "order.list",
+      "order.view",
+      "reports.read"
+    ]
+  },
+  "rowGuards": {
+    "all": "authenticated actor with active store membership; tenant and store derived server-side, never from untrusted payload; enforce least privilege",
+    "COURIER": "only assigned delivery orders; cannot read full queue or view unrelated customer addresses",
+    "KITCHEN": "operational order-items-only projection; no full delivery address, customer phone, payment tokens, fraud notes or private analytics",
+    "CASHIER": "payment + totals projection; personal data minimized to receipt requirements, not full order history by default",
+    "VIEWER": "read-only non-sensitive redacted projections, no raw customer contact or full address",
+    "COUNTER": "order operational view; delivery address only when necessary for dispatch and only if store policy permits",
+    "OWNER/MANAGER": "financial/customer view limited to legitimate operational purpose, subject to logging and retention",
+    "on_duplicate_membership": "a user with roles in more than one store must explicitly select active store; a query must always filter by chosen authorized store"
+  },
+  "actionGuards": {
+    "order.accept": "orderState=PLACED, expectedVersion, correct store; optional capacity check",
+    "order.reject": "orderState=PLACED, reason mandatory, compensating payment flow for charged orders",
+    "order.start_preparation": "orderState=ACCEPTED, cannot start an unpaid online order before authorized payment state",
+    "order.mark_ready": "orderState=PREPARING, no implicit dispatch or delivery",
+    "order.dispatch": "orderState=READY and fulfillment=DELIVERY, courier handoff verified as configured",
+    "order.complete_pickup": "orderState=READY and fulfillment=PICKUP, evidence of pickup",
+    "order.complete_delivery": "orderState=DISPATCHED and fulfillment=DELIVERY, assigned COURIER or authorized manager, proof as configured",
+    "order.cancel": "orderState in allowed cancellable set, recorded reason, manager approval, compensation/reconciliation if required",
+    "payment.record_offline": "method=CASH_ON_DELIVERY or CARD_ON_DELIVERY and collection verified; buyer cannot mark PAID; dedicated endpoint, unique receipt event, audit and anti-duplicate",
+    "payment.refund_request": "manager/owner only, valid refundable payment, evidence/amount, idempotency",
+    "payment.refund_approve": "manager/owner only, separation of duties for material amounts when policy enabled, provider settlement verified",
+    "operation.pause": "no automatic cancellation; blocks only new orders after state change, authorized actor; records reason",
+    "operation.resume": "authorized owner/manager, business hours/availability verified",
+    "kds.acknowledge": "does not mutate order payment or silently accept an order; acknowledgment is independent delivery/read receipt",
+    "kds.reprint": "re-print does not duplicate tickets or orders; immutable reprint audit event",
+    "order.assign_courier": "DELIVERY only, authorized dispatcher, valid courier assigned within same tenant/store"
+  },
+  "testVectors": [
+    {
+      "id": "OPS-ACL-01",
+      "role": "KITCHEN",
+      "action": "kds.view",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "order in assigned store; masked fields"
+    },
+    {
+      "id": "OPS-ACL-02",
+      "role": "KITCHEN",
+      "action": "payment.refund_approve",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "kitchen cannot refund"
+    },
+    {
+      "id": "OPS-ACL-03",
+      "role": "COUNTER",
+      "action": "order.accept",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "PLACED, expectedVersion and capacity valid"
+    },
+    {
+      "id": "OPS-ACL-04",
+      "role": "COUNTER",
+      "action": "order.reject",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "reject requires manager"
+    },
+    {
+      "id": "OPS-ACL-05",
+      "role": "MANAGER",
+      "action": "order.reject",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "PLACED, reason and compensation valid"
+    },
+    {
+      "id": "OPS-ACL-06",
+      "role": "COURIER",
+      "action": "order.complete_delivery",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "assigned order, DISPATCHED, verified proof and expectedVersion"
+    },
+    {
+      "id": "OPS-ACL-07",
+      "role": "COURIER",
+      "action": "order.complete_delivery",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "order not assigned to this courier"
+    },
+    {
+      "id": "OPS-ACL-08",
+      "role": "COURIER",
+      "action": "order.complete_pickup",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "courier cannot mark pickup complete"
+    },
+    {
+      "id": "OPS-ACL-09",
+      "role": "CASHIER",
+      "action": "payment.record_offline",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "verified cash collection from authorized operational flow"
+    },
+    {
+      "id": "OPS-ACL-10",
+      "role": "CASHIER",
+      "action": "payment.record_offline",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "buyer claimed payment without verified collection"
+    },
+    {
+      "id": "OPS-ACL-11",
+      "role": "VIEWER",
+      "action": "order.cancel",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "read-only operator"
+    },
+    {
+      "id": "OPS-ACL-12",
+      "role": "OWNER",
+      "action": "store.settings.manage",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "store membership verified and audited"
+    },
+    {
+      "id": "OPS-ACL-13",
+      "role": "MANAGER",
+      "action": "users.manage",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "managers cannot grant global or owner access"
+    },
+    {
+      "id": "OPS-ACL-14",
+      "role": "MANAGER",
+      "action": "order.cancel",
+      "sameStore": false,
+      "expected": "DENY",
+      "context": "cross-tenant/cross-store request forbidden"
+    },
+    {
+      "id": "OPS-ACL-15",
+      "role": "OWNER",
+      "action": "order.view",
+      "sameStore": false,
+      "expected": "DENY",
+      "context": "store A owner cannot enumerate store B order"
+    },
+    {
+      "id": "OPS-ACL-16",
+      "role": "KITCHEN",
+      "action": "order.mark_ready",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "order state is PLACED instead of PREPARING"
+    },
+    {
+      "id": "OPS-ACL-17",
+      "role": "COUNTER",
+      "action": "order.dispatch",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "pickup order cannot dispatch"
+    },
+    {
+      "id": "OPS-ACL-18",
+      "role": "MANAGER",
+      "action": "operation.resume",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "hours and capacity verified"
+    },
+    {
+      "id": "OPS-ACL-19",
+      "role": "COUNTER",
+      "action": "operation.resume",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "only manager or owner resumes"
+    },
+    {
+      "id": "OPS-ACL-20",
+      "role": "KITCHEN",
+      "action": "kds.acknowledge",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "acknowledgment persists as own event, not order state mutation"
+    },
+    {
+      "id": "OPS-ACL-21",
+      "role": "MANAGER",
+      "action": "order.accept",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "expectedVersion mismatch/concurrent modification"
+    },
+    {
+      "id": "OPS-ACL-22",
+      "role": "MANAGER",
+      "action": "payment.refund_request",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "valid amount, recorded reason and approval policy"
+    },
+    {
+      "id": "OPS-ACL-23",
+      "role": "COUNTER",
+      "action": "payment.refund_request",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "refund authorization missing"
+    },
+    {
+      "id": "OPS-ACL-24",
+      "role": "KITCHEN",
+      "action": "order.list",
+      "sameStore": true,
+      "expected": "ALLOW",
+      "context": "masked items-only projection, no raw customer contact"
+    },
+    {
+      "id": "OPS-ACL-25",
+      "role": "COURIER",
+      "action": "order.list",
+      "sameStore": true,
+      "expected": "DENY",
+      "context": "courier cannot enumerate complete queue, may view assigned order only"
+    }
+  ]
+}
