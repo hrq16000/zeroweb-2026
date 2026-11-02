@@ -79,6 +79,22 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     deny(withChanges({ answers: { ...good.answers, privacidade: ["não"] } }), "PRIVACY_NOT_ACKNOWLEDGED");
   });
 
+  test("não envia dados sensíveis ao contato institucional da 0WEB", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const source = readFileSync(resolve(process.cwd(), "src/lib/dynamic-funnel.functions.ts"), "utf8");
+    const submitStart = source.indexOf("export const submitFunnel =");
+    const submitEnd = source.indexOf("export const submitPortfolioQuiz =");
+    const submit = source.slice(submitStart, submitEnd);
+    expect(submit).toContain('form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled');
+    expect(submit).toContain("const operationalAlert =");
+    const alert = submit.indexOf("const operationalAlert =");
+    const insert = submit.indexOf('.from("dynamic_form_leads")');
+    expect(alert).toBeGreaterThan(0);
+    expect(insert).toBeGreaterThan(alert);
+    // Prova estática de isolamento; o E2E real exige Supabase autorizado.
+  });
+
   test("código de submit checa o guard antes de inserir lead e criar token", async () => {
     const { readFileSync } = await import("node:fs");
     const { resolve } = await import("node:path");
