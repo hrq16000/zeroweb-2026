@@ -89,7 +89,7 @@ describe("Dona Garimpeira — RBAC preparatório seguro", () => {
     })).allow).toBe(false);
     expect(authorizeDonaGarimpeira(request(owner, "content:publish", {
       tenant: "portfolio-outro-cliente", fields: ["gallery"],
-    })).toEqual({ allow: false, reason: "TENANT_MISMATCH" });
+    }))).toEqual({ allow: false, reason: "TENANT_MISMATCH" });
   });
 
   it("permite publicação direta só de campos públicos aos colaboradores", () => {
@@ -99,7 +99,7 @@ describe("Dona Garimpeira — RBAC preparatório seguro", () => {
     expect(allowed).toEqual({ allow: true, role: "editor" });
     expect(authorizeDonaGarimpeira(request(editor, "content:publish", {
       fields: ["business_contact"],
-    })).toEqual({ allow: false, reason: "FIELD_NOT_ALLOWED" });
+    }))).toEqual({ allow: false, reason: "FIELD_NOT_ALLOWED" });
     expect(authorizeDonaGarimpeira(request(editor, "media:manage", {
       fields: ["users"],
     })).allow).toBe(false);
