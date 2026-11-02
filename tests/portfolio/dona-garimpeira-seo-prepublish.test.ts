@@ -123,5 +123,8 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(jsx).not.toContain("iniciativas solidárias");
     expect(jsx).not.toContain("wa.me/");
     expect(jsx).toContain("const GALLERY_ITEMS: GalleryItem[] = []");
+    expect(jsx).not.toContain("Segunda a domingo, das 9h às 18h");
+    expect(jsx).not.toContain("Entrada acessível para cadeira de rodas.");
+    expect(jsx).toContain("Consulte os horários de atendimento antes de visitar.");
   });
 });
