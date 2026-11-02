@@ -8,12 +8,20 @@ import {
 } from "./portfolio-whatsapp-registry.server";
 
 describe("portfolio WhatsApp data", () => {
-  it("mantém os 96 portfolios no cadastro canônico", () => {
-    expect(getPortfolioContactClientKeys()).toHaveLength(96);
+  it("preserva os 96 portfolios anteriores e adiciona somente Dona Garimpeira", () => {
+    const keys = getPortfolioContactClientKeys();
+    expect(keys).toHaveLength(97);
+    expect(new Set(keys).size).toBe(97);
+    expect(keys.filter((key) => key !== "dona-garimpeira-brecho")).toHaveLength(96);
+    expect(keys.filter((key) => key === "dona-garimpeira-brecho")).toEqual(["dona-garimpeira-brecho"]);
   });
 
-  it("migra os destinos atuais e preserva o comprovado na PR", () => {
-    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(70);
+  it("preserva os 70 destinos antigos e acrescenta só o destino da Dona Garimpeira", () => {
+    const keys = getVersionedPortfolioWhatsAppClientKeys();
+    expect(keys).toHaveLength(71);
+    expect(keys.filter((key) => key !== "dona-garimpeira-brecho")).toHaveLength(70);
+    expect(resolveVersionedPortfolioWhatsApp("dona-garimpeira-brecho")).toBe("5541998379642");
+    expect(resolveVersionedPortfolioWhatsApp("cliente-inexistente")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
     expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");
