@@ -11,7 +11,7 @@ describe("Dona Garimpeira — funnel onboarding (not published)", () => {
     const contacts = json("src/config/portfolio-whatsapp.json").contacts;
     const reserved = json("docs/portfolio/drafts/dona-garimpeira-brecho-contact.json");
     const ledger = json("src/config/portfolio-funnel-destinations.json").entries;
-    expect(contacts[slug]).toBeUndefined();
+    expect(contacts[slug]).toEqual({ whatsapp: "5541998379642" });
     expect(reserved.operationalContact.whatsapp).toBe("5541998379642");
     expect(reserved.provenance.status).toBe("CONFIGURED_UNVERIFIED");
     expect(reserved.stage).toBe("draft");
@@ -20,14 +20,14 @@ describe("Dona Garimpeira — funnel onboarding (not published)", () => {
     expect(ledger[slug].verifiedAt).toBeUndefined();
     expect(Object.entries(contacts).filter(([, entry]) =>
       (entry as { whatsapp: string | null }).whatsapp === "5541998379642",
-    )).toEqual([]);
+    )).toEqual([[slug, { whatsapp: "5541998379642" }]]);
   });
 
   test("not a published/registered client or available public form", () => {
     const keys = read("src/lib/portfolio-client-keys.ts");
     const catalog = json("src/config/portfolio-catalog.json");
     const manifest = json("src/config/portfolio-project-manifests.json");
-    expect(keys).not.toContain(`"${slug}"`);
+    expect(keys).toContain(`"${slug}"`);
     expect(catalog.some((x: { slug: string }) => x.slug === slug)).toBe(false);
     expect(manifest.projects[slug]).toBeUndefined();
     const form = json("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-contract.json");
