@@ -258,6 +258,14 @@
     {
       "topic": "Bairro e CEP",
       "resolution": "Operador corrigiu GBP de Itália/83020-256 para Boneca do Iguaçu/83040-170; confirmação do CEP pela proprietária, inspeção pública posterior pendente"
+    },
+    {
+      "topic": "Homônimo e identidade comercial na busca pública",
+      "candidate": "https://dona-garimpeira-brecho.lojaintegrada.com.br/",
+      "observedAt": "2026-11-02",
+      "discrepancy": "A loja online apresenta DDD (43) e catálogo com preços/estoque; a Dona Garimpeira de São José dos Pinhais usa WhatsApp DDD (41) e é loja física sem e-commerce declarado.",
+      "resolution": "IDENTITY_NOT_PROVEN — não vincular URLs, preços, produtos, fotos, redes sociais, LocalBusiness ou avaliações da loja online ao perfil @donagarimpeirasjp sem confirmação explícita da responsável.",
+      "status": "BLOCK_CROSS_ENTITY_ASSET_USE"
     }
   ],
   "unverified": [
