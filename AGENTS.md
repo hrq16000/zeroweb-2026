@@ -44,7 +44,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
 | Narrativa e originalidade de conversão em `/portfolio` | `docs/PORTFOLIO_CONVERSION_NARRATIVE_STANDARD.md` |
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
-| Loja delivery transacional (cardápio, carrinho, checkout, pedidos, painel, QA) | `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` — separa vitrine, loja e operação; DELIVERY_OPERATIONAL_GATE obrigatório antes de declarar funcional |
+| Loja delivery transacional (criação, cardápio, pedidos, painel e homologação) | `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` → `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` → `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md`; scaffold `--delivery-transactional` apenas cria manifesto `BLOCKED`, nunca checkout ou pedido real |
 | RLS / isolamento Supabase / evidência de segurança no CI | `docs/RLS_CI_SECURITY_GATE.md` · `.github/workflows/rls-security.yml` |
 | Baseline congelado, política de regressão e manutenção do `/portfolio` | `docs/reports/PORTFOLIO-EXPERIENCE-FINAL-2026-09-05.md` §11 MAINTENANCE MODE |
 | Stack técnica, motion, performance e briefing de novos projetos | `docs/PORTFOLIO_TECH_STACK_PARAMETRIZATION.md` |
