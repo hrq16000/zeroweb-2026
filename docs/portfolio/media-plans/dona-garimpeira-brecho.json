@@ -1,0 +1,76 @@
+{
+  "doc": "docs/PORTFOLIO_PROJECT_LIFECYCLE.md + docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md",
+  "slug": "dona-garimpeira-brecho",
+  "status": "MEDIA_DISCOVERY_BLOCKED_OFFICIAL_INSTAGRAM_POSTS",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [],
+    "missingMedia": [
+      "Fachada com letreiro — foto real a ser tirada por Luiza",
+      "Interior, araras e equipe — foto real ainda não enviada",
+      "Seis posts públicos mais recentes de @donagarimpeirasjp com permalinks e mídia verificáveis",
+      "Logo original não existe — wordmark provisório até aprovação da Luiza",
+      "Capa social/OG original não criada"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OWNER_SUPPLIED",
+      "OFFICIAL_SOCIAL",
+      "SEARCH_INDEX",
+      "GOOGLE_PUBLIC_MEDIA"
+    ],
+    "result": "Instagram oficial confirmado por proprietário; buscas públicas por shortcode/permalink não localizaram seis publicações inequivocamente verificadas. Busca de imagens genérica trouxe outro brechó, descartado."
+  },
+  "referenceOnlyAssets": [],
+  "sections": [
+    {
+      "section": "hero",
+      "mediaRole": "BRAND_RECALL",
+      "source": "CLIENT_SCOPED_TYPOGRAPHY",
+      "asset": null,
+      "provenance": "Proposta de wordmark tipográfico provisório",
+      "status": "PROPOSED_UNAPPROVED",
+      "mediaNarrative": "CREATE_EMOTION"
+    },
+    {
+      "section": "gallery",
+      "mediaRole": "SHOW_REALITY",
+      "source": "INSTAGRAM_OFFICIAL",
+      "asset": null,
+      "provenance": "https://www.instagram.com/donagarimpeirasjp/",
+      "status": "BLOCKED_NO_VERIFIABLE_POST_MEDIA",
+      "mediaNarrative": "SHOW_REALITY"
+    },
+    {
+      "section": "visit",
+      "mediaRole": "ESTABLISH_CONTEXT",
+      "source": "OWNER_PHOTO_PENDING",
+      "asset": null,
+      "provenance": "Endereço confirmado pelo responsável",
+      "status": "PENDING",
+      "mediaNarrative": "ESTABLISH_CONTEXT"
+    }
+  ],
+  "socialLatestSix": {
+    "handle": "donagarimpeirasjp",
+    "profile": "https://www.instagram.com/donagarimpeirasjp/",
+    "verifiedPostPermalinks": [],
+    "status": "NOT_VERIFIED",
+    "reason": "Busca web e índice público insuficientes para confirmar permalinks e imagens. Nunca substituir por imagens de outros brechós."
+  },
+  "heroMedia": null,
+  "performanceImages": [],
+  "cover": {
+    "asset": null,
+    "strategy": "TIPOGRAPHY_PROVISIONAL_NOT_APPROVED",
+    "approved": false,
+    "checks": {}
+  },
+  "lastUpdatedAt": "2026-11-02"
+}
