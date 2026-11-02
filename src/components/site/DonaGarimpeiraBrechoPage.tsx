@@ -122,7 +122,7 @@ export const composition: PortfolioComposition = {
 
 const FAQS: [string, string][] = [
   ["Posso vender minhas roupas à Dona Garimpeira?", "Sim. A loja avalia presencialmente roupas usadas em excelente estado e, quando aprovadas, pode pagar na hora em Pix ou dinheiro."],
-  ["Posso levar roupas para doação?", "Sim. A loja recebe presencialmente doações de peças em excelente estado. Parte pode ser revendida e parte destinada a iniciativas solidárias."],
+  ["Posso levar roupas para doação?", "Sim. A loja recebe doações presencialmente, conforme as condições de recebimento confirmadas com a equipe. Não há promessa de destinação beneficente."],
   ["É possível reservar uma peça?", "Sim, pelo WhatsApp, após confirmação da disponibilidade. O prazo é combinado individualmente e a retirada e o pagamento acontecem na loja."],
   ["A vitrine mostra tudo que está à venda agora?", "Não. As fotografias são referências do estilo do brechó e não representam estoque em tempo real."],
   ["Como posso pagar na loja?", "A Dona Garimpeira aceita Pix, dinheiro, cartão de débito e cartão de crédito."],
@@ -307,7 +307,7 @@ export function DonaGarimpeiraBrechoPage() {
                 <span className="dg-journey-no">03 / COMPARTILHAR</span>
                 <Gift size={32} aria-hidden="true" />
                 <h3>Doe uma<br />nova chance.</h3>
-                <p>Recebemos doações de peças em excelente estado. Algumas são revendidas e outras ajudam iniciativas solidárias.</p>
+                <p>Recebemos doações de peças em excelente estado, conforme avaliação e condições de recebimento combinadas com a loja.</p>
                 <InterestCta interest="doar" placement="doar" className="dg-tag-action">Quero doar <ArrowUpRight size={18}/></InterestCta>
               </article>
             </div>
