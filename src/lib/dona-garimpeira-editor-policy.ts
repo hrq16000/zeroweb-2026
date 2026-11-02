@@ -189,3 +189,45 @@ export function donaGarimpeiraNeedsOwnerEmail(
   if (action === "users:grant" || action === "users:revoke" || action === "settings:update") return true;
   return fields.some((field) => RESTRICTED_FIELDS.has(field));
 }
+
+
+/**
+ * Propriedades aceitas para uma FOTO REAL no futuro editor.
+ * O link oficial identifica a origem, mas não substitui auditoria humana/API
+ * da licença, autoria e mídia correspondente antes de publicar.
+ */
+export type DonaGarimpeiraGalleryInput = Readonly<{
+  src: unknown;
+  instagramPermalink: unknown;
+  alt: unknown;
+  category: unknown;
+}>;
+
+/**
+ * Impede URLs externas arbitrárias, javascript:, traversal, HTML e posts sem
+ * permalink por registro. A ingestão real do asset precisa ser server-side,
+ * autorizada e preservada no bucket isolado do cliente.
+ */
+export function validateDonaGarimpeiraGalleryInput(
+  input: DonaGarimpeiraGalleryInput
+): boolean {
+  if (typeof input.src !== "string" ||
+      typeof input.instagramPermalink !== "string" ||
+      typeof input.alt !== "string" ||
+      typeof input.category !== "string") {
+    return false;
+  }
+  const src = input.src;
+  const permalink = input.instagramPermalink;
+  const alt = input.alt.trim();
+
+  return (
+    src.length <= 240 &&
+    /^\/images\/dona-garimpeira-brecho\/[a-z0-9][a-z0-9_-]*\.(?:webp|avif|png|jpg|jpeg)$/.test(src) &&
+    /^https:\/\/www\.instagram\.com\/(?:p|reel)\/[A-Za-z0-9_-]{5,24}\/?$/.test(permalink) &&
+    alt.length >= 12 &&
+    alt.length <= 180 &&
+    !/[<>]/.test(alt) &&
+    ["feminino", "masculino", "infantil"].includes(input.category)
+  );
+}
