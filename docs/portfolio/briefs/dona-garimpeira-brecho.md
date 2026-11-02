@@ -127,3 +127,47 @@ O repertório material é "editorial de brechó real", **não** catálogo transa
 - Site ainda não publicado e sem mídia confirmada localmente.
 
 **Esta branch não autoriza merge/publicação automática de página incompleta.**
+
+
+## Rodada 2/5 — estrutura autoral adicionada (2026-11-02)
+
+### Arquivos de código efetivamente criados nesta branch
+
+- `src/components/site/DonaGarimpeiraBrechoPage.tsx`: composição autoral com identidade tipográfica provisória, três jornadas separadas, galeria com filtros/visualizador preparada para mídia real, informações sobre compra/venda/doação, regras de reservas, visita e FAQ. CTAs usam o componente existente `FunnelCTAButton` e o slug de formulário individual **ainda não publicado**.
+- `src/components/site/dona-garimpeira-brecho.css`: estilo escopado, apresentação editorial diferenciada, comportamento mobile-first, foco visível, responsividade e redução de movimento.
+
+**ALERTA DE ESTADO:** estes arquivos estão **isolados e intencionalmente não registrados** na cadeia de rotas/composição. Não significam site no ar, nem funil funcionando. Ainda precisam de testes reais, integração, revisão de CSS e acesso ao material fotográfico do Instagram.
+
+### Direções criativas divergentes consideradas (ZERO_GENERIC)
+
+**A — Acervo afetivo / editorial de etiquetas — ESCOLHIDA para protótipo.**
+- Hero-pôster tipográfico, selo de garimpo fora do centro e palavra-marca provisória.
+- Jornada de escolha do visitante em etiquetas numeradas.
+- Galeria fotográfica documental irregular; capítulo de políticas em painel duplo e encerramento em endereço monumental.
+- Intenção principal: aproximar o cliente do espaço físico e explicar como comprar, vender e doar sem simular loja virtual.
+
+**B — Passarela circular / percurso de uma peça — NÃO adotada nesta versão.**
+- Hero em caminho vertical com capítulos em diferentes estágios de uso/renovação, narrativa de ida e volta.
+- Formato com maior ênfase no ciclo de vida do tecido e menos clareza imediata para as três intenções independentes; não escolhido.
+
+**C — Caderno do bairro / mapa de descoberta — NÃO adotada nesta versão.**
+- Hero com endereço/mapa como elemento dominante, conteúdo apresentado como rota pela vizinhança e microhistórias locais.
+- Bom para descoberta local, mas exigiria mais evidência visual real da fachada/interior e criaria risco de exagerar informações do bairro ainda não levantadas.
+
+### Matriz de papéis e diferenciação
+
+- **ROLE_MATRIX:** orientar sobre o estabelecimento → auto-segmentar comprar/vender/doar → inspirar com mídia autorizada → esclarecer reserva/avaliação → facilitar visita → tirar dúvidas.
+- **COMPOSITION_MATRIX:** pôster tipográfico grande / fita de três etiquetas / galeria documental / notas em duas colunas / grande número de porta / FAQ compacto.
+- **RHYTHM_MEDIA_MATRIX:** tipografia dominante no começo → mídia real apenas no acervo → pausa textual → convite geográfico amplo; a falta de fotos não é mascarada por mídia inventada.
+- **ANTI_COPY_MATRIX:** não repetir hero split ou grid genérico dos demais projetos; não usar imagens de brechó genéricas, avaliações fabricadas, disponibilidade em tempo real ou falso checkout.
+
+### Bloqueios reais para concluir as rodadas seguintes
+
+1. **Mídia real**: pesquisa pública genérica não forneceu fotos inequívocas do perfil oficial; não copiar imagem indexada pertencente a outro brechó. Validar os seis posts/permalinks do Instagram antes de inserir.
+2. **Funil real**: configurar `funnel-dona-garimpeira-brecho`, perguntas por intenção, persistência, destino privado e testes de redirecionamento pós-lead.
+3. **Integração da rota e readiness**: registrar client key, composição autoral, manifesto novo contrato v4, SEO/JSON-LD, sitemap, descoberta e derivativos; executar gates antes de publicação.
+4. **Painel autônomo**: Google sign-in, roles, tenant isolation, histórico e notificação por e-mail ainda são requisitos; nada habilitado.
+5. **CI/QA**: nenhum build, teste funcional, Lighthouse ou visual de 390/768/1440 foi executado nesta rodada; não tratar a composição como aprovada.
+6. **GBP/GSC**: conta do Google segue em verificação por relato; URL não pode ser cadastrada como site até produção verificada.
+
+**Skill stack aplicado na rodada 2:** roteador 0WEB, zero-generic, composição única, contratos de execução, UX/identidade autoral escopada, acessibilidade/responsividade/motion via implementação; testes browser/QA apenas planejados. Nenhum Max mode do Lovable e nenhuma alteração de DNS.
