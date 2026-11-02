@@ -206,3 +206,11 @@ Norma detalhada: [DELIVERY_CHECKOUT_ORDER_STANDARD.md](./DELIVERY_CHECKOUT_ORDER
 R4 especifica carrinho persistente e revalidável, cotação servidor de preço e entrega, criação durável idempotente do pedido, pagamento online com conciliação por webhook verificado, pagamento na entrega, operações de status independentes, segurança e falhas/retries. **Um clique, um redirect ou um lead não é um pedido confirmado.** O padrão exige identificação imutável e auditável do pedido, com consulta de status para recuperá-lo após timeouts.
 
 **Estado:** especificação concluída, endpoints/banco/gateway/painel/E2E não implementados por esta documentação. Nenhuma loja foi ativada ou publicada com esse contrato. Os 22 cenários CK-01–CK-22 são critérios futuros, não testes já executados.
+
+## 16. Operação do restaurante, cozinha e equipe — R5
+
+Norma operacional: [DELIVERY_RESTAURANT_OPERATIONS_STANDARD.md](./DELIVERY_RESTAURANT_OPERATIONS_STANDARD.md). Política inicial de papéis/ações e cenários: [OPERATOR_ACCESS_POLICY.v1.json](./delivery/OPERATOR_ACCESS_POLICY.v1.json).
+
+A Rodada 5 especifica o **painel separado por loja**, fila de pedidos reais, aceite/rejeição, cozinha/KDS mínimo, preparo, retirada, despacho, conclusão, administração do cardápio, auditoria, eventos em tempo real, comportamento offline honesto e reconciliação de falhas. O mínimo de delivery exige que a cozinha/loja realmente receba o pedido persistido. Módulos avançados de PDV completo (mesas, comanda, fechamento de caixa, fiscal, estoque por ingredientes e multiloja consolidado) não são alegados como implementados, nem se tornam obrigatórios sem escopo explícito.
+
+**Validação documental:** matriz JSON com 7 papéis e 25 cenários de autorização; a norma inclui 16 cenários operacionais E2E a executar na R7. Nenhum desses testes executou transações reais; painel, banco, KDS e integrações continuam `IMPLEMENTATION_PENDING`. Dados da loja Juma e do PDV Slim autenticado não foram acessados.
