@@ -219,6 +219,31 @@ export const submitFunnel = createServerFn({ method: "POST" })
     if (fErr) throw new Error(fErr.message);
     if (!form || form.status !== "published") throw new Error("Funil não disponível");
 
+    // Fail closed: um rascunho do brechó publicado por engano no banco não
+    // pode enviar o lead à 0WEB ou a outro cliente. Exigir registros canônicos
+    // e os dados mínimos da jornada antes de qualquer INSERT/redirect.
+    if (form.slug === "funnel-dona-garimpeira-brecho") {
+      const [
+        { checkDonaGarimpeiraSubmission, DONA_GARIMPEIRA_CLIENT_KEY },
+        { resolveVersionedPortfolioWhatsApp },
+        { default: portfolioCatalog },
+      ] = await Promise.all([
+        import("@/lib/dona-garimpeira-funnel-guard"),
+        import("@/lib/portfolio-whatsapp-registry.server"),
+        import("@/config/portfolio-catalog.json"),
+      ]);
+      const ready = checkDonaGarimpeiraSubmission({
+        formSlug: form.slug,
+        clientKey: data.client_metadata?.client_key,
+        registered: isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
+        catalogPublished: (portfolioCatalog as Array<{ slug: string; status?: string; live?: boolean }>)
+          .some((p) => p.slug === DONA_GARIMPEIRA_CLIENT_KEY && p.status === "published" && p.live === true),
+        ownWhatsAppConfigured: Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
+        answers: data.answers,
+      });
+      if (!ready.ok) throw new Error("Funil da Dona Garimpeira ainda não disponível.");
+    }
+
     const { data: qs } = await supabaseAdmin
       .from("dynamic_form_questions")
       .select("key, label, type, options_json")
