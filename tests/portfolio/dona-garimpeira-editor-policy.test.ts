@@ -117,10 +117,18 @@ describe("Dona Garimpeira — RBAC preparatório seguro", () => {
     const targetEditor = { tenant: DONA_GARIMPEIRA_TENANT, subject: editor, role: "editor" as const };
     const targetOwner = { tenant: DONA_GARIMPEIRA_TENANT, subject: owner, role: "owner" as const };
     const targetAdmin = { tenant: DONA_GARIMPEIRA_TENANT, subject: admin, role: "platform_admin" as const };
-    expect(authorizeDonaGarimpeira(request(owner, "users:grant", { target: targetEditor })).allow).toBe(true);
+    const invitedEditor = { tenant: DONA_GARIMPEIRA_TENANT, subject: "google-new-editor-id", role: "editor" as const };
+    expect(authorizeDonaGarimpeira(request(owner, "users:grant", { target: invitedEditor })).allow).toBe(true);
+    expect(authorizeDonaGarimpeira(request(owner, "users:grant", { target: targetEditor }))).toEqual({ allow: false, reason: "TARGET_ALREADY_ACTIVE" });
     expect(authorizeDonaGarimpeira(request(admin, "users:revoke", { target: targetEditor })).allow).toBe(true);
     expect(authorizeDonaGarimpeira(request(admin, "users:revoke", { target: targetOwner })).allow).toBe(false);
     expect(authorizeDonaGarimpeira(request(owner, "users:revoke", { target: targetAdmin })).allow).toBe(false);
+    expect(authorizeDonaGarimpeira(request(admin, "users:revoke", {
+      target: { tenant: DONA_GARIMPEIRA_TENANT, subject: owner, role: "editor" },
+    })).allow).toBe(false);
+    expect(authorizeDonaGarimpeira(request(admin, "users:revoke", {
+      target: invitedEditor,
+    })).allow).toBe(false);
     expect(authorizeDonaGarimpeira(request(owner, "users:revoke", {
       target: { tenant: DONA_GARIMPEIRA_TENANT, subject: owner, role: "editor" },
     })).allow).toBe(false);
