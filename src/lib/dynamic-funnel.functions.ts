@@ -115,7 +115,12 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
 
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
     const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
-    const operationalWhatsApp = wa.enabled ? resolveOperationalWhatsAppContact() : null;
+    // O campo whatsapp_enabled representa alerta institucional, nunca o
+    // destino privado do funil do cliente. Evitar sinalização enganosa.
+    const operationalWhatsApp =
+      form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled
+        ? resolveOperationalWhatsAppContact()
+        : null;
     return {
       id: form.id,
       slug: form.slug,
