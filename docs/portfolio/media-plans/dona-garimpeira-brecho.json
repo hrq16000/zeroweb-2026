@@ -25,7 +25,7 @@
       "SEARCH_INDEX",
       "GOOGLE_PUBLIC_MEDIA"
     ],
-    "result": "Instagram oficial confirmado por proprietário; buscas públicas por shortcode/permalink não localizaram seis publicações inequivocamente verificadas. Busca de imagens genérica trouxe outro brechó, descartado.",
+    "result": "Capturas reais da conta @donagarimpeirasjp fornecidas pelo operador foram encontradas e verificadas visualmente; não permitem identificar seis permalinks nem extrair fotos em qualidade aprovada. Buscas públicas externas trouxeram contas e lojas com nomes parecidos, rejeitadas.",
     "latestAttempt": {
       "date": "2026-11-02",
       "methods": [
@@ -36,6 +36,27 @@
       "outcome": "NO_VERIFIABLE_CLIENT_ASSETS",
       "detail": "A busca por @donagarimpeirasjp não apresentou post/permalink e imagem autenticáveis; solicitação de perfil público falhou no acesso. Imagem retornada pertencia a outro brechó (Candieplace) e foi excluída. Não atribuir a terceiros fotos da Dona Garimpeira.",
       "status": "REJECTED_UNRELATED_IMAGE"
+    },
+    "ownerScreenshotsReviewed": {
+      "reviewedAt": "2026-11-02",
+      "origin": "OWNER_SUPPLIED_SCREENSHOTS_VISIBLE_IN_PROJECT_CONTEXT",
+      "profileScreenshots": [
+        "1000022975.jpg",
+        "1000022976.jpg"
+      ],
+      "gridScreenshots": [
+        "1000022977.jpg",
+        "1000022978.jpg"
+      ],
+      "content": "As capturas mostram o perfil @donagarimpeirasjp e grade de fotos de roupas; a imagem do perfil indica 16 posts no momento da captura. Isso NÃO confirma os seis últimos permalinks na data de publicação.",
+      "rights": "Intake relata autorização da Luiza para uso de fotos oficiais, mas as imagens originais e URLs individuais ainda não foram fornecidas à árvore GitHub.",
+      "usage": "REFERENCE_ONLY_NOT_APPROVED_FOR_GALLERY_OR_OG",
+      "limitations": [
+        "Captura comprimida com interface Instagram; não é arquivo de foto original",
+        "PermaLinks e datas dos posts não aparecem nas capturas",
+        "A captura é evidência histórica, não inventário atual do Instagram",
+        "Os arquivos das capturas não estão integrados ao repositório na PR"
+      ]
     }
   },
   "referenceOnlyAssets": [],
@@ -73,7 +94,7 @@
     "profile": "https://www.instagram.com/donagarimpeirasjp/",
     "verifiedPostPermalinks": [],
     "status": "NOT_VERIFIED",
-    "reason": "Busca web e índice público insuficientes para confirmar permalinks e imagens. Nunca substituir por imagens de outros brechós."
+    "reason": "Há prints oficiais do perfil com grade de peças; sem os links individuais dos seis posts e sem fotos originais autorizadas em resolução suficiente para galeria/OG. Nunca inferir post URL pelo grid."
   },
   "heroMedia": null,
   "performanceImages": [],
