@@ -4,6 +4,7 @@ import {
   authorizeDonaGarimpeira,
   donaGarimpeiraNeedsOwnerEmail,
   planDonaGarimpeiraAuditEvent,
+  validateDonaGarimpeiraGalleryInput,
   type AuthorizationRequest,
   type DonaGarimpeiraMembership,
   type VerifiedProviderSession,
@@ -164,4 +165,29 @@ describe("Dona Garimpeira — RBAC preparatório seguro", () => {
     expect(donaGarimpeiraNeedsOwnerEmail("users:revoke")).toBe(true);
     expect(donaGarimpeiraNeedsOwnerEmail("settings:update")).toBe(true);
   });
+
+  it("somente mídia interna do cliente com permalink específico pode passar na validação", () => {
+    const valid = {
+      src: "/images/dona-garimpeira-brecho/peca-01.webp",
+      instagramPermalink: "https://www.instagram.com/p/C2abcDE12_3/",
+      alt: "Roupa usada da galeria oficial do brechó",
+      category: "feminino",
+    };
+    expect(validateDonaGarimpeiraGalleryInput(valid)).toBe(true);
+    const badPhotos = [
+      { ...valid, src: "https://third-party.example/image.jpg" },
+      { ...valid, src: "/images/outro-cliente/peca-01.webp" },
+      { ...valid, src: "/images/dona-garimpeira-brecho/../segredo.jpg" },
+      { ...valid, src: "/images/dona-garimpeira-brecho/peca.svg" },
+      { ...valid, src: "/images/dona-garimpeira-brecho/peca.webp?token=1" },
+      { ...valid, instagramPermalink: "https://www.instagram.com/donagarimpeirasjp/" },
+      { ...valid, instagramPermalink: "https://evil.example/p/C2abcDE12_3/" },
+      { ...valid, alt: "<script>conteúdo malicioso</script>" },
+      { ...valid, category: "outro-brecho" },
+    ];
+    for (const photo of badPhotos) {
+      expect(validateDonaGarimpeiraGalleryInput(photo)).toBe(false);
+    }
+  });
+
 });
