@@ -144,6 +144,21 @@ export function authorizeDonaGarimpeira(request: AuthorizationRequest): AccessDe
       target.role !== "editor") {
       return { allow: false, reason: "TARGET_NOT_MANAGEABLE" };
     }
+
+    // Never trust the requested target role alone. Re-evaluate the existing
+    // membership, which the server must have loaded from trusted storage.
+    const actualTarget = request.memberships.filter((m) =>
+      m.tenant === DONA_GARIMPEIRA_TENANT && m.subject === target.subject
+    );
+    if (request.action === "users:revoke") {
+      if (actualTarget.length !== 1 ||
+          actualTarget[0].role !== "editor" ||
+          actualTarget[0].status !== "active") {
+        return { allow: false, reason: "TARGET_NOT_ACTIVE_EDITOR" };
+      }
+    } else if (actualTarget.some((m) => m.status === "active")) {
+      return { allow: false, reason: "TARGET_ALREADY_ACTIVE" };
+    }
   }
 
   return { allow: true, role };
