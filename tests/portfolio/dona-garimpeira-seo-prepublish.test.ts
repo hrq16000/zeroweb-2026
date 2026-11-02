@@ -46,6 +46,30 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     }
   });
 
+  test("SEO pode ser aprovado sem Instagram ou imagem, mediante dispensa explícita", () => {
+    const noMedia = {
+      ...ready,
+      mediaApproved: false,
+      approvedSocialImage: null,
+      approvedWithoutSocialImage: true,
+    };
+    expect(donaGarimpeiraSeoReady(noMedia)).toBe(true);
+    const seo = createDonaGarimpeiraSeo(noMedia);
+    expect(seo.ready).toBe(true);
+    expect(seo.meta).toContainEqual({ name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" });
+    expect(seo.meta).toContainEqual({ name: "twitter:card", content: "summary" });
+    expect(seo.meta.some((item) => "property" in item && item.property === "og:image")).toBe(false);
+    expect(seo.meta.some((item) => "name" in item && item.name === "twitter:image")).toBe(false);
+    const schema = JSON.parse(String(seo.scripts[0].children));
+    const store = schema["@graph"].find((n: { "@type": string }) => n["@type"] === "ClothingStore");
+    expect(store).not.toHaveProperty("image");
+    expect(donaGarimpeiraSeoReady({ ...noMedia, approvedWithoutSocialImage: false })).toBe(false);
+    expect(donaGarimpeiraSeoReady({
+      ...noMedia,
+      approvedSocialImage: "https://outrobrecho.com/foto.jpg",
+    })).toBe(false);
+  });
+
   test("projeto aprovado produz canonical próprio, Open Graph e ClothingStore", () => {
     expect(donaGarimpeiraSeoReady(ready)).toBe(true);
     const seo = createDonaGarimpeiraSeo(ready);

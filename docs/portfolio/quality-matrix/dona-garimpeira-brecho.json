@@ -27,7 +27,6 @@
   "deadZones": [],
   "mediaSourceMix": {},
   "p0": [
-    "UNVERIFIED_SOCIAL_MEDIA",
     "FUNNEL_NOT_ACTIVE",
     "ROUTE_NOT_PUBLISHED",
     "SEO_DRAFT_PREPARED_NOT_CONNECTED_QA_PENDING"
@@ -35,10 +34,9 @@
   "warnings": [
     "No Lighthouse, SSR or screen QA has been executed for this slug",
     "Composição autoral registrada, mas sem public prototype ou catálogo; SSR/SEO no head ainda não conectado.",
-    "O SEO individual está preparado com noindex fail-closed; a imagem social e 6 posts reais continuam sem comprovação."
+    "Por decisão do operador, posts do Instagram não são pré-requisito; publicar sem mídia não aprovada, com SEO textual se os demais gates passarem."
   ],
   "ownerRequired": [
-    "Enviar fotos da fachada quando possível",
     "Aprovar identidade visual"
   ],
   "lastUpdatedAt": "2026-11-02"

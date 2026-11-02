@@ -26,6 +26,8 @@ export type DonaGarimpeiraSeoState = Readonly<{
   /** Caminho local existente e aprovado. Não usar foto de terceiros. */
   approvedSocialImage?: string | null;
   mediaApproved: boolean;
+  /** Opt-in editorial: publicar sem fotos externas, sem fingir imagem aprovada. */
+  approvedWithoutSocialImage?: boolean;
   funnelVerified: boolean;
   ownerApproved: boolean;
 }>;
@@ -35,12 +37,14 @@ const SOCIAL_IMAGE_RE = /^\/images\/dona-garimpeira-brecho\/[a-z0-9][a-z0-9_-]*\
 export function donaGarimpeiraSeoReady(
   state: DonaGarimpeiraSeoState,
 ): boolean {
+  const hasImage = typeof state.approvedSocialImage === "string";
+  const mediaReady = hasImage
+    ? state.mediaApproved && SOCIAL_IMAGE_RE.test(state.approvedSocialImage!)
+    : state.approvedWithoutSocialImage === true && state.approvedSocialImage == null;
   return state.published &&
-    state.mediaApproved &&
     state.funnelVerified &&
     state.ownerApproved &&
-    typeof state.approvedSocialImage === "string" &&
-    SOCIAL_IMAGE_RE.test(state.approvedSocialImage);
+    mediaReady;
 }
 
 /**
@@ -62,7 +66,10 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
     return { ready: false as const, meta: baseMeta, links: [], scripts: [] };
   }
 
-  const image = new URL(state.approvedSocialImage!, s.canonical).href;
+  // Sem imagens oficiais, não produzir OG:image nem afirmar mídia inexistente.
+  const image = typeof state.approvedSocialImage === "string"
+    ? new URL(state.approvedSocialImage, s.canonical).href
+    : null;
   const storeId = s.canonical + "#store";
   const seoGraph = {
     "@context": "https://schema.org",
@@ -73,7 +80,7 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
         name: s.business,
         url: s.canonical,
         description: s.description,
-        image,
+        ...(image ? { image } : {}),
         sameAs: [s.instagram],
         address: {
           "@type": "PostalAddress",
@@ -123,12 +130,14 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
       { property: "og:title", content: s.title },
       { property: "og:description", content: s.description },
       { property: "og:url", content: s.canonical },
-      { property: "og:image", content: image },
-      { property: "og:image:alt", content: "Identidade visual aprovada da Dona Garimpeira" },
-      { name: "twitter:card", content: "summary_large_image" },
+      ...(image ? [
+        { property: "og:image", content: image },
+        { property: "og:image:alt", content: "Identidade visual aprovada da Dona Garimpeira" },
+      ] : []),
+      { name: "twitter:card", content: image ? "summary_large_image" : "summary" },
       { name: "twitter:title", content: s.title },
       { name: "twitter:description", content: s.description },
-      { name: "twitter:image", content: image },
+      ...(image ? [{ name: "twitter:image", content: image }] : []),
     ],
     links: [{ rel: "canonical", href: s.canonical }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(seoGraph) }],
