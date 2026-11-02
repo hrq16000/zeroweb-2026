@@ -182,7 +182,7 @@ Não retornar erro 500 contendo IDs internos, dados do cliente, SQL, webhooks, c
 
 ## 6. Máquina de estados independente
 
-Arquivo machine-readable: [ORDER_PAYMENT_STATE_MACHINES.v1.json](./delivery/ORDER_PAYMENT_STATE_MACHINES.v1.json). Possui 10 estados de pedido, 11 de pagamento, 14 transições de pedido, 12 transições financeiras e 15 vetores de aceitação **documentais**.
+Arquivo machine-readable: [ORDER_PAYMENT_STATE_MACHINES.v1.json](./delivery/ORDER_PAYMENT_STATE_MACHINES.v1.json). Possui 10 estados de pedido, 11 de pagamento, 14 transições de pedido, 13 transições financeiras e 17 vetores de aceitação **documentais**.
 
 **Regras complementares:**
 - No checkout online `PENDING_PAYMENT` antecede `PLACED`; no pagamento na entrega, criação ocorre diretamente em `PLACED` (não precisa passar por `PENDING_PAYMENT`).
