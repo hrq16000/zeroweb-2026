@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0web.delivery.readiness.v1",
+  "storeId": "EXAMPLE_STORE_NOT_REAL",
+  "systemType": "TRANSACTIONAL_DELIVERY",
+  "productionEnabled": false,
+  "implementationStatus": "NOT_IMPLEMENTED",
+  "commitSha": null,
+  "environment": "example-only",
+  "notes": [
+    "SPECIFICATION EXAMPLE, never a production store or evidence.",
+    "Each mandatory gate remains NOT_EXECUTED until actual delivery runtime, data protection and E2E tests are implemented.",
+    "This file cannot authorize orderEnabled=true, payments, checkout or operational readiness.",
+    "The R7 preflight script is deliberately fail-closed even if a developer manually writes PASS in this file."
+  ],
+  "gates": [
+    {
+      "id": "REAL_STORE_CATALOG",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "MOBILE_CATALOG_UX",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "OPTIONS_PIZZA_COMBO_PRICING",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "PERSISTENT_REVALIDATED_CART",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "SERVER_QUOTE_DELIVERY_COVERAGE",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "DURABLE_IDEMPOTENT_ORDER",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "PAYMENT_SANDBOX_WEBHOOK_RECONCILIATION",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "CUSTOMER_ORDER_TRACKING",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "OPERATOR_QUEUE_REALTIME",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "KITCHEN_KDS_OPERATION",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "DELIVERY_PICKUP_FULFILLMENT",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "SERVER_SIDE_ROLE_AUTHORIZATION",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "CROSS_TENANT_RLS_ISOLATION",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "LGPD_PII_PAYMENT_SECURITY",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "OUTBOX_NETWORK_FAILURE_RECOVERY",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "MOBILE_A11Y_PERFORMANCE_E2E",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    },
+    {
+      "id": "PRODUCTION_SMOKE_WITH_REAL_STORE",
+      "status": "NOT_EXECUTED",
+      "evidence": null
+    }
+  ]
+}
