@@ -1,0 +1,43 @@
+{
+  "doc": "docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md",
+  "slug": "dona-garimpeira-brecho",
+  "matrixVersion": 2,
+  "contractVersion": 4,
+  "evaluatedAt": null,
+  "technicalPass": false,
+  "editorialPass": false,
+  "score": {
+    "total": null,
+    "byDimension": {}
+  },
+  "dimensions": {},
+  "experience": {
+    "visualRhythm": null,
+    "signatureMoments": [],
+    "motionNarrative": null,
+    "heroArchetype": null
+  },
+  "hero": {
+    "status": "UNTESTED"
+  },
+  "cover": {
+    "status": "BLOCKED_OFFICIAL_MEDIA"
+  },
+  "coverage": [],
+  "deadZones": [],
+  "mediaSourceMix": {},
+  "p0": [
+    "UNVERIFIED_SOCIAL_MEDIA",
+    "FUNNEL_NOT_ACTIVE",
+    "ROUTE_NOT_REGISTERED",
+    "SEO_AND_QA_PENDING"
+  ],
+  "warnings": [
+    "No Lighthouse, SSR or screen QA has been executed for this slug"
+  ],
+  "ownerRequired": [
+    "Enviar fotos da fachada quando possível",
+    "Aprovar identidade visual"
+  ],
+  "lastUpdatedAt": "2026-11-02"
+}
