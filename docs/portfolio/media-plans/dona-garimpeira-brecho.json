@@ -25,7 +25,18 @@
       "SEARCH_INDEX",
       "GOOGLE_PUBLIC_MEDIA"
     ],
-    "result": "Instagram oficial confirmado por proprietário; buscas públicas por shortcode/permalink não localizaram seis publicações inequivocamente verificadas. Busca de imagens genérica trouxe outro brechó, descartado."
+    "result": "Instagram oficial confirmado por proprietário; buscas públicas por shortcode/permalink não localizaram seis publicações inequivocamente verificadas. Busca de imagens genérica trouxe outro brechó, descartado.",
+    "latestAttempt": {
+      "date": "2026-11-02",
+      "methods": [
+        "web_search_exact_handle",
+        "image_search_exact_handle",
+        "instagram_public_profile_request"
+      ],
+      "outcome": "NO_VERIFIABLE_CLIENT_ASSETS",
+      "detail": "A busca por @donagarimpeirasjp não apresentou post/permalink e imagem autenticáveis; solicitação de perfil público falhou no acesso. Imagem retornada pertencia a outro brechó (Candieplace) e foi excluída. Não atribuir a terceiros fotos da Dona Garimpeira.",
+      "status": "REJECTED_UNRELATED_IMAGE"
+    }
   },
   "referenceOnlyAssets": [],
   "sections": [
@@ -72,5 +83,16 @@
     "approved": false,
     "checks": {}
   },
-  "lastUpdatedAt": "2026-11-02"
+  "lastUpdatedAt": "2026-11-02",
+  "mediaApprovalGate": {
+    "status": "BLOCKED",
+    "requirements": [
+      "Seis posts oficiais com links inequívocos e arquivos correspondentes, quando acessíveis",
+      "Autorização válida para usar fotos do perfil oficial e futura substituição por fotografias da fachada/interior",
+      "Licença e fonte documentadas por arquivo",
+      "Capa/OG individual aprovada por Luiza",
+      "Otimização e testes de renderização para mobile e reduced-motion"
+    ],
+    "reviewedBy": "PENDING"
+  }
 }
