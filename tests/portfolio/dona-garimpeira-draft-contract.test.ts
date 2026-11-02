@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 /**
@@ -46,8 +46,9 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(component).not.toContain("mailto:");
   });
 
-  test("funnel migration is draft-only and does not overwrite existing forms", () => {
-    const sql = read("supabase/migrations/20261102170400_seed_dona_garimpeira_brecho_funnel.sql");
+  test("funnel SQL stays inert until real database schema is verified", () => {
+    expect(existsSync(resolve(process.cwd(), "supabase/migrations/20261102170400_seed_dona_garimpeira_brecho_funnel.sql"))).toBe(false);
+    const sql = read("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-seed.sql");
     expect(sql).toContain("funnel-dona-garimpeira-brecho");
     expect(sql).toMatch(/'draft'/);
     expect(sql).toMatch(/on conflict \(slug\) do nothing/i);
