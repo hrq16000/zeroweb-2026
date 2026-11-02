@@ -184,3 +184,9 @@ Prioridade em colisão: segurança, integridade monetária e de pedido, LGPD e a
 - integração final nos manifestos e geração automática de novos projetos.
 
 Não marcar `100% DOCUMENTADO`, `100% FUNCIONAL`, `PUBLICADO` ou `INDEXADO` enquanto o respectivo conjunto de evidências não existir.
+
+## 13. UX da loja e estados — referência normativa (Rodada 2)
+
+Ver [DELIVERY_STOREFRONT_UX_STATE_MATRIX.md](./DELIVERY_STOREFRONT_UX_STATE_MATRIX.md): arquitetura de informação mobile-first, 26 estados de UI, 16 cenários E2E para implementar, distinção entre **pedido confirmado** e **lead/WhatsApp**, gaps confirmados nos componentes legados e ledger de evidência/limitações da referência Juma.
+
+**Estado honesto de R2:** especificação de UX registrada, mas inspeção interativa da loja Juma permanece `BLOCKED` por indisponibilidade do conteúdo dinâmico nas ferramentas de leitura. Nenhum cenário E2E deve ser marcado como executado antes de validação em runtime.
