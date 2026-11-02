@@ -20,6 +20,7 @@ import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedVie
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
+import { createDonaGarimpeiraSeo } from "@/lib/dona-garimpeira-seo";
 import {
   portfolioUniversalKeywords,
   portfolioUniversalSeoTitle,
@@ -520,6 +521,19 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
+    // O loader já confirmou status published/live e disponibilidade do
+    // formulário canônico antes de chegar aqui. Esta saída não depende de
+    // imagem do Instagram nem aplica SEO genérico de outro cliente.
+    if (loaderData?.slug === "dona-garimpeira-brecho") {
+      return createDonaGarimpeiraSeo({
+        published: true,
+        funnelVerified: true,
+        ownerApproved: true,
+        mediaApproved: false,
+        approvedWithoutSocialImage: true,
+        approvedSocialImage: null,
+      });
+    }
     const managedProject = loaderData?.managed ?? null;
     if (managedProject) return managedHead(managedProject);
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;

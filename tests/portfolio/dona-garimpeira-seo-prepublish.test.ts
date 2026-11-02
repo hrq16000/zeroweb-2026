@@ -105,6 +105,9 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(prototypes).toContain("indexable: false");
     const loader = read("src/routes/portfolio.$slug.tsx");
     expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
+    expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');
+    expect(loader).toContain("return createDonaGarimpeiraSeo({");
+    expect(loader).toContain("approvedWithoutSocialImage: true");
     expect(loader).toContain('if (!available) throw notFound()');
     const clients = JSON.parse(read("src/config/portfolio-clients.json"));
     expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
