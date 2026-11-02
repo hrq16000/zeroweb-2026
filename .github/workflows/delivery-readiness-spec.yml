@@ -1,0 +1,47 @@
+name: Delivery Readiness Spec Gate
+
+on:
+  pull_request:
+    paths:
+      - "scripts/delivery/**"
+      - "tests/delivery/**"
+      - "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"
+      - "docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md"
+      - ".github/workflows/delivery-readiness-spec.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/delivery/**"
+      - "tests/delivery/**"
+      - "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"
+      - "docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md"
+      - ".github/workflows/delivery-readiness-spec.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  specification-fail-closed:
+    name: Check preflight fails closed until transactional runtime is verified
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test preflight invariants
+        run: node --test tests/delivery/readiness-gate.test.mjs
+      - name: Assert example delivery manifest is BLOCKED
+        shell: bash
+        run: |
+          set +e
+          node scripts/delivery/check-operational-readiness.mjs --manifest docs/delivery/DELIVERY_READINESS_MANIFEST.example.json --json > delivery-readiness-result.json
+          status=$?
+          set -e
+          if [ "$status" -ne 2 ]; then
+            echo "FAIL: unimplemented delivery readiness must exit 2, got $status"
+            exit 1
+          fi
+          node -e 'const r=require("./delivery-readiness-result.json"); if(r.status!=="BLOCKED" || r.deliveryReady!==false || !r.blockers.some(x=>x.gate==="TRUSTED_RUNTIME_ATTESTOR_NOT_INSTALLED")) process.exit(1)'
+          echo "PASS: DELIVERY_READY remains BLOCKED without trusted backend E2E attestation"
