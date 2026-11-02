@@ -1,0 +1,90 @@
+{
+  "slug": "dona-garimpeira-brecho",
+  "lifecycleContract": 1,
+  "contractVersion": 4,
+  "compositionContract": 2,
+  "stage": "draft",
+  "lifecycle": {
+    "intake": "complete",
+    "entityDiscovery": "in_progress",
+    "entityResolution": "in_progress",
+    "evidence": "in_progress",
+    "media": "not_started",
+    "mediaPlan": "not_started",
+    "content": "in_progress",
+    "discovery": "not_started",
+    "blueprint": "not_started",
+    "composition": "in_progress",
+    "seo": "not_started",
+    "funnel": "not_started",
+    "cover": "not_started",
+    "qa": "not_started",
+    "publish": "not_started"
+  },
+  "individualSiteContract": {
+    "version": 1,
+    "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+    "gates": {
+      "PORTFOLIO_INDIVIDUAL_SITE_GATE": "not_started",
+      "PORTFOLIO_ENTITY_GATE": "in_progress",
+      "PORTFOLIO_LOCAL_SEO_GATE": "not_started",
+      "PORTFOLIO_MEDIA_RICHNESS_GATE": "not_started",
+      "PORTFOLIO_DISCOVERY_GRAPH_GATE": "not_started",
+      "PORTFOLIO_INDEXABILITY_GATE": "not_started"
+    },
+    "evidence": {},
+    "notes": "Contract v4 declarado somente para novo projeto em DRAFT. Nenhum gate de indexabilidade ou publicação foi aprovado."
+  },
+  "contentFacts": {
+    "ownSourcedContent": true,
+    "sources": [
+      "OWNER_PROVIDED_INTAKE",
+      "OWNER_SHARED_GBP_SCREENSHOTS"
+    ],
+    "claimsAttribution": "Dados fornecidos pelo responsável e atribuídos à proprietária; GBP ainda em verificação e telefone em análise; mídia Instagram não ingerida sem permalink."
+  },
+  "blockers": [
+    "SOCIAL_LATEST_6_NOT_VERIFIED: publicações reais/permalinks/imagens Instagram ainda não ingeridos",
+    "REAL_MEDIA_REQUIRED: não usar stock nem fotos de outro brechó",
+    "PRIVATE_FUNNEL_NOT_READY: persistência do lead e destino server-only precisam de configuração e teste",
+    "COMPOSITION_NOT_REGISTERED: implementação JSX ainda isolada do roteamento por segurança",
+    "MANAGED_EDITOR_RBAC_NOT_READY: Google OAuth/tenant/auditoria ainda não construídos",
+    "SITE_SEO_AND_READINESS_NOT_VALIDATED: sem publicar nem incluir URL em Google Business Profile"
+  ],
+  "warnings": [
+    "Google Business Profile informado como criado mas não visível, verificação em processamento",
+    "Telefone do perfil aguardando análise",
+    "Fachada e interior pendentes, provador desconhecido",
+    "Identidade autoral tipográfica inicial ainda precisa de aprovação da Luiza"
+  ],
+  "ownerRequired": [
+    "Enviar fotos reais e atualizadas da fachada/interior quando disponíveis",
+    "Aprovar identidade visual final",
+    "Confirmar existência de provador quando possível"
+  ],
+  "searchQa": [
+    {
+      "query": "Dona Garimpeira brechó São José dos Pinhais",
+      "expect": "must_find",
+      "slug": "dona-garimpeira-brecho",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "query": "brechó Boneca do Iguaçu",
+      "expect": "must_find",
+      "slug": "dona-garimpeira-brecho",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "visualQa": {
+    "status": "NOT_EXECUTED",
+    "notes": "Sem rota publicada; validar mobile, desktop, E2E, a11y e anti-template após integração."
+  },
+  "notes": {
+    "enrichment": "docs/portfolio/enrichment/dona-garimpeira-brecho.json",
+    "mediaPlan": "docs/portfolio/media-plans/dona-garimpeira-brecho.json",
+    "brief": "docs/portfolio/briefs/dona-garimpeira-brecho.md",
+    "qualityMatrix": "docs/portfolio/quality-matrix/dona-garimpeira-brecho.json"
+  },
+  "lastUpdatedAt": "2026-11-02"
+}
