@@ -33,3 +33,13 @@ test("limita lotes a 25 e recusa volume de entrada abusivo", () => {
 test("nunca transforma intenção transacional em checkout pronto", () => {
   assert.equal(prepareBatch([{ name: "Pizzaria Exemplo", location: "Curitiba - PR", funnelType: "pedido" }]).records[0].funnelType, "pedido");
 });
+
+test("recusa nome que pudesse injetar código no scaffold legado", () => {
+  assert.throws(() => prepareBatch([{ name: "Loja \"; alert(1)", location: "Curitiba - PR" }]), /inseguros/);
+});
+
+test("preserva acentos e normaliza o slug sem perder o nome do negócio", () => {
+  const result = prepareBatch([{ name: "Empório São José", location: "São José dos Pinhais — PR" }]);
+  assert.equal(result.records[0].slug, "emporio-sao-jose");
+  assert.equal(result.records[0].name, "Empório São José");
+});
