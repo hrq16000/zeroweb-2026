@@ -23,3 +23,4 @@
 - [ ] Criar identidade, mídia e composição autoral mobile-first
 - [ ] Integrar catálogo, registros, funil individual, destino e SEO/schema
 - [ ] Executar gates, QA visual/runtime e publicar em 0web.com.br
+- [x] Seção 'Você também pode gostar' com IA em /servicos/$slug
