@@ -19,7 +19,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const SLUG = /^[a-z0-9][a-z0-9-]{0,80}$/;
+const SLUG = /^[a-z0-9][a-z0-9_-]{0,80}$/;
 const SAFE = new Set(["draft", "published", "approved", "archived"]);
 const PUBLIC = new Set(["published", "approved"]);
 
