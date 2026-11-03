@@ -66,7 +66,7 @@ export function DonaGarimpeiraOfflineFunnel({
 
     const note = details.trim().slice(0, 800);
     // Persistência local de curtíssima duração: apenas a aba do visitante.
-    // Não enviar conteúdo a analytics, DB ou à 0WEB por este fluxo.
+    // O servidor recebe os dados apenas para montar o link, sem salvá-los em DB/analytics.
     try {
       window.sessionStorage.setItem(
         SESSION_KEY,
@@ -147,7 +147,7 @@ export function DonaGarimpeiraOfflineFunnel({
           </label>
           <label className="flex items-start gap-2.5 text-sm leading-relaxed">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} className="mt-1 size-4 shrink-0 accent-[#17392f]" required />
-            <span>Estou ciente de que meus dados serão incluídos na mensagem que abrirei no WhatsApp da loja. Este atendimento não cria cadastro no banco da 0WEB; o preenchimento fica salvo apenas nesta aba do navegador.</span>
+            <span>Estou ciente de que meus dados serão incluídos na mensagem que abrirei no WhatsApp da loja. Este atendimento não cria cadastro no banco da 0WEB. O servidor só prepara o link; suas respostas ficam salvas nesta aba do navegador até fechá-la.</span>
           </label>
           {error && <p role="alert" className="text-sm text-[#963b2c]">{error}</p>}
           <button type="submit" disabled={submitting} className="w-full rounded-full bg-[#17392f] px-5 py-3.5 text-base font-semibold text-white hover:bg-[#285745] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17392f]">
