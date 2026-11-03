@@ -4,6 +4,7 @@ import {
   DONA_GARIMPEIRA_CLIENT_KEY,
   DONA_GARIMPEIRA_FORM_SLUG,
   donaGarimpeiraIntakeReady,
+  isDonaGarimpeiraRoutingConsistent,
   type DonaGarimpeiraSubmissionContext,
 } from "@/lib/dona-garimpeira-funnel-guard";
 
@@ -44,7 +45,7 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     deny(withChanges({ catalogPublished: false }), "NOT_READY");
     deny(withChanges({ ownWhatsAppConfigured: false }), "NOT_READY");
     deny(withChanges({
-      registered: false, clientKey: null, ownWhatsAppConfigured: false,
+      registered: false, ownWhatsAppConfigured: false,
     }), "NOT_READY");
   });
 
@@ -81,6 +82,7 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     }
     deny(withChanges({ answers: { ...good.answers, interesse: "contratar-0web" } }), "INVALID_INTEREST");
     deny(withChanges({ answers: { ...good.answers, interesse: undefined } }), "INVALID_INTEREST");
+    deny(withChanges({ answers: { ...good.answers, interesse: ["comprar"] } }), "INVALID_INTEREST");
   });
 
   test("não aceita ausência de dados mínimos de contato", () => {
@@ -154,5 +156,28 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     expect(guard).toBeGreaterThan(0);
     expect(insert).toBeGreaterThan(guard);
     expect(token).toBeGreaterThan(insert);
+  });
+
+  test("recusa tokens com formulário ou chave incompatíveis", () => {
+    expect(isDonaGarimpeiraRoutingConsistent(DONA_GARIMPEIRA_FORM_SLUG, DONA_GARIMPEIRA_CLIENT_KEY)).toBe(true);
+    expect(isDonaGarimpeiraRoutingConsistent("funnel-service", "arildo-madeiras")).toBe(true);
+    expect(isDonaGarimpeiraRoutingConsistent("funnel-service", DONA_GARIMPEIRA_CLIENT_KEY)).toBe(false);
+    expect(isDonaGarimpeiraRoutingConsistent(undefined, DONA_GARIMPEIRA_CLIENT_KEY)).toBe(false);
+    expect(isDonaGarimpeiraRoutingConsistent(DONA_GARIMPEIRA_FORM_SLUG, null)).toBe(false);
+    expect(isDonaGarimpeiraRoutingConsistent(DONA_GARIMPEIRA_FORM_SLUG, "arildo-madeiras")).toBe(false);
+  });
+
+  test("protege o quiz genérico e o redirect antes de persistir ou resolver o destino", async () => {
+    const { readFileSync } = await import("node:fs");
+    const src = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
+    const quiz = src.slice(src.indexOf("export const submitPortfolioQuiz ="));
+    const quizGuard = quiz.indexOf("if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY)");
+    expect(quizGuard).toBeGreaterThan(0);
+    expect(quizGuard).toBeLessThan(quiz.indexOf("const { supabaseAdmin }"));
+
+    const redirect = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
+    const redirectGuard = redirect.indexOf("if (!form || !isDonaGarimpeiraRoutingConsistent(form.slug, clientKey))");
+    expect(redirectGuard).toBeGreaterThan(0);
+    expect(redirectGuard).toBeLessThan(redirect.indexOf("await resolvePortfolioWhatsAppContactAsync(clientKey)"));
   });
 });

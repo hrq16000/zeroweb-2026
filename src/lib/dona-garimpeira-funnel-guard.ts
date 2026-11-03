@@ -9,6 +9,11 @@
 export const DONA_GARIMPEIRA_CLIENT_KEY = "dona-garimpeira-brecho" as const;
 export const DONA_GARIMPEIRA_FORM_SLUG = "funnel-dona-garimpeira-brecho" as const;
 
+/** Os dois identificadores devem apontar para o brechó se qualquer um deles o identificar. */
+export function isDonaGarimpeiraRoutingConsistent(formSlug: unknown, clientKey: unknown): boolean {
+  return (formSlug === DONA_GARIMPEIRA_FORM_SLUG) === (clientKey === DONA_GARIMPEIRA_CLIENT_KEY);
+}
+
 export type DonaGarimpeiraSubmissionContext = Readonly<{
   formSlug: string;
   clientKey: string | null | undefined;
@@ -43,18 +48,15 @@ export function checkDonaGarimpeiraSubmission(
 ): DonaGarimpeiraFunnelDecision {
   // Um formulário de OUTRO cliente nunca pode usar o destino da Dona Garimpeira.
   // Verificar os dois sentidos evita contaminação cruzada após a futura ativação.
-  if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) {
-    return ctx.clientKey === DONA_GARIMPEIRA_CLIENT_KEY
-      ? { ok: false, reason: "WRONG_CLIENT" }
-      : { ok: true };
+  if (!isDonaGarimpeiraRoutingConsistent(ctx.formSlug, ctx.clientKey)) {
+    return { ok: false, reason: "WRONG_CLIENT" };
   }
+  if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) return { ok: true };
   if (!donaGarimpeiraIntakeReady(ctx.registered, ctx.catalogPublished, ctx.ownWhatsAppConfigured)) {
     return { ok: false, reason: "NOT_READY" };
   }
-  if (ctx.clientKey !== DONA_GARIMPEIRA_CLIENT_KEY) {
-    return { ok: false, reason: "WRONG_CLIENT" };
-  }
-  if (!["comprar", "vender", "doar"].includes(String(ctx.answers.interesse ?? ""))) {
+  const interest = ctx.answers.interesse;
+  if (interest !== "comprar" && interest !== "vender" && interest !== "doar") {
     return { ok: false, reason: "INVALID_INTEREST" };
   }
   if (typeof ctx.answers.nome !== "string" ||
