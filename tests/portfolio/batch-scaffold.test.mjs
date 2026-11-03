@@ -18,7 +18,7 @@ test("prepara lotes pequenos a partir de nome e localização, sem publicar", ()
 });
 
 test("não aceita nomes sem localidade informada", () => {
-  assert.throws(() => prepareBatch([{ name: "Loja Nova" }]), /localização factual/);
+  assert.throws(() => prepareBatch([{ name: "Loja Nova" }]), /localização.*factual/);
 });
 
 test("rejeita filiais homônimas sem slug único antes de qualquer escrita", () => {
