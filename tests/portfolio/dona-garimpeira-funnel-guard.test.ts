@@ -12,7 +12,7 @@ const good: DonaGarimpeiraSubmissionContext = {
   formSlug: DONA_GARIMPEIRA_FORM_SLUG,
   clientKey: DONA_GARIMPEIRA_CLIENT_KEY,
   registered: true,
-  catalogPublished: true,
+  sitePublished: true,
   ownWhatsAppConfigured: true,
   answers: {
     interesse: "comprar",
@@ -40,9 +40,9 @@ describe("Dona Garimpeira — gate server-side de envio do funil", () => {
     }))).toEqual({ ok: true });
   });
 
-  test("bloqueia ativação antes de clientKey, catálogo published/live e WhatsApp próprio", () => {
+  test("bloqueia ativação antes de clientKey, site liberado e WhatsApp próprio", () => {
     deny(withChanges({ registered: false }), "NOT_READY");
-    deny(withChanges({ catalogPublished: false }), "NOT_READY");
+    deny(withChanges({ sitePublished: false }), "NOT_READY");
     deny(withChanges({ ownWhatsAppConfigured: false }), "NOT_READY");
     deny(withChanges({
       registered: false, ownWhatsAppConfigured: false,

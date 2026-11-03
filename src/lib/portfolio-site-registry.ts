@@ -12,9 +12,7 @@ export type PortfolioPrototype = {
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "arildo-madeiras", vertical: "comercios", siteName: "Arildo Madeiras · Pinhais — PR", kind: "prototype", indexable: true },
-  // Rota pré-registrada e não indexável: loader só libera depois do
-  // catálogo, funil publicado, clientKey e WhatsApp estarem prontos.
-  { slug: "dona-garimpeira-brecho", vertical: "comercios", siteName: "Dona Garimpeira · Brechó em São José dos Pinhais — PR", kind: "prototype", indexable: false },
+  { slug: "dona-garimpeira-brecho", vertical: "comercios", siteName: "Dona Garimpeira · Brechó em São José dos Pinhais — PR", kind: "prototype", indexable: true },
   { slug: "autoescola-aptos", vertical: "prestadores-de-servicos", siteName: "Autoescola APTOS · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "cris-presentes-colonia-rio-grande", vertical: "comercios", siteName: "Cris Presentes · Colônia Rio Grande · São José dos Pinhais", kind: "prototype", indexable: true },
   {

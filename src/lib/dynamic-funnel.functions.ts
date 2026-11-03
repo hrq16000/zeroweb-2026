@@ -84,22 +84,20 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
     // Um UPDATE isolado de status não pode expor o funil em estado incompleto.
     if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) return null;
 
-    // Não exibir um formulário publicado acidentalmente pelo painel antes
-    // de existir cliente/catálogo/destino próprios da Dona Garimpeira.
+    // A leitura pública exige o site liberado e o destino próprio do brechó.
     if (form.slug === "funnel-dona-garimpeira-brecho") {
       const [
         { donaGarimpeiraIntakeReady, DONA_GARIMPEIRA_CLIENT_KEY },
         { resolveVersionedPortfolioWhatsApp },
-        { default: catalog },
+        { findPortfolioPrototype },
       ] = await Promise.all([
         import("@/lib/dona-garimpeira-funnel-guard"),
         import("@/lib/portfolio-whatsapp-registry.server"),
-        import("@/config/portfolio-catalog.json"),
+        import("@/lib/portfolio-site-registry"),
       ]);
       if (!donaGarimpeiraIntakeReady(
         isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
-        (catalog as Array<{ slug: string; status?: string; live?: boolean }>)
-          .some((p) => p.slug === DONA_GARIMPEIRA_CLIENT_KEY && p.status === "published" && p.live === true),
+        findPortfolioPrototype(DONA_GARIMPEIRA_CLIENT_KEY)?.indexable === true,
         Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
       )) return null;
     }
@@ -261,18 +259,17 @@ export const submitFunnel = createServerFn({ method: "POST" })
       const [
         { checkDonaGarimpeiraSubmission, DONA_GARIMPEIRA_CLIENT_KEY },
         { resolveVersionedPortfolioWhatsApp },
-        { default: portfolioCatalog },
+        { findPortfolioPrototype },
       ] = await Promise.all([
         import("@/lib/dona-garimpeira-funnel-guard"),
         import("@/lib/portfolio-whatsapp-registry.server"),
-        import("@/config/portfolio-catalog.json"),
+        import("@/lib/portfolio-site-registry"),
       ]);
       const ready = checkDonaGarimpeiraSubmission({
         formSlug: form.slug,
         clientKey: data.client_metadata?.client_key,
         registered: isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
-        catalogPublished: (portfolioCatalog as Array<{ slug: string; status?: string; live?: boolean }>)
-          .some((p) => p.slug === DONA_GARIMPEIRA_CLIENT_KEY && p.status === "published" && p.live === true),
+        sitePublished: findPortfolioPrototype(DONA_GARIMPEIRA_CLIENT_KEY)?.indexable === true,
         ownWhatsAppConfigured: Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
         answers: data.answers,
       });

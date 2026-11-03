@@ -29,8 +29,7 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).not.toBe("published");
-    // O protótipo existe para preparação e build, mas o loader exige catálogo
-    // publicado e formulário efetivamente disponível para servir a página.
+    // O loader exige registro indexável e formulário disponível.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
@@ -38,10 +37,10 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const prototypes = read("src/lib/portfolio-site-registry.ts");
     expect(prototypes).toContain(`slug: "${slug}"`);
     expect(prototypes).toContain(`slug: "${slug}", vertical: "comercios"`);
-    expect(prototypes).toContain("indexable: false");
+    expect(prototypes).toMatch(new RegExp(`slug: "${slug}"[^\\n]*indexable: true`));
     const route = read("src/routes/portfolio.$slug.tsx");
     expect(route).toContain('if (params.slug === "dona-garimpeira-brecho")');
-    expect(route).toContain('item.status === "published" && item.live === true');
+    expect(route).toContain('if (!site?.indexable) throw notFound()');
     expect(route).toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
     expect(route).toContain("if (!available) throw notFound()");
     const clients = parse("src/config/portfolio-clients.json");

@@ -98,14 +98,14 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(store).not.toHaveProperty("offers");
   });
 
-  test("a composição já tem registro autoral, porém a rota continua não-publicável", () => {
+  test("a composição indexável mantém a disponibilidade do funil como condição da rota", () => {
     const visual = read("src/components/portfolio/composition/registry.ts");
     const server = read("src/config/portfolio-authorial-compositions.ts");
     expect(visual).toContain('"dona-garimpeira-brecho": lazy(');
     expect(server).toContain('"dona-garimpeira-brecho"');
     const prototypes = read("src/lib/portfolio-site-registry.ts");
     expect(prototypes).toContain('slug: "dona-garimpeira-brecho"');
-    expect(prototypes).toContain("indexable: false");
+    expect(prototypes).toMatch(/slug: "dona-garimpeira-brecho"[^\n]*indexable: true/);
     const loader = read("src/routes/portfolio.$slug.tsx");
     expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');

@@ -3,8 +3,7 @@
  * no banco NÃO pode cair no atendimento institucional da 0WEB por ausência de
  * client_key, registro ou destino correto. Não afeta os demais formulários.
  *
- * A página continua em draft: o guard deve negar até que o cliente seja
- * incorporado de forma canônica à allowlist, ao catálogo e ao WhatsApp.
+ * Exige o cliente na allowlist, o site liberado e o destino próprio.
  */
 export const DONA_GARIMPEIRA_CLIENT_KEY = "dona-garimpeira-brecho" as const;
 export const DONA_GARIMPEIRA_FORM_SLUG = "funnel-dona-garimpeira-brecho" as const;
@@ -18,7 +17,7 @@ export type DonaGarimpeiraSubmissionContext = Readonly<{
   formSlug: string;
   clientKey: string | null | undefined;
   registered: boolean;
-  catalogPublished: boolean;
+  sitePublished: boolean;
   ownWhatsAppConfigured: boolean;
   answers: Readonly<Record<string, unknown>>;
 }>;
@@ -26,10 +25,10 @@ export type DonaGarimpeiraSubmissionContext = Readonly<{
 /** Publicação do formulário precisa de três registros canônicos ativos. */
 export function donaGarimpeiraIntakeReady(
   registered: boolean,
-  catalogPublished: boolean,
+  sitePublished: boolean,
   ownWhatsAppConfigured: boolean,
 ): boolean {
-  return registered && catalogPublished && ownWhatsAppConfigured;
+  return registered && sitePublished && ownWhatsAppConfigured;
 }
 
 export type DonaGarimpeiraFunnelDecision =
@@ -52,7 +51,7 @@ export function checkDonaGarimpeiraSubmission(
     return { ok: false, reason: "WRONG_CLIENT" };
   }
   if (ctx.formSlug !== DONA_GARIMPEIRA_FORM_SLUG) return { ok: true };
-  if (!donaGarimpeiraIntakeReady(ctx.registered, ctx.catalogPublished, ctx.ownWhatsAppConfigured)) {
+  if (!donaGarimpeiraIntakeReady(ctx.registered, ctx.sitePublished, ctx.ownWhatsAppConfigured)) {
     return { ok: false, reason: "NOT_READY" };
   }
   const interest = ctx.answers.interesse;

@@ -475,15 +475,10 @@ const CarecasInfotecPage = lazy(() =>
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
-    // Dona Garimpeira: composição pré-registrada, mas nunca servir uma
-    // página com CTA operacional antes de o banco e o catálogo autorizarem.
-    // O status DRAFT mantém HTTP 404, sem publicação/indexação acidental.
+    const site = findPortfolioPrototype(params.slug);
+    // O registro libera a página e o banco confirma o formulário operacional.
     if (params.slug === "dona-garimpeira-brecho") {
-      const { default: catalog } = await import("@/config/portfolio-catalog.json");
-      const released = catalog.some(
-        (item) => item.slug === params.slug && item.status === "published" && item.live === true,
-      );
-      if (!released) throw notFound();
+      if (!site?.indexable) throw notFound();
       const { getPublicFunnel } = await import("@/lib/dynamic-funnel.functions");
       let available = false;
       try {
@@ -495,7 +490,6 @@ export const Route = createFileRoute("/portfolio/$slug")({
       }
       if (!available) throw notFound();
     }
-    const site = findPortfolioPrototype(params.slug);
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) {
@@ -521,9 +515,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
-    // O loader já confirmou status published/live e disponibilidade do
-    // formulário canônico antes de chegar aqui. Esta saída não depende de
-    // imagem do Instagram nem aplica SEO genérico de outro cliente.
+    // O loader confirmou a liberação do registro e do formulário canônico.
     if (loaderData?.slug === "dona-garimpeira-brecho") {
       return createDonaGarimpeiraSeo({
         published: true,
