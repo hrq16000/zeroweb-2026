@@ -87,8 +87,10 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(store.address.addressLocality).toBe("São José dos Pinhais");
     expect(store.address.postalCode).toBe("83040-170");
     expect(store.sameAs).toEqual(["https://www.instagram.com/donagarimpeirasjp/"]);
-    // Horário de funcionamento não informado: nunca inventar expediente no JSON-LD.
-    expect(store).not.toHaveProperty("openingHoursSpecification");
+    // Horário informado pela responsável e documentado no briefing autorizado.
+    expect(store.openingHoursSpecification[0].dayOfWeek).toHaveLength(7);
+    expect(store.openingHoursSpecification[0].opens).toBe("09:00");
+    expect(store.openingHoursSpecification[0].closes).toBe("18:00");
     expect(store).not.toHaveProperty("review");
     expect(store).not.toHaveProperty("aggregateRating");
     expect(store).not.toHaveProperty("telephone");
@@ -123,8 +125,10 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(jsx).not.toContain("iniciativas solidárias");
     expect(jsx).not.toContain("wa.me/");
     expect(jsx).toContain("const GALLERY_ITEMS: GalleryItem[] = []");
-    expect(jsx).not.toContain("Segunda a domingo, das 9h às 18h");
-    expect(jsx).not.toContain("Entrada acessível para cadeira de rodas.");
-    expect(jsx).toContain("Consulte os horários de atendimento antes de visitar.");
+    expect(jsx).toContain("Segunda a domingo, das 9h às 18h.");
+    expect(jsx).toContain("Entrada acessível para cadeira de rodas, conforme informação da responsável.");
+    const brief = read("docs/portfolio/briefs/dona-garimpeira-brecho.md");
+    expect(brief).toContain("segunda a domingo, 09:00–18:00");
+    expect(brief).toContain("Entrada acessível para cadeira de rodas");
   });
 });

@@ -90,6 +90,16 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
           postalCode: s.postalCode,
           addressCountry: "BR",
         },
+        // Horário declarado no briefing autorizado; feriados podem variar.
+        openingHoursSpecification: [{
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday", "Tuesday", "Wednesday", "Thursday",
+            "Friday", "Saturday", "Sunday",
+          ],
+          opens: "09:00",
+          closes: "18:00",
+        }],
       },
       {
         "@type": "WebPage",

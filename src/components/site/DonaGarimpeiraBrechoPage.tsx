@@ -86,7 +86,7 @@ export const composition: PortfolioComposition = {
     mediaNarrative:
       "Apenas fotos oficiais e autorizadas, com proporções editoriais e procedência por permalink.",
     proofNarrative:
-      "Endereço e processos reais de compra e doação; sem horários, avaliações ou métricas fabricadas.",
+      "Endereço, horário informado e processos reais de compra e doação; sem avaliações ou métricas fabricadas.",
     conversionNarrative:
       "Comprar, vender e doar chegam ao mesmo funil identificado por intenção, sem contato direto de WhatsApp.",
     motionNarrative:
@@ -113,7 +113,7 @@ export const composition: PortfolioComposition = {
       roleGraph: ["orientação local", "auto-segmentação", "inspiração sem estoque", "expectativas práticas", "visita", "dúvidas"],
       mediaCadence: ["hero tipográfico", "etiquetas textuais", "fotografia documental", "pausa tipográfica", "convite local"],
       interactionLoci: ["três intenções", "filtro da galeria", "visualizador", "funil de consulta"],
-      decisionAidPlacement: ["compra/venda/doação antes do acervo", "política de reserva junto à jornada", "consulta de horário perto do endereço"],
+      decisionAidPlacement: ["compra/venda/doação antes do acervo", "política de reserva junto à jornada", "horário informado perto do endereço"],
       densityRhythm: ["capa ampla", "três escolhas compactas", "mosaico", "duas colunas", "encerramento amplo"],
       mobileCompositionStrategy: "poster readable at 360px, horizontal tags become vertical stack, gallery controls keyboard/touch-friendly",
     },
@@ -126,7 +126,7 @@ const FAQS: [string, string][] = [
   ["É possível reservar uma peça?", "Sim, pelo WhatsApp, após confirmação da disponibilidade. O prazo é combinado individualmente e a retirada e o pagamento acontecem na loja."],
   ["A vitrine mostra tudo que está à venda agora?", "Não. As fotografias são referências do estilo do brechó e não representam estoque em tempo real."],
   ["Como posso pagar na loja?", "A Dona Garimpeira aceita Pix, dinheiro, cartão de débito e cartão de crédito."],
-  ["Como confirmar o horário da loja?", "Os horários podem variar. Consulte o atendimento antes de visitar, especialmente aos domingos e feriados."],
+  ["A loja abre aos domingos?", "Segundo informações fornecidas pela responsável, o atendimento habitual é de segunda a domingo, das 9h às 18h. Feriados podem ter horários especiais."],
 ];
 
 function InterestCta({
@@ -380,8 +380,8 @@ export function DonaGarimpeiraBrechoPage() {
             </div>
             <div className="dg-visit-side">
               <span className="dg-visit-star" aria-hidden="true">✳</span>
-              <p><Clock3 size={19} aria-hidden="true" /> Consulte os horários de atendimento antes de visitar.<br /><small>Domingos e feriados podem ter horários diferentes.</small></p>
-              <p><Check size={19} aria-hidden="true" /> Para dúvidas sobre acessibilidade da loja, consulte o atendimento antes da visita.</p>
+              <p><Clock3 size={19} aria-hidden="true" /> Segunda a domingo, das 9h às 18h.<br /><small>Horário informado pela responsável. Confirme antes de visitar, especialmente em feriados.</small></p>
+              <p><Check size={19} aria-hidden="true" /> Entrada acessível para cadeira de rodas, conforme informação da responsável.</p>
               <p>Venda presencial · Reserva consultada pelo atendimento</p>
               <InterestCta interest="comprar" placement="visita">Falar sobre minha visita <ArrowUpRight size={17} aria-hidden="true" /></InterestCta>
             </div>
