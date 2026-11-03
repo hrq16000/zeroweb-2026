@@ -15,7 +15,7 @@ function fixture(status = "published") {
       slug, clientKey: slug, routeFile: "src/routes/portfolio.$slug.tsx",
     }],
     legacySlugs: new Set(),
-    siteRegistry: 'slug: "loja-exemplo", vertical: "comercios", indexable: true',
+    siteRegistry: '{ slug: "loja-exemplo", vertical: "comercios", indexable: true }',
     compositionRegistry: '"loja-exemplo": lazy(',
     shareCopy: { [slug]: share },
     formContexts: { [slug]: { intent: "contato" } },
