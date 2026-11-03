@@ -476,20 +476,9 @@ const CarecasInfotecPage = lazy(() =>
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
     const site = findPortfolioPrototype(params.slug);
-    // O registro libera a página e o banco confirma o formulário operacional.
-    if (params.slug === "dona-garimpeira-brecho") {
-      if (!site?.indexable) throw notFound();
-      const { getPublicFunnel } = await import("@/lib/dynamic-funnel.functions");
-      let available = false;
-      try {
-        const form = await getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } });
-        available = form?.slug === "funnel-dona-garimpeira-brecho";
-      } catch {
-        // Falhas do banco/segredos nunca expõem o cliente ou fazem fallback.
-        available = false;
-      }
-      if (!available) throw notFound();
-    }
+    // Dona Garimpeira tem atendimento client-side independente do banco.
+    // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
+    if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound();
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) {
@@ -504,6 +493,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
       if (!managed) throw notFound();
       return { vertical: undefined, slug: params.slug, overrides: null, managed };
     }
+    // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
+    if (params.slug === "dona-garimpeira-brecho") {
+      return { vertical, slug: params.slug, overrides: null, managed: null };
+    }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
     let overrides: PortfolioRuntimeOverrides | null = null;
@@ -515,7 +508,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
-    // O loader confirmou a liberação do registro e do formulário canônico.
+    // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
     if (loaderData?.slug === "dona-garimpeira-brecho") {
       return createDonaGarimpeiraSeo({
         published: true,
