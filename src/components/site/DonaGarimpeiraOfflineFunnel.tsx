@@ -1,9 +1,10 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { getDonaGarimpeiraOfflineRedirect } from "@/lib/dona-garimpeira-offline.functions";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export type DonaGarimpeiraInterest = "comprar" | "vender" | "doar";
 
-const WHATSAPP_DONA_GARIMPEIRA = "5541998379642";
 const SESSION_KEY = "0web:dona-garimpeira:atendimento";
 const INTEREST_LABEL: Record<DonaGarimpeiraInterest, string> = {
   comprar: "Comprar ou consultar uma peça",
@@ -31,6 +32,8 @@ export function DonaGarimpeiraOfflineFunnel({
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
   const [readyUrl, setReadyUrl] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const getRedirect = useServerFn(getDonaGarimpeiraOfflineRedirect);
 
   useEffect(() => {
     if (!interest) return;
@@ -43,7 +46,7 @@ export function DonaGarimpeiraOfflineFunnel({
     setReadyUrl("");
   }, [interest]);
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
     const sanitizedName = name.trim().replace(/\s+/g, " ");
@@ -62,16 +65,6 @@ export function DonaGarimpeiraOfflineFunnel({
     }
 
     const note = details.trim().slice(0, 800);
-    const message = [
-      "Olá, Dona Garimpeira! Vim pelo portfólio da 0WEB.",
-      `*Assunto:* ${INTEREST_LABEL[selected]}`,
-      `*Nome:* ${sanitizedName}`,
-      `*Meu WhatsApp:* ${digits}`,
-      note ? `*Detalhes:* ${note}` : "",
-      "Gostaria de conversar sobre esse atendimento.",
-    ].filter(Boolean).join("\n");
-    const url = `https://wa.me/${WHATSAPP_DONA_GARIMPEIRA}?text=${encodeURIComponent(message)}`;
-
     // Persistência local de curtíssima duração: apenas a aba do visitante.
     // Não enviar conteúdo a analytics, DB ou à 0WEB por este fluxo.
     try {
@@ -90,8 +83,24 @@ export function DonaGarimpeiraOfflineFunnel({
       // Navegadores que proíbem storage ainda permitem completar o atendimento.
       setError("Seu navegador bloqueou o registro local. Você ainda pode continuar pelo WhatsApp.");
     }
-    setReadyUrl(url);
-    window.location.assign(url);
+    try {
+      setSubmitting(true);
+      const result = await getRedirect({
+        data: {
+          interest: selected,
+          name: sanitizedName,
+          phone: digits,
+          details: note,
+          consent: true,
+        },
+      });
+      setReadyUrl(result.url);
+      window.location.assign(result.url);
+    } catch {
+      setError("Não foi possível abrir o WhatsApp agora. Tente novamente.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -141,8 +150,8 @@ export function DonaGarimpeiraOfflineFunnel({
             <span>Estou ciente de que meus dados serão incluídos na mensagem que abrirei no WhatsApp da loja. Este atendimento não cria cadastro no banco da 0WEB; o preenchimento fica salvo apenas nesta aba do navegador.</span>
           </label>
           {error && <p role="alert" className="text-sm text-[#963b2c]">{error}</p>}
-          <button type="submit" className="w-full rounded-full bg-[#17392f] px-5 py-3.5 text-base font-semibold text-white hover:bg-[#285745] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17392f]">
-            Continuar no WhatsApp da loja
+          <button type="submit" disabled={submitting} className="w-full rounded-full bg-[#17392f] px-5 py-3.5 text-base font-semibold text-white hover:bg-[#285745] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17392f]">
+            {submitting ? "Preparando atendimento..." : "Continuar no WhatsApp da loja"}
           </button>
           {readyUrl && <a href={readyUrl} rel="noopener noreferrer" className="block text-center text-sm font-semibold underline">O WhatsApp não abriu? Toque aqui para continuar.</a>}
           <p className="text-xs leading-relaxed text-[#52655a]">O WhatsApp abre com a mensagem preenchida. O envio só acontece quando você confirmar no aplicativo. Não fazemos disparos automáticos.</p>
