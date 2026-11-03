@@ -13,6 +13,8 @@ import { getServicePublic, type PublicServiceFull, type GalleryItem } from "@/li
 import { AddToCartButton } from "@/components/site/AddToCartButton";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { RelatedServicesCarousel } from "@/components/site/RelatedServicesCarousel";
+import { getAiRecommendations } from "@/lib/ai-recommendations.functions";
+import { SERVICES } from "@/lib/services-data";
 import { ProductGallery } from "@/components/site/ProductGallery";
 import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { serviceCoverFallback } from "@/lib/service-cover-fallback";
@@ -204,7 +206,19 @@ export const Route = createFileRoute("/servicos/$slug")({
 function ServicePage() {
   const data = Route.useLoaderData() as PublicServiceFull;
   const { slug } = Route.useParams();
-  const otherSvcs = relatedServices(slug, 6);
+  const [aiSlugs, setAiSlugs] = useState<string[] | null>(null);
+  useEffect(() => {
+    let alive = true;
+    setAiSlugs(null);
+    getAiRecommendations({ data: { slug } })
+      .then((r) => { if (alive && r) setAiSlugs(r.slugs); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [slug]);
+  // Padrão por categoria no primeiro render; troca pela escolha da IA quando chega.
+  const otherSvcs = aiSlugs
+    ? aiSlugs.map((s) => SERVICES[s]).filter(Boolean)
+    : relatedServices(slug, 6);
   const hasGeo = GEO_SET.has(slug);
   const funnels = data.funnels ?? {};
   const isTrafegoPago = slug === "trafego-pago";
