@@ -1,10 +1,11 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { getDonaGarimpeiraOfflineRedirect } from "@/lib/dona-garimpeira-offline.functions";
+import { submitFunnel } from "@/lib/dynamic-funnel.functions";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export type DonaGarimpeiraInterest = "comprar" | "vender" | "doar";
 
+const FORM_ID = "05aff8a3-0358-43a4-ab3f-55f271688796";
 const SESSION_KEY = "0web:dona-garimpeira:atendimento";
 const INTEREST_LABEL: Record<DonaGarimpeiraInterest, string> = {
   comprar: "Comprar ou consultar uma peça",
@@ -33,7 +34,7 @@ export function DonaGarimpeiraOfflineFunnel({
   const [error, setError] = useState("");
   const [readyUrl, setReadyUrl] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const getRedirect = useServerFn(getDonaGarimpeiraOfflineRedirect);
+  const submitLead = useServerFn(submitFunnel);
 
   useEffect(() => {
     if (!interest) return;
@@ -85,17 +86,30 @@ export function DonaGarimpeiraOfflineFunnel({
     }
     try {
       setSubmitting(true);
-      const result = await getRedirect({
+      // Lead salvo primeiro; o WhatsApp só abre com o token criado depois da gravação.
+      const result = await submitLead({
         data: {
-          interest: selected,
-          name: sanitizedName,
-          phone: digits,
-          details: note,
-          consent: true,
+          form_id: FORM_ID,
+          answers: {
+            interesse: selected,
+            detalhes: note,
+            nome: sanitizedName,
+            whatsapp: digits,
+            privacidade: ["ciente"],
+          },
+          client_metadata: {
+            client_key: "dona-garimpeira-brecho",
+            page_url: window.location.href,
+            referrer: document.referrer || undefined,
+          },
         },
       });
-      setReadyUrl(result.url);
-      window.location.assign(result.url);
+      if (!result.redirectPath) {
+        setError(`Recebemos seu pedido (protocolo ${result.protocol}). A loja entrará em contato.`);
+        return;
+      }
+      setReadyUrl(result.redirectPath);
+      window.location.assign(result.redirectPath);
     } catch {
       setError("Não foi possível abrir o WhatsApp agora. Tente novamente.");
     } finally {
@@ -147,7 +161,7 @@ export function DonaGarimpeiraOfflineFunnel({
           </label>
           <label className="flex items-start gap-2.5 text-sm leading-relaxed">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} className="mt-1 size-4 shrink-0 accent-[#17392f]" required />
-            <span>Estou ciente de que meus dados serão incluídos na mensagem que abrirei no WhatsApp da loja. Este atendimento não cria cadastro no banco da 0WEB. O servidor só prepara o link; suas respostas ficam salvas nesta aba do navegador até fechá-la.</span>
+            <span>Estou ciente de que meus dados serão incluídos na mensagem que abrirei no WhatsApp da loja. Suas respostas são registradas para a loja acompanhar o atendimento antes de abrir o WhatsApp.</span>
           </label>
           {error && <p role="alert" className="text-sm text-[#963b2c]">{error}</p>}
           <button type="submit" disabled={submitting} className="w-full rounded-full bg-[#17392f] px-5 py-3.5 text-base font-semibold text-white hover:bg-[#285745] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17392f]">
