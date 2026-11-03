@@ -36,6 +36,25 @@ Estados: `NOT_STARTED` (a entidade ainda não entrou no catálogo), `DRAFT_PENDI
 
 O relatório mostra, em **uma única execução**, pendências de cadastro, clientKey, rota, composição autoral, copy canônica, contexto do funil, destino versionado, admin seed e media plan. `--all` opera sobre todos os registros em lote, e `--strict` reprova bloqueios de publicação. Projetos legados congelados não recebem retroativamente bloqueios novos por falta de fotos.
 
+### Preparar até 25 scaffolds em draft por rodada
+
+Sem criar nem modificar arquivos:
+
+```bash
+bun run scaffold:portfolio:batch -- --input /tmp/empresas.json --offset 0 --limit 10
+```
+
+Depois de revisar a lista, para realmente criar os scaffolds (sempre `draft`, sem publicar nem usar créditos Lovable):
+
+```bash
+node scripts/scaffold-portfolio-batch.mjs --input /tmp/empresas.json --offset 0 --limit 10 --execute
+node scripts/portfolio-batch-preflight.mjs --input /tmp/empresas.json --json
+```
+
+Repita por blocos de até 25, avançando `--offset`. O comando valida toda a fila antes de escrever: recusa nome/localidade vazios, slugs duplicados e tipos de funil inválidos. Empresas já registradas são preservadas sem reprocessamento. A localização fornecida é registrada no creative brief como **intake ainda não verificado**; o processo R1 continua obrigatório.
+
+**Não confundir batch scaffold com publicação:** o gerador cria apenas workbench e documentos pendentes. Cada página ainda precisa composição visual original, mídia legítima, SEO e funil validados. O pré-voo mostra pendências em conjunto; não dispensa o pipeline editorial.
+
 ## 2. Ciclo com duas rodadas técnicas por lote
 
 **R1 — preparação, sem publish:** pesquisar R1 (nome + localização + identidade correta), registrar fontes, briefs e media plan; criar scaffolds em draft em lotes pequenos. Os 300 prospectos podem ser classificados em conjunto, mas páginas autorais e fotos reais não podem ser inventadas. Autorizar apenas dados confirmados, contato por `clientKey` e perguntas de intenção do próprio cliente. Rodar pré-voo para localizar todos os campos pendentes, corrigir e agregar mudanças em uma PR do lote. O `src/config/portfolio-admin-seed.json` é derivado: nunca editá-lo manualmente.
