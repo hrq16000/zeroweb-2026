@@ -98,3 +98,21 @@ test("ausência de ledger no legado gera aviso, não bloqueia 90 projetos congel
   assert.equal(result.blocks, 0);
   assert.ok(result.issues.some((x) => x.code === "CONTACT_LEDGER" && x.severity === "WARN"));
 });
+
+test("blueprint dos três pilotos é uma composição individual válida", () => {
+  const ctx = fixture();
+  ctx.compositionRegistry = "";
+  ctx.blueprintRegistry = '"loja-exemplo": lazy(';
+  const result = diagnosePortfolio(slug, ctx);
+  assert.equal(result.stage, "CANDIDATE_FOR_FULL_GATES");
+  assert.equal(result.blocks, 0);
+});
+
+test("foto real ausente gera alerta quando mídia oficial está aprovada, sem inventar capa", () => {
+  const ctx = fixture();
+  ctx.getMedia = () => ({ inventory: { realBusinessPhotos: [] },
+    mediaApprovalGate: { status: "APPROVED" } });
+  const result = diagnosePortfolio(slug, ctx);
+  assert.equal(result.blocks, 0);
+  assert.ok(result.issues.some((x) => x.code === "REAL_MEDIA_PENDING" && x.severity === "WARN"));
+});

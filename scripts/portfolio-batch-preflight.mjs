@@ -53,6 +53,7 @@ export function buildContext(root = ROOT) {
     legacySlugs: new Set(readJson(root, "src/config/portfolio-legacy-baseline.json", {}).slugs ?? []),
     siteRegistry: readText(root, "src/lib/portfolio-site-registry.ts"),
     compositionRegistry: readText(root, "src/components/portfolio/composition/registry.ts"),
+    blueprintRegistry: readText(root, "src/components/portfolio/blueprint/registry.ts"),
     getMedia(slug) {
       if (!mediaCache.has(slug)) {
         mediaCache.set(slug, readJson(root, "docs/portfolio/media-plans/" + slug + ".json", null));
@@ -117,7 +118,8 @@ export function diagnosePortfolio(slug, context) {
     add("WARN", "DRAFT_PUBLIC_ROUTE", "Catálogo em draft e rota marcada indexável; estados não são equivalentes.",
       "Conferir decisão editorial: draft oculto da galeria pode continuar acessível pela URL.");
   }
-  if (!frozen && !context.compositionRegistry.includes('"' + slug + '"')) {
+  if (!frozen && !context.compositionRegistry.includes('"' + slug + '"') &&
+      !context.blueprintRegistry?.includes('"' + slug + '"')) {
     add(level, "COMPOSITION", "Composição autoral ausente do registry.",
       "Concluir brief e registrar composição individual, sem copiar outro portfólio.");
   }
@@ -161,7 +163,7 @@ export function diagnosePortfolio(slug, context) {
     const hasRealMedia = Array.isArray(media.inventory?.realBusinessPhotos) &&
       media.inventory.realBusinessPhotos.length > 0;
     if (!hasRealMedia) {
-      add(mediaLevel, "REAL_MEDIA_PENDING", "Nenhuma fotografia real de negócio registrada no inventário.",
+      add("WARN", "REAL_MEDIA_PENDING", "Nenhuma fotografia real de negócio registrada no inventário.",
         "Obter fotos oficiais autorizadas; preservar a página e manter draft enquanto faltar aprovação.");
     }
     if (media.mediaApprovalGate?.status === "BLOCKED") {
