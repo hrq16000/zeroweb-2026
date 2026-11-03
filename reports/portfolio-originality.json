@@ -17,19 +17,19 @@
     "clone": 81
   },
   "summary": {
-    "total": 96,
+    "total": 97,
     "original": 1,
-    "acceptable": 33,
-    "attention": 62,
+    "acceptable": 36,
+    "attention": 59,
     "highSimilarity": 0,
     "clone": 0,
-    "sharedFallback": 0,
+    "sharedFallback": 1,
     "clusters": 0,
-    "placeholderLogos": 26,
+    "placeholderLogos": 27,
     "missingLogos": 0,
-    "missingCovers": 24,
+    "missingCovers": 25,
     "coverValid": 48,
-    "coverPending": 48,
+    "coverPending": 49,
     "coversAsSocialImage": 14,
     "sharedCovers": 0,
     "severeCrop": 19,
@@ -111,7 +111,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "a6aa8d884eaec05f",
+        "skeletonHash": "355493651e7d7577",
         "structureHash": "7497763c1c2fd868",
         "sectionCount": 6,
         "lines": 374
@@ -268,10 +268,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f1caa239d7f19dbf",
+        "skeletonHash": "0d0e34b82e740f21",
         "structureHash": "074f03a184e592b3",
         "sectionCount": 6,
-        "lines": 173
+        "lines": 175
       }
     },
     {
@@ -355,17 +355,17 @@
       "title": "Assistência Técnica Microondas Santos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
-      "score": 48,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.4,
+        "STRUCTURE_SIMILARITY": 55.1,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 46.2,
         "STYLE_SIMILARITY": 81,
         "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 10.8
       },
       "reasons": [
@@ -380,12 +380,10 @@
       "canonicalCoverStatus": "VALID",
       "canonicalCoverReason": null,
       "coverRatio": 1.9,
-      "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
-      ],
+      "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "18652e2636ac14af",
+        "skeletonHash": "8eb24569b16deb0f",
         "structureHash": "0032a22752379127",
         "sectionCount": 9,
         "lines": 131
@@ -421,10 +419,10 @@
       "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "a76bc45e379368f8",
+        "skeletonHash": "4e7b8fb5d7882d83",
         "structureHash": "9a6fee7c2134de41",
         "sectionCount": 9,
-        "lines": 379
+        "lines": 380
       }
     },
     {
@@ -995,7 +993,7 @@
       "nearestMatch": "liz-moraes-nail-designer",
       "nearestMatchScore": 45,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50,
+        "STRUCTURE_SIMILARITY": 49.3,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 66.7,
@@ -1110,22 +1108,64 @@
       }
     },
     {
+      "slug": "dona-garimpeira-brecho",
+      "title": "Dona Garimpeira",
+      "segment": "comercios",
+      "componentFile": "src/routes/sites.$vertical.tsx",
+      "score": 29,
+      "originalityStatus": "SHARED_FALLBACK",
+      "nearestMatch": "assistencia-microondas-santos",
+      "nearestMatchScore": 29,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 35.1,
+        "SECTION_ORDER_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 23.5,
+        "STYLE_SIMILARITY": 46.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 12.9
+      },
+      "reasons": [
+        "SHARED_VERTICAL_FALLBACK"
+      ],
+      "fallbackVertical": "comercios",
+      "coverSignals": [
+        "COVER_MISSING",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.9,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "cdbd4ea9ba50466d",
+        "structureHash": "3a5b3b63cc490db8",
+        "sectionCount": 11,
+        "lines": 410
+      }
+    },
+    {
       "slug": "dona-lucy-salgados",
       "title": "Dona Lucy Salgados",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DonaLucySalgadosPage.tsx",
-      "score": 44,
+      "score": 43,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "mania-de-limpeza",
-      "nearestMatchScore": 44,
+      "nearestMatch": "bruna-diarista",
+      "nearestMatchScore": 43,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 63,
-        "SECTION_ORDER_SIMILARITY": 33.3,
-        "COMPONENT_SIMILARITY": 44.4,
-        "STYLE_SIMILARITY": 79.1,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 13.8
+        "STRUCTURE_SIMILARITY": 25.3,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 35.7,
+        "STYLE_SIMILARITY": 48.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1143,8 +1183,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "04aef6e0d8495f1c",
-        "structureHash": "70d7d1145cbc38a3",
+        "skeletonHash": "9eebf7b8d0b234be",
+        "structureHash": "767397348837a704",
         "sectionCount": 7,
         "lines": 22
       }
@@ -1159,9 +1199,9 @@
       "nearestMatch": "marido-de-aluguel",
       "nearestMatchScore": 25,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 29.5,
+        "STRUCTURE_SIMILARITY": 29.2,
         "SECTION_ORDER_SIMILARITY": 28.6,
-        "COMPONENT_SIMILARITY": 26.3,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 40.9,
         "COPY_SIMILARITY": 0.4,
         "ASSET_PATTERN_SIMILARITY": 1.7,
@@ -1180,10 +1220,10 @@
       "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "8f626b35280bb342",
-        "structureHash": "8668ae598dfcf9f6",
+        "skeletonHash": "efab5adee411be77",
+        "structureHash": "f406a96076581a55",
         "sectionCount": 15,
-        "lines": 398
+        "lines": 439
       }
     },
     {
@@ -1231,18 +1271,18 @@
       "title": "Ecommerce On",
       "segment": "agencias",
       "componentFile": "src/components/site/EcommerceOnPage.tsx",
-      "score": 41,
+      "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 41,
+      "nearestMatch": "mary-diarista",
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 56.5,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 66.3,
+        "STRUCTURE_SIMILARITY": 67.3,
+        "SECTION_ORDER_SIMILARITY": 22.2,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 73.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 6.5
+        "IDENTITY_SIMILARITY": 7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1270,22 +1310,20 @@
       "title": "Eisenfer Tubos e Aços",
       "segment": "construcao",
       "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
-      "score": 42,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "no-brilho-higienizacao",
-      "nearestMatchScore": 42,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "aguia-sul-sinalizacao",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 39.8,
-        "COPY_SIMILARITY": 1.7,
-        "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 3.7
+        "STRUCTURE_SIMILARITY": 32.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 37.2,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 3,
+        "IDENTITY_SIMILARITY": 9.1
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1433,18 +1471,18 @@
       "title": "Empório LeleCute",
       "segment": "servicos",
       "componentFile": "src/components/site/EmporioLelecutePage.tsx",
-      "score": 29,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "assistencia-microondas-santos",
-      "nearestMatchScore": 29,
+      "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21.1,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 42.1,
-        "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 2.5,
-        "IDENTITY_SIMILARITY": 10
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 41.2,
+        "COPY_SIMILARITY": 1.7,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 9.8
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1461,10 +1499,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "756cde2a64bb1813",
-        "structureHash": "c03ed9cfb02c57f5",
+        "skeletonHash": "7a316ed81a0ab4be",
+        "structureHash": "d530887d67bdd934",
         "sectionCount": 6,
-        "lines": 190
+        "lines": 249
       }
     },
     {
@@ -1472,14 +1510,14 @@
       "title": "Enoel Portas",
       "segment": "construcao",
       "componentFile": "src/components/site/EnoelPortasPage.tsx",
-      "score": 51,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "mania-de-limpeza",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 44.4,
+        "STRUCTURE_SIMILARITY": 42.4,
         "SECTION_ORDER_SIMILARITY": 85.7,
-        "COMPONENT_SIMILARITY": 53.3,
+        "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 69.1,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
@@ -1501,8 +1539,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "ad27a68e46c42bb4",
-        "structureHash": "d84f2a7cff370fd9",
+        "skeletonHash": "0b5efce9a1054ce9",
+        "structureHash": "3ad9c826fbdc083e",
         "sectionCount": 7,
         "lines": 46
       }
@@ -1551,12 +1589,12 @@
       "title": "EN — Estrutura Nacional",
       "segment": "construcao",
       "componentFile": "src/components/site/EstruturaNacionalPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "pinturas-nunes",
-      "nearestMatchScore": 41,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 49.2,
+        "STRUCTURE_SIMILARITY": 44.9,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 38.5,
         "STYLE_SIMILARITY": 55.8,
@@ -1564,9 +1602,7 @@
         "ASSET_PATTERN_SIMILARITY": 9,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -1630,18 +1666,18 @@
       "title": "Galileu Locação de Brinquedos",
       "segment": "comercios",
       "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 45,
+      "score": 43,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "lj-cleaning",
-      "nearestMatchScore": 45,
+      "nearestMatch": "eletro-solucoes-eficazes",
+      "nearestMatchScore": 43,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 44.4,
-        "STYLE_SIMILARITY": 68,
-        "COPY_SIMILARITY": 4.8,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 0
+        "STRUCTURE_SIMILARITY": 32.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 30,
+        "STYLE_SIMILARITY": 44.9,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 4.2
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1674,7 +1710,7 @@
       "nearestMatch": "mirassol-delicias-caseiras",
       "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22.9,
+        "STRUCTURE_SIMILARITY": 24.5,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
@@ -1700,8 +1736,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "e0bb095a498b5ab9",
-        "structureHash": "6cc06f809ed56bda",
+        "skeletonHash": "b7f521cfb29aa5ef",
+        "structureHash": "c5ab1e48d28ac5ea",
         "sectionCount": 7,
         "lines": 181
       }
@@ -1750,12 +1786,12 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 27,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 27,
+      "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 12.3,
+        "STRUCTURE_SIMILARITY": 14,
         "SECTION_ORDER_SIMILARITY": 44.4,
         "COMPONENT_SIMILARITY": 37.5,
         "STYLE_SIMILARITY": 50.7,
@@ -1779,8 +1815,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "924a4e69129870f1",
-        "structureHash": "044306051e7c3ce9",
+        "skeletonHash": "a9bf2bf61bd56fbe",
+        "structureHash": "ca9fdf02ab5bc15b",
         "sectionCount": 8,
         "lines": 180
       }
@@ -1790,15 +1826,15 @@
       "title": "Sabores da Baía",
       "segment": "restaurantes",
       "componentFile": "src/components/site/SaboresDaBaiaPage.tsx",
-      "score": 30,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "heloa-gas",
-      "nearestMatchScore": 30,
+      "nearestMatch": "catharine-lima-studio",
+      "nearestMatchScore": 32,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 7.9,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 30.8,
-        "STYLE_SIMILARITY": 27.6,
+        "STRUCTURE_SIMILARITY": 19.4,
+        "SECTION_ORDER_SIMILARITY": 85.7,
+        "COMPONENT_SIMILARITY": 20,
+        "STYLE_SIMILARITY": 33.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3,
         "IDENTITY_SIMILARITY": 0
@@ -1819,10 +1855,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f8c95474776585f7",
-        "structureHash": "b5a831a3dba8c4d7",
-        "sectionCount": 6,
-        "lines": 181
+        "skeletonHash": "eb007243c5c94421",
+        "structureHash": "ed770e2b0a87f8da",
+        "sectionCount": 7,
+        "lines": 211
       }
     },
     {
@@ -1830,16 +1866,16 @@
       "title": "HBK Iluminação LED Atacadão",
       "segment": "construcao",
       "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 32,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 31,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.8,
-        "SECTION_ORDER_SIMILARITY": 25,
+        "STRUCTURE_SIMILARITY": 25.6,
+        "SECTION_ORDER_SIMILARITY": 22.2,
         "COMPONENT_SIMILARITY": 75,
-        "STYLE_SIMILARITY": 38.2,
-        "COPY_SIMILARITY": 1.3,
+        "STYLE_SIMILARITY": 36.2,
+        "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 12,
         "IDENTITY_SIMILARITY": 0
       },
@@ -1858,10 +1894,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "2af158fcadd8854b",
-        "structureHash": "7643bb8e08274703",
-        "sectionCount": 6,
-        "lines": 277
+        "skeletonHash": "2836cd92fd3b4aaa",
+        "structureHash": "46dac2f24ee97148",
+        "sectionCount": 7,
+        "lines": 312
       }
     },
     {
@@ -1869,18 +1905,18 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 42,
+      "score": 41,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "dona-lucy-salgados",
-      "nearestMatchScore": 42,
+      "nearestMatch": "catharine-lima-studio",
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50.9,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 41.2,
-        "STYLE_SIMILARITY": 53.8,
-        "COPY_SIMILARITY": 0.4,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 20
+        "STRUCTURE_SIMILARITY": 34.9,
+        "SECTION_ORDER_SIMILARITY": 85.7,
+        "COMPONENT_SIMILARITY": 35.3,
+        "STYLE_SIMILARITY": 41.8,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3,
+        "IDENTITY_SIMILARITY": 8.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1910,16 +1946,16 @@
       "title": "JC Revestimentos",
       "segment": "construcao",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 32,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 31,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.8,
-        "SECTION_ORDER_SIMILARITY": 25,
+        "STRUCTURE_SIMILARITY": 25.6,
+        "SECTION_ORDER_SIMILARITY": 22.2,
         "COMPONENT_SIMILARITY": 75,
-        "STYLE_SIMILARITY": 38.2,
-        "COPY_SIMILARITY": 1.3,
+        "STYLE_SIMILARITY": 36.2,
+        "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 12,
         "IDENTITY_SIMILARITY": 0
       },
@@ -2029,12 +2065,12 @@
       "title": "Kitutes na Mesa · Porções com Carinho",
       "segment": "restaurantes",
       "componentFile": "src/components/site/KitutesNaMesaPage.tsx",
-      "score": 53,
+      "score": 54,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 53,
+      "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.6,
+        "STRUCTURE_SIMILARITY": 53.1,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 54.8,
@@ -2069,12 +2105,12 @@
       "title": "Liz Moraes Nail Designer",
       "segment": "beleza",
       "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
-      "score": 53,
+      "score": 54,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "kitutes-na-mesa",
-      "nearestMatchScore": 53,
+      "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.6,
+        "STRUCTURE_SIMILARITY": 53.1,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 54.8,
@@ -2099,8 +2135,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "480da157fac0d078",
-        "structureHash": "0cec15f556aea09b",
+        "skeletonHash": "a0cc4acce041fe0e",
+        "structureHash": "1efa9ab9ca33e650",
         "sectionCount": 7,
         "lines": 87
       }
@@ -2110,16 +2146,16 @@
       "title": "L&J Cleaning",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/LjCleaningPage.tsx",
-      "score": 45,
+      "score": 41,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50,
+        "STRUCTURE_SIMILARITY": 39.7,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 44.4,
-        "STYLE_SIMILARITY": 68,
-        "COPY_SIMILARITY": 4.8,
+        "STYLE_SIMILARITY": 65.8,
+        "COPY_SIMILARITY": 3.1,
         "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
@@ -2138,10 +2174,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "6bf037b560d79c5d",
-        "structureHash": "1de8214d44701889",
+        "skeletonHash": "bd38143ca946cd30",
+        "structureHash": "c55f11951060132c",
         "sectionCount": 7,
-        "lines": 139
+        "lines": 166
       }
     },
     {
@@ -2197,8 +2233,8 @@
         "STRUCTURE_SIMILARITY": 29.8,
         "SECTION_ORDER_SIMILARITY": 60,
         "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 47.1,
-        "COPY_SIMILARITY": 1.6,
+        "STYLE_SIMILARITY": 46.6,
+        "COPY_SIMILARITY": 1.4,
         "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 3.8
       },
@@ -2217,10 +2253,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "76c8d29c711955bc",
-        "structureHash": "70cfe97e92e7cbf9",
+        "skeletonHash": "c697f05d049217e0",
+        "structureHash": "f8e7a38d135c1c26",
         "sectionCount": 7,
-        "lines": 176
+        "lines": 189
       }
     },
     {
@@ -2267,14 +2303,14 @@
       "title": "Mania de Limpeza Higienização",
       "segment": "servicos",
       "componentFile": "src/components/site/ManiaDeLimpezaPage.tsx",
-      "score": 51,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "enoel-portas",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 44.4,
+        "STRUCTURE_SIMILARITY": 42.4,
         "SECTION_ORDER_SIMILARITY": 85.7,
-        "COMPONENT_SIMILARITY": 53.3,
+        "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 69.1,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
@@ -2425,12 +2461,12 @@
       "title": "Mary Diarista",
       "segment": "servicos",
       "componentFile": "src/components/site/MaryDiaristaPage.tsx",
-      "score": 44,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 44,
+      "nearestMatchScore": 46,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 58.2,
+        "STRUCTURE_SIMILARITY": 66.7,
         "SECTION_ORDER_SIMILARITY": 33.3,
         "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 73.4,
@@ -2456,8 +2492,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "e077201806508dbb",
-        "structureHash": "d64f4bbccd046343",
+        "skeletonHash": "5ebe799887240360",
+        "structureHash": "cb13b2e473ebcc4b",
         "sectionCount": 7,
         "lines": 14
       }
@@ -2592,7 +2628,7 @@
       "nearestMatch": "guaratuba-atelie-presentes",
       "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22.9,
+        "STRUCTURE_SIMILARITY": 24.5,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
@@ -2618,8 +2654,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "b66cca44b7c8ad92",
-        "structureHash": "53e1464fd2ff4ba2",
+        "skeletonHash": "2e8c7cdb5ef16511",
+        "structureHash": "5e708cfc7fb56609",
         "sectionCount": 7,
         "lines": 183
       }
@@ -2701,10 +2737,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "9093a58956d7896d",
+        "skeletonHash": "5a0492cc06400605",
         "structureHash": "213c72c920e6b642",
         "sectionCount": 10,
-        "lines": 555
+        "lines": 573
       }
     },
     {
@@ -2754,12 +2790,12 @@
       "title": "No Brilho Higienização",
       "segment": "servicos",
       "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
-      "score": 42,
-      "originalityStatus": "ATTENTION",
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "eisenfer-tubos-acos",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46,
+        "STRUCTURE_SIMILARITY": 40.9,
         "SECTION_ORDER_SIMILARITY": 37.5,
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 39.8,
@@ -2767,9 +2803,7 @@
         "ASSET_PATTERN_SIMILARITY": 4.3,
         "IDENTITY_SIMILARITY": 3.7
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -2782,8 +2816,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "fdb354174fd44d76",
-        "structureHash": "391a05773fc68b5b",
+        "skeletonHash": "102469020287b256",
+        "structureHash": "1f3c64f4530e2004",
         "sectionCount": 8,
         "lines": 226
       }
@@ -2871,18 +2905,18 @@
       "title": "Pastelaria e Lanchonete Route 66",
       "segment": "restaurantes",
       "componentFile": "src/components/site/PastelariaRoute66Page.tsx",
-      "score": 31,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "simone-lacerda-vaz",
-      "nearestMatchScore": 31,
+      "nearestMatch": "dona-lucy-salgados",
+      "nearestMatchScore": 34,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.7,
+        "STRUCTURE_SIMILARITY": 32,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 6.7,
-        "STYLE_SIMILARITY": 53.9,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 5.6,
-        "IDENTITY_SIMILARITY": 0
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 50.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 1.7,
+        "IDENTITY_SIMILARITY": 3.7
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2898,10 +2932,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "cb121ead0a7c1346",
-        "structureHash": "893a34dd366a2400",
-        "sectionCount": 7,
-        "lines": 20
+        "skeletonHash": "a5af559bb5c21812",
+        "structureHash": "61adb0c675f0a803",
+        "sectionCount": 8,
+        "lines": 55
       }
     },
     {
@@ -2914,7 +2948,7 @@
       "nearestMatch": "liz-moraes-nail-designer",
       "nearestMatchScore": 46,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 47.1,
+        "STRUCTURE_SIMILARITY": 46.4,
         "SECTION_ORDER_SIMILARITY": 75,
         "COMPONENT_SIMILARITY": 41.7,
         "STYLE_SIMILARITY": 63.2,
@@ -2955,7 +2989,7 @@
       "nearestMatch": "eletro-solucoes-eficazes",
       "nearestMatchScore": 46,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 29.5,
+        "STRUCTURE_SIMILARITY": 32.3,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 37,
@@ -2979,10 +3013,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "2e3a99d7b6a90af0",
-        "structureHash": "cca74e7438b4ee22",
+        "skeletonHash": "ea0ded80e85afc8f",
+        "structureHash": "23edd13581da81b8",
         "sectionCount": 7,
-        "lines": 302
+        "lines": 294
       }
     },
     {
@@ -3069,18 +3103,18 @@
       "title": "R_Beauty Studio & Spa",
       "segment": "beleza",
       "componentFile": "src/components/site/RBeautyEditorialView.tsx",
-      "score": 51,
+      "score": 52,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "renata-beauty",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 52,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.6,
+        "STRUCTURE_SIMILARITY": 54.7,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 40.9,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 1.5,
         "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10.2
+        "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
         "SAME_FAMILY"
@@ -3145,12 +3179,12 @@
       "title": "Refrigeração Maresia",
       "segment": "servicos",
       "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "score": 50,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 56.1,
+        "STRUCTURE_SIMILARITY": 52.5,
         "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 26.7,
         "STYLE_SIMILARITY": 82.5,
@@ -3173,7 +3207,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "7da04c8d6cac4137",
+        "skeletonHash": "29facf865a6d4334",
         "structureHash": "f3e62521e563d074",
         "sectionCount": 6,
         "lines": 35
@@ -3184,18 +3218,18 @@
       "title": "Renata Beauty Studio",
       "segment": "beleza",
       "componentFile": "src/components/site/RenataBeautyView.tsx",
-      "score": 51,
+      "score": 52,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "r_beauty",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 52,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.6,
+        "STRUCTURE_SIMILARITY": 54.7,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 40.9,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 1.5,
         "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10.2
+        "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
         "SAME_FAMILY"
@@ -3214,10 +3248,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "162ca912b3ce2a39",
-        "structureHash": "a5c09e65eaca66ab",
+        "skeletonHash": "b015e3f33e053d0b",
+        "structureHash": "e83d8c05f6d48d13",
         "sectionCount": 8,
-        "lines": 737
+        "lines": 727
       }
     },
     {
@@ -3349,7 +3383,7 @@
       "nearestMatch": "liz-moraes-nail-designer",
       "nearestMatchScore": 47,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.4,
+        "STRUCTURE_SIMILARITY": 26.6,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 40.2,
@@ -3373,10 +3407,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "0bae02fd00e49af2",
-        "structureHash": "e1e43575f74bccb3",
+        "skeletonHash": "eb96944bccaf5bd5",
+        "structureHash": "550b51a76b6cd2fb",
         "sectionCount": 7,
-        "lines": 173
+        "lines": 169
       }
     },
     {
@@ -3384,17 +3418,17 @@
       "title": "Santos Montador de Móveis",
       "segment": "servicos",
       "componentFile": "src/components/site/SantosMontadorDeMoveisPage.tsx",
-      "score": 36,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "enoel-portas",
-      "nearestMatchScore": 36,
+      "nearestMatch": "kitutes-na-mesa",
+      "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 35.8,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 45.6,
-        "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "STRUCTURE_SIMILARITY": 39.7,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 49.6,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -3411,10 +3445,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "54f3525c7580fcab",
-        "structureHash": "840bf47968c1e899",
-        "sectionCount": 7,
-        "lines": 76
+        "skeletonHash": "3c28130b67810d6a",
+        "structureHash": "9166380489067d7f",
+        "sectionCount": 8,
+        "lines": 107
       }
     },
     {
@@ -3422,18 +3456,18 @@
       "title": "Simone Lacerda Vaz · Nutricionista",
       "segment": "saude",
       "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
-      "score": 43,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "enoel-portas",
-      "nearestMatchScore": 43,
+      "nearestMatch": "embalar-embalagens",
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 36.8,
-        "SECTION_ORDER_SIMILARITY": 50,
+        "STRUCTURE_SIMILARITY": 29.9,
+        "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 81.8,
-        "STYLE_SIMILARITY": 48.1,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 23.8
+        "STYLE_SIMILARITY": 42.7,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "IDENTITY_SIMILARITY": 13.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -3494,7 +3528,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "be5896c96c06025c",
+        "skeletonHash": "ce56d0c49493407f",
         "structureHash": "7bbda7ea65ec5cec",
         "sectionCount": 7,
         "lines": 50
@@ -3542,12 +3576,12 @@
       "title": "Studio de Cílios",
       "segment": "beleza",
       "componentFile": "src/components/site/StudioDeCiliosPage.tsx",
-      "score": 47,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 47,
+      "nearestMatchScore": 46,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 58.7,
+        "STRUCTURE_SIMILARITY": 55.4,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 73.8,
@@ -3738,12 +3772,12 @@
       "title": "Vila da Capivara",
       "segment": "servicos",
       "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
-      "score": 45,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "studio-de-cilios",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 46,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
+        "STRUCTURE_SIMILARITY": 66.2,
         "SECTION_ORDER_SIMILARITY": 37.5,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 85.9,
@@ -3769,8 +3803,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "b84fd01488832985",
-        "structureHash": "5cd3c479d0f9c919",
+        "skeletonHash": "26b8f32951e8b7d4",
+        "structureHash": "8468d7b7cc5b486b",
         "sectionCount": 7,
         "lines": 27
       }
@@ -3826,7 +3860,7 @@
       "nearestMatch": "liz-moraes-nail-designer",
       "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 30.6,
+        "STRUCTURE_SIMILARITY": 30.1,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 16.7,
         "STYLE_SIMILARITY": 49,
@@ -3864,9 +3898,9 @@
       "a": "kitutes-na-mesa",
       "b": "liz-moraes-nail-designer",
       "metricVersion": 2,
-      "score": 53,
+      "score": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.6,
+        "STRUCTURE_SIMILARITY": 53.1,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 54.8,
@@ -3921,18 +3955,18 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "enoel-portas",
-      "b": "mania-de-limpeza",
+      "a": "r_beauty",
+      "b": "renata-beauty",
       "metricVersion": 2,
-      "score": 51,
+      "score": 52,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 44.4,
-        "SECTION_ORDER_SIMILARITY": 85.7,
-        "COMPONENT_SIMILARITY": 53.3,
-        "STYLE_SIMILARITY": 69.1,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 15.4
+        "STRUCTURE_SIMILARITY": 54.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40.9,
+        "STYLE_SIMILARITY": 47.7,
+        "COPY_SIMILARITY": 1.5,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3953,26 +3987,6 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 2.1,
         "IDENTITY_SIMILARITY": 25
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "r_beauty",
-      "b": "renata-beauty",
-      "metricVersion": 2,
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.6,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40.9,
-        "STYLE_SIMILARITY": 47.7,
-        "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10.2
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -4041,26 +4055,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "liz-moraes-nail-designer",
-      "b": "refrigeracao-maresia",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 56.1,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 26.7,
-        "STYLE_SIMILARITY": 82.5,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 4.7
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "acai-total-araucaria",
       "b": "kitutes-na-mesa",
       "metricVersion": 2,
@@ -4101,6 +4095,26 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "assistencia-microondas-santos",
+      "b": "liz-moraes-nail-designer",
+      "metricVersion": 2,
+      "score": 49,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 55.1,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 46.2,
+        "STYLE_SIMILARITY": 81,
+        "COPY_SIMILARITY": 2,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.8
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "confeitaria-sabor-da-realeza",
       "b": "miro-tech",
       "metricVersion": 2,
@@ -4121,12 +4135,52 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "enoel-portas",
+      "b": "mania-de-limpeza",
+      "metricVersion": 2,
+      "score": 49,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 42.4,
+        "SECTION_ORDER_SIMILARITY": 85.7,
+        "COMPONENT_SIMILARITY": 46.7,
+        "STYLE_SIMILARITY": 69.1,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 15.4
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "refrigeracao-maresia",
+      "metricVersion": 2,
+      "score": 49,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 52.5,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 82.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 4.7
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "acai-total-araucaria",
       "b": "liz-moraes-nail-designer",
       "metricVersion": 2,
       "score": 48,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 23.8,
+        "STRUCTURE_SIMILARITY": 25,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 51.5,
@@ -4153,46 +4207,6 @@
         "COPY_SIMILARITY": 0.4,
         "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "assistencia-microondas-santos",
-      "b": "liz-moraes-nail-designer",
-      "metricVersion": 2,
-      "score": 48,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.4,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 46.2,
-        "STYLE_SIMILARITY": 81,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 9,
-        "IDENTITY_SIMILARITY": 10.8
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "enoel-portas",
-      "b": "kitutes-na-mesa",
-      "metricVersion": 2,
-      "score": 48,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 60.7,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 54.6,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 11.2,
-        "IDENTITY_SIMILARITY": 16.7
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -4322,17 +4336,17 @@
     },
     {
       "a": "enoel-portas",
-      "b": "maximos-cabeleireiros",
+      "b": "kitutes-na-mesa",
       "metricVersion": 2,
       "score": 47,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.7,
-        "SECTION_ORDER_SIMILARITY": 85.7,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 58.3,
-        "COPY_SIMILARITY": 0.5,
+        "STRUCTURE_SIMILARITY": 60.3,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 54.6,
+        "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 11.2,
-        "IDENTITY_SIMILARITY": 8.6
+        "IDENTITY_SIMILARITY": 16.7
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -4359,6 +4373,26 @@
       ],
       "sharedAssets": [],
       "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "miro-tech",
+      "metricVersion": 2,
+      "score": 47,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 39.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 63.7,
+        "COPY_SIMILARITY": 1.7,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
     }
   ],
   "pairMatrix": {
@@ -4368,7 +4402,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 4560,
+    "totalPairs": 4656,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4468,7 +4502,7 @@
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 36,
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -4509,7 +4543,7 @@
       "assistencia-microondas-santos": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 48,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4535,7 +4569,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "liz-moraes-nail-designer",
+          "slug": "mimo-salgados-doces",
           "score": 37,
           "reason": "DISTINCT"
         }
@@ -4616,7 +4650,7 @@
         },
         {
           "slug": "dona-lucy-salgados",
-          "score": 42,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4683,13 +4717,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "liz-moraes-nail-designer",
+          "slug": "miro-tech",
           "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 44,
+          "slug": "dona-lucy-salgados",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4829,10 +4863,27 @@
           "reason": "DISTINCT"
         }
       ],
+      "dona-garimpeira-brecho": [
+        {
+          "slug": "assistencia-microondas-santos",
+          "score": 29,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "marido-de-aluguel",
+          "score": 28,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 28,
+          "reason": "DISTINCT"
+        }
+      ],
       "dona-lucy-salgados": [
         {
-          "slug": "mania-de-limpeza",
-          "score": 44,
+          "slug": "bruna-diarista",
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4841,8 +4892,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "bruna-diarista",
-          "score": 42,
+          "slug": "diego-montador-moveis",
+          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4858,7 +4909,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "assistencia-microondas-santos",
+          "slug": "kitutes-na-mesa",
           "score": 23,
           "reason": "DISTINCT"
         }
@@ -4882,8 +4933,8 @@
       ],
       "ecommerce-on": [
         {
-          "slug": "liz-moraes-nail-designer",
-          "score": 41,
+          "slug": "mary-diarista",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4899,12 +4950,12 @@
       ],
       "eisenfer-tubos-acos": [
         {
-          "slug": "no-brilho-higienizacao",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "slug": "aguia-sul-sinalizacao",
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
+          "slug": "no-brilho-higienizacao",
           "score": 40,
           "reason": "DISTINCT"
         },
@@ -4943,7 +4994,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "popys-conservacao-limpeza",
+          "slug": "pinturas-nunes",
           "score": 44,
           "reason": "SAME_FAMILY"
         }
@@ -4968,34 +5019,34 @@
       "emporio-lelecute": [
         {
           "slug": "assistencia-microondas-santos",
-          "score": 29,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "cris-presentes-colonia-rio-grande",
-          "score": 27,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "thays-camilla",
-          "score": 27,
+          "slug": "studio-de-cilios",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
       "enoel-portas": [
         {
           "slug": "mania-de-limpeza",
-          "score": 51,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "kitutes-na-mesa",
-          "score": 48,
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "maximos-cabeleireiros",
-          "score": 47,
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5019,8 +5070,8 @@
       "estrutura-nacional": [
         {
           "slug": "pinturas-nunes",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
           "slug": "almeida-torres",
@@ -5052,18 +5103,18 @@
       ],
       "galileu-locacao-brinquedos": [
         {
-          "slug": "lj-cleaning",
-          "score": 45,
+          "slug": "eletro-solucoes-eficazes",
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "pinturas-nunes",
-          "score": 44,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 43,
+          "slug": "lj-cleaning",
+          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5091,77 +5142,77 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lolipa-arte-em-festas",
+          "slug": "thays-camilla",
           "score": 36,
           "reason": "DISTINCT"
         },
         {
-          "slug": "thays-camilla",
-          "score": 36,
+          "slug": "lolipa-arte-em-festas",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
       "guaratuba-reparos-residenciais": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 27,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "enoel-portas",
-          "score": 25,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "maximos-cabeleireiros",
           "score": 25,
           "reason": "DISTINCT"
+        },
+        {
+          "slug": "mirassol-delicias-caseiras",
+          "score": 25,
+          "reason": "DISTINCT"
         }
       ],
       "guaratuba-sabores-da-baia": [
         {
-          "slug": "heloa-gas",
-          "score": 30,
+          "slug": "catharine-lima-studio",
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
-          "slug": "catharine-lima-studio",
-          "score": 27,
+          "slug": "heloa-gas",
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 27,
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
       "hbk-iluminacao-led": [
         {
           "slug": "jc-revestimentos",
-          "score": 32,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "ton-e-cor",
-          "score": 26,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "raphael-construcoes",
-          "score": 24,
+          "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "thays-camilla",
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
       "heloa-gas": [
         {
-          "slug": "dona-lucy-salgados",
-          "score": 42,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "catharine-lima-studio",
           "score": 41,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "dona-lucy-salgados",
+          "score": 39,
+          "reason": "DISTINCT"
         },
         {
           "slug": "miro-tech",
@@ -5172,7 +5223,7 @@
       "jc-revestimentos": [
         {
           "slug": "hbk-iluminacao-led",
-          "score": 32,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
@@ -5223,7 +5274,7 @@
       "kitutes-na-mesa": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 53,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5240,34 +5291,34 @@
       "liz-moraes-nail-designer": [
         {
           "slug": "kitutes-na-mesa",
-          "score": 53,
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "assistencia-microondas-santos",
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "refrigeracao-maresia",
-          "score": 50,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "acai-total-araucaria",
-          "score": 48,
+          "score": 49,
           "reason": "SAME_FAMILY"
         }
       ],
       "lj-cleaning": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 45,
+          "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 31,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mary-diarista",
-          "score": 31,
+          "slug": "simone-lacerda-vaz",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -5296,12 +5347,12 @@
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 36,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 36,
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -5325,7 +5376,7 @@
       "mania-de-limpeza": [
         {
           "slug": "enoel-portas",
-          "score": 51,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5334,8 +5385,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "dona-lucy-salgados",
-          "score": 44,
+          "slug": "kitutes-na-mesa",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5368,7 +5419,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "rm-fretes",
+          "slug": "liz-moraes-nail-designer",
           "score": 35,
           "reason": "DISTINCT"
         }
@@ -5393,17 +5444,17 @@
       "mary-diarista": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "paulo-mestre-de-obras",
-          "score": 43,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "enoel-portas",
-          "score": 42,
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "ecommerce-on",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5420,7 +5471,7 @@
         },
         {
           "slug": "enoel-portas",
-          "score": 47,
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5432,7 +5483,7 @@
         },
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 44,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5470,7 +5521,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
+          "slug": "eletro-solucoes-eficazes",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -5529,17 +5580,17 @@
       "no-brilho-higienizacao": [
         {
           "slug": "eisenfer-tubos-acos",
-          "score": 42,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "lk-alvenaria",
-          "score": 38,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "lucas-arruma-maquina-lavar",
-          "score": 38,
+          "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "eletro-solucoes-eficazes",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
@@ -5556,7 +5607,7 @@
         },
         {
           "slug": "pinturas-nunes",
-          "score": 41,
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5579,18 +5630,18 @@
       ],
       "pastelaria-route-66": [
         {
-          "slug": "simone-lacerda-vaz",
-          "score": 31,
+          "slug": "dona-lucy-salgados",
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 30,
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
-          "slug": "dona-lucy-salgados",
-          "score": 30,
+          "slug": "assistencia-microondas-santos",
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -5606,8 +5657,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mary-diarista",
-          "score": 43,
+          "slug": "acai-total-araucaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5618,12 +5669,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
+          "slug": "eletrovale-eletromecanica",
           "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletrovale-eletromecanica",
+          "slug": "galileu-locacao-brinquedos",
           "score": 43,
           "reason": "SAME_FAMILY"
         }
@@ -5665,7 +5716,7 @@
       "r_beauty": [
         {
           "slug": "renata-beauty",
-          "score": 51,
+          "score": 52,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5674,7 +5725,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "emporio-lelecute",
+          "slug": "rj-servicos-drywall",
           "score": 24,
           "reason": "DISTINCT"
         }
@@ -5686,20 +5737,20 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "miro-tech",
-          "score": 26,
+          "slug": "hbk-iluminacao-led",
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 25,
+          "slug": "miro-tech",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
       "refrigeracao-maresia": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 50,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5716,17 +5767,17 @@
       "renata-beauty": [
         {
           "slug": "r_beauty",
-          "score": 51,
+          "score": 52,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "rj-servicos-drywall",
+          "slug": "centro-mega",
           "score": 24,
           "reason": "DISTINCT"
         },
         {
-          "slug": "adhonep-curitiba",
-          "score": 23,
+          "slug": "rj-servicos-drywall",
+          "score": 24,
           "reason": "DISTINCT"
         }
       ],
@@ -5789,7 +5840,7 @@
         },
         {
           "slug": "kitutes-na-mesa",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
@@ -5800,29 +5851,29 @@
       ],
       "santos-montador-de-moveis": [
         {
-          "slug": "enoel-portas",
-          "score": 36,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "kitutes-na-mesa",
-          "score": 35,
+          "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mary-diarista",
-          "score": 34,
+          "slug": "enoel-portas",
+          "score": 37,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "liz-moraes-nail-designer",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],
       "simone-lacerda-vaz": [
         {
-          "slug": "enoel-portas",
-          "score": 43,
+          "slug": "embalar-embalagens",
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "embalar-embalagens",
+          "slug": "enoel-portas",
           "score": 42,
           "reason": "SAME_FAMILY"
         },
@@ -5862,19 +5913,19 @@
         },
         {
           "slug": "enoel-portas",
-          "score": 22,
+          "score": 21,
           "reason": "DISTINCT"
         }
       ],
       "studio-de-cilios": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 47,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "vila-da-capivara",
-          "score": 45,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5954,7 +6005,7 @@
       "vila-da-capivara": [
         {
           "slug": "studio-de-cilios",
-          "score": 45,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5964,7 +6015,7 @@
         },
         {
           "slug": "assistencia-microondas-santos",
-          "score": 38,
+          "score": 39,
           "reason": "DISTINCT"
         }
       ],
@@ -6119,14 +6170,14 @@
       {
         "slug": "assistencia-microondas-santos",
         "v1Score": 50,
-        "v2Score": 48,
-        "delta": -2,
+        "v2Score": 49,
+        "delta": -1,
         "v1Nearest": "liz-moraes-nail-designer",
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 50,
-        "v2AssetPattern": 9
+        "v1AssetPattern": 42.9,
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "auto-socorro-dentinho",
@@ -6345,16 +6396,28 @@
         "v2AssetPattern": 15
       },
       {
-        "slug": "dona-lucy-salgados",
-        "v1Score": 48,
-        "v2Score": 44,
-        "delta": -4,
-        "v1Nearest": "mania-de-limpeza",
-        "v2Nearest": "mania-de-limpeza",
+        "slug": "dona-garimpeira-brecho",
+        "v1Score": 30,
+        "v2Score": 29,
+        "delta": -1,
+        "v1Nearest": "assistencia-microondas-santos",
+        "v2Nearest": "assistencia-microondas-santos",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 11.1,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "dona-lucy-salgados",
+        "v1Score": 45,
+        "v2Score": 43,
+        "delta": -2,
+        "v1Nearest": "mania-de-limpeza",
+        "v2Nearest": "bruna-diarista",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 15
+        "v2AssetPattern": 11.2
       },
       {
         "slug": "dyzpromo",
@@ -6382,27 +6445,27 @@
       },
       {
         "slug": "ecommerce-on",
-        "v1Score": 42,
-        "v2Score": 41,
-        "delta": -1,
-        "v1Nearest": "liz-moraes-nail-designer",
-        "v2Nearest": "liz-moraes-nail-designer",
+        "v1Score": 44,
+        "v2Score": 44,
+        "delta": 0,
+        "v1Nearest": "mary-diarista",
+        "v2Nearest": "mary-diarista",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 11.1,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 20,
         "v2AssetPattern": 3.8
       },
       {
         "slug": "eisenfer-tubos-acos",
-        "v1Score": 42,
-        "v2Score": 42,
-        "delta": 0,
+        "v1Score": 41,
+        "v2Score": 40,
+        "delta": -1,
         "v1Nearest": "no-brilho-higienizacao",
-        "v2Nearest": "no-brilho-higienizacao",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
+        "v2Nearest": "aguia-sul-sinalizacao",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 11.1,
-        "v2AssetPattern": 4.3
+        "v2AssetPattern": 3
       },
       {
         "slug": "eletro-solucoes-eficazes",
@@ -6442,21 +6505,21 @@
       },
       {
         "slug": "emporio-lelecute",
-        "v1Score": 29,
-        "v2Score": 29,
+        "v1Score": 28,
+        "v2Score": 28,
         "delta": 0,
         "v1Nearest": "assistencia-microondas-santos",
         "v2Nearest": "assistencia-microondas-santos",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 2.5
+        "v2AssetPattern": 2.1
       },
       {
         "slug": "enoel-portas",
-        "v1Score": 54,
-        "v2Score": 51,
-        "delta": -3,
+        "v1Score": 53,
+        "v2Score": 49,
+        "delta": -4,
         "v1Nearest": "mania-de-limpeza",
         "v2Nearest": "mania-de-limpeza",
         "neighbourChanged": false,
@@ -6478,13 +6541,13 @@
       },
       {
         "slug": "estrutura-nacional",
-        "v1Score": 42,
-        "v2Score": 41,
-        "delta": -1,
+        "v1Score": 40,
+        "v2Score": 40,
+        "delta": 0,
         "v1Nearest": "pinturas-nunes",
         "v2Nearest": "pinturas-nunes",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 25,
         "v2AssetPattern": 9
       },
@@ -6502,15 +6565,15 @@
       },
       {
         "slug": "galileu-locacao-brinquedos",
-        "v1Score": 48,
-        "v2Score": 45,
-        "delta": -3,
+        "v1Score": 45,
+        "v2Score": 43,
+        "delta": -2,
         "v1Nearest": "lj-cleaning",
-        "v2Nearest": "lj-cleaning",
-        "neighbourChanged": false,
+        "v2Nearest": "eletro-solucoes-eficazes",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 15
+        "v2AssetPattern": 5
       },
       {
         "slug": "guaratuba-atelie-presentes",
@@ -6539,8 +6602,8 @@
       {
         "slug": "guaratuba-reparos-residenciais",
         "v1Score": 31,
-        "v2Score": 27,
-        "delta": -4,
+        "v2Score": 28,
+        "delta": -3,
         "v1Nearest": "bh-barreiro-marmitas",
         "v2Nearest": "bh-barreiro-marmitas",
         "neighbourChanged": false,
@@ -6550,21 +6613,21 @@
       },
       {
         "slug": "guaratuba-sabores-da-baia",
-        "v1Score": 30,
-        "v2Score": 30,
-        "delta": 0,
-        "v1Nearest": "heloa-gas",
-        "v2Nearest": "heloa-gas",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 14.3,
+        "v1Score": 35,
+        "v2Score": 32,
+        "delta": -3,
+        "v1Nearest": "uberlandia-eletrica-residencial",
+        "v2Nearest": "catharine-lima-studio",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
         "v2AssetPattern": 3
       },
       {
         "slug": "hbk-iluminacao-led",
-        "v1Score": 38,
-        "v2Score": 32,
-        "delta": -6,
+        "v1Score": 36,
+        "v2Score": 31,
+        "delta": -5,
         "v1Nearest": "jc-revestimentos",
         "v2Nearest": "jc-revestimentos",
         "neighbourChanged": false,
@@ -6574,21 +6637,21 @@
       },
       {
         "slug": "heloa-gas",
-        "v1Score": 42,
-        "v2Score": 42,
+        "v1Score": 41,
+        "v2Score": 41,
         "delta": 0,
-        "v1Nearest": "dona-lucy-salgados",
-        "v2Nearest": "dona-lucy-salgados",
+        "v1Nearest": "catharine-lima-studio",
+        "v2Nearest": "catharine-lima-studio",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 12.5,
-        "v2AssetPattern": 15
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3
       },
       {
         "slug": "jc-revestimentos",
-        "v1Score": 38,
-        "v2Score": 32,
-        "delta": -6,
+        "v1Score": 36,
+        "v2Score": 31,
+        "delta": -5,
         "v1Nearest": "hbk-iluminacao-led",
         "v2Nearest": "hbk-iluminacao-led",
         "neighbourChanged": false,
@@ -6623,8 +6686,8 @@
       {
         "slug": "kitutes-na-mesa",
         "v1Score": 55,
-        "v2Score": 53,
-        "delta": -2,
+        "v2Score": 54,
+        "delta": -1,
         "v1Nearest": "liz-moraes-nail-designer",
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
@@ -6635,8 +6698,8 @@
       {
         "slug": "liz-moraes-nail-designer",
         "v1Score": 55,
-        "v2Score": 53,
-        "delta": -2,
+        "v2Score": 54,
+        "delta": -1,
         "v1Nearest": "kitutes-na-mesa",
         "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": false,
@@ -6646,9 +6709,9 @@
       },
       {
         "slug": "lj-cleaning",
-        "v1Score": 48,
-        "v2Score": 45,
-        "delta": -3,
+        "v1Score": 45,
+        "v2Score": 41,
+        "delta": -4,
         "v1Nearest": "galileu-locacao-brinquedos",
         "v2Nearest": "galileu-locacao-brinquedos",
         "neighbourChanged": false,
@@ -6682,21 +6745,21 @@
       },
       {
         "slug": "lucas-arruma-maquina-lavar",
-        "v1Score": 42,
+        "v1Score": 44,
         "v2Score": 42,
-        "delta": 0,
-        "v1Nearest": "aguia-sul-sinalizacao",
+        "delta": -2,
+        "v1Nearest": "no-brilho-higienizacao",
         "v2Nearest": "aguia-sul-sinalizacao",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
         "v2AssetPattern": 1.9
       },
       {
         "slug": "mania-de-limpeza",
-        "v1Score": 54,
-        "v2Score": 51,
-        "delta": -3,
+        "v1Score": 53,
+        "v2Score": 49,
+        "delta": -4,
         "v1Nearest": "enoel-portas",
         "v2Nearest": "enoel-portas",
         "neighbourChanged": false,
@@ -6742,13 +6805,13 @@
       },
       {
         "slug": "mary-diarista",
-        "v1Score": 44,
-        "v2Score": 44,
-        "delta": 0,
+        "v1Score": 47,
+        "v2Score": 46,
+        "delta": -1,
         "v1Nearest": "liz-moraes-nail-designer",
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
+        "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 14.3,
         "v2AssetPattern": 2.1
       },
@@ -6838,14 +6901,14 @@
       },
       {
         "slug": "no-brilho-higienizacao",
-        "v1Score": 42,
-        "v2Score": 42,
-        "delta": 0,
-        "v1Nearest": "eisenfer-tubos-acos",
+        "v1Score": 44,
+        "v2Score": 40,
+        "delta": -4,
+        "v1Nearest": "lucas-arruma-maquina-lavar",
         "v2Nearest": "eisenfer-tubos-acos",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 11.1,
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
         "v2AssetPattern": 4.3
       },
       {
@@ -6874,33 +6937,33 @@
       },
       {
         "slug": "pastelaria-route-66",
-        "v1Score": 31,
-        "v2Score": 31,
+        "v1Score": 34,
+        "v2Score": 34,
         "delta": 0,
-        "v1Nearest": "simone-lacerda-vaz",
-        "v2Nearest": "simone-lacerda-vaz",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 25,
-        "v2AssetPattern": 5.6
-      },
-      {
-        "slug": "paulo-mestre-de-obras",
-        "v1Score": 46,
-        "v2Score": 46,
-        "delta": 0,
-        "v1Nearest": "liz-moraes-nail-designer",
-        "v2Nearest": "liz-moraes-nail-designer",
+        "v1Nearest": "dona-lucy-salgados",
+        "v2Nearest": "dona-lucy-salgados",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
         "v2AssetPattern": 1.7
       },
       {
-        "slug": "pinturas-nunes",
-        "v1Score": 47,
+        "slug": "paulo-mestre-de-obras",
+        "v1Score": 45,
         "v2Score": 46,
-        "delta": -1,
+        "delta": 1,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 1.7
+      },
+      {
+        "slug": "pinturas-nunes",
+        "v1Score": 48,
+        "v2Score": 46,
+        "delta": -2,
         "v1Nearest": "eletro-solucoes-eficazes",
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
@@ -6934,8 +6997,8 @@
       },
       {
         "slug": "r_beauty",
-        "v1Score": 51,
-        "v2Score": 51,
+        "v1Score": 52,
+        "v2Score": 52,
         "delta": 0,
         "v1Nearest": "renata-beauty",
         "v2Nearest": "renata-beauty",
@@ -6958,8 +7021,8 @@
       },
       {
         "slug": "refrigeracao-maresia",
-        "v1Score": 51,
-        "v2Score": 50,
+        "v1Score": 50,
+        "v2Score": 49,
         "delta": -1,
         "v1Nearest": "liz-moraes-nail-designer",
         "v2Nearest": "liz-moraes-nail-designer",
@@ -6970,8 +7033,8 @@
       },
       {
         "slug": "renata-beauty",
-        "v1Score": 51,
-        "v2Score": 51,
+        "v1Score": 52,
+        "v2Score": 52,
         "delta": 0,
         "v1Nearest": "r_beauty",
         "v2Nearest": "r_beauty",
@@ -7030,27 +7093,27 @@
       },
       {
         "slug": "santos-montador-de-moveis",
-        "v1Score": 37,
-        "v2Score": 36,
-        "delta": -1,
-        "v1Nearest": "enoel-portas",
-        "v2Nearest": "enoel-portas",
+        "v1Score": 39,
+        "v2Score": 39,
+        "delta": 0,
+        "v1Nearest": "kitutes-na-mesa",
+        "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 11.1,
-        "v2AssetPattern": 9
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "simone-lacerda-vaz",
-        "v1Score": 45,
-        "v2Score": 43,
-        "delta": -2,
-        "v1Nearest": "enoel-portas",
-        "v2Nearest": "enoel-portas",
+        "v1Score": 43,
+        "v2Score": 42,
+        "delta": -1,
+        "v1Nearest": "embalar-embalagens",
+        "v2Nearest": "embalar-embalagens",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 42.9,
-        "v2AssetPattern": 6
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "sos-presentes-cosmeticos",
@@ -7079,13 +7142,13 @@
       {
         "slug": "studio-de-cilios",
         "v1Score": 47,
-        "v2Score": 47,
-        "delta": 0,
-        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Score": 46,
+        "delta": -1,
+        "v1Nearest": "vila-da-capivara",
         "v2Nearest": "liz-moraes-nail-designer",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 12.5,
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 18.8,
         "v2AssetPattern": 1.9
       },
       {
@@ -7138,8 +7201,8 @@
       },
       {
         "slug": "vila-da-capivara",
-        "v1Score": 46,
-        "v2Score": 45,
+        "v1Score": 47,
+        "v2Score": 46,
         "delta": -1,
         "v1Nearest": "studio-de-cilios",
         "v2Nearest": "studio-de-cilios",
@@ -7197,27 +7260,56 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 96,
+      "total": 97,
       "original": 1,
-      "acceptable": 33,
-      "attention": 62,
+      "acceptable": 36,
+      "attention": 59,
       "highSimilarity": 0,
       "clone": 0,
-      "sharedFallback": 0,
+      "sharedFallback": 1,
       "clusters": 0,
-      "placeholderLogos": 26,
+      "placeholderLogos": 27,
       "missingLogos": 0,
-      "missingCovers": 24,
+      "missingCovers": 25,
       "coverValid": 48,
-      "coverPending": 48,
+      "coverPending": 49,
       "coversAsSocialImage": 14,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "PASS",
-    "regressions": [],
+    "verdict": "FAIL",
+    "regressions": [
+      {
+        "kind": "COUNTER",
+        "key": "sharedFallback",
+        "label": "fallbacks compartilhados",
+        "before": 0,
+        "after": 1
+      },
+      {
+        "kind": "COUNTER",
+        "key": "placeholderLogos",
+        "label": "logos placeholder",
+        "before": 26,
+        "after": 27
+      },
+      {
+        "kind": "COUNTER",
+        "key": "missingCovers",
+        "label": "capas sem arquivo no catálogo (legado)",
+        "before": 24,
+        "after": 25
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "dona-garimpeira-brecho",
+        "status": "SHARED_FALLBACK",
+        "score": 29,
+        "nearestMatch": "assistencia-microondas-santos"
+      }
+    ],
     "improvements": [
       {
         "kind": "COUNTER",
@@ -7240,15 +7332,33 @@
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "eisenfer-tubos-acos",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "embalar-embalagens",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "estrutura-nacional",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "maximos-cabeleireiros",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "no-brilho-higienizacao",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
       },
       {
         "kind": "MODIFIED_PROJECT",

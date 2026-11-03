@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-10-04T04:33:43.949Z",
-    "audited": 96,
-    "pass": 96,
+    "generatedAt": "2026-11-03T17:07:24.895Z",
+    "audited": 97,
+    "pass": 97,
     "warning": 0,
     "fail": 0,
     "byIntent": {
@@ -10,7 +10,7 @@
       "orcamento": 33,
       "solicitacao": 1,
       "agendamento": 17,
-      "contato": 8,
+      "contato": 9,
       "reserva": 4,
       "diagnostico": 7
     }
@@ -1261,6 +1261,19 @@
       "nextStepBody": "Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo.",
       "primaryCtaLabel": "Montar meu orçamento",
       "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "dona-garimpeira-brecho",
+      "businessName": "Dona Garimpeira",
+      "segment": "comercios",
+      "intent": "contato",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "O que você gostaria de fazer na Dona Garimpeira?",
+      "nextStepBody": "Conte se quer encontrar roupas e acessórios, vender peças usadas em excelente estado ou levar doações. Reservas dependem da confirmação da loja e a compra acontece presencialmente.",
+      "primaryCtaLabel": "Conversar sobre comprar, vender ou doar",
+      "whatsappIntent": "contato",
       "status": "PASS",
       "issues": []
     }
