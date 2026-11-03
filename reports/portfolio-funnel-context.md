@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-10-04T04:33:43.949Z
+Gerado em 2026-11-03T17:07:24.895Z
 
-- Projetos auditados: **96**
-- PASS: **96** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (26) · orcamento (33) · solicitacao (1) · agendamento (17) · contato (8) · reserva (4) · diagnostico (7)
+- Projetos auditados: **97**
+- PASS: **97** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (26) · orcamento (33) · solicitacao (1) · agendamento (17) · contato (9) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -104,3 +104,4 @@ Gerado em 2026-10-04T04:33:43.949Z
 | cris-presentes-colonia-rio-grande | comercios | pedido | Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade. | Encontrar um presente | PROJECT_CONTRACT | PASS | — |
 | autoescola-aptos | servicos | agendamento | Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo. | Montar minha proposta | PROJECT_CONTRACT | PASS | — |
 | arildo-madeiras | comercios | orcamento | Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo. | Montar meu orçamento | PROJECT_CONTRACT | PASS | — |
+| dona-garimpeira-brecho | comercios | contato | Conte se quer encontrar roupas e acessórios, vender peças usadas em excelente estado ou levar doações. Reservas dependem da confirmação da loja e a compra acontece presencialmente. | Conversar sobre comprar, vender ou doar | PROJECT_CONTRACT | PASS | — |
