@@ -21,24 +21,30 @@ export function FunnelPreview({
   questions,
   conditions,
   name,
+  prefill,
+  showDiagnostics = true,
 }: {
   questions: PreviewQuestion[];
   conditions: PreviewCondition[];
   name: string;
+  prefill?: Answers;
+  showDiagnostics?: boolean;
 }) {
   const ordered = useMemo(
     () => [...questions].sort((a, b) => a.order_index - b.order_index),
     [questions],
   );
-  const [stack, setStack] = useState<number[]>([0]);
-  const [answers, setAnswers] = useState<Answers>({});
+  const firstUnanswered = ordered.findIndex((question) => prefill?.[question.key] === undefined);
+  const firstStep = Math.max(firstUnanswered, 0);
+  const [stack, setStack] = useState<number[]>([firstStep]);
+  const [answers, setAnswers] = useState<Answers>(prefill ?? {});
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<null | { reason: "complete" | "end_form" }>(null);
   const [debug, setDebug] = useState(true);
   const [trail, setTrail] = useState<Array<{ key: string; matched?: string; via: string }>>([]);
 
   const reset = () => {
-    setStack([0]); setAnswers({}); setError(null); setDone(null); setTrail([]);
+    setStack([firstStep]); setAnswers(prefill ?? {}); setError(null); setDone(null); setTrail([]);
   };
 
   // Reset if questions list shape changes
@@ -97,7 +103,7 @@ export function FunnelPreview({
   const setValue = (val: Answers[string]) => setAnswers((a) => ({ ...a, [current.key]: val }));
 
   return (
-    <div className="grid lg:grid-cols-[1fr_320px] gap-4">
+    <div className={showDiagnostics ? "grid lg:grid-cols-[1fr_320px] gap-4" : undefined}>
       <div className="rounded-2xl border border-border bg-card overflow-hidden">
         {/* progress */}
         <div className="h-1 bg-muted/40">
@@ -116,7 +122,7 @@ export function FunnelPreview({
             <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="text-center space-y-4 max-w-md">
               <div className="mx-auto h-14 w-14 rounded-full bg-primary/15 grid place-items-center"><Check className="h-7 w-7 text-primary" /></div>
               <h3 className="text-xl font-semibold">
-                {done.reason === "end_form" ? "Funil encerrado por regra (end_form)" : "Funil completo 🚀"}
+                {!showDiagnostics ? "Demonstração concluída" : done.reason === "end_form" ? "Funil encerrado por regra (end_form)" : "Funil completo 🚀"}
               </h3>
               <p className="text-sm text-muted-foreground">Nada foi enviado — modo simulação.</p>
               <Button onClick={reset} variant="outline" size="sm"><RotateCcw className="w-4 h-4 mr-2" /> Reiniciar</Button>
@@ -135,7 +141,7 @@ export function FunnelPreview({
                   </div>
                   <PreviewInput q={current} value={answers[current.key]} onChange={setValue}
                     onAutoAdvance={(v) => setTimeout(() => goNext(v), 250)} />
-                  {error && <p className="text-sm text-destructive">{error}</p>}
+                  {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
                   <div className="flex items-center justify-between pt-2">
                     <Button variant="ghost" onClick={goBack} disabled={stack.length <= 1} className="text-muted-foreground">
                       <ArrowLeft className="mr-1 h-4 w-4" /> Voltar
@@ -154,7 +160,7 @@ export function FunnelPreview({
       </div>
 
       {/* debug panel */}
-      <div className="rounded-2xl border border-border bg-muted/20 p-4 space-y-3 text-xs">
+      {showDiagnostics && <div className="rounded-2xl border border-border bg-muted/20 p-4 space-y-3 text-xs">
         <div className="flex items-center justify-between">
           <span className="inline-flex items-center gap-1.5 font-semibold uppercase tracking-wider text-muted-foreground">
             <Bug className="w-3.5 h-3.5" /> Debug
@@ -201,7 +207,7 @@ export function FunnelPreview({
             <Button onClick={reset} size="sm" variant="outline" className="w-full"><RotateCcw className="w-3 h-3 mr-1.5" /> Reiniciar simulação</Button>
           </>
         )}
-      </div>
+      </div>}
     </div>
   );
 }
@@ -217,12 +223,12 @@ function PreviewInput({ q, value, onChange, onAutoAdvance }: {
     case "statement":
       return <div className="text-muted-foreground text-sm">Continue para avançar.</div>;
     case "long_text":
-      return <Textarea value={(value as string) ?? ""} onChange={(e) => onChange(e.target.value)} rows={3} placeholder={q.placeholder ?? ""} />;
+      return <Textarea aria-label={q.label} value={(value as string) ?? ""} onChange={(e) => onChange(e.target.value)} rows={3} placeholder={q.placeholder ?? ""} />;
     case "short_text":
     case "email":
     case "phone":
     case "number":
-      return <Input type={q.type === "email" ? "email" : q.type === "number" ? "number" : "text"} value={(value as string) ?? ""}
+      return <Input aria-label={q.label} type={q.type === "email" ? "email" : q.type === "number" ? "number" : "text"} value={(value as string) ?? ""}
         onChange={(e) => onChange(e.target.value)} placeholder={q.placeholder ?? ""} className="h-11" />;
     case "radio":
       return (
@@ -240,7 +246,7 @@ function PreviewInput({ q, value, onChange, onAutoAdvance }: {
       );
     case "select":
       return (
-        <select value={(value as string) ?? ""} onChange={(e) => onChange(e.target.value)}
+        <select aria-label={q.label} value={(value as string) ?? ""} onChange={(e) => onChange(e.target.value)}
           className="w-full h-11 px-3 rounded-md border border-input bg-background">
           <option value="" disabled>Selecione…</option>
           {opts.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}

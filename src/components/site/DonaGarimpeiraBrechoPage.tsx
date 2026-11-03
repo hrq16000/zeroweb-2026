@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -29,6 +29,8 @@ import "./dona-garimpeira-brecho.css";
 const SLUG = "dona-garimpeira-brecho";
 const FORM = "funnel-dona-garimpeira-brecho";
 const INSTAGRAM = "https://www.instagram.com/donagarimpeirasjp/";
+export type GarimpeiraInterest = "comprar" | "vender" | "doar";
+const PreviewInterestContext = createContext<((interest: GarimpeiraInterest) => void) | null>(null);
 
 type Category = "todos" | "feminino" | "masculino" | "infantil";
 type GalleryItem = {
@@ -135,11 +137,15 @@ function InterestCta({
   children,
   className = "dg-cta",
 }: {
-  interest: "comprar" | "vender" | "doar";
+  interest: GarimpeiraInterest;
   placement: string;
   children: ReactNode;
   className?: string;
 }) {
+  const openPreview = useContext(PreviewInterestContext);
+  if (openPreview) {
+    return <button type="button" className={className} onClick={() => openPreview(interest)}>{children}</button>;
+  }
   return (
     <FunnelCTAButton
       clientKey={SLUG}
@@ -290,8 +296,9 @@ function RealGallery() {
   );
 }
 
-export function DonaGarimpeiraBrechoPage() {
+export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInterest?: (interest: GarimpeiraInterest) => void } = {}) {
   return (
+    <PreviewInterestContext.Provider value={onPreviewInterest ?? null}>
     <PortfolioCompositionRoot composition={composition}>
       <main className="dg-site" id="inicio">
         <header className="dg-header">
@@ -410,5 +417,6 @@ export function DonaGarimpeiraBrechoPage() {
         </footer>
       </main>
     </PortfolioCompositionRoot>
+    </PreviewInterestContext.Provider>
   );
 }
