@@ -6,7 +6,7 @@ const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8"
 const json = (path: string) => JSON.parse(read(path));
 const slug = "dona-garimpeira-brecho";
 
-describe("Dona Garimpeira — funnel onboarding (not published)", () => {
+describe("Dona Garimpeira — funil offline público, formulário Cloud ainda rascunho", () => {
   test("the contact belongs to exactly the intended future portfolio", () => {
     const contacts = json("src/config/portfolio-whatsapp.json").contacts;
     const reserved = json("docs/portfolio/drafts/dona-garimpeira-brecho-contact.json");
@@ -23,12 +23,12 @@ describe("Dona Garimpeira — funnel onboarding (not published)", () => {
     )).toEqual([[slug, { whatsapp: "5541998379642" }]]);
   });
 
-  test("not a published/registered client or available public form", () => {
+  test("catálogo público sem ativar formulário legado do banco", () => {
     const keys = read("src/lib/portfolio-client-keys.ts");
     const catalog = json("src/config/portfolio-catalog.json");
     const manifest = json("src/config/portfolio-project-manifests.json");
     expect(keys).toContain(`"${slug}"`);
-    expect(catalog.some((x: { slug: string }) => x.slug === slug)).toBe(false);
+    expect(catalog.some((x: { slug: string; status: string }) => x.slug === slug && x.status === "published")).toBe(true);
     expect(manifest.projects[slug]).toBeUndefined();
     const form = json("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-contract.json");
     expect(form.slug).toBe(`funnel-${slug}`);

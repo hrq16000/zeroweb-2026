@@ -2256,5 +2256,26 @@
     "imageFocalPoint": "center",
     "metrics": "Orçamento pelo funil",
     "summary": "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará."
+  },
+  {
+    "slug": "dona-garimpeira-brecho",
+    "clientKey": "dona-garimpeira-brecho",
+    "title": "Dona Garimpeira",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "moda-circular",
+      "roupas-usadas",
+      "compra-venda-doacao"
+    ],
+    "subtitle": "Brechó de roupas e acessórios · compre, venda ou doe",
+    "location": "Rua Loanda, 60 · Boneca do Iguaçu · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Segunda a domingo · 9h às 18h",
+    "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento."
   }
 ]

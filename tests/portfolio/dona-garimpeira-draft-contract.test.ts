@@ -24,11 +24,12 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(activated).toBeUndefined();
   });
 
-  test("rota pública offline só depende do registro do portfólio, sem banco", () => {
+  test("publicação do catálogo e rota offline não dependem do banco", () => {
     const raw = parse("src/config/portfolio-catalog.json");
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
-    expect(project?.status).not.toBe("published");
+    expect(project?.status).toBe("published");
+    expect(project?.clientKey).toBe(slug);
     // O loader exige registro indexável, mas não consulta dynamic_forms.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
