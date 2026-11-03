@@ -930,9 +930,9 @@
       "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento.",
       "subtitle": "Brechó de roupas e acessórios · compre, venda ou doe",
       "image": "",
-      "icon": "",
-      "socialImage": "",
-      "socialVersion": "",
+      "icon": "/images/dona-garimpeira-brecho/logo.svg",
+      "socialImage": "/images/dona-garimpeira-brecho/hero-og.jpg",
+      "socialVersion": "e6783dbb",
       "componentFile": "",
       "routeFile": "",
       "assetsDir": "public/images/dona-garimpeira-brecho",
@@ -940,19 +940,16 @@
       "hasCta": false,
       "hasOwnDescription": false,
       "hasClientEntry": false,
-      "gallery": [],
+      "gallery": [
+        "/images/dona-garimpeira-brecho/hero-og.jpg",
+        "/images/dona-garimpeira-brecho/logo.svg",
+        "/images/dona-garimpeira-brecho/social-source.svg"
+      ],
       "shareCopy": "♻️ Conheça a Dona Garimpeira! Um brechó de roupas e acessórios femininos, masculinos e infantis na Rua Loanda, 60, Boneca do Iguaçu, São José dos Pinhais — PR. Atendimento habitual de segunda a domingo, das 9h às 18h.\n\nQuer comprar uma peça, vender roupas em bom estado ou fazer uma doação? Acesse o portfólio, escolha sua intenção e preencha o atendimento que prepara uma mensagem para o WhatsApp da loja. Disponibilidade e avaliação são confirmadas pela equipe.\n\nhttps://0web.com.br/portfolio/dona-garimpeira-brecho\n\n#DonaGarimpeira #Brecho #SaoJoseDosPinhais #ModaCircular #0WEB",
       "published": false,
-      "status": "LEGACY",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING",
-        "PORTFOLIO_LOGO_MISSING",
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ],
-      "blocking": [
-        "PORTFOLIO_LOGO_MISSING",
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ]
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     },
     {
       "slug": "dona-lucy-salgados",
