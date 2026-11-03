@@ -1184,6 +1184,18 @@
         "ctaHref": "/f/funnel-arildo-madeiras"
       },
       "socialVersion": "723b10cc"
+    },
+    "dona-garimpeira-brecho": {
+      "icon": "/images/dona-garimpeira-brecho/logo.svg",
+      "socialImage": "/images/dona-garimpeira-brecho/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Dona Garimpeira",
+        "title": "Dona Garimpeira com uma presença que explica o que faz.",
+        "description": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "e6783dbb"
     }
   }
 }
