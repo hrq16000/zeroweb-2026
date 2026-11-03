@@ -1,0 +1,94 @@
+{
+  "slug": "dona-garimpeira-brecho",
+  "lifecycleContract": 1,
+  "contractVersion": 4,
+  "compositionContract": 2,
+  "stage": "draft",
+  "lifecycle": {
+    "intake": "complete",
+    "entityDiscovery": "in_progress",
+    "entityResolution": "in_progress",
+    "evidence": "in_progress",
+    "media": "not_started",
+    "mediaPlan": "in_progress",
+    "content": "in_progress",
+    "discovery": "in_progress",
+    "blueprint": "not_started",
+    "composition": "in_progress",
+    "seo": "in_progress",
+    "funnel": "in_progress",
+    "cover": "not_started",
+    "qa": "not_started",
+    "publish": "not_started"
+  },
+  "individualSiteContract": {
+    "version": 1,
+    "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+    "gates": {
+      "PORTFOLIO_INDIVIDUAL_SITE_GATE": "not_started",
+      "PORTFOLIO_ENTITY_GATE": "in_progress",
+      "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+      "PORTFOLIO_MEDIA_RICHNESS_GATE": "not_started",
+      "PORTFOLIO_DISCOVERY_GRAPH_GATE": "not_started",
+      "PORTFOLIO_INDEXABILITY_GATE": "not_started"
+    },
+    "evidence": {
+      "prospectiveSeoModule": "src/lib/dona-garimpeira-seo.ts",
+      "authorialVisualRegistry": "src/components/portfolio/composition/registry.ts",
+      "serverCompositionContract": "src/config/portfolio-authorial-compositions.ts",
+      "seoPrepublishTests": "tests/portfolio/dona-garimpeira-seo-prepublish.test.ts",
+      "mediaProvenance": "docs/portfolio/media-plans/dona-garimpeira-brecho.json"
+    },
+    "notes": "DRAFT: composição e metadados SEO individual preparados mas não publicados; gates de mídia, rota, funil e indexação não aprovados."
+  },
+  "contentFacts": {
+    "ownSourcedContent": true,
+    "sources": [
+      "OWNER_PROVIDED_INTAKE",
+      "OWNER_SHARED_GBP_SCREENSHOTS"
+    ],
+    "claimsAttribution": "Dados fornecidos pelo responsável e atribuídos à proprietária; GBP ainda em verificação e telefone em análise; mídia Instagram não ingerida sem permalink."
+  },
+  "blockers": [
+    "PRIVATE_FUNNEL_NOT_READY: persistência do lead e destino server-only precisam de configuração e teste",
+    "AUTHORIAL_REGISTERED_BUT_URL_NOT_PUBLISHED: sem clientKey/catalog/prototype, rota mantém 404",
+    "MANAGED_EDITOR_RBAC_NOT_READY: Google OAuth/tenant/auditoria ainda não construídos",
+    "SEO_DRAFT_NOT_WIRED_TO_HEAD: candidato com noindex fail-closed, mídia/capa e readiness ainda bloqueados"
+  ],
+  "warnings": [
+    "Google Business Profile informado como criado mas não visível, verificação em processamento",
+    "Telefone do perfil aguardando análise",
+    "Fachada e interior pendentes, provador desconhecido",
+    "Identidade autoral tipográfica inicial ainda precisa de aprovação da Luiza",
+    "Requisito Instagram dispensado pelo operador: galeria vazia, sem fotos inventadas; SEO pode usar modo textual explícito, condicionado a funil e revisão."
+  ],
+  "ownerRequired": [
+    "Aprovar identidade visual final",
+    "Confirmar existência de provador quando possível"
+  ],
+  "searchQa": [
+    {
+      "query": "Dona Garimpeira brechó São José dos Pinhais",
+      "expect": "must_find",
+      "slug": "dona-garimpeira-brecho",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "query": "brechó Boneca do Iguaçu",
+      "expect": "must_find",
+      "slug": "dona-garimpeira-brecho",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "visualQa": {
+    "status": "NOT_EXECUTED",
+    "notes": "Sem rota publicada; validar mobile, desktop, E2E, a11y e anti-template após integração."
+  },
+  "notes": {
+    "enrichment": "docs/portfolio/enrichment/dona-garimpeira-brecho.json",
+    "mediaPlan": "docs/portfolio/media-plans/dona-garimpeira-brecho.json",
+    "brief": "docs/portfolio/briefs/dona-garimpeira-brecho.md",
+    "qualityMatrix": "docs/portfolio/quality-matrix/dona-garimpeira-brecho.json"
+  },
+  "lastUpdatedAt": "2026-11-02"
+}

@@ -1,0 +1,293 @@
+{
+  "doc": "docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md",
+  "slug": "dona-garimpeira-brecho",
+  "lastResearchAt": "2026-11-02",
+  "researchLedger": {
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "website": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "otherSocial": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "phone": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "address": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "hours": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "services": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "products": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "media": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "reviews": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "identity": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    }
+  },
+  "identity": {
+    "name": "Dona Garimpeira",
+    "category": "Brechó",
+    "decisionMaker": "Luiza Bozza",
+    "source": "OWNER_PROVIDED",
+    "ownerApprovalForInstagramMedia": true,
+    "brandFinalApproved": false
+  },
+  "entity": {
+    "candidates": [
+      {
+        "name": "Dona Garimpeira",
+        "claimedAsNewGoogleProfile": true,
+        "source": "OWNER_SCREENSHOT"
+      }
+    ],
+    "resolutionStatus": "OWNER_CONFIRMED_GOOGLE_VERIFICATION_PENDING",
+    "resolutionSignals": [
+      "Nome, endereço e categoria informados",
+      "Instagram oficial informado"
+    ],
+    "unresolvedJustification": "GBP ainda em verificação; cadastro ainda não público"
+  },
+  "evidence": [
+    {
+      "type": "OWNER_ATTESTATION",
+      "status": "PROVIDED",
+      "scope": "Nome, localização, horário, comércio presencial e três jornadas"
+    },
+    {
+      "type": "GBP_SCREENSHOT",
+      "status": "OWNER_PROVIDED",
+      "scope": "Perfil criado mas invisível publicamente"
+    }
+  ],
+  "sources": [
+    {
+      "type": "INSTAGRAM_OFFICIAL",
+      "url": "https://www.instagram.com/donagarimpeirasjp/",
+      "status": "HANDLE_CONFIRMED_POSTS_NOT_VERIFIED"
+    },
+    {
+      "type": "OWNER_INPUT",
+      "url": null,
+      "status": "FACTUAL_INPUT"
+    }
+  ],
+  "google": {
+    "placeId": null,
+    "dataId": null,
+    "cid": null,
+    "status": "verification_in_progress_owner_reported"
+  },
+  "reviews": {
+    "items": [],
+    "status": "NO_VERIFIED_REVIEWS"
+  },
+  "photos": {
+    "items": [],
+    "status": "POST_MEDIA_NOT_VERIFIED"
+  },
+  "social": {
+    "instagram": {
+      "searched": true,
+      "handle": "donagarimpeirasjp",
+      "url": "https://www.instagram.com/donagarimpeirasjp/",
+      "latestSix": [],
+      "status": "PENDING_VERIFICATION"
+    },
+    "facebook": {
+      "searched": false,
+      "status": "OWNER_SAYS_NOT_USED"
+    },
+    "other": []
+  },
+  "website": {
+    "searched": false,
+    "url": null,
+    "status": "PLANNED_NOT_PUBLISHED"
+  },
+  "location": {
+    "street": "Rua Loanda",
+    "number": "60",
+    "neighborhood": "Boneca do Iguaçu",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "postalCode": "83040-170",
+    "country": "BR",
+    "source": "OWNER_CORRECTED_GBP"
+  },
+  "services": [
+    "Venda presencial de roupas e acessórios de segunda mão",
+    "Compra presencial de roupas usadas após avaliação",
+    "Recebimento presencial de doações"
+  ],
+  "media": {
+    "discovery": {
+      "searched": true,
+      "result": "NOT_RESOLVED_PUBLIC_SEARCH"
+    },
+    "assets": []
+  },
+  "facts": [
+    {
+      "claim": "Brechó com venda presencial para público feminino, masculino e infantil",
+      "source": "OWNER_INPUT"
+    },
+    {
+      "claim": "Funcionamento de segunda a domingo, 09:00–18:00; feriados variam",
+      "source": "OWNER_INPUT"
+    },
+    {
+      "claim": "Pix, dinheiro, débito e crédito",
+      "source": "OWNER_INPUT"
+    },
+    {
+      "claim": "Reservas pelo WhatsApp com prazo individual e retirada/pagamento em loja",
+      "source": "OWNER_INPUT"
+    },
+    {
+      "claim": "Telefone +55 41 99837-9642",
+      "source": "OWNER_INPUT"
+    }
+  ],
+  "conflicts": [
+    {
+      "topic": "Bairro e CEP",
+      "resolution": "Operador corrigiu GBP de Itália/83020-256 para Boneca do Iguaçu/83040-170; confirmação do CEP pela proprietária, inspeção pública posterior pendente"
+    },
+    {
+      "topic": "Homônimo e identidade comercial na busca pública",
+      "candidate": "https://dona-garimpeira-brecho.lojaintegrada.com.br/",
+      "observedAt": "2026-11-02",
+      "discrepancy": "A loja online apresenta DDD (43) e catálogo com preços/estoque; a Dona Garimpeira de São José dos Pinhais usa WhatsApp DDD (41) e é loja física sem e-commerce declarado.",
+      "resolution": "IDENTITY_NOT_PROVEN — não vincular URLs, preços, produtos, fotos, redes sociais, LocalBusiness ou avaliações da loja online ao perfil @donagarimpeirasjp sem confirmação explícita da responsável.",
+      "status": "BLOCK_CROSS_ENTITY_ASSET_USE"
+    }
+  ],
+  "unverified": [
+    "Publicação e verificação GBP",
+    "Telefone aprovado pelo Google",
+    "Fotos Instagram e últimas seis publicações",
+    "Provador",
+    "Foto fachada",
+    "Aprovação da identidade"
+  ],
+  "providerCalls": [
+    {
+      "date": "2026-11-02",
+      "type": "public_web_search",
+      "query": "site:instagram.com/donagarimpeirasjp",
+      "result": "NO_VERIFIABLE_POSTS"
+    },
+    {
+      "date": "2026-11-02",
+      "type": "public_image_search",
+      "query": "Dona Garimpeira brechó donagarimpeirasjp",
+      "result": "NON_MATCHING_IMAGE_REJECTED"
+    }
+  ]
+}

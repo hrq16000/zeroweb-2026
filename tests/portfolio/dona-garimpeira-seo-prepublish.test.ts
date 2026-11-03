@@ -1,0 +1,136 @@
+import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import {
+  DONA_GARIMPEIRA_SEO,
+  createDonaGarimpeiraSeo,
+  donaGarimpeiraSeoReady,
+  type DonaGarimpeiraSeoState,
+} from "@/lib/dona-garimpeira-seo";
+
+const draft: DonaGarimpeiraSeoState = {
+  published: false,
+  mediaApproved: false,
+  funnelVerified: false,
+  ownerApproved: false,
+};
+const ready: DonaGarimpeiraSeoState = {
+  published: true,
+  mediaApproved: true,
+  funnelVerified: true,
+  ownerApproved: true,
+  approvedSocialImage: "/images/dona-garimpeira-brecho/capa-og.webp",
+};
+const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+
+describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
+  test("draft e combinações parciais são sempre noindex sem schema ou OG", () => {
+    for (const state of [
+      draft,
+      { ...ready, published: false },
+      { ...ready, mediaApproved: false },
+      { ...ready, funnelVerified: false },
+      { ...ready, ownerApproved: false },
+      { ...ready, approvedSocialImage: null },
+      { ...ready, approvedSocialImage: "https://outrobrecho.com/foto.jpg" },
+      { ...ready, approvedSocialImage: "/images/outro-cliente/capa.webp" },
+    ]) {
+      expect(donaGarimpeiraSeoReady(state)).toBe(false);
+      const seo = createDonaGarimpeiraSeo(state);
+      expect(seo.ready).toBe(false);
+      expect(seo.meta).toContainEqual({
+        name: "robots", content: "noindex,nofollow,noarchive",
+      });
+      expect(seo.links).toEqual([]);
+      expect(seo.scripts).toEqual([]);
+    }
+  });
+
+  test("SEO pode ser aprovado sem Instagram ou imagem, mediante dispensa explícita", () => {
+    const noMedia = {
+      ...ready,
+      mediaApproved: false,
+      approvedSocialImage: null,
+      approvedWithoutSocialImage: true,
+    };
+    expect(donaGarimpeiraSeoReady(noMedia)).toBe(true);
+    const seo = createDonaGarimpeiraSeo(noMedia);
+    expect(seo.ready).toBe(true);
+    expect(seo.meta).toContainEqual({ name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" });
+    expect(seo.meta).toContainEqual({ name: "twitter:card", content: "summary" });
+    expect(seo.meta.some((item) => "property" in item && item.property === "og:image")).toBe(false);
+    expect(seo.meta.some((item) => "name" in item && item.name === "twitter:image")).toBe(false);
+    const schema = JSON.parse(String(seo.scripts[0].children));
+    const store = schema["@graph"].find((n: { "@type": string }) => n["@type"] === "ClothingStore");
+    expect(store).not.toHaveProperty("image");
+    expect(donaGarimpeiraSeoReady({ ...noMedia, approvedWithoutSocialImage: false })).toBe(false);
+    expect(donaGarimpeiraSeoReady({
+      ...noMedia,
+      approvedSocialImage: "https://outrobrecho.com/foto.jpg",
+    })).toBe(false);
+  });
+
+  test("projeto aprovado produz canonical próprio, Open Graph e ClothingStore", () => {
+    expect(donaGarimpeiraSeoReady(ready)).toBe(true);
+    const seo = createDonaGarimpeiraSeo(ready);
+    expect(seo.ready).toBe(true);
+    expect(seo.links).toContainEqual({
+      rel: "canonical", href: DONA_GARIMPEIRA_SEO.canonical,
+    });
+    expect(seo.meta).toContainEqual({
+      name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1",
+    });
+    const schema = JSON.parse(String(seo.scripts[0].children));
+    const store = schema["@graph"].find((n: { "@type": string }) => n["@type"] === "ClothingStore");
+    expect(store).toBeDefined();
+    expect(store.address.streetAddress).toBe("Rua Loanda, 60");
+    expect(store.address.addressLocality).toBe("São José dos Pinhais");
+    expect(store.address.postalCode).toBe("83040-170");
+    expect(store.sameAs).toEqual(["https://www.instagram.com/donagarimpeirasjp/"]);
+    // Horário informado pela responsável e documentado no briefing autorizado.
+    expect(store.openingHoursSpecification[0].dayOfWeek).toHaveLength(7);
+    expect(store.openingHoursSpecification[0].opens).toBe("09:00");
+    expect(store.openingHoursSpecification[0].closes).toBe("18:00");
+    expect(store).not.toHaveProperty("review");
+    expect(store).not.toHaveProperty("aggregateRating");
+    expect(store).not.toHaveProperty("telephone");
+    expect(store).not.toHaveProperty("hasMap");
+    expect(store).not.toHaveProperty("offers");
+  });
+
+  test("composição indexável usa funil offline sem bloquear rota pelo Cloud", () => {
+    const visual = read("src/components/portfolio/composition/registry.ts");
+    const server = read("src/config/portfolio-authorial-compositions.ts");
+    expect(visual).toContain('"dona-garimpeira-brecho": lazy(');
+    expect(server).toContain('"dona-garimpeira-brecho"');
+    const prototypes = read("src/lib/portfolio-site-registry.ts");
+    expect(prototypes).toContain('slug: "dona-garimpeira-brecho"');
+    expect(prototypes).toMatch(/slug: "dona-garimpeira-brecho"[^\n]*indexable: true/);
+    const loader = read("src/routes/portfolio.$slug.tsx");
+    expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
+    expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');
+    expect(loader).toContain("return createDonaGarimpeiraSeo({");
+    expect(loader).toContain("approvedWithoutSocialImage: true");
+    expect(loader).not.toContain('if (!available) throw notFound()');
+    expect(loader).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
+    expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null }');
+    const clients = JSON.parse(read("src/config/portfolio-clients.json"));
+    expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
+    const catalog = JSON.parse(read("src/config/portfolio-catalog.json"));
+    expect(catalog.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
+  });
+
+  test("galeria preserva ausência de fotos oficiais e não promete beneficência", () => {
+    const media = JSON.parse(read("docs/portfolio/media-plans/dona-garimpeira-brecho.json"));
+    expect(media.socialLatestSix.verifiedPostPermalinks).toEqual([]);
+    const jsx = read("src/components/site/DonaGarimpeiraBrechoPage.tsx");
+    expect(jsx).not.toContain("iniciativas solidárias");
+    expect(jsx).not.toContain("wa.me/");
+    expect(jsx).toContain("const GALLERY_ITEMS: GalleryItem[] = []");
+    expect(jsx).toContain("Segunda a domingo, das 9h às 18h.");
+    expect(jsx).toContain("Entrada acessível para cadeira de rodas, conforme informação da responsável.");
+    const brief = read("docs/portfolio/briefs/dona-garimpeira-brecho.md");
+    expect(brief).toContain("segunda a domingo, 09:00–18:00");
+    expect(brief).toContain("Entrada acessível para cadeira de rodas");
+  });
+});

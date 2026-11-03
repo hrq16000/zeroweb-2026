@@ -122,6 +122,7 @@ import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.histor
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
+import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
@@ -833,6 +834,12 @@ const PortfolioEmLocalRoute = PortfolioEmLocalRouteImport.update({
   path: '/portfolio-em/$local',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioPreviewDonaGarimpeiraBrechoRoute =
+  PortfolioPreviewDonaGarimpeiraBrechoRouteImport.update({
+    id: '/portfolio-preview/dona-garimpeira-brecho',
+    path: '/portfolio-preview/dona-garimpeira-brecho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
   id: '/portfolio/',
   path: '/portfolio/',
@@ -1703,6 +1710,7 @@ export interface FileRoutesByFullPath {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -1949,6 +1957,7 @@ export interface FileRoutesByTo {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -2199,6 +2208,7 @@ export interface FileRoutesById {
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -2450,6 +2460,7 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -2696,6 +2707,7 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -2945,6 +2957,7 @@ export interface FileRouteTypes {
     | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -3193,6 +3206,7 @@ export interface RootRouteChildren {
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
+  PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
@@ -4031,6 +4045,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio-em/$local'
       fullPath: '/portfolio-em/$local'
       preLoaderRoute: typeof PortfolioEmLocalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-preview/dona-garimpeira-brecho': {
+      id: '/portfolio-preview/dona-garimpeira-brecho'
+      path: '/portfolio-preview/dona-garimpeira-brecho'
+      fullPath: '/portfolio-preview/dona-garimpeira-brecho'
+      preLoaderRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
@@ -5433,6 +5454,8 @@ const rootRouteChildren: RootRouteChildren = {
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
+  PortfolioPreviewDonaGarimpeiraBrechoRoute:
+    PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,

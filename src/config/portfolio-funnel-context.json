@@ -686,5 +686,15 @@
     "whatsappPrompt": "Quero pedir um orçamento para meu projeto com a Arildo Madeiras.",
     "whatsappSubject": "meu orçamento de madeiras",
     "proposalKind": "service"
+  },
+  "dona-garimpeira-brecho": {
+    "intent": "contato",
+    "nextStepTitle": "O que você gostaria de fazer na Dona Garimpeira?",
+    "nextStepBody": "Conte se quer encontrar roupas e acessórios, vender peças usadas em excelente estado ou levar doações. Reservas dependem da confirmação da loja e a compra acontece presencialmente.",
+    "primaryCtaLabel": "Conversar sobre comprar, vender ou doar",
+    "theme": "gold",
+    "whatsappPrompt": "Olá, Dona Garimpeira! Quero conversar sobre roupas, reservas, venda de peças usadas ou doações. Minha intenção é:",
+    "whatsappSubject": "uma visita ou consulta à Dona Garimpeira",
+    "proposalKind": "service"
   }
 }

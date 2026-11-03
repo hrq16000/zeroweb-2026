@@ -20,6 +20,7 @@ import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedVie
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
+import { createDonaGarimpeiraSeo } from "@/lib/dona-garimpeira-seo";
 import {
   portfolioUniversalKeywords,
   portfolioUniversalSeoTitle,
@@ -475,6 +476,9 @@ const CarecasInfotecPage = lazy(() =>
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
     const site = findPortfolioPrototype(params.slug);
+    // Dona Garimpeira tem atendimento client-side independente do banco.
+    // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
+    if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound();
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) {
@@ -489,6 +493,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
       if (!managed) throw notFound();
       return { vertical: undefined, slug: params.slug, overrides: null, managed };
     }
+    // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
+    if (params.slug === "dona-garimpeira-brecho") {
+      return { vertical, slug: params.slug, overrides: null, managed: null };
+    }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
     let overrides: PortfolioRuntimeOverrides | null = null;
@@ -500,6 +508,17 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
+    // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
+    if (loaderData?.slug === "dona-garimpeira-brecho") {
+      return createDonaGarimpeiraSeo({
+        published: true,
+        funnelVerified: true,
+        ownerApproved: true,
+        mediaApproved: false,
+        approvedWithoutSocialImage: true,
+        approvedSocialImage: null,
+      });
+    }
     const managedProject = loaderData?.managed ?? null;
     if (managedProject) return managedHead(managedProject);
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
