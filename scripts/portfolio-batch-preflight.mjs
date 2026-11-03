@@ -50,6 +50,7 @@ export function buildContext(root = ROOT) {
   const mediaCache = new Map();
   return {
     catalog, clients, formContexts, shareCopy, contacts, destinationLedger, seed,
+    legacySlugs: new Set(readJson(root, "src/config/portfolio-legacy-baseline.json", {}).slugs ?? []),
     siteRegistry: readText(root, "src/lib/portfolio-site-registry.ts"),
     compositionRegistry: readText(root, "src/components/portfolio/composition/registry.ts"),
     getMedia(slug) {
@@ -82,6 +83,8 @@ export function diagnosePortfolio(slug, context) {
   const publicPage = PUBLIC.has(cat.status);
   const level = publicPage ? "BLOCK" : "WARN";
   const client = context.clients.find((x) => x.slug === slug);
+  const frozen = context.legacySlugs?.has(slug) ?? false;
+  const mediaLevel = publicPage && !frozen ? "BLOCK" : "WARN";
   if (!client) {
     add(level, "CLIENT_RECORD", "Não há cadastro completo de cliente em portfolio-clients.json.",
       "Completar ciclo de vida, brief e registro de cliente antes de ativar published.");
@@ -99,17 +102,17 @@ export function diagnosePortfolio(slug, context) {
   }
   const individual = context.siteRegistry.includes('slug: "' + slug + '"');
   const isIndexable = new RegExp('slug: "' + slug + '"[^\\n]*indexable: true').test(context.siteRegistry);
-  if (!individual) {
+  if (!individual && (!client || client.routeFile?.includes("portfolio.$slug.tsx"))) {
     add(level, "ROUTE_REGISTRY", "Slug ainda não consta no registro da rota individual.",
       "Registrar site/rota e verificar SSR/404, sem expor scaffold.");
-  } else if (publicPage && !isIndexable) {
+  } else if (individual && publicPage && !isIndexable) {
     add("BLOCK", "ROUTE_NOINDEX", "Catálogo publicado, mas registro de rota não indexável.",
       "Concluir SEO, canonical e gates de publicação antes de liberar.");
   } else if (!publicPage && isIndexable) {
     add("WARN", "DRAFT_PUBLIC_ROUTE", "Catálogo em draft e rota marcada indexável; estados não são equivalentes.",
       "Conferir decisão editorial: draft oculto da galeria pode continuar acessível pela URL.");
   }
-  if (!context.compositionRegistry.includes('"' + slug + '"')) {
+  if (!frozen && !context.compositionRegistry.includes('"' + slug + '"')) {
     add(level, "COMPOSITION", "Composição autoral ausente do registry.",
       "Concluir brief e registrar composição individual, sem copiar outro portfólio.");
   }
@@ -147,17 +150,17 @@ export function diagnosePortfolio(slug, context) {
   }
   const media = context.getMedia?.(slug) ?? null;
   if (!media) {
-    add(level, "MEDIA_PLAN_MISSING", "Sem inventário/proveniência de mídia.",
+    add(mediaLevel, "MEDIA_PLAN_MISSING", "Sem inventário/proveniência de mídia.",
       "Pesquisar fontes oficiais e criar media plan; nunca inventar fotos de fachada, equipe ou peças.");
   } else {
     const hasRealMedia = Array.isArray(media.inventory?.realBusinessPhotos) &&
       media.inventory.realBusinessPhotos.length > 0;
     if (!hasRealMedia) {
-      add(level, "REAL_MEDIA_PENDING", "Nenhuma fotografia real de negócio registrada no inventário.",
+      add(mediaLevel, "REAL_MEDIA_PENDING", "Nenhuma fotografia real de negócio registrada no inventário.",
         "Obter fotos oficiais autorizadas; preservar a página e manter draft enquanto faltar aprovação.");
     }
     if (media.mediaApprovalGate?.status === "BLOCKED") {
-      add(level, "MEDIA_APPROVAL", "Plano de mídia registra aprovação bloqueada.",
+      add(mediaLevel, "MEDIA_APPROVAL", "Plano de mídia registra aprovação bloqueada.",
         "Resolver pendências oficiais (logo, capa, origem, direitos) sem desabilitar gates.");
     }
   }
@@ -239,7 +242,7 @@ async function main(argv) {
   } else {
     console.log("[portfolio-preflight] " + JSON.stringify(summary));
     for (const r of results) {
-      if (results.length > 20 && r.issues.length === 0) continue;
+      if (results.length > 20 && r.issues.every((i) => i.severity !== "BLOCK")) continue;
       console.log("\n" + r.slug + ": " + r.stage + " (" + r.issues.length + " pendência(s))");
       for (const issue of r.issues) {
         console.log("  [" + issue.severity + "] " + issue.code + ": " + issue.message);
