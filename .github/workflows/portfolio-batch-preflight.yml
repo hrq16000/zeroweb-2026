@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - scripts/portfolio-batch-preflight.mjs
+      - scripts/scaffold-portfolio-batch.mjs
       - tests/portfolio/batch-preflight.test.mjs
+      - tests/portfolio/batch-scaffold.test.mjs
       - docs/portfolio/BATCH_ONBOARDING_RUNBOOK.md
       - src/config/portfolio-catalog.json
       - src/config/portfolio-clients.json
@@ -28,7 +30,7 @@ jobs:
         with:
           node-version: "22"
       - name: Testes do classificador
-        run: node --test tests/portfolio/batch-preflight.test.mjs
+        run: node --test tests/portfolio/batch-preflight.test.mjs tests/portfolio/batch-scaffold.test.mjs
       - name: Diagnóstico consolidado de todos os projetos
         run: |
           node scripts/portfolio-batch-preflight.mjs --all --json > portfolio-preflight-report.json
