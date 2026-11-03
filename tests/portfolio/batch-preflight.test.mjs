@@ -84,7 +84,7 @@ test("empresa ainda ausente recebe etapa de pesquisa, não publicação fictíci
 
 test("registry multilinha não transforma projetos legítimos em bloqueios falsos", () => {
   const ctx = fixture();
-  ctx.siteRegistry = '{\\n  slug: "loja-exemplo",\\n  vertical: "comercios",\\n  indexable: true,\\n}';
+  ctx.siteRegistry = '{\n  slug: "loja-exemplo",\n  vertical: "comercios",\n  indexable: true,\n}';
   const result = diagnosePortfolio(slug, ctx);
   assert.equal(result.stage, "CANDIDATE_FOR_FULL_GATES");
   assert.equal(result.blocks, 0);

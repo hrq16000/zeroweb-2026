@@ -106,7 +106,7 @@ export function diagnosePortfolio(slug, context) {
   const closeAt = at < 0 ? -1 : context.siteRegistry.indexOf("}", at);
   const entry = at >= 0 && closeAt > at ? context.siteRegistry.slice(at, closeAt + 1) : "";
   const individual = at >= 0;
-  const isIndexable = /\\bindexable:\\s*true\\b/.test(entry);
+  const isIndexable = /\bindexable:\s*true\b/.test(entry);
   if (!individual && (!client || client.routeFile?.includes("portfolio.$slug.tsx"))) {
     add(level, "ROUTE_REGISTRY", "Slug ainda não consta no registro da rota individual.",
       "Registrar site/rota e verificar SSR/404, sem expor scaffold.");
