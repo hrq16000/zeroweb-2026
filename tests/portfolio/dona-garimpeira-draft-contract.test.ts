@@ -24,12 +24,12 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(activated).toBeUndefined();
   });
 
-  test("rota pré-registrada recusa exposição antes da prontidão", () => {
+  test("rota pública offline só depende do registro do portfólio, sem banco", () => {
     const raw = parse("src/config/portfolio-catalog.json");
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).not.toBe("published");
-    // O loader exige registro indexável e formulário disponível.
+    // O loader exige registro indexável, mas não consulta dynamic_forms.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
@@ -39,10 +39,11 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(prototypes).toContain(`slug: "${slug}", vertical: "comercios"`);
     expect(prototypes).toMatch(new RegExp(`slug: "${slug}"[^\\n]*indexable: true`));
     const route = read("src/routes/portfolio.$slug.tsx");
-    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho")');
-    expect(route).toContain('if (!site?.indexable) throw notFound()');
-    expect(route).toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
-    expect(route).toContain("if (!available) throw notFound()");
+    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound()');
+    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho") {');
+    expect(route).toContain("return { vertical, slug: params.slug, overrides: null, managed: null }");
+    expect(route).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
+    expect(route).not.toContain("if (!available) throw notFound()");
     const clients = parse("src/config/portfolio-clients.json");
     expect(clients.find((entry: { slug: string }) => entry.slug === slug)).toBeUndefined();
     const active = parse("src/config/portfolio-project-manifests.json").projects[slug];
