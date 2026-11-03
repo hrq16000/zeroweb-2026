@@ -38,7 +38,7 @@ export function prepareBatch(raw, { offset = 0, limit = 10 } = {}) {
       throw new Error("Registro " + (i + 1) + ": exige objeto {name, location, slug?}.");
     }
     const name = typeof item.name === "string" ? item.name.trim() : "";
-    const location = typeof item.location === "string" ? item.location.replace(/\\s+/g, " ").trim() : "";
+    const location = typeof item.location === "string" ? item.location.replace(/\s+/g, " ").trim() : "";
     const slug = typeof item.slug === "string" && item.slug.trim() ? item.slug.trim() : slugify(name);
     const funnelType = item.funnelType ?? "contato";
     const segment = typeof item.segment === "string" ? item.segment.trim() : "";
@@ -47,7 +47,7 @@ export function prepareBatch(raw, { offset = 0, limit = 10 } = {}) {
     }
     // Scaffold original interpola o nome em JSX/SQL: não permitir entrada que
     // quebre strings, insira código, tags ou linhas extras. Revisar casos rejeitados.
-    if (!/^[\\p{L}\\p{M}\\p{N} .,&()\\/+°ºª-]+$/u.test(name)) {
+    if (!/^[\p{L}\p{M}\p{N} .,&()\/+°ºª-]+$/u.test(name)) {
       throw new Error("Registro " + (i + 1) + ": nome contém caracteres inseguros para o scaffold.");
     }
     if (!SLUG_RE.test(slug) || !FUNNEL_TYPES.has(funnelType) ||
