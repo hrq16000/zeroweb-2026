@@ -46,8 +46,8 @@ export function DonaGarimpeiraOfflineFunnel({
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
-    const sanitizedName = name.trim().replace(/\\s+/g, " ");
-    const digits = phone.replace(/\\D/g, "");
+    const sanitizedName = name.trim().replace(/\s+/g, " ");
+    const digits = phone.replace(/\D/g, "");
     if (sanitizedName.length < 2 || sanitizedName.length > 90) {
       setError("Informe seu nome (2 a 90 caracteres).");
       return;
@@ -69,7 +69,7 @@ export function DonaGarimpeiraOfflineFunnel({
       `*Meu WhatsApp:* ${digits}`,
       note ? `*Detalhes:* ${note}` : "",
       "Gostaria de conversar sobre esse atendimento.",
-    ].filter(Boolean).join("\\n");
+    ].filter(Boolean).join("\n");
     const url = `https://wa.me/${WHATSAPP_DONA_GARIMPEIRA}?text=${encodeURIComponent(message)}`;
 
     // Persistência local de curtíssima duração: apenas a aba do visitante.
