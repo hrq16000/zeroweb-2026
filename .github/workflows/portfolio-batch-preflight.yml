@@ -1,0 +1,41 @@
+name: Portfolio · Pré-voo de lote (rápido)
+
+on:
+  pull_request:
+    paths:
+      - scripts/portfolio-batch-preflight.mjs
+      - tests/portfolio/batch-preflight.test.mjs
+      - docs/portfolio/BATCH_ONBOARDING_RUNBOOK.md
+      - src/config/portfolio-catalog.json
+      - src/config/portfolio-clients.json
+      - src/config/portfolio-share-copy.json
+      - src/config/portfolio-funnel-context.json
+      - src/config/portfolio-admin-seed.json
+      - docs/portfolio/media-plans/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    name: Diagnóstico 97+ empresas sem instalação
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Testes do classificador
+        run: node --test tests/portfolio/batch-preflight.test.mjs
+      - name: Diagnóstico consolidado de todos os projetos
+        run: |
+          node scripts/portfolio-batch-preflight.mjs --all --json > portfolio-preflight-report.json
+          node -e 'const r=require("./portfolio-preflight-report.json"); const s=r.summary; console.log("[portfolio-preflight]", JSON.stringify(s)); if(s.publishedBlocked) console.log("::warning::"+s.publishedBlocked+" projetos publicados possuem bloqueios no diagnóstico; corrigir antes do deploy específico.");'
+      - name: Evidência pronta para próxima rodada (sem números operacionais)
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-batch-preflight
+          path: portfolio-preflight-report.json
+          retention-days: 7
