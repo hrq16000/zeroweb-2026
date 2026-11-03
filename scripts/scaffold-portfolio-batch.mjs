@@ -38,14 +38,21 @@ export function prepareBatch(raw, { offset = 0, limit = 10 } = {}) {
       throw new Error("Registro " + (i + 1) + ": exige objeto {name, location, slug?}.");
     }
     const name = typeof item.name === "string" ? item.name.trim() : "";
-    const location = typeof item.location === "string" ? item.location.trim() : "";
+    const location = typeof item.location === "string" ? item.location.replace(/\\s+/g, " ").trim() : "";
     const slug = typeof item.slug === "string" && item.slug.trim() ? item.slug.trim() : slugify(name);
     const funnelType = item.funnelType ?? "contato";
-    if (!name || name.length < 3 || name.length > 120 || !location || location.length < 5) {
-      throw new Error("Registro " + (i + 1) + ": nome e localização factual obrigatórios.");
+    const segment = typeof item.segment === "string" ? item.segment.trim() : "";
+    if (!name || name.length < 3 || name.length > 120 || !location || location.length < 5 || location.length > 200) {
+      throw new Error("Registro " + (i + 1) + ": nome (3..120) e localização (5..200) factual obrigatórios.");
     }
-    if (!SLUG_RE.test(slug) || !FUNNEL_TYPES.has(funnelType)) {
-      throw new Error("Registro " + (i + 1) + ": slug ou funnelType inválido.");
+    // Scaffold original interpola o nome em JSX/SQL: não permitir entrada que
+    // quebre strings, insira código, tags ou linhas extras. Revisar casos rejeitados.
+    if (!/^[\\p{L}\\p{M}\\p{N} .,&()\\/+°ºª-]+$/u.test(name)) {
+      throw new Error("Registro " + (i + 1) + ": nome contém caracteres inseguros para o scaffold.");
+    }
+    if (!SLUG_RE.test(slug) || !FUNNEL_TYPES.has(funnelType) ||
+        (segment && !/^[a-z0-9-]{1,48}$/.test(segment))) {
+      throw new Error("Registro " + (i + 1) + ": slug, segmento ou funnelType inválido.");
     }
     if (seen.has(slug)) {
       throw new Error("Slug duplicado na fila: " + slug + ". Diferencie filiais com slug explícito.");
@@ -53,7 +60,7 @@ export function prepareBatch(raw, { offset = 0, limit = 10 } = {}) {
     seen.add(slug);
     return {
       slug, name, location, funnelType,
-      segment: typeof item.segment === "string" ? item.segment.trim() : "",
+      segment,
     };
   });
   if (!Number.isInteger(offset) || offset < 0 || offset >= raw.length) throw new Error("offset inválido.");
