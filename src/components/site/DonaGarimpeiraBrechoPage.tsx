@@ -15,7 +15,7 @@ import {
   ShoppingBag,
   X,
 } from "lucide-react";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { DonaGarimpeiraOfflineFunnel, type DonaGarimpeiraInterest } from "./DonaGarimpeiraOfflineFunnel";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
@@ -27,9 +27,8 @@ import "./dona-garimpeira-brecho.css";
  * configuração privada do destino, o manifesto v4 e os gates do projeto.
  */
 const SLUG = "dona-garimpeira-brecho";
-const FORM = "funnel-dona-garimpeira-brecho";
 const INSTAGRAM = "https://www.instagram.com/donagarimpeirasjp/";
-export type GarimpeiraInterest = "comprar" | "vender" | "doar";
+export type GarimpeiraInterest = DonaGarimpeiraInterest;
 const PreviewInterestContext = createContext<((interest: GarimpeiraInterest) => void) | null>(null);
 
 type Category = "todos" | "feminino" | "masculino" | "infantil";
@@ -58,16 +57,9 @@ export const composition: PortfolioComposition = {
   slug: SLUG,
   motionIntensity: "SUBTLE",
   renderCta: ({ children, className, placement }) => (
-    <FunnelCTAButton
-      clientKey={SLUG}
-      companySlug={SLUG}
-      formSlug={FORM}
-      location={`${SLUG}_${placement}`}
-      className={className}
-      showArrow={false}
-    >
+    <InterestCta interest="comprar" placement={placement} className={className}>
       {children}
-    </FunnelCTAButton>
+    </InterestCta>
   ),
   afterContent: <PortfolioHostCredit />,
   brief: {
@@ -142,24 +134,14 @@ function InterestCta({
   children: ReactNode;
   className?: string;
 }) {
-  const openPreview = useContext(PreviewInterestContext);
-  if (openPreview) {
-    return <button type="button" className={className} onClick={() => openPreview(interest)}>{children}</button>;
-  }
-  return (
-    <FunnelCTAButton
-      clientKey={SLUG}
-      companySlug={SLUG}
-      formSlug={FORM}
-      location={`dona_garimpeira_${placement}_${interest}`}
-      prefill={{ interesse: interest }}
-      context={{ business: "Dona Garimpeira", interest, source: "portfolio-dona-garimpeira-brecho" }}
-      className={className}
-      showArrow={false}
-    >
-      {children}
-    </FunnelCTAButton>
-  );
+  const openFunnel = useContext(PreviewInterestContext);
+  return <button
+    type="button"
+    data-testid="dona-garimpeira-funnel-cta"
+    data-placement={placement}
+    className={className}
+    onClick={() => openFunnel?.(interest)}
+  >{children}</button>;
 }
 
 function RealGallery() {
@@ -297,8 +279,9 @@ function RealGallery() {
 }
 
 export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInterest?: (interest: GarimpeiraInterest) => void } = {}) {
+  const [offlineInterest, setOfflineInterest] = useState<GarimpeiraInterest | null>(null);
   return (
-    <PreviewInterestContext.Provider value={onPreviewInterest ?? null}>
+    <PreviewInterestContext.Provider value={onPreviewInterest ?? setOfflineInterest}>
     <PortfolioCompositionRoot composition={composition}>
       <main className="dg-site" id="inicio">
         <header className="dg-header">
@@ -416,6 +399,12 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
           </div>
         </footer>
       </main>
+      {!onPreviewInterest && (
+        <DonaGarimpeiraOfflineFunnel
+          interest={offlineInterest}
+          onClose={() => setOfflineInterest(null)}
+        />
+      )}
     </PortfolioCompositionRoot>
     </PreviewInterestContext.Provider>
   );
