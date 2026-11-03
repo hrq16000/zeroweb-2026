@@ -4,7 +4,7 @@
  * Não faz scraping, não compõe sites, não inventa dados, não publica.
  * Sem --execute é sempre dry run. Tamanho padrão por rodada: 10, máximo 25.
  */
-import { readFileSync } from "node:fs";
+import { readFileSync, appendFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
@@ -96,6 +96,15 @@ async function main(argv) {
       const r = spawnSync(process.execPath, args, { cwd: ROOT, encoding: "utf8", timeout: 60000, maxBuffer: 2 * 1024 * 1024 });
       if (r.status !== 0) {
         throw new Error("Scaffold falhou em " + item.slug + ": " + (r.stderr || r.stdout || r.error?.message || ""));
+      }
+      const briefPath = resolve(ROOT, "docs/portfolio/briefs/" + item.slug + ".md");
+      if (existsSync(briefPath)) {
+        appendFileSync(briefPath,
+          "\n## Intake inicial — informado, ainda não verificado\n\n" +
+          "- Empresa: " + item.name + "\n" +
+          "- Localização fornecida para pesquisa R1: " + item.location + "\n" +
+          "- Status: PENDENTE_VERIFICACAO_EXTERNA\n",
+          "utf8");
       }
       item.stage = "DRAFT_CREATED";
       created.push(item.slug);
