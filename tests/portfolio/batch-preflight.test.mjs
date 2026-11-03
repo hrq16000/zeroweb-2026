@@ -81,3 +81,20 @@ test("empresa ainda ausente recebe etapa de pesquisa, não publicação fictíci
   assert.equal(result.stage, "NOT_STARTED");
   assert.equal(result.issues[0].code, "ENTITY_NOT_ONBOARDED");
 });
+
+test("registry multilinha não transforma projetos legítimos em bloqueios falsos", () => {
+  const ctx = fixture();
+  ctx.siteRegistry = '{\\n  slug: "loja-exemplo",\\n  vertical: "comercios",\\n  indexable: true,\\n}';
+  const result = diagnosePortfolio(slug, ctx);
+  assert.equal(result.stage, "CANDIDATE_FOR_FULL_GATES");
+  assert.equal(result.blocks, 0);
+});
+
+test("ausência de ledger no legado gera aviso, não bloqueia 90 projetos congelados", () => {
+  const ctx = fixture();
+  ctx.legacySlugs.add(slug);
+  ctx.destinationLedger = {};
+  const result = diagnosePortfolio(slug, ctx);
+  assert.equal(result.blocks, 0);
+  assert.ok(result.issues.some((x) => x.code === "CONTACT_LEDGER" && x.severity === "WARN"));
+});

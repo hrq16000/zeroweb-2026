@@ -100,8 +100,13 @@ export function diagnosePortfolio(slug, context) {
     add(level, "ENTITY_FIELDS", "Entidade, tags ou localização incompletas.",
       "Completar fatos confirmados e registrar fonte, sem inventar informações.");
   }
-  const individual = context.siteRegistry.includes('slug: "' + slug + '"');
-  const isIndexable = new RegExp('slug: "' + slug + '"[^\\n]*indexable: true').test(context.siteRegistry);
+  // O registry inclui entradas tanto inline quanto em várias linhas.
+  // Avaliar somente o bloco da entidade, não outra ocorrência no arquivo.
+  const at = context.siteRegistry.indexOf('slug: "' + slug + '"');
+  const closeAt = at < 0 ? -1 : context.siteRegistry.indexOf("}", at);
+  const entry = at >= 0 && closeAt > at ? context.siteRegistry.slice(at, closeAt + 1) : "";
+  const individual = at >= 0;
+  const isIndexable = /\\bindexable:\\s*true\\b/.test(entry);
   if (!individual && (!client || client.routeFile?.includes("portfolio.$slug.tsx"))) {
     add(level, "ROUTE_REGISTRY", "Slug ainda não consta no registro da rota individual.",
       "Registrar site/rota e verificar SSR/404, sem expor scaffold.");
@@ -131,7 +136,7 @@ export function diagnosePortfolio(slug, context) {
   const contactPresent = Boolean(context.contacts[cat.clientKey]?.whatsapp);
   const destination = context.destinationLedger[cat.clientKey];
   if (contactPresent && !destination) {
-    add("BLOCK", "CONTACT_LEDGER", "Contato versionado sem proveniência do destino.",
+    add(frozen ? "WARN" : "BLOCK", "CONTACT_LEDGER", "Contato versionado sem proveniência do destino.",
       "Registrar evidência/autorização do destino exclusivo; não expor número no bundle.");
   } else if (contactPresent && destination && destination.status !== "VERIFIED") {
     add("WARN", "CONTACT_UNVERIFIED", "Destino configurado, mas não há verificação conclusiva de atendimento.",
