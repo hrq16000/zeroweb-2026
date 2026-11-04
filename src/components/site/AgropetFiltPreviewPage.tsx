@@ -139,7 +139,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
 
       <header className="af-header">
         <a href="#inicio" className="af-brand" aria-label="Agropet Filt, início da página">
-          <span className="af-symbol"><img src="/images/agropet-filt/logo.svg" alt="" aria-hidden="true" width="46" height="46" /></span>
+          <span className="af-symbol"><img src="/images/agropet-filt/logo.svg" alt="" aria-hidden="true" width="46" height="46" loading="eager" decoding="async" /></span>
           <span><strong>AGROPET</strong><small>FILT <i>·</i> PINHAIS</small></span>
         </a>
         <nav className={navOpen ? "af-nav is-open" : "af-nav"} aria-label="Navegação Agropet Filt">
