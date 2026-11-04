@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-21",
+  "generatedAt": "2026-11-04",
   "summary": {
-    "total": 96,
+    "total": 97,
     "valid": 48,
-    "pending": 48,
+    "pending": 49,
     "byStatus": {
       "VALID": 48,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 15
+      "UNCERTAIN_ORIGIN": 16
     },
     "balanced": true
   },
@@ -95,6 +95,19 @@
       "reason": null,
       "cardValid": true,
       "businessName": "Angel Mix Brechó",
+      "segment": "comercios"
+    },
+    {
+      "slug": "arildo-madeiras",
+      "asset": "/images/arildo-madeiras/capa-card.svg",
+      "catalogImage": "/images/arildo-madeiras/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "0WEB_AUTHORED",
+      "reviewedAt": "2026-09-24",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Arildo Madeiras",
       "segment": "comercios"
     },
     {
@@ -356,6 +369,19 @@
       "cardValid": true,
       "businessName": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "dona-garimpeira-brecho",
+      "asset": null,
+      "catalogImage": null,
+      "catalogImageRole": "NONE",
+      "origin": "NONE",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Dona Garimpeira",
+      "segment": "comercios"
     },
     {
       "slug": "dona-lucy-salgados",
@@ -1253,19 +1279,6 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
-    },
-    {
-      "slug": "arildo-madeiras",
-      "asset": "/images/arildo-madeiras/capa-card.svg",
-      "catalogImage": "/images/arildo-madeiras/capa-card.svg",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "0WEB_AUTHORED",
-      "reviewedAt": "2026-09-24",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
-      "businessName": "Arildo Madeiras",
-      "segment": "comercios"
     }
   ]
 }
