@@ -76,5 +76,87 @@
   "policy": {
     "noFabricatedReviews": true,
     "noExposedWhatsApp": true
-  }
+  },
+  "researchLedger": {
+    "googleMaps": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Site próprio não encontrado"
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
+    },
+    "businessPhotos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    }
+  },
+  "entity": {
+    "resolutionStatus": "VERIFIED",
+    "publicListing": "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/"
+  },
+  "identity": {
+    "businessName": {
+      "value": "AVIÁRIO AGROPET FILT",
+      "source": "PUBLIC_DIRECTORY",
+      "url": "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/",
+      "confidence": "high"
+    },
+    "address": {
+      "value": "R. Monteiro Lobato, 160 - Vargem Grande, Pinhais - PR, 83321-260",
+      "source": "PUBLIC_DIRECTORY",
+      "confidence": "high"
+    }
+  },
+  "lastResearchAt": "2026-11-04",
+  "providerCalls": [
+    {
+      "provider": "web/business_public_search",
+      "time": "2026-11-04",
+      "result": "Google place + 2 public directories"
+    }
+  ]
 }

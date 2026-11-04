@@ -721,6 +721,179 @@
         "noBrandTest": "PASS",
         "notes": "NO-BRAND PASS contra Autoescola Aptos, ADHONEP Curitiba, Centro Mega e JKL Decor. Browser/runtime confirmou a composição autoral e o fluxo visual da Arildo em desktop/mobile no portfolio-gates 36085703801."
       }
+    },
+    "agropet-filt": {
+      "slug": "agropet-filt",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (SEO, canonical, structured data)",
+            "docs/portfolio/briefs/agropet-filt.md (conceito editorial autoral)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/agropet-filt.json (endereço, Place ID, fontes públicas pesquisadas)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (Pinhais/Vargem Grande e PostalAddress)",
+            "Fontes ondepet e Locais do Brasil verificadas 2026-11-04"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/agropet-filt/* (identidade editorial própria, sem alegar fotos reais)",
+            "docs/portfolio/media-plans/agropet-filt.json (roles de mídia e lacunas explicitadas)"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json (termos da marca/segmento/localidade)",
+            "src/lib/portfolio-site-registry.ts (entidade navegável)"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "pet shop e aviário",
+        "layoutFamily": "editorial-local",
+        "heroFamily": "ilustracao-assimetrica",
+        "sectionRhythm": "mosaico-utilitario",
+        "proofStyle": "endereco-verificado",
+        "mediaNarrative": "ilustracao-contextual",
+        "ctaStyle": "selecao-por-interesse",
+        "motionProfile": "pet-editorial-balanced"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-04",
+        "notes": "Mosaico de produtos e guia de decisão divergem da referência Realeza e de outros portfólios, sem copiar layout."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric 53/47 pet editorial poster with original dog and bird illustration",
+        "headerTreatment": "pet mark, local wordmark and three anchor navigation",
+        "sectionGraph": "poster→product-marquee→six-category-mosaic→pet-choice-guide→local-badge→illustrated-location→faq",
+        "contentOrder": [
+          "proposta",
+          "categorias",
+          "guia",
+          "bairro",
+          "endereco",
+          "dúvidas"
+        ],
+        "gridTopology": "six colored merch tiles, split dark guide, asymmetric editorial local ending",
+        "mediaDistribution": "original illustrative vector hero with category icons and disclosure map",
+        "backgroundRhythm": "lime→cream→forest→warm paper→sage→forest",
+        "proofPlacement": "public address and confirmed category sources next to local and catalog sections",
+        "ctaDistribution": "hero/category/guide/footer lead-only consultation",
+        "navigationPattern": "section anchors and contextual dialog",
+        "motionSignature": "subtle vector float and card lift, reduced-motion off",
+        "closingStructure": "large editorial closing phrase and footer credit",
+        "roleGraph": [
+          "pet discovery",
+          "category navigation",
+          "guided inquiry",
+          "local trust",
+          "visit information"
+        ],
+        "mediaCadence": [
+          "vector hero",
+          "colored icon mosaic",
+          "type-led guide",
+          "illustrative map"
+        ],
+        "interactionLoci": [
+          "six category choices",
+          "guide toggles",
+          "three-step inquiry"
+        ],
+        "decisionAidPlacement": [
+          "guide before contact",
+          "interest set before contact data"
+        ],
+        "densityRhythm": [
+          "high-impact",
+          "grid",
+          "focused guide",
+          "local close"
+        ],
+        "mobileCompositionStrategy": "single-column hero, two-column category grid, consent-first submit"
+      },
+      "contentFacts": [
+        "Comércio citado em Rua Monteiro Lobato, 160, Pinhais",
+        "Categorias registradas em diretórios: rações, aves, acessórios, petiscos, pesca, jardinagem, banho e tosa",
+        "Contato WhatsApp não confirmado, lead-only até validação"
+      ],
+      "perceptualReview": {
+        "status": "PENDING_RUNTIME",
+        "reviewedAt": "2026-11-04",
+        "notes": "Estrutura autoral revisada em fonte; screenshots e testes em runtime não concluídos."
+      },
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": "Aguardando Playwright e Lighthouse sobre a página oficial"
+      },
+      "blockers": [
+        "RUN_LIVE_GATES_PENDING",
+        "VERIFY_LEAD_PERSISTENCE_IN_PREVIEW"
+      ],
+      "warnings": [
+        "Ausência de fotos reais da loja; imagens editoriais vetoriais originais",
+        "WhatsApp de destino não validado: lead-only e callback por telefone fornecido pelo visitante",
+        "Horário informado em diretórios, sujeito a confirmação"
+      ],
+      "ownerRequired": [
+        "Confirmar WhatsApp oficial, caso queira ativar redirecionamento pós-lead",
+        "Fornecer fotos da fachada e produtos para substituir ilustrações onde fizer sentido",
+        "Confirmar horário e disponibilidade do banho e tosa"
+      ],
+      "searchQa": [
+        {
+          "query": "Agropet Filt",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "aviário em Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "rações Vargem Grande",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "banho e tosa Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-04"
     }
   }
 }

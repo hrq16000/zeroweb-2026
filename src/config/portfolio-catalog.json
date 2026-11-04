@@ -2284,7 +2284,7 @@
     "title": "Agropet Filt",
     "segment": "comercios",
     "projectType": "catalog",
-    "status": "published",
+    "status": "draft",
     "city": "Pinhais",
     "state": "PR",
     "tags": [
@@ -2298,7 +2298,7 @@
       "jardinagem",
       "Vargem Grande"
     ],
-    "live": true,
+    "live": false,
     "subtitle": "Rações, aves, acessórios e cuidados para pets em Pinhais",
     "location": "Rua Monteiro Lobato, 160 · Vargem Grande · Pinhais — PR",
     "badge": "Novo portfólio",

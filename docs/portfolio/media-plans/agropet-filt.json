@@ -27,7 +27,8 @@
       "requiredMediaRole": "REAL_BUSINESS_PHOTOS",
       "sourceType": "MISSING_MEDIA",
       "asset": null,
-      "status": "PENDING_OWNER_MEDIA"
+      "status": "PENDING_OWNER_MEDIA",
+      "resolution": "change-layout"
     },
     {
       "section": "social-preview",
@@ -37,5 +38,11 @@
       "status": "COMPLETE"
     }
   ],
-  "notes": "Sem fotos do estabelecimento ou marca oficial disponíveis. Nenhuma foto de outro comércio é reutilizada."
+  "notes": "Sem fotos do estabelecimento ou marca oficial disponíveis. Nenhuma foto de outro comércio é reutilizada.",
+  "cover": {
+    "approved": false,
+    "strategy": "BRAND_LED + GENERATED_EDITORIAL",
+    "asset": "public/images/agropet-filt/capa-card.svg",
+    "note": "Capa SVG autoral criada; análise visual em runtime pendente"
+  }
 }
