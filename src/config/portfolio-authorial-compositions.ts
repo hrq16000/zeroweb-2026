@@ -10,6 +10,7 @@
  * aqui NO MESMO PR que registra a página no registry de composições.
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
+  "agropet-filt",
   "arildo-madeiras",
   "dona-garimpeira-brecho",
   "autoescola-aptos",

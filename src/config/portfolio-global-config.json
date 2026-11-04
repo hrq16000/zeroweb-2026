@@ -1398,6 +1398,52 @@
           "notePlaceholder": "Ex.: interesse em carro automático ou moto automática."
         }
       }
+    },
+    "agropet-filt": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe Agropet Filt",
+        "label": "Consultar produtos",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": [
+            "Rações",
+            "Artigos para aves",
+            "Acessórios e petiscos",
+            "Banho e tosa",
+            "Artigos de pesca",
+            "Jardinagem"
+          ],
+          "experienceOptions": [
+            "Cão",
+            "Ave",
+            "Gato",
+            "Outro animal",
+            "Outros artigos"
+          ],
+          "periodOptions": [
+            "Vou até a loja",
+            "Quero consultar possibilidades de entrega",
+            "Quero informações antes"
+          ],
+          "timingOptions": [
+            "Hoje",
+            "Esta semana",
+            "Ainda estou pesquisando"
+          ],
+          "stepTitles": {
+            "service": "O que você procura?",
+            "experience": "Para qual necessidade?",
+            "period": "Como prefere continuar?",
+            "timing": "Quando precisa?",
+            "note": "Detalhe o item ou serviço"
+          },
+          "notePlaceholder": "Espécie, porte, marca desejada ou o que precisa confirmar. Sem garantia de estoque."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
     }
   }
 }

@@ -696,5 +696,15 @@
     "whatsappPrompt": "Olá, Dona Garimpeira! Quero conversar sobre roupas, reservas, venda de peças usadas ou doações. Minha intenção é:",
     "whatsappSubject": "uma visita ou consulta à Dona Garimpeira",
     "proposalKind": "service"
+  },
+  "agropet-filt": {
+    "intent": "orcamento",
+    "nextStepTitle": "Qual produto ou cuidado seu pet precisa?",
+    "nextStepBody": "Escolha a categoria e descreva o que procura. Preço, estoque e agenda são confirmados separadamente.",
+    "primaryCtaLabel": "Consultar produtos",
+    "theme": "gold",
+    "whatsappPrompt": "Olá, Agropet Filt! Gostaria de consultar a disponibilidade de um item ou serviço.",
+    "whatsappSubject": "produtos e cuidados para pets",
+    "proposalKind": "service"
   }
 }

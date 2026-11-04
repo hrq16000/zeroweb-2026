@@ -293,6 +293,16 @@
         "Conta Google Business Profile da loja ainda sujeita à verificação e telefone em análise segundo o briefing; não há evidência de teste de entrega do funil.",
         "O destino no cadastro é exclusivo de dona-garimpeira-brecho, sem fallback institucional ou para outro cliente."
       ]
+    },
+    "agropet-filt": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "PUBLIC_DIRECTORY_ONLY",
+      "verifiedAt": "2026-11-04",
+      "evidence": [
+        "Telefone público +55 41 99823-6598 encontrado em diretórios, mas não confirmado como WhatsApp da empresa.",
+        "O operador informou autorização para criar a página, sem fornecer confirmação do número de WhatsApp.",
+        "Canal registrado como null (LEAD_ONLY), sem redirecionamento cruzado ou fallback de outro cliente."
+      ]
     }
   }
 }

@@ -1196,6 +1196,18 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "e6783dbb"
+    },
+    "agropet-filt": {
+      "icon": "/images/agropet-filt/logo.svg",
+      "socialImage": "/images/agropet-filt/social-og.svg",
+      "proof": {
+        "eyebrow": "Agropet Filt · Vargem Grande, Pinhais",
+        "title": "Do bico ao focinho. Tudo por perto.",
+        "description": "Rações, artigos para aves, acessórios, pesca, jardinagem e banho e tosa divulgados. Consulte a disponibilidade.",
+        "ctaLabel": "Consultar produtos",
+        "ctaHref": "#encontre"
+      },
+      "socialVersion": "agropet-v1"
     }
   }
 }
