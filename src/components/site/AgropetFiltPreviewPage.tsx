@@ -64,6 +64,8 @@ type GuideKey = keyof typeof guides;
 const street = "Rua Monteiro Lobato, 160 — Vargem Grande, Pinhais/PR";
 const mapHref = "https://www.google.com/maps/search/?api=1&query=Rua%20Monteiro%20Lobato%20160%20Vargem%20Grande%20Pinhais%20PR";
 
+const agropetMotion = { motionIntensity: "BALANCED" } as const;
+
 export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
   const isLive = mode === "live";
   const submitLead = useServerFn(submitPortfolioQuiz);
@@ -129,7 +131,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
   }, [interest]);
 
   return (
-    <main className="af-site" id="inicio">
+    <main className="af-site" id="inicio" data-motion-intensity={agropetMotion.motionIntensity}>
       <div className="af-research-note">
         <span className="af-note-dot" />
         {isLive ? "Portfólio autorizado da Agropet Filt. Estoque, serviços e valores sujeitos à confirmação." : "Conceito criado pela 0WEB com dados públicos. Não é o site oficial da loja. Atendimento demonstrativo, sem envio de mensagens."}
@@ -137,7 +139,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
 
       <header className="af-header">
         <a href="#inicio" className="af-brand" aria-label="Agropet Filt, início da página">
-          <span className="af-symbol"><PawPrint size={21} strokeWidth={2.7} /></span>
+          <span className="af-symbol"><img src="/images/agropet-filt/logo.svg" alt="" aria-hidden="true" width="46" height="46" /></span>
           <span><strong>AGROPET</strong><small>FILT <i>·</i> PINHAIS</small></span>
         </a>
         <nav className={navOpen ? "af-nav is-open" : "af-nav"} aria-label="Navegação Agropet Filt">
