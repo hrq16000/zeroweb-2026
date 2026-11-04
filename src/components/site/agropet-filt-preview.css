@@ -215,3 +215,11 @@
 @media (prefers-reduced-motion: reduce) {
   .af-site *, .af-site *::before, .af-site *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Formulário comercial com consentimento e retorno de protocolo. */
+.af-dialog-input {display:block;width:100%;min-height:48px;margin:7px 0 17px;padding:12px 14px;border-radius:12px;border:1px solid #b3c6af;background:#fffefa;color:#153a2f;font:inherit;font-size:15px}
+.af-consent {display:flex!important;align-items:flex-start;gap:10px;font-size:12px!important;font-weight:500!important;line-height:1.6;margin-top:8px}
+.af-consent input {margin-top:4px;min-width:18px;min-height:18px;accent-color:#153a2f}
+.af-consent a {text-decoration:underline;text-underline-offset:2px}
+.af-form-error {color:#b91c1c;font-size:13px!important;font-weight:800}
+.af-dialog button:disabled {cursor:not-allowed;opacity:.5}
