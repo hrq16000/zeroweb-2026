@@ -1,0 +1,42 @@
+name: Agropet · sincronizar artefatos derivados
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/agropet-sync-derived.yml'
+      - 'src/config/portfolio-assets.json'
+      - 'src/config/portfolio-catalog.json'
+      - 'src/config/portfolio-clients.json'
+      - 'src/config/portfolio-admin-seed.json'
+      - 'public/images/agropet-filt/**'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.head_ref == 'feat/agropet-filt-preview-20261104' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Install from lockfile
+        run: bun install --frozen-lockfile
+      - name: Generate only derived assets and canonical admin seed
+        run: |
+          node scripts/generate-social-jpg.mjs
+          node scripts/build-portfolio-admin-seed.mjs
+      - name: Commit derived changes to same PR branch
+        run: |
+          git add src/config/portfolio-assets.json src/config/portfolio-admin-seed.json public/images/agropet-filt/
+          if git diff --cached --quiet; then
+            echo "Derived data already synchronized"
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "chore(agropet): sync derived media and admin seed"
+          git push origin "HEAD:${{ github.head_ref }}"
