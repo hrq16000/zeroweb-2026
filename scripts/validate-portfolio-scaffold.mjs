@@ -179,7 +179,7 @@ for (const client of clients) {
       errors.push(`${label} usa funil universal da 0WEB (${slug})`);
     }
   }
-  if (!/clientKey=["'`]/.test(componentSource) && !/clientKey:\\s*["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
+  if (!/clientKey=["'`]/.test(componentSource) && !/clientKey:\s*["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
   }
 
