@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import {
   ArrowDownRight,
   ArrowLeft,
@@ -61,7 +63,15 @@ type GuideKey = keyof typeof guides;
 const street = "Rua Monteiro Lobato, 160 — Vargem Grande, Pinhais/PR";
 const mapHref = "https://www.google.com/maps/search/?api=1&query=Rua%20Monteiro%20Lobato%20160%20Vargem%20Grande%20Pinhais%20PR";
 
-export function AgropetFiltPreviewPage() {
+export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
+  const isLive = mode === "live";
+  const submitLead = useServerFn(submitPortfolioQuiz);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [protocol, setProtocol] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [interest, setInterest] = useState<Interest | null>(null);
   const [guide, setGuide] = useState<GuideKey>("cao");
@@ -69,8 +79,46 @@ export function AgropetFiltPreviewPage() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
   const selected = categories.find((item) => item.key === interest);
-  const open = (value: Interest) => { setInterest(value); setBrief(""); setStep(1); setNavOpen(false); };
-  const close = () => { setInterest(null); setBrief(""); setStep(1); };
+  const open = (value: Interest) => {
+    setInterest(value); setBrief(""); setStep(1); setNavOpen(false);
+    setName(""); setPhone(""); setConsent(false); setProtocol(""); setError("");
+  };
+  const close = () => {
+    if (sending) return;
+    setInterest(null); setBrief(""); setStep(1); setError(""); setProtocol("");
+  };
+  const finish = async () => {
+    if (!isLive || !selected) return;
+    const digits = phone.replace(/\D/g, "");
+    if (!name.trim() || digits.length < 10 || digits.length > 11 || !consent) {
+      setError("Preencha seu nome, telefone com DDD e aceite o aviso de privacidade.");
+      return;
+    }
+    setSending(true); setError("");
+    try {
+      const response = await submitLead({ data: {
+        clientKey: "agropet-filt",
+        studioName: "Agropet Filt",
+        recipientName: "equipe Agropet Filt",
+        mode: "proposal",
+        proposalKind: "service",
+        funnelIntent: "orcamento",
+        recoveryContact: digits,
+        pageUrl: typeof window === "undefined" ? undefined : window.location.href,
+        answers: {
+          service: selected.name,
+          experience: "Consulta de produtos e serviços",
+          period: "Vargem Grande · Pinhais",
+          timing: "A combinar",
+          note: `Nome: ${name.trim().slice(0,90)}. Interesse: ${selected.name}. ${brief.trim().slice(0,600)}. Consentimento de contato: sim.`,
+        },
+      }});
+      if (response?.protocol) setProtocol(response.protocol);
+      else setError("Não foi possível confirmar o registro. Tente novamente.");
+    } catch {
+      setError("Não foi possível registrar a consulta. Tente novamente.");
+    } finally { setSending(false); }
+  };
 
   useEffect(() => {
     if (!interest) return;
@@ -83,7 +131,7 @@ export function AgropetFiltPreviewPage() {
     <main className="af-site" id="inicio">
       <div className="af-research-note">
         <span className="af-note-dot" />
-        Conceito criado pela 0WEB com dados públicos. Não é o site oficial da loja. Atendimento demonstrativo, sem envio de mensagens.
+        {isLive ? "Portfólio autorizado da Agropet Filt. Estoque, serviços e valores sujeitos à confirmação." : "Conceito criado pela 0WEB com dados públicos. Não é o site oficial da loja. Atendimento demonstrativo, sem envio de mensagens."}
       </div>
 
       <header className="af-header">
@@ -106,7 +154,7 @@ export function AgropetFiltPreviewPage() {
         <div className="af-hero-copy">
           <span className="af-eyebrow"><span /> PINHAIS, VARGEM GRANDE</span>
           <h1 id="af-title">Do bico ao <em>focinho.</em><br /><span>Tudo por perto.</span></h1>
-          <p>Uma ideia de presença digital para a Agropet Filt: rações, universo das aves, acessórios e outras categorias em uma experiência fácil de explorar.</p>
+          <p>Rações, universo das aves, acessórios e categorias do dia a dia em uma experiência fácil de explorar. Conheça a Agropet Filt em Pinhais.</p>
           <div className="af-hero-actions">
             <a className="af-button af-button-dark" href="#encontre">Explorar categorias <ArrowDownRight size={19} /></a>
             <button className="af-button af-button-outline" onClick={() => open("banho")}>Consultar banho e tosa <ArrowUpRight size={19} /></button>
@@ -154,7 +202,7 @@ export function AgropetFiltPreviewPage() {
       <section className="af-catalog" id="encontre" aria-labelledby="af-catalog-title">
         <div className="af-section-top">
           <div><p className="af-kicker">UM LUGAR, MUITAS DESCOBERTAS</p><h2 id="af-catalog-title">O que você<br/><em>procura hoje?</em></h2></div>
-          <p>Mais direto que percorrer uma lista interminável: escolha o que procura e siga para uma consulta específica. <strong>Sem catálogo ou estoque inventado.</strong></p>
+          <p>Mais direto que percorrer uma lista interminável: escolha o que procura e siga para uma consulta específica. <strong>Sem promessas de estoque não confirmado.</strong></p>
         </div>
         <div className="af-category-grid">
           {categories.map((item, index) => {
@@ -175,11 +223,11 @@ export function AgropetFiltPreviewPage() {
         <div className="af-guide-lead">
           <span className="af-kicker af-kicker-light"><Sparkles size={16}/> NÃO É SÓ UMA VITRINE</span>
           <h2 id="af-guide-title">Uma pergunta.<br/><em>Um caminho.</em></h2>
-          <p>Uma amostra de experiência útil que a 0WEB pode evoluir para orientar o cliente antes de solicitar orçamento.</p>
+          <p>Um guia de interesse para organizar sua consulta de produtos e cuidados, antes de solicitar orçamento.</p>
           <div className="af-guide-doodle" aria-hidden="true"><PawPrint size={124} strokeWidth={.85}/></div>
         </div>
         <div className="af-guide-widget">
-          <span className="af-widget-label">GUIA DE INTERESSE · DEMONSTRAÇÃO</span>
+          <span className="af-widget-label">GUIA DE INTERESSE {isLive ? "· AGROPET FILT" : "· DEMONSTRAÇÃO"}</span>
           <h3>Para quem é a sua busca?</h3>
           <div className="af-choice-row" role="group" aria-label="Escolha o tipo de pet">
             <button aria-pressed={guide === "cao"} className={guide === "cao" ? "is-active" : ""} onClick={() => setGuide("cao")}><Dog size={20}/> Cão</button>
@@ -203,7 +251,7 @@ export function AgropetFiltPreviewPage() {
         <div className="af-story-copy">
           <p className="af-kicker">PERTINHO DE VOCÊ, EM PINHAIS</p>
           <h2 id="af-story-title">Seu próximo cuidado pode começar <em>no caminho de casa.</em></h2>
-          <p>A Agropet Filt aparece em diretórios como um comércio de bairro na Vargem Grande, com artigos para animais, aves e outras necessidades. Este conceito transforma essas informações em uma jornada clara, sem criar uma história da empresa que ainda não foi confirmada.</p>
+          <p>A Agropet Filt é um comércio de bairro em Vargem Grande, Pinhais, com rações, artigos para aves e outras categorias descritas em referências públicas. Consulte a equipe sobre preços e disponibilidade.</p>
           <div className="af-story-bullets">
             <span><Check size={16}/> Localização pública identificada</span>
             <span><Check size={16}/> Categorias com fonte rastreável</span>
@@ -233,21 +281,21 @@ export function AgropetFiltPreviewPage() {
         <div className="af-faq-list">
           <details><summary>Quais tipos de produtos aparecem na loja? <span>+</span></summary><p>Os diretórios consultados mencionam rações, acessórios, petiscos, artigos para pássaros, pesca e jardinagem. Marcas e estoque precisam ser confirmados.</p></details>
           <details><summary>A loja faz banho e tosa? <span>+</span></summary><p>Esse serviço aparece nas descrições públicas, mas agenda, porte atendido e disponibilidade ainda não foram confirmados diretamente pelo responsável.</p></details>
-          <details><summary>Posso fazer meu pedido por esta página? <span>+</span></summary><p>Ainda não. Esta é uma prévia conceitual da 0WEB. O fluxo de consulta é uma simulação e não encaminha pedidos à loja.</p></details>
-          <details><summary>Esta é a página oficial da Agropet Filt? <span>+</span></summary><p>Não. É uma proposta independente de presença digital construída a partir de fontes públicas, sem afiliação ou endosso confirmado.</p></details>
+          <details><summary>Posso consultar produtos por esta página? <span>+</span></summary><p>{isLive ? "Sim. Registre sua consulta e um telefone para retorno. Isso não é compra nem reserva: preços, estoque, entrega e agenda são confirmados separadamente." : "Esta prévia simula uma consulta, sem enviar pedidos à loja."}</p></details>
+          <details><summary>Esta página pertence à loja? <span>+</span></summary><p>{isLive ? "Esta é a página de portfólio autorizada na infraestrutura da 0WEB. Os dados do estabelecimento estão sujeitos a atualização pela equipe." : "Não. É uma proposta independente de presença digital construída a partir de fontes públicas, sem afiliação ou endosso confirmado."}</p></details>
         </div>
       </section>
 
       <footer className="af-footer">
         <div className="af-footer-main"><PawPrint size={35}/><h2>O cuidado começa<br/><em>perto de casa.</em></h2><button onClick={() => open("racoes")}>Conhecer o fluxo demonstrativo <ArrowUpRight size={20}/></button></div>
-        <div className="af-footer-bottom"><span>AGROPET FILT · CONCEITO NÃO OFICIAL</span><span>Projeto demonstrativo da <a href="https://0web.com.br" target="_blank" rel="noopener noreferrer">0WEB</a> · 2026</span></div>
+        <div className="af-footer-bottom"><span>AGROPET FILT · {isLive ? "PINHAIS" : "CONCEITO NÃO OFICIAL"}</span><span>{isLive ? "Portfólio publicado na" : "Projeto demonstrativo da"} <a href="https://0web.com.br" target="_blank" rel="noopener noreferrer">0WEB</a> · 2026</span></div>
       </footer>
 
       {interest && selected && (
         <div className="af-dialog-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) close(); }}>
           <div className="af-dialog" role="dialog" aria-modal="true" aria-labelledby="af-dialog-heading">
             <div className="af-dialog-head">
-              <div><span>AGROPET FILT · EXPERIÊNCIA DEMONSTRATIVA</span><h2 id="af-dialog-heading">Consulta guiada</h2></div>
+              <div><span>AGROPET FILT · {isLive ? "ATENDIMENTO" : "EXPERIÊNCIA DEMONSTRATIVA"}</span><h2 id="af-dialog-heading">Consulta guiada</h2></div>
               <button aria-label="Fechar simulação" onClick={close}><X size={23}/></button>
             </div>
             <div className="af-progress" aria-label={`Passo ${step} de 3`}><span style={{ width: `${(step / 3) * 100}%` }}/></div>
@@ -260,20 +308,43 @@ export function AgropetFiltPreviewPage() {
             {step === 2 && <div className="af-dialog-body">
               <span className="af-step">ETAPA 02 · DETALHE SUA BUSCA</span>
               <h3>O que você precisa saber?</h3>
-              <p>Descreva um item, espécie ou tipo de serviço. Não informe nome, telefone nem dados pessoais: esta prévia não envia mensagens.</p>
+              <p>{isLive ? "Descreva o item ou serviço procurado. A disponibilidade será confirmada pela equipe." : "Descreva um item, espécie ou tipo de serviço. Não informe nome, telefone nem dados pessoais: esta prévia não envia mensagens."}</p>
               <label htmlFor="af-brief">Detalhes da consulta (opcional)</label>
               <textarea id="af-brief" value={brief} maxLength={280} onChange={(event) => setBrief(event.target.value)} placeholder={interest === "banho" ? "Exemplo: banho para cão pequeno, consultar agenda." : "Exemplo: ração para cão adulto, consultar marcas."} />
               <div className="af-dialog-actions"><button onClick={() => setStep(1)}><ArrowLeft size={17}/> Voltar</button><button className="af-dialog-next" onClick={() => setStep(3)}>Ver resumo <ArrowRight size={17}/></button></div>
             </div>}
             {step === 3 && <div className="af-dialog-body">
-              <span className="af-step">ETAPA 03 · SIMULAÇÃO CONCLUÍDA</span>
-              <div className="af-dialog-done"><Check size={33}/></div>
-              <h3>Assim seria o início da sua consulta.</h3>
-              <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Sem detalhes adicionais."}</p></div>
-              <p><strong>Nenhum pedido foi enviado ou armazenado.</strong> A versão comercial só poderá receber dados e encaminhar à loja após autorização, configuração de privacidade e validação do funil.</p>
-              <button className="af-dialog-next" onClick={close}>Concluir demonstração <Check size={18}/></button>
+              <span className="af-step">ETAPA 03 · {isLive ? "FINALIZAR CONSULTA" : "SIMULAÇÃO CONCLUÍDA"}</span>
+              {protocol ? (
+                <>
+                  <div className="af-dialog-done"><Check size={33}/></div>
+                  <h3>Consulta registrada!</h3>
+                  <div className="af-dialog-summary"><strong>Protocolo: {protocol}</strong><p>Guarde este número. Produtos e agenda dependem de confirmação.</p></div>
+                  <button className="af-dialog-next" onClick={close}>Concluir <Check size={18}/></button>
+                </>
+              ) : isLive ? (
+                <>
+                  <h3>Como podemos retornar?</h3>
+                  <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Consulta de disponibilidade e condições."}</p></div>
+                  <label htmlFor="af-contact-name">Seu nome</label>
+                  <input id="af-contact-name" className="af-dialog-input" autoComplete="name" maxLength={90} value={name} onChange={e=>setName(e.target.value)} placeholder="Nome"/>
+                  <label htmlFor="af-contact-phone">Telefone com DDD para retorno</label>
+                  <input id="af-contact-phone" className="af-dialog-input" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} value={phone} onChange={e=>setPhone(e.target.value)} placeholder="(41) 99999-9999"/>
+                  <label className="af-consent"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)}/> Autorizo o registro destes dados e contato sobre a consulta conforme a <a href="/politica-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a> da 0WEB.</label>
+                  {error && <p role="alert" className="af-form-error">{error}</p>}
+                  <div className="af-dialog-actions"><button disabled={sending} onClick={()=>setStep(2)}><ArrowLeft size={17}/> Voltar</button><button disabled={sending || !consent} className="af-dialog-next" onClick={finish}>{sending ? "Registrando..." : "Registrar consulta"} <ArrowRight size={17}/></button></div>
+                </>
+              ) : (
+                <>
+                  <div className="af-dialog-done"><Check size={33}/></div>
+                  <h3>Assim seria o início da sua consulta.</h3>
+                  <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Sem detalhes adicionais."}</p></div>
+                  <p><strong>Nenhum pedido foi enviado ou armazenado.</strong> Demonstração sem coleta de dados.</p>
+                  <button className="af-dialog-next" onClick={close}>Concluir demonstração <Check size={18}/></button>
+                </>
+              )}
             </div>}
-            <div className="af-dialog-foot"><span><Package size={16}/> Sem estoque ou agendamento fictício</span><span>Prévia segura · 0WEB</span></div>
+            <div className="af-dialog-foot"><span><Package size={16}/> Sem estoque ou agendamento fictício</span><span>{isLive ? "Registro seguro · 0WEB" : "Prévia segura · 0WEB"}</span></div>
           </div>
         </div>
       )}
