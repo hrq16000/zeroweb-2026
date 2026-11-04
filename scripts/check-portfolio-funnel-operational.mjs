@@ -22,7 +22,7 @@ const contactConfig = JSON.parse(readFileSync("src/config/portfolio-whatsapp.jso
 const contacts = contactConfig?.contacts ?? {};
 
 const VARIANTS = [
-  ["portfolio_quiz", /BeautyBookingQuiz|PortfolioCTAQuiz/],
+  ["portfolio_quiz", /BeautyBookingQuiz|PortfolioCTAQuiz|submitPortfolioQuiz/],
   ["dynamic_funnel", /FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA/],
 ];
 const DIRECT_CONTACT = /wa\.me|api\.whatsapp\.com|href=["'`]tel:/;
