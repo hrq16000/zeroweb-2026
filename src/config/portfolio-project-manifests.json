@@ -743,7 +743,7 @@
         "qa": "in_progress",
         "publish": "in_progress"
       },
-      "compositionContract": 2,
+      "compositionContract": 0,
       "individualSiteContract": {
         "version": 1,
         "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
@@ -843,11 +843,17 @@
         ],
         "mobileCompositionStrategy": "single-column hero, two-column category grid, consent-first submit"
       },
-      "contentFacts": [
-        "Comércio citado em Rua Monteiro Lobato, 160, Pinhais",
-        "Categorias registradas em diretórios: rações, aves, acessórios, petiscos, pesca, jardinagem, banho e tosa",
-        "Contato WhatsApp não confirmado, lead-only até validação"
-      ],
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Endereço público na Rua Monteiro Lobato 160 em Pinhais",
+          "Aviário, rações e outras categorias publicadas em diretórios, sujeitos a atualização"
+        ],
+        "sources": [
+          "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/",
+          "https://www.locaisdobrasil.com.br/encontre/pet-shop-perto-de-mim-em-pinhais-pr?pagina=6"
+        ]
+      },
       "perceptualReview": {
         "status": "PENDING_RUNTIME",
         "reviewedAt": "2026-11-04",
@@ -893,7 +899,12 @@
           "slug": "agropet-filt"
         }
       ],
-      "lastUpdatedAt": "2026-11-04"
+      "lastUpdatedAt": "2026-11-04",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "reason": "Etapa DESIGN sem publicação: capturar screenshots reais em 390/1440 e verificar comparação perceptual antes de ativar a gate de composição v2",
+        "gateBeforePublish": "PROJECT_UNIQUENESS_GATE"
+      }
     }
   }
 }
