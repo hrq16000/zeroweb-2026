@@ -351,3 +351,6 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
     </main>
   );
 }
+
+/** Render público do portfólio autorizado — mantém a prévia isolada no mesmo sistema visual. */
+export function AgropetFiltPage() { return <AgropetFiltPreviewPage mode="live" />; }
