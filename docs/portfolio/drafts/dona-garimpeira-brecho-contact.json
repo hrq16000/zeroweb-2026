@@ -2,13 +2,13 @@
   "slug": "dona-garimpeira-brecho",
   "clientKey": "dona-garimpeira-brecho",
   "operationalContact": {
-    "whatsapp": "5541998379642"
+    "whatsapp": "5541995523363"
   },
   "provenance": {
     "source": "CLIENT_SUPPLIED",
     "status": "CONFIGURED_UNVERIFIED",
     "verifiedAt": null,
-    "notes": "Operador autorizado da Dona Garimpeira informou contato comercial; não houve teste de entrega, não publicar sem form e gate."
+    "notes": "Contato atualizado por informação do operador autorizado em 2026-11-03 para o WhatsApp exclusivo da loja. Testes sintéticos do fluxo não comprovam entrega real; não substituir o gate de produção."
   },
   "stage": "draft",
   "activationPrerequisites": [
@@ -17,5 +17,5 @@
     "lead persistido no dynamic_form_leads e token exclusivo verificados por E2E",
     "readiness e mídia real aprovados"
   ],
-  "lastUpdatedAt": "2026-11-02"
+  "lastUpdatedAt": "2026-11-03"
 }
