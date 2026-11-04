@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import {
   ArrowDownRight,
   ArrowLeft,
@@ -289,6 +290,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
       <footer className="af-footer">
         <div className="af-footer-main"><PawPrint size={35}/><h2>O cuidado começa<br/><em>perto de casa.</em></h2><button onClick={() => open("racoes")}>{isLive ? "Solicitar consulta" : "Conhecer o fluxo demonstrativo"} <ArrowUpRight size={20}/></button></div>
         <div className="af-footer-bottom"><span>AGROPET FILT · {isLive ? "PINHAIS" : "CONCEITO NÃO OFICIAL"}</span><span>{isLive ? "Portfólio publicado na" : "Projeto demonstrativo da"} <a href="https://0web.com.br" target="_blank" rel="noopener noreferrer">0WEB</a> · 2026</span></div>
+        <div className="af-host-credit"><PortfolioHostCredit /></div>
       </footer>
 
       {interest && selected && (
