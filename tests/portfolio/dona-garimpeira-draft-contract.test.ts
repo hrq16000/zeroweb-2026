@@ -28,7 +28,7 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const raw = parse("src/config/portfolio-catalog.json");
     const catalog = Array.isArray(raw) ? raw : raw.projects;
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
-    expect(project?.status).toBe("published");
+    expect(project?.status).toBe("draft");
     expect(project?.clientKey).toBe(slug);
     // O loader exige registro indexável, mas não consulta dynamic_forms.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");

@@ -117,7 +117,7 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     const clients = JSON.parse(read("src/config/portfolio-clients.json"));
     expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
     const catalog = JSON.parse(read("src/config/portfolio-catalog.json"));
-    expect(catalog.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")?.status).toBe("published");
+    expect(catalog.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")?.status).toBe("draft");
   });
 
   test("galeria preserva ausência de fotos oficiais e não promete beneficência", () => {
