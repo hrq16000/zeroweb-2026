@@ -145,7 +145,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
           <a href="#guia" onClick={() => setNavOpen(false)}>Seu pet</a>
           <a href="#localizacao" onClick={() => setNavOpen(false)}>Como chegar</a>
         </nav>
-        <button className="af-header-cta" onClick={() => open("racoes")}>{isLive ? "Consultar produtos" : "Simular consulta"} <ArrowUpRight size={18} /></button>
+        <button className="af-header-cta transition-transform" onClick={() => open("racoes")}>{isLive ? "Consultar produtos" : "Simular consulta"} <ArrowUpRight size={18} /></button>
         <button className="af-menu-toggle" aria-label={navOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={navOpen} onClick={() => setNavOpen(!navOpen)}>
           {navOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
