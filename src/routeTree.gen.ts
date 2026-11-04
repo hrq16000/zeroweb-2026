@@ -126,6 +126,7 @@ import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfo
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
@@ -855,6 +856,11 @@ const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
 const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   id: '/portfolio/$slug',
   path: '/portfolio/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
+  id: '/portfolio/agropet-filt',
+  path: '/portfolio/agropet-filt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
@@ -1720,6 +1726,7 @@ export interface FileRoutesByFullPath {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -1968,6 +1975,7 @@ export interface FileRoutesByTo {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2220,6 +2228,7 @@ export interface FileRoutesById {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2473,6 +2482,7 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -2721,6 +2731,7 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -2972,6 +2983,7 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -3222,6 +3234,7 @@ export interface RootRouteChildren {
   PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
@@ -4087,6 +4100,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/$slug'
       fullPath: '/portfolio/$slug'
       preLoaderRoute: typeof PortfolioSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/agropet-filt': {
+      id: '/portfolio/agropet-filt'
+      path: '/portfolio/agropet-filt'
+      fullPath: '/portfolio/agropet-filt'
+      preLoaderRoute: typeof PortfolioAgropetFiltRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/dyzpromo': {
@@ -5479,6 +5499,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
