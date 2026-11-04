@@ -95,3 +95,15 @@ Métricas a registrar desde o piloto: tempo até preview, fontes encontradas, % 
 - Mídia pública: fotos de terceiros não reutilizadas por falta de licença/identidade; arte vetorial conceitual produzida no código.
 - Recurso operacional: GitHub branch/PR, sem Lovable, sem Max mode, sem mudanças DNS.
 - Testes de build, route generator e UI manual: **pendentes de evidência do CI/preview**; não declarar aprovados por inspeção do código.
+
+## 8. Validação CI isolada para fábrica de prévias (04/11/2026)
+
+**Causa do primeiro bloqueio:** mudança exclusiva em uma rota de prévia e arquivos próprios não era reconhecida por `resolve-visual-regression-scope.mjs`; o CI executou visual/Lighthouse em dezenas de páginas antigas não alteradas. Na primeira execução, build/TypeScript/unitários/hidratação/axe da base passaram; o gate visual acusou 33 diferenças de outros portfólios e Lighthouse encontrou violações em páginas existentes. **Não interpretar como gate aprovado nem alterar baselines para esconder diffs.**
+
+**Correção nesta PR:** `previewOnlyScope` reconhece mudanças isoladas de prévia com rota explícita, componente e CSS exclusivos, documento, rota tipada e infraestrutura de teste. Qualquer alteração em uma página pública, header, CSS global ou arquivo de outro cliente faz **fallback para o gate global**. Testes unitários verificam esse comportamento.
+
+**Visual:** `VISUAL_ONLY=preview-agropet-filt`, `VERCEL_ENV=preview`, 3 viewports, HTTP 200, `meta[robots]` com `noindex`, declaração não oficial e screenshots; não se criam baselines para páginas alheias.
+
+**Lighthouse:** `LHCI_SCOPE=preview`, uma rota, mesmo limite de performance (≥ 90) e acessibilidade (≥ 95), LCP, CLS e TBT. SEO indexável/canonical são intencionalmente não aplicáveis à prévia **noindex** e não são tratados como PASS. A versão pública oficial exigirá todos os SEO gates completos. As rotas de produção mantêm regras originais.
+
+**Evidência obrigatória:** inspecionar resultados do commit atualizado da PR #489 e a Vercel de mesmo SHA. Nenhum número de CI ou preview deve ser declarado final antes de `conclusion:success` para os gates apropriados e `READY` para o deploy.
