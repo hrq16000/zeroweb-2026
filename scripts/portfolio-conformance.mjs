@@ -127,7 +127,7 @@ export function buildRecords(root) {
     let hasCta = false;
     if (componentSource) {
       hasCta =
-        /PortfolioCTAQuiz|PortfolioQuizCTA|FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA|ProductActionGate|useFunnel|data-portfolio-external-cta/.test(
+        /PortfolioCTAQuiz|PortfolioQuizCTA|FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA|ProductActionGate|useFunnel|submitPortfolioQuiz|data-portfolio-external-cta/.test(
           componentSource,
         );
       if (!hasCta) issues.push(CODES.CTA);

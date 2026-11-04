@@ -148,7 +148,7 @@
       "routeFile": "src/routes/portfolio.agropet-filt.tsx",
       "assetsDir": "public/images/agropet-filt",
       "ctaMode": "proposal",
-      "hasCta": false,
+      "hasCta": true,
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
@@ -159,13 +159,9 @@
       ],
       "shareCopy": "🐾 Conheça a Agropet Filt em Vargem Grande, Pinhais! Rações, artigos para aves, petiscos, acessórios, pesca e jardinagem, com a referência ao serviço de banho e tosa.\n\nVeja as categorias, encontre a loja na Rua Monteiro Lobato, 160 e envie sua consulta pelo formulário. Estoque, preço, horário e agenda devem ser confirmados com a equipe.\n\nhttps://0web.com.br/portfolio/agropet-filt\n\n#AgropetFilt #PetShopPinhais #Aviario #VargemGrande #0WEB",
       "published": false,
-      "status": "LEGACY",
-      "issues": [
-        "PORTFOLIO_CTA_MISSING"
-      ],
-      "blocking": [
-        "PORTFOLIO_CTA_MISSING"
-      ]
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     },
     {
       "slug": "aguia-sul-sinalizacao",
