@@ -1,0 +1,80 @@
+{
+  "slug": "agropet-filt",
+  "lastVerifiedAt": "2026-11-04",
+  "business": {
+    "name": "AVIÁRIO AGROPET FILT",
+    "address": "R. Monteiro Lobato, 160 - Vargem Grande, Pinhais - PR, 83321-260",
+    "phonePublic": "+55 41 99823-6598",
+    "placeId": "ChIJId1nCyzv3JQRqbR8vWVP-74"
+  },
+  "facts": [
+    {
+      "field": "address",
+      "status": "verified_public_directory",
+      "sources": [
+        "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/",
+        "https://www.locaisdobrasil.com.br/encontre/pet-shop-perto-de-mim-em-pinhais-pr?pagina=6"
+      ]
+    },
+    {
+      "field": "categories",
+      "status": "verified_public_directory",
+      "value": [
+        "racoes",
+        "aves",
+        "acessorios",
+        "petiscos",
+        "pesca",
+        "jardinagem",
+        "banho e tosa"
+      ],
+      "sources": [
+        "https://www.locaisdobrasil.com.br/encontre/pet-shop-perto-de-mim-em-pinhais-pr?pagina=6"
+      ]
+    },
+    {
+      "field": "hours",
+      "status": "public_unconfirmed_by_owner",
+      "value": "Seg-Sáb 08:30–19:30; Dom fechado",
+      "sources": [
+        "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/"
+      ]
+    },
+    {
+      "field": "whatsapp",
+      "status": "unconfirmed",
+      "value": null,
+      "reason": "Número listado como telefone; não comprovado como WhatsApp"
+    },
+    {
+      "field": "ownership_authorization",
+      "status": "owner_operator_assertion",
+      "value": "Autorização informada pelo usuário em 2026-11-04"
+    }
+  ],
+  "media": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "generatedMedia": [],
+    "graphicMedia": [
+      "logo.svg",
+      "capa-card.svg",
+      "social-og.svg"
+    ],
+    "missingMedia": [
+      "fachada real",
+      "galeria do ambiente",
+      "fotos reais de produtos"
+    ]
+  },
+  "social": {
+    "instagram": {
+      "status": "not_found_verified_account",
+      "latestSix": "not_applicable"
+    }
+  },
+  "policy": {
+    "noFabricatedReviews": true,
+    "noExposedWhatsApp": true
+  }
+}
