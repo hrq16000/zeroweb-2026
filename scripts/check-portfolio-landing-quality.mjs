@@ -406,7 +406,7 @@ export function evaluatePolicyGates({ slug, client, componentSource = "", mediaP
     if (/href\s*=\s*["'`](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)/i.test(componentSource)) {
       failures.push("CONTACT_FUNNEL_GATE: contato comercial bypassa o funil");
     }
-    if (!/PortfolioCTAQuiz|FunnelCTAButton|useFunnel|renderCta/.test(componentSource)) {
+    if (!/PortfolioCTAQuiz|FunnelCTAButton|submitPortfolioQuiz|useFunnel|renderCta/.test(componentSource)) {
       failures.push("CONTACT_FUNNEL_GATE: mecanismo de funil não encontrado");
     }
   }
