@@ -1199,7 +1199,7 @@
     },
     "agropet-filt": {
       "icon": "/images/agropet-filt/logo.svg",
-      "socialImage": "/images/agropet-filt/social-og.svg",
+      "socialImage": "/images/agropet-filt/social-og-og.jpg",
       "proof": {
         "eyebrow": "Agropet Filt · Vargem Grande, Pinhais",
         "title": "Do bico ao focinho. Tudo por perto.",
@@ -1207,7 +1207,7 @@
         "ctaLabel": "Consultar produtos",
         "ctaHref": "#encontre"
       },
-      "socialVersion": "agropet-v1"
+      "socialVersion": "8c010fca"
     }
   }
 }

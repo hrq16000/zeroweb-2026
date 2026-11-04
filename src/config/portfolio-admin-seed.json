@@ -132,6 +132,42 @@
       "blocking": []
     },
     {
+      "slug": "agropet-filt",
+      "clientKey": "agropet-filt",
+      "title": "Agropet Filt",
+      "segment": "comercios",
+      "city": "Pinhais",
+      "state": "PR",
+      "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo.",
+      "subtitle": "Rações, aves, acessórios e cuidados para pets em Pinhais",
+      "image": "/images/agropet-filt/capa-card.svg",
+      "icon": "/images/agropet-filt/logo.svg",
+      "socialImage": "/images/agropet-filt/social-og-og.jpg",
+      "socialVersion": "8c010fca",
+      "componentFile": "src/components/site/AgropetFiltPreviewPage.tsx",
+      "routeFile": "src/routes/portfolio.agropet-filt.tsx",
+      "assetsDir": "public/images/agropet-filt",
+      "ctaMode": "proposal",
+      "hasCta": false,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/agropet-filt/capa-card.svg",
+        "/images/agropet-filt/logo.svg",
+        "/images/agropet-filt/social-og-og.jpg",
+        "/images/agropet-filt/social-og.svg"
+      ],
+      "shareCopy": "🐾 Conheça a Agropet Filt em Vargem Grande, Pinhais! Rações, artigos para aves, petiscos, acessórios, pesca e jardinagem, com a referência ao serviço de banho e tosa.\n\nVeja as categorias, encontre a loja na Rua Monteiro Lobato, 160 e envie sua consulta pelo formulário. Estoque, preço, horário e agenda devem ser confirmados com a equipe.\n\nhttps://0web.com.br/portfolio/agropet-filt\n\n#AgropetFilt #PetShopPinhais #Aviario #VargemGrande #0WEB",
+      "published": false,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_CTA_MISSING"
+      ],
+      "blocking": [
+        "PORTFOLIO_CTA_MISSING"
+      ]
+    },
+    {
       "slug": "aguia-sul-sinalizacao",
       "clientKey": "aguia-sul-sinalizacao",
       "title": "Águia Sul Sinalização",
