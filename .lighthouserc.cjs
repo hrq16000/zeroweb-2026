@@ -21,6 +21,7 @@ const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", 
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
 const LIGHTHOUSE_SCOPE = process.env.LHCI_SCOPE || "full";
+const PREVIEW_ONLY = LIGHTHOUSE_SCOPE === "preview";
 const LIGHTHOUSE_ONLY = (process.env.LHCI_ONLY || "")
   .split(",")
   .map((slug) => slug.trim())
@@ -43,9 +44,13 @@ const serviceUrls = LIGHTHOUSE_SCOPE === "services" && shardIndex === 0
       `${TARGET_URL}/servicos/seo`,
     ]
   : [];
+const previewUrls = PREVIEW_ONLY && shardIndex === 0
+  ? LIGHTHOUSE_ONLY.filter((name) => /^preview-[a-z0-9-]+$/.test(name))
+      .map((name) => `${TARGET_URL}/portfolio-preview/${name.slice(8)}`)
+  : [];
 const portfolioIndexOnly = LIGHTHOUSE_ONLY.includes("portfolio-index");
 const individualPortfolioOnly = LIGHTHOUSE_ONLY.filter((slug) => slug !== "portfolio-index");
-const portfolioUrls = LIGHTHOUSE_SCOPE === "services" ? [] : individualPortfolioOnly.length
+const portfolioUrls = LIGHTHOUSE_SCOPE === "services" || PREVIEW_ONLY ? [] : individualPortfolioOnly.length
   ? individualPortfolioOnly.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
   : LIGHTHOUSE_ONLY.length
     ? []
@@ -55,7 +60,7 @@ const portfolioUrls = LIGHTHOUSE_SCOPE === "services" ? [] : individualPortfolio
           .filter((_, index) => index % shardCount === shardIndex)
           .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
-  LIGHTHOUSE_SCOPE === "services" ? [] :
+  LIGHTHOUSE_SCOPE === "services" || PREVIEW_ONLY ? [] :
   portfolioIndexOnly && shardIndex === 0
     ? [`${TARGET_URL}/portfolio`]
     : LIGHTHOUSE_ONLY.length === 0 && LIGHTHOUSE_SCOPE !== "regional" && shardIndex === 0
@@ -72,12 +77,14 @@ const commonUrls =
 module.exports = {
   ci: {
     collect: {
-      url: [...regionalUrls, ...serviceUrls, ...commonUrls, ...portfolioUrls],
+      url: [...previewUrls, ...regionalUrls, ...serviceUrls, ...commonUrls, ...portfolioUrls],
       ...(USE_LOCAL_SERVER
         ? {
             // PR e push em main medem o artefato do próprio commit.
             // workflow_dispatch é o modo explícito para auditar URL externa.
-            startServerCommand: "bun run build && bun run preview:prod",
+            startServerCommand: PREVIEW_ONLY
+              ? "VERCEL_ENV=preview bun run build && VERCEL_ENV=preview bun run preview:prod"
+              : "bun run build && bun run preview:prod",
             startServerReadyPattern: "Ready on",
             startServerReadyTimeout: 180000,
           }
@@ -92,7 +99,9 @@ module.exports = {
       assertions: {
         // Budgets mínimos — bloqueiam o PR quando quebrados.
         "categories:performance": ["error", { minScore: 0.9 }],
-        "categories:seo": ["error", { minScore: 0.95 }],
+        // Uma prévia deliberadamente noindex não é uma página elegível ao Google.
+        // SEO público permanece obrigatório nos portfolios indexáveis.
+        "categories:seo": [PREVIEW_ONLY ? "warn" : "error", { minScore: 0.95 }],
         "categories:accessibility": ["error", { minScore: 0.95 }],
         "categories:best-practices": ["warn", { minScore: 0.9 }],
 
@@ -106,7 +115,7 @@ module.exports = {
         "meta-description": "error",
         "document-title": "error",
         "html-has-lang": "error",
-        "canonical": "error",
+        "canonical": PREVIEW_ONLY ? "off" : "error",
         "robots-txt": "error",
         "image-alt": "error",
         "http-status-code": "error",
