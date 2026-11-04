@@ -7,7 +7,7 @@ import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 
 const slug = "agropet-filt";
 const url = "https://0web.com.br/portfolio/agropet-filt";
-const social = "https://0web.com.br/images/agropet-filt/social-og.svg";
+const social = "https://0web.com.br/images/agropet-filt/social-og-og.jpg";
 const title = "Agropet Filt em Pinhais | Rações, Aviário, Banho e Tosa";
 const description = "Conheça a Agropet Filt na Rua Monteiro Lobato, 160, Vargem Grande, Pinhais. Rações, artigos para aves, acessórios, pesca, jardinagem e consulta de banho e tosa. Consulte disponibilidade.";
 
