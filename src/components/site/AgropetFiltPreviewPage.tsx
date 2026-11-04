@@ -331,7 +331,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
                   <label htmlFor="af-contact-name">Seu nome</label>
                   <input id="af-contact-name" className="af-dialog-input" autoComplete="name" maxLength={90} value={name} onChange={e=>setName(e.target.value)} placeholder="Nome"/>
                   <label htmlFor="af-contact-phone">Telefone com DDD para retorno</label>
-                  <input id="af-contact-phone" className="af-dialog-input" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} value={phone} onChange={e=>setPhone(e.target.value)} placeholder="(41) 99999-9999"/>
+                  <input id="af-contact-phone" className="af-dialog-input" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} value={phone} onChange={e=>setPhone(e.target.value)} placeholder="DDD + número para retorno"/>
                   <label className="af-consent"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)}/> Autorizo o registro destes dados e contato sobre a consulta conforme a <a href="/politica-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a> da 0WEB.</label>
                   {error && <p role="alert" className="af-form-error">{error}</p>}
                   <div className="af-dialog-actions"><button disabled={sending} onClick={()=>setStep(2)}><ArrowLeft size={17}/> Voltar</button><button disabled={sending || !consent} className="af-dialog-next" onClick={finish}>{sending ? "Registrando..." : "Registrar consulta"} <ArrowRight size={17}/></button></div>
