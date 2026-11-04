@@ -223,3 +223,4 @@
 .af-consent a {text-decoration:underline;text-underline-offset:2px}
 .af-form-error {color:#b91c1c;font-size:13px!important;font-weight:800}
 .af-dialog button:disabled {cursor:not-allowed;opacity:.5}
+\n.af-symbol img {width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}\n
