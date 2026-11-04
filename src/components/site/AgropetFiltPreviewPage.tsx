@@ -26,8 +26,8 @@ import "./agropet-filt-preview.css";
 
 /**
  * Pesquisa pública convertida em conceito editorial independente.
- * SEM relação comercial confirmada, fotos do estabelecimento ou canal de atendimento.
- * Rota de demonstração: o formulário é simulado, não salva nem transmite dados.
+ * Prévia independente por padrão; modo live habilitado somente em rota autorizada. Fotos locais não disponíveis.
+ * Modo preview: não coleta. Modo live: persiste no funil 0WEB com consentimento.
  */
 
 type Interest = "racoes" | "aves" | "petiscos" | "banho" | "pesca" | "jardim";
@@ -135,16 +135,16 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
       </div>
 
       <header className="af-header">
-        <a href="#inicio" className="af-brand" aria-label="Agropet Filt, início da demonstração">
+        <a href="#inicio" className="af-brand" aria-label="Agropet Filt, início da página">
           <span className="af-symbol"><PawPrint size={21} strokeWidth={2.7} /></span>
           <span><strong>AGROPET</strong><small>FILT <i>·</i> PINHAIS</small></span>
         </a>
-        <nav className={navOpen ? "af-nav is-open" : "af-nav"} aria-label="Navegação desta demonstração">
+        <nav className={navOpen ? "af-nav is-open" : "af-nav"} aria-label="Navegação Agropet Filt">
           <a href="#encontre" onClick={() => setNavOpen(false)}>O que encontrar</a>
           <a href="#guia" onClick={() => setNavOpen(false)}>Seu pet</a>
           <a href="#localizacao" onClick={() => setNavOpen(false)}>Como chegar</a>
         </nav>
-        <button className="af-header-cta" onClick={() => open("racoes")}>Simular consulta <ArrowUpRight size={18} /></button>
+        <button className="af-header-cta" onClick={() => open("racoes")}>{isLive ? "Consultar produtos" : "Simular consulta"} <ArrowUpRight size={18} /></button>
         <button className="af-menu-toggle" aria-label={navOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={navOpen} onClick={() => setNavOpen(!navOpen)}>
           {navOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -208,7 +208,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
           {categories.map((item, index) => {
             const Icon = item.icon;
             return (
-              <button key={item.key} className={`af-category af-tone-${item.tone}`} onClick={() => open(item.key)} aria-label={`Simular consulta sobre ${item.name}`}>
+              <button key={item.key} className={`af-category af-tone-${item.tone}`} onClick={() => open(item.key)} aria-label={`${isLive ? "Consultar" : "Simular consulta sobre"} ${item.name}`}>
                 <div className="af-category-top"><span>{String(index + 1).padStart(2, "0")}</span><ArrowUpRight size={23}/></div>
                 <div className="af-category-icon"><Icon strokeWidth={1.45} size={63}/></div>
                 <div><p>{item.kicker}</p><h3>{item.name}</h3><small>{item.text}</small></div>
@@ -216,7 +216,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
             );
           })}
         </div>
-        <p className="af-source-caption">* Categorias compiladas de descrições em diretórios públicos. A prévia não informa preço, estoque, agenda ou disponibilidade.</p>
+        <p className="af-source-caption">* Categorias divulgadas em diretórios públicos. Valores, estoque, agenda e disponibilidade dependem de confirmação.</p>
       </section>
 
       <section className="af-guide" id="guia" aria-labelledby="af-guide-title">
@@ -239,7 +239,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
             <h4>{guides[guide].title}</h4>
             <p>{guides[guide].detail}</p>
           </div>
-          <button className="af-button af-guide-action" onClick={() => open(guides[guide].interest)}>Simular consulta <ArrowRight size={18}/></button>
+          <button className="af-button af-guide-action" onClick={() => open(guides[guide].interest)}>{isLive ? "Solicitar consulta" : "Simular consulta"} <ArrowRight size={18}/></button>
           <small>Conteúdo orientativo geral, sem recomendação veterinária ou confirmação de itens disponíveis.</small>
         </div>
       </section>
@@ -287,7 +287,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
       </section>
 
       <footer className="af-footer">
-        <div className="af-footer-main"><PawPrint size={35}/><h2>O cuidado começa<br/><em>perto de casa.</em></h2><button onClick={() => open("racoes")}>Conhecer o fluxo demonstrativo <ArrowUpRight size={20}/></button></div>
+        <div className="af-footer-main"><PawPrint size={35}/><h2>O cuidado começa<br/><em>perto de casa.</em></h2><button onClick={() => open("racoes")}>{isLive ? "Solicitar consulta" : "Conhecer o fluxo demonstrativo"} <ArrowUpRight size={20}/></button></div>
         <div className="af-footer-bottom"><span>AGROPET FILT · {isLive ? "PINHAIS" : "CONCEITO NÃO OFICIAL"}</span><span>{isLive ? "Portfólio publicado na" : "Projeto demonstrativo da"} <a href="https://0web.com.br" target="_blank" rel="noopener noreferrer">0WEB</a> · 2026</span></div>
       </footer>
 
@@ -296,7 +296,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
           <div className="af-dialog" role="dialog" aria-modal="true" aria-labelledby="af-dialog-heading">
             <div className="af-dialog-head">
               <div><span>AGROPET FILT · {isLive ? "ATENDIMENTO" : "EXPERIÊNCIA DEMONSTRATIVA"}</span><h2 id="af-dialog-heading">Consulta guiada</h2></div>
-              <button aria-label="Fechar simulação" onClick={close}><X size={23}/></button>
+              <button aria-label="Fechar consulta" onClick={close}><X size={23}/></button>
             </div>
             <div className="af-progress" aria-label={`Passo ${step} de 3`}><span style={{ width: `${(step / 3) * 100}%` }}/></div>
             {step === 1 && <div className="af-dialog-body">
