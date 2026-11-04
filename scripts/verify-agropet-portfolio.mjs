@@ -30,7 +30,7 @@ try {
       await page.screenshot({ path: out + "/" + width + ".png", fullPage: true, animations: "disabled", timeout: 30000 });
       const overflow = await page.evaluate(() => Math.max(0, document.documentElement.scrollWidth - window.innerWidth));
       assert.ok(overflow <= 2, "overflow horizontal " + overflow + "px");
-      const link = page.getByRole("button", { name: /consultar produtos|simular consulta/i }).first();
+      const link = page.locator(".af-category").first();
       await link.click();
       await page.getByRole("dialog").waitFor();
       assert.match(await page.getByRole("dialog").innerText(), /Consulta guiada/);
