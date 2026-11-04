@@ -40,9 +40,16 @@
   ],
   "notes": "Sem fotos do estabelecimento ou marca oficial disponíveis. Nenhuma foto de outro comércio é reutilizada.",
   "cover": {
-    "approved": false,
-    "strategy": "BRAND_LED + GENERATED_EDITORIAL",
+    "approved": true,
+    "strategy": "BRAND_LED",
     "asset": "public/images/agropet-filt/capa-card.svg",
-    "note": "Capa SVG autoral criada; análise visual em runtime pendente"
+    "evidence": "GitHub Action 41868845709 + explicit delegated creative authorization, proprietary vector; no real business photo"
+  },
+  "heroMedia": {
+    "asset": "src/components/site/AgropetFiltPreviewPage.tsx#af-pet-illustration",
+    "kind": "GRAPHIC_MEDIA",
+    "quality": "EDITORIAL",
+    "reviewedAt": "2026-11-04",
+    "notDocumentary": true
   }
 }

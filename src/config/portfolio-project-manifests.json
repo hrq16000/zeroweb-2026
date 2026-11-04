@@ -743,7 +743,7 @@
         "qa": "in_progress",
         "publish": "in_progress"
       },
-      "compositionContract": 0,
+      "compositionContract": 2,
       "individualSiteContract": {
         "version": 1,
         "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
@@ -855,17 +855,28 @@
         ]
       },
       "perceptualReview": {
-        "status": "PENDING_RUNTIME",
+        "status": "REVIEWED",
         "reviewedAt": "2026-11-04",
-        "notes": "Estrutura autoral revisada em fonte; screenshots e testes em runtime não concluídos."
+        "reviewer": "0WEB delegated visual agent",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "arildo-madeiras",
+          "dona-garimpeira-brecho"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#1440.png"
+        },
+        "notes": "Playwright E2E PASS 390/1440 on 2026-11-04; SVG pet+bird, six category mosaic and decision tool unlike lumber commerce or brecho editorial. Screenshot real and visually inspected by agent."
       },
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": "Aguardando Playwright e Lighthouse sobre a página oficial"
+        "status": "PASS",
+        "checkedAt": "2026-11-04",
+        "evidence": "GitHub Action 41868845709: 390px/1440px HTTP 200, noindex, canonical, modal CTA, no overflow and no pageerror"
       },
       "blockers": [
-        "RUN_LIVE_GATES_PENDING",
-        "VERIFY_LEAD_PERSISTENCE_IN_PREVIEW"
+        "VERIFY_LEAD_PERSISTENCE_IN_PREVIEW",
+        "REVIEW_FULL_PUBLISH_GATES"
       ],
       "warnings": [
         "Ausência de fotos reais da loja; imagens editoriais vetoriais originais",
@@ -902,8 +913,8 @@
       "lastUpdatedAt": "2026-11-04",
       "qaPreparation": {
         "targetCompositionContract": 2,
-        "reason": "Etapa DESIGN sem publicação: capturar screenshots reais em 390/1440 e verificar comparação perceptual antes de ativar a gate de composição v2",
-        "gateBeforePublish": "PROJECT_UNIQUENESS_GATE"
+        "completed": true,
+        "evidence": "GitHub Action 41868845709, artifact 13344216473"
       }
     }
   }
