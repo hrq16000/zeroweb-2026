@@ -108,7 +108,8 @@ for (const client of clients) {
     if (!pattern.test(route)) errors.push(`${label}: ${requirement} ausente`);
   }
 
-  if (!component.includes(`clientKey="${client.clientKey}"`)) {
+  if (!component.includes(`clientKey="${client.clientKey}"`) &&
+      !new RegExp(`clientKey:\\s*["\x27\\x60]${client.clientKey}["\x27\\x60]`).test(component)) {
     errors.push(`${label}: CTA sem clientKey explícita`);
   }
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
