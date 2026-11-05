@@ -2277,5 +2277,35 @@
     "badge": "Projeto real",
     "metrics": "Segunda a domingo · 9h às 18h",
     "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento."
+  },
+  {
+    "slug": "agropet-filt",
+    "clientKey": "agropet-filt",
+    "title": "Agropet Filt",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Pinhais",
+    "state": "PR",
+    "tags": [
+      "pet shop",
+      "aviário",
+      "rações",
+      "acessórios",
+      "petiscos",
+      "banho e tosa",
+      "artigos de pesca",
+      "jardinagem",
+      "Vargem Grande"
+    ],
+    "live": true,
+    "subtitle": "Rações, aves, acessórios e cuidados para pets em Pinhais",
+    "location": "Rua Monteiro Lobato, 160 · Vargem Grande · Pinhais — PR",
+    "badge": "Novo portfólio",
+    "image": "/images/agropet-filt/capa-card.svg",
+    "fallbackImage": "/images/agropet-filt/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta real, salva no sistema de formulários",
+    "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
   }
 ]

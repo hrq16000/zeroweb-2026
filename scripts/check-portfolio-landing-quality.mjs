@@ -406,8 +406,18 @@ export function evaluatePolicyGates({ slug, client, componentSource = "", mediaP
     if (/href\s*=\s*["'`](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)/i.test(componentSource)) {
       failures.push("CONTACT_FUNNEL_GATE: contato comercial bypassa o funil");
     }
-    if (!/PortfolioCTAQuiz|FunnelCTAButton|useFunnel|renderCta/.test(componentSource)) {
-      failures.push("CONTACT_FUNNEL_GATE: mecanismo de funil não encontrado");
+    const provider = readJson("src/config/portfolio-hosted-form-registry.json", { forms: {} }).forms?.[client?.clientKey ?? slug];
+    const verifiedHosted =
+      provider?.status === "verified" &&
+      provider?.provider === "jotform" &&
+      provider?.consentRequired === true &&
+      provider?.testSubmissionVerified === true &&
+      provider?.clientKey === (client?.clientKey ?? slug) &&
+      /^https:\/\/form\.jotform\.com\/\d+$/.test(provider?.url ?? "") &&
+      componentSource.includes(provider.url) &&
+      componentSource.includes('data-funnel-provider="jotform"');
+    if (!/PortfolioCTAQuiz|FunnelCTAButton|submitPortfolioQuiz|useFunnel|renderCta/.test(componentSource) && !verifiedHosted) {
+      failures.push("CONTACT_FUNNEL_GATE: mecanismo de funil ou formulário hospedado verificado não encontrado");
     }
   }
 

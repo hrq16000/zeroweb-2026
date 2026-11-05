@@ -639,6 +639,48 @@
         "brechó Boneca do Iguaçu",
         "comprar roupas usadas em São José dos Pinhais"
       ]
+    },
+    "agropet-filt": {
+      "aliases": [
+        "Agropet Filt",
+        "Aviário Agropet Filt",
+        "Agropet Filt Pinhais"
+      ],
+      "categories": [
+        "pet shop",
+        "aviário",
+        "loja de rações",
+        "loja de acessórios para pets"
+      ],
+      "services": [
+        "banho e tosa"
+      ],
+      "products": [
+        "rações",
+        "artigos para pássaros",
+        "acessórios",
+        "petiscos",
+        "pesca",
+        "jardinagem"
+      ],
+      "useCases": [
+        "procurar ração perto de casa",
+        "consultar banho e tosa em Pinhais",
+        "artigos para aves e pássaros",
+        "consultar jardinagem"
+      ],
+      "locality": [
+        "Vargem Grande",
+        "Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Agropet Filt Pinhais",
+        "aviário em Pinhais",
+        "pet shop Vargem Grande",
+        "rações Pinhais",
+        "artigos para pássaros Pinhais"
+      ]
     }
   }
 }

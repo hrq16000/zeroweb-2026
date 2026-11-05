@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "description": "Provedores externos autorizados por clientKey; nunca inserir credenciais aqui.",
+  "forms": {
+    "agropet-filt": {
+      "provider": "jotform",
+      "url": "https://form.jotform.com/263077233917057",
+      "status": "verified",
+      "dataHost": "Jotform",
+      "publicIntake": true,
+      "confirmedPersistedAt": "2026-11-04",
+      "testSubmissionVerified": true,
+      "consentRequired": true,
+      "clientKey": "agropet-filt",
+      "deliveryMode": "PROVIDER_INBOX",
+      "notes": "Teste sintético submetido e lido via Jotform. Nenhum WhatsApp atribuído nem banco Supabase necessário.",
+      "publishedAt": "2026-11-04",
+      "noSupabaseServiceRole": true
+    }
+  }
+}

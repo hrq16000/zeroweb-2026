@@ -1299,5 +1299,26 @@
       "source": "Site oficial informado pelo operador e pesquisado em 24/09/2026",
       "reference": "https://arildomadeiras.guiapinhais.com.br/"
     }
+  },
+  {
+    "clientKey": "agropet-filt",
+    "slug": "agropet-filt",
+    "siteName": "Aviário Agropet Filt",
+    "routeFile": "src/routes/portfolio.agropet-filt.tsx",
+    "componentFile": "src/components/site/AgropetFiltPreviewPage.tsx",
+    "assetsDir": "public/images/agropet-filt",
+    "ctaMode": "proposal",
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/agropet-filt.md",
+    "provenance": {
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "Fontes de diretórios pesquisadas em 04/11/2026; autorização comercial informada pelo operador no chat",
+      "reference": "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/"
+    }
   }
 ]

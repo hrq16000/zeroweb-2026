@@ -727,5 +727,18 @@
       "y": 0.45
     },
     "notes": "Capa derivada de foto pública da ficha do Google com painel de marca à esquerda; revisada em 390px e 1440px, sem contato operacional na imagem."
+  },
+  "agropet-filt": {
+    "coverReview": "APPROVED",
+    "coverDecision": "ORIGINAL_BRAND_EDITORIAL",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverSource": "public/images/agropet-filt/capa-card.svg",
+    "reviewedAt": "2026-11-04",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "notes": "Capa ilustrada original com mensagem editorial, sem foto de equipe/loja falsa, telefone, endereço exato, campanha ou preço. Usuário deu autorização à 0WEB para execução criativa autônoma; agente inspecionou SVG e screenshot renderizada (action 41868845709). A aprovação aplica-se apenas à composição editorial, não a dados comerciais ou alegação de marca oficial.",
+    "originalityReview": "UNIQUE_VECTOR_PET_AND_BIRD"
   }
 }

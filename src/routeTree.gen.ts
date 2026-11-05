@@ -122,9 +122,11 @@ import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.histor
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
+import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfolio-preview.agropet-filt'
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
@@ -834,6 +836,12 @@ const PortfolioEmLocalRoute = PortfolioEmLocalRouteImport.update({
   path: '/portfolio-em/$local',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioPreviewAgropetFiltRoute =
+  PortfolioPreviewAgropetFiltRouteImport.update({
+    id: '/portfolio-preview/agropet-filt',
+    path: '/portfolio-preview/agropet-filt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioPreviewDonaGarimpeiraBrechoRoute =
   PortfolioPreviewDonaGarimpeiraBrechoRouteImport.update({
     id: '/portfolio-preview/dona-garimpeira-brecho',
@@ -848,6 +856,11 @@ const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
 const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   id: '/portfolio/$slug',
   path: '/portfolio/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
+  id: '/portfolio/agropet-filt',
+  path: '/portfolio/agropet-filt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
@@ -1710,8 +1723,10 @@ export interface FileRoutesByFullPath {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -1957,8 +1972,10 @@ export interface FileRoutesByTo {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2208,8 +2225,10 @@ export interface FileRoutesById {
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2460,8 +2479,10 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -2707,8 +2728,10 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -2957,8 +2980,10 @@ export interface FileRouteTypes {
     | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
@@ -3206,8 +3231,10 @@ export interface RootRouteChildren {
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
+  PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
@@ -4047,6 +4074,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioEmLocalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio-preview/agropet-filt': {
+      id: '/portfolio-preview/agropet-filt'
+      path: '/portfolio-preview/agropet-filt'
+      fullPath: '/portfolio-preview/agropet-filt'
+      preLoaderRoute: typeof PortfolioPreviewAgropetFiltRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio-preview/dona-garimpeira-brecho': {
       id: '/portfolio-preview/dona-garimpeira-brecho'
       path: '/portfolio-preview/dona-garimpeira-brecho'
@@ -4066,6 +4100,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/$slug'
       fullPath: '/portfolio/$slug'
       preLoaderRoute: typeof PortfolioSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/agropet-filt': {
+      id: '/portfolio/agropet-filt'
+      path: '/portfolio/agropet-filt'
+      fullPath: '/portfolio/agropet-filt'
+      preLoaderRoute: typeof PortfolioAgropetFiltRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/dyzpromo': {
@@ -5454,9 +5495,11 @@ const rootRouteChildren: RootRouteChildren = {
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
+  PortfolioPreviewAgropetFiltRoute: PortfolioPreviewAgropetFiltRoute,
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,

@@ -121,7 +121,64 @@ function localDirectoryRepresentativeScope(files) {
   return exercisesLocalDirectory ? [...LOCAL_DIRECTORY_REPRESENTATIVE_SLUGS] : null;
 }
 
+/**
+ * Reconhece uma PR que cria APENAS uma prévia independente não indexável,
+ * mantendo todo o gate sobre a PRÉVIA (e não sobre ~100 páginas antigas).
+ *
+ * A rota deve ser nova, carregar um componente exclusivo e CSS exclusivo.
+ * Qualquer outro componente/rota/config de cliente continua impondo gate global.
+ * Os arquivos de infraestrutura listados são os próprios mecanismos que
+ * permitem o teste de prévias, não código de renderização compartilhado.
+ */
+export function previewOnlyScope(files) {
+  const names = files.map(normalize).filter(Boolean);
+  const routes = names.filter((file) => /^src\/routes\/portfolio-preview\.[a-z0-9-]+\.tsx$/.test(file));
+  if (routes.length !== 1) return null;
+  const route = routes[0];
+  const slug = route.match(/^src\/routes\/portfolio-preview\.([a-z0-9-]+)\.tsx$/)?.[1];
+  if (!slug) return null;
+
+  let source, componentSource;
+  try {
+    source = readFileSync(resolve(process.cwd(), route), "utf8");
+  } catch {
+    return null;
+  }
+  const match = source.match(/from\s+["']@\/components\/site\/([A-Za-z0-9_-]+)["']/);
+  if (!match) return null;
+  const component = `src/components/site/${match[1]}.tsx`;
+  try {
+    componentSource = readFileSync(resolve(process.cwd(), component), "utf8");
+  } catch {
+    return null;
+  }
+  const cssMatch = componentSource.match(/import\s+["']\.\/([a-z0-9-]+\.css)["']/);
+  if (!cssMatch) return null;
+  const css = `src/components/site/${cssMatch[1]}`;
+
+  // Qualquer arquivo fora desta allowlist retorna null (gate global).
+  const permitted = new Set([
+    route, component, css, "src/routeTree.gen.ts",
+    `docs/portfolio/drafts/${slug}-pilot.md`,
+    "scripts/resolve-visual-regression-scope.mjs",
+    "scripts/playwright-visual-regression.mjs",
+    ".lighthouserc.cjs",
+    ".github/workflows/lighthouse.yml",
+    ".github/workflows/portfolio-gates.yml",
+    "tests/portfolio/preview-route-scope.test.mjs",
+  ]);
+  if (!names.every((name) => permitted.has(name))) return null;
+
+  // A rota deve declarar privacidade e negar produção. Não confiar só em nome.
+  if (!source.includes("noindex,nofollow") ||
+      !source.includes("throw notFound()") ||
+      !source.includes("VERCEL_ENV")) return null;
+  return [`preview-${slug}`];
+}
+
 export function resolveVisualRegressionScope(files, clients) {
+  const previewScope = previewOnlyScope(files);
+  if (previewScope) return previewScope;
   const indexScope = portfolioIndexScope(files);
   if (indexScope) return indexScope;
 
