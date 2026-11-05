@@ -697,6 +697,9 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
       await import("@/lib/lead-recoverability");
     const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
+    if (data.clientKey === "agropet-filt" && !recoveryPhone) {
+      throw new Error("Informe um telefone brasileiro válido com DDD para retorno.");
+    }
 
     const quizMetadata: Record<string, unknown> = {
       source: "portfolio_client",

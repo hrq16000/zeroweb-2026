@@ -93,7 +93,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
   const finish = async () => {
     if (!isLive || !selected) return;
     const digits = phone.replace(/\D/g, "");
-    if (!name.trim() || digits.length < 10 || digits.length > 11 || !consent) {
+    if (!name.trim() || (digits.length !== 10 && digits.length !== 11) || Number(digits.slice(0, 2)) < 11 || !consent) {
       setError("Preencha seu nome, telefone com DDD e aceite o aviso de privacidade.");
       return;
     }
@@ -118,7 +118,12 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
           note: `Nome: ${name.trim().slice(0,90)}. Interesse: ${selected.name}. ${brief.trim().slice(0,600)}. Consentimento de contato: sim.`,
         },
       }});
-      if (response?.protocol) setProtocol(response.protocol);
+      if (response?.protocol) {
+        setProtocol(response.protocol);
+        if (response.redirectPath && /^\/r\/whatsapp\/[A-Za-z0-9_-]+$/.test(response.redirectPath)) {
+          window.location.assign(response.redirectPath);
+        }
+      }
       else setError("Não foi possível confirmar o registro. Tente novamente.");
     } catch {
       setError("Não foi possível registrar a consulta. Tente novamente.");
