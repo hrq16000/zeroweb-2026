@@ -62,7 +62,16 @@ const allRoutes = [
   { path: "/portfolio", name: "portfolio-index" },
   ...clients.map((c) => ({ path: `/portfolio/${c.slug}`, name: c.slug })),
 ];
-const routes = only.length ? allRoutes.filter((r) => only.includes(r.name)) : allRoutes;
+// Dedicated new demos may be outside portfolio-clients.json while commercial
+// ownership is pending. Explicit VISUAL_ONLY still captures the real route.
+const dedicatedOnly = only
+  .filter((slug) => /^[a-z0-9-]+$/.test(slug))
+  .filter((slug) => !allRoutes.some((route) => route.name === slug))
+  .filter((slug) => existsSync(resolve(process.cwd(), `src/routes/portfolio.${slug}.tsx`)))
+  .map((slug) => ({ path: `/portfolio/${slug}`, name: slug }));
+const routes = only.length
+  ? [...allRoutes.filter((r) => only.includes(r.name)), ...dedicatedOnly]
+  : allRoutes;
 const viewports = [
   { name: "desktop", width: 1280, height: 900 },
   { name: "tablet", width: 834, height: 1112 },
