@@ -9,12 +9,13 @@ export const SITE_URL = "https://0web.com.br";
 export function organizationNode() {
   return {
     "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
+    "@id": `${SITE_URL}/#org`,
     name: "0WEB",
     url: SITE_URL,
+    logo: `${SITE_URL}/favicon.ico`,
     description:
-      "Agência de criação de sites, landing pages de alta conversão, SEO local e marketing digital para pequenos e médios negócios no Brasil.",
-    areaServed: "BR",
+      "Criação de sites, landing pages, SEO, automação e presença digital para negócios no Brasil.",
+    areaServed: { "@type": "Country", name: "Brasil" },
     knowsAbout: [
       "criação de sites",
       "landing pages de conversão",
@@ -32,7 +33,7 @@ export function localBusinessNode(place?: PortfolioPlace) {
     "@id": place ? `${SITE_URL}/#local-${place.slug}` : `${SITE_URL}/#local`,
     name: place ? `0WEB — Criação de Sites em ${place.name}` : "0WEB — Criação de Sites",
     url: place ? `${SITE_URL}/bairros-${place.state === "PR" ? "cwb" : "bh"}/${place.slug}` : SITE_URL,
-    parentOrganization: { "@id": `${SITE_URL}/#organization` },
+    parentOrganization: { "@id": `${SITE_URL}/#org` },
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
@@ -60,7 +61,7 @@ export function serviceNode(segment: PortfolioSegment, place?: PortfolioPlace) {
       : `${SITE_URL}/portfolio#service-${segment.slug}`,
     name,
     serviceType: segment.keyword,
-    provider: { "@id": `${SITE_URL}/#organization` },
+    provider: { "@id": `${SITE_URL}/#org` },
     ...(place ? { areaServed: { "@type": "City", name: place.city } } : { areaServed: "BR" }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
