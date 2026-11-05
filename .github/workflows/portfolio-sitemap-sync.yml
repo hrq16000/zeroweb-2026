@@ -13,6 +13,10 @@ on:
       - "src/routes/sitemap-portfolio*.ts"
       - ".github/workflows/portfolio-sitemap-sync.yml"
       - "scripts/check-live-portfolio-indexability.mjs"
+  pull_request:
+    paths:
+      - "scripts/check-live-portfolio-indexability.mjs"
+      - ".github/workflows/portfolio-sitemap-sync.yml"
   schedule:
     - cron: "17 10 * * *"
   workflow_dispatch:

@@ -68,6 +68,7 @@ async function verify(slug, sitemapUrls) {
     const title = page.body.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "";
 
     if (page.status !== 200) reasons.push("HTTP " + page.status);
+    if (new URL(page.url).origin !== ORIGIN) reasons.push("host final diferente do domínio oficial: " + page.url);
     if (new URL(page.url).pathname.replace(/\/$/, "") !== "/portfolio/" + slug) reasons.push("redireciona para " + page.url);
     if (!/(^|[,;\s])index([,;\s]|$)/.test(robot) || /noindex/.test(robot)) reasons.push("meta robots não indexável: " + (robot || "ausente"));
     if (/(^|[,;\s])noindex([,;\s]|$)/i.test(xRobot)) reasons.push("X-Robots-Tag impede indexação");
