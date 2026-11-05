@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import {
   ArrowDownRight,
@@ -28,7 +26,7 @@ import "./agropet-filt-preview.css";
 /**
  * Pesquisa pública convertida em conceito editorial independente.
  * Prévia independente por padrão; modo live habilitado somente em rota autorizada. Fotos locais não disponíveis.
- * Modo preview: não coleta. Modo live: persiste no funil 0WEB com consentimento.
+ * Modo preview: não coleta. Modo live: formulário de atendimento externo autorizado, embutido na página 0WEB.
  */
 
 type Interest = "racoes" | "aves" | "petiscos" | "banho" | "pesca" | "jardim";
@@ -68,13 +66,6 @@ const agropetMotion = { motionIntensity: "BALANCED" } as const;
 
 export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
   const isLive = mode === "live";
-  const submitLead = useServerFn(submitPortfolioQuiz);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
-  const [protocol, setProtocol] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [interest, setInterest] = useState<Interest | null>(null);
   const [guide, setGuide] = useState<GuideKey>("cao");
@@ -82,53 +73,8 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
   const selected = categories.find((item) => item.key === interest);
-  const open = (value: Interest) => {
-    setInterest(value); setBrief(""); setStep(1); setNavOpen(false);
-    setName(""); setPhone(""); setConsent(false); setProtocol(""); setError("");
-  };
-  const close = () => {
-    if (sending) return;
-    setInterest(null); setBrief(""); setStep(1); setError(""); setProtocol("");
-  };
-  const finish = async () => {
-    if (!isLive || !selected) return;
-    const digits = phone.replace(/\D/g, "");
-    if (!name.trim() || (digits.length !== 10 && digits.length !== 11) || Number(digits.slice(0, 2)) < 11 || !consent) {
-      setError("Preencha seu nome, telefone com DDD e aceite o aviso de privacidade.");
-      return;
-    }
-    setSending(true); setError("");
-    try {
-      const response = await submitLead({ data: {
-        clientKey: "agropet-filt",
-        studioName: "Agropet Filt",
-        recipientName: "equipe Agropet Filt",
-        mode: "proposal",
-        proposalKind: "service",
-        funnelIntent: "orcamento",
-        recoveryContact: digits,
-        contactName: name.trim(),
-        privacyConsent: consent,
-        pageUrl: typeof window === "undefined" ? undefined : window.location.href,
-        answers: {
-          service: selected.name,
-          experience: "Consulta de produtos e serviços",
-          period: "Vargem Grande · Pinhais",
-          timing: "A combinar",
-          note: `Nome: ${name.trim().slice(0,90)}. Interesse: ${selected.name}. ${brief.trim().slice(0,600)}. Consentimento de contato: sim.`,
-        },
-      }});
-      if (response?.protocol) {
-        setProtocol(response.protocol);
-        if (response.redirectPath && /^\/r\/whatsapp\/[A-Za-z0-9_-]+$/.test(response.redirectPath)) {
-          window.location.assign(response.redirectPath);
-        }
-      }
-      else setError("Não foi possível confirmar o registro. Tente novamente.");
-    } catch {
-      setError("Não foi possível registrar a consulta. Tente novamente.");
-    } finally { setSending(false); }
-  };
+  const open = (value: Interest) => { setInterest(value); setBrief(""); setStep(1); setNavOpen(false); };
+  const close = () => { setInterest(null); setBrief(""); setStep(1); };
 
   useEffect(() => {
     if (!interest) return;
@@ -340,35 +286,12 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
               <div className="af-dialog-actions"><button onClick={() => setStep(1)}><ArrowLeft size={17}/> Voltar</button><button className="af-dialog-next" onClick={() => setStep(3)}>Ver resumo <ArrowRight size={17}/></button></div>
             </div>}
             {step === 3 && <div className="af-dialog-body">
-              <span className="af-step">ETAPA 03 · {isLive ? "FINALIZAR CONSULTA" : "SIMULAÇÃO CONCLUÍDA"}</span>
-              {protocol ? (
-                <>
-                  <div className="af-dialog-done"><Check size={33}/></div>
-                  <h3>Consulta registrada!</h3>
-                  <div className="af-dialog-summary"><strong>Protocolo: {protocol}</strong><p>Guarde este número. Produtos e agenda dependem de confirmação.</p></div>
-                  <button className="af-dialog-next" onClick={close}>Concluir <Check size={18}/></button>
-                </>
-              ) : isLive ? (
-                <>
-                  <h3>Como podemos retornar?</h3>
-                  <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Consulta de disponibilidade e condições."}</p></div>
-                  <label htmlFor="af-contact-name">Seu nome</label>
-                  <input id="af-contact-name" className="af-dialog-input" autoComplete="name" maxLength={90} value={name} onChange={e=>setName(e.target.value)} placeholder="Nome"/>
-                  <label htmlFor="af-contact-phone">Telefone com DDD para retorno</label>
-                  <input id="af-contact-phone" className="af-dialog-input" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} value={phone} onChange={e=>setPhone(e.target.value)} placeholder="DDD + número para retorno"/>
-                  <label className="af-consent"><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)}/> Autorizo o registro destes dados e contato sobre a consulta conforme a <a href="/politica-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a> da 0WEB.</label>
-                  {error && <p role="alert" className="af-form-error">{error}</p>}
-                  <div className="af-dialog-actions"><button disabled={sending} onClick={()=>setStep(2)}><ArrowLeft size={17}/> Voltar</button><button disabled={sending || !consent} className="af-dialog-next" onClick={finish}>{sending ? "Registrando..." : "Registrar consulta"} <ArrowRight size={17}/></button></div>
-                </>
-              ) : (
-                <>
-                  <div className="af-dialog-done"><Check size={33}/></div>
-                  <h3>Assim seria o início da sua consulta.</h3>
-                  <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Sem detalhes adicionais."}</p></div>
-                  <p><strong>Nenhum pedido foi enviado ou armazenado.</strong> Demonstração sem coleta de dados.</p>
-                  <button className="af-dialog-next" onClick={close}>Concluir demonstração <Check size={18}/></button>
-                </>
-              )}
+              <span className="af-step">ETAPA 03 · SIMULAÇÃO CONCLUÍDA</span>
+              <div className="af-dialog-done"><Check size={33}/></div>
+              <h3>Assim seria o início da sua consulta.</h3>
+              <div className="af-dialog-summary"><strong>{selected.name}</strong><p>{brief.trim() || "Sem detalhes adicionais."}</p></div>
+              <p><strong>Nenhum pedido foi enviado ou armazenado.</strong> Demonstração sem coleta de dados.</p>
+              <button className="af-dialog-next" onClick={close}>Concluir demonstração <Check size={18}/></button>
             </div>}
               </>
             )}

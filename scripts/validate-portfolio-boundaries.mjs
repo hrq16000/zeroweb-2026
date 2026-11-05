@@ -109,7 +109,7 @@ for (const client of clients) {
   }
 
   if (!component.includes(`clientKey="${client.clientKey}"`) &&
-      !new RegExp(`clientKey:\\s*["\x27\\x60]${client.clientKey}["\x27\\x60]`).test(component)) {
+      !new RegExp(`clientKey:\\s*["\x27\\x60]${client.clientKey}["\x27\\x60]`).test(component) && !component.includes(`data-client-key="${client.clientKey}"`)) {
     errors.push(`${label}: CTA sem clientKey explícita`);
   }
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
