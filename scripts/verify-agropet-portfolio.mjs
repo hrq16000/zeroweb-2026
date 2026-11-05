@@ -24,7 +24,8 @@ try {
       await page.getByRole("heading", { level: 1 }).waitFor();
       assert.match(await page.getByRole("heading", { level: 1 }).innerText(), /Do bico ao focinho/i);
       const robots = await page.locator('meta[name="robots"]').getAttribute("content");
-      assert.match(robots || "", /noindex/, "não pode indexar antes de gates");
+      assert.match(robots || "", /index,follow/, "portfólio publicado deve permitir rastreamento");
+      assert.doesNotMatch(robots || "", /noindex/, "portfólio comercial não pode estar noindex");
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), "https://0web.com.br/portfolio/agropet-filt");
       await page.evaluate(() => document.fonts?.ready);
       await page.screenshot({ path: out + "/" + width + ".png", fullPage: true, animations: "disabled", timeout: 30000 });
@@ -39,7 +40,7 @@ try {
       assert.equal(await iframe.getAttribute("src"), "https://form.jotform.com/263077233917057", "formulário persistente correto");
       assert.equal(await page.locator('[data-client-key="agropet-filt"][data-funnel-provider="jotform"]').count(), 1, "único formulário por clientKey");
       assert.equal(errors.length, 0, "nenhum erro JS: " + errors.join("; "));
-      console.log("[agropet-qa] PASS " + width + "px; noindex, canonical, modal, no-overflow, JS clean");
+      console.log("[agropet-qa] PASS " + width + "px; index-on, canonical, modal, no-overflow, JS clean");
     } catch (e) {
       failure++;
       console.error("[agropet-qa] FAIL " + width + "px: " + (e instanceof Error ? e.message : String(e)));

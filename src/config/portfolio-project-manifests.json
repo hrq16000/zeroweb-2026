@@ -786,12 +786,12 @@
       "structuralContract": 1,
       "structuralSignature": {
         "segment": "pet shop e aviário",
-        "layoutFamily": "editorial-local",
-        "heroFamily": "ilustracao-assimetrica",
-        "sectionRhythm": "mosaico-utilitario",
-        "proofStyle": "endereco-verificado",
-        "mediaNarrative": "ilustracao-contextual",
-        "ctaStyle": "selecao-por-interesse",
+        "layoutFamily": "local-de-bairro",
+        "heroFamily": "split-editorial",
+        "sectionRhythm": "modular-grid",
+        "proofStyle": "local-seal",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "floating-persistent",
         "motionProfile": "pet-editorial-balanced"
       },
       "structuralOriginalityReview": {

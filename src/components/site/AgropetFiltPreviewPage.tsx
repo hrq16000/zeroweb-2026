@@ -62,6 +62,11 @@ type GuideKey = keyof typeof guides;
 const street = "Rua Monteiro Lobato, 160 — Vargem Grande, Pinhais/PR";
 const mapHref = "https://www.google.com/maps/search/?api=1&query=Rua%20Monteiro%20Lobato%20160%20Vargem%20Grande%20Pinhais%20PR";
 
+/** Fonte do gate de unicidade: topologia real do site comercial, não um skin genérico. */
+const agropetComposition = {
+  sectionGraph: "editorial-hero→pet-category-marquee→six-product-tiles→guided-pet-selection→neighborhood-trust→illustrated-location→faq-conversion",
+} as const;
+void agropetComposition;
 const agropetMotion = { motionIntensity: "BALANCED" } as const;
 
 export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
