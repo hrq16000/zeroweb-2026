@@ -54,12 +54,27 @@ function SeoDashboard() {
           {data.status === "pending" && (
             <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 mb-6 text-sm">
               <p className="font-semibold flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4" /> Snapshot do Search Console ainda não gerado
+                <AlertTriangle className="w-4 h-4" /> Snapshot do Search Console sem dados atuais
               </p>
               <p className="mt-1 text-muted-foreground">
-                Rode <code>bun run gsc:export</code> (ou a rotina diária de CI) com as credenciais
-                do conector para preencher <code>seo-reports/gsc-latest.json</code>. Até lá, nenhum
-                número é exibido — o painel não estima dados.
+                A coleta pode estar ausente, vazia ou antiga. Rode <code>bun run gsc:export</code>
+                (ou a rotina diária de CI) com a conexão autorizada. Este painel não atribui
+                posições nem cliques atuais a um snapshot desatualizado.
+              </p>
+            </div>
+          )}
+
+          {data.snapshotStale && data.refreshedAt && (
+            <div role="status" className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 mb-6 text-sm">
+              <p className="font-semibold flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4" />
+                Search Console: coleta desatualizada
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                Última sincronização em {new Date(data.refreshedAt).toLocaleDateString("pt-BR")}.
+                {data.snapshotAgeDays !== null && ` Há ${data.snapshotAgeDays} dias.`}
+                {" "}Os números anteriores não são prova do desempenho, ranking ou indexação de hoje.
+                Verifique a rotina de exportação antes de comparar concorrentes.
               </p>
             </div>
           )}
@@ -128,7 +143,7 @@ function SeoDashboard() {
                       Posição {w.position?.toFixed(1)} · {w.impressions} impressões · CTR {pct(w.ctr)} · {w.clicks} cliques
                     </p>
                   ) : (
-                    <p className="mt-1 text-xs text-muted-foreground">Sem dados no período — ainda não aparece nas buscas.</p>
+                    <p className="mt-1 text-xs text-muted-foreground">Sem dados disponíveis nesta coleta; isso não comprova ausência no Google.</p>
                   )}
                   <span className="mt-2 inline-block rounded-full bg-background px-2 py-0.5 text-[11px] text-muted-foreground">
                     {w.status}

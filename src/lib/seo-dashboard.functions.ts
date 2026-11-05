@@ -12,6 +12,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import snapshot from "@/data/gsc-latest.json";
+import { assessGscSnapshotFreshness } from "./gsc-snapshot-freshness";
 import { posts } from "./blog-data";
 
 export type GscRow = { keys: string[]; clicks: number; impressions: number; ctr: number; position: number };
@@ -210,19 +211,26 @@ export const getSeoDashboard = createServerFn({ method: "GET" })
     if (!allowed) throw new Error("forbidden");
 
     const snap = snapshot as unknown as SeoSnapshot;
-    const hasData = Boolean(snap.refreshedAt) && (snap.queries?.length ?? 0) > 0;
+    const freshness = assessGscSnapshotFreshness(snap.refreshedAt);
+    // Recusar ranking/CTR de exportações antigas ou vazias.
+    // A auditoria editorial continua disponível sem Search Console atual.
+    const hasFreshData = !freshness.stale && (snap.queries?.length ?? 0) > 0;
+    const currentQueries = hasFreshData ? (snap.queries ?? []) : [];
+    const currentDays = hasFreshData ? (snap.days ?? []) : [];
 
     return {
-      status: hasData ? ("ok" as const) : ("pending" as const),
+      status: hasFreshData ? ("ok" as const) : ("pending" as const),
       siteUrl: snap.siteUrl || "https://0web.com.br/",
       range: snap.range ?? { startDate: "", endDate: "" },
       refreshedAt: snap.refreshedAt ?? null,
-      totals: snap.totals ?? null,
-      queries: (snap.queries ?? []).slice(0, 50),
-      pages: (snap.pages ?? []).slice(0, 50),
-      priorities: prioritize(snap.queries ?? []),
-      watched: watchedKeywords(snap.queries ?? []),
-      alerts: buildAlerts(snap.days ?? [], data.alertThresholdPct),
+      snapshotStale: freshness.stale,
+      snapshotAgeDays: freshness.ageDays,
+      totals: hasFreshData ? (snap.totals ?? null) : null,
+      queries: currentQueries.slice(0, 50),
+      pages: hasFreshData ? (snap.pages ?? []).slice(0, 50) : [],
+      priorities: prioritize(currentQueries),
+      watched: watchedKeywords(currentQueries),
+      alerts: buildAlerts(currentDays, data.alertThresholdPct),
       alertThresholdPct: data.alertThresholdPct,
       content: contentRows(),
     };
