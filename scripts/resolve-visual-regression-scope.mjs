@@ -254,7 +254,10 @@ export function resolveVisualRegressionScope(files, clients) {
       /^src\/routes\/portfolio\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
       newRoutesOwned.has(normalize(candidate)),
     );
-    if (file === "src/routeTree.gen.ts" && changedOwnedRoute) continue;
+    if (file === "src/routeTree.gen.ts") {
+      if (changedOwnedRoute) continue;
+      return []; // Rotas geradas sem sua rota exclusiva alterada: gate global.
+    }
 
     const newClientSlug = newRoutesOwned.get(file);
     if (newClientSlug) {
