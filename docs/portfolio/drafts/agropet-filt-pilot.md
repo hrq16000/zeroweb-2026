@@ -107,3 +107,13 @@ Métricas a registrar desde o piloto: tempo até preview, fontes encontradas, % 
 **Lighthouse:** `LHCI_SCOPE=preview`, uma rota, mesmo limite de performance (≥ 90) e acessibilidade (≥ 95), LCP, CLS e TBT. SEO indexável/canonical são intencionalmente não aplicáveis à prévia **noindex** e não são tratados como PASS. A versão pública oficial exigirá todos os SEO gates completos. As rotas de produção mantêm regras originais.
 
 **Evidência obrigatória:** inspecionar resultados do commit atualizado da PR #489 e a Vercel de mesmo SHA. Nenhum número de CI ou preview deve ser declarado final antes de `conclusion:success` para os gates apropriados e `READY` para o deploy.
+
+## 9. Alternativa operacional validada — formulário Jotform (04/11/2026)
+
+O backend Supabase criado pelo Lovable não disponibiliza service role para o deploy Vercel. Em vez de criar outro banco ou persistir sem credencial, a Agropet recebe **formulário exclusivo Jotform**, embutido no portfólio com domínio https://form.jotform.com/263077233917057. A captura ocorre diretamente no provedor e é recuperável no inbox autenticado. Não são transmitidos dados de lead por código da 0WEB; o iframe é o ponto único de envio e aplica seu próprio consentimento obrigatório.
+
+**Prova de gravação:** submissão de teste sintético criada e lida em 04/11/2026, número 6696476235206459409 (rotulada NÃO CONTATAR). O registro do formulário está acessível ao administrador pela conta Jotform. Não corresponde a lead real.
+
+**UX:** o fluxo live, independente dos campos de prévia, mostra o iframe e um link externo de contingência. O botão flutuante antigo da shell fica desativado especificamente para Agropet, impedindo chamadas à captura que depende da service role. Nenhum WhatsApp presumido é usado.
+
+**Trade-off:** os leads são guardados no Jotform e **não são automaticamente espelhados no painel Supabase da 0WEB**; portanto o dashboard interno de leads não deve afirmar contagem/resultado desse cliente até integração autorizada e comprovada. A dependência Jotform é um provedor SaaS externo, mas não exige Lovable/Supabase novo.

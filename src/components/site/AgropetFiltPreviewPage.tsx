@@ -310,6 +310,21 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
               <button aria-label="Fechar consulta" onClick={close}><X size={23}/></button>
             </div>
             <div className="af-progress" aria-label={`Passo ${step} de 3`}><span style={{ width: `${(step / 3) * 100}%` }}/></div>
+            {isLive ? (
+              <div className="af-jotform-embed" data-funnel-provider="jotform" data-client-key="agropet-filt">
+                <p>Faça sua consulta pelo formulário seguro. Após o envio, sua solicitação fica registrada no sistema de atendimento.</p>
+                <iframe
+                  title="Agropet Filt — formulário de consulta"
+                  src="https://form.jotform.com/263077233917057"
+                  width="100%"
+                  height="610"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+                <p>Não abriu o formulário? <a href="https://form.jotform.com/263077233917057" target="_blank" rel="noopener noreferrer">Abrir a consulta em uma nova aba</a>.</p>
+              </div>
+            ) : (
+              <>
             {step === 1 && <div className="af-dialog-body">
               <span className="af-step">ETAPA 01 · ESCOLHA SUA NECESSIDADE</span>
               <h3>Sobre o que você quer consultar?</h3>
@@ -355,6 +370,8 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
                 </>
               )}
             </div>}
+              </>
+            )}
             <div className="af-dialog-foot"><span><Package size={16}/> Sem estoque ou agendamento fictício</span><span>{isLive ? "Registro seguro · 0WEB" : "Prévia segura · 0WEB"}</span></div>
           </div>
         </div>

@@ -1439,7 +1439,8 @@
             "note": "Detalhe o item ou serviço"
           },
           "notePlaceholder": "Espécie, porte, marca desejada ou o que precisa confirmar. Sem garantia de estoque."
-        }
+        },
+        "enabled": false
       },
       "footer": {
         "variant": "dark"
