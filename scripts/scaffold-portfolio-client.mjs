@@ -49,6 +49,9 @@ if (!FUNNEL_TYPES[funnelType]) {
   process.exit(1);
 }
 const ctaLabel = FUNNEL_TYPES[funnelType];
+// Agendamento real é opt-in e nasce bloqueado até existir backend + OAuth + RLS.
+// "agendamento" sem backend continua sendo captação de intenção pelo funil.
+const managedBookingRequested = args.includes("--managed-booking") || funnelType === "agendamento";
 
 if (!slug || !siteName) {
   console.error("Uso: node scripts/scaffold-portfolio-client.mjs --slug <slug> --name \"<Nome>\"");
@@ -118,6 +121,46 @@ if (transactionalDelivery) {
   write(deliveryManifestPath, `${JSON.stringify(deliveryManifest, null, 2)}\n`);
   console.warn(
     `[scaffold:delivery] ${slug}: apenas manifesto BLOCKED; sem checkout, pedido ou pagamento implementado.`,
+  );
+}
+
+/**
+ * BOOKING — somente contrato de readiness. Não cria conta, slot, reserva,
+ * profissional, painel ou dados falsos. Esta capacidade é tenant-scoped.
+ */
+if (managedBookingRequested) {
+  const readiness = {
+    schemaVersion: 1,
+    capability: "portfolio_managed_booking",
+    slug,
+    clientKey,
+    sourceFunnelIntent: funnelType,
+    mode: "managed_booking",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    googleLoginOnly: true,
+    adminAccessConfigured: false, // E-mails são privados e nunca versionados no repositório.
+    gates: [
+      "google_oauth_verified",
+      "admin_email_whitelist_and_server_authorization",
+      "tenant_rls_isolation_verified",
+      "service_and_staff_catalog_real",
+      "work_hours_and_exceptions_saved",
+      "transactional_slot_conflict_guard",
+      "persistent_booking_and_protocol",
+      "public_booking_e2e_pass",
+      "client_admin_e2e_pass",
+      "public_seo_and_private_noindex_pass",
+    ].map((id) => ({ id, status: "NOT_EXECUTED", evidence: null })),
+    standard: "docs/PORTFOLIO_BOOKING_CLIENT_ADMIN_STANDARD.md",
+    note: "DRAFT/BLOCKED. Existing funnel captures only booking intent. This manifest does not enable live appointments.",
+  };
+  write(
+    `docs/portfolio/booking-readiness/${slug}.json`,
+    `${JSON.stringify(readiness, null, 2)}\n`,
+  );
+  console.warn(
+    `[scaffold:booking] ${slug}: manifesto BLOCKED; sem reserva confirmada ou painel de cliente operacional.`,
   );
 }
 
