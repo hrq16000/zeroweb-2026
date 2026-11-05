@@ -2284,7 +2284,7 @@
     "title": "Agropet Filt",
     "segment": "comercios",
     "projectType": "catalog",
-    "status": "draft",
+    "status": "published",
     "city": "Pinhais",
     "state": "PR",
     "tags": [
@@ -2298,14 +2298,14 @@
       "jardinagem",
       "Vargem Grande"
     ],
-    "live": false,
+    "live": true,
     "subtitle": "Rações, aves, acessórios e cuidados para pets em Pinhais",
     "location": "Rua Monteiro Lobato, 160 · Vargem Grande · Pinhais — PR",
     "badge": "Novo portfólio",
     "image": "/images/agropet-filt/capa-card.svg",
     "fallbackImage": "/images/agropet-filt/social-og.svg",
     "imageFocalPoint": "center",
-    "metrics": "Consulta de disponibilidade pelo funil",
+    "metrics": "Consulta real, salva no sistema de formulários",
     "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
   }
 ]

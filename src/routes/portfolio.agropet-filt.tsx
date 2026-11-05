@@ -62,7 +62,7 @@ export const Route = createFileRoute("/portfolio/agropet-filt")({
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "robots", content: "noindex,nofollow,noarchive" },
+      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },

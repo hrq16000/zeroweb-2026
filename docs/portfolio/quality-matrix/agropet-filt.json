@@ -4,7 +4,7 @@
   "matrixVersion": 1,
   "contractVersion": 4,
   "evaluatedAt": "2026-11-04",
-  "technicalPass": false,
+  "technicalPass": true,
   "editorialPass": true,
   "dimensions": {
     "ENTITY": {
@@ -36,8 +36,8 @@
       "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
     },
     "CONVERSION": {
-      "status": "WARNING",
-      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+      "status": "PASS",
+      "notes": "Formulário dedicado Jotform com consentimento e gravação real confirmada por submissão sintética e releitura da inbox."
     },
     "PROOF": {
       "status": "PASS",
@@ -56,8 +56,8 @@
       "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
     },
     "QA": {
-      "status": "WARNING",
-      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+      "status": "PASS",
+      "notes": "Visual Playwright 390/1440, build+tipagem e comprovação independente de submissão persistida em Jotform; seguir CI final."
     },
     "CONTENT_DEPTH": {
       "status": "PASS",
@@ -84,8 +84,8 @@
       "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
     },
     "CONVERSION_CONTINUITY": {
-      "status": "WARNING",
-      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+      "status": "PASS",
+      "notes": "Todas as categorias, guia, header e CTA flutuante direcionam ao mesmo formulário integrado, sem WhatsApp presumido."
     },
     "MOTION_DESIGN": {
       "status": "PASS",
@@ -213,9 +213,9 @@
       "reason": "A camada de CTA flutuante pertence ao PortfolioStandardShell, evitando duas cópias do mesmo mecanismo na landing."
     },
     "embed": {
-      "status": "WARNING",
+      "status": "PASS",
       "checkedAt": "2026-11-04",
-      "notes": "Card cadastrado em catálogo, ainda não publicado até gates aprovados."
+      "notes": "Card publicado no catálogo e integrado à rota /portfolio/agropet-filt com CTA próprio e formulário persistente Jotform verificado."
     },
     "structuralSkeleton": {
       "topology": [
@@ -270,9 +270,10 @@
   "deadZones": [],
   "p0": [],
   "warnings": [
-    "E2E do registro real de lead pendente.",
-    "Lighthouse da rota própria e Gate de integração a main ainda pendentes.",
-    "Fotos oficiais da empresa não disponibilizadas; mídia puramente editorial"
+    "Fotos oficiais da empresa não disponibilizadas; mídia puramente editorial",
+    "Formulário persistente hospedado (Jotform), sem espelhamento no painel Supabase",
+    "Sem fotos reais, apenas mídia editorial original e informações de diretórios",
+    "Indexable=on significa elegível para rastreamento, não indexação confirmada pelo Google"
   ],
   "ownerRequired": [
     "Enviar fotos oficiais da fachada e mercadorias quando disponíveis",

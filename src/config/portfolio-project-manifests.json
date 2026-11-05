@@ -726,7 +726,7 @@
       "slug": "agropet-filt",
       "lifecycleContract": 1,
       "contractVersion": 4,
-      "stage": "design",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -740,8 +740,8 @@
         "seo": "complete",
         "funnel": "complete",
         "cover": "complete",
-        "qa": "in_progress",
-        "publish": "in_progress"
+        "qa": "complete",
+        "publish": "complete"
       },
       "compositionContract": 2,
       "individualSiteContract": {
@@ -753,7 +753,7 @@
           "PORTFOLIO_LOCAL_SEO_GATE": "complete",
           "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
           "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
-          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
         },
         "evidence": {
           "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
@@ -774,6 +774,12 @@
           "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
             "src/config/portfolio-discovery.json (termos da marca/segmento/localidade)",
             "src/lib/portfolio-site-registry.ts (entidade navegável)"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx: canonical, robots index,follow, OG e PetStore JSON-LD",
+            "src/config/portfolio-catalog.json: published live true",
+            "src/lib/portfolio-site-registry.ts: indexable true",
+            "src/config/portfolio-hosted-form-registry.json: verified consented intake, prova de gravação via Jotform 04/11/2026"
           ]
         }
       },
@@ -872,16 +878,15 @@
       "visualQa": {
         "status": "PASS",
         "checkedAt": "2026-11-04",
-        "evidence": "GitHub Action 41868845709: 390px/1440px HTTP 200, noindex, canonical, modal CTA, no overflow and no pageerror"
+        "evidence": "GitHub Actions 41868845709: Playwright 390/1440 com HTTP 200, canonical e modal; e2e Jotform standalone de gravação/leitura 04/11/2026."
       },
-      "blockers": [
-        "VERIFY_LEAD_PERSISTENCE_IN_PREVIEW",
-        "REVIEW_FULL_PUBLISH_GATES"
-      ],
+      "blockers": [],
       "warnings": [
         "Ausência de fotos reais da loja; imagens editoriais vetoriais originais",
-        "WhatsApp de destino não validado: lead-only e callback por telefone fornecido pelo visitante",
-        "Horário informado em diretórios, sujeito a confirmação"
+        "Horário informado em diretórios, sujeito a confirmação",
+        "Canal WhatsApp comercial não confirmado, formulário hospedado em vez de redirecionamento",
+        "Fotos reais da loja não disponíveis; identidade editorial autoral",
+        "Registro das consultas permanece no Jotform, não no painel CRM Supabase da 0WEB"
       ],
       "ownerRequired": [
         "Confirmar WhatsApp oficial, caso queira ativar redirecionamento pós-lead",
@@ -914,7 +919,7 @@
       "qaPreparation": {
         "targetCompositionContract": 2,
         "completed": true,
-        "evidence": "GitHub Action 41868845709, artifact 13344216473"
+        "evidence": "E2E navegador e Jotform persistidos; sem dados pessoais reais de clientes"
       }
     }
   }

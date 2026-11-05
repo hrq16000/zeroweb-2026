@@ -13,7 +13,9 @@
       "consentRequired": true,
       "clientKey": "agropet-filt",
       "deliveryMode": "PROVIDER_INBOX",
-      "notes": "Teste sintético submetido e lido via Jotform. Nenhum WhatsApp atribuído nem banco Supabase necessário."
+      "notes": "Teste sintético submetido e lido via Jotform. Nenhum WhatsApp atribuído nem banco Supabase necessário.",
+      "publishedAt": "2026-11-04",
+      "noSupabaseServiceRole": true
     }
   }
 }
