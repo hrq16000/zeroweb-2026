@@ -139,7 +139,7 @@ if (managedBookingRequested) {
     implementationStatus: "NOT_IMPLEMENTED",
     productionEnabled: false,
     googleLoginOnly: true,
-    adminEmails: [],
+    adminAccessConfigured: false, // E-mails são privados e nunca versionados no repositório.
     gates: [
       "google_oauth_verified",
       "admin_email_whitelist_and_server_authorization",
