@@ -248,6 +248,10 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
         <div className="af-host-credit"><PortfolioHostCredit /></div>
       </footer>
 
+      {isLive && <button className="af-live-floating-cta" onClick={() => open("racoes")} aria-label="Abrir consulta da Agropet Filt">
+        <PawPrint size={17} aria-hidden="true" /> Consultar produtos
+      </button>}
+
       {interest && selected && (
         <div className="af-dialog-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) close(); }}>
           <div className="af-dialog" role="dialog" aria-modal="true" aria-labelledby="af-dialog-heading">

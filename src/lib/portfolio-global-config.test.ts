@@ -1,3 +1,4 @@
+import hostedFormRegistry from "@/config/portfolio-hosted-form-registry.json";
 import { describe, expect, it } from "bun:test";
 import {
   listPortfolioClients,
@@ -10,7 +11,10 @@ describe("padrões globais de /portfolio/:slug", () => {
     for (const client of listPortfolioClients()) {
       const standards = resolvePortfolioStandards(client.slug);
       expect(standards.shareButton.enabled).toBe(true);
-      expect(standards.contactFloating.enabled).toBe(true);
+      // Clientes com formulário hospedado verificado utilizam CTA próprio,
+      // pois o botão universal usaria o backend legado não configurado.
+      const hosted = (hostedFormRegistry.forms as Record<string, { status: string } | undefined>)[client.clientKey];
+      expect(standards.contactFloating.enabled).toBe(hosted?.status === "verified" ? false : true);
       expect(standards.contactFloating.behavior).toBe("funnel-modal");
       expect(standards.footer.enabled).toBe(true);
       expect(standards.footer.hostCredit).toBe(true);

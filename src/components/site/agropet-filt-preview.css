@@ -232,3 +232,8 @@
 .af-jotform-embed p {font-size:12px;line-height:1.55;color:#405f4f}
 .af-jotform-embed a {font-weight:800;text-decoration:underline}
 @media (max-width:540px){.af-jotform-embed{padding:10px}.af-jotform-embed iframe{min-height:570px;max-height:68dvh}}
+
+.af-live-floating-cta {position:fixed;z-index:75;right:18px;bottom:22px;display:flex;align-items:center;gap:10px;border:0;background:#153a2f;color:#fffef8;font-size:13px;font-weight:900;border-radius:36px;padding:15px 20px;box-shadow:0 12px 35px #153a2f45;cursor:pointer}
+.af-live-floating-cta:hover{transform:translateY(-2px)}
+.af-live-floating-cta:focus-visible{outline:3px solid #ef9162;outline-offset:3px}
+@media(max-width:540px){.af-live-floating-cta{bottom:12px;right:12px;padding:13px 15px;font-size:12px}}
