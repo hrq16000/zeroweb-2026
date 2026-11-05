@@ -25,3 +25,23 @@ test("nunca restringir mudança global junto de novo site", () => {
 test("routeTree isolada não remove gates globais", () => {
   assert.deepEqual(resolveVisualRegressionScope(["src/routeTree.gen.ts"], []), []);
 });
+
+test("edição isolada de JSX e CSS de rota dedicada existente não exige QA global", () => {
+  assert.deepEqual(
+    resolveVisualRegressionScope([
+      "src/components/site/SaoFranciscoPetCenterPage.tsx",
+      "src/components/site/sao-francisco-pet-center.css",
+    ], []),
+    ["sao-francisco-pet-center"],
+  );
+});
+
+test("mudança de routeTree sem alteração da rota nunca é mascarada", () => {
+  assert.deepEqual(
+    resolveVisualRegressionScope([
+      "src/routeTree.gen.ts",
+      "src/components/site/SaoFranciscoPetCenterPage.tsx",
+    ], []),
+    [],
+  );
+});

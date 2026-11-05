@@ -1,25 +1,86 @@
+import { useCallback, useEffect, useRef, useState, type MouseEventHandler, type ReactNode } from "react";
 import {
-  ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3,
+  ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, X,
   Heart, Instagram, MapPin, PawPrint, ShieldCheck, Sparkles, Star, Sun, Waves,
 } from "lucide-react";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import "./sao-francisco-pet-center.css";
 
 const FORM_URL = "https://form.jotform.com/263077982107059";
 const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Rua%20Jo%C3%A3o%20%C3%82ngelo%20Cordeiro%201616%20Bom%20Jesus%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais%20PR";
+const MAP_EMBED_URL = "https://www.google.com/maps?q=Rua%20Jo%C3%A3o%20%C3%82ngelo%20Cordeiro%2C%201616%2C%20Bom%20Jesus%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais%2C%20PR&output=embed";
 const INSTAGRAM = "https://www.instagram.com/saofrancisco_petcenterhotel/";
 const SOURCE_REVIEWS = "https://www.tutorcanino.com.br/creches/pr/sao-jose-dos-pinhais/sao-francisco-pet-center-hotel-sao-jose-dos-pinhais";
 const HERO = "https://images.unsplash.com/photo-1657318216069-399acfda68d1?auto=format&fit=crop&w=1300&q=85";
 const SMALL_DOG = "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=850&q=82";
 const DOG_RUN = "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=82";
 
-function Cta({ children, secondary = false }: { children: React.ReactNode; secondary?: boolean }) {
-  return <a href="#solicitar" className={secondary ? "sfp-button sfp-button-ghost" : "sfp-button"}>
+function Cta({ children, secondary = false, onClick }: { children: ReactNode; secondary?: boolean; onClick?: MouseEventHandler<HTMLAnchorElement> }) {
+  return <a href="#solicitar" onClick={onClick} className={secondary ? "sfp-button sfp-button-ghost" : "sfp-button"}>
     {children} <ArrowUpRight aria-hidden="true" size={18}/>
   </a>;
 }
 
 export function SaoFranciscoPetCenterPage() {
+  const [funnelOpen, setFunnelOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const lastFocusRef = useRef<HTMLElement | null>(null);
+
+  const openFunnel = useCallback(() => {
+    if (typeof window === "undefined") return;
+    lastFocusRef.current = document.activeElement as HTMLElement | null;
+    window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open"));
+    setFunnelOpen(true);
+  }, []);
+
+  const closeFunnel = useCallback(() => {
+    setFunnelOpen(false);
+    window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-close"));
+    lastFocusRef.current?.focus();
+  }, []);
+
+  const onFunnelClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openFunnel();
+  };
+
+  // A captação do cliente tem prioridade sobre o pop-up da 0WEB.
+  useEffect(() => {
+    if (!funnelOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusables = () => Array.from(
+      modalRef.current?.querySelectorAll<HTMLElement>('button, a[href], iframe, [tabindex]:not([tabindex="-1"])') ?? [],
+    ).filter((el) => !el.hasAttribute("disabled"));
+    focusables()[0]?.focus();
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeFunnel();
+      }
+      if (event.key !== "Tab") return;
+      const elements = focusables();
+      const first = elements[0];
+      const last = elements[elements.length - 1];
+      if (!first || !last) return;
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !modalRef.current?.contains(active))) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault(); first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKey, true);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey, true);
+    };
+  }, [funnelOpen, closeFunnel]);
+
   return (
     <div className="sfp-site" lang="pt-BR">
       <div className="sfp-demo"><Sparkles size={14} aria-hidden="true" /> Projeto demonstrativo da 0WEB · Não é o site oficial do estabelecimento</div>
@@ -31,7 +92,7 @@ export function SaoFranciscoPetCenterPage() {
         <nav className="sfp-nav" aria-label="Navegação principal">
           <a href="#experiencias">Experiências</a><a href="#cuidado">Nosso propósito</a><a href="#localizacao">Visite</a>
         </nav>
-        <Cta>Solicitar informações</Cta>
+        <Cta onClick={onFunnelClick}>Solicitar informações</Cta>
       </header>
 
       <main id="inicio">
@@ -40,7 +101,7 @@ export function SaoFranciscoPetCenterPage() {
             <div className="sfp-eyebrow"><span className="sfp-eyebrow-line"/> PET CENTER · BOM JESUS · SÃO JOSÉ DOS PINHAIS</div>
             <h1 id="sfp-title">O mundo fica melhor <em>com patas por perto.</em></h1>
             <p className="sfp-hero-lede">Um lugar para conhecer opções de creche, hospedagem e cuidados com seu melhor amigo — com toda a alegria que faz parte da vida com pets.</p>
-            <div className="sfp-hero-actions"><Cta>Conhecer os serviços</Cta><a className="sfp-text-link" href="#experiencias">Explore o Pet Center <ArrowDownRight size={19}/></a></div>
+            <div className="sfp-hero-actions"><Cta onClick={onFunnelClick}>Consultar disponibilidade</Cta><a className="sfp-text-link" href="#experiencias">Explore o Pet Center <ArrowDownRight size={19}/></a></div>
             <div className="sfp-hero-proof">
               <span className="sfp-proof-stars" aria-label="4,8 de 5 estrelas">★★★★★</span>
               <a href={SOURCE_REVIEWS} target="_blank" rel="noopener noreferrer"><b>4,8/5</b> · 137 avaliações públicas <ArrowUpRight size={14}/></a>
@@ -71,15 +132,15 @@ export function SaoFranciscoPetCenterPage() {
           <div className="sfp-service-grid">
             <article className="sfp-service sfp-service-one">
               <span className="sfp-index">01 / CONVIVÊNCIA</span><Sun size={45} strokeWidth={1.3} aria-hidden="true"/>
-              <div><h3>Creche pet</h3><p>Para tutores que buscam uma rotina de atividades e convivência para seus cães. Consulte condições e disponibilidade.</p><a href="#solicitar">Consultar creche <ArrowUpRight size={19}/></a></div>
+              <div><h3>Creche pet</h3><p>Para tutores que buscam uma rotina de atividades e convivência para seus cães. Consulte condições e disponibilidade.</p><a href="#solicitar" onClick={onFunnelClick}>Consultar creche <ArrowUpRight size={19}/></a></div>
             </article>
             <article className="sfp-service sfp-service-two">
               <span className="sfp-index">02 / ESTADIA</span><span className="sfp-service-large">GOOD<br/>STAY.</span>
-              <div><h3>Hotel pet</h3><p>Vai viajar ou passar alguns dias fora? Solicite informações sobre hospedagem, avaliação e regras de estadia.</p><a href="#solicitar">Consultar hotel <ArrowUpRight size={19}/></a></div>
+              <div><h3>Hotel pet</h3><p>Vai viajar ou passar alguns dias fora? Solicite informações sobre hospedagem, avaliação e regras de estadia.</p><a href="#solicitar" onClick={onFunnelClick}>Consultar hotel <ArrowUpRight size={19}/></a></div>
             </article>
             <article className="sfp-service sfp-service-three">
               <span className="sfp-index">03 / BEM-ESTAR</span><Waves size={47} strokeWidth={1.3} aria-hidden="true"/>
-              <div><h3>Banho e tosa</h3><p>Cuidados de higiene e embelezamento para deixar o pet confortável. Valores e horários sob consulta.</p><a href="#solicitar">Solicitar informações <ArrowUpRight size={19}/></a></div>
+              <div><h3>Banho e tosa</h3><p>Cuidados de higiene e embelezamento para deixar o pet confortável. Valores e horários sob consulta.</p><a href="#solicitar" onClick={onFunnelClick}>Solicitar informações <ArrowUpRight size={19}/></a></div>
             </article>
           </div>
         </section>
@@ -98,7 +159,7 @@ export function SaoFranciscoPetCenterPage() {
               <li><Check size={18}/> Confirme requisitos de saúde e documentação</li>
               <li><Check size={18}/> Consulte disponibilidade para as datas desejadas</li>
             </ul>
-            <Cta secondary>Quero tirar minhas dúvidas</Cta>
+            <Cta secondary onClick={onFunnelClick}>Quero tirar minhas dúvidas</Cta>
           </div>
         </section>
 
@@ -114,7 +175,7 @@ export function SaoFranciscoPetCenterPage() {
 
         <section className="sfp-photostrip" aria-label="Inspiração visual">
           <div className="sfp-photostrip-media"><img loading="lazy" decoding="async" src={DOG_RUN} alt="Fotografia ilustrativa de cão ao ar livre, não registrada no estabelecimento"/></div>
-          <div className="sfp-photostrip-copy"><PawPrint size={41}/><h2>Para os dias que merecem <em>mais alegria.</em></h2><p>O primeiro passo para saber mais está logo abaixo.</p><a href="#solicitar">Conversar sobre meu pet <ArrowRight size={19}/></a></div>
+          <div className="sfp-photostrip-copy"><PawPrint size={41}/><h2>Para os dias que merecem <em>mais alegria.</em></h2><p>O primeiro passo para conhecer os serviços está a um toque.</p><a href="#solicitar" onClick={onFunnelClick}>Conversar sobre meu pet <ArrowRight size={19}/></a></div>
         </section>
 
         <section id="localizacao" className="sfp-location">
@@ -122,7 +183,18 @@ export function SaoFranciscoPetCenterPage() {
             <p className="sfp-hours"><Clock3 size={19}/> Horários variam entre os diretórios consultados. Confirme antes de visitar.</p>
             <a className="sfp-map-button" href={MAP_URL} target="_blank" rel="noopener noreferrer">Traçar rota no Google Maps <ArrowUpRight size={20}/></a>
           </div>
-          <a className="sfp-map-panel" href={MAP_URL} target="_blank" rel="noopener noreferrer" aria-label="Abrir localização do Pet Center no Google Maps"><div className="sfp-map-orbit sfp-map-orbit-one"/><div className="sfp-map-orbit sfp-map-orbit-two"/><div className="sfp-map-pin"><MapPin size={39}/></div><span>Bom Jesus<br/><b>São José dos Pinhais</b></span><small>ABRIR MAPA <ArrowUpRight size={15}/></small></a>
+          <div className="sfp-map-panel">
+            <iframe
+              title="Mapa do endereço informado para o São Francisco Pet Center em São José dos Pinhais"
+              src={MAP_EMBED_URL}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a className="sfp-map-open" href={MAP_URL} target="_blank" rel="noopener noreferrer">
+              Abrir no Google Maps <ArrowUpRight size={16} aria-hidden="true"/>
+            </a>
+          </div>
         </section>
 
         <section id="solicitar" className="sfp-contact" aria-labelledby="sfp-contact-title">
@@ -153,6 +225,48 @@ export function SaoFranciscoPetCenterPage() {
         <div className="sfp-footer-links"><a href="#experiencias">Serviços</a><a href="#localizacao">Localização</a><a href="#solicitar">Solicitação</a><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={18}/> Instagram</a></div>
         <div className="sfp-footer-bottom"><p>Portfólio demonstrativo, não vinculado oficialmente ao estabelecimento. Avaliações: <a href={SOURCE_REVIEWS} target="_blank" rel="noopener noreferrer">TutorCanino</a>. Fotos ilustrativas: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>. <a href="https://0web.com.br/lgpd">Privacidade</a>.</p><PortfolioHostCredit /></div>
       </footer>
+
+      {funnelOpen ? (
+        <div
+          className="sfp-funnel-overlay"
+          onMouseDown={(event) => { if (event.target === event.currentTarget) closeFunnel(); }}
+        >
+          <div
+            ref={modalRef}
+            className="sfp-funnel-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sfp-funnel-title"
+            data-testid="pet-center-funnel-dialog"
+          >
+            <div className="sfp-funnel-heading">
+              <div>
+                <span className="sfp-funnel-kicker"><PawPrint size={16} aria-hidden="true"/> SÃO FRANCISCO PET CENTER · DEMONSTRAÇÃO 0WEB</span>
+                <h2 id="sfp-funnel-title">Conte sobre seu pet</h2>
+                <p>Registre seu interesse. O envio não confirma reservas e não representa um canal oficial do estabelecimento.</p>
+              </div>
+              <button type="button" aria-label="Fechar funil" onClick={closeFunnel} className="sfp-funnel-close">
+                <X size={22} aria-hidden="true"/>
+              </button>
+            </div>
+            <iframe
+              src={FORM_URL}
+              title="Funil de solicitação de informações São Francisco Pet Center"
+              className="sfp-funnel-iframe"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="clipboard-write"
+            />
+            <div className="sfp-funnel-footer">
+              <a href={FORM_URL} target="_blank" rel="noopener noreferrer">Abrir formulário em outra aba <ArrowUpRight size={15}/></a>
+              <span>Dados registrados no formulário seguro da 0WEB</span>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {/* Captação institucional da 0WEB — uma única instância, temporizada e
+          suprimida enquanto o funil do cliente estiver aberto. */}
+      <PortfolioUpsellPopup pageName="portfolio-sao-francisco-pet-center" />
     </div>
   );
 }
