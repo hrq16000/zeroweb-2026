@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SaoFranciscoPetCenterPage } from "@/components/site/SaoFranciscoPetCenterPage";
 
 const url = "https://0web.com.br/portfolio/sao-francisco-pet-center";
-const title = "São Francisco Pet Center | Hotel, Creche e Banho Pet em São José dos Pinhais";
-const description = "Conheça os serviços de hotel, creche e banho e tosa do São Francisco Pet Center, no Bom Jesus em São José dos Pinhais. Portfólio demonstrativo desenvolvido pela 0WEB.";
+const title = "São Francisco Pet Center | Projeto de Site da 0WEB em São José dos Pinhais";
+const description = "Projeto demonstrativo de site para o São Francisco Pet Center no Bom Jesus, São José dos Pinhais, criado pela 0WEB. Não é o site oficial do estabelecimento.";
 const socialImage = "https://images.unsplash.com/photo-1657318216069-399acfda68d1?auto=format&fit=crop&w=1200&h=630&q=85";
 
 export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
     meta: [
       { title },
       { name: "description", content: description },
-      // Não apresentar uma demonstração comercial independente como canal oficial da empresa.
-      // A promoção para index,follow depende de aprovação empresarial e de QA operacional.
-      { name: "robots", content: "noindex,follow,max-image-preview:large" },
+      // Página editorial pública da 0WEB: indexável como demonstração,
+      // sem afirmar vínculo oficial com o estabelecimento citado.
+      { name: "robots", content: "index,follow,max-image-preview:large" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:title", content: title },
@@ -42,6 +42,9 @@ export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
             inLanguage: "pt-BR",
             about: { "@id": url + "#business" },
             isPartOf: { "@type": "WebSite", url: "https://0web.com.br", name: "0WEB" },
+            creator: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            genre: "Portfólio demonstrativo de criação de sites; não é o site oficial da empresa",
           },
           {
             "@type": "PetStore",
