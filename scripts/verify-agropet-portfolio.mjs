@@ -34,6 +34,10 @@ try {
       await link.click();
       await page.getByRole("dialog").waitFor();
       assert.match(await page.getByRole("dialog").innerText(), /Consulta guiada/);
+      const iframe = page.locator('iframe[title="Agropet Filt — formulário de consulta"]');
+      await iframe.waitFor({ state: "attached", timeout: 12000 });
+      assert.equal(await iframe.getAttribute("src"), "https://form.jotform.com/263077233917057", "formulário persistente correto");
+      assert.equal(await page.locator('[data-client-key="agropet-filt"][data-funnel-provider="jotform"]').count(), 1, "único formulário por clientKey");
       assert.equal(errors.length, 0, "nenhum erro JS: " + errors.join("; "));
       console.log("[agropet-qa] PASS " + width + "px; noindex, canonical, modal, no-overflow, JS clean");
     } catch (e) {
