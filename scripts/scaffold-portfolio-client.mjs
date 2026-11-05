@@ -157,7 +157,7 @@ if (managedBookingRequested) {
   };
   write(
     `docs/portfolio/booking-readiness/${slug}.json`,
-    `${JSON.stringify(readiness, null, 2)}\\n`,
+    `${JSON.stringify(readiness, null, 2)}\n`,
   );
   console.warn(
     `[scaffold:booking] ${slug}: manifesto BLOCKED; sem reserva confirmada ou painel de cliente operacional.`,
