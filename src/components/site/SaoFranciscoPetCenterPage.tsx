@@ -175,7 +175,7 @@ export function SaoFranciscoPetCenterPage() {
 
         <section className="sfp-photostrip" aria-label="Inspiração visual">
           <div className="sfp-photostrip-media"><img loading="lazy" decoding="async" src={DOG_RUN} alt="Fotografia ilustrativa de cão ao ar livre, não registrada no estabelecimento"/></div>
-          <div className="sfp-photostrip-copy"><PawPrint size={41}/><h2>Para os dias que merecem <em>mais alegria.</em></h2><p>O primeiro passo para saber mais está logo abaixo.</p><a href="#solicitar" onClick={onFunnelClick}>Conversar sobre meu pet <ArrowRight size={19}/></a></div>
+          <div className="sfp-photostrip-copy"><PawPrint size={41}/><h2>Para os dias que merecem <em>mais alegria.</em></h2><p>O primeiro passo para conhecer os serviços está a um toque.</p><a href="#solicitar" onClick={onFunnelClick}>Conversar sobre meu pet <ArrowRight size={19}/></a></div>
         </section>
 
         <section id="localizacao" className="sfp-location">
