@@ -71,6 +71,9 @@ describe("publicacao e indexabilidade coerentes dos novos portfolio-sites", () =
     const old = JSON.parse(readFileSync("src/config/portfolio-project-manifests.json", "utf8")).projects;
     const catalog = JSON.parse(readFileSync("src/config/portfolio-catalog.json", "utf8"));
     for (const [oldSlug, value] of Object.entries(old)) {
+      // Projetos v4 publicados já têm seus próprios gates; este teste protege
+      // exclusivamente a compatibilidade dos seis históricos pre-v4.
+      if (Number((value as { contractVersion?: number }).contractVersion ?? 0) >= 4) continue;
       expect(checkNewPortfolioPublication(oldSlug, value, catalog.find((c: {slug:string})=>c.slug===oldSlug), "", true)).toEqual([]);
     }
   });
