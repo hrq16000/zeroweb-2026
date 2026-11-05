@@ -598,6 +598,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     }).optional(),
     // Campo opcional mantido por compatibilidade; portfolio sem número não o exige.
     recoveryContact: z.string().max(40).optional(),
+    contactName: z.string().trim().min(1).max(90).optional(),
+    privacyConsent: z.literal(true).optional(),
     previewLocation: softText(120).optional(),
     answers: z.object({
       service: softText(8000),
@@ -612,6 +614,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     // A Dona Garimpeira só recebe leads pelo formulário próprio, com ciência de privacidade.
     if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY) {
       throw new Error("Use o formulário próprio da Dona Garimpeira.");
+    }
+    // A Agropet coleta telefone e nome exclusivamente para responder à consulta.
+    if (data.clientKey === "agropet-filt" && (!data.privacyConsent || !data.contactName?.trim())) {
+      throw new Error("Consentimento e nome são obrigatórios para a consulta.");
     }
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -701,6 +707,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       mode: data.mode,
       proposal_kind: data.proposalKind,
       ...(data.funnelIntent ? { funnel_intent: data.funnelIntent } : {}),
+      ...(data.privacyConsent ? { privacy_consent: true, privacy_consent_at: new Date().toISOString() } : {}),
       ...(hasOrderContext ? { order_context: orderContext } : {}),
       completed_at: new Date().toISOString(),
       page_url: data.pageUrl ?? pageUrl,
@@ -727,7 +734,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         form_id: form.id,
         answers_json: data.answers,
         metadata_json: quizMetadata,
-        contact_name: null,
+        contact_name: data.contactName?.trim() ?? null,
         contact_email: null,
         contact_phone: recoveryPhone,
         whatsapp_user_url: null,

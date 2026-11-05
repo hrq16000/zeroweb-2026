@@ -107,6 +107,8 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
         proposalKind: "service",
         funnelIntent: "orcamento",
         recoveryContact: digits,
+        contactName: name.trim(),
+        privacyConsent: consent,
         pageUrl: typeof window === "undefined" ? undefined : window.location.href,
         answers: {
           service: selected.name,
