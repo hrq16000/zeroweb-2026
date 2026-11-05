@@ -7,6 +7,7 @@
  *
  * O status "elegível para rastreamento" não equivale a "Google já indexou".
  */
+import { readFileSync } from "node:fs";
 const ORIGIN = "https://0web.com.br";
 const SITEMAP = ORIGIN + "/sitemap-portfolio.xml";
 const PORTFOLIO_ROOT = ORIGIN + "/portfolio/";
@@ -91,7 +92,14 @@ const catalogSlugs = [...sitemapUrls]
   .filter((url) => url.startsWith(PORTFOLIO_ROOT))
   .map((url) => url.slice(PORTFOLIO_ROOT.length))
   .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug));
-const selected = ALL ? catalogSlugs : slugs;
+// A fonte editorial versionada é comparada com o sitemap real: uma URL que
+// desaparece do mapa continua na auditoria e reprova a descoberta.
+const catalog = JSON.parse(readFileSync(new URL("../src/config/portfolio-catalog.json", import.meta.url), "utf8"));
+const publishedInCatalog = catalog
+  .filter((item) => ["published", "approved"].includes(item.status) && item.live !== false)
+  .map((item) => item.slug)
+  .filter(Boolean);
+const selected = ALL ? [...new Set([...publishedInCatalog, ...catalogSlugs])] : slugs;
 if (!selected.length) throw new Error("Nenhum slug informado ou encontrado no sitemap");
 if (new Set(selected).size !== selected.length) throw new Error("Lista de slugs duplicados");
 
