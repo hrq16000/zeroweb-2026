@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Baby, BusFront, CalendarCheck, Check, Clock3, Heart, MapPin, Menu, Sparkles, X } from "lucide-react";
 
 const FORM = "https://form.jotform.com/263096736127059";
@@ -6,7 +6,7 @@ const ADDRESS = "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José d
 const MAP = "https://www.google.com/maps/search/?api=1&query=Rua%20Pedro%20Alves%20da%20Rocha%20200%20Jardim%20Italia%20Sao%20Jose%20dos%20Pinhais%20PR";
 const P = "/images/cantinho-da-tia-mari/";
 
-function Badge({ children }: {children: React.ReactNode}) {
+function Badge({ children }: {children: ReactNode}) {
   return <span className="inline-flex items-center gap-2 rounded-full bg-[#fff0ad] px-4 py-2 text-xs font-extrabold tracking-wide text-[#735027]">{children}</span>;
 }
 
@@ -175,7 +175,7 @@ export function CantinhoTiaMariPage() {
           <div><p className="text-[11px] font-extrabold tracking-widest text-[#9e6caa]">FUNIL DE CONSULTA · 0WEB</p><h2 id="tm-dialog-title" className="mt-1 text-xl font-extrabold text-[#624080]">Informações e vagas anunciadas</h2><p className="mt-1 text-xs text-[#7a6b7b]">Formulário da 0WEB. Não é matrícula ou atendimento oficial da unidade.</p></div>
           <button type="button" aria-label="Fechar formulário" className="rounded-full bg-[#f2e8f6] p-3 text-[#623f80]" onClick={hide}><X size={20}/></button>
         </div>
-        <iframe src={FORM} title="Formulário demonstrativo de consulta de vagas — Cantinho da Tia Mari" className="min-h-0 w-full flex-1 border-0" loading="eager" referrerPolicy="strict-origin-when-cross-origin"/>
+        <iframe data-funnel-provider="jotform" data-client-key="cantinho-da-tia-mari" src={FORM} title="Formulário demonstrativo de consulta de vagas — Cantinho da Tia Mari" className="min-h-0 w-full flex-1 border-0" loading="eager" referrerPolicy="strict-origin-when-cross-origin"/>
         <div className="border-t border-[#eee2f1] px-5 py-3 text-center text-xs text-[#88728c]">As respostas são armazenadas pelo serviço de formulários da 0WEB; nunca envie dados pessoais de crianças.</div>
       </div>
     </div>}
