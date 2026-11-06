@@ -202,12 +202,14 @@
       "state": "MOTION_IMPLEMENTED",
       "evidence": [
         "hover:-translate-y-1 na CTA",
-        "Foto com transform rotate-3 estática, reduced motion evita movimento automático"
+        "Foto com transform rotate-3 estática, reduced motion evita movimento automático",
+        "localMotion.motionIntensity= BALANCED e data-motion-intensity na raiz do cliente"
       ]
     },
     "floatingConversion": {
-      "mode": "disabled",
-      "reason": "Botão flutuante autoral no JSX, uma única instância; contato da casca padrão desativado apenas neste cliente, popup 0WEB mantém-se"
+      "mode": "enabled",
+      "destination": "funnel",
+      "reason": "CTA flutuante autoral (single instance) em CantinhoTiaMariPage; componente global foi desativado para evitar botão duplicado."
     },
     "embed": {
       "status": "PASS",
