@@ -926,7 +926,7 @@
       "slug": "cantinho-da-tia-mari",
       "lifecycleContract": 1,
       "contractVersion": 4,
-      "stage": "ready",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
