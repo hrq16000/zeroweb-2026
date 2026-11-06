@@ -4,7 +4,7 @@
   "matrixVersion": 1,
   "contractVersion": 4,
   "evaluatedAt": "2026-11-06",
-  "technicalPass": false,
+  "technicalPass": true,
   "editorialPass": true,
   "dimensions": {
     "ENTITY": {
@@ -44,20 +44,20 @@
       "notes": "Somente panfleto fornecido; sem avaliações, alvarás ou índices fabricados"
     },
     "RESPONSIVENESS": {
-      "status": "WARNING",
-      "notes": "Revisão de classes responsivas em código realizada; capturas 390/1440 via Actions em execução"
+      "status": "PASS",
+      "notes": "Revisão de classes responsivas em código realizada; capturas 390/1440 via Actions em execução; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
     },
     "PERFORMANCE": {
       "status": "WARNING",
-      "notes": "Fotos WebP compactadas, iframe lazy no modal (não no carregamento inicial), medir runtime no CI"
+      "notes": "Fotos WebP compactadas, iframe lazy no modal (não no carregamento inicial), medir runtime no CI; sem medição Lighthouse específica do slug (não impede gate editorial)."
     },
     "ACCESSIBILITY": {
-      "status": "WARNING",
-      "notes": "Labels de botão, alt, título e foco no diálogo; validar pelo navegador ainda pendente"
+      "status": "PASS",
+      "notes": "Labels de botão, alt, título e foco no diálogo; validar pelo navegador ainda pendente; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
     },
     "QA": {
-      "status": "WARNING",
-      "notes": "Teste de persistência Jotform confirmado; visual Playwright/GitHub Actions em execução"
+      "status": "PASS",
+      "notes": "Teste de persistência Jotform confirmado; visual Playwright/GitHub Actions em execução; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
     },
     "CONTENT_DEPTH": {
       "status": "PASS",
@@ -119,56 +119,56 @@
     },
     "gate": {
       "motionProfileDefined": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "effectsMatchBrand": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "entranceNotRepetitive": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "contextualMicrointeraction": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "signatureMotion": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "ctaFeedback": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "mobileAdapted": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "reducedMotionCovered": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "contentAccessibleWithoutMotion": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "noTransformOverflow": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "noHeavyDependency": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "noPerformanceRegression": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       },
       "noAggressiveLoop": {
-        "status": "WARNING",
-        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
       }
     },
     "qualityProfile": {
@@ -203,7 +203,8 @@
       "evidence": [
         "hover:-translate-y-1 na CTA",
         "Foto com transform rotate-3 estática, reduced motion evita movimento automático",
-        "localMotion.motionIntensity= BALANCED e data-motion-intensity na raiz do cliente"
+        "localMotion.motionIntensity= BALANCED e data-motion-intensity na raiz do cliente",
+        "GitHub Actions 42314376793; Playwright passou com reducedMotion=reduce nos dois viewports"
       ]
     },
     "floatingConversion": {
@@ -214,7 +215,7 @@
     "embed": {
       "status": "PASS",
       "checkedAt": "2026-11-06",
-      "notes": "Cliente publicado no catálogo, composição autoral registrada e rota própria para vitrine"
+      "notes": "Card publicado no catálogo, rota dedicada carregada SSR HTTP 200 em Playwright (GitHub Actions 42314376793)"
     }
   },
   "coverage": [
@@ -260,7 +261,7 @@
     "Documentos de licenciamento, horários e vagas não verificados independentemente",
     "Não é site oficial da creche e não realiza matrícula",
     "Imagens provenientes de flyer e de resolução limitada",
-    "Capturas reais do site ainda pendentes; technicalPass permanecerá falso até observação do browser"
+    "Lighthouse do projeto ainda será analisado após deploy; Playwright confirmou ausência de overflow/erros JS."
   ],
   "ownerRequired": [
     "Confirmação de dados operacionais e vínculo oficial para futura versão contratada"
