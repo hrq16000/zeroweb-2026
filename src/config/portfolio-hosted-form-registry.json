@@ -20,15 +20,15 @@
     "cantinho-da-tia-mari": {
       "provider": "jotform",
       "url": "https://form.jotform.com/263096736127059",
-      "status": "created",
+      "status": "verified",
       "dataHost": "Jotform",
       "publicIntake": true,
-      "confirmedPersistedAt": null,
-      "testSubmissionVerified": false,
+      "confirmedPersistedAt": "2026-11-06",
+      "testSubmissionVerified": true,
       "consentRequired": true,
       "clientKey": "cantinho-da-tia-mari",
       "deliveryMode": "PROVIDER_INBOX",
-      "notes": "Formulário de pesquisa não oficial da 0WEB, aguardando teste sintético persistido. Sem credenciais nem Supabase.",
+      "notes": "Formulário demonstrativo com aceite e armazenamento real no Jotform. Submissão sintética QA criada e relida 2026-11-06: id 6698178419376778545. Não representa reserva/matrícula.",
       "noSupabaseServiceRole": true
     }
   }
