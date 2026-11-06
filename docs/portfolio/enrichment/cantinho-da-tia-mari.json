@@ -1,0 +1,152 @@
+{
+  "slug": "cantinho-da-tia-mari",
+  "researchDate": "2026-11-06",
+  "researchStage": "entity-discovery",
+  "proposalStatus": "DEMONSTRATIVE_NOT_OFFICIAL",
+  "identity": {
+    "displayName": "Cantinho da Tia Mari",
+    "tagline": "Educação, Carinho e Alegria",
+    "location": {
+      "street": "Rua Pedro Alves da Rocha",
+      "number": "200",
+      "neighborhood": "Jardim Itália",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "postalCode": "83020-360",
+      "source": "OWNER_SUPPLIED_PUBLIC_EVIDENCE: photographed public flyer"
+    }
+  },
+  "claims": [
+    {
+      "field": "nursery",
+      "value": "Berçário anunciado",
+      "origin": "Panfleto fotografado",
+      "status": "advertised_not_independently_verified"
+    },
+    {
+      "field": "schoolTransport",
+      "value": "Leva e busca em escola e CMEI anunciado",
+      "origin": "Panfleto fotografado",
+      "status": "advertised_not_independently_verified"
+    },
+    {
+      "field": "weekdayOpening",
+      "value": "Seg–Sex 06:30–20:00",
+      "origin": "Panfleto fotografado",
+      "status": "advertised_not_independently_verified"
+    },
+    {
+      "field": "saturdayOpening",
+      "value": "Sáb 07:30–17:00",
+      "origin": "Panfleto fotografado",
+      "status": "advertised_not_independently_verified"
+    },
+    {
+      "field": "openVacancies",
+      "value": "Vagas abertas",
+      "origin": "Panfleto fotografado em 2026-11-06",
+      "status": "time_sensitive_contact_to_confirm"
+    },
+    {
+      "field": "license",
+      "value": "Legalizado com alvará de funcionamento",
+      "origin": "Alegação no panfleto",
+      "status": "unverified_licensing_claim"
+    }
+  ],
+  "researchSources": [
+    {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "label": "Fotos do panfleto disponibilizadas pelo operador na conversa de 06/11/2026",
+      "status": "resolved",
+      "media": [
+        "fachada",
+        "copa",
+        "portas",
+        "sala",
+        "área com piso emborrachado"
+      ],
+      "visibility": "user_submission"
+    },
+    {
+      "kind": "PUBLIC_DIRECTORY",
+      "url": "https://cnpj.biz/60240171000110",
+      "status": "found_unlinked",
+      "note": "Entidade registrada no mesmo número predial; NÃO provar ou atribuir este CNPJ à marca."
+    },
+    {
+      "kind": "PUBLIC_DIRECTORY",
+      "url": "https://www.econodata.com.br/consulta-empresa/60240171000110-mariele-fabri-de-oliveira",
+      "status": "found_unlinked",
+      "note": "Mesmo endereço; ausência de prova sobre a marca."
+    },
+    {
+      "kind": "GOOGLE",
+      "query": "Cantinho da Tia Mari Rua Pedro Alves da Rocha 200",
+      "status": "searched_unresolved",
+      "note": "Sem ficha inequívoca recuperada."
+    },
+    {
+      "kind": "OFFICIAL_SOCIAL",
+      "platform": "instagram",
+      "query": "Cantinho da Tia Mari São José dos Pinhais",
+      "status": "searched_unresolved"
+    },
+    {
+      "kind": "OFFICIAL_SOCIAL",
+      "platform": "facebook",
+      "query": "Cantinho da Tia Mari Jardim Itália",
+      "status": "searched_unresolved"
+    },
+    {
+      "kind": "OFFICIAL_WEBSITE",
+      "query": "Cantinho da Tia Mari São José dos Pinhais",
+      "status": "searched_unresolved"
+    },
+    {
+      "kind": "OFFICIAL_REVIEWS",
+      "query": "Cantinho da Tia Mari avaliações",
+      "status": "searched_unresolved"
+    }
+  ],
+  "mediaPlan": {
+    "source": "photographed print flyer",
+    "status": "available_in_conversation_not_yet_ingested_to_repository",
+    "intendedAssets": [
+      "fachada.webp",
+      "copa.webp",
+      "sala.webp",
+      "acolhimento.webp",
+      "social-og.jpg"
+    ],
+    "attribution": "Fotos do material impresso do estabelecimento, enviadas pelo operador",
+    "avoid": [
+      "third party school photography",
+      "invented student photos",
+      "fake testimonials"
+    ]
+  },
+  "unverified": [
+    "Vínculo entre CNPJ encontrado e marca",
+    "Instagram/Facebook oficial",
+    "Google Business Profile",
+    "Licença/alvará vigente",
+    "Idades atendidas",
+    "Disponibilidade real de vagas",
+    "Preços",
+    "Procedimentos e equipe",
+    "Endereço correto do canal de atendimento"
+  ],
+  "funnel": {
+    "clientKey": "cantinho-da-tia-mari",
+    "status": "DEMO_ONLY",
+    "dataPolicy": "Não coletar PII de crianças; consentimento e persistência server-side antes da liberação",
+    "whatsapp": "Do not publish direct phone or wa.me; operational destination server-side only"
+  },
+  "seo": {
+    "targetCanonical": "https://0web.com.br/portfolio/cantinho-da-tia-mari",
+    "published": false,
+    "indexationVerified": false,
+    "gscSubmitted": false
+  }
+}
