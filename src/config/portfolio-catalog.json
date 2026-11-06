@@ -2307,5 +2307,31 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta real, salva no sistema de formulários",
     "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
+  },
+  {
+    "slug": "cantinho-da-tia-mari",
+    "clientKey": "cantinho-da-tia-mari",
+    "title": "Cantinho da Tia Mari",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "berçário",
+      "cuidados infantis",
+      "jardim itália",
+      "horário estendido",
+      "leva e busca escolar"
+    ],
+    "subtitle": "Berçário e cuidados infantis anunciados no Jardim Itália",
+    "location": "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Novo portfólio demonstrativo",
+    "image": "/images/cantinho-da-tia-mari/fachada.webp",
+    "fallbackImage": "/images/cantinho-da-tia-mari/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta de informações via formulário",
+    "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
   }
 ]
