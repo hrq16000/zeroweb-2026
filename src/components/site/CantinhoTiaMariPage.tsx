@@ -6,6 +6,8 @@ const FORM = "https://form.jotform.com/263096736127059";
 const ADDRESS = "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José dos Pinhais/PR";
 const MAP = "https://www.google.com/maps/search/?api=1&query=Rua%20Pedro%20Alves%20da%20Rocha%20200%20Jardim%20Italia%20Sao%20Jose%20dos%20Pinhais%20PR";
 const P = "/images/cantinho-da-tia-mari/";
+/** Motion local e CTA próprio; nunca reutilizar coreografia comercial de outro portfólio. */
+const localMotion = { motionIntensity: "BALANCED", floatingConversion: { mode: "enabled", destination: "funnel" } } as const;
 
 function Badge({ children }: {children: ReactNode}) {
   return <span className="inline-flex items-center gap-2 rounded-full bg-[#fff0ad] px-4 py-2 text-xs font-extrabold tracking-wide text-[#735027]">{children}</span>;
@@ -71,7 +73,7 @@ export function CantinhoTiaMariPage() {
     ["Posso reservar uma vaga por este site?", "Não. Este é um portfólio demonstrativo da 0WEB, não uma matrícula, reserva ou canal oficial da unidade. Você pode registrar interesse no formulário da demonstração."],
   ] as const;
 
-  return <div className="min-h-screen bg-[#fffdf8] text-[#493553] selection:bg-[#ebc9f3]" lang="pt-BR">
+  return <div className="min-h-screen bg-[#fffdf8] text-[#493553] selection:bg-[#ebc9f3]" lang="pt-BR" data-motion-intensity={localMotion.motionIntensity} data-floating-conversion={localMotion.floatingConversion.mode}>
     <div className="bg-[#654080] px-4 py-2 text-center text-xs font-semibold tracking-wide text-white">
       PROJETO DEMONSTRATIVO 0WEB · Não é o site oficial do estabelecimento
     </div>
