@@ -921,6 +921,210 @@
         "completed": true,
         "evidence": "E2E navegador e Jotform persistidos; sem dados pessoais reais de clientes"
       }
+    },
+    "cantinho-da-tia-mari": {
+      "slug": "cantinho-da-tia-mari",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (canonical, page-specific SEO/JSON-LD)",
+            "src/components/site/CantinhoTiaMariPage.tsx (independent visual composition)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/cantinho-da-tia-mari.json (business name and address on photographed leaflet)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (Jardim Itália address and local map)"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/cantinho-da-tia-mari/fachada.webp (photo from public flyer)",
+            "public/images/cantinho-da-tia-mari/{acolhimento,copa,sala}.webp (genuine printed interior photos)",
+            "docs/portfolio/media-plans/cantinho-da-tia-mari.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts",
+            "src/config/portfolio-catalog.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (robots index,follow, self-canonical, social OG and LocalBusiness schema)",
+            "src/lib/portfolio-site-registry.ts indexable true",
+            "src/config/portfolio-catalog.json status published"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "cuidados infantis",
+        "layoutFamily": "playful-photo-led",
+        "heroFamily": "off-axis-facade-photo",
+        "sectionRhythm": "editorial-intents-evidence",
+        "proofStyle": "source-disclosed-leaflet",
+        "mediaNarrative": "real-printed-photography",
+        "ctaStyle": "persisted-hosted-intake",
+        "motionProfile": "gentle-editorial-reduced-motion"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB development",
+        "notes": "Rainbow daycare brand, authentic printed photo with rotated framing, three care paths and night schedule contrasted against pet retail and carpentry; requires real browser screenshot to complete perceptual review."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric split 54/46 yellow-sun lilac-page authentic-building-angle",
+        "headerTreatment": "rainbow stamp small multicolor daycare wordmark",
+        "sectionGraph": "photo-angle-hero→violet-values-ticker→three-care-pastels→printed-photos-mosaic→violet-hours-stage→local-map→parents-faq→rose-close",
+        "contentOrder": [
+          "proposta do estabelecimento",
+          "serviços anunciados",
+          "ambientes reais",
+          "horários",
+          "localização",
+          "perguntas e consulta"
+        ],
+        "gridTopology": "split hero, three independent service panels, asymmetric intro and photo 2x2, two-up dark hours, map duo, FAQ split",
+        "mediaDistribution": "facade print photo hero, three authentic leaflet photo crops, brand-led social OG",
+        "backgroundRhythm": "lilac→dark purple strip→cream→warm yellow cream→dark violet→white→lilac→pink",
+        "proofPlacement": "source disclosure in hero/gallery and factual notes near FAQ",
+        "ctaDistribution": "hero, each service panel, gallery, hours, closing and floating",
+        "navigationPattern": "brand header, four anchors, funnel modal and standard external 0WEB popup",
+        "motionSignature": "subtle CTA lift, inclined photo, low-motion reveals",
+        "closingStructure": "centered pink manifesto with demonstrative booking consultation",
+        "roleGraph": [
+          "business introduction",
+          "service intent",
+          "physical evidence",
+          "hours",
+          "local wayfinding",
+          "privacy-conscious consultation"
+        ],
+        "mediaCadence": [
+          "real facade",
+          "care icon cards",
+          "three real interior crops",
+          "map"
+        ],
+        "interactionLoci": [
+          "intent inquiry",
+          "floating form",
+          "FAQ",
+          "directions"
+        ],
+        "decisionAidPlacement": [
+          "service cards",
+          "schedule before inquiry",
+          "modal intro and privacy reminder"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "compact",
+          "airy",
+          "evidence-led",
+          "contrast",
+          "plain",
+          "quiet"
+        ],
+        "mobileCompositionStrategy": "single-column hero, service stack, 2-column gallery, modal inset and floating CTA"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Cantinho da Tia Mari no Jardim Itália, São José dos Pinhais",
+          "Material impresso anuncia berçário, leva e busca em escola/CMEI, horários 06:30–20:00 seg-sex e 07:30–17:00 sábado (não verificados)"
+        ],
+        "sources": [
+          "Material público fotografado pelo operador e fornecido em 2026-11-06",
+          "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "PENDING_SCREENSHOTS",
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB development",
+        "noBrandTest": "PENDING_REAL_BROWSER",
+        "comparedWith": [
+          "agropet-filt",
+          "arildo-madeiras"
+        ],
+        "screenshots": {},
+        "notes": "Agendado workflow de screenshots reais 390/1440; não inventar evidência."
+      },
+      "visualQa": {
+        "status": "BLOCKED_ENVIRONMENT",
+        "checkedAt": "2026-11-06",
+        "evidence": "Teste local de navegador bloqueado; aguardando workflow de Playwright no GitHub."
+      },
+      "blockers": [],
+      "warnings": [
+        "Horários, berçário e transporte são alegações em panfleto, ainda não verificados independentemente",
+        "Prospecção 0WEB, não site oficial nem cadastro de matrícula",
+        "Instagram não confirmado; 6 publicações reais não aplicável até confirmação",
+        "Fotos reais recortadas de panfleto com baixa resolução; melhores originais desejáveis",
+        "Respostas persistem no Jotform e não no CRM Supabase"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo comercial com a unidade antes de trocar rótulo de demonstração por oficial",
+        "Confirmar horários, licenciamento e disponibilidade atual de vagas",
+        "Enviar fotos originais em alta resolução quando disponíveis"
+      ],
+      "searchQa": [
+        {
+          "query": "Cantinho da Tia Mari",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "berçário Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "leva e busca escolar Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "cuidados infantis São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-06",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": false,
+        "evidence": "Pronto para CI; screenshots e observação de navegador ainda pendentes."
+      }
     }
   }
 }
