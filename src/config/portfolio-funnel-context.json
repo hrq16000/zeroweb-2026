@@ -706,5 +706,15 @@
     "whatsappPrompt": "Olá, Agropet Filt! Gostaria de consultar a disponibilidade de um item ou serviço.",
     "whatsappSubject": "produtos e cuidados para pets",
     "proposalKind": "service"
+  },
+  "cantinho-da-tia-mari": {
+    "intent": "solicitacao",
+    "nextStepTitle": "O que você gostaria de saber sobre o Cantinho da Tia Mari?",
+    "nextStepBody": "Escolha o tipo de serviço anunciado, o período e informe seus dados de contato apenas se desejar receber resposta da 0WEB sobre esta demonstração. Não faz matrícula ou reserva de vaga.",
+    "primaryCtaLabel": "Consultar informações",
+    "theme": "pink",
+    "whatsappPrompt": "Gostaria de receber informações gerais sobre a demonstração 0WEB. Não é matrícula nem contato oficial com a escola.",
+    "whatsappSubject": "consulta demonstrativa do Cantinho da Tia Mari",
+    "proposalKind": "service"
   }
 }
