@@ -16,6 +16,20 @@
       "notes": "Teste sintético submetido e lido via Jotform. Nenhum WhatsApp atribuído nem banco Supabase necessário.",
       "publishedAt": "2026-11-04",
       "noSupabaseServiceRole": true
+    },
+    "cantinho-da-tia-mari": {
+      "provider": "jotform",
+      "url": "https://form.jotform.com/263096736127059",
+      "status": "created",
+      "dataHost": "Jotform",
+      "publicIntake": true,
+      "confirmedPersistedAt": null,
+      "testSubmissionVerified": false,
+      "consentRequired": true,
+      "clientKey": "cantinho-da-tia-mari",
+      "deliveryMode": "PROVIDER_INBOX",
+      "notes": "Formulário de pesquisa não oficial da 0WEB, aguardando teste sintético persistido. Sem credenciais nem Supabase.",
+      "noSupabaseServiceRole": true
     }
   }
 }
