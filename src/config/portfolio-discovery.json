@@ -681,6 +681,42 @@
         "rações Pinhais",
         "artigos para pássaros Pinhais"
       ]
+    },
+    "cantinho-da-tia-mari": {
+      "aliases": [
+        "Cantinho da Tia Mari",
+        "Cantinho Tia Mari",
+        "Tia Mari São José dos Pinhais"
+      ],
+      "categories": [
+        "cuidados infantis",
+        "berçário",
+        "recreação infantil"
+      ],
+      "services": [
+        "berçário anunciado",
+        "horário estendido",
+        "leva e busca escolar anunciado"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar informações do berçário",
+        "ver horário de atendimento",
+        "conhecer o espaço e endereço",
+        "consultar leva e busca"
+      ],
+      "locality": [
+        "Rua Pedro Alves da Rocha",
+        "Jardim Itália",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Cantinho da Tia Mari São José dos Pinhais",
+        "berçário Jardim Itália",
+        "cuidados infantis Jardim Itália",
+        "leva e busca escola CMEI Jardim Itália"
+      ]
     }
   }
 }
