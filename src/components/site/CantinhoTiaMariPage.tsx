@@ -168,7 +168,7 @@ export function CantinhoTiaMariPage() {
       <section className="bg-[#f7e6f6] px-6 py-20 text-center"><div className="mx-auto max-w-3xl"><Badge>💜 CADA DESCOBERTA TEM O SEU TEMPO</Badge><h2 className="mt-6 text-4xl font-black leading-tight text-[#634080] md:text-6xl">Um cantinho para cuidar, brincar e crescer.</h2><p className="mt-6 text-[#6c5772]">Quer mais informações sobre os serviços e as vagas anunciadas?</p><button type="button" onClick={show} className="mt-7 rounded-full bg-[#6b408d] px-7 py-4 font-bold text-white shadow-lg shadow-purple-900/10">Abrir consulta demonstrativa <ArrowUpRight className="ml-2 inline h-4 w-4"/></button><p className="mt-7 text-xs text-[#896e8c]">Demonstração de apresentação comercial · Não representa o estabelecimento ou reserva de vaga.</p></div></section>
     </main>
 
-    <PortfolioHostCredit className="sr-only" />
+    <PortfolioHostCredit className="text-center text-xs text-[#927b94] py-3" />
 
     {!nearFooter && <button type="button" onClick={show} className="fixed bottom-5 right-5 z-40 flex min-h-14 items-center gap-2 rounded-full bg-[#6c408c] px-5 py-4 text-sm font-extrabold text-white shadow-[0_12px_35px_#41204d55] transition hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c18ac6]" aria-label="Abrir formulário para consultar informações sobre vagas"><CalendarCheck className="h-5 w-5"/> Consultar vagas</button>}
 
