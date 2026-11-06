@@ -1,0 +1,266 @@
+{
+  "doc": "docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md",
+  "slug": "cantinho-da-tia-mari",
+  "matrixVersion": 1,
+  "contractVersion": 4,
+  "evaluatedAt": "2026-11-06",
+  "technicalPass": false,
+  "editorialPass": true,
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Nome da marca e endereço claramente identificados no panfleto; CNPJ não é associado sem prova"
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Serviços e horários são descritos como informações anunciadas e sujeitos a confirmação; não promete matrícula"
+    },
+    "MEDIA": {
+      "status": "PASS",
+      "notes": "Quatro fotos reais de panfleto (fachada, ambiente, copa, sala), qualidade de impressão moderada"
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Site autoral com hero fachada inclinada, mosaico factual e faixa contrastante de horários"
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Conceito e composição diferentes da madeireira/agropet; avaliação perceptual pendente de screenshot"
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Consultas nome, berçário, localização, serviços cadastradas no discovery e catálogo"
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Head único, canonical, robots index, OG própria, LocalBusiness sem atributos fictícios"
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Funil Jotform real, gravação e releitura com dado sintético validadas, consentimento ativo"
+    },
+    "PROOF": {
+      "status": "PASS",
+      "notes": "Somente panfleto fornecido; sem avaliações, alvarás ou índices fabricados"
+    },
+    "RESPONSIVENESS": {
+      "status": "WARNING",
+      "notes": "Revisão de classes responsivas em código realizada; capturas 390/1440 via Actions em execução"
+    },
+    "PERFORMANCE": {
+      "status": "WARNING",
+      "notes": "Fotos WebP compactadas, iframe lazy no modal (não no carregamento inicial), medir runtime no CI"
+    },
+    "ACCESSIBILITY": {
+      "status": "WARNING",
+      "notes": "Labels de botão, alt, título e foco no diálogo; validar pelo navegador ainda pendente"
+    },
+    "QA": {
+      "status": "WARNING",
+      "notes": "Teste de persistência Jotform confirmado; visual Playwright/GitHub Actions em execução"
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Aborda serviços, ambientes, horários, endereço, perguntas de responsáveis, transparência"
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Lilás hero, barra violeta, cartões claros, mosaico fotos, palco noturno, localização e FAQ"
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Origem fotográfica real descrita; selo e ilustração abstrata não fingem funcionários ou instalações"
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Três blocos de intenções + prova visual da unidade + horários + mapa + FAQ"
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Selo de arco-íris, fotografia documental em ângulo e mural de horários contrastante"
+    },
+    "PROOF_DENSITY": {
+      "status": "PASS",
+      "notes": "Sem avaliações ou credenciais verificadas, material promocional com proveniência"
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "CTAs em hero, cards, galeria, horários e botão flutuante abrem o mesmo modal"
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Hover leve no botão e foto em inclinação estática; prefers-reduced-motion desativa transições"
+    }
+  },
+  "hero": {
+    "status": "PASS",
+    "notes": "Fotografia autêntica do panfleto ao lado de título escaneável e botão com modalidade demonstrativa explícita"
+  },
+  "cover": {
+    "status": "PASS",
+    "notes": "Capa real de panfleto aprovada no media plan; legibilidade final será observada no navegador"
+  },
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": "SUBTLE",
+      "personality": "CARING_CHILD_FRIENDLY",
+      "entrance": "STATIC_FIRST",
+      "scroll": "NATIVE",
+      "hover": "CTA_LIFT",
+      "typography": "HIERARCHY_WITH_CONTRAST",
+      "media": "SINGLE_INCLINED_AUTHENTIC_PHOTO",
+      "transitions": "CSS_TRANSFORM",
+      "signatureEffects": [
+        "gentle button lift",
+        "inclined facade photo"
+      ],
+      "reducedMotionStrategy": "reduce removes nonessential motion"
+    },
+    "gate": {
+      "motionProfileDefined": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "effectsMatchBrand": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "entranceNotRepetitive": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "contextualMicrointeraction": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "signatureMotion": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "ctaFeedback": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "mobileAdapted": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "reducedMotionCovered": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "noTransformOverflow": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "noHeavyDependency": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "noPerformanceRegression": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      },
+      "noAggressiveLoop": {
+        "status": "WARNING",
+        "evidence": "Source reviewed, mobile browser screenshot scheduled; no claims of verified Playwright performance"
+      }
+    },
+    "qualityProfile": {
+      "motionIntensity": "SUBTLE",
+      "motionPurpose": "GENTLE_CHILDCARE_DECISION",
+      "interactionDensity": "LOW",
+      "scrollExperience": "NATIVE",
+      "microinteractionQuality": "SOURCE_REVIEW",
+      "reducedMotionCoverage": "CSS_REVIEW_PENDING_E2E",
+      "motionPerformance": "CSS_ONLY"
+    }
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": "TEXT_ONLY_INTENTIONAL",
+      "justification": "Marca de texto reproduz o nome do panfleto; símbolo arco-íris criado e exposto na rota como favicon, não apresentado como marca registrada"
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "REAL_FACADE_PLUS_TEXT",
+      "notes": "Foto de fachada real com título e distinção de versão de demonstração"
+    },
+    "heroMedia": {
+      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "documentary": true,
+      "provenance": "PHOTO_OF_PUBLIC_FLYER"
+    },
+    "motionPresence": {
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "hover:-translate-y-1 na CTA",
+        "Foto com transform rotate-3 estática, reduced motion evita movimento automático"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "disabled",
+      "reason": "Botão flutuante autoral no JSX, uma única instância; contato da casca padrão desativado apenas neste cliente, popup 0WEB mantém-se"
+    },
+    "embed": {
+      "status": "PASS",
+      "checkedAt": "2026-11-06",
+      "notes": "Cliente publicado no catálogo, composição autoral registrada e rota própria para vitrine"
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "mediaDecision": "genuine photographed printed facade",
+      "status": "PASS"
+    },
+    {
+      "section": "services",
+      "mediaDecision": "three differentiated editorial cards",
+      "status": "PASS"
+    },
+    {
+      "section": "ambientes",
+      "mediaDecision": "three genuine interior photo crops",
+      "status": "PASS"
+    },
+    {
+      "section": "horarios",
+      "mediaDecision": "typographic violet schedule",
+      "status": "PASS"
+    },
+    {
+      "section": "localizacao",
+      "mediaDecision": "Google map embed from flyer address",
+      "status": "PASS"
+    },
+    {
+      "section": "faq",
+      "mediaDecision": "native details accordion and truthful claims",
+      "status": "PASS"
+    },
+    {
+      "section": "fechamento",
+      "mediaDecision": "brand colored editorial CTA",
+      "status": "PASS"
+    }
+  ],
+  "deadZones": [],
+  "p0": [],
+  "warnings": [
+    "Documentos de licenciamento, horários e vagas não verificados independentemente",
+    "Não é site oficial da creche e não realiza matrícula",
+    "Imagens provenientes de flyer e de resolução limitada",
+    "Capturas reais do site ainda pendentes; technicalPass permanecerá falso até observação do browser"
+  ],
+  "ownerRequired": [
+    "Confirmação de dados operacionais e vínculo oficial para futura versão contratada"
+  ]
+}
