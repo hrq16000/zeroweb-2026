@@ -1432,6 +1432,23 @@
       "desktopBehavior": "ilustração de cão e ave com leve flutuação, mosaico de categorias e painel de consulta",
       "tabletBehavior": "hero em coluna e mosaico reduzido",
       "mobileBehavior": "conteúdo empilhado, CTA de consulta e sem movimento em reduced-motion"
+    },
+    "cantinho-da-tia-mari": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
+      "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
+      "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
     }
   },
   "decisions": {
