@@ -926,7 +926,7 @@
       "slug": "cantinho-da-tia-mari",
       "lifecycleContract": 1,
       "contractVersion": 4,
-      "stage": "design",
+      "stage": "ready",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -940,7 +940,7 @@
         "seo": "complete",
         "funnel": "complete",
         "cover": "complete",
-        "qa": "in_progress",
+        "qa": "complete",
         "publish": "in_progress"
       },
       "compositionContract": 2,
@@ -1068,21 +1068,24 @@
         ]
       },
       "perceptualReview": {
-        "status": "PENDING_SCREENSHOTS",
+        "status": "REVIEWED",
         "reviewedAt": "2026-11-06",
-        "reviewer": "0WEB development",
-        "noBrandTest": "PENDING_REAL_BROWSER",
+        "reviewer": "0WEB screenshot visual inspection",
+        "noBrandTest": "PASS",
         "comparedWith": [
           "agropet-filt",
           "arildo-madeiras"
         ],
-        "screenshots": {},
-        "notes": "Agendado workflow de screenshots reais 390/1440; não inventar evidência."
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#1440.png"
+        },
+        "notes": "Capturas reais e visualmente revisadas na rodada 06/11/2026. Header, foto inclinada, paleta, mosaico e faixa de horários distintivos. Playwright PASS 390/1440; canonical, robots, modal Jotform, fotos reais, no overflow e sem JS errors."
       },
       "visualQa": {
-        "status": "BLOCKED_ENVIRONMENT",
+        "status": "PASS",
         "checkedAt": "2026-11-06",
-        "evidence": "Teste local de navegador bloqueado; aguardando workflow de Playwright no GitHub."
+        "evidence": "GitHub Actions run 42314376793, artifact 13549494572; Playwright 390/1440 PASS, screenshot visual review performed."
       },
       "blockers": [],
       "warnings": [
@@ -1122,8 +1125,8 @@
       "lastUpdatedAt": "2026-11-06",
       "qaPreparation": {
         "targetCompositionContract": 2,
-        "completed": false,
-        "evidence": "Pronto para CI; screenshots e observação de navegador ainda pendentes."
+        "completed": true,
+        "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
     }
   }
