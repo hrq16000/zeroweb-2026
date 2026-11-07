@@ -33,6 +33,9 @@ jobs:
         run: node scripts/audit-portfolio-seo-permanent-gate.mjs https://0web.com.br https://0web.com.br
 
       - name: Paridade entre domínio público e Vercel (observacional)
+        # Executar mesmo quando o gate SEO anterior reprovar: não perder diagnóstico.
+        # Cancelamentos interrompem a observação para não gastar runner à toa.
+        if: ${{ !cancelled() }}
         # NÃO muda DNS, não requer GSC/Supabase e não autoriza index em massa.
         # Uma diferença aponta para revisão, não prova remoção no Google.
         continue-on-error: true
