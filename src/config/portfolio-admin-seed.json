@@ -598,8 +598,8 @@
       "subtitle": "Berçário e cuidados infantis anunciados no Jardim Itália",
       "image": "/images/cantinho-da-tia-mari/fachada.webp",
       "icon": "/images/cantinho-da-tia-mari/logo.svg",
-      "socialImage": "/images/cantinho-da-tia-mari/social-og.svg",
-      "socialVersion": "20261106",
+      "socialImage": "/images/cantinho-da-tia-mari/social-og-og.jpg",
+      "socialVersion": "9ea8c269",
       "componentFile": "src/components/site/CantinhoTiaMariPage.tsx",
       "routeFile": "src/routes/portfolio.cantinho-da-tia-mari.tsx",
       "assetsDir": "public/images/cantinho-da-tia-mari",
@@ -613,6 +613,7 @@
         "/images/cantinho-da-tia-mari/fachada.webp",
         "/images/cantinho-da-tia-mari/logo.svg",
         "/images/cantinho-da-tia-mari/sala.webp",
+        "/images/cantinho-da-tia-mari/social-og-og.jpg",
         "/images/cantinho-da-tia-mari/social-og.svg"
       ],
       "shareCopy": "🌈 Conheça a proposta demonstrativa criada pela 0WEB para o Cantinho da Tia Mari, no Jardim Itália, São José dos Pinhais/PR.\n\nVeja as fotos reais do panfleto, os serviços divulgados de berçário, horários estendidos e leva e busca escolar, mapa e formulário de consulta da 0WEB.\n\nO projeto é uma demonstração independente, não representa o site oficial ou matrícula. Confirme horários e disponibilidade diretamente com a unidade.\n\n🌐 Conheça a proposta:\nhttps://0web.com.br/portfolio/cantinho-da-tia-mari\n\n#CantinhoDaTiaMari #Berçario #JardimItalia #SaoJoseDosPinhais #0WEB",
