@@ -449,6 +449,11 @@ function dedicatedNewClientFiles(files, clients) {
 }
 
 export function resolveVisualRegressionScope(files, clients, readRevision) {
+  // This guard also covers asset-only changes, which have no registration
+  // candidate and would otherwise reach the filename-only fallback below.
+  if (files.map(normalize).some((file) => file.startsWith("scripts/") && !NON_RENDERING_SCRIPTS.has(file))) {
+    return [];
+  }
   const previewScope = previewOnlyScope(files);
   if (previewScope) return previewScope;
   const registeredScope = registeredPortfolioScope(files, clients, readRevision);

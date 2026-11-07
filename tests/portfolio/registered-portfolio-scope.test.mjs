@@ -88,6 +88,11 @@ test("configuration rejection cannot fall through to the filename-only classifie
 test("unknown scripts and output generators retain the global gate", () => {
   for (const script of ["scripts/generate-portfolio-perf-images.mjs", "scripts/generate-portfolio-identity-assets.mjs", "scripts/unknown.mjs"]) {
     assert.deepEqual(resolveVisualRegressionScope([...files, script], [client], read()), []);
+    // An asset-only edit never enters registration scoping; its fallback must
+    // still retain the generator's impact on every other client.
+    const assetOnly = [`public/images/${client.slug}/logo.svg`, script];
+    assert.deepEqual(resolveVisualRegressionScope(assetOnly, [client], read()), []);
+    assert.deepEqual(resolveVisualRegressionScope(assetOnly, [client]), []);
   }
 });
 
