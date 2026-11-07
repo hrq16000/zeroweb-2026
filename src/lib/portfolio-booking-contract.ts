@@ -112,12 +112,12 @@ export function canTransitionBookingStatus(current: BookingStatus, next: Booking
  */
 export function canManagePortfolioBooking(
   identity: Readonly<{ userId: string; email: string; provider: string; emailVerified: boolean }> | null,
-  membership: Readonly<{ clientKey: string; googleEmail: string; active: boolean }> | null,
+  membership: Readonly<{ clientKey: string; userId: string; googleEmail: string; active: boolean }> | null,
   requestedClientKey: string,
 ): boolean {
   if (!identity?.userId || !membership?.active || !requestedClientKey) return false;
   if (identity.provider !== "google" || !identity.emailVerified) return false;
-  if (membership.clientKey !== requestedClientKey) return false;
+  if (membership.clientKey !== requestedClientKey || identity.userId !== membership.userId) return false;
   const email = identity.email.trim().toLowerCase();
   return email.length > 0 && email === membership.googleEmail.trim().toLowerCase();
 }
