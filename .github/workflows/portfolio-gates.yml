@@ -65,6 +65,8 @@ jobs:
     needs: static-gates
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.0
@@ -99,10 +101,11 @@ jobs:
           ONLY=""
           SERVICE_IMAGES_ONLY=false
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
-            FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
-            ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
-            if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
+            git fetch --no-tags origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
+            BASE="$(git merge-base "$PR_BASE_SHA" "$PR_HEAD_SHA")"
+            FILES="$(git diff --name-only "$BASE" "$PR_HEAD_SHA" || true)"
+            ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs "$BASE" "$PR_HEAD_SHA")"
+            if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
 
@@ -213,7 +216,10 @@ jobs:
             HEAD="$PUSH_HEAD_SHA"
           fi
 
-          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          git fetch --no-tags origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$(git merge-base "$BASE" "$HEAD")"
+          fi
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
           FRAMEWORK_COMPAT=false
@@ -249,7 +255,7 @@ jobs:
 
           # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
           # gate completo. O registry de WhatsApp e código server-only não.
-          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/security-headers\.ts$|scripts/generate-portfolio-|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
@@ -277,7 +283,8 @@ jobs:
           # Quando a mudança visual está restrita a componentes/ativos de
           # portfolios individuais registrados, limita a comparação a esses
           # slugs. Qualquer arquivo visual compartilhado mantém escopo global.
-          VISUAL_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          VISUAL_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs "$BASE" "$HEAD")"
+          if [ -n "$VISUAL_ONLY" ]; then RUN=true; fi
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # O upgrade de framework é validado em páginas visualmente estáveis.
             # O limiar continua 2%; mudanças visuais reais continuam usando o

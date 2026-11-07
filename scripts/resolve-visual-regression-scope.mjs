@@ -8,6 +8,7 @@
  * outra superfície visual ampla, retorna string vazia => gate global.
  */
 import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -176,6 +177,228 @@ export function previewOnlyScope(files) {
   return [`preview-${slug}`];
 }
 
+const CLIENT_COLLECTIONS = {
+  "portfolio-admin-seed": "projects",
+  "portfolio-assets": "clients",
+  "portfolio-catalog": null,
+  "portfolio-clients": null,
+  "portfolio-cover-status": "projects",
+  "portfolio-discovery": "projects",
+  "portfolio-funnel-context": null,
+  "portfolio-funnel-destinations": "entries",
+  "portfolio-global-config": "overrides",
+  "portfolio-hosted-form-registry": "forms",
+  "portfolio-identity-contracts": "contracts",
+  "portfolio-motion-profiles": "overrides",
+  "portfolio-project-manifests": "projects",
+  "portfolio-share-copy": null,
+  "portfolio-visual-review": null,
+  "portfolio-whatsapp": "contacts",
+};
+
+// Validation and QA do not generate assets or alter the built site's markup.
+// Unknown scripts (including every build/output generator) retain global scope.
+const NON_RENDERING_SCRIPTS = new Set([
+  "scripts/check-portfolio-funnel-operational.mjs",
+  "scripts/check-portfolio-landing-quality.mjs",
+  "scripts/check-portfolio-project-readiness.mjs",
+  "scripts/playwright-visual-regression.mjs",
+  "scripts/portfolio-conformance.mjs",
+  "scripts/resolve-visual-regression-scope.mjs",
+  "scripts/validate-portfolio-boundaries.mjs",
+  "scripts/validate-portfolio-scaffold.mjs",
+  "scripts/verify-agropet-portfolio.mjs",
+]);
+
+function withoutClients(value, slugs) {
+  if (Array.isArray(value)) {
+    return value.filter((entry) => !slugs.has(entry?.slug || entry?.clientKey));
+  }
+  return Object.fromEntries(Object.entries(value || {}).filter(([key]) => !slugs.has(key)));
+}
+
+function clientConfigOnly(file, before, after, slugs) {
+  const name = file.match(/^src\/config\/(portfolio-[a-z-]+)\.json$/)?.[1];
+  if (!Object.hasOwn(CLIENT_COLLECTIONS, name)) return false;
+  const collection = CLIENT_COLLECTIONS[name];
+  const strip = (source) => {
+    const value = source == null ? {} : JSON.parse(source);
+    if (!collection) return withoutClients(value, slugs);
+    // Generated cover counts are derived from the per-project records.
+    if (name === "portfolio-cover-status") {
+      delete value.summary;
+      delete value.generatedAt;
+    }
+    value[collection] = withoutClients(value[collection], slugs);
+    return value;
+  };
+  try {
+    if (before == null) {
+      const value = JSON.parse(after);
+      // A newly introduced registry must contain only the scoped clients.
+      return name === "portfolio-hosted-form-registry" &&
+        Object.keys(withoutClients(value.forms, slugs)).length === 0 &&
+        Object.keys(value).every((key) => ["version", "description", "forms"].includes(key));
+    }
+    return JSON.stringify(strip(before)) === JSON.stringify(strip(after));
+  } catch {
+    return false;
+  }
+}
+
+function changedClientConfigSlugs(file, before, after) {
+  const name = file.match(/^src\/config\/(portfolio-[a-z-]+)\.json$/)?.[1];
+  if (!Object.hasOwn(CLIENT_COLLECTIONS, name)) return [];
+  const entries = (source) => {
+    const value = source == null ? {} : JSON.parse(source);
+    const collection = CLIENT_COLLECTIONS[name];
+    const values = collection ? value[collection] : value;
+    return Array.isArray(values)
+      ? Object.fromEntries(values.map((entry) => [entry?.slug || entry?.clientKey, entry]))
+      : values || {};
+  };
+  try {
+    const oldEntries = entries(before), newEntries = entries(after);
+    return [...new Set([...Object.keys(oldEntries), ...Object.keys(newEntries)])]
+      .filter((slug) => JSON.stringify(oldEntries[slug]) !== JSON.stringify(newEntries[slug]));
+  } catch {
+    return [];
+  }
+}
+
+/** Only an exact additive frame origin for a verified hosted form is local. */
+function hostedFrameCspClients(before, after, forms) {
+  if (before == null || after == null) return null;
+  const pattern = /^\s*"frame-src ([^"]+)",?\s*$/gm;
+  const oldDirectives = [...before.matchAll(pattern)];
+  const newDirectives = [...after.matchAll(pattern)];
+  if (oldDirectives.length !== 1 || newDirectives.length !== 1) return null;
+  const oldSources = oldDirectives[0][1].split(/\s+/);
+  const newSources = newDirectives[0][1].split(/\s+/);
+  const added = newSources.filter((source) => !oldSources.includes(source));
+  if (!added.length || new Set(newSources).size !== newSources.length) return null;
+  if (JSON.stringify(newSources.filter((source) => !added.includes(source))) !== JSON.stringify(oldSources)) return null;
+  const matched = [];
+  for (const origin of added) {
+    try {
+      const url = new URL(origin);
+      if (url.protocol !== "https:" || url.origin !== origin) return null;
+    } catch { return null; }
+    const clients = Object.entries(forms || {}).filter(([slug, form]) => {
+      try {
+        return form.clientKey === slug && form.status === "verified" && form.publicIntake === true &&
+          form.testSubmissionVerified === true && new URL(form.url).origin === origin;
+      } catch { return false; }
+    }).map(([slug]) => slug);
+    if (!clients.length) return null;
+    matched.push(...clients);
+  }
+  const withoutComments = (source) => source.replace(/\r\n/g, "\n").split("\n")
+    .filter((line) => !line.trim().startsWith("//")).join("\n");
+  const restored = after.replace(newDirectives[0][0], oldDirectives[0][0]);
+  return withoutComments(before) === withoutComments(restored) ? matched : null;
+}
+
+function stripGeneratedRoutes(source, clients) {
+  let result = source || "";
+  for (const { slug } of clients) {
+    const symbol = slug.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join("");
+    for (const prefix of ["Portfolio", "PortfolioPreview"]) {
+      const route = `${prefix}${symbol}Route`;
+      const path = `${prefix === "PortfolioPreview" ? "portfolio-preview" : "portfolio"}/${slug}`;
+      result = result
+        .replace(new RegExp(`^const ${route} =\\s*${route}Import\\.update\\(\\{\\s*id: '/${path}',\\s*path: '/${path}',\\s*getParentRoute: \\(\\) => rootRouteImport,\\s*} as any\\)\\r?\\n`, "gm"), "")
+        .replace(new RegExp(`^    '/${path}': \\{\\s*id: '/${path}'\\s*path: '/${path}'\\s*fullPath: '/${path}'\\s*preLoaderRoute: typeof ${route}Import\\s*parentRoute: typeof rootRouteImport\\s*}\\r?\\n`, "gm"), "")
+        .split(/\r?\n/)
+        .filter((line) => ![
+          `import { Route as ${route}Import } from './routes/${prefix === "PortfolioPreview" ? "portfolio-preview" : "portfolio"}.${slug}'`,
+          `  '/${path}': typeof ${route}`,
+          `    | '/${path}'`,
+          `  ${route}: typeof ${route}`,
+          `  ${route}: ${route},`,
+        ].includes(line))
+        .join("\n");
+    }
+  }
+  return result;
+}
+
+/**
+ * Publicação de um cliente também modifica registros compartilhados e o catálogo.
+ * Só escopa quando o diff de cada registro prova que os demais clientes/defaults
+ * permanecem iguais. Sem revisões Git (ou com qualquer mudança ampla), fail closed.
+ */
+export function registeredPortfolioScope(files, clients, readRevision) {
+  if (!readRevision) return null;
+  const names = files.map(normalize).filter(Boolean);
+  const affected = new Set();
+  for (const file of names) {
+    const config = file.match(/^src\/config\/(portfolio-[a-z-]+)\.json$/)?.[1];
+    if (!Object.hasOwn(CLIENT_COLLECTIONS, config)) continue;
+    for (const slug of changedClientConfigSlugs(file, readRevision("base", file), readRevision("head", file))) affected.add(slug);
+  }
+  let cspClients = null;
+  if (names.includes("src/lib/security-headers.ts")) {
+    let forms;
+    try { forms = JSON.parse(readRevision("head", "src/config/portfolio-hosted-form-registry.json")).forms; } catch { return null; }
+    cspClients = hostedFrameCspClients(readRevision("base", "src/lib/security-headers.ts"), readRevision("head", "src/lib/security-headers.ts"), forms);
+    if (!cspClients) return null;
+    if (!cspClients.every((slug) => clients.some((client) => client.slug === slug))) return null;
+    for (const slug of cspClients) affected.add(slug);
+  }
+  const candidates = clients.filter((client) => affected.has(client.slug) ||
+    names.includes(`src/routes/portfolio.${client.slug}.tsx`) || names.includes(normalize(client.componentFile)));
+  if (!candidates.length) return null;
+  const slugs = new Set(candidates.map(({ slug }) => slug));
+  const permitted = new Set();
+  for (const client of candidates) {
+    permitted.add(normalize(client.componentFile));
+    permitted.add(`src/routes/portfolio.${client.slug}.tsx`);
+    permitted.add(`src/routes/portfolio-preview.${client.slug}.tsx`);
+    const source = readRevision("head", normalize(client.componentFile));
+    for (const match of (source || "").matchAll(/import\s+["']\.\/([a-z0-9-]+\.css)["']/g)) {
+      permitted.add(`src/components/site/${match[1]}`);
+    }
+  }
+  let indexChanged = false;
+  for (const file of names) {
+    if (permitted.has(file) || candidates.some(({ slug }) => file.startsWith(`public/images/${slug}/`))) continue;
+    if (file === "src/lib/security-headers.ts" && cspClients) continue;
+    if (file.startsWith("docs/") || file.startsWith("tests/") || NON_RENDERING_SCRIPTS.has(file) ||
+        file.startsWith(".github/") || file === ".lighthouserc.cjs" || file.endsWith(".test.ts") ||
+        // Validation vocabulary is read by scaffold/originality scripts only.
+        file === "src/config/portfolio-structural-families.json") continue;
+    const before = readRevision("base", file);
+    const after = readRevision("head", file);
+    if (file.startsWith("src/config/") && file.endsWith(".json")) {
+      if (!clientConfigOnly(file, before, after, slugs)) return null;
+      if (/portfolio-(catalog|admin-seed|cover-status|discovery)\.json$/.test(file)) indexChanged = true;
+      continue;
+    }
+    if (file === "src/routeTree.gen.ts") {
+      if (stripGeneratedRoutes(before, candidates) !== stripGeneratedRoutes(after, candidates)) return null;
+      continue;
+    }
+    // Registration-only TS files are intentionally restricted to whole-line
+    // entries. A changed import, shared function or other client's entry fails.
+    const patterns = {
+      "src/components/portfolio/composition/registry.ts": /^\s*"([a-z0-9-]+)": lazy\(\(\) => import\("@\/components\/site\/[A-Za-z0-9_-]+"\)\.then\(\(m\) => \(\{ default: m\.[A-Za-z0-9_]+ }\)\)\),?\s*$/,
+      "src/config/portfolio-authorial-compositions.ts": /^\s*"([a-z0-9-]+)",?\s*$/,
+      "src/lib/portfolio-client-keys.ts": /^\s*"([a-z0-9-]+)",?\s*$/,
+      "src/lib/portfolio-site-registry.ts": /^\s*\{ slug: "([a-z0-9-]+)", .* },?\s*$/,
+    };
+    const pattern = patterns[file];
+    if (!pattern) return null;
+    const strip = (source) => (source || "").split(/\r?\n/).filter((line) => {
+      const slug = line.match(pattern)?.[1];
+      return !slug || !slugs.has(slug);
+    }).join("\n");
+    if (strip(before) !== strip(after)) return null;
+    if (file === "src/lib/portfolio-site-registry.ts") indexChanged = true;
+  }
+  return [...slugs, ...(indexChanged ? ["portfolio-index"] : [])].sort();
+}
+
 /**
  * Individual newly authored demo pages can be tested without re-running
  * historical clients, but only when an exact local route → component → CSS
@@ -225,9 +448,21 @@ function dedicatedNewClientFiles(files, clients) {
   return owned;
 }
 
-export function resolveVisualRegressionScope(files, clients) {
+export function resolveVisualRegressionScope(files, clients, readRevision) {
+  // This guard also covers asset-only changes, which have no registration
+  // candidate and would otherwise reach the filename-only fallback below.
+  if (files.map(normalize).some((file) => file.startsWith("scripts/") && !NON_RENDERING_SCRIPTS.has(file))) {
+    return [];
+  }
   const previewScope = previewOnlyScope(files);
   if (previewScope) return previewScope;
+  const registeredScope = registeredPortfolioScope(files, clients, readRevision);
+  if (registeredScope) return registeredScope;
+  if (readRevision && (files.map(normalize).includes("src/lib/security-headers.ts") ||
+      clients.some(({ slug, componentFile }) => files.map(normalize).includes(`src/routes/portfolio.${slug}.tsx`) ||
+        files.map(normalize).includes(normalize(componentFile))))) {
+    return [];
+  }
   const indexScope = portfolioIndexScope(files);
   if (indexScope) return indexScope;
 
@@ -327,5 +562,20 @@ if (invokedAsScript) {
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
-  process.stdout.write(resolveVisualRegressionScope(input, mergedClients).join(","));
+  const [base, head] = process.argv.slice(2);
+  const revisionCache = new Map();
+  const readRevision = base && head ? (revision, file) => {
+    const key = `${revision}:${file}`;
+    if (revisionCache.has(key)) return revisionCache.get(key);
+    try {
+      const source = execFileSync("git", ["show", `${revision === "base" ? base : head}:${file}`],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], maxBuffer: 8 * 1024 * 1024 });
+      revisionCache.set(key, source);
+      return source;
+    } catch {
+      revisionCache.set(key, null);
+      return null;
+    }
+  } : undefined;
+  process.stdout.write(resolveVisualRegressionScope(input, mergedClients, readRevision).join(","));
 }
