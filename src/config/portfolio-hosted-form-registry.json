@@ -30,6 +30,19 @@
       "deliveryMode": "PROVIDER_INBOX",
       "notes": "Formulário demonstrativo com aceite e armazenamento real no Jotform. Submissão sintética QA criada e relida 2026-11-06: id 6698178419376778545. Não representa reserva/matrícula.",
       "noSupabaseServiceRole": true
+    },
+    "relopar": {
+      "provider": "jotform",
+      "url": "https://form.jotform.com/263097813049059",
+      "status": "pending_verification",
+      "dataHost": "Jotform",
+      "publicIntake": true,
+      "testSubmissionVerified": false,
+      "consentRequired": true,
+      "clientKey": "relopar",
+      "deliveryMode": "PROVIDER_INBOX",
+      "notes": "Formulário demonstrativo da 0WEB, não canal oficial da Relopar. Não encaminhar mensagens à empresa. Teste operacional pendente.",
+      "noSupabaseServiceRole": true
     }
   }
 }
