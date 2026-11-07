@@ -1,6 +1,6 @@
 # Agropet Filt — preview failure analysis
 
-Scope: `feat/agropet-filt-preview-20261104`, starting at `6eefff1` and inspecting the subsequent attempts through `da963a8`. PR #489 was already merged; this repair targets the requested preview branch and does not authorize another production merge.
+Scope: `feat/agropet-filt-preview-20261104`, starting at `6eefff1` and inspecting the subsequent attempts through `da963a8`. PR #489 was already squash-merged; this repair reconciles current main `70547c6` into the requested preview branch, preserving subsequent clients, dedicated demo scoping, Lighthouse demo handling and booking work. It does not authorize another production merge.
 
 ## Failures and causes
 
@@ -25,8 +25,9 @@ Missing preview logs and screenshot artifacts in early jobs were consequences of
 - Latest failing Lighthouse inspected: https://github.com/hrq16000/zeroweb-2026/actions/runs/41943827076
 - Before this repair, Vercel `da963a8` was READY and returned HTTP 200 with SSR payload and canonical; the form CSP defect remained.
 - Local Bun 1.4.0 suite after restoring canonical LF checkout bytes: 1088 passed, 6 credential-dependent tests skipped, 0 failed. Skipped database tests do not establish RLS validation.
+- After main reconciliation: 1109 passed, 6 credential-dependent tests skipped, 0 failed. The iframe-origin repair scopes to Agropet and Cantinho, the two verified Jotform consumers, with unchanged QA budgets.
 - Agropet quality matrix: PASS. Agropet readiness: READY, zero blockers. Structural regression tests also keep Autoescola passing and reject repeated new families.
-- All 18 scope regressions pass, including rejection of broad CSP sources, unrelated header changes, other-client changes, and output generators.
+- All 23 Node scope regressions and 24 existing Bun scope tests pass, including rejection of broad CSP sources, unrelated header changes, other-client changes, and output generators; main's dedicated demo behavior remains covered.
 - Reviewed the original Linux CI artifact `13378867160` at desktop/tablet/mobile. The index binary baseline still shows the old centered hero; the actual gallery shows the current discovery layout and Agropet card. Updated only the index's exact pixel approvals with the run, commit and artifact digest. All other screenshots retain their existing references and the 2% threshold.
 - Browser/build evidence is checked separately against the repaired preview; this source report does not assert remote CI completion ahead of its results.
 

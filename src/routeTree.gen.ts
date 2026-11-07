@@ -126,8 +126,10 @@ import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfo
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
+import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as ProfissionalSlugRouteImport } from './routes/profissional.$slug'
@@ -858,6 +860,11 @@ const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   path: '/portfolio/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioCantinhoDaTiaMariRoute = PortfolioCantinhoDaTiaMariRouteImport.update({
+  id: '/portfolio/cantinho-da-tia-mari',
+  path: '/portfolio/cantinho-da-tia-mari',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
   id: '/portfolio/agropet-filt',
   path: '/portfolio/agropet-filt',
@@ -866,6 +873,11 @@ const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
   id: '/portfolio/dyzpromo',
   path: '/portfolio/dyzpromo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSaoFranciscoPetCenterRoute = PortfolioSaoFranciscoPetCenterRouteImport.update({
+  id: '/portfolio/sao-francisco-pet-center',
+  path: '/portfolio/sao-francisco-pet-center',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioR_beautyRoute = PortfolioR_beautyRouteImport.update({
@@ -1726,8 +1738,10 @@ export interface FileRoutesByFullPath {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -1975,8 +1989,10 @@ export interface FileRoutesByTo {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -2228,8 +2244,10 @@ export interface FileRoutesById {
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -2482,8 +2500,10 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -2731,8 +2751,10 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -2983,8 +3005,10 @@ export interface FileRouteTypes {
     | '/portfolio-preview/agropet-filt'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -3234,8 +3258,10 @@ export interface RootRouteChildren {
   PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
+  PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
@@ -4102,6 +4128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/cantinho-da-tia-mari': {
+      id: '/portfolio/cantinho-da-tia-mari'
+      path: '/portfolio/cantinho-da-tia-mari'
+      fullPath: '/portfolio/cantinho-da-tia-mari'
+      preLoaderRoute: typeof PortfolioCantinhoDaTiaMariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/agropet-filt': {
       id: '/portfolio/agropet-filt'
       path: '/portfolio/agropet-filt'
@@ -4114,6 +4147,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/dyzpromo'
       fullPath: '/portfolio/dyzpromo'
       preLoaderRoute: typeof PortfolioDyzpromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/sao-francisco-pet-center': {
+      id: '/portfolio/sao-francisco-pet-center'
+      path: '/portfolio/sao-francisco-pet-center'
+      fullPath: '/portfolio/sao-francisco-pet-center'
+      preLoaderRoute: typeof PortfolioSaoFranciscoPetCenterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/r_beauty': {
@@ -5499,8 +5539,10 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
+  PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   ProfissionalSlugRoute: ProfissionalSlugRoute,

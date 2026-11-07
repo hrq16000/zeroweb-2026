@@ -26,6 +26,25 @@ const LIGHTHOUSE_ONLY = (process.env.LHCI_ONLY || "")
   .split(",")
   .map((slug) => slug.trim())
   .filter(Boolean);
+// Noindex commercial demonstrations are intentionally not Google-indexable.
+// The *aggregate* SEO score includes the crawlability penalty. Individual SEO
+// requirements (title, description, lang, canonical, valid response and alt)
+// remain errors, as do performance, accessibility and Core Web Vitals.
+// This exception is narrowly limited to dedicated unlisted demo routes whose
+// actual source explicitly declares noindex and non-official status.
+const DEMO_ONLY =
+  LIGHTHOUSE_SCOPE === "portfolio" &&
+  LIGHTHOUSE_ONLY.length > 0 &&
+  LIGHTHOUSE_ONLY.every((slug) => {
+    if (!/^[a-z0-9-]+$/.test(slug) || clients.some((item) => item.slug === slug)) return false;
+    const routePath = `src/routes/portfolio.${slug}.tsx`;
+    if (!fs.existsSync(routePath)) return false;
+    const route = fs.readFileSync(routePath, "utf8");
+    return route.includes('content: "noindex,follow') &&
+      route.includes("Portfólio demonstrativo") &&
+      route.includes('rel: "canonical"');
+  });
+
 const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
     ? [`${TARGET_URL}/portfolio/servicos-locais/barreiro`]
@@ -101,7 +120,7 @@ module.exports = {
         "categories:performance": ["error", { minScore: 0.9 }],
         // Uma prévia deliberadamente noindex não é uma página elegível ao Google.
         // SEO público permanece obrigatório nos portfolios indexáveis.
-        "categories:seo": [PREVIEW_ONLY ? "warn" : "error", { minScore: 0.95 }],
+        "categories:seo": [PREVIEW_ONLY || DEMO_ONLY ? "warn" : "error", { minScore: 0.95 }],
         "categories:accessibility": ["error", { minScore: 0.95 }],
         "categories:best-practices": ["warn", { minScore: 0.9 }],
 

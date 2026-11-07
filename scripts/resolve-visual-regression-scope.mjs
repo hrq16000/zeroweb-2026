@@ -7,7 +7,7 @@
  * componente compartilhado, rota, CSS global, ativo não resolvido ou qualquer
  * outra superfície visual ampla, retorna string vazia => gate global.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -399,6 +399,55 @@ export function registeredPortfolioScope(files, clients, readRevision) {
   return [...slugs, ...(indexChanged ? ["portfolio-index"] : [])].sort();
 }
 
+/**
+ * Individual newly authored demo pages can be tested without re-running
+ * historical clients, but only when an exact local route → component → CSS
+ * triplet is present. Any shared UI diff remains global.
+ */
+function dedicatedNewClientFiles(files, clients) {
+  const knownSlugs = new Set(clients.map((item) => item?.slug).filter(Boolean));
+  const registeredComponents = new Set(clients.map((item) => normalize(item?.componentFile)).filter(Boolean));
+  const routesDir = resolve(process.cwd(), "src/routes");
+  const owned = new Map();
+
+  // A rota independente pode existir há meses: atualizar apenas seu JSX/CSS
+  // deve continuar testando ESSE site, em vez de ~100 portfólios não alterados.
+  const candidates = readdirSync(routesDir)
+    .map((name) => name.match(/^portfolio\.([a-z0-9-]+)\.tsx$/))
+    .filter(Boolean)
+    .map((match) => match[1])
+    .filter((slug) => !knownSlugs.has(slug));
+
+  const discovered = [];
+  const byComponent = new Map();
+  const byCss = new Map();
+  for (const slug of candidates) {
+    const routeFile = `src/routes/portfolio.${slug}.tsx`;
+    const routeSource = readFileSync(resolve(process.cwd(), routeFile), "utf8");
+    const refs = [...routeSource.matchAll(/from ["']@\/components\/site\/([A-Za-z0-9_-]+)["']/g)];
+    if (refs.length !== 1) continue;
+    const component = `src/components/site/${refs[0][1]}.tsx`;
+    if (registeredComponents.has(component) || !existsSync(resolve(process.cwd(), component))) continue;
+    const jsxSource = readFileSync(resolve(process.cwd(), component), "utf8");
+    const cssRefs = [...jsxSource.matchAll(/import ["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)];
+    if (cssRefs.length !== 1) continue;
+    const stylesheet = `src/components/site/${cssRefs[0][1]}`;
+    if (!existsSync(resolve(process.cwd(), stylesheet))) continue;
+    discovered.push({ routeFile, component, stylesheet, slug });
+    byComponent.set(component, (byComponent.get(component) ?? 0) + 1);
+    byCss.set(stylesheet, (byCss.get(stylesheet) ?? 0) + 1);
+  }
+
+  for (const item of discovered) {
+    // Uma composição reaproveitada deixa de ser exclusiva: fail closed.
+    if (byComponent.get(item.component) !== 1 || byCss.get(item.stylesheet) !== 1) continue;
+    owned.set(item.routeFile, item.slug);
+    owned.set(item.component, item.slug);
+    owned.set(item.stylesheet, item.slug);
+  }
+  return owned;
+}
+
 export function resolveVisualRegressionScope(files, clients, readRevision) {
   const previewScope = previewOnlyScope(files);
   if (previewScope) return previewScope;
@@ -421,12 +470,31 @@ export function resolveVisualRegressionScope(files, clients, readRevision) {
       .map((client) => [normalize(client.componentFile), client.slug]),
   );
   const knownSlugs = new Set(clients.map((client) => client?.slug).filter(Boolean));
+  const newRoutesOwned = dedicatedNewClientFiles(files, clients);
   const scoped = new Set();
   let sawVisualFile = false;
 
   for (const raw of files) {
     const file = normalize(raw);
     if (!file) continue;
+
+    // Generated routeTree changes are scoped ONLY in presence of a
+    // verified dedicated route and its exclusive component and CSS.
+    const changedOwnedRoute = files.some((candidate) =>
+      /^src\/routes\/portfolio\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
+      newRoutesOwned.has(normalize(candidate)),
+    );
+    if (file === "src/routeTree.gen.ts") {
+      if (changedOwnedRoute) continue;
+      return []; // Rotas geradas sem sua rota exclusiva alterada: gate global.
+    }
+
+    const newClientSlug = newRoutesOwned.get(file);
+    if (newClientSlug) {
+      sawVisualFile = true;
+      scoped.add(newClientSlug);
+      continue;
+    }
 
     const componentSlug = byComponent.get(file);
     if (componentSlug) {

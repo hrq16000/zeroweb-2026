@@ -1208,6 +1208,18 @@
         "ctaHref": "#encontre"
       },
       "socialVersion": "8c010fca"
+    },
+    "cantinho-da-tia-mari": {
+      "icon": "/images/cantinho-da-tia-mari/logo.svg",
+      "socialImage": "/images/cantinho-da-tia-mari/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Cantinho da Tia Mari · Jardim Itália, SJP",
+        "title": "Um cantinho de carinho para cada descoberta.",
+        "description": "Conheça fotos reais e serviços anunciados no panfleto. A página é uma demonstração 0WEB; confirme vagas e horários diretamente.",
+        "ctaLabel": "Consultar informações",
+        "ctaHref": "#cuidados"
+      },
+      "socialVersion": "9ea8c269"
     }
   }
 }
