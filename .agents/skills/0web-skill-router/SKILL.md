@@ -26,6 +26,8 @@ The installed catalog is a starting point, not a ceiling. For substantial work, 
 
 For every new project/new `/portfolio/:slug`, every derivative/variant and every material UI/UX maintenance, read `src/config/skill-marketplace-catalog.json`, `src/config/portfolio-zero-generic-policy.json` and `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`. Search LobeHub and `https://awesomeskill.ai/search` when fresh complementary expertise may exist.
 
+For evidence-first investigation of an authorized website/app behavior, consider the optional REA protocol in `docs/skills/REA_RESEARCH_ADOPTION.md`. REA is not a default dependency or an approved executable skill; do not install, attach to browsers, or execute third-party scripts before scoped authorization and `docs/skills/SECURITY.md` review.
+
 For any material UI task, `0web-experience-design-max` is mandatory after discovery. It forces coverage of strategy, UX/UI, layout engineering, design system, web engineering, content/SEO, motion and QA before visual implementation.
 
 ## Step 2 — Compose the skill stack

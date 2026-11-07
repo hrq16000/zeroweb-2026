@@ -34,6 +34,7 @@ Nenhuma skill local executa scripts externos, rede ou lê segredos.
 
 | Skill / repo | Status | Decisão |
 |---|---|---|
+| `morluto/rea` — REA (Reverse Engineer Anything) | REFERENCE_ONLY / SECURITY_REVIEW_REQUIRED para executar | MIT; CLI + MCP para análise local de sites, JavaScript e binários. Usar apenas como investigação complementar, mediante escopo autorizado, ambiente isolado e revisão integral de scripts/dependências antes de instalar. Não adicionar ao build/runtime/CI. Fonte: https://github.com/morluto/rea @ `99db80a13e369885e7de99417475c25380446081`; protocolo: `docs/skills/REA_RESEARCH_ADOPTION.md`. |
 | `nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2` | APPROVED_GLOBAL (princípios/design intelligence) | MIT. Forte em a11y, touch, performance, layout, tipografia, motion, forms e stack guidance. O repositório amplo contém scripts/subprocessos e integrações; princípios revisados foram internalizados, distribuição completa não roda automaticamente. |
 | Dexa Experience Design | APPROVED_GLOBAL (processo/repertório) | Estratégia digital, UX/UI, websites, produto, design system, motion e Design Ops como disciplina integrada. Não copiar layout, marca ou assets. |
 | LobeHub Skills Marketplace / `@lobehub/market-cli` | APPROVED_GLOBAL (discovery) | A instrução anexada pelo responsável foi revisada. Search/install são mecanismos de setup do agente. `skills search` é permitido em ambiente apropriado; `skills install` exige revisão prévia e nunca roda em build/runtime. |
