@@ -37,12 +37,18 @@ export function isVerifiedGoogleBookingSession(
   user: BookingAuthUser | null,
 ): boolean {
   if (!user?.id || !user.email_confirmed_at || !oauthMethodWasUsed(claims)) return false;
+  if (!claims || typeof claims !== "object" || Array.isArray(claims)) return false;
+  if ((claims as Record<string, unknown>).sub !== user.id) return false;
   const confirmedEmail = email(user.email);
   if (!confirmedEmail) return false;
 
-  // A password session for a user who merely linked Google must not pass.
-  return Boolean(user.identities?.some((identity) =>
-    identity.provider === "google" &&
-    email(identity.identity_data?.email) === confirmedEmail,
-  ));
+  // An OAuth AMR confirms the *method*, not its social provider. A user
+  // with linked Google + GitHub identities could otherwise log in via GitHub
+  // and pass. Until the originating provider is securely asserted by the
+  // auth server, allow only Google-only identities (strict, fail-closed).
+  const identities = user.identities;
+  if (!identities || identities.length !== 1) return false;
+  const identity = identities[0];
+  return identity.provider === "google" &&
+    email(identity.identity_data?.email) === confirmedEmail;
 }
