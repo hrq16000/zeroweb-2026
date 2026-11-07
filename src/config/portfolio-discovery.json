@@ -694,9 +694,9 @@
         "recreação infantil"
       ],
       "services": [
-        "berçário anunciado",
-        "horário estendido",
-        "leva e busca escolar anunciado"
+        "berçário",
+        "leva e busca",
+        "horários"
       ],
       "products": [],
       "useCases": [
