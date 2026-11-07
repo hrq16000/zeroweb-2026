@@ -9,6 +9,7 @@ import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 import { PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS } from "@/config/portfolio-authorial-compositions";
 
 export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {
+  "relopar": lazy(() => import("@/components/site/ReloparPage").then((m) => ({ default: m.ReloparPage }))),
   "cantinho-da-tia-mari": lazy(() => import("@/components/site/CantinhoTiaMariPage").then((m) => ({default:m.CantinhoTiaMariPage}))),
   "agropet-filt": lazy(() => import("@/components/site/AgropetFiltPreviewPage").then((m) => ({ default: m.AgropetFiltPage }))),
   "arildo-madeiras": lazy(() =>
