@@ -1,48 +1,48 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Building2, Clock3, ClipboardList, Cpu, MapPin, Monitor, ShieldCheck, Wrench } from "lucide-react";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 
 const MAP = "https://www.google.com/maps/search/?api=1&query=Relopar%20Rua%20Cruz%20Machado%20344%20Curitiba";
 const photo = "/images/relopar/";
-const intake = {
-  proposalKind: "service" as const,
-  services: [
-    "Relógio de ponto — orçamento ou informação",
-    "Relógio de ponto — avaliação de defeito",
-    "Controle de acesso — consulta",
-    "Assistência técnica — confirmar equipamento atendido",
-    "Outras informações da Relopar",
-  ],
-  experienceOptions: [
-    "Quero comprar ou conhecer opções",
-    "Preciso descrever um defeito",
-    "Preciso de suporte para minha empresa",
-    "Ainda não sei qual solução procurar",
-  ],
-  periodOptions: ["Atendimento no endereço", "Consulta para empresa", "Quero confirmar a melhor opção"],
-  timingOptions: ["O quanto antes", "Nesta semana", "Ainda estou pesquisando"],
-  stepTitles: {
-    service: "O que você precisa consultar?",
-    experience: "Qual é a sua necessidade?",
-    period: "Como gostaria de receber orientação?",
-    timing: "Quando pretende resolver?",
-  },
-  notePlaceholder: "Descreva marca, modelo, número de equipamentos e dúvida ou defeito. Não informe senhas ou dados de funcionários.",
-};
-function Consultar({ children, className = "" }: {children: ReactNode;className?:string}) {
-  return (
-    <PortfolioCTAQuiz
-      clientKey="relopar"
-      studioName="Relopar — Relógios de Ponto"
-      recipientName="a Relopar"
-      mode="proposal"
-      theme="navy"
-      quizConfig={intake}
-      ariaLabel="Abrir formulário demonstrativo de orçamento da Relopar"
-      className={className}
-    >{children}</PortfolioCTAQuiz>
-  );
+
+const JOTFORM_URL = "https://form.jotform.com/263097813049059";
+/** O botão abre um formulário real e isolado, identificado como demo, sem simular contato com a loja. */
+function Consultar({children,className=""}:{children:ReactNode;className?:string}) {
+ const [open,setOpen]=useState(false);
+ const dialogRef=useRef<HTMLDivElement>(null);
+ const closeRef=useRef<HTMLButtonElement>(null);
+ useEffect(()=>{
+  if(!open)return;
+  const previous=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  const overflow=document.body.style.overflow;
+  document.body.style.overflow="hidden";
+  closeRef.current?.focus();
+  const onKey=(event:KeyboardEvent)=>{
+   if(event.key==="Escape"){event.preventDefault();setOpen(false);return;}
+   if(event.key!=="Tab")return;
+   const focusables=Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button,[href],iframe,[tabindex]:not([tabindex="-1"])')??[]);
+   if(!focusables.length)return;
+   const first=focusables[0],last=focusables[focusables.length-1];
+   if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  };
+  document.addEventListener("keydown",onKey);
+  window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open"));
+  return()=>{document.removeEventListener("keydown",onKey);document.body.style.overflow=overflow;window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-close"));previous?.focus();};
+ },[open]);
+ return <>
+  <button type="button" className={className} onClick={()=>setOpen(true)}>{children}</button>
+  {open&&<div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0b1725]/85 p-3 backdrop-blur-sm" onMouseDown={e=>{if(e.target===e.currentTarget)setOpen(false)}}>
+   <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="relopar-modal-title" aria-describedby="relopar-modal-disclaimer" className="flex h-[min(93dvh,840px)] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-white text-[#102133] shadow-2xl">
+    <div className="flex items-start justify-between gap-3 border-b border-[#dfe5e8] px-5 py-4">
+     <div><p className="text-[10px] font-extrabold uppercase tracking-widest text-[#92710f]">Amostra · Funil 0WEB</p><h2 id="relopar-modal-title" className="mt-1 text-xl font-black">Consulta técnica Relopar</h2><p id="relopar-modal-disclaimer" className="mt-1 text-xs leading-relaxed text-[#607083]">Formulário demonstrativo. Não é contato oficial da Relopar; as respostas são registradas para demonstração da 0WEB.</p></div>
+     <button ref={closeRef} type="button" className="grid h-11 w-11 shrink-0 place-items-center rounded border border-[#c9d4dc] bg-[#f5f7f7] text-xl font-black" onClick={()=>setOpen(false)} aria-label="Fechar formulário">×</button>
+    </div>
+    <iframe src={JOTFORM_URL} title="Formulário demonstrativo Relopar — atendimento 0WEB" className="min-h-0 w-full flex-1 border-0" loading="eager" referrerPolicy="strict-origin-when-cross-origin" data-funnel-provider="jotform" data-client-key="relopar"/>
+    <div className="border-t border-[#dfe5e8] bg-[#f4f6f7] px-4 py-3 text-center text-xs text-[#586c7d]">Dados armazenados no Jotform para a amostra 0WEB. Nenhum WhatsApp foi configurado.</div>
+   </div>
+  </div>}
+ </>;
 }
 const pathways = [
   {number:"01", title:"Relógios de ponto", icon:Clock3,
