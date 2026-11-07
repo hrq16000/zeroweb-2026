@@ -1,6 +1,6 @@
 # Creative Composition Brief — Toop Assados (proposta não oficial)
 
-**Status:** research / conceito para apresentação; ainda não é landing implementada ou publicada.
+**Status:** research + preview interativo em branch de proposta; não é landing pública nem funil operacional. Rota temporária: `/portfolio-preview/toop-assados`, apenas DEV/Vercel preview.
 **Data da pesquisa:** 2026-11-07. **Proveniência principal:** quatro fotografias do mesmo panfleto impresso enviadas ao projeto. **Slug reservado (proposto):** `toop-assados`. **Região declarada no material:** Xaxim, Curitiba/PR.
 
 ## Verdade da empresa e limites de evidência
@@ -87,10 +87,10 @@
 | Mídia oficial e direitos | ATTEMPTED_BLOCKED | Sem fotos de autoria/uso confirmados |
 | Proposta de arte | USED | Versão conceitual produzida na conversa; não pressupõe autorização de publicação |
 | 0web-skill-router + AGENTS + lifecycle | USED | Consulta à fonte oficial no repositório |
-| 0web-experience-design-max / direção de arte | USED (planejamento) | Concepção, arquitetura de decisão, responsividade e originalidade previstas; UI ainda não implementada |
+| 0web-experience-design-max / direção de arte | USED (planejamento) | Concepção, arquitetura de decisão, responsividade e originalidade previstas; prévia implementada; validação de CI/browser pendente |
 | Skills externas / REA / Firecrawl | NOT_APPLICABLE | Não há ganho proporcional nem autorização para executar dependências externas nesta micro-rodada de documentação |
 | UI quality / testes / funil/SEO | NOT_APPLICABLE AINDA | Entrarão na implementação; nenhuma página foi alterada nesta etapa |
 
 ## Publicação e pendências honestas
 
-**Bloqueios para página pública operacional:** confirmar nome e identidade do titular, preço/validade, endereço normalizado, número/destino de encomenda, horário, fotografia autorizada e funil funcional. Ausência de perfil social não bloqueia, desde que pesquisa registrada. Sem prova de publicação, indexação ou conclusão do projeto nesta etapa.
+**Bloqueios para página pública operacional:** confirmar nome e identidade do titular, preço/validade, endereço normalizado, número/destino de encomenda, horário, fotografia autorizada e funil funcional. Ausência de perfil social não bloqueia, desde que pesquisa registrada. Sem prova de publicação final, indexação ou conclusão do projeto nesta etapa. Preview demonstrativo existe somente em branch para revisão.
