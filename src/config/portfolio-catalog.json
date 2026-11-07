@@ -2333,5 +2333,30 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta de informações via formulário",
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "relopar",
+    "clientKey": "relopar",
+    "title": "Relopar — Relógios de Ponto",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "relógio de ponto",
+      "controle de acesso",
+      "assistência técnica",
+      "Rua Cruz Machado",
+      "Curitiba Centro"
+    ],
+    "live": false,
+    "subtitle": "Relógios de ponto e assistência técnica no Centro de Curitiba",
+    "location": "Rua Cruz Machado, 344 · Centro · Curitiba — PR",
+    "badge": "Demonstração 0WEB",
+    "image": "/images/relopar/social-og.svg",
+    "fallbackImage": "/images/relopar/logo.svg",
+    "metrics": "Consulta demonstrativa",
+    "summary": "Amostra de presença digital para a Relopar no Centro de Curitiba, com fotos reais da fachada, serviços anunciados e consulta técnica demonstrativa."
   }
 ]
