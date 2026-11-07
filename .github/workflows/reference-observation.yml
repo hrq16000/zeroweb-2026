@@ -1,0 +1,91 @@
+name: Homologar observação passiva 0WEB
+
+on:
+  pull_request:
+    paths:
+      - scripts/reference-observation.mjs
+      - tests/reference-observation.test.mjs
+      - .github/workflows/reference-observation.yml
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Página pública da própria 0WEB a observar
+        type: choice
+        required: true
+        default: portfolio
+        options:
+          - portfolio
+          - servicos
+          - home
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reference-observation-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-smoke:
+    name: Homologação Playwright (sem escrita)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OBSERVATION_PAGE: ${{ inputs.page || 'portfolio' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Instalar dependências existentes (sem atualizar lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Contrato de origens e métodos permitidos
+        run: node --test tests/reference-observation.test.mjs
+
+      - name: Instalar Chromium para o piloto
+        run: bunx playwright install --with-deps chromium
+
+      - name: Capturar somente estrutura pública sem interações
+        run: |
+          set -euo pipefail
+          case "$OBSERVATION_PAGE" in
+            portfolio) TARGET="https://0web.com.br/portfolio" ;;
+            servicos) TARGET="https://0web.com.br/servicos" ;;
+            home) TARGET="https://0web.com.br/" ;;
+            *) echo "Alvo não autorizado"; exit 1 ;;
+          esac
+          mkdir -p reports
+          node scripts/reference-observation.mjs "$TARGET" > reports/reference-observation.json
+          node --input-type=module -e '
+            import assert from "node:assert/strict";
+            import { readFileSync } from "node:fs";
+            const report = JSON.parse(readFileSync("reports/reference-observation.json", "utf8"));
+            assert.equal(report.schema, "0web.reference_observation.v1");
+            assert.equal(report.status, "OBSERVED_LIMITED");
+            assert.ok(report.httpStatus >= 200 && report.httpStatus < 400, "resposta HTTP não válida");
+            assert.ok(report.title, "página sem título renderizado");
+            assert.ok(report.headings.length > 0, "página sem headings renderizados");
+            console.log(JSON.stringify({
+              result: "PASS",
+              page: new URL(report.finalUrl).pathname,
+              httpStatus: report.httpStatus,
+              headingCount: report.headings.length,
+              actionCount: report.actions.length,
+              formCount: report.forms.length,
+              limitations: report.limitations.length,
+            }));
+          '
+
+      - name: Anexar evidência pública, sem screenshots ou cookies
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: referencia-0web-passiva
+          path: reports/reference-observation.json
+          retention-days: 7
+          if-no-files-found: error

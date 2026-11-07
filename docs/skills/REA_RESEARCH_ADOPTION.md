@@ -28,6 +28,21 @@ A 0WEB já tem pipeline de pesquisa/autonomia de portfólios e browser QA. REA s
 - **Revisão por versão:** qualquer futura aprovação operacional deve registrar SHA, versão, superfície de permissões, scripts revisados e teste local, e então mudar o status no `docs/skills/REGISTRY.md`. A atualização do upstream não promove aprovação automaticamente.
 - **Resultado esperado:** inteligência de engenharia/referência com evidências, não cópia de layout, código proprietário, imagens sem direito de uso, nem substituição de ferramentas já suficientes.
 
+## Piloto operacional 0WEB (sem executar REA)
+
+A linha de base para a investigação foi implementada em `scripts/reference-observation.mjs` utilizando o **Playwright já presente no projeto**, sem novas dependências. O script lê apenas páginas públicas pertencentes à 0WEB e devolve um JSON com título, descrição, canonical, robots, hierarquia de headings, CTAs, estrutura de campos de formulário (sem valores), contagens de links/imagens e possíveis lacunas básicas de acessibilidade.
+
+Uso **local e opcional** no ambiente de desenvolvimento que já disponha de Playwright/Chromium:
+
+```bash
+node --test tests/reference-observation.test.mjs
+node scripts/reference-observation.mjs https://0web.com.br/portfolio
+```
+
+A coleta não executa ações de usuário, não envia formulários, não grava cookies, não observa tráfego de outras origens e bloqueia métodos diferentes de GET/HEAD. Também bloqueia domínios fora da allowlist, parâmetros de query e fragmentos. **A captura real em navegador deve ser executada antes de usar o resultado como evidência:** os testes unitários validam restrições e não provam que o relatório foi produzido contra produção.
+
+Limitações: recursos de terceiros bloqueados podem causar renderização incompleta; presença de CTA não prova persistência de lead; presença de canonical não comprova indexação pelo Google. O relatório gerado é somente a linha de base `OBSERVED_LIMITED` para comparação futura com evidências do REA, cuja instalação segue pendente de revisão de segurança específica. Não copiar dados/ativos de terceiros.
+
 ## Referências
 
 - Fonte/README: https://github.com/morluto/rea
