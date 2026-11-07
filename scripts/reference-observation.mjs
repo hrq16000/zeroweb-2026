@@ -30,6 +30,24 @@ export function checkedTarget(raw) {
   return target.toString();
 }
 
+/**
+ * Limita a URL inicial e os redirecionamentos a páginas públicas de referência.
+ * Recursos estáticos do mesmo domínio continuam sendo requisitados pelo Playwright.
+ */
+export function checkedObservationPage(raw) {
+  const url = checkedTarget(raw);
+  const path = new URL(url).pathname;
+  if (!(
+    path === "/" ||
+    path === "/portfolio" ||
+    path === "/servicos" ||
+    /^\\/(?:portfolio|servicos)\\/[a-z0-9]+(?:-[a-z0-9]+)*\\/?$/.test(path)
+  )) {
+    throw new Error("Caminho fora do escopo de observação pública da 0WEB.");
+  }
+  return url;
+}
+
 export function allowsPassiveRequest(method, rawUrl) {
   if (!new Set(["GET", "HEAD"]).has(String(method).toUpperCase())) return false;
   try {
@@ -41,7 +59,7 @@ export function allowsPassiveRequest(method, rawUrl) {
 }
 
 export async function observeOwnedPage(rawUrl, { chromiumLoader } = {}) {
-  const url = checkedTarget(rawUrl);
+  const url = checkedObservationPage(rawUrl);
   const { chromium } = await (chromiumLoader || (() => import("playwright")))();
   const browser = await chromium.launch({ headless: true });
   try {
@@ -64,7 +82,7 @@ export async function observeOwnedPage(rawUrl, { chromiumLoader } = {}) {
     const response = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
     // Cobre hidratação básica sem clicar nem aceitar cookies.
     await page.waitForTimeout(800);
-    const finalUrl = checkedTarget(page.url());
+    const finalUrl = checkedObservationPage(page.url());
     const observation = await page.evaluate(() => {
       const norm = (value, max = 150) => String(value || "").replace(/\s+/g, " ").trim().slice(0, max);
       const meta = (selector) => norm(document.querySelector(selector)?.getAttribute("content"), 240) || null;
