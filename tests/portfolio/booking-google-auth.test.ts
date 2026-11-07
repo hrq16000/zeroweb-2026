@@ -18,12 +18,12 @@ describe("booking: Google-only identity gate", () => {
   });
 
   test("nega senha com conta Google apenas vinculada", () => {
-    expect(isVerifiedGoogleBookingSession({ amr: [{ method: "password" }] }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: [{ method: "password" }] }, user)).toBe(false);
   });
 
   test("nega sessão sem prova de OAuth ou método de login", () => {
     expect(isVerifiedGoogleBookingSession({}, user)).toBe(false);
-    expect(isVerifiedGoogleBookingSession({ amr: null }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: null }, user)).toBe(false);
     expect(isVerifiedGoogleBookingSession(null, user)).toBe(false);
   });
 
@@ -37,9 +37,22 @@ describe("booking: Google-only identity gate", () => {
     expect(isVerifiedGoogleBookingSession(googleOAuth, null)).toBe(false);
   });
 
+  test("nega OAuth de outro provedor vinculado e JWT de outra pessoa", () => {
+    expect(isVerifiedGoogleBookingSession({
+      ...googleOAuth, sub: "another-user",
+    }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession(googleOAuth, {
+      ...user,
+      identities: [
+        ...user.identities,
+        { provider: "github", identity_data: { email: "proprietario@exemplo.com" } },
+      ],
+    })).toBe(false);
+  });
+
   test("nega identities inválidas mesmo com campo AMR parecido com OAuth", () => {
-    expect(isVerifiedGoogleBookingSession({ amr: [{ method: "oauth-email" }] }, user)).toBe(false);
-    expect(isVerifiedGoogleBookingSession({ amr: ["oauth"] }, user)).toBe(false);
-    expect(isVerifiedGoogleBookingSession({ amr: [{ value: "oauth" }] }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: [{ method: "oauth-email" }] }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: ["oauth"] }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: [{ value: "oauth" }] }, user)).toBe(false);
   });
 });
