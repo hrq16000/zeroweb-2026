@@ -41,7 +41,7 @@ export function checkedObservationPage(raw) {
     path === "/" ||
     path === "/portfolio" ||
     path === "/servicos" ||
-    /^\\/(?:portfolio|servicos)\\/[a-z0-9]+(?:-[a-z0-9]+)*\\/?$/.test(path)
+    new RegExp("^/(?:portfolio|servicos)/[a-z0-9]+(?:-[a-z0-9]+)*/?$").test(path)
   )) {
     throw new Error("Caminho fora do escopo de observação pública da 0WEB.");
   }
