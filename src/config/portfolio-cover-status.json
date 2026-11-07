@@ -4,11 +4,11 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-11-04",
   "summary": {
-    "total": 98,
-    "valid": 49,
+    "total": 99,
+    "valid": 50,
     "pending": 49,
     "byStatus": {
-      "VALID": 49,
+      "VALID": 50,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
@@ -239,6 +239,19 @@
       "cardValid": false,
       "businessName": "BTB Construção",
       "segment": "construcao"
+    },
+    {
+      "slug": "cantinho-da-tia-mari",
+      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "catalogImage": "/images/cantinho-da-tia-mari/fachada.webp",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "reviewedAt": "2026-11-06",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Cantinho da Tia Mari",
+      "segment": "comercios"
     },
     {
       "slug": "carecas-infotec",

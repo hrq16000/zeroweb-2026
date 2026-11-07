@@ -1320,5 +1320,26 @@
       "source": "Fontes de diretórios pesquisadas em 04/11/2026; autorização comercial informada pelo operador no chat",
       "reference": "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/"
     }
+  },
+  {
+    "clientKey": "cantinho-da-tia-mari",
+    "slug": "cantinho-da-tia-mari",
+    "siteName": "Cantinho da Tia Mari",
+    "routeFile": "src/routes/portfolio.cantinho-da-tia-mari.tsx",
+    "componentFile": "src/components/site/CantinhoTiaMariPage.tsx",
+    "assetsDir": "public/images/cantinho-da-tia-mari",
+    "ctaMode": "proposal",
+    "funnelType": "consulta",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/cantinho-da-tia-mari.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
+      "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
+    }
   }
 ]

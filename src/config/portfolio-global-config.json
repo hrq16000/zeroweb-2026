@@ -1445,6 +1445,18 @@
       "footer": {
         "variant": "dark"
       }
+    },
+    "cantinho-da-tia-mari": {
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consultar vagas",
+        "recipientName": "o Cantinho da Tia Mari",
+        "studioName": "Cantinho da Tia Mari"
+      },
+      "footer": {
+        "variant": "light"
+      }
     }
   }
 }
