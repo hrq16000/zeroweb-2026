@@ -1,6 +1,6 @@
 # Toop Assados — proposta de portfólio 0WEB (micro-rodada 1)
 
-**Situação:** proposta comercial versionada, **não publicada**, sem rota criada, sem funil ativado e sem contato operacional. 
+**Situação:** proposta comercial versionada com **preview interativo não oficial**; não publicada como portfólio final, sem funil real ou contato operacional. Prévia disponível somente em DEV/Vercel preview pelo caminho `/portfolio-preview/toop-assados` (404 em produção). 
 **Local informado no panfleto:** Rua Omar Raimundo Pichet, 1217, Xaxim, Curitiba/PR (grafia impressa; confirmar forma cadastral: “Omar Raymundo Picheth”).
 **Fonte primária:** panfleto fotografado e apresentado pelo usuário em 07/11/2026. 
 **Observação:** não há prova de autorização comercial do estabelecimento; tratar a proposta como amostra não oficial para apresentação, sem afiliação presumida.
@@ -72,10 +72,10 @@ A primeira abordagem deve deixar claro que a 0WEB criou um **conceito independen
 - **R3:** preparar registros de catálogo/manifest v4, funil próprio real, segurança, SEO JSON-LD/sitemap e camada plataforma; validar testes e qualidade.
 - **R4:** somente após readiness e autorização, abrir PR de publicação, merge e verificar produção + indexabilidade/GSC. **Indexável não significa indexado.**
 
-**Sem alterações em DNS, Lovable, Supabase Service Role, repositórios terceiros ou produção nesta R1.**
+**Micro-rodada 1.5 (implementada na branch):** componente autoral `src/components/site/ToopAssadosPreviewPage.tsx` e rota `src/routes/portfolio-preview.toop-assados.tsx`. Inclui escolha de prato, quantidade e resumo demonstrativo **sem armazenamento**, pesquisa factual indicada como pendente e `noindex` exclusivo da prévia. Este `noindex` não é diretriz para a futura rota pública indexável. Ainda não é funil, delivery, site publicado nem catálogo público.\n\n**Sem alterações em DNS, Lovable, Supabase Service Role, repositórios terceiros ou produção nesta etapa.**
 
 ## 6. Conformidade e evidências
 
 Leituras: `AGENTS.md`, skill router, `docs/0WEB_EXECUTION_CONTRACT.md`, lifecycle, `PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`, creative direction, entity enrichment, zero-generic e projeto similar `agropet-filt-pilot.md`. Nenhum pacote/skill externo executado; recursos REA/Firecrawl não são necessários para pesquisa textual pontual.
 
-Amostra inexistente em frontend nesta etapa; portanto testes de browser, SEO, build, CTA e funil **não foram executados** e não podem ser declarados verdes. Esta PR registra somente a decisão factual e criativa, sem criar um site incompleto.
+Uma **amostra visual isolada foi implementada em frontend** na branch. Testes reais de navegador, compilação e funil **ainda não foram comprovados**; não declarar gates verdes antes da execução de CI. A rota demonstra intenção e composição sem publicar projeto incompleto em `/portfolio`.
