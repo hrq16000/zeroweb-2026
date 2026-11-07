@@ -717,6 +717,49 @@
         "cuidados infantis Jardim Itália",
         "leva e busca escola CMEI Jardim Itália"
       ]
+    },
+    "relopar": {
+      "aliases": [
+        "Relopar",
+        "Relopar Relógios de Ponto",
+        "Relopar Curitiba"
+      ],
+      "categories": [
+        "relógio de ponto",
+        "controle de acesso",
+        "assistência técnica"
+      ],
+      "services": [
+        "relógios de ponto",
+        "consulta sobre reparo de equipamentos",
+        "controle de acesso"
+      ],
+      "equipment": [
+        "relógio de ponto"
+      ],
+      "products": [],
+      "problems": [
+        "relógio de ponto com defeito",
+        "necessidade de controle de jornada",
+        "preciso de um relógio de ponto em Curitiba"
+      ],
+      "useCases": [
+        "empresa pesquisando relógio de ponto",
+        "consulta técnica de equipamento",
+        "visitar a Relopar no Centro"
+      ],
+      "locality": [
+        "Centro de Curitiba",
+        "Rua Cruz Machado",
+        "Curitiba",
+        "PR"
+      ],
+      "keywords": [
+        "Relopar Curitiba",
+        "relógios de ponto Rua Cruz Machado Curitiba",
+        "assistência relógio ponto Curitiba",
+        "controle de acesso Curitiba"
+      ]
     }
   }
 }
