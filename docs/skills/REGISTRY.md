@@ -32,6 +32,8 @@ Nenhuma skill local executa scripts externos, rede ou lê segredos.
 
 ## Externas avaliadas
 
+| `morluto/rea` — REA (Reverse Engineer Anything) | REFERENCE_ONLY / SECURITY_REVIEW_REQUIRED para executar | MIT; CLI + MCP para análise local de sites, JavaScript e binários. Usar apenas como investigação complementar, mediante escopo autorizado, ambiente isolado e revisão integral de scripts/dependências antes de instalar. Não adicionar ao build/runtime/CI. Fonte: https://github.com/morluto/rea @ `99db80a13e369885e7de99417475c25380446081`; protocolo: `docs/skills/REA_RESEARCH_ADOPTION.md`. |
+
 | Skill / repo | Status | Decisão |
 |---|---|---|
 | `nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2` | APPROVED_GLOBAL (princípios/design intelligence) | MIT. Forte em a11y, touch, performance, layout, tipografia, motion, forms e stack guidance. O repositório amplo contém scripts/subprocessos e integrações; princípios revisados foram internalizados, distribuição completa não roda automaticamente. |
