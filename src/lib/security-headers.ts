@@ -16,8 +16,9 @@ const CSP_DIRECTIVES = [
   "connect-src 'self' https: wss:",
   "media-src 'self' https: data:",
   "worker-src 'self' blob:",
-  // Embeds sociais dos projetos /portfolio/:slug (Instagram/Facebook) + vídeo.
-  "frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://www.instagram.com https://instagram.com https://platform.instagram.com https://www.facebook.com https://web.facebook.com",
+  // Embeds sociais/vídeo + origem exata do formulário persistente autorizado.
+  // O formulário vive em seu próprio documento; form-action continua same-origin.
+  "frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://www.instagram.com https://instagram.com https://platform.instagram.com https://www.facebook.com https://web.facebook.com https://form.jotform.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
