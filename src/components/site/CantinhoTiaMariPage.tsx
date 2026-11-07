@@ -114,7 +114,7 @@ export function CantinhoTiaMariPage() {
           </div>
           <div className="relative mx-auto w-full max-w-xl">
             <div className="absolute inset-3 rotate-[-5deg] rounded-[28%_40%_27%_35%] bg-[#e6c9f4]"/>
-            <img src={P+"fachada.webp"} width={560} height={352} alt="Foto real da fachada do Cantinho da Tia Mari apresentada no panfleto" fetchPriority="high" decoding="async" className="relative aspect-[5/4] w-full rotate-3 rounded-[2.5rem] border-[10px] border-white object-cover shadow-2xl shadow-[#6b408d]/20" />
+            <img src={P+"fachada.webp"} width={560} height={352} alt="Foto real da fachada do Cantinho da Tia Mari apresentada no panfleto" fetchPriority="high" loading="eager" decoding="async" className="relative aspect-[5/4] w-full rotate-3 rounded-[2.5rem] border-[10px] border-white object-cover shadow-2xl shadow-[#6b408d]/20" />
             <div className="absolute -bottom-7 -left-2 -rotate-12 rounded-full border-[6px] border-white bg-[#f6d779] px-7 py-7 text-center text-base font-black leading-tight text-[#74466b] shadow-lg">💜<br/>Pequenos<br/>grandes dias</div>
           </div>
         </div>
@@ -141,9 +141,9 @@ export function CantinhoTiaMariPage() {
             <p className="mt-5 text-xs text-[#8c798d]">Imagens reais do panfleto, com resolução limitada pela impressão original.</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <img src={P+"acolhimento.webp"} alt="Área interna com piso colorido e cercadinho" loading="lazy" width={249} height={245} className="aspect-square w-full rounded-3xl object-cover"/>
-            <img src={P+"copa.webp"} alt="Copa e ambiente de apoio com pia" loading="lazy" width={260} height={354} className="aspect-square w-full rounded-3xl object-cover"/>
-            <img src={P+"sala.webp"} alt="Sala interna com piso claro e estrutura de atendimento" loading="lazy" width={278} height={246} className="col-span-2 aspect-[16/8] w-full rounded-3xl object-cover"/>
+            <img src={P+"acolhimento.webp"} alt="Área interna com piso colorido e cercadinho" loading="lazy" decoding="async" width={249} height={245} className="aspect-square w-full rounded-3xl object-cover"/>
+            <img src={P+"copa.webp"} alt="Copa e ambiente de apoio com pia" loading="lazy" decoding="async" width={260} height={354} className="aspect-square w-full rounded-3xl object-cover"/>
+            <img src={P+"sala.webp"} alt="Sala interna com piso claro e estrutura de atendimento" loading="lazy" decoding="async" width={278} height={246} className="col-span-2 aspect-[16/8] w-full rounded-3xl object-cover"/>
           </div>
         </div>
       </section>
