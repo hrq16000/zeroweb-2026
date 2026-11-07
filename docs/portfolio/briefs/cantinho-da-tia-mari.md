@@ -54,3 +54,11 @@
 - [ ] Rodar gates e inspeção em domínio de produção; GSC após URL real
 
 A amostra standalone **não** deve ser apresentada como URL oficial, indexação concluída ou lead persistido.
+
+## Preflight de publicação — execução consolidada
+
+- Fotos reais da unidade extraídas do panfleto e versionadas em WebP.
+- OG social JPEG gerada pelo pipeline oficial e versionada; seed do painel sincronizado com 99 itens.
+- A consulta permanece identificada como demonstração, sem coleta de dados de crianças e sem prometer vaga ou matrícula.
+- Shell oficial preservado (popup da 0WEB), CTA flutuante autoral único por clientKey.
+- A promoção da PR depende do CI sobre o último commit e da verificação pós-implantação em 0web.com.br.
