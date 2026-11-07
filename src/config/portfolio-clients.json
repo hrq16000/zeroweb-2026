@@ -1341,5 +1341,26 @@
       "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
       "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
     }
+  },
+  {
+    "clientKey": "relopar",
+    "slug": "relopar",
+    "siteName": "Relopar — Relógios de Ponto",
+    "routeFile": "src/routes/portfolio.relopar.tsx",
+    "componentFile": "src/components/site/ReloparPage.tsx",
+    "assetsDir": "public/images/relopar",
+    "ctaMode": "proposal",
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/relopar.md",
+    "provenance": {
+      "kind": "USER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Duas fotos reais da fachada enviadas pelo usuário; fontes públicas registradas em 06/11/2026",
+      "reference": "docs/portfolio/enrichment/relopar.json"
+    }
   }
 ]
