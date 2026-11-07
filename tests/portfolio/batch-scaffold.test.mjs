@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { prepareBatch } from "../../scripts/scaffold-portfolio-batch.mjs";
+import { prepareBatch, nextPendingOffset } from "../../scripts/scaffold-portfolio-batch.mjs";
 
 const data = [
   { name: "Loja da Ana", location: "Afonso Pena, São José dos Pinhais — PR" },
@@ -42,4 +42,19 @@ test("preserva acentos e normaliza o slug sem perder o nome do negócio", () => 
   const result = prepareBatch([{ name: "Empório São José", location: "São José dos Pinhais — PR" }]);
   assert.equal(result.records[0].slug, "emporio-sao-jose");
   assert.equal(result.records[0].name, "Empório São José");
+});
+
+test("retoma o primeiro registro sem scaffold mesmo com lacunas na fila", () => {
+  const existing = new Set(["loja-da-ana", "oficina-da-vila"]);
+  assert.equal(nextPendingOffset(data, existing), 1);
+});
+
+test("retorno nulo significa todos os rascunhos iniciados, não publicação", () => {
+  const existing = new Set(["loja-da-ana", "brecho-curitiba", "oficina-da-vila"]);
+  assert.equal(nextPendingOffset(data, existing), null);
+});
+
+test("retomada valida registros futuros antes de qualquer scaffold", () => {
+  const broken = [...data, { name: "Inválido" }];
+  assert.throws(() => nextPendingOffset(broken, new Set()), /localização.*factual/);
 });
