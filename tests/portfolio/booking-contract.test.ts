@@ -60,11 +60,13 @@ describe("portfolio booking: permissões e ciclo de vida", () => {
     provider: "google",
     emailVerified: true,
   };
-  const member = { clientKey: "salao-um", googleEmail: "Proprietario@Exemplo.com", active: true };
+  const member = { clientKey: "salao-um", userId: "google-user-123", googleEmail: "Proprietario@Exemplo.com", active: true };
 
   test("autoriza apenas Google validado e e-mail associado ao mesmo clientKey", () => {
     expect(canManagePortfolioBooking(google, member, "salao-um")).toBe(true);
     expect(canManagePortfolioBooking(google, member, "salao-dois")).toBe(false);
+    expect(canManagePortfolioBooking({ ...google, userId: "outro-usuario" }, member, "salao-um")).toBe(false);
+    expect(canManagePortfolioBooking(google, { ...member, userId: "outro-usuario" }, "salao-um")).toBe(false);
     expect(canManagePortfolioBooking({ ...google, provider: "email" }, member, "salao-um")).toBe(false);
     expect(canManagePortfolioBooking({ ...google, emailVerified: false }, member, "salao-um")).toBe(false);
     expect(canManagePortfolioBooking({ ...google, email: "outra@exemplo.com" }, member, "salao-um")).toBe(false);
