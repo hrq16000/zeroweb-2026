@@ -1449,6 +1449,23 @@
       "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
       "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
       "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
+    },
+    "relopar": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "Placa técnica 344 ao lado de headline industrial estática",
+      "tabletBehavior": "conteúdo empilhado mantendo régua de serviços",
+      "mobileBehavior": "coluna única e CTA flutuante sem animação contínua"
     }
   },
   "decisions": {
@@ -1975,6 +1992,26 @@
         "scroll hijack"
       ],
       "performanceNote": "Somente transform/opacity; hero WebP único com priority."
+    },
+    "relopar": {
+      "wave": "NEW_CLIENT_RELOPAR",
+      "segment": "relógios de ponto e assistência",
+      "motionIntent": "PRECISAO",
+      "whyThisMotion": "A clareza técnica prevalece; movimentos apenas para indicar elementos clicáveis.",
+      "signatureMoments": {
+        "hero": "Placa técnica amarela com número 344",
+        "section": "Serviços numerados por especialidade",
+        "interaction": "CTA fixo de orçamento e FAQ details nativo"
+      },
+      "effectsAvoided": [
+        "parallax",
+        "loops",
+        "scroll hijack",
+        "contadores"
+      ],
+      "performanceNote": "CSS/Tailwind sem biblioteca adicional de efeitos.",
+      "accessibilityNotes": "reduced motion preserva toda a informação e retira hover transform.",
+      "originalityNotes": "Matriz industrial 01–04 diverge da Oficina Moreira e demais assistências."
     }
   }
 }
