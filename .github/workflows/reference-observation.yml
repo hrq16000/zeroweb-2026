@@ -12,8 +12,9 @@ on:
         description: Página pública da própria 0WEB a observar
         type: choice
         required: true
-        default: portfolio
+        default: all
         options:
+          - all
           - portfolio
           - servicos
           - home
@@ -31,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      OBSERVATION_PAGE: ${{ inputs.page || 'portfolio' }}
+      OBSERVATION_PAGE: ${{ inputs.page || 'all' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,42 +51,56 @@ jobs:
       - name: Instalar Chromium para o piloto
         run: bunx playwright install --with-deps chromium
 
-      - name: Capturar somente estrutura pública sem interações
+      - name: Capturar três rotas públicas sem interações
         run: |
           set -euo pipefail
           case "$OBSERVATION_PAGE" in
-            portfolio) TARGET="https://0web.com.br/portfolio" ;;
-            servicos) TARGET="https://0web.com.br/servicos" ;;
-            home) TARGET="https://0web.com.br/" ;;
+            all) TARGETS=(home portfolio servicos) ;;
+            home|portfolio|servicos) TARGETS=("$OBSERVATION_PAGE") ;;
             *) echo "Alvo não autorizado"; exit 1 ;;
           esac
           mkdir -p reports
-          node scripts/reference-observation.mjs "$TARGET" > reports/reference-observation.json
-          node --input-type=module -e '
-            import assert from "node:assert/strict";
-            import { readFileSync } from "node:fs";
-            const report = JSON.parse(readFileSync("reports/reference-observation.json", "utf8"));
+          for route in "${TARGETS[@]}"; do
+            case "$route" in
+              home) URL="https://0web.com.br/" ;;
+              portfolio) URL="https://0web.com.br/portfolio" ;;
+              servicos) URL="https://0web.com.br/servicos" ;;
+              *) exit 1 ;;
+            esac
+            node scripts/reference-observation.mjs "$URL" > "reports/reference-$route.json"
+          done
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          const expected = { home: "/", portfolio: "/portfolio", servicos: "/servicos" };
+          const selected = process.env.OBSERVATION_PAGE === "all"
+            ? Object.keys(expected)
+            : [process.env.OBSERVATION_PAGE];
+          for (const route of selected) {
+            const report = JSON.parse(readFileSync(`reports/reference-${route}.json`, "utf8"));
             assert.equal(report.schema, "0web.reference_observation.v1");
             assert.equal(report.status, "OBSERVED_LIMITED");
             assert.ok(report.httpStatus >= 200 && report.httpStatus < 400, "resposta HTTP não válida");
+            assert.equal(new URL(report.finalUrl).pathname, expected[route]);
             assert.ok(report.title, "página sem título renderizado");
             assert.ok(report.headings.length > 0, "página sem headings renderizados");
             console.log(JSON.stringify({
               result: "PASS",
-              page: new URL(report.finalUrl).pathname,
+              page: expected[route],
               httpStatus: report.httpStatus,
               headingCount: report.headings.length,
               actionCount: report.actions.length,
               formCount: report.forms.length,
               limitations: report.limitations.length,
             }));
-          '
+          }
+          NODE
 
       - name: Anexar evidência pública, sem screenshots ou cookies
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: referencia-0web-passiva
-          path: reports/reference-observation.json
+          path: reports/reference-*.json
           retention-days: 7
           if-no-files-found: error
