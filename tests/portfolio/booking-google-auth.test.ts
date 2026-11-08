@@ -19,6 +19,7 @@ describe("booking: Google-only identity gate", () => {
 
   test("nega senha com conta Google apenas vinculada", () => {
     expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: [{ method: "password" }] }, user)).toBe(false);
+    expect(isVerifiedGoogleBookingSession({ ...googleOAuth, amr: [{ method: "oauth" }, { method: "password" }] }, user)).toBe(false);
   });
 
   test("nega sessão sem prova de OAuth ou método de login", () => {
