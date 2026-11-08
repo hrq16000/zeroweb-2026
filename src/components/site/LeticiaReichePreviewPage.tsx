@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowDownRight, ArrowRight, CalendarDays, Check, Clock3, Heart, MapPin, Sparkles } from "lucide-react";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
-import { LETICIA_REICHE_BOOKING_CONFIG, LETICIA_REICHE_CLIENT_KEY } from "@/lib/leticia-reiche-booking";
+import { LETICIA_REICHE_HOSTED_FORM_URL } from "@/lib/leticia-reiche-hosted-form";
 import "./leticia-reiche.css";
 
 type Care = "Manicure" | "Pedicure";
@@ -23,14 +22,16 @@ const careOptions: { name: Care; eyebrow: string; description: string; number: s
 
 /**
  * R2: prévia visual independente da profissional, sem coleta nem redirect.
- * R3 permite CTA somente em piloto server-side opt-in e com funil exclusivo; R4 promove a rota pública,
- * após testes de persistência, identidade e readiness.
+ * R4 usa formulário hospedado com gravação do próprio provedor, carregado
+ * sob demanda e restrito à rota de prévia protegida até homologação.
+ * A página pública só pode ser promovida após gates, identidade e consentimento.
  */
-export function LeticiaReichePreviewPage({ pilotEnabled = false }: { pilotEnabled?: boolean }) {
+export function LeticiaReichePreviewPage() {
   const [selectedCare, setSelectedCare] = useState<Care>("Manicure");
+  const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode={pilotEnabled ? "pilot-preview" : "preview"}>
+    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode="hosted-form-preview">
       <a className="lr-skip" href="#cuidados">Pular para os serviços</a>
       <div className="lr-preview-notice" role="status">
         <span className="lr-preview-dot" aria-hidden="true" />
@@ -142,32 +143,40 @@ export function LeticiaReichePreviewPage({ pilotEnabled = false }: { pilotEnable
             <p className="lr-eyebrow">UM HORÁRIO PARA CHAMAR DE SEU</p>
             <h2 id="lr-request-title">Seu próximo cuidado <em>começa aqui.</em></h2>
             <p>Você selecionou <strong>{selectedCare.toLowerCase()}</strong>. A solicitação real de agendamento será habilitada quando o canal de retorno e a persistência de leads estiverem validados.</p>
-            {pilotEnabled ? (
-              <PortfolioCTAQuiz
-                key={selectedCare}
-                clientKey={LETICIA_REICHE_CLIENT_KEY}
-                studioName="Letícia Reiche"
-                recipientName="Letícia"
-                theme="pink"
-                mode="booking"
-                funnelIntent="agendamento"
-                quizConfig={LETICIA_REICHE_BOOKING_CONFIG}
-                initialAnswers={{ service: selectedCare }}
-                skipPrefilledSteps
-                ariaLabel={`Solicitar atendimento de ${selectedCare.toLowerCase()} à Letícia Reiche`}
+            <div className="lr-request-privacy">
+              <strong>Antes de enviar</strong>
+              <p>Este é um formulário de demonstração da 0WEB, não um canal oficial confirmado da profissional. A solicitação será recebida pela 0WEB para avaliação e eventual encaminhamento autorizado. Nenhuma reserva ou cobrança é feita aqui.</p>
+              <p>Você pode informar o serviço desejado e o melhor dia no formulário. O envio só acontece depois de seu consentimento e da confirmação no próprio formulário.</p>
+            </div>
+            {!formOpen ? (
+              <button
+                type="button"
                 className="lr-button lr-button-primary"
+                aria-controls="lr-hosted-form"
+                aria-expanded="false"
+                onClick={() => setFormOpen(true)}
               >
-                Solicitar horário de {selectedCare.toLowerCase()} <ArrowRight size={20} aria-hidden="true" />
-              </PortfolioCTAQuiz>
-            ) : (
-              <button type="button" className="lr-button lr-button-disabled" disabled aria-describedby="lr-request-status">
-                Solicitação em preparação <ArrowRight size={20} aria-hidden="true" />
+                Abrir formulário de solicitação <ArrowRight size={20} aria-hidden="true" />
               </button>
+            ) : (
+              <div id="lr-hosted-form" className="lr-hosted-form">
+                <div className="lr-hosted-form-heading">
+                  <h3>Solicitação de atendimento · Demonstração 0WEB</h3>
+                  <button type="button" onClick={() => setFormOpen(false)} aria-label="Fechar formulário">Fechar</button>
+                </div>
+                <p>Seu serviço selecionado nesta página foi <strong>{selectedCare.toLowerCase()}</strong>. Confirme a opção no formulário abaixo.</p>
+                <iframe
+                  title="Formulário de solicitação de atendimento da demonstração Letícia Reiche"
+                  src={LETICIA_REICHE_HOSTED_FORM_URL}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  width="100%"
+                  height="760"
+                />
+              </div>
             )}
             <p id="lr-request-status" className="lr-request-helper">
-              {pilotEnabled
-                ? "Ambiente piloto: o formulário registra uma solicitação, não confirma um horário. Sem cobrança ou pagamento. Disponibilidade e valores dependem de confirmação."
-                : "Esta é uma prévia visual. Nenhum pedido foi enviado, nenhum horário foi reservado e nenhum pagamento foi cobrado."}
+              Nenhum horário é reservado ao abrir o formulário. A confirmação exige retorno da profissional; não envie comprovantes ou faça pagamentos.
             </p>
           </div>
           <div className="lr-request-signature" aria-hidden="true">L<span>♡</span>R</div>

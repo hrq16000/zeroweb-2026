@@ -62,7 +62,7 @@
     "notDocumentary": true,
     "status": "CREATED_PREVIEW"
   },
-  "disclosure": "Nenhuma foto de mãos/unhas é apresentada como serviço de Letícia sem prova. O flyer enviado é referência cromática, não fonte licenciada de fotografia de procedimentos. Prévia protegida por VERCEL_ENV=preview; em produção loader devolve notFound. Capa SVG e OG ainda requerem avaliação visual em runtime e versão raster final.",
+  "disclosure": "Nenhuma foto de mãos/unhas é apresentada como serviço de Letícia sem prova. O flyer enviado é referência cromática, não fonte licenciada de fotografia de procedimentos. Prévia protegida por VERCEL_ENV=preview; em produção loader devolve notFound. Capa SVG e OG ainda requerem avaliação visual em runtime e versão raster final. R4 form hosted: sem disponibilidade/agenda real e sem confirmação de atendimento; coleta apenas após ação voluntária dentro do iframe.",
   "logo": {
     "asset": "public/images/leticia-reiche/logo.svg",
     "sourceType": "ORIGINAL_EDITORIAL_MONOGRAM",
@@ -72,10 +72,13 @@
     "component": "src/components/site/LeticiaReichePreviewPage.tsx",
     "style": "src/components/site/leticia-reiche.css",
     "previewRoute": "src/routes/portfolio-preview.leticia-reiche.tsx",
-    "mode": "PREVIEW_ONLY",
+    "mode": "PREVIEW_ONLY_HOSTED_JOTFORM",
     "publicRouteCreated": false,
-    "formEnabled": false,
+    "formEnabled": true,
     "robots": "noindex,nofollow",
-    "privacy": "No data collection"
+    "privacy": "0WEB demonstrativo com consentimento explícito no formulário hospedado; os envios são recebidos na conta da 0WEB.",
+    "formProvider": "JOTFORM",
+    "formUrl": "https://form.jotform.com/263111116816044",
+    "formNotes": "Formulário de demonstração, incorporado à rota de preview por consentimento e carregado após clique; sem API Supabase, slot ou redirect WhatsApp. Sem publicação oficial."
   }
 }

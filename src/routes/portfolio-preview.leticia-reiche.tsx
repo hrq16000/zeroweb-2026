@@ -1,7 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { LeticiaReichePreviewPage } from "@/components/site/LeticiaReichePreviewPage";
-import { isLeticiaReichePilotAllowed } from "@/lib/leticia-reiche-booking";
 
 /**
  * R2 — prévia visual de Letícia Reiche.
@@ -9,19 +8,14 @@ import { isLeticiaReichePilotAllowed } from "@/lib/leticia-reiche-booking";
  * A página de produção (/portfolio/leticia-reiche) será criada após
  * funil individual testado, verificação de identidade e readiness.
  */
-const getPreviewAccess = createServerFn({ method: "GET" }).handler(async () => ({
-  preview: Boolean(import.meta.env.DEV || process.env.VERCEL_ENV === "preview"),
-  pilotEnabled: isLeticiaReichePilotAllowed(
-    process.env.VERCEL_ENV,
-    process.env.PORTFOLIO_LETICIA_BOOKING_PILOT,
-  ),
-}));
+const isPreviewEnvironment = createServerFn({ method: "GET" }).handler(async () =>
+  Boolean(import.meta.env.DEV || process.env.VERCEL_ENV === "preview")
+);
 
 export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
   loader: async () => {
-    const access = await getPreviewAccess();
-    if (!access.preview) throw notFound();
-    return { pilotEnabled: access.pilotEnabled };
+    if (!(await isPreviewEnvironment())) throw notFound();
+    return null;
   },
   head: () => ({
     meta: [
@@ -35,10 +29,5 @@ export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: LeticiaReichePreviewRoute,
+  component: LeticiaReichePreviewPage,
 });
-
-function LeticiaReichePreviewRoute() {
-  const { pilotEnabled } = Route.useLoaderData();
-  return <LeticiaReichePreviewPage pilotEnabled={pilotEnabled} />;
-}

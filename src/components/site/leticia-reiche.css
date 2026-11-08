@@ -184,3 +184,15 @@
 @media(prefers-reduced-motion:reduce) {
  .lr *, .lr *::before, .lr *::after {scroll-behavior:auto!important;transition:none!important;animation:none!important;}
 }
+
+/* Jotform é carregado somente após interação; não impacta o LCP da prévia. */
+.lr-request-privacy { max-width:670px;border-left:3px solid #ab667b;background:#fff0ec;padding:17px 21px;margin-top:20px; }
+.lr-request-privacy strong {font-family:Georgia,serif;font-size:19px;font-weight:400;color:#682e46;}
+.lr-request-paper .lr-request-privacy p {font-size:12px!important;color:#715263!important;line-height:1.7;margin:8px 0 0;}
+.lr-hosted-form {max-width:100%;margin-top:25px;background:#fff;border:1px solid #e3c7cb;padding:15px 14px 25px;}
+.lr-hosted-form-heading {display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.lr-hosted-form-heading h3 {font-size:18px;font-family:Georgia,serif;font-weight:400;letter-spacing:-.01em;}
+.lr-hosted-form-heading button {cursor:pointer;border:1px solid #bd9eaa;background:transparent;color:#6c3346;padding:9px 15px;min-height:44px;}
+.lr-request-paper .lr-hosted-form > p {font-size:12px!important;color:#765566!important;margin:12px 0;}
+.lr-hosted-form iframe {display:block;width:100%;max-width:100%;border:0;min-height:640px;background:#fff;}
+@media(max-width:760px) {.lr-hosted-form{padding:12px 8px;} .lr-hosted-form iframe{height:790px;}}

@@ -85,3 +85,11 @@ Referência `R_Beauty` / `Renata Beauty` interna: **apenas infraestrutura de SEO
 - Nenhum pagamento, agendamento efetivo, disponibilidade em tempo real ou envio WhatsApp. Antes da ativação exigir confirmação da profissional, verificação do form_id correto e teste de persistência com protocolo e isolamento.
 - A versão pública final necessita CTA funcional após readiness e não usa noindex; o `noindex` atual é exclusivamente da rota de preview.
 - Diagnóstico CI R2: `build` e `hydration` sucesso, `tsc` falhou por `createFileRoute` nova ausente no routeTree gerado; cast local provisório até R4. LHCI de quatro shards em falha de performance sem atribuição causal confirmada à prévia, sem mexer em thresholds.
+
+## R4 — Fluxo de demonstração sem Supabase
+- Formulário independente Jotform hospedado pela conta 0WEB, canal privado de leads de demonstração: `https://form.jotform.com/263111116816044`.
+- CTA carrega um `iframe` **somente após clique** na rota `/portfolio-preview/leticia-reiche`, inacessível em produção, e informa que não é canal oficial confirmado. O formulário possui nome, WhatsApp do visitante, serviço, data/período de preferência e consentimento para tratamento pela 0WEB. Nenhum sinal, preço ou agenda é processado.
+- **Importante:** a infraestrutura interna `submitPortfolioQuiz` depende de `dynamic_forms`/Supabase e não foi usada nesta solução. As alterações experimentais de R3 em `dynamic-funnel.functions.ts` foram revertidas para não afetar nenhum outro cliente.
+- O destino de WhatsApp da profissional permanece `null`. Nenhuma solicitação é redirecionada ao número informado sem validação.
+- Teste de ponta a ponta do hosted form: pendente até conclusão do build do Jotform e verificação da submissão/protocolo; a criação do formulário não prova entrega real.
+- Publicação da página pública segue bloqueada por readiness real da entidade, direitos das fotos, homologação da galeria quando disponível, originalidade, média e CI visual/perf. Não mascarar PR como finalizada.
