@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { checkedTarget, allowsPassiveRequest } from "../scripts/reference-observation.mjs";
+import { checkedTarget, checkedObservationPage, allowsPassiveRequest } from "../scripts/reference-observation.mjs";
 
 test("permite somente URL pública exata dos domínios da 0WEB", () => {
   assert.equal(checkedTarget("https://0web.com.br/portfolio"), "https://0web.com.br/portfolio");
@@ -29,4 +29,20 @@ test("somente GET e HEAD dentro do escopo; nunca envia formulários", () => {
   assert.equal(allowsPassiveRequest("PUT", "https://0web.com.br/api/leads"), false);
   assert.equal(allowsPassiveRequest("GET", "https://example.org/api"), false);
   assert.equal(allowsPassiveRequest("GET", "https://0web.com.br/api?key=redacted"), false);
+});
+
+test("aceita somente páginas públicas autorizadas para observação", () => {
+  for (const path of ["/", "/portfolio", "/servicos", "/portfolio/agropet-filt", "/servicos/site-express"]) {
+    assert.equal(checkedObservationPage(`https://0web.com.br${path}`), `https://0web.com.br${path}`);
+  }
+});
+
+test("bloqueia rotas administrativas, APIs, caminhos aninhados e conteúdo sensível", () => {
+  for (const path of [
+    "/admin", "/auth", "/login", "/api/leads", "/pedido/123",
+    "/portfolio/cliente/export", "/servicos/%2e%2e/admin",
+    "/portfolio/.git", "/portfolio/%2fadmin", "/portfolio/cliente?token=foo",
+  ]) {
+    assert.throws(() => checkedObservationPage(`https://0web.com.br${path}`), path);
+  }
 });
