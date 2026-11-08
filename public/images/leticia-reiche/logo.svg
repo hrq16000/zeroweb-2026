@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+<title id="title">Identidade editorial de demonstração: Letícia Reiche</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5f2"/><stop offset="1" stop-color="#f4d8d9"/></linearGradient></defs>
+<circle cx="80" cy="80" r="77" fill="url(#bg)" stroke="#b07985" stroke-width="1.4"/>
+<circle cx="80" cy="80" r="67" fill="none" stroke="#b07985" stroke-opacity=".45"/>
+<path d="M50 36v81h53" fill="none" stroke="#7b3043" stroke-width="5" stroke-linecap="round"/>
+<path d="M82 64c16-13 27-5 19 9-10 15-32 14-24-2 8-13 28-6 27 11-1 13-15 21-25 18" fill="none" stroke="#b57985" stroke-width="3.8" stroke-linecap="round"/>
+<path d="M93 115l5-7 5 7 8 3-8 3-5 8-5-8-8-3z" fill="#c19b68"/>
+</svg>
