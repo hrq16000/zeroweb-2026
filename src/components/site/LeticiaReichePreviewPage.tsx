@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ArrowDownRight, ArrowRight, CalendarDays, Check, Clock3, Heart, MapPin, Sparkles } from "lucide-react";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { LETICIA_REICHE_BOOKING_CONFIG, LETICIA_REICHE_CLIENT_KEY } from "@/lib/leticia-reiche-booking";
 import "./leticia-reiche.css";
 
 type Care = "Manicure" | "Pedicure";
@@ -21,14 +23,14 @@ const careOptions: { name: Care; eyebrow: string; description: string; number: s
 
 /**
  * R2: prévia visual independente da profissional, sem coleta nem redirect.
- * R3 conecta o CTA ao funil isolado; somente R4 promove a rota pública,
+ * R3 permite CTA somente em piloto server-side opt-in e com funil exclusivo; R4 promove a rota pública,
  * após testes de persistência, identidade e readiness.
  */
-export function LeticiaReichePreviewPage() {
+export function LeticiaReichePreviewPage({ pilotEnabled = false }: { pilotEnabled?: boolean }) {
   const [selectedCare, setSelectedCare] = useState<Care>("Manicure");
 
   return (
-    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode="preview">
+    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode={pilotEnabled ? "pilot-preview" : "preview"}>
       <a className="lr-skip" href="#cuidados">Pular para os serviços</a>
       <div className="lr-preview-notice" role="status">
         <span className="lr-preview-dot" aria-hidden="true" />
@@ -140,11 +142,32 @@ export function LeticiaReichePreviewPage() {
             <p className="lr-eyebrow">UM HORÁRIO PARA CHAMAR DE SEU</p>
             <h2 id="lr-request-title">Seu próximo cuidado <em>começa aqui.</em></h2>
             <p>Você selecionou <strong>{selectedCare.toLowerCase()}</strong>. A solicitação real de agendamento será habilitada quando o canal de retorno e a persistência de leads estiverem validados.</p>
-            <button type="button" className="lr-button lr-button-disabled" disabled aria-describedby="lr-request-status">
-              Solicitação em preparação <ArrowRight size={20} aria-hidden="true" />
-            </button>
+            {pilotEnabled ? (
+              <PortfolioCTAQuiz
+                key={selectedCare}
+                clientKey={LETICIA_REICHE_CLIENT_KEY}
+                studioName="Letícia Reiche"
+                recipientName="Letícia"
+                theme="pink"
+                mode="booking"
+                funnelIntent="agendamento"
+                quizConfig={LETICIA_REICHE_BOOKING_CONFIG}
+                initialAnswers={{ service: selectedCare }}
+                skipPrefilledSteps
+                ariaLabel={`Solicitar atendimento de ${selectedCare.toLowerCase()} à Letícia Reiche`}
+                className="lr-button lr-button-primary"
+              >
+                Solicitar horário de {selectedCare.toLowerCase()} <ArrowRight size={20} aria-hidden="true" />
+              </PortfolioCTAQuiz>
+            ) : (
+              <button type="button" className="lr-button lr-button-disabled" disabled aria-describedby="lr-request-status">
+                Solicitação em preparação <ArrowRight size={20} aria-hidden="true" />
+              </button>
+            )}
             <p id="lr-request-status" className="lr-request-helper">
-              Esta é uma prévia visual. Nenhum pedido foi enviado, nenhum horário foi reservado e nenhum pagamento foi cobrado.
+              {pilotEnabled
+                ? "Ambiente piloto: o formulário registra uma solicitação, não confirma um horário. Sem cobrança ou pagamento. Disponibilidade e valores dependem de confirmação."
+                : "Esta é uma prévia visual. Nenhum pedido foi enviado, nenhum horário foi reservado e nenhum pagamento foi cobrado."}
             </p>
           </div>
           <div className="lr-request-signature" aria-hidden="true">L<span>♡</span>R</div>

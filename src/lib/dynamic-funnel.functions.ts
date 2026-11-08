@@ -5,6 +5,11 @@ import { PORTFOLIO_CLIENT_KEYS, isPortfolioClientKey } from "@/lib/portfolio-cli
 import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
 import { DONA_GARIMPEIRA_CLIENT_KEY } from "@/lib/dona-garimpeira-funnel-guard";
 import { scoreLead } from "./lead-scoring";
+import {
+  LETICIA_REICHE_CLIENT_KEY,
+  isLeticiaReichePilotAllowed,
+  leticiaReicheFormSlugs,
+} from "./leticia-reiche-booking";
 
 // ============ Types (also used by the client UI) ============
 export type FunnelQuestionType =
@@ -613,6 +618,11 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY) {
       throw new Error("Use o formulário próprio da Dona Garimpeira.");
     }
+    // Preview isolado: fail closed até homologação explícita, sem tocar em produção.
+    if (data.clientKey === LETICIA_REICHE_CLIENT_KEY &&
+        !isLeticiaReichePilotAllowed(process.env.VERCEL_ENV, process.env.PORTFOLIO_LETICIA_BOOKING_PILOT)) {
+      throw new Error("Agendamento piloto da Letícia ainda não habilitado.");
+    }
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const routingKind = await resolvePortfolioRoutingKind(supabaseAdmin as any, data.clientKey);
@@ -627,8 +637,9 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const hasOrderContext = Object.values(orderContext).some(Boolean);
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
     const clientFunnelSlugAlt = `funnel-${data.clientKey}`;
-    const funnelSlugs =
-      routingKind === "managed"
+    const funnelSlugs = data.clientKey === LETICIA_REICHE_CLIENT_KEY
+      ? [...leticiaReicheFormSlugs()] // Exclusivamente funnel-leticia-reiche.
+      : routingKind === "managed"
         ? [clientFunnelSlug, clientFunnelSlugAlt]
         : [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"];
     const { data: forms, error: formError } = await supabaseAdmin
@@ -831,6 +842,10 @@ export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
     z.object({ clientKey: portfolioRoutingKeySchema }).parse(data),
   )
   .handler(async ({ data }) => {
+    if (data.clientKey === LETICIA_REICHE_CLIENT_KEY &&
+        !isLeticiaReichePilotAllowed(process.env.VERCEL_ENV, process.env.PORTFOLIO_LETICIA_BOOKING_PILOT)) {
+      return { destinationConfigured: false, leadOnly: true, requiresRecoveryContact: false };
+    }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const routingKind = await resolvePortfolioRoutingKind(supabaseAdmin as any, data.clientKey);
     if (!routingKind) throw new Error("Projeto de portfólio não registrado.");

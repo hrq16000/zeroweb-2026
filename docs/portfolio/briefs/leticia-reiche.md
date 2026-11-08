@@ -76,3 +76,12 @@ Referência `R_Beauty` / `Renata Beauty` interna: **apenas infraestrutura de SEO
 - **DISCOVERY:** catálogo de skills local revisado; AwesomeSkill consultado. Não houve instalação nem execução de código de terceiros; fontes marketplace não sobrepõem `docs/skills/SECURITY.md`.
 - **PENDING R2–R4:** `0web-experience-design-max`, `0web-portfolio-art-direction`, especialistas CRO, motion, UI gates, browser QA e auditoria real dos 390/768/1440.
 - **NOT_APPLICABLE agora:** instalação de bibliotecas de agendamento, gateway de sinal, scraper privado de Instagram/Google, integração de pagamentos e scripts externos de terceiros sem caso de uso comprovado.
+
+## R3 — piloto de funil (2026-11-08)
+- ClientKey versionado `leticia-reiche`; destino `whatsapp: null` até validação, sem expor o telefone como link comercial.
+- Configuração canônica `src/lib/leticia-reiche-booking.ts`: manicure/pedicure, período, intenção e campo de nota para data; nunca reservas de slot.
+- Funil `submitPortfolioQuiz` limitado para este piloto a `funnel-leticia-reiche` **publicado e exclusivo**, sem `funnel-service` nem outro fallback. O motor reutilizado depende da persistência da plataforma; sem tabela/funil publicado não há confirmação de lead.
+- Preview só aceita envio quando `VERCEL_ENV=preview` e `PORTFOLIO_LETICIA_BOOKING_PILOT=enabled` definidos **no servidor**. Variável não configurada: CTA bloqueado; production sempre bloqueado.
+- Nenhum pagamento, agendamento efetivo, disponibilidade em tempo real ou envio WhatsApp. Antes da ativação exigir confirmação da profissional, verificação do form_id correto e teste de persistência com protocolo e isolamento.
+- A versão pública final necessita CTA funcional após readiness e não usa noindex; o `noindex` atual é exclusivamente da rota de preview.
+- Diagnóstico CI R2: `build` e `hydration` sucesso, `tsc` falhou por `createFileRoute` nova ausente no routeTree gerado; cast local provisório até R4. LHCI de quatro shards em falha de performance sem atribuição causal confirmada à prévia, sem mexer em thresholds.

@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { LeticiaReichePreviewPage } from "@/components/site/LeticiaReichePreviewPage";
+import { isLeticiaReichePilotAllowed } from "@/lib/leticia-reiche-booking";
 
 /**
  * R2 — prévia visual de Letícia Reiche.
@@ -8,14 +9,22 @@ import { LeticiaReichePreviewPage } from "@/components/site/LeticiaReichePreview
  * A página de produção (/portfolio/leticia-reiche) será criada após
  * funil individual testado, verificação de identidade e readiness.
  */
-const isPreviewEnvironment = createServerFn({ method: "GET" }).handler(async () =>
-  Boolean(import.meta.env.DEV || process.env.VERCEL_ENV === "preview")
-);
+const getPreviewAccess = createServerFn({ method: "GET" }).handler(async () => ({
+  preview: Boolean(import.meta.env.DEV || process.env.VERCEL_ENV === "preview"),
+  pilotEnabled: isLeticiaReichePilotAllowed(
+    process.env.VERCEL_ENV,
+    process.env.PORTFOLIO_LETICIA_BOOKING_PILOT,
+  ),
+}));
 
-export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
+// O routeTree.gen.ts versionado antecede esta nova rota; o Vite regenera os tipos
+// durante o build, mas o CI também executa tsc ANTES do Vite. Cast temporário e
+// local para evitar erro TS2345 até o codegen ser consolidado na rodada 4.
+export const Route = createFileRoute("/portfolio-preview/leticia-reiche" as never)({
   loader: async () => {
-    if (!(await isPreviewEnvironment())) throw notFound();
-    return null;
+    const access = await getPreviewAccess();
+    if (!access.preview) throw notFound();
+    return { pilotEnabled: access.pilotEnabled };
   },
   head: () => ({
     meta: [
@@ -29,5 +38,10 @@ export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: LeticiaReichePreviewPage,
+  component: LeticiaReichePreviewRoute,
 });
+
+function LeticiaReichePreviewRoute() {
+  const { pilotEnabled } = Route.useLoaderData();
+  return <LeticiaReichePreviewPage pilotEnabled={pilotEnabled} />;
+}
