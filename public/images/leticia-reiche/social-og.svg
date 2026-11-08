@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+<title id="title">Letícia Reiche — Manicure e Pedicure em Belford Roxo, RJ</title>
+<defs><linearGradient id="blush" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff1ee"/><stop offset="1" stop-color="#efb9be"/></linearGradient><linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bd2647"/><stop offset="1" stop-color="#641c34"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#blush)"/>
+<path d="M0 530Q310 408 527 550T1200 463V630H0Z" fill="#f7d9d6" opacity=".7"/>
+<rect x="45" y="46" width="1110" height="538" fill="none" stroke="#a46a78" stroke-width="1.5" opacity=".5"/>
+<text x="94" y="154" font-size="20" font-family="Arial,sans-serif" letter-spacing="8" fill="#9f5262">MANICURE &amp; PEDICURE</text>
+<text x="85" y="304" font-size="134" font-family="Georgia,serif" fill="#681b32">Letícia</text>
+<text x="85" y="435" font-size="138" font-family="Georgia,serif" fill="#681b32">Reiche</text>
+<text x="93" y="530" font-size="29" font-family="Georgia,serif" font-style="italic" fill="#8c4656">Cuidado em cada detalhe · Belford Roxo, RJ</text>
+<g transform="translate(839 83) rotate(13 130 230)">
+ <rect x="25" y="237" width="240" height="272" rx="53" fill="url(#red)"/>
+ <rect x="75" y="125" width="138" height="131" rx="9" fill="#a75a69"/>
+ <rect x="84" y="0" width="120" height="130" rx="13" fill="#68203b"/>
+ <path d="M72 271q-15 83-3 155" fill="none" stroke="#ffd4ce" stroke-width="12" opacity=".75" stroke-linecap="round"/>
+ <text x="143" y="400" font-size="74" font-family="Georgia,serif" fill="#ffefe6" text-anchor="middle" font-style="italic">L</text>
+</g>
+</svg>
