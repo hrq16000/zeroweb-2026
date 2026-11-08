@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowDownRight, ArrowRight, CalendarDays, Check, Clock3, Heart, MapPin, Sparkles } from "lucide-react";
-import { LETICIA_REICHE_HOSTED_FORM_URL } from "@/lib/leticia-reiche-hosted-form";
 import "./leticia-reiche.css";
 
 type Care = "Manicure" | "Pedicure";
@@ -26,16 +25,18 @@ const careOptions: { name: Care; eyebrow: string; description: string; number: s
  * sob demanda e restrito à rota de prévia protegida até homologação.
  * A página pública só pode ser promovida após gates, identidade e consentimento.
  */
-export function LeticiaReichePreviewPage() {
+export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
   const [selectedCare, setSelectedCare] = useState<Care>("Manicure");
   const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode="hosted-form-preview">
+    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode={mode === "live" ? "demonstration" : "hosted-form-preview"}>
       <a className="lr-skip" href="#cuidados">Pular para os serviços</a>
       <div className="lr-preview-notice" role="status">
         <span className="lr-preview-dot" aria-hidden="true" />
-        Prévia de portfólio 0WEB · identidade e condições sujeitas a confirmação
+        {mode === "live"
+          ? "PORTFÓLIO DEMONSTRATIVO 0WEB · Não é o site oficial da profissional"
+          : "Prévia de portfólio 0WEB · identidade e condições sujeitas a confirmação"}
       </div>
 
       <header className="lr-header" id="inicio">
@@ -159,7 +160,7 @@ export function LeticiaReichePreviewPage() {
                 Abrir formulário de solicitação <ArrowRight size={20} aria-hidden="true" />
               </button>
             ) : (
-              <div id="lr-hosted-form" className="lr-hosted-form">
+              <div id="lr-hosted-form" className="lr-hosted-form" data-funnel-provider="jotform" data-client-key="leticia-reiche">
                 <div className="lr-hosted-form-heading">
                   <h3>Solicitação de atendimento · Demonstração 0WEB</h3>
                   <button type="button" onClick={() => setFormOpen(false)} aria-label="Fechar formulário">Fechar</button>
@@ -167,7 +168,7 @@ export function LeticiaReichePreviewPage() {
                 <p>Seu serviço selecionado nesta página foi <strong>{selectedCare.toLowerCase()}</strong>. Confirme a opção no formulário abaixo.</p>
                 <iframe
                   title="Formulário de solicitação de atendimento da demonstração Letícia Reiche"
-                  src={LETICIA_REICHE_HOSTED_FORM_URL}
+                  src="https://form.jotform.com/263111116816044"
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                   width="100%"

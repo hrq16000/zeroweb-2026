@@ -93,3 +93,9 @@ Referência `R_Beauty` / `Renata Beauty` interna: **apenas infraestrutura de SEO
 - O destino de WhatsApp da profissional permanece `null`. Nenhuma solicitação é redirecionada ao número informado sem validação.
 - Teste de ponta a ponta do hosted form: pendente até conclusão do build do Jotform e verificação da submissão/protocolo; a criação do formulário não prova entrega real.
 - Publicação da página pública segue bloqueada por readiness real da entidade, direitos das fotos, homologação da galeria quando disponível, originalidade, média e CI visual/perf. Não mascarar PR como finalizada.
+
+## R5 — rota pública candidata (08/11/2026)
+- Nova rota `src/routes/portfolio.leticia-reiche.tsx` registrada no TanStack Router, com title, description, canonical, OG ilustrativa própria, favicon e JSON-LD `WebPage`/breadcrumb. Declara `index,follow`, mas **não foi mesclada na produção**; a rota de preview permanece `noindex`.
+- Identidade ainda não corroborada por perfil oficial; não criar LocalBusiness, reviews, endereço, redes sociais, disponibilidade nem preços. Banner da versão publicável declara explicitamente que é demonstração 0WEB, não site oficial.
+- `PortfolioStandardShell` aplica pop-up e rodapé institucional; botão flutuante do quiz Supabase fica desabilitado, evitando funil cruzado. Formulário Jotform é próprio, sujeito a consentimento e carregado sob demanda.
+- Próxima homologação: catálogo/manifesto novo v4, screenshot 390/768/1440, SEO/OG raster/sitemap e validação do domínio após gates. A PR não deve ser mesclada enquanto houver bloqueadores.
