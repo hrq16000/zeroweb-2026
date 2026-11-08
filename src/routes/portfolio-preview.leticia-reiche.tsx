@@ -17,10 +17,7 @@ const getPreviewAccess = createServerFn({ method: "GET" }).handler(async () => (
   ),
 }));
 
-// O routeTree.gen.ts versionado antecede esta nova rota; o Vite regenera os tipos
-// durante o build, mas o CI também executa tsc ANTES do Vite. Cast temporário e
-// local para evitar erro TS2345 até o codegen ser consolidado na rodada 4.
-export const Route = createFileRoute("/portfolio-preview/leticia-reiche" as never)({
+export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
   loader: async () => {
     const access = await getPreviewAccess();
     if (!access.preview) throw notFound();

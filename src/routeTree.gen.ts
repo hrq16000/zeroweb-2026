@@ -123,6 +123,7 @@ import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
 import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfolio-preview.agropet-filt'
+import { Route as PortfolioPreviewLeticiaReicheRouteImport } from './routes/portfolio-preview.leticia-reiche'
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
@@ -842,6 +843,12 @@ const PortfolioPreviewAgropetFiltRoute =
   PortfolioPreviewAgropetFiltRouteImport.update({
     id: '/portfolio-preview/agropet-filt',
     path: '/portfolio-preview/agropet-filt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PortfolioPreviewLeticiaReicheRoute =
+  PortfolioPreviewLeticiaReicheRouteImport.update({
+    id: '/portfolio-preview/leticia-reiche',
+    path: '/portfolio-preview/leticia-reiche',
     getParentRoute: () => rootRouteImport,
   } as any)
 const PortfolioPreviewDonaGarimpeiraBrechoRoute =
@@ -1736,6 +1743,7 @@ export interface FileRoutesByFullPath {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
@@ -1987,6 +1995,7 @@ export interface FileRoutesByTo {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
@@ -2242,6 +2251,7 @@ export interface FileRoutesById {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
@@ -2498,6 +2508,7 @@ export interface FileRouteTypes {
     | '/pedido/$id'
     | '/portfolio-em/$local'
     | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/leticia-reiche'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
@@ -2749,6 +2760,7 @@ export interface FileRouteTypes {
     | '/pedido/$id'
     | '/portfolio-em/$local'
     | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/leticia-reiche'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
@@ -3003,6 +3015,7 @@ export interface FileRouteTypes {
     | '/pedido/$id'
     | '/portfolio-em/$local'
     | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/leticia-reiche'
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
@@ -3256,6 +3269,7 @@ export interface RootRouteChildren {
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
   PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
+  PortfolioPreviewLeticiaReicheRoute: typeof PortfolioPreviewLeticiaReicheRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
@@ -4105,6 +4119,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio-preview/agropet-filt'
       fullPath: '/portfolio-preview/agropet-filt'
       preLoaderRoute: typeof PortfolioPreviewAgropetFiltRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-preview/leticia-reiche': {
+      id: '/portfolio-preview/leticia-reiche'
+      path: '/portfolio-preview/leticia-reiche'
+      fullPath: '/portfolio-preview/leticia-reiche'
+      preLoaderRoute: typeof PortfolioPreviewLeticiaReicheRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio-preview/dona-garimpeira-brecho': {
@@ -5536,6 +5557,7 @@ const rootRouteChildren: RootRouteChildren = {
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
   PortfolioPreviewAgropetFiltRoute: PortfolioPreviewAgropetFiltRoute,
+  PortfolioPreviewLeticiaReicheRoute: PortfolioPreviewLeticiaReicheRoute,
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
