@@ -26,10 +26,14 @@ function oauthMethodWasUsed(claims: unknown): boolean {
   if (!claims || typeof claims !== "object" || Array.isArray(claims)) return false;
   const amr = (claims as Record<string, unknown>).amr;
   if (!Array.isArray(amr)) return false;
-  return amr.some((item: unknown) => {
-    if (!item || typeof item !== "object" || Array.isArray(item)) return false;
-    return (item as Record<string, unknown>).method === "oauth";
-  });
+  // An ambiguous password + OAuth session must not count as Google-only login.
+  // Keep recognized OAuth sessions working (including sessions with MFA).
+  const methods = amr.map((item: unknown) =>
+    item && typeof item === "object" && !Array.isArray(item)
+      ? (item as Record<string, unknown>).method
+      : null,
+  );
+  return methods.includes("oauth") && !methods.includes("password");
 }
 
 export function isVerifiedGoogleBookingSession(
