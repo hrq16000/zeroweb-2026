@@ -87,7 +87,14 @@ jobs:
           if (process.env.GITHUB_STEP_SUMMARY) {
             fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + "\n");
           }
-          if (pages.some((p) => p.error || p.status !== 200)) process.exitCode = 1;
+          const blocked = pages.filter((p) =>
+            p.error || p.status !== 200 ||
+            !p.jotformFrameAllowed || p.formAction !== "'self'"
+          );
+          if (blocked.length) {
+            console.error("[p0-origin-headers] FAIL CSP/HTTP: " + blocked.map((p) => p.path).join(", "));
+            process.exitCode = 1;
+          }
           NODE
 
       - name: "Guardar apenas metadados HTTP, nunca cookies nem conteúdo de leads"
