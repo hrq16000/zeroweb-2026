@@ -181,7 +181,16 @@ export function CantinhoTiaMariPage() {
           <button type="button" aria-label="Fechar formulário" className="rounded-full bg-[#f2e8f6] p-3 text-[#623f80]" onClick={hide}><X size={20}/></button>
         </div>
         <iframe data-funnel-provider="jotform" data-client-key="cantinho-da-tia-mari" src={FORM} title="Formulário demonstrativo de consulta de vagas — Cantinho da Tia Mari" className="min-h-0 w-full flex-1 border-0" loading="eager" referrerPolicy="strict-origin-when-cross-origin"/>
-        <div className="border-t border-[#eee2f1] px-5 py-3 text-center text-xs text-[#88728c]">As respostas são armazenadas pelo serviço de formulários da 0WEB; nunca envie dados pessoais de crianças.</div>
+        <div className="border-t border-[#eee2f1] px-5 py-3 text-center text-xs text-[#88728c]">
+          <p>As respostas são armazenadas pelo serviço de formulários da 0WEB; nunca envie dados pessoais de crianças.</p>
+          <p className="mt-2">
+            Não carregou?{" "}
+            <a href={FORM} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#6b408d] underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b408d]">
+              Abrir consulta demonstrativa em nova aba
+            </a>
+            . Este formulário é da 0WEB e não encaminha dados à creche.
+          </p>
+        </div>
       </div>
     </div>}
   </div>;
