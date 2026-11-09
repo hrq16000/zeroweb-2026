@@ -1,0 +1,100 @@
+name: "P0 | Cabeçalhos da origem oficial (leitura)"
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/p0-official-origin-headers.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  observe:
+    name: "GET público · Agropet e Cantinho"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: "Observar headers e fingerprint HTML, sem credenciais"
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { createHash } from "node:crypto";
+          import fs from "node:fs";
+
+          const origin = "https://0web.com.br";
+          const paths = ["/portfolio/agropet-filt", "/portfolio/cantinho-da-tia-mari"];
+          const pickAttr = (tag, name) =>
+            tag?.match(new RegExp("\\b" + name + "\\s*=\\s*['\"]([^'\"]+)['\"]", "i"))?.[1] ?? null;
+          const inspect = async (path) => {
+            try {
+              const response = await fetch(origin + path, {
+                method: "GET",
+                redirect: "manual",
+                credentials: "omit",
+                headers: { Accept: "text/html" },
+                signal: AbortSignal.timeout(15000),
+              });
+              const html = await response.text();
+              const csp = response.headers.get("content-security-policy");
+              const frameSrc = csp?.match(/(?:^|;)\s*frame-src\s+([^;]+)/i)?.[1] ?? null;
+              const formAction = csp?.match(/(?:^|;)\s*form-action\s+([^;]+)/i)?.[1] ?? null;
+              const canonicalTag = (html.match(/<link\b[^>]*>/gi) || [])
+                .find((tag) => /\brel\s*=\s*['"]canonical['"]/i.test(tag));
+              const robotsTag = (html.match(/<meta\b[^>]*>/gi) || [])
+                .find((tag) => /\bname\s*=\s*['"]robots['"]/i.test(tag));
+              return {
+                path,
+                status: response.status,
+                contentType: response.headers.get("content-type"),
+                contentSecurityPolicy: csp,
+                frameSrc,
+                jotformFrameAllowed: frameSrc?.split(/\s+/).includes("https://form.jotform.com") ?? false,
+                formAction,
+                xRobotsTag: response.headers.get("x-robots-tag"),
+                canonical: pickAttr(canonicalTag, "href"),
+                metaRobots: pickAttr(robotsTag, "content"),
+                etag: response.headers.get("etag"),
+                lastModified: response.headers.get("last-modified"),
+                server: response.headers.get("server"),
+                htmlSha256: createHash("sha256").update(html).digest("hex"),
+                htmlBytes: Buffer.byteLength(html),
+                redirect: response.status >= 300 && response.status < 400,
+              };
+            } catch (error) {
+              return { path, error: error instanceof Error ? error.message : String(error) };
+            }
+          };
+
+          const pages = await Promise.all(paths.map(inspect));
+          const report = { source: origin, checkedAt: new Date().toISOString(), method: "public-read-only-GET", pages };
+          fs.mkdirSync("seo-reports", { recursive: true });
+          fs.writeFileSync("seo-reports/p0-official-origin-headers.json", JSON.stringify(report, null, 2) + "\n");
+          console.log("[p0-origin-headers] " + JSON.stringify(report, null, 2));
+          const status = (p) => p.error ? "ERROR" : String(p.status);
+          const summary = [
+            "### P0 · Cabeçalhos oficiais (somente leitura)",
+            "",
+            "| Página | HTTP | CSP permite Jotform | Canonical | HTML SHA-256 (prefixo) |",
+            "| --- | --- | --- | --- | --- |",
+            ...pages.map((p) => "| " + p.path + " | " + status(p) + " | " +
+              (p.jotformFrameAllowed ? "SIM" : "NÃO / não confirmado") + " | " +
+              (p.canonical ?? "ausente") + " | " +
+              (p.htmlSha256?.slice(0, 12) ?? "indisponível") + " |"),
+            "",
+            "Este job observa headers do domínio comercial, não altera DNS, servidor, leads ou GSC.",
+            "HTTP/CSP/HTML aqui não comprovam entrega comercial nem associação com commit Git.",
+          ].join("\n");
+          if (process.env.GITHUB_STEP_SUMMARY) {
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + "\n");
+          }
+          if (pages.some((p) => p.error || p.status !== 200)) process.exitCode = 1;
+          NODE
+
+      - name: "Guardar apenas metadados HTTP, nunca cookies nem conteúdo de leads"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0-official-origin-headers
+          path: seo-reports/p0-official-origin-headers.json
+          if-no-files-found: warn
+          retention-days: 7
