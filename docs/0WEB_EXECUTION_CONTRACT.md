@@ -7,8 +7,10 @@ Claude Code, Cursor ou outra ferramenta.
 ## Leitura obrigatória
 
 Antes de agir, ler `AGENTS.md`, este contrato, os padrões de portfólio
-relevantes e as skills roteadas. A execução deve continuar a partir do estado
-real do Git, nunca de memória ou de uma cópia externa.
+relevantes e as skills roteadas. **Toda tarefa de desenvolvimento, release ou
+SEO também deve seguir `docs/0WEB_GIT_FIRST_RELEASE_AND_SEO_POLICY.md`.**
+A execução deve continuar a partir do estado real do Git, nunca de memória
+ou de uma cópia externa.
 
 O Git remoto `origin/main` é a única fonte operacional de verdade. Cada ciclo
 começa com `git fetch origin --prune` e atualização fast-forward; cada ciclo
@@ -62,11 +64,16 @@ agentes de IA, sem conteúdo fabricado ou duplicado.
 
 ## Publicação obrigatória
 
-Toda atualização concluída deve ser validada, registrada no changelog/relatório,
-publicada imediatamente no repositório oficial
-`https://github.com/hrq16000/zeroweb-2026.git` e integrada em `main` por PR.
+Toda atualização concluída deve ser validada, registrada no changelog/relatório
+e enviada ao repositório oficial `https://github.com/hrq16000/zeroweb-2026.git`
+em branch de trabalho. **Integração em `main` por PR apenas depois dos gates
+aplicáveis e aprovação; versão finalizada é o único artefato destinado à
+publicação em Vercel e ao host oficial.** Não disparar deploy para cada commit
+de pesquisa, documentação, experimento ou correção ainda não validada.
 Não deixar alterações apenas locais, em Lovable, em `chatgpt.site` ou em outra
 hospedagem. Ao final, confirmar branch, commit, build, gates e working tree.
+O host `0web.com.br` e a Vercel são verificados separadamente enquanto o DNS
+não for migrado; `READY` na Vercel não comprova publicação no domínio oficial.
 
 ### Revalidação imediatamente antes do merge
 
