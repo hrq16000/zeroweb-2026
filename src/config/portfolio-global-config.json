@@ -1457,6 +1457,18 @@
       "footer": {
         "variant": "light"
       }
+    },
+    "leticia-reiche": {
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consultar agendamento",
+        "recipientName": "Letícia",
+        "studioName": "Letícia Reiche"
+      },
+      "footer": {
+        "variant": "light"
+      }
     }
   }
 }

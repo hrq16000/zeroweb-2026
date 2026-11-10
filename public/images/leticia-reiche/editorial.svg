@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="950" viewBox="0 0 800 950" role="img" aria-labelledby="title desc">
+<title id="title">Ilustração editorial de esmalte e traços delicados</title>
+<desc id="desc">Arte gráfica conceitual, não fotografia de unhas ou atendimento.</desc>
+<defs>
+ <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbe2df"/><stop offset="1" stop-color="#d9aab0"/></linearGradient>
+ <linearGradient id="bottle" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#991e38"/><stop offset=".58" stop-color="#71182f"/><stop offset="1" stop-color="#320d21"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#fffbf5" stop-opacity=".5"/><stop offset="1" stop-color="#ffc6bf" stop-opacity=".13"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="10" dy="24" stdDeviation="26" flood-color="#6e2331" flood-opacity=".24"/></filter>
+</defs>
+<rect width="800" height="950" rx="52" fill="url(#paper)"/>
+<path d="M0 580C181 491 269 617 399 579S662 429 800 471V950H0Z" fill="#f7d8d4" opacity=".7"/>
+<circle cx="630" cy="169" r="130" fill="#fff2ea" opacity=".52"/>
+<circle cx="159" cy="775" r="166" fill="#edb9c0" opacity=".65"/>
+<g transform="translate(214 207) rotate(-19 195 312)" filter="url(#shadow)">
+ <rect x="137" y="256" width="290" height="404" rx="74" fill="url(#bottle)" stroke="#54182d" stroke-width="6"/>
+ <rect x="164" y="283" width="231" height="328" rx="52" fill="url(#glass)"/>
+ <path d="M199 318Q175 401 185 511" fill="none" stroke="#ffe4e1" stroke-width="13" stroke-opacity=".62" stroke-linecap="round"/>
+ <rect x="209" y="169" width="146" height="129" rx="16" fill="#8b4354"/>
+ <path d="M222 179h120M222 196h120M222 215h120M222 232h120M222 251h120" stroke="#d09da6" stroke-width="3" opacity=".75"/>
+ <rect x="219" y="27" width="126" height="154" rx="16" fill="#571728"/>
+ <rect x="234" y="44" width="10" height="119" rx="5" fill="#b97587" opacity=".48"/>
+ <text x="283" y="461" fill="#fff1e6" font-family="Georgia,serif" font-size="64" font-style="italic" text-anchor="middle">L</text>
+ <path d="M240 497h87" stroke="#e6ad9e" stroke-width="2"/>
+ <text x="283" y="526" fill="#f5d9d6" font-family="Arial,sans-serif" font-size="14" letter-spacing="4" text-anchor="middle">NAIL CARE</text>
+</g>
+<path d="M108 186c78-98 139-99 199-103M91 215c62-80 122-111 190-121" stroke="#a85f70" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<g fill="#a06775"><circle cx="120" cy="180" r="5"/><circle cx="131" cy="164" r="3"/><circle cx="145" cy="150" r="2.8"/></g>
+<g transform="translate(619 743)" stroke="#aa6a75" fill="none" stroke-width="2.5"><path d="M0 72c-30-35-31-74-7-78 15-2 19 14 7 26 20-30 46-13 34 10-9 17-27 25-34 42z"/><path d="M0 72v53" stroke="#aa6a75"/></g>
+<text x="74" y="870" fill="#7b3043" font-family="Georgia,serif" font-size="34" font-style="italic">a beleza está nos detalhes.</text>
+<path d="M79 890h386" stroke="#ba8b8a" stroke-width="2"/>
+</svg>
