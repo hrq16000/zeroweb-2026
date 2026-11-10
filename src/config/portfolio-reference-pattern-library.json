@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-11-08",
   "status": "CANONICAL_ADDITIVE_REFERENCE_LIBRARY",
   "principles": {
     "absorbGrammarNeverCopySilhouette": true,
@@ -846,6 +846,35 @@
         "EDUCATION_AND_RISK_REDUCTION"
       ],
       "evidenceStatus": "STRUCTURAL_REFERENCE_REQUIRES_OFFICIAL_RULE_REVALIDATION",
+      "motionObserved": "NOT_VERIFIED"
+    },
+    {
+      "url": "https://github.com/ceocript/megax-site",
+      "label": "MegaX Logística — referência de código B2B",
+      "clusters": [
+        "PRODUCTIZED_SERVICE",
+        "MULTI_OFFER_ECOSYSTEM"
+      ],
+      "use": "ADAPT",
+      "signals": [
+        "b2b_logistics_offer_segmentation",
+        "cargo_and_route_quote_intake",
+        "recurring_contract_service_path",
+        "coverage_and_sla_require_factual_proof"
+      ],
+      "experienceEngine": [
+        "PLAN_OR_SCOPE_CONFIGURATION",
+        "PROCESS_AND_TRANSPARENCY"
+      ],
+      "reject": [
+        "direct_whatsapp_contact_bypasses_saved_lead",
+        "runtime_tailwind_cdn",
+        "missing_seo_metadata_and_jsonld",
+        "inconsistent_relative_asset_paths",
+        "duplicate_layout_with_sibling_repository",
+        "unverified_response_time_and_coverage_claims"
+      ],
+      "evidenceStatus": "GITHUB_STATIC_SOURCE_REVIEW_2026-11-08",
       "motionObserved": "NOT_VERIFIED"
     }
   ],
