@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SaoFranciscoPetCenterPage } from "@/components/site/SaoFranciscoPetCenterPage";
 
 const url = "https://0web.com.br/portfolio/sao-francisco-pet-center";
-const title = "São Francisco Pet Center | Projeto de Site da 0WEB em São José dos Pinhais";
+const title = "São Francisco Pet Center | Projeto 0WEB em São José dos Pinhais";
 const description = "Projeto demonstrativo de site para o São Francisco Pet Center no Bom Jesus, São José dos Pinhais, criado pela 0WEB. Não é o site oficial do estabelecimento.";
 const socialImage = "https://images.unsplash.com/photo-1657318216069-399acfda68d1?auto=format&fit=crop&w=1200&h=630&q=85";
 

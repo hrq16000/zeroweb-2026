@@ -26,6 +26,8 @@ The installed catalog is a starting point, not a ceiling. For substantial work, 
 
 For every new project/new `/portfolio/:slug`, every derivative/variant and every material UI/UX maintenance, read `src/config/skill-marketplace-catalog.json`, `src/config/portfolio-zero-generic-policy.json` and `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`. Search LobeHub and `https://awesomeskill.ai/search` when fresh complementary expertise may exist.
 
+For adoption of GitHub tools, new coding-agent skills, design detectors, security-audit agents, media engines, or memory/automation hooks, read `.agents/skills/0web-curated-github-adoption/SKILL.md` and `docs/skills/GITHUB_TOOL_TRIAGE_2026-11-09.md`. This adds an evidence-first selection/security pass; no third-party CLI, browser hook or production dependency is approved merely by being listed. The existing local QA and design stacks remain canonical.
+
 For evidence-first investigation of an authorized website/app behavior, consider the optional REA protocol in `docs/skills/REA_RESEARCH_ADOPTION.md`. REA is not a default dependency or an approved executable skill; do not install, attach to browsers, or execute third-party scripts before scoped authorization and `docs/skills/SECURITY.md` review.
 
 For any material UI task, `0web-experience-design-max` is mandatory after discovery. It forces coverage of strategy, UX/UI, layout engineering, design system, web engineering, content/SEO, motion and QA before visual implementation.
