@@ -6,6 +6,7 @@ const own = [
   "src/routes/portfolio.sao-francisco-pet-center.tsx",
   "src/components/site/SaoFranciscoPetCenterPage.tsx",
   "src/components/site/sao-francisco-pet-center.css",
+  "public/images/sao-francisco-pet-center/favicon-demonstracao.svg",
   "src/routeTree.gen.ts",
   "docs/portfolio/briefs/sao-francisco-pet-center.md",
   "scripts/playwright-visual-regression.mjs",
@@ -33,6 +34,17 @@ test("edição isolada de JSX e CSS de rota dedicada existente não exige QA glo
       "src/components/site/sao-francisco-pet-center.css",
     ], []),
     ["sao-francisco-pet-center"],
+  );
+});
+
+test("asset no diretório da rota dedicada usa o mesmo escopo da rota", () => {
+  assert.deepEqual(
+    resolveVisualRegressionScope(["public/images/sao-francisco-pet-center/favicon-demonstracao.svg"], []),
+    ["sao-francisco-pet-center"],
+  );
+  assert.deepEqual(
+    resolveVisualRegressionScope([...own, "public/images/sem-rota/favicon.svg"], []),
+    [],
   );
 });
 
