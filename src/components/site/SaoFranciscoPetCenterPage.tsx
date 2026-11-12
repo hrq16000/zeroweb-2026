@@ -223,7 +223,7 @@ export function SaoFranciscoPetCenterPage() {
       <footer className="sfp-footer">
         <div><a className="sfp-footer-brand" href="#inicio"><PawPrint size={25}/><span>SÃO FRANCISCO<br/><b>PET CENTER</b></span></a><p>Bom Jesus · São José dos Pinhais, PR</p></div>
         <div className="sfp-footer-links"><a href="#experiencias">Serviços</a><a href="#localizacao">Localização</a><a href="#solicitar">Solicitação</a><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={18}/> Instagram</a></div>
-        <div className="sfp-footer-bottom"><p>Portfólio demonstrativo, não vinculado oficialmente ao estabelecimento. Avaliações: <a href={SOURCE_REVIEWS} target="_blank" rel="noopener noreferrer">TutorCanino</a>. Fotos ilustrativas: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>. <a href="https://0web.com.br/lgpd">Privacidade</a>.</p><PortfolioHostCredit /></div>
+        <div className="sfp-footer-bottom"><p>Portfólio demonstrativo, não vinculado oficialmente ao estabelecimento. Ícone da aba criado para esta demonstração. Avaliações: <a href={SOURCE_REVIEWS} target="_blank" rel="noopener noreferrer">TutorCanino</a>. Fotos ilustrativas: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>. <a href="https://0web.com.br/lgpd">Privacidade</a>.</p><PortfolioHostCredit /></div>
       </footer>
 
       {funnelOpen ? (

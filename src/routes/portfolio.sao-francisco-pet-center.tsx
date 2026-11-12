@@ -27,7 +27,10 @@ export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: socialImage },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [
+      { rel: "canonical", href: url },
+      { rel: "icon", type: "image/svg+xml", sizes: "any", href: "/images/sao-francisco-pet-center/favicon-demonstracao.svg" },
+    ],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({
