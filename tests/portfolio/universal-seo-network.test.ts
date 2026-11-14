@@ -70,7 +70,7 @@ describe("SEO universal dos portfolios", () => {
       "Autoescola APTOS | São José dos Pinhais | 0WEB",
     );
     expect(portfolioBrandedDescription(aptos?.summary ?? "", aptos?.title ?? "", aptos?.city)).toMatch(
-      /^Projeto 0WEB para Autoescola APTOS em São José dos Pinhais\\./,
+      /^Projeto 0WEB para Autoescola APTOS em São José dos Pinhais\./,
     );
   });
   test("contexto de palavras-chave usa entidade, tags e localidade sem duplicar termos", () => {
