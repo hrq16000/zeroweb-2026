@@ -78,6 +78,57 @@ function humanizeTag(value: string): string {
 function isUsefulPlace(value: string): boolean {
   return !GENERIC_PLACES.has(normalize(value));
 }
+function fitSeoText(value: string, max: number): string {
+  const normalized = clean(value).replace(/\s+/g, " ");
+  if (normalized.length <= max) return normalized;
+  const clipped = normalized.slice(0, max + 1);
+  const boundary = clipped.lastIndexOf(" ");
+  const cutAt = boundary >= Math.floor(max * 0.7) ? boundary : max;
+  return normalized.slice(0, cutAt).replace(/[,:;–—-]+$/u, "").trim();
+}
+
+/**
+ * Marca a autoria da 0WEB no título sem esconder o nome do negócio.
+ * O nome do cliente vem primeiro; cidade e autoria são adicionadas quando
+ * couberem no limite seguro do title.
+ */
+export function portfolioBrandedTitle(
+  baseTitle: string,
+  city = "",
+  subtitle = "",
+): string {
+  const title = clean(baseTitle);
+  if (!title) return "0WEB | Portfólio";
+  const place = clean(city);
+  const context = clean(subtitle);
+  const hasBrand = /\b0WEB\b/i.test(title);
+  const candidates = [
+    !hasBrand && place ? title + " | " + place + " | 0WEB" : "",
+    !hasBrand ? title + " | 0WEB" : title,
+    context ? title + " | " + context : "",
+    place ? title + " | " + place : "",
+    title,
+  ].filter(Boolean);
+  return candidates.find((candidate) => candidate.length <= 65) ?? fitSeoText(title + " | 0WEB", 65);
+}
+
+/**
+ * Coloca a relação projeto → 0WEB no início da descrição para que ela seja
+ * entendida mesmo quando o Google reescreve o snippet.
+ */
+export function portfolioBrandedDescription(
+  baseDescription: string,
+  projectTitle: string,
+  city = "",
+): string {
+  const title = clean(projectTitle);
+  const place = clean(city);
+  const base = clean(baseDescription);
+  if (!title) return fitSeoText(base, 165);
+  if (/\b0WEB\b/i.test(base.slice(0, 80))) return fitSeoText(base, 165);
+  const lead = "Projeto 0WEB para " + title + (place ? " em " + place : "") + ".";
+  return fitSeoText([lead, base].filter(Boolean).join(" "), 165);
+}
 
 function descriptorFromCatalog(item: CatalogItem): PortfolioSeoDescriptor {
   const city = clean(item.city);
@@ -288,15 +339,7 @@ export function portfolioUniversalSeoTitle(
   if (!item) return null;
 
   const city = isUsefulPlace(item.city) ? item.city : "";
-  const segment = SEGMENT_LABELS[item.segment] ?? item.segment;
-  const candidates = [
-    item.subtitle ? `${item.title} | ${item.subtitle}` : "",
-    city ? `${item.title} | ${city}` : "",
-    segment ? `${item.title} | ${segment}` : "",
-    item.title,
-  ].filter(Boolean);
-
-  return candidates.find((value) => value.length <= 65) ?? item.title;
+  return portfolioBrandedTitle(item.title, city, item.subtitle);
 }
 
 export function portfolioUniversalKeywords(
