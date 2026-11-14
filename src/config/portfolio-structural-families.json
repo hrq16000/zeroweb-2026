@@ -13,6 +13,7 @@
   ],
   "heroFamilies": [
     { "id": "split-editorial", "label": "Split editorial", "notes": "Texto dominante + imagem secundária." },
+    { "id": "illustrated-poster", "label": "Pôster ilustrado", "notes": "Tipografia e ilustração autoral têm peso compositivo equivalente; recortes, órbitas e selos integram o pôster. Não se aplica a texto com fotografia secundária." },
     { "id": "cinematic-fullbleed", "label": "Cinemático full-bleed", "notes": "Imagem em tela cheia + texto sobreposto." },
     { "id": "media-led", "label": "Guiado por mídia", "notes": "Mídia primeiro, texto apoiando." },
     { "id": "centered-institutional", "label": "Centrado institucional", "notes": "Composição centralizada e sóbria." },
@@ -58,7 +59,8 @@
     { "id": "post-proof", "label": "Contextual após prova" },
     { "id": "floating-persistent", "label": "Fixo flutuante" },
     { "id": "immersive-close", "label": "Fechamento imersivo" },
-    { "id": "next-step-block", "label": "Bloco de próximo passo" }
+    { "id": "next-step-block", "label": "Bloco de próximo passo" },
+    { "id": "category-entry-dialog", "label": "Entradas por categoria para diálogo", "notes": "Grade de categorias e guia de escolha distribuem entradas para uma consulta em diálogo; o CTA flutuante é um acesso complementar, não a distribuição principal. Não implica envio automático da categoria ao provedor." }
   ],
   "comparisonWindow": {
     "recentProjects": 12,

@@ -59,6 +59,23 @@ Showcase Visual · Processo e Etapas · Autoridade e Prova · Catálogo/Capacida
 Família é ponto de partida criativo, nunca template pronto: dois projetos da mesma
 família precisam divergir em hero, ritmo, prova, mídia e CTA.
 
+O vocabulário também admite estruturas que não cabem nas famílias anteriores,
+desde que descrevam a composição implementada e sejam reutilizáveis, sem IDs de
+cliente ou redução dos limites do gate. Em 07/11/2026 foram registradas:
+
+- `heroFamily: illustrated-poster`: tipografia e ilustração autoral com peso
+  equivalente, integradas com recortes/órbitas/selos. Uma foto secundária ao lado
+  do texto continua sendo `split-editorial`. Na Agropet, isso corresponde ao
+  pôster 53/47 com cão/ave vetoriais e selos em `AgropetFiltPreviewPage.tsx`.
+- `ctaStyle: category-entry-dialog`: entradas distribuídas por grade de
+  categorias e guia de escolha abrem consulta em diálogo. O acesso flutuante é
+  complementar; não define sozinho a distribuição da conversão. Na Agropet,
+  `af-category` e `af-guide-action` abrem o mesmo formulário autorizado. Esta
+  classificação não afirma que a categoria selecionada é enviada ao provedor.
+
+Estas famílias passam pelas mesmas verificações de repetição, ordem de seções
+e eixos distintos. Acrescentar um segundo projeto com o mesmo hero ainda reprova.
+
 ## 6. Proibição
 
 Não é original a landing que apenas troca paleta, foto, logo e texto mantendo a
