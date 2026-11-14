@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
-import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
+import { breadcrumbNode, graph, organizationNode, portfolioWebPageNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
@@ -22,6 +22,8 @@ import { getCompositionPage } from "@/components/portfolio/composition/registry"
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import { createDonaGarimpeiraSeo } from "@/lib/dona-garimpeira-seo";
 import {
+  portfolioBrandedDescription,
+  portfolioBrandedTitle,
   portfolioUniversalKeywords,
   portfolioUniversalSeoTitle,
   resolvePortfolioSeoDescriptor,
@@ -36,26 +38,28 @@ function managedHead(project: ManagedProject) {
       : absUrl(project.socialImage)
     : absUrl("/og-default.jpg");
   const icon = project.logoUrl ? absUrl(project.logoUrl) : social;
+  const seoTitle = portfolioBrandedTitle(seoTitle, project.city);
+  const seoDescription = portfolioBrandedDescription(seoDescription, project.displayName, project.city);
   return {
     meta: [
-      { title: project.seoTitle },
-      { name: "description", content: project.seoDescription },
+      { title: seoTitle },
+      { name: "description", content: seoDescription },
       { name: "robots", content: project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
-      { property: "og:title", content: project.seoTitle },
-      { property: "og:description", content: project.seoDescription },
+      { property: "og:title", content: seoTitle },
+      { property: "og:description", content: seoDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:site_name", content: project.displayName },
+      { property: "og:site_name", content: "0WEB | Portfólio" },
       { property: "og:image", content: social },
       { property: "og:image:secure_url", content: social },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: project.seoTitle },
-      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:title", content: seoTitle },
+      { name: "twitter:description", content: seoDescription },
       { name: "twitter:image", content: social },
       { name: "twitter:image:alt", content: project.displayName },
     ],
@@ -71,11 +75,12 @@ function managedHead(project: ManagedProject) {
         type: "application/ld+json",
         children: graph([
           organizationNode(),
+          portfolioWebPageNode(url, seoTitle, seoDescription),
           {
             "@type": "LocalBusiness",
             "@id": `${url}#localbusiness`,
             name: project.displayName,
-            description: project.seoDescription,
+            description: seoDescription,
             url,
             image: social,
             ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
@@ -112,7 +117,7 @@ function managedHead(project: ManagedProject) {
               ]
             : []),
           breadcrumbNode([
-            { name: "Início", path: "/" },
+            { name: "0WEB", path: "/" },
             { name: "Portfólio", path: "/portfolio" },
             { name: project.displayName, path: `/portfolio/${project.slug}` },
           ]),
@@ -525,11 +530,12 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const catalogSeo = loaderData?.slug
       ? resolvePortfolioSeoDescriptor(loaderData.slug)
       : null;
-    const title =
+    const rawTitle =
       (loaderData?.slug ? portfolioUniversalSeoTitle(loaderData.slug) : null) ??
       prototype?.siteName ??
       loaderData?.vertical?.name ??
       "Projeto de presença digital";
+    const title = portfolioBrandedTitle(rawTitle, catalogSeo?.city ?? "");
 
     const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
@@ -601,7 +607,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJklDecor = loaderData?.slug === "jkl-decor";
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
-    const description = isArildoMadeiras
+    const rawDescription = isArildoMadeiras
       ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
@@ -746,6 +752,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                     : (catalogSeo?.summary ??
                                                                                       loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
+    const description = portfolioBrandedDescription(rawDescription, catalogSeo?.title ?? rawTitle, catalogSeo?.city ?? "");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(
@@ -946,7 +953,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "pt_BR" },
-        { property: "og:site_name", content: eff.title },
+        { property: "og:site_name", content: "0WEB | Portfólio" },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
@@ -982,6 +989,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
               type: "application/ld+json",
               children: graph([
                 organizationNode(),
+                portfolioWebPageNode(url, eff.title, eff.description),
                 ...(isBtb
                   ? [
                       {
@@ -1428,7 +1436,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                     ]
                   : []),
                 breadcrumbNode([
-                  { name: "Início", path: "/" },
+                  { name: "0WEB", path: "/" },
                   { name: "Portfólio", path: "/portfolio" },
                   { name: title, path: `/portfolio/${loaderData?.slug ?? ""}` },
                 ]),
