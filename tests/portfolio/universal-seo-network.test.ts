@@ -59,7 +59,7 @@ describe("SEO universal dos portfolios", () => {
     const titles = published.map((item) => portfolioUniversalSeoTitle(item.slug));
     expect(titles.every(Boolean)).toBe(true);
     expect(titles.every((title) => (title?.length ?? 999) <= 65)).toBe(true);
-    expect(titles.every((title) => /\\b0WEB\\b/i.test(title ?? ""))).toBe(true);
+    expect(titles.every((title) => /\b0WEB\b/i.test(title ?? ""))).toBe(true);
     expect(new Set(titles).size).toBe(titles.length);
   });
 
