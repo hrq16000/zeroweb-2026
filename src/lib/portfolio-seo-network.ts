@@ -79,7 +79,7 @@ function isUsefulPlace(value: string): boolean {
   return !GENERIC_PLACES.has(normalize(value));
 }
 function fitSeoText(value: string, max: number): string {
-  const normalized = clean(value).replace(/\\s+/g, " ");
+  const normalized = clean(value).replace(/\s+/g, " ");
   if (normalized.length <= max) return normalized;
   const clipped = normalized.slice(0, max + 1);
   const boundary = clipped.lastIndexOf(" ");
@@ -101,7 +101,7 @@ export function portfolioBrandedTitle(
   if (!title) return "0WEB | Portfólio";
   const place = clean(city);
   const context = clean(subtitle);
-  const hasBrand = /\\b0WEB\\b/i.test(title);
+  const hasBrand = /\b0WEB\b/i.test(title);
   const candidates = [
     !hasBrand && place ? title + " | " + place + " | 0WEB" : "",
     !hasBrand ? title + " | 0WEB" : title,
@@ -125,7 +125,7 @@ export function portfolioBrandedDescription(
   const place = clean(city);
   const base = clean(baseDescription);
   if (!title) return fitSeoText(base, 165);
-  if (/\\b0WEB\\b/i.test(base.slice(0, 80))) return fitSeoText(base, 165);
+  if (/\b0WEB\b/i.test(base.slice(0, 80))) return fitSeoText(base, 165);
   const lead = "Projeto 0WEB para " + title + (place ? " em " + place : "") + ".";
   return fitSeoText([lead, base].filter(Boolean).join(" "), 165);
 }
