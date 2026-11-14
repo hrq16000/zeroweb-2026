@@ -38,8 +38,8 @@ function managedHead(project: ManagedProject) {
       : absUrl(project.socialImage)
     : absUrl("/og-default.jpg");
   const icon = project.logoUrl ? absUrl(project.logoUrl) : social;
-  const seoTitle = portfolioBrandedTitle(seoTitle, project.city);
-  const seoDescription = portfolioBrandedDescription(seoDescription, project.displayName, project.city);
+  const seoTitle = portfolioBrandedTitle(project.seoTitle, project.city);
+  const seoDescription = portfolioBrandedDescription(project.seoDescription, project.displayName, project.city);
   return {
     meta: [
       { title: seoTitle },
