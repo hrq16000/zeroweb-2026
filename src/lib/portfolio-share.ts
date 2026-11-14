@@ -70,16 +70,29 @@ export function buildPortfolioShareMessage(
   const item = findCatalogItem(slug);
   const canonicalSlug = item?.slug ?? slug;
 
-  if (runtimeCopy) {
+  // Portfólios do catálogo têm uma única fonte de verdade versionada no Git.
+  // Isso impede que um override antigo, embora estruturalmente válido, volte a
+  // sobrescrever uma copy já corrigida/publicada (drift de runtime/admin).
+  const approvedCopy = portfolioShareCopy[canonicalSlug as keyof typeof portfolioShareCopy];
+  if (item && approvedCopy) {
+    const normalizedApprovedCopy = normalizePortfolioShareMessage(approvedCopy);
+    if (isValidPortfolioShareMessage(canonicalSlug, normalizedApprovedCopy)) {
+      return normalizedApprovedCopy;
+    }
+  }
+
+  // Projetos Managed/rascunhos ainda fora do catálogo podem usar a copy salva
+  // no runtime, desde que ela respeite integralmente o contrato de divulgação.
+  if (!item && runtimeCopy) {
     const normalizedRuntimeCopy = normalizePortfolioShareMessage(runtimeCopy);
     if (isValidPortfolioShareMessage(canonicalSlug, normalizedRuntimeCopy)) {
       return normalizedRuntimeCopy;
     }
   }
 
-  const approvedCopy = portfolioShareCopy[slug as keyof typeof portfolioShareCopy]
-    ?? (item ? portfolioShareCopy[item.slug as keyof typeof portfolioShareCopy] : undefined);
-  if (approvedCopy) {
+  // Compatibilidade defensiva: se houver uma copy versionada para um slug que
+  // ainda não entrou no catálogo, prefira-a antes de gerar o fallback.
+  if (!item && approvedCopy) {
     const normalizedApprovedCopy = normalizePortfolioShareMessage(approvedCopy);
     if (isValidPortfolioShareMessage(canonicalSlug, normalizedApprovedCopy)) {
       return normalizedApprovedCopy;
