@@ -6,6 +6,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Publicação econômica Git-first, Codex/GitHub antes de Vercel, SEO técnico e evidência de indexação/ranking | `docs/0WEB_GIT_FIRST_RELEASE_AND_SEO_POLICY.md` · `docs/0WEB_EXECUTION_CONTRACT.md` |
 | Constituição universal: evolução aditiva, mega diretório local, preservação + enriquecimento | `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md` |
 | Cada `/portfolio/:slug` como site individual completo + SEO autônomo/agressivo legítimo | `docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
