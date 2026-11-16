@@ -44,12 +44,34 @@ mkdirSync(baselineDir, { recursive: true });
 mkdirSync(outDir, { recursive: true });
 
 const clients = JSON.parse(readFileSync(resolve(process.cwd(), "src/config/portfolio-clients.json"), "utf8"));
+// Prévia nova tem rota e screenshots próprios; nunca adicioná-la ao gate global
+// da produção, onde deve responder 404 por política de não afiliação.
+const previewRoutes = only.some((name) => name.startsWith("preview-"))
+  ? readdirSync(resolve(process.cwd(), "src/routes"))
+      .map((file) => file.match(/^portfolio-preview\.([a-z0-9-]+)\.tsx$/)?.[1])
+      .filter(Boolean)
+      .map((slug) => ({
+        path: `/portfolio-preview/${slug}`,
+        name: `preview-${slug}`,
+        preview: true,
+      }))
+  : [];
 const allRoutes = [
+  ...previewRoutes,
   { path: "/", name: "home" },
   { path: "/portfolio", name: "portfolio-index" },
   ...clients.map((c) => ({ path: `/portfolio/${c.slug}`, name: c.slug })),
 ];
-const routes = only.length ? allRoutes.filter((r) => only.includes(r.name)) : allRoutes;
+// Dedicated new demos may be outside portfolio-clients.json while commercial
+// ownership is pending. Explicit VISUAL_ONLY still captures the real route.
+const dedicatedOnly = only
+  .filter((slug) => /^[a-z0-9-]+$/.test(slug))
+  .filter((slug) => !allRoutes.some((route) => route.name === slug))
+  .filter((slug) => existsSync(resolve(process.cwd(), `src/routes/portfolio.${slug}.tsx`)))
+  .map((slug) => ({ path: `/portfolio/${slug}`, name: slug }));
+const routes = only.length
+  ? [...allRoutes.filter((r) => only.includes(r.name)), ...dedicatedOnly]
+  : allRoutes;
 const viewports = [
   { name: "desktop", width: 1280, height: 900 },
   { name: "tablet", width: 834, height: 1112 },
@@ -192,10 +214,17 @@ async function capture(context, route, viewport) {
       AB_OVERRIDES,
     );
     // `0web_preview=1` silencia overlays da hospedagem: screenshots estáveis.
-    await page.goto(`${baseUrl}${route.path}?0web_preview=1`, {
+    const navigation = await page.goto(`${baseUrl}${route.path}?0web_preview=1`, {
       waitUntil: "domcontentloaded",
       timeout: routeTimeout,
     });
+    if (route.preview) {
+      if (navigation?.status() !== 200) throw new Error(`prévia retornou HTTP ${navigation?.status() ?? "sem resposta"}`);
+      const robots = await page.locator('meta[name="robots"]').getAttribute("content");
+      if (!robots?.includes("noindex")) throw new Error("prévia sem noindex");
+      const content = (await page.locator("main").innerText()).toLowerCase();
+      if (!content.includes("não oficial")) throw new Error("prévia não informa caráter não oficial");
+    }
     await page.addStyleTag({ content: FREEZE_CSS }).catch(() => {});
     // Estabiliza a captura: imagens decodificadas + fontes prontas, com teto de tempo.
     await page

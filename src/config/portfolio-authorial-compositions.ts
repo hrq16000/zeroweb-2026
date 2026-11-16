@@ -10,7 +10,10 @@
  * aqui NO MESMO PR que registra a página no registry de composições.
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
+  "cantinho-da-tia-mari",
+  "agropet-filt",
   "arildo-madeiras",
+  "dona-garimpeira-brecho",
   "autoescola-aptos",
   "adhonep-curitiba",
 ] as const;

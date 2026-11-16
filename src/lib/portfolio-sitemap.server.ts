@@ -26,6 +26,11 @@ type CatalogItem = {
 
 const APPROVED_STATUSES = new Set(["approved", "published"]);
 
+/** Projetos autorais indexáveis da 0WEB que NÃO se passam por clientes oficiais.
+ * Separados do catálogo comercial para preservar governança de clientes.
+ */
+const INDEXABLE_0WEB_DEMOS = ["sao-francisco-pet-center"] as const;
+
 const knownSlugs = new Set([
   ...(portfolioCatalog as CatalogItem[]).map((item) => item.slug),
   ...PORTFOLIO_PROTOTYPES.map((site) => site.slug),
@@ -58,6 +63,16 @@ export function buildApprovedPortfolioEntries(
   return [
     { path: "/portfolio", changefreq: "daily", priority: "1.0" },
     { path: "/portfolio-em", changefreq: "weekly", priority: "0.8" },
+    // Demonstrações editoriais são páginas públicas da 0WEB, não clientes
+    // cadastrados. O sitemap permite a descoberta sem falsear o catálogo.
+    ...INDEXABLE_0WEB_DEMOS
+      .filter((slug) => !slugs.includes(slug))
+      .filter((slug) => runtime.get(slug)?.published !== false)
+      .map((slug) => ({
+        path: `/portfolio/${slug}`,
+        changefreq: "monthly" as const,
+        priority: "0.5",
+      })),
     ...slugs.sort().map((slug) => {
       const updatedAt = runtime.get(slug)?.updated_at;
       return {

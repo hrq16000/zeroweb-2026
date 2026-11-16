@@ -140,6 +140,36 @@ test("pizza fraction + variant prices are taken from published catalog", () => {
   assert.equal(item.storeId, "store-a");
 });
 
+test("dough pricing requires explicit flavor surcharges and accepts zero", () => {
+  const setBasePlusSurcharges = data => {
+    const variant = data.catalog.products.find(product => product.id === "pizza").variants[0];
+    variant.pizzaPricingPolicy = "BASE_PLUS_FLAVOR_SURCHARGES";
+    variant.doughBaseCents = 3200;
+    variant.flavors = [
+      { id: "a", available: true, surchargeCents: 0 },
+      { id: "b", available: true, surchargeCents: 500 },
+    ];
+    data.selection = {
+      catalogVersion: 3, productId: "pizza", variantId: "large", quantity: 1,
+      fractions: [
+        { flavorId: "a", numerator: 1, denominator: 2 },
+        { flavorId: "b", numerator: 1, denominator: 2 },
+      ],
+    };
+    return variant;
+  };
+
+  const item = run(setBasePlusSurcharges);
+  assert.deepEqual(item.pricingInput.flavorSurchargesCents, [0, 500]);
+  assert.equal(item.pricingInput.doughBaseCents, 3200);
+  assert.ok(!("baseFlavorPricesCents" in item.pricingInput));
+
+  throwsCode(data => {
+    const variant = setBasePlusSurcharges(data);
+    variant.flavors[1] = { id: "b", available: true, priceCents: 4200 };
+  }, "CATALOG_PRICE_INVALID");
+});
+
 test("invalid pizza portions, flavors or variant are blocked", () => {
   const selectPizza = x => { x.selection = {
     catalogVersion:3, productId:"pizza", variantId:"large", quantity:1,

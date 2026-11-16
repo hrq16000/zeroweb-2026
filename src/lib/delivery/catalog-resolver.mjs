@@ -161,8 +161,12 @@ function resolvePizza(variant, selectedFractions) {
   if (selectedFractions.length > maxDistinct) {
     reject("TOO_MANY_FLAVORS", "Too many selected flavors for this variant");
   }
-  const ids = new Set(), fractions = [], prices = [];
-  const surcharges = [];
+  const policy = variant.pizzaPricingPolicy;
+  if (!["MAX_SELECTED_FLAVOR", "WEIGHTED_FRACTIONS", "BASE_PLUS_FLAVOR_SURCHARGES"].includes(policy)) {
+    reject("PIZZA_POLICY_MISSING", "Pizza pricing policy must be explicitly configured");
+  }
+  const usesSurcharges = policy === "BASE_PLUS_FLAVOR_SURCHARGES";
+  const ids = new Set(), fractions = [], flavorPrices = [];
   const allowed = variant.allowedFractionDenominators ?? [1];
   if (!Array.isArray(allowed) || !allowed.length || !allowed.every(x => Number.isSafeInteger(x) && x >= 1 && x <= 12)) {
     reject("INVALID_CATALOG", "Invalid fraction size policy");
@@ -177,20 +181,19 @@ function resolvePizza(variant, selectedFractions) {
     if (flavor.available !== true) reject("FLAVOR_UNAVAILABLE", "Selected flavor is unavailable");
     if (!allowed.includes(part.denominator)) reject("FRACTION_NOT_ALLOWED", "Unsupported portion size");
     fractions.push({ numerator: part.numerator, denominator: part.denominator });
-    prices.push(money("flavor.priceCents", flavor.priceCents));
-    surcharges.push(money("flavor.surchargeCents", flavor.surchargeCents ?? 0));
+    if (usesSurcharges) {
+      flavorPrices.push(money("flavor.surchargeCents", flavor.surchargeCents));
+    } else {
+      flavorPrices.push(money("flavor.priceCents", flavor.priceCents));
+    }
   }
   ensureUnitFractions(fractions);
-  const policy = variant.pizzaPricingPolicy;
-  if (!["MAX_SELECTED_FLAVOR", "WEIGHTED_FRACTIONS", "BASE_PLUS_FLAVOR_SURCHARGES"].includes(policy)) {
-    reject("PIZZA_POLICY_MISSING", "Pizza pricing policy must be explicitly configured");
-  }
   const config = { pricingPolicy: policy, fractions };
-  if (policy === "BASE_PLUS_FLAVOR_SURCHARGES") {
+  if (usesSurcharges) {
     config.doughBaseCents = money("doughBaseCents", variant.doughBaseCents);
-    config.flavorSurchargesCents = surcharges;
+    config.flavorSurchargesCents = flavorPrices;
   } else {
-    config.baseFlavorPricesCents = prices;
+    config.baseFlavorPricesCents = flavorPrices;
   }
   return { priceInputs: config, normalizedFractions: selectedFractions.map(part => ({
     flavorId: part.flavorId, numerator: part.numerator, denominator: part.denominator

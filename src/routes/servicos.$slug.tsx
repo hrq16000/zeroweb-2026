@@ -7,12 +7,14 @@ import { CTA } from "@/components/site/CTA";
 import { ServiceCTA } from "@/components/site/ServiceCTA";
 import { ProductActionGate } from "@/components/site/ProductActionGate";
 import { absUrl, ORIGIN, DEFAULT_OG_IMAGE, breadcrumbLd } from "@/lib/seo";
-import { GEO_SERVICE_SLUGS, relatedServices } from "@/lib/services-data";
+import { GEO_SERVICE_SLUGS, SERVICES, relatedServices } from "@/lib/services-data";
 import { CITIES } from "@/lib/geo-data";
 import { getServicePublic, type PublicServiceFull, type GalleryItem } from "@/lib/services-public.functions";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { RelatedServicesCarousel } from "@/components/site/RelatedServicesCarousel";
+import { getAiRecommendations } from "@/lib/ai-recommendations.functions";
+import { listServicesStorefront } from "@/lib/services-public.functions";
 import { ProductGallery } from "@/components/site/ProductGallery";
 import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { serviceCoverFallback } from "@/lib/service-cover-fallback";
@@ -204,7 +206,25 @@ export const Route = createFileRoute("/servicos/$slug")({
 function ServicePage() {
   const data = Route.useLoaderData() as PublicServiceFull;
   const { slug } = Route.useParams();
-  const otherSvcs = relatedServices(slug, 6);
+  type AiItem = Awaited<ReturnType<typeof listServicesStorefront>>["services"][number];
+  const [aiItems, setAiItems] = useState<AiItem[] | null>(null);
+  useEffect(() => {
+    let alive = true;
+    setAiItems(null);
+    Promise.all([getAiRecommendations({ data: { slug } }), listServicesStorefront()])
+      .then(([r, store]) => {
+        if (!alive || !r) return;
+        const bySlug = new Map(store.services.map((s) => [s.slug, s]));
+        const picked = r.slugs.map((s) => bySlug.get(s)).filter((s): s is AiItem => Boolean(s));
+        if (picked.length >= 3) setAiItems(picked);
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [slug]);
+  // Padrão por categoria no primeiro render; troca pela escolha da IA quando chega.
+  const otherSvcs = aiItems
+    ? aiItems.map((s) => ({ ...(SERVICES[s.slug] ?? {}), ...s }) as unknown as ReturnType<typeof relatedServices>[number] & { price: number; imageUrl: string })
+    : relatedServices(slug, 6);
   const hasGeo = GEO_SET.has(slug);
   const funnels = data.funnels ?? {};
   const isTrafegoPago = slug === "trafego-pago";

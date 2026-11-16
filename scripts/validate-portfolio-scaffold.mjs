@@ -164,7 +164,7 @@ for (const client of clients) {
   }
 
   const hasClientCta =
-    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|data-portfolio-external-cta)/.test(
+    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|submitPortfolioQuiz|data-funnel-provider|data-portfolio-external-cta)/.test(
       componentSource,
     );
   if (!hasClientCta) {
@@ -179,7 +179,7 @@ for (const client of clients) {
       errors.push(`${label} usa funil universal da 0WEB (${slug})`);
     }
   }
-  if (!/clientKey=["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
+  if (!/clientKey=["'`]/.test(componentSource) && !/clientKey:\s*["'`]/.test(componentSource) && !/data-funnel-provider=["'`]jotform["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
   }
 
