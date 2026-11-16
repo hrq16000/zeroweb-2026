@@ -122,9 +122,14 @@ import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.histor
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
+import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfolio-preview.agropet-filt'
+import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
+import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
+import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as ProfissionalSlugRouteImport } from './routes/profissional.$slug'
@@ -226,6 +231,7 @@ import { Route as AuthenticatedAppLeadsHeloaGasRouteImport } from './routes/_aut
 import { Route as AuthenticatedAppLeadsMarcasRouteImport } from './routes/_authenticated/app.leads.marcas'
 import { Route as AuthenticatedAppLeadsPorPortfolioRouteImport } from './routes/_authenticated/app.leads.por-portfolio'
 import { Route as AuthenticatedAppLeadsPortfolioRouteImport } from './routes/_authenticated/app.leads.portfolio'
+import { Route as AuthenticatedAppMarcasMapaRouteImport } from './routes/_authenticated/app.marcas.mapa'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
@@ -832,6 +838,18 @@ const PortfolioEmLocalRoute = PortfolioEmLocalRouteImport.update({
   path: '/portfolio-em/$local',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioPreviewAgropetFiltRoute =
+  PortfolioPreviewAgropetFiltRouteImport.update({
+    id: '/portfolio-preview/agropet-filt',
+    path: '/portfolio-preview/agropet-filt',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PortfolioPreviewDonaGarimpeiraBrechoRoute =
+  PortfolioPreviewDonaGarimpeiraBrechoRouteImport.update({
+    id: '/portfolio-preview/dona-garimpeira-brecho',
+    path: '/portfolio-preview/dona-garimpeira-brecho',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
   id: '/portfolio/',
   path: '/portfolio/',
@@ -842,9 +860,24 @@ const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   path: '/portfolio/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioCantinhoDaTiaMariRoute = PortfolioCantinhoDaTiaMariRouteImport.update({
+  id: '/portfolio/cantinho-da-tia-mari',
+  path: '/portfolio/cantinho-da-tia-mari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
+  id: '/portfolio/agropet-filt',
+  path: '/portfolio/agropet-filt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
   id: '/portfolio/dyzpromo',
   path: '/portfolio/dyzpromo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSaoFranciscoPetCenterRoute = PortfolioSaoFranciscoPetCenterRouteImport.update({
+  id: '/portfolio/sao-francisco-pet-center',
+  path: '/portfolio/sao-francisco-pet-center',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioR_beautyRoute = PortfolioR_beautyRouteImport.update({
@@ -1412,6 +1445,12 @@ const AuthenticatedAppLeadsPortfolioRoute =
     path: '/portfolio',
     getParentRoute: () => AuthenticatedAppLeadsRoute,
   } as any)
+const AuthenticatedAppMarcasMapaRoute =
+  AuthenticatedAppMarcasMapaRouteImport.update({
+    id: '/marcas/mapa',
+    path: '/marcas/mapa',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppMarketplaceAdminRoute =
   AuthenticatedAppMarketplaceAdminRouteImport.update({
     id: '/admin',
@@ -1696,8 +1735,13 @@ export interface FileRoutesByFullPath {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -1805,6 +1849,7 @@ export interface FileRoutesByFullPath {
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1941,8 +1986,13 @@ export interface FileRoutesByTo {
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -2049,6 +2099,7 @@ export interface FileRoutesByTo {
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2190,8 +2241,13 @@ export interface FileRoutesById {
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
+  '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
+  '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
+  '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
@@ -2299,6 +2355,7 @@ export interface FileRoutesById {
   '/_authenticated/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
   '/_authenticated/app/leads/por-portfolio': typeof AuthenticatedAppLeadsPorPortfolioRoute
   '/_authenticated/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
+  '/_authenticated/app/marcas/mapa': typeof AuthenticatedAppMarcasMapaRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2440,8 +2497,13 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -2549,6 +2611,7 @@ export interface FileRouteTypes {
     | '/app/leads/marcas'
     | '/app/leads/por-portfolio'
     | '/app/leads/portfolio'
+    | '/app/marcas/mapa'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2685,8 +2748,13 @@ export interface FileRouteTypes {
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -2793,6 +2861,7 @@ export interface FileRouteTypes {
     | '/app/leads/marcas'
     | '/app/leads/por-portfolio'
     | '/app/leads/portfolio'
+    | '/app/marcas/mapa'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2933,8 +3002,13 @@ export interface FileRouteTypes {
     | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
+    | '/portfolio-preview/agropet-filt'
+    | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
+    | '/portfolio/cantinho-da-tia-mari'
+    | '/portfolio/agropet-filt'
     | '/portfolio/dyzpromo'
+    | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
@@ -3042,6 +3116,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/leads/marcas'
     | '/_authenticated/app/leads/por-portfolio'
     | '/_authenticated/app/leads/portfolio'
+    | '/_authenticated/app/marcas/mapa'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
@@ -3180,8 +3255,13 @@ export interface RootRouteChildren {
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
+  PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
+  PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
+  PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
+  PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
@@ -4020,6 +4100,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioEmLocalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio-preview/agropet-filt': {
+      id: '/portfolio-preview/agropet-filt'
+      path: '/portfolio-preview/agropet-filt'
+      fullPath: '/portfolio-preview/agropet-filt'
+      preLoaderRoute: typeof PortfolioPreviewAgropetFiltRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-preview/dona-garimpeira-brecho': {
+      id: '/portfolio-preview/dona-garimpeira-brecho'
+      path: '/portfolio-preview/dona-garimpeira-brecho'
+      fullPath: '/portfolio-preview/dona-garimpeira-brecho'
+      preLoaderRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/': {
       id: '/portfolio/'
       path: '/portfolio'
@@ -4034,11 +4128,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/cantinho-da-tia-mari': {
+      id: '/portfolio/cantinho-da-tia-mari'
+      path: '/portfolio/cantinho-da-tia-mari'
+      fullPath: '/portfolio/cantinho-da-tia-mari'
+      preLoaderRoute: typeof PortfolioCantinhoDaTiaMariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/agropet-filt': {
+      id: '/portfolio/agropet-filt'
+      path: '/portfolio/agropet-filt'
+      fullPath: '/portfolio/agropet-filt'
+      preLoaderRoute: typeof PortfolioAgropetFiltRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/dyzpromo': {
       id: '/portfolio/dyzpromo'
       path: '/portfolio/dyzpromo'
       fullPath: '/portfolio/dyzpromo'
       preLoaderRoute: typeof PortfolioDyzpromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/sao-francisco-pet-center': {
+      id: '/portfolio/sao-francisco-pet-center'
+      path: '/portfolio/sao-francisco-pet-center'
+      fullPath: '/portfolio/sao-francisco-pet-center'
+      preLoaderRoute: typeof PortfolioSaoFranciscoPetCenterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/r_beauty': {
@@ -4748,6 +4863,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppLeadsPortfolioRouteImport
       parentRoute: typeof AuthenticatedAppLeadsRoute
     }
+    '/_authenticated/app/marcas/mapa': {
+      id: '/_authenticated/app/marcas/mapa'
+      path: '/marcas/mapa'
+      fullPath: '/app/marcas/mapa'
+      preLoaderRoute: typeof AuthenticatedAppMarcasMapaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/marketplace/admin': {
       id: '/_authenticated/app/marketplace/admin'
       path: '/admin'
@@ -5140,6 +5262,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisPortfoliosRoute: typeof AuthenticatedAppFunisPortfoliosRoute
   AuthenticatedAppFunisSemDestinoRoute: typeof AuthenticatedAppFunisSemDestinoRoute
   AuthenticatedAppFunisSolicitacoesRoute: typeof AuthenticatedAppFunisSolicitacoesRoute
+  AuthenticatedAppMarcasMapaRoute: typeof AuthenticatedAppMarcasMapaRoute
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
   AuthenticatedAppPortfolioNovoRoute: typeof AuthenticatedAppPortfolioNovoRoute
   AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
@@ -5216,6 +5339,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisSemDestinoRoute: AuthenticatedAppFunisSemDestinoRoute,
   AuthenticatedAppFunisSolicitacoesRoute:
     AuthenticatedAppFunisSolicitacoesRoute,
+  AuthenticatedAppMarcasMapaRoute: AuthenticatedAppMarcasMapaRoute,
   AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
   AuthenticatedAppPortfolioNovoRoute: AuthenticatedAppPortfolioNovoRoute,
   AuthenticatedAppPortfolioOriginalidadeRoute:
@@ -5411,8 +5535,14 @@ const rootRouteChildren: RootRouteChildren = {
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
+  PortfolioPreviewAgropetFiltRoute: PortfolioPreviewAgropetFiltRoute,
+  PortfolioPreviewDonaGarimpeiraBrechoRoute:
+    PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
+  PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
+  PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   ProfissionalSlugRoute: ProfissionalSlugRoute,

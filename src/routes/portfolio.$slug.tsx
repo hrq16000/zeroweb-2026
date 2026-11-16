@@ -20,6 +20,12 @@ import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedVie
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
+import { createDonaGarimpeiraSeo } from "@/lib/dona-garimpeira-seo";
+import {
+  portfolioUniversalKeywords,
+  portfolioUniversalSeoTitle,
+  resolvePortfolioSeoDescriptor,
+} from "@/lib/portfolio-seo-network";
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
@@ -40,6 +46,7 @@ function managedHead(project: ManagedProject) {
       { property: "og:description", content: project.seoDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: project.displayName },
       { property: "og:image", content: social },
       { property: "og:image:secure_url", content: social },
@@ -50,10 +57,13 @@ function managedHead(project: ManagedProject) {
       { name: "twitter:title", content: project.seoTitle },
       { name: "twitter:description", content: project.seoDescription },
       { name: "twitter:image", content: social },
+      { name: "twitter:image:alt", content: project.displayName },
     ],
     links: [
       { rel: "canonical", href: url },
-      { rel: "icon", href: icon },
+      { rel: "alternate", hrefLang: "pt-BR", href: url },
+      { rel: "alternate", hrefLang: "x-default", href: url },
+      { rel: "icon", href: icon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
     scripts: [
@@ -61,15 +71,6 @@ function managedHead(project: ManagedProject) {
         type: "application/ld+json",
         children: graph([
           organizationNode(),
-          {
-            "@type": "WebPage",
-            "@id": url,
-            url,
-            name: project.seoTitle,
-            description: project.seoDescription,
-            inLanguage: "pt-BR",
-            isPartOf: { "@id": "https://0web.com.br/portfolio" },
-          },
           {
             "@type": "LocalBusiness",
             "@id": `${url}#localbusiness`,
@@ -475,6 +476,9 @@ const CarecasInfotecPage = lazy(() =>
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
     const site = findPortfolioPrototype(params.slug);
+    // Dona Garimpeira tem atendimento client-side independente do banco.
+    // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
+    if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound();
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) {
@@ -489,6 +493,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
       if (!managed) throw notFound();
       return { vertical: undefined, slug: params.slug, overrides: null, managed };
     }
+    // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
+    if (params.slug === "dona-garimpeira-brecho") {
+      return { vertical, slug: params.slug, overrides: null, managed: null };
+    }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
     let overrides: PortfolioRuntimeOverrides | null = null;
@@ -500,11 +508,28 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
+    // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
+    if (loaderData?.slug === "dona-garimpeira-brecho") {
+      return createDonaGarimpeiraSeo({
+        published: true,
+        funnelVerified: true,
+        ownerApproved: true,
+        mediaApproved: false,
+        approvedWithoutSocialImage: true,
+        approvedSocialImage: null,
+      });
+    }
     const managedProject = loaderData?.managed ?? null;
     if (managedProject) return managedHead(managedProject);
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
+    const catalogSeo = loaderData?.slug
+      ? resolvePortfolioSeoDescriptor(loaderData.slug)
+      : null;
     const title =
-      prototype?.siteName ?? loaderData?.vertical?.name ?? "Projeto de presença digital";
+      (loaderData?.slug ? portfolioUniversalSeoTitle(loaderData.slug) : null) ??
+      prototype?.siteName ??
+      loaderData?.vertical?.name ??
+      "Projeto de presença digital";
 
     const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
@@ -718,9 +743,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                   ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
                                                                                   : isSantos
                                                                                     ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-                                                                                    : (loaderData
-                                                                                        ?.vertical
-                                                                                        ?.subheadline ??
+                                                                                    : (catalogSeo?.summary ??
+                                                                                      loaderData?.vertical?.subheadline ??
                                                                                       "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -910,13 +934,18 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                     ? "montador de móveis Curitiba, montagem de móveis Colombo, desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água, instalação de cortinas, Alphaville Curitiba"
                                                                                     : isAssistenciaMicroondas
                                                                                       ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, venda de micro-ondas revisados, atendimento a domicílio, São José dos Pinhais"
-                                                                                      : (vertical?.keywords ??
-                                                                                        "site profissional, criação de sites, SEO local")),
+                                                                                      : (loaderData?.slug
+                                                                                        ? portfolioUniversalKeywords(loaderData.slug) ??
+                                                                                          vertical?.keywords ??
+                                                                                          "site profissional, criação de sites, SEO local"
+                                                                                        : vertical?.keywords ??
+                                                                                          "site profissional, criação de sites, SEO local")),
         },
         { property: "og:title", content: eff.title },
         { property: "og:description", content: eff.description },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
+        { property: "og:locale", content: "pt_BR" },
         { property: "og:site_name", content: eff.title },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
@@ -928,10 +957,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "twitter:title", content: eff.title },
         { name: "twitter:description", content: eff.description },
         { name: "twitter:image", content: effSocial },
+        { name: "twitter:image:alt", content: eff.title },
       ],
       links: [
         { rel: "canonical", href: eff.canonicalUrl },
-        { rel: "icon", href: effIcon },
+        { rel: "alternate", hrefLang: "pt-BR", href: eff.canonicalUrl },
+        { rel: "alternate", hrefLang: "x-default", href: eff.canonicalUrl },
+        { rel: "icon", href: effIcon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
         ...(isArildoMadeiras
           ? [
@@ -950,15 +982,6 @@ export const Route = createFileRoute("/portfolio/$slug")({
               type: "application/ld+json",
               children: graph([
                 organizationNode(),
-                {
-                  "@type": "WebPage",
-                  "@id": url,
-                  url,
-                  name: title,
-                  description,
-                  inLanguage: "pt-BR",
-                  isPartOf: { "@id": "https://0web.com.br/portfolio" },
-                },
                 ...(isBtb
                   ? [
                       {
@@ -1458,6 +1481,17 @@ function PortfolioPrototypePage() {
         quizConfigOverride={{
           services: managed.services.map((service) => service.title),
           proposalKind: "service",
+        }}
+        seoContextOverride={{
+          title: managed.displayName,
+          segment: managed.segment,
+          city: managed.city,
+          state: managed.state,
+          tags: managed.services.map((service) => service.title),
+          services: managed.services.map((service) => service.title),
+          summary: managed.summary || managed.seoDescription,
+          projectType: "managed",
+          image: managed.heroImageUrl,
         }}
       >
         <PortfolioManagedView project={managed} />

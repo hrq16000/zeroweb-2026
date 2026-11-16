@@ -1415,6 +1415,40 @@
       "desktopBehavior": "lâminas do hero entram como tábuas empilhadas; catálogo avança em régua escalonada; imagens de estoque são reveladas por cortes curtos",
       "tabletBehavior": "lâminas permanecem escalonadas com deslocamento reduzido; mosaico e espinha de aplicações preservam a leitura",
       "mobileBehavior": "pilha vertical sem parallax; deslocamentos curtos, sem hover dependente e conteúdo integral com reduced-motion"
+    },
+    "agropet-filt": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "softFloat",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "subtle",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "ilustração de cão e ave com leve flutuação, mosaico de categorias e painel de consulta",
+      "tabletBehavior": "hero em coluna e mosaico reduzido",
+      "mobileBehavior": "conteúdo empilhado, CTA de consulta e sem movimento em reduced-motion"
+    },
+    "cantinho-da-tia-mari": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
+      "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
+      "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
     }
   },
   "decisions": {

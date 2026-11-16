@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Ícone da demonstração São Francisco Pet Center</title>
+  <rect width="32" height="32" rx="7" fill="#123a34"/>
+  <g fill="#d5e97a">
+    <ellipse cx="8" cy="14" rx="2.6" ry="3.5" transform="rotate(-25 8 14)"/>
+    <ellipse cx="13" cy="10" rx="2.5" ry="3.6" transform="rotate(-12 13 10)"/>
+    <ellipse cx="19" cy="10" rx="2.5" ry="3.6" transform="rotate(12 19 10)"/>
+    <ellipse cx="24" cy="14" rx="2.6" ry="3.5" transform="rotate(25 24 14)"/>
+    <path d="M16 16c2.1 0 3.6 1.8 5.7 3.7 1.3 1.2 2 2.4 2 3.7 0 1.7-1.4 3-3.1 3-1.8 0-3-1.2-4.6-1.2s-2.8 1.2-4.6 1.2c-1.7 0-3.1-1.3-3.1-3 0-1.3.7-2.5 2-3.7C12.4 17.8 13.9 16 16 16Z"/>
+  </g>
+</svg>

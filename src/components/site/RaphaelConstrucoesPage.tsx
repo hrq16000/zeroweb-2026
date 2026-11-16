@@ -138,12 +138,12 @@ export function RaphaelConstrucoesPage() {
             <p className="text-[11px] font-bold uppercase tracking-[.34em] text-primary">
               Construção · engenharia · reformas
             </p>
-            <MotionReveal as="h1" variant="up" intensity="BALANCED" className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Uma vis\u00e3o completa para sua obra."}
               />
-            </MotionReveal>
+            </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
@@ -221,6 +221,21 @@ export function RaphaelConstrucoesPage() {
             </dl>
           </div>
         </section>
+
+        <aside id="antes-da-avaliacao" className="px-5 py-16" aria-labelledby="antes-da-avaliacao-title">
+          <div className="mx-auto max-w-5xl border-l-4 border-primary pl-6 md:pl-8">
+            <p className="text-[11px] font-bold uppercase tracking-[.3em] text-primary">Antes da avaliação</p>
+            <h2 id="antes-da-avaliacao-title" className="mt-3 max-w-3xl font-display text-3xl font-bold md:text-4xl">
+              Tipo de obra, imóvel e material disponível deixam o primeiro contato mais objetivo.
+            </h2>
+            <div className="mt-7 space-y-4 text-sm leading-7 text-muted-foreground">
+              <p><strong className="text-foreground">Frente principal:</strong> construção, reforma, impermeabilização, hidráulica, elétrica, demolição, pintura, acabamentos ou acompanhamento.</p>
+              <p><strong className="text-foreground">Tipo de imóvel:</strong> casa, apartamento, comércio, condomínio ou outro imóvel ajudam a situar o cenário.</p>
+              <p><strong className="text-foreground">Ponto de partida:</strong> projeto, medidas, fotos do local ou a necessidade de uma avaliação indicam o que já existe para análise.</p>
+              <p><strong className="text-foreground">Região e prazo:</strong> informe onde será o serviço e quando pretende começar; escopo, disponibilidade e sequência são confirmados após a avaliação.</p>
+            </div>
+          </div>
+        </aside>
 
         {/* CTA como bloco escuro de "abrir chamado" com imagem de apoio. */}
         <section aria-label="Abrir avaliação" className="px-5 py-16">

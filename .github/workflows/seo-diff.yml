@@ -11,12 +11,17 @@ on:
       - 'src/lib/services-*'
       - 'seo-reports/seo-diff.config.json'
       - 'scripts/run-seo-diff.mjs'
+      - 'scripts/validate-catalog-images.mjs'
   workflow_dispatch:
     inputs:
       base_url:
         description: 'URL base contra a qual rodar o diff'
         required: false
         default: 'https://0web.com.br'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   seo-diff:

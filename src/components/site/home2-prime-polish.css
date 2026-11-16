@@ -396,32 +396,18 @@
   }
 }
 
-@media (max-width: 840px) {
-  .home2-prime-hero-showcase {
-    top: auto;
-    right: -7vw;
-    bottom: 32px;
-    width: 58vw;
-    height: 250px;
-    opacity: .26;
-  }
+/* Shell clips decorative bleed so negative offsets never create horizontal scroll. */
+.home2-personality-shell { overflow-x: clip; }
 
-  .home2-prime-signal { display: none; }
-  .home2-prime-project--b,
-  .home2-prime-project--c { display: none; }
-  .home2-prime-project--a {
-    width: 70%;
-    height: 82%;
-    left: 20%;
-  }
+@media (max-width: 840px) {
+  /* The showcase is anchored to the shell, not the hero: with `bottom` it fell
+     to the end of the page on tablet/mobile. The mobile hero already carries
+     the real-project avatar stack, so the decorative layer is removed here. */
+  .home2-prime-hero-showcase { display: none; }
 }
 
 @media (max-width: 640px) {
-  .home2-prime-hero-showcase {
-    width: 72vw;
-    right: -28vw;
-    opacity: .19;
-  }
+
 
   .home2-personality-shell .home2-header.is-scrolled .home2-header-inner {
     height: 64px;

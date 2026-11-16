@@ -1636,6 +1636,38 @@
       "logoFile": "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png",
       "socialFile": "/images/arildo-madeiras/capa-og.svg",
       "identityNote": "A landing usa diretamente o logo publicado no site oficial. /images/arildo-madeiras/logo.svg é somente fallback técnico local para o contrato de assets; não substitui nem redesenha a marca."
+    },
+    "agropet-filt": {
+      "brandCharacter": [
+        "próximo",
+        "alegre",
+        "versátil",
+        "local"
+      ],
+      "visualConcept": "Do bico ao focinho, pôster ilustrado de pet e ave com guia de categorias",
+      "heroComposition": "53-47-ilustracao-autoral-local",
+      "sectionRhythm": [
+        "hero",
+        "marquee",
+        "categorias",
+        "guia",
+        "bairro",
+        "localizacao",
+        "faq"
+      ],
+      "typographicCharacter": "Sans arredondada e serifa editorial nos destaques",
+      "colorBehavior": "Verde-floresta, verde-lima e terracota, com papéis quentes",
+      "imageDirection": "Arte vetorial editorial original, sem imagens fictícias do estabelecimento",
+      "signatureElement": "Cão e ave vetoriais com etiqueta circular no topo",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "0WEB_EDITORIAL",
+      "forbiddenSimilarities": [
+        "arildo-madeiras",
+        "r-beauty",
+        "dona-garimpeira-brecho"
+      ],
+      "identityStatus": "EDITORIAL_IDENTITY_PENDING_OWNER_REVIEW",
+      "logoFile": "/images/agropet-filt/logo.svg"
     }
   }
 }

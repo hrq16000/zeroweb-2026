@@ -58,6 +58,7 @@ for (const project of projects) {
       fingerprint: project.compositionFingerprint ?? null,
       perceptualReview: project.perceptualReview ?? null,
       contentFacts: project.contentFacts ?? null,
+      compositionContract: project.compositionContract ?? COMPOSITION_CONTRACT_VERSION,
     },
     peers,
   );

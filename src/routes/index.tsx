@@ -149,6 +149,28 @@ export const Route = createFileRoute("/")({
               inLanguage: "pt-BR",
             },
             {
+              "@type": "FAQPage",
+              "@id": "https://0web.com.br/#contact-faq",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Como falar com a 0WEB pelo WhatsApp?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "O atendimento comercial começa pelo funil da 0WEB. Ele registra o contexto da solicitação e, quando aplicável, direciona para o WhatsApp correto.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Preciso escolher o serviço antes de falar com a 0WEB?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. O funil comercial começa pelo objetivo do projeto e ajuda a organizar a necessidade antes da definição técnica.",
+                  },
+                },
+              ],
+            },
+            {
               "@type": "BreadcrumbList",
               itemListElement: [
                 {

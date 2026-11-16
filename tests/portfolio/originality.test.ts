@@ -134,11 +134,15 @@ describe("análise do portfólio real", () => {
       fs.readFileSync(path.join(root, "src/config/portfolio-catalog.json"), "utf8"),
     );
     expect(report.projects.length).toBe(catalog.length);
+    expect(report.summary.published).toBe(catalog.filter((p: { status: string }) => p.status === "published" || p.status === "approved").length);
+    expect(report.summary.draft).toBe(catalog.length - report.summary.published);
   });
 
   it("classifica fallback de vertical com reason próprio", () => {
     const fallbacks = report.projects.filter(
-      (p: { originalityStatus: string }) => p.originalityStatus === STATUS.SHARED_FALLBACK,
+      (p: { originalityStatus: string; publicationStatus?: string }) =>
+        ["published", "approved"].includes(p.publicationStatus ?? "published") &&
+        p.originalityStatus === STATUS.SHARED_FALLBACK,
     );
     // Meta do CLUSTER_01: nenhum projeto deve depender da landing genérica da vertical.
     expect(fallbacks.length).toBe(0);

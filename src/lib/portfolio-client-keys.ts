@@ -1,10 +1,12 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
+  "cantinho-da-tia-mari",
+  "agropet-filt",
   
   
   
   
-  "arildo-madeiras","autoescola-aptos","catharine-lima-studio",
+  "arildo-madeiras","dona-garimpeira-brecho","autoescola-aptos","catharine-lima-studio",
   "cris-presentes-colonia-rio-grande",
   "adhonep-curitiba","jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
   "ton-e-cor",

@@ -1,0 +1,158 @@
+export type GeoServiceProof = {
+  slug: string;
+  title: string;
+};
+
+export type GeoServiceEvidence = {
+  citySlug: string;
+  serviceSlug: string;
+  proofSummary: string;
+  projects: readonly GeoServiceProof[];
+};
+
+/**
+ * Evidência editorial explícita para páginas cidade × serviço.
+ *
+ * Regra: não inferir um serviço entregue pela 0WEB a partir das tags do negócio
+ * do cliente. Um projeto publicado comprova criação de presença/site; somente
+ * projectType=landing foi usado como prova para landing pages.
+ *
+ * As combinações ausentes continuam acessíveis para atendimento remoto, mas
+ * devem permanecer noindex e fora do sitemap até receberem prova própria.
+ */
+const GEO_SERVICE_EVIDENCE: readonly GeoServiceEvidence[] = [
+  {
+    citySlug: "curitiba",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui dezenas de projetos publicados em Curitiba. Estes exemplos documentam presença digital entregue para negócios locais em segmentos diferentes.",
+    projects: [
+      { slug: "clinica-integrada", title: "Clínica Integrada de Saúde" },
+      { slug: "rj-servicos-drywall", title: "RJ Serviços de Drywall" },
+      { slug: "renata-beauty", title: "Renata Beauty Studio" },
+    ],
+  },
+  {
+    citySlug: "curitiba",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing pages reais publicadas para clientes de Curitiba, com jornadas e objetivos próprios em vez de páginas geográficas geradas apenas por template.",
+    projects: [
+      { slug: "rj-servicos-drywall", title: "RJ Serviços de Drywall" },
+      { slug: "renata-beauty", title: "Renata Beauty Studio" },
+      { slug: "studio-de-cilios", title: "Studio de Cílios" },
+    ],
+  },
+  {
+    citySlug: "sao-jose-dos-pinhais",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em São José dos Pinhais para comércio, serviços, saúde, alimentação, beleza e assistência técnica.",
+    projects: [
+      { slug: "centro-mega", title: "Centro Mega" },
+      { slug: "carecas-infotec", title: "Careca's Infotec" },
+      { slug: "denise-gomes-psicologa", title: "Denise Gomes · Psicóloga" },
+    ],
+  },
+  {
+    citySlug: "sao-jose-dos-pinhais",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing pages publicadas para negócios de São José dos Pinhais, com conteúdo, identidade e jornadas específicas para cada projeto.",
+    projects: [
+      { slug: "carecas-infotec", title: "Careca's Infotec" },
+      { slug: "maximos-cabeleireiros", title: "Maximos Cabeleireiros" },
+      { slug: "catharine-lima-studio", title: "Catharine Lima Studio" },
+    ],
+  },
+  {
+    citySlug: "araucaria",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Araucária para eventos, alimentação e comércio digital.",
+    projects: [
+      { slug: "mp-festas-eventos", title: "MP Festas e Eventos" },
+      { slug: "acai-total-araucaria", title: "Açaí Total" },
+      { slug: "dona-lucy-salgados", title: "Dona Lucy Salgados" },
+    ],
+  },
+  {
+    citySlug: "araucaria",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing page publicada para negócio de alimentação em Araucária.",
+    projects: [{ slug: "dona-lucy-salgados", title: "Dona Lucy Salgados" }],
+  },
+  {
+    citySlug: "pinhais",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Pinhais para serviços elétricos e comércio de madeiras.",
+    projects: [
+      { slug: "eletro-solucoes-eficazes", title: "Eletro Soluções Eficazes" },
+      { slug: "arildo-madeiras", title: "Arildo Madeiras" },
+    ],
+  },
+  {
+    citySlug: "pinhais",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing page publicada para prestador de serviços em Pinhais.",
+    projects: [{ slug: "eletro-solucoes-eficazes", title: "Eletro Soluções Eficazes" }],
+  },
+  {
+    citySlug: "guaratuba",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos publicados em Guaratuba para alimentação, náutica, comércio e reparos.",
+    projects: [
+      { slug: "guaratuba-sabores-da-baia", title: "Sabores da Baía" },
+      { slug: "guaratuba-oficina-nautica", title: "Oficina Náutica Guaratuba" },
+      { slug: "guaratuba-atelie-presentes", title: "Ateliê Encanto da Baía" },
+      { slug: "guaratuba-reparos-residenciais", title: "Reparos do Litoral" },
+    ],
+  },
+  {
+    citySlug: "guaratuba",
+    serviceSlug: "landing-pages",
+    proofSummary:
+      "Há landing pages publicadas para serviços náuticos e reparos residenciais em Guaratuba.",
+    projects: [
+      { slug: "guaratuba-oficina-nautica", title: "Oficina Náutica Guaratuba" },
+      { slug: "guaratuba-reparos-residenciais", title: "Reparos do Litoral" },
+    ],
+  },
+  {
+    citySlug: "sao-paulo",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A página é sustentada por um projeto institucional real publicado para um cliente de São Paulo; outros serviços permanecem noindex até existir evidência equivalente.",
+    projects: [{ slug: "almeida-torres", title: "Almeida Torres Advocacia" }],
+  },
+  {
+    citySlug: "belo-horizonte",
+    serviceSlug: "criacao-de-sites",
+    proofSummary:
+      "A 0WEB possui projetos reais publicados em Belo Horizonte, suficientes para sustentar a página de criação de sites sem afirmar presença física local.",
+    projects: [
+      { slug: "casa-nativa", title: "Casa Nativa Bistrô" },
+      { slug: "bh-barreiro-marmitas", title: "Marmitas do Barreiro" },
+    ],
+  },
+] as const;
+
+const evidenceByKey = new Map(
+  GEO_SERVICE_EVIDENCE.map((item) => [`${item.citySlug}/${item.serviceSlug}`, item]),
+);
+
+export function getGeoServiceEvidence(citySlug: string, serviceSlug: string): GeoServiceEvidence | undefined {
+  return evidenceByKey.get(`${citySlug}/${serviceSlug}`);
+}
+
+export function isGeoServiceIndexable(citySlug: string, serviceSlug: string): boolean {
+  return Boolean(getGeoServiceEvidence(citySlug, serviceSlug));
+}
+
+export function listIndexableGeoServicePairs(): readonly GeoServiceEvidence[] {
+  return GEO_SERVICE_EVIDENCE;
+}

@@ -93,6 +93,10 @@ deve terminar em `/servicos/<slug>`.
 | `/portfolio/:slug` | funil exclusivo do cliente |
 | Projeto sem WhatsApp | lead + protocolo + aviso de amostra |
 
+## Loja operacional de cliente delivery (capacidade independente)
+
+Uma loja transacional própria do cliente, quando contratada, não transforma `/portfolio` em loja nem reutiliza `/servicos` (produtos da 0WEB). `/portfolio/:slug` continua o site/landing autoral; storefront, checkout e backoffice de restaurante são capacidades de cliente separadas, com `clientKey` e isolamento de `storeId`/`tenantId`. Não chamar `funnelType=pedido`, `external_store` ou CTA WhatsApp de pedido confirmado. Regras e onboarding: `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md`; aprovação: `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md` com `DELIVERY_READY=BLOCKED` até prova de transação real. Nenhuma mudança em rotas existentes é autorizada por este adendo.
+
 ## 7. Regra anti-drift
 
 Mudanças futuras devem preservar estas fronteiras:

@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import type { ServiceData } from "@/lib/services-data";
 
 type CrossSellItem = ServiceData & {
@@ -59,13 +60,17 @@ export function RelatedServicesCarousel({ items }: { items: CrossSellItem[] }) {
                 params={{ slug: s.slug }}
                 className="block"
               >
-                {s.imageUrl ? (
-                  <div className="aspect-[16/10] bg-muted overflow-hidden">
-                    <img src={s.imageUrl} alt={s.name} loading="lazy" className="w-full h-full object-cover" />
-                  </div>
-                ) : (
-                  <div className="aspect-[16/10] bg-gradient-to-br from-primary/10 to-muted" aria-hidden />
-                )}
+                <div className="aspect-[16/10] bg-muted overflow-hidden">
+                  <ServiceCoverImage
+                    src={s.imageUrl}
+                    slug={s.slug}
+                    name={s.name}
+                    category={s.category}
+                    alt={s.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="p-4">
                   <p className="text-[11px] uppercase tracking-wider text-primary font-semibold">{s.category}</p>
                   <h3 className="mt-1 font-semibold leading-snug">{s.name}</h3>

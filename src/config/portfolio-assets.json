@@ -1184,6 +1184,42 @@
         "ctaHref": "/f/funnel-arildo-madeiras"
       },
       "socialVersion": "723b10cc"
+    },
+    "dona-garimpeira-brecho": {
+      "icon": "/images/dona-garimpeira-brecho/logo.svg",
+      "socialImage": "/images/dona-garimpeira-brecho/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Dona Garimpeira",
+        "title": "Dona Garimpeira com uma presença que explica o que faz.",
+        "description": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "e6783dbb"
+    },
+    "agropet-filt": {
+      "icon": "/images/agropet-filt/logo.svg",
+      "socialImage": "/images/agropet-filt/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Agropet Filt · Vargem Grande, Pinhais",
+        "title": "Do bico ao focinho. Tudo por perto.",
+        "description": "Rações, artigos para aves, acessórios, pesca, jardinagem e banho e tosa divulgados. Consulte a disponibilidade.",
+        "ctaLabel": "Consultar produtos",
+        "ctaHref": "#encontre"
+      },
+      "socialVersion": "8c010fca"
+    },
+    "cantinho-da-tia-mari": {
+      "icon": "/images/cantinho-da-tia-mari/logo.svg",
+      "socialImage": "/images/cantinho-da-tia-mari/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Cantinho da Tia Mari · Jardim Itália, SJP",
+        "title": "Um cantinho de carinho para cada descoberta.",
+        "description": "Conheça fotos reais e serviços anunciados no panfleto. A página é uma demonstração 0WEB; confirme vagas e horários diretamente.",
+        "ctaLabel": "Consultar informações",
+        "ctaHref": "#cuidados"
+      },
+      "socialVersion": "9ea8c269"
     }
   }
 }

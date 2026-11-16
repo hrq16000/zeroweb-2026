@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "0web.delivery.pricing.fixtures.v1",
+  "currency": "BRL",
+  "note": "SPECIFICATION FIXTURES ONLY: canonical expectations for a future independent server pricing engine. Not an executed product test and not observed behavior of PDV Slim.",
+  "rounding": "HALF_UP_POSITIVE_INTEGER_CENTS",
+  "cases": [
+    {
+      "id": "BASE_UNIT_QTY",
+      "name": "two sandwiches",
+      "input": {
+        "basePriceCents": 1699,
+        "quantity": 2,
+        "addons": [],
+        "deliveryFeeCents": 0,
+        "discountCents": 0
+      },
+      "expected": {
+        "itemUnitCents": 1699,
+        "itemsSubtotalCents": 3398,
+        "totalCents": 3398
+      }
+    },
+    {
+      "id": "PIZZA_MAX_HALF",
+      "name": "two equal halves using higher flavor and edge",
+      "input": {
+        "pricingPolicy": "MAX_SELECTED_FLAVOR",
+        "baseFlavorPricesCents": [
+          4200,
+          5400
+        ],
+        "fractions": [
+          {
+            "numerator": 1,
+            "denominator": 2
+          },
+          {
+            "numerator": 1,
+            "denominator": 2
+          }
+        ],
+        "addons": [
+          {
+            "id": "borda",
+            "chargeMode": "PER_PIZZA",
+            "priceCents": 900
+          }
+        ],
+        "quantity": 2,
+        "deliveryFeeCents": 550,
+        "discountCents": 0
+      },
+      "expected": {
+        "basePizzaCents": 5400,
+        "unitAddonsCents": 900,
+        "itemUnitCents": 6300,
+        "itemsSubtotalCents": 12600,
+        "totalCents": 13150
+      }
+    },
+    {
+      "id": "PIZZA_WEIGHTED_HALF",
+      "name": "two equal halves priced by their proportional sum",
+      "input": {
+        "pricingPolicy": "WEIGHTED_FRACTIONS",
+        "baseFlavorPricesCents": [
+          4200,
+          5400
+        ],
+        "fractions": [
+          {
+            "numerator": 1,
+            "denominator": 2
+          },
+          {
+            "numerator": 1,
+            "denominator": 2
+          }
+        ],
+        "addons": [
+          {
+            "id": "borda",
+            "chargeMode": "PER_PIZZA",
+            "priceCents": 900
+          }
+        ],
+        "quantity": 2,
+        "deliveryFeeCents": 0,
+        "discountCents": 0
+      },
+      "expected": {
+        "basePizzaCents": 4800,
+        "unitAddonsCents": 900,
+        "itemUnitCents": 5700,
+        "itemsSubtotalCents": 11400,
+        "totalCents": 11400
+      }
+    },
+    {
+      "id": "PIZZA_BASE_PLUS_SURCHARGE",
+      "name": "fixed dough base plus proportional flavor surcharge",
+      "input": {
+        "pricingPolicy": "BASE_PLUS_FLAVOR_SURCHARGES",
+        "doughBaseCents": 4000,
+        "flavorSurchargesCents": [
+          600,
+          800
+        ],
+        "fractions": [
+          {
+            "numerator": 1,
+            "denominator": 2
+          },
+          {
+            "numerator": 1,
+            "denominator": 2
+          }
+        ],
+        "addons": [],
+        "quantity": 1,
+        "deliveryFeeCents": 0,
+        "discountCents": 0
+      },
+      "expected": {
+        "basePizzaCents": 4700,
+        "unitAddonsCents": 0,
+        "itemUnitCents": 4700,
+        "itemsSubtotalCents": 4700,
+        "totalCents": 4700
+      }
+    },
+    {
+      "id": "PIZZA_THIRDS_ROUND",
+      "name": "thirds with exact positive half-up rounding",
+      "input": {
+        "pricingPolicy": "WEIGHTED_FRACTIONS",
+        "baseFlavorPricesCents": [
+          4501,
+          5000
+        ],
+        "fractions": [
+          {
+            "numerator": 1,
+            "denominator": 3
+          },
+          {
+            "numerator": 2,
+            "denominator": 3
+          }
+        ],
+        "addons": [],
+        "quantity": 1,
+        "deliveryFeeCents": 0,
+        "discountCents": 0
+      },
+      "expected": {
+        "basePizzaCents": 4834,
+        "unitAddonsCents": 0,
+        "itemUnitCents": 4834,
+        "itemsSubtotalCents": 4834,
+        "totalCents": 4834
+      }
+    },
+    {
+      "id": "VARIANT_MANDATORY",
+      "name": "size plus mandatory cheese option",
+      "input": {
+        "basePriceCents": 1200,
+        "addons": [
+          {
+            "id": "cheese",
+            "chargeMode": "PER_UNIT",
+            "priceCents": 500
+          }
+        ],
+        "quantity": 2,
+        "deliveryFeeCents": 0,
+        "discountCents": 0
+      },
+      "expected": {
+        "itemUnitCents": 1700,
+        "itemsSubtotalCents": 3400,
+        "totalCents": 3400
+      }
+    },
+    {
+      "id": "COMBO_DISCOUNT_DELIVERY",
+      "name": "two combos with upgrades, 10% eligible merchandise discount and delivery",
+      "input": {
+        "comboPriceCents": 3299,
+        "addons": [
+          {
+            "id": "drink_upgrade",
+            "chargeMode": "PER_COMBO",
+            "priceCents": 300
+          }
+        ],
+        "quantity": 2,
+        "discount": {
+          "type": "PERCENT_BPS",
+          "basisPoints": 1000,
+          "appliesTo": "ELIGIBLE_ITEMS_SUBTOTAL"
+        },
+        "deliveryFeeCents": 750
+      },
+      "expected": {
+        "itemUnitCents": 3599,
+        "itemsSubtotalCents": 7198,
+        "discountCents": 720,
+        "deliveryFeeCents": 750,
+        "totalCents": 7228
+      }
+    },
+    {
+      "id": "MINIMUM_ORDER_BLOCK",
+      "name": "minimum excludes shipping and applies after merchandise discount",
+      "input": {
+        "eligibleMerchandiseCents": 2899,
+        "minimumOrderCents": 3000,
+        "deliveryFeeCents": 1200
+      },
+      "expected": {
+        "allowed": false,
+        "errorCode": "BELOW_MINIMUM_ORDER"
+      }
+    },
+    {
+      "id": "EXPIRED_QUOTE_BLOCK",
+      "name": "client may not confirm an expired quote",
+      "input": {
+        "quoteExpired": true
+      },
+      "expected": {
+        "allowed": false,
+        "errorCode": "QUOTE_EXPIRED"
+      }
+    },
+    {
+      "id": "INVALID_OPTION_GROUP_BLOCK",
+      "name": "required group without a selection",
+      "input": {
+        "group": {
+          "minSelect": 1,
+          "maxSelect": 1,
+          "selectedOptionIds": []
+        }
+      },
+      "expected": {
+        "allowed": false,
+        "errorCode": "REQUIRED_OPTION_MISSING"
+      }
+    },
+    {
+      "id": "OUT_OF_STOCK_BLOCK",
+      "name": "product out of stock",
+      "input": {
+        "inventoryStatus": "UNAVAILABLE",
+        "quantity": 1
+      },
+      "expected": {
+        "allowed": false,
+        "errorCode": "ITEM_UNAVAILABLE"
+      }
+    },
+    {
+      "id": "INVALID_FRACTIONS_BLOCK",
+      "name": "two halves and one quarter exceed one pizza",
+      "input": {
+        "fractions": [
+          {
+            "numerator": 1,
+            "denominator": 2
+          },
+          {
+            "numerator": 1,
+            "denominator": 2
+          },
+          {
+            "numerator": 1,
+            "denominator": 4
+          }
+        ]
+      },
+      "expected": {
+        "allowed": false,
+        "errorCode": "INVALID_FRACTION_SUM"
+      }
+    }
+  ]
+}

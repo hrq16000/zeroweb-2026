@@ -1,15 +1,15 @@
 // Sprint 12 — Sitemap específico para hubs editoriais
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { resolveBaseUrl } from "@/lib/sitemap-utils";
 import { CLUSTERS } from "@/lib/content-taxonomy";
 
 export const Route = createFileRoute("/sitemap-editorial.xml")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const host = request.headers.get("host") ?? "0web.com.br";
-        const proto = request.headers.get("x-forwarded-proto") ?? "https";
-        const base = `${proto}://${host}`;
+        // Publicar somente URLs canônicas, nunca o hostname de preview.
+        const base = resolveBaseUrl(request);
         const today = new Date().toISOString().slice(0, 10);
         const urls = [
           `${base}/blog/mapa`,

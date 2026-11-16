@@ -70,7 +70,6 @@ export function ArtesanatosDarLeiaOliveiraPage() {
           <a href="#inicio" aria-label="Artesanatos Darléia Oliveira" className="shrink-0">
             <PortfolioImage
               managedField="logoUrl"
-              priority
               src="/images/artesanatos-darleia-oliveira/logo.png"
               alt="Artesanatos Darléia Oliveira"
               width={1280}
@@ -92,11 +91,11 @@ export function ArtesanatosDarLeiaOliveiraPage() {
         {/* HERO: painel fotográfico com rótulo de papel sobreposto (sem grade 2 colunas). */}
         <section id="inicio" className="relative">
           <PortfolioImage
-            src="/images/artesanatos-darleia-oliveira/hero.png"
+            src="/images/artesanatos-darleia-oliveira/hero-og.jpg"
             alt="Coador de café de algodão Artesanatos Darléia Oliveira"
             priority
-            width={853}
-            height={1280}
+            width={1200}
+            height={630}
             className="h-[62vh] min-h-[22rem] w-full object-cover object-center sm:h-[70vh]"
             managedField="heroImageUrl"
           />
@@ -106,9 +105,9 @@ export function ArtesanatosDarLeiaOliveiraPage() {
               <span className="absolute -top-3 left-6 bg-[#bd355d] px-3 py-1 text-[.7rem] font-bold uppercase tracking-[.22em] text-white">
                 Feito à mão
               </span>
-              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="font-serif text-4xl font-semibold leading-[1.02] sm:text-6xl">
+              <h1 className="font-serif text-4xl font-semibold leading-[1.02] sm:text-6xl">
                 <ManagedText field="heroHeadline" fallback={"Seu caf\u00e9 merece o melhor filtro."} />
-              </MotionReveal>
+              </h1>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#6d4a3e]">
                 <ManagedText
                   field="heroSubheadline"
@@ -164,6 +163,40 @@ export function ArtesanatosDarLeiaOliveiraPage() {
                 </MotionReveal>
               ))}
             </dl>
+          </div>
+        </section>
+
+        <section id="guia-encomenda" className="border-y-2 border-[#3e241d] bg-[#fff3e5] px-5 py-16 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            <div className="grid gap-8 sm:grid-cols-[.8fr_1.2fr] sm:items-start">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[.3em] text-[#8d2345]">
+                  guia de encomenda
+                </p>
+                <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+                  Quatro escolhas antes de falar com a artesã.
+                </h2>
+                <p className="mt-5 max-w-sm leading-7 text-[#6d4a3e]">
+                  O coador é artesanal e as estampas podem variar. O objetivo aqui é organizar a preferência
+                  para que Darléia confirme a disponibilidade no atendimento.
+                </p>
+              </div>
+
+              <ol className="border-2 border-[#3e241d] bg-[#fff8ef]">
+                {[
+                  ["01", "Finalidade", "Para sua casa, para presentear ou para uma encomenda em quantidade."],
+                  ["02", "Estampa", "Informe cor, estilo ou referência visual desejada; a disponibilidade é confirmada no atendimento."],
+                  ["03", "Quantidade", "Diga quantas unidades você procura para a artesã organizar a encomenda."],
+                  ["04", "Entrega", "Retirada ou entrega são combinadas diretamente no atendimento."],
+                ].map(([n, title, text]) => (
+                  <li key={n} className="grid gap-2 border-b border-[#e1c2aa] p-5 last:border-b-0 sm:grid-cols-[3rem_9rem_1fr]">
+                    <span className="font-mono text-xs font-bold text-[#bd355d]">{n}</span>
+                    <h3 className="font-serif text-lg font-semibold">{title}</h3>
+                    <p className="text-sm leading-6 text-[#6d4a3e]">{text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 

@@ -18,6 +18,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 import {
   COMPOSITION_CONTRACT_VERSION,
   evaluateProjectUniqueness,
@@ -90,6 +91,30 @@ const COVER_STRATEGIES = [
 const RESOLUTION_OK = new Set(["RESOLVED", "VERIFIED", "resolved", "verified"]);
 const VISUAL_QA = new Set(["PASS", "FAIL", "NOT_EXECUTED", "BLOCKED_ENVIRONMENT"]);
 
+const INDIVIDUAL_SITE_CONTRACT_VERSION = 4;
+const INDIVIDUAL_SITE_STANDARD = "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md";
+const INDIVIDUAL_SITE_GATES = [
+  "PORTFOLIO_INDIVIDUAL_SITE_GATE",
+  "PORTFOLIO_ENTITY_GATE",
+  "PORTFOLIO_LOCAL_SEO_GATE",
+  "PORTFOLIO_MEDIA_RICHNESS_GATE",
+  "PORTFOLIO_DISCOVERY_GRAPH_GATE",
+  "PORTFOLIO_INDEXABILITY_GATE",
+];
+const INDIVIDUAL_SITE_CORE_GATES = new Set([
+  "PORTFOLIO_INDIVIDUAL_SITE_GATE",
+  "PORTFOLIO_ENTITY_GATE",
+  "PORTFOLIO_DISCOVERY_GRAPH_GATE",
+  "PORTFOLIO_INDEXABILITY_GATE",
+]);
+const INDIVIDUAL_SITE_GATE_STATES = new Set([
+  "not_started",
+  "in_progress",
+  "complete",
+  "blocked",
+  "not_applicable",
+]);
+
 function evaluate(slug, manifest) {
   const blockers = [];
   const warnings = [];
@@ -98,6 +123,50 @@ function evaluate(slug, manifest) {
   const project = catalogBySlug.get(slug);
   const client = clients.find((c) => c.slug === slug);
   const published = project?.status === "published";
+  const contractVersionError = checkNewPortfolioIndividualSiteVersion(slug, manifest);
+  if (contractVersionError) blockers.push(contractVersionError);
+
+  // --- PORTFOLIO AS INDIVIDUAL SITE CONTRACT (contrato v4+)
+  if (Number(manifest.contractVersion ?? 0) >= INDIVIDUAL_SITE_CONTRACT_VERSION) {
+    const contract = manifest.individualSiteContract;
+    checks.individualSiteContractV4 =
+      contract?.version === 1 && contract?.standard === INDIVIDUAL_SITE_STANDARD;
+    if (!checks.individualSiteContractV4) {
+      blockers.push(
+        `PORTFOLIO_INDIVIDUAL_SITE_GATE: contrato v4 ausente/inválido; esperado ${INDIVIDUAL_SITE_STANDARD}`,
+      );
+    }
+
+    for (const gate of INDIVIDUAL_SITE_GATES) {
+      const state = contract?.gates?.[gate];
+      const validState = INDIVIDUAL_SITE_GATE_STATES.has(state);
+      const satisfied = state === "complete" || state === "not_applicable";
+      checks[gate] = validState && satisfied;
+
+      if (!validState) {
+        blockers.push(`${gate}: estado inválido/ausente (${state ?? "ausente"})`);
+        continue;
+      }
+      if (!satisfied) {
+        blockers.push(`${gate}: precisa estar complete/not_applicable antes de READY/PUBLISH (atual: ${state})`);
+      }
+      if (state === "not_applicable" && INDIVIDUAL_SITE_CORE_GATES.has(gate)) {
+        blockers.push(`${gate}: gate estrutural não pode ser not_applicable`);
+      }
+      if (state === "complete") {
+        const evidence = contract?.evidence?.[gate];
+        if (!Array.isArray(evidence) || evidence.length === 0) {
+          blockers.push(`${gate}: complete sem evidência registrada`);
+        }
+      }
+    }
+
+    if (published && contract?.gates?.PORTFOLIO_INDEXABILITY_GATE !== "complete") {
+      blockers.push(
+        "PORTFOLIO_INDEXABILITY_GATE: portfolio publicado exige estado complete; noindex/ausência de indexabilidade precisa impedir publicação",
+      );
+    }
+  }
 
   // --- estrutura do manifesto
   for (const step of STEPS) {
@@ -205,8 +274,19 @@ function evaluate(slug, manifest) {
 
   // --- funnelValid
   const componentSource = client?.componentFile ? read(client.componentFile) : "";
-  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource);
-  if (!checks.funnelValid) blockers.push("funil próprio não encontrado no componente do cliente");
+  const hostedForm = readJson("src/config/portfolio-hosted-form-registry.json", { forms: {} }).forms?.[client?.clientKey ?? slug];
+  const hostedProof =
+    hostedForm?.provider === "jotform" &&
+    hostedForm?.status === "verified" &&
+    hostedForm?.consentRequired === true &&
+    hostedForm?.testSubmissionVerified === true &&
+    hostedForm?.clientKey === (client?.clientKey ?? slug) &&
+    /^https:\/\/form\.jotform\.com\/\d+$/.test(hostedForm?.url ?? "") &&
+    componentSource.includes(hostedForm.url) &&
+    componentSource.includes('data-funnel-provider="jotform"') &&
+    componentSource.includes(`data-client-key="${client?.clientKey ?? slug}"`);
+  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource) || hostedProof;
+  if (!checks.funnelValid) blockers.push("funil próprio não encontrado ou formulário hospedado sem comprovação de persistência/consentimento");
 
   // --- contactMode / funnelType (canal comercial é sempre o funil individual)
   checks.contactModeDeclared = client?.contactMode === "funnelOnly";
@@ -232,10 +312,13 @@ function evaluate(slug, manifest) {
     /leadOnly:\s*!destinationConfigured/.test(funnelSource) &&
     /requiresRecoveryContact:\s*false/.test(funnelSource);
 
-  checks.leadRecoverabilityGate = sharedGuarantee && destination.status !== "FAIL";
-  if (!sharedGuarantee) {
+  const recoverable = hostedForm ? hostedProof : sharedGuarantee;
+  checks.leadRecoverabilityGate = recoverable && destination.status !== "FAIL";
+  if (!recoverable) {
     blockers.push(
-      "LEAD_RECOVERABILITY_GATE: funil compartilhado não preserva o contrato WHATSAPP/LEAD_ONLY",
+      hostedForm
+        ? "LEAD_RECOVERABILITY_GATE: formulário hospedado sem gravação comprovada/consentimento ou destino do cliente inconsistente"
+        : "LEAD_RECOVERABILITY_GATE: funil compartilhado não preserva o contrato WHATSAPP/LEAD_ONLY",
     );
   }
 

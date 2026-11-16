@@ -13,6 +13,11 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { checkFrozenLegacyBaseline } from "./lib/portfolio-frozen-legacy-baseline.mjs";
+import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
+import { checkNewPortfolioPublication } from "./lib/portfolio-v4-publication-gate.mjs";
+import { checkNewPortfolioSeoCopy } from "./lib/portfolio-v4-seo-copy-gate.mjs";
+import { checkNewPortfolioDiscoveryClaims } from "./lib/portfolio-v4-discovery-claims-gate.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
@@ -21,7 +26,10 @@ const errors = [];
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
 const lifecycleManifests =
   JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
-const legacyBaselineRaw = JSON.parse(read("src/config/portfolio-legacy-baseline.json") || "{}");
+const legacyBaselineText = read("src/config/portfolio-legacy-baseline.json");
+const baselineFreezeError = checkFrozenLegacyBaseline(legacyBaselineText);
+if (baselineFreezeError) errors.push(baselineFreezeError);
+const legacyBaselineRaw = JSON.parse(legacyBaselineText || "{}");
 const legacyBaseline = new Set(legacyBaselineRaw.slugs ?? []);
 
 if (legacyBaselineRaw.mode !== "FROZEN_LEGACY_BASELINE") {
@@ -43,6 +51,7 @@ const catalogBySlug = new Map(catalogProjects.map((p) => [p.slug, p]));
 const segmentBySlug = new Map(catalogProjects.map((p) => [p.slug, p.segment]));
 const routeSource = read("src/routes/portfolio.$slug.tsx");
 const registrySource = read("src/lib/portfolio-site-registry.ts");
+const discoveryDocs = JSON.parse(read("src/config/portfolio-discovery.json") || "{}").projects ?? {};
 const upsellConfigRaw = read("src/config/portfolio-upsell.json");
 
 const sharedShell = /<PortfolioStandardShell/.test(routeSource);
@@ -80,13 +89,48 @@ const UNIVERSAL_FUNNELS = ["diagnostico-0web", "funnel-service", "funnel-order-s
 const CREATIVE_PLACEHOLDER = /\[PREENCHER\]/i;
 const SCAFFOLD_MARKER = /CREATIVE_BRIEF_REQUIRED/;
 
+const INDIVIDUAL_SITE_CONTRACT_VERSION = 4;
+const INDIVIDUAL_SITE_STANDARD = "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md";
+const INDIVIDUAL_SITE_GATES = [
+  "PORTFOLIO_INDIVIDUAL_SITE_GATE",
+  "PORTFOLIO_ENTITY_GATE",
+  "PORTFOLIO_LOCAL_SEO_GATE",
+  "PORTFOLIO_MEDIA_RICHNESS_GATE",
+  "PORTFOLIO_DISCOVERY_GRAPH_GATE",
+  "PORTFOLIO_INDEXABILITY_GATE",
+];
+const INDIVIDUAL_SITE_GATE_STATES = new Set([
+  "not_started",
+  "in_progress",
+  "complete",
+  "blocked",
+  "not_applicable",
+]);
+
 for (const client of clients) {
   const label = `[${client.slug}]`;
   const catalogProject = catalogBySlug.get(client.slug);
   const isPublished = catalogProject?.status === "published";
   const isCreativeV2 = Number(client.creativeContractVersion ?? 0) >= 2;
-  const isManaged = Boolean(lifecycleManifests[client.slug]);
+  const lifecycleManifest = lifecycleManifests[client.slug];
+  const isManaged = Boolean(lifecycleManifest);
   const isFrozenLegacy = legacyBaseline.has(client.slug);
+  // Novo v4 publicado: os termos de descoberta anunciados precisam constar
+  // da apresentação do próprio negócio, sem inventar cobertura territorial.
+  errors.push(...checkNewPortfolioDiscoveryClaims(
+    client.slug, lifecycleManifest, catalogProject, discoveryDocs[client.slug],
+  ));
+  // Contrato v4: não permitir que o catálogo exponha no sitemap uma URL
+  // cujo manifesto editorial ainda não esteja published.
+  errors.push(...checkNewPortfolioPublication(
+    client.slug, lifecycleManifest, catalogProject, registrySource,
+    client.routeFile.includes("portfolio.$slug.tsx"),
+  ));
+  // Apenas novos sites v4 publicados: copy editorial própria,
+  // sem substituir texto nem exigir dados locais sem prova.
+  errors.push(...checkNewPortfolioSeoCopy(
+    client.slug, lifecycleManifest, catalogProject, catalogProjects,
+  ));
 
   // LEGACY GROWTH GATE:
   // Os 90 slugs existentes em 2026-09-22 ficam congelados como dívida histórica.
@@ -120,7 +164,7 @@ for (const client of clients) {
   }
 
   const hasClientCta =
-    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|data-portfolio-external-cta)/.test(
+    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|submitPortfolioQuiz|data-funnel-provider|data-portfolio-external-cta)/.test(
       componentSource,
     );
   if (!hasClientCta) {
@@ -135,19 +179,46 @@ for (const client of clients) {
       errors.push(`${label} usa funil universal da 0WEB (${slug})`);
     }
   }
-  if (!/clientKey=["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
+  if (!/clientKey=["'`]/.test(componentSource) && !/clientKey:\s*["'`]/.test(componentSource) && !/data-funnel-provider=["'`]jotform["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
   }
 
   // --- Pipeline oficial de projetos NOVOS (lifecycle gerenciado) ---------
   // Legado protegido: só vale para slugs com manifesto de ciclo de vida.
   if (isManaged) {
+    const versionError = checkNewPortfolioIndividualSiteVersion(client.slug, lifecycleManifest);
+    if (versionError) errors.push(`${label} ${versionError}`);
+
     if (client.contactMode !== "funnelOnly") {
       errors.push(`${label} projeto gerenciado sem contactMode="funnelOnly"`);
     }
     if (!client.funnelType) {
       errors.push(`${label} projeto gerenciado sem funnelType (canal comercial do negócio)`);
     }
+
+    if (Number(lifecycleManifest?.contractVersion ?? 0) >= INDIVIDUAL_SITE_CONTRACT_VERSION) {
+      const contract = lifecycleManifest?.individualSiteContract;
+      if (contract?.version !== 1) {
+        errors.push(`${label} contrato v4 sem individualSiteContract.version=1`);
+      }
+      if (contract?.standard !== INDIVIDUAL_SITE_STANDARD) {
+        errors.push(`${label} contrato v4 sem referência normativa a ${INDIVIDUAL_SITE_STANDARD}`);
+      }
+      for (const gate of INDIVIDUAL_SITE_GATES) {
+        const state = contract?.gates?.[gate];
+        if (!INDIVIDUAL_SITE_GATE_STATES.has(state)) {
+          errors.push(`${label} ${gate} com estado inválido/ausente (${state ?? "ausente"})`);
+          continue;
+        }
+        if (state === "complete") {
+          const evidence = contract?.evidence?.[gate];
+          if (!Array.isArray(evidence) || evidence.length === 0) {
+            errors.push(`${label} ${gate}=complete sem evidência registrada`);
+          }
+        }
+      }
+    }
+
     if (
       !blueprintRegistrySource.includes(`"${client.slug}"`) &&
       !compositionRegistrySource.includes(`"${client.slug}"`)

@@ -9,10 +9,10 @@ import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motio
 
 /** Mural de festa: o próprio hero é o mosaico de decorações reais da Lolipa. */
 const mural = [
-  ["/images/lolipa-arte-em-festas/galeria-temas.png", "Decorações personalizadas para temas infantis e comemorações", "sm:col-span-2 sm:row-span-2"],
-  ["/images/lolipa-arte-em-festas/decoracao-branca.png", "Decoração elegante em tons claros para celebrações especiais", ""],
-  ["/images/lolipa-arte-em-festas/decoracao-colorida.png", "Mesa temática colorida com composição sob medida", ""],
-  ["/images/lolipa-arte-em-festas/decoracao-infantil.png", "Decoração infantil com balões e elementos personalizados", "sm:col-span-2"],
+  ["/images/_generated/lolipa-arte-em-festas/galeria-temas.webp", "Decorações personalizadas para temas infantis e comemorações", "sm:col-span-2 sm:row-span-2"],
+  ["/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp", "Decoração elegante em tons claros para celebrações especiais", ""],
+  ["/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp", "Mesa temática colorida com composição sob medida", ""],
+  ["/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp", "Decoração infantil com balões e elementos personalizados", "sm:col-span-2"],
 ] as const;
 
 /** Formatos de atendimento em linhas contínuas, não em cards. */
@@ -31,19 +31,32 @@ export function LolipaArteEmFestasPage() {
       {/* HERO: mural fotográfico full-bleed com o título sobreposto. */}
       <section id="inicio" className="relative isolate">
         <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">
-          {mural.map(([src, alt, span], index) => (
-            <MotionImageReveal key={src} direction={index % 2 === 0 ? "up" : "left"} className={span}>
-            <PortfolioImage
-              src={src}
-              alt={alt}
-              priority={index === 0}
-              width={1100}
-              height={800}
-              className="h-32 w-full object-cover sm:h-52"
-              {...(index === 0 ? { managedField: "heroImageUrl" as const } : {})}
-            />
-            </MotionImageReveal>
-          ))}
+          {mural.map(([src, alt, span], index) => {
+            const image = (
+              <PortfolioImage
+                src={src}
+                alt={alt}
+                priority={index === 0}
+                widths={[480, 960]}
+                sizes={index === 0 || index === 3 ? "50vw" : "(min-width: 640px) 25vw, 50vw"}
+                width={1100}
+                height={800}
+                className="h-32 w-full object-cover sm:h-52"
+                {...(index === 0 ? { managedField: "heroImageUrl" as const } : {})}
+              />
+            );
+            // A imagem LCP precisa estar pintável imediatamente.
+            // O clipPath animado do primeiro tile retarda a pintura do LCP.
+            return index === 0 ? (
+              <div key={src} className={`overflow-hidden ${span}`}>
+                {image}
+              </div>
+            ) : (
+              <MotionImageReveal key={src} direction={index % 2 === 0 ? "up" : "left"} className={span}>
+                {image}
+              </MotionImageReveal>
+            );
+          })}
         </div>
         <div className="pointer-events-none absolute inset-0 bg-[#34272b]/55" />
         <div className="absolute inset-0 flex items-center px-5 lg:px-8">

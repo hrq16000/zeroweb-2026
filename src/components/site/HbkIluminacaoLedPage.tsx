@@ -138,12 +138,12 @@ export function HbkIluminacaoLedPage() {
               className="mx-auto h-16 w-auto object-contain"
               managedField="logoUrl"
             />
-            <MotionReveal as="h1" variant="scale" intensity="EXPRESSIVE" className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
+            <h1 className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Iluminando seus projetos com intelig\u00eancia."}
               />
-            </MotionReveal>
+            </h1>
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
@@ -224,6 +224,41 @@ export function HbkIluminacaoLedPage() {
               height={900}
               className="aspect-[3/2] w-full rounded-[2rem] object-cover"
             />
+          </div>
+        </section>
+
+        <section id="briefing-led" className="px-5 py-12" aria-labelledby="briefing-led-title">
+          <div className="mx-auto max-w-5xl border-y border-border py-10">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-primary">Briefing da iluminação</p>
+            <h2 id="briefing-led-title" className="mt-3 max-w-3xl font-display text-3xl font-bold">
+              Ambiente, aplicação e referência visual ajudam a orientar a cotação.
+            </h2>
+            <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+              <div>
+                <dt className="font-bold text-foreground">Onde será aplicado</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Residência, condomínio, comércio ou obra em andamento ajudam a contextualizar a necessidade.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-bold text-foreground">O que será iluminado</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Sala, cozinha, fachada, área externa, móveis planejados ou outro ambiente podem exigir soluções diferentes.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-bold text-foreground">O que você já tem</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Metragem, fotos do ambiente ou uma descrição do projeto já ajudam a equipe a entender o ponto de partida.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-bold text-foreground">Quando pretende começar</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  A urgência ou fase de planejamento é informada no contato; disponibilidade e indicação final são confirmadas pela HBK.
+                </dd>
+              </div>
+            </dl>
           </div>
         </section>
 

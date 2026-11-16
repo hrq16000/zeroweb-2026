@@ -1,0 +1,43 @@
+name: Cantinho Tia Mari · sync derived assets (one-time)
+on:
+  push:
+    branches:
+      - feat/portfolio-cantinho-tia-mari-discovery
+    paths:
+      - '.github/workflows/cantinho-sync-derived.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/feat/portfolio-cantinho-tia-mari-discovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          ref: feat/portfolio-cantinho-tia-mari-discovery
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Sync official generated social JPG and deterministic panel inventory
+        run: |
+          node scripts/generate-portfolio-identity-assets.mjs
+          node scripts/generate-social-jpg.mjs
+          node scripts/build-portfolio-admin-seed.mjs
+      - name: Commit generated assets only when changed
+        run: |
+          git add src/config/portfolio-assets.json src/config/portfolio-admin-seed.json public/images/cantinho-da-tia-mari/social-og-og.jpg
+          if git diff --cached --quiet; then
+            echo "Derived files already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "build(portfolio): sync generated Tia Mari OG JPEG and admin seed [sync-derived]"
+          git push origin HEAD:feat/portfolio-cantinho-tia-mari-discovery

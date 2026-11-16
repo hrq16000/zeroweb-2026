@@ -27,6 +27,10 @@ import { join } from "node:path";
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const configuredBrowser = process.env.E2E_BROWSER_PATH;
 const only = process.env.E2E_ONLY_SLUG;
+const onlySlugs = (process.env.E2E_ONLY_SLUGS || only || "")
+  .split(",")
+  .map((slug) => slug.trim())
+  .filter(Boolean);
 const shardCount = Math.max(1, Number(process.env.E2E_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.E2E_SHARD_INDEX || 0));
 
@@ -34,7 +38,7 @@ const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "ut
 const whatsappRegistry = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
 const DRY_RUN = process.env.E2E_DRY_RUN === "1";
 const TARGETS = clients
-  .filter((client, index) => (!only || client.slug === only) && index % shardCount === shardIndex)
+  .filter((client, index) => (onlySlugs.length === 0 || onlySlugs.includes(client.slug)) && index % shardCount === shardIndex)
   .map((client) => ({
     slug: client.slug,
     clientKey: client.clientKey,

@@ -19,9 +19,11 @@
  *   VISUAL_ONLY=home,rm-fretes node scripts/playwright-visual-regression.mjs
  */
 import { chromium } from "playwright";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { PNG } from "pngjs";
+import { repeatedTopStripRows } from "./visual-screenshot-integrity.mjs";
 
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const update = process.argv.includes("--update");
@@ -34,16 +36,42 @@ const only = (process.env.VISUAL_ONLY ?? "")
   .filter(Boolean);
 const baselineDir = resolve(process.cwd(), "tests/visual/baseline");
 const outDir = resolve(process.cwd(), "seo-reports/visual");
+const approvedHashesPath = resolve(process.cwd(), "tests/visual/approved-hashes.json");
+const approvedHashes = existsSync(approvedHashesPath)
+  ? JSON.parse(readFileSync(approvedHashesPath, "utf8"))
+  : {};
 mkdirSync(baselineDir, { recursive: true });
 mkdirSync(outDir, { recursive: true });
 
 const clients = JSON.parse(readFileSync(resolve(process.cwd(), "src/config/portfolio-clients.json"), "utf8"));
+// Prévia nova tem rota e screenshots próprios; nunca adicioná-la ao gate global
+// da produção, onde deve responder 404 por política de não afiliação.
+const previewRoutes = only.some((name) => name.startsWith("preview-"))
+  ? readdirSync(resolve(process.cwd(), "src/routes"))
+      .map((file) => file.match(/^portfolio-preview\.([a-z0-9-]+)\.tsx$/)?.[1])
+      .filter(Boolean)
+      .map((slug) => ({
+        path: `/portfolio-preview/${slug}`,
+        name: `preview-${slug}`,
+        preview: true,
+      }))
+  : [];
 const allRoutes = [
+  ...previewRoutes,
   { path: "/", name: "home" },
   { path: "/portfolio", name: "portfolio-index" },
   ...clients.map((c) => ({ path: `/portfolio/${c.slug}`, name: c.slug })),
 ];
-const routes = only.length ? allRoutes.filter((r) => only.includes(r.name)) : allRoutes;
+// Dedicated new demos may be outside portfolio-clients.json while commercial
+// ownership is pending. Explicit VISUAL_ONLY still captures the real route.
+const dedicatedOnly = only
+  .filter((slug) => /^[a-z0-9-]+$/.test(slug))
+  .filter((slug) => !allRoutes.some((route) => route.name === slug))
+  .filter((slug) => existsSync(resolve(process.cwd(), `src/routes/portfolio.${slug}.tsx`)))
+  .map((slug) => ({ path: `/portfolio/${slug}`, name: slug }));
+const routes = only.length
+  ? [...allRoutes.filter((r) => only.includes(r.name)), ...dedicatedOnly]
+  : allRoutes;
 const viewports = [
   { name: "desktop", width: 1280, height: 900 },
   { name: "tablet", width: 834, height: 1112 },
@@ -65,6 +93,11 @@ const FREEZE_CSS = `
   scroll-behavior: auto !important;
   caret-color: transparent !important;
 }
+/* O cue Framer da D.Y.Z escreve transform inline mesmo quando CSS animations=none.
+   Congelar só nos screenshots torna a comparação determinística, sem tocar no produto. */
+[data-visual-freeze-dyz-arrow="true"] {
+  transform: none !important;
+}
 #servicos-destaque,
 #spotlight,
 [data-visual-volatile="true"] {
@@ -78,7 +111,19 @@ const HIDE_FIXED_LAYERS = `
     const hideAll = () => {
       for (const el of document.querySelectorAll('body *')) {
         const pos = getComputedStyle(el).position;
-        if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden';
+        if (pos === 'fixed') {
+          el.style.visibility = 'hidden';
+          continue;
+        }
+        if (pos === 'sticky') {
+          // Chromium pode manter a layer sticky no compositor mesmo invisível e
+          // duplicá-la no rodapé da captura. Rebaixar para fluxo normal remove
+          // somente essa layer no ambiente visual, preservando espaço/layout.
+          el.style.setProperty('position', 'static', 'important');
+          el.style.setProperty('top', 'auto', 'important');
+          el.style.setProperty('bottom', 'auto', 'important');
+          el.style.visibility = 'hidden';
+        }
       }
     };
     hideAll();
@@ -110,6 +155,23 @@ const browser = await chromium.launch({
 const failures = [];
 const created = [];
 const compared = [];
+
+function pixelSha256(png) {
+  return createHash("sha256")
+    .update(`${png.width}x${png.height}\0`)
+    .update(png.data)
+    .digest("hex");
+}
+
+function approvedPixelReference(routeName, viewportName, png) {
+  const approval = approvedHashes?.[routeName]?.viewports?.[viewportName];
+  if (!approval) return false;
+  return (
+    Number(approval.width) === png.width &&
+    Number(approval.height) === png.height &&
+    approval.pixelSha256 === pixelSha256(png)
+  );
+}
 
 function diffRatio(a, b) {
   if (a.width !== b.width || a.height !== b.height) return 1;
@@ -152,10 +214,17 @@ async function capture(context, route, viewport) {
       AB_OVERRIDES,
     );
     // `0web_preview=1` silencia overlays da hospedagem: screenshots estáveis.
-    await page.goto(`${baseUrl}${route.path}?0web_preview=1`, {
+    const navigation = await page.goto(`${baseUrl}${route.path}?0web_preview=1`, {
       waitUntil: "domcontentloaded",
       timeout: routeTimeout,
     });
+    if (route.preview) {
+      if (navigation?.status() !== 200) throw new Error(`prévia retornou HTTP ${navigation?.status() ?? "sem resposta"}`);
+      const robots = await page.locator('meta[name="robots"]').getAttribute("content");
+      if (!robots?.includes("noindex")) throw new Error("prévia sem noindex");
+      const content = (await page.locator("main").innerText()).toLowerCase();
+      if (!content.includes("não oficial")) throw new Error("prévia não informa caráter não oficial");
+    }
     await page.addStyleTag({ content: FREEZE_CSS }).catch(() => {});
     // Estabiliza a captura: imagens decodificadas + fontes prontas, com teto de tempo.
     await page
@@ -166,7 +235,59 @@ async function capture(context, route, viewport) {
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
     await page.waitForTimeout(600);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
-    const buffer = await page.screenshot({ timeout: routeTimeout });
+    let buffer = await page.screenshot({ timeout: routeTimeout });
+    let currentPng = PNG.sync.read(buffer);
+    const longPage = await page
+      .evaluate(() => document.documentElement.scrollHeight > window.innerHeight * 1.25)
+      .catch(() => false);
+    let repeatedRows = longPage ? repeatedTopStripRows(currentPng) : 0;
+
+    if (repeatedRows) {
+      console.warn(
+        `[visual] ${key}: compositor repetiu ${repeatedRows}px do topo no rodapé; refazendo captura`,
+      );
+      await page
+        .evaluate(async () => {
+          window.scrollTo(0, 96);
+          void document.documentElement.getBoundingClientRect();
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          window.scrollTo(0, 0);
+          void document.documentElement.getBoundingClientRect();
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        })
+        .catch(() => {});
+      await page.waitForTimeout(120);
+      buffer = await page.screenshot({ timeout: routeTimeout, animations: "disabled" });
+      currentPng = PNG.sync.read(buffer);
+      repeatedRows = repeatedTopStripRows(currentPng);
+      if (repeatedRows) {
+        console.warn(
+          `[visual] ${key}: retry comum ainda repetiu ${repeatedRows}px; usando captura CDP sem surface compositor`,
+        );
+        let cdp;
+        try {
+          cdp = await context.newCDPSession(page);
+          const shot = await cdp.send("Page.captureScreenshot", {
+            format: "png",
+            fromSurface: false,
+            captureBeyondViewport: false,
+          });
+          buffer = Buffer.from(shot.data, "base64");
+          currentPng = PNG.sync.read(buffer);
+          repeatedRows = repeatedTopStripRows(currentPng);
+        } finally {
+          await cdp?.detach().catch(() => {});
+        }
+      }
+      if (repeatedRows) {
+        writeFileSync(join(outDir, key), buffer);
+        failures.push(
+          `${key}: artefato do compositor persistiu após retry + CDP (topo repetido nos últimos ${repeatedRows}px)`,
+        );
+        return;
+      }
+    }
+
     const baselinePath = join(baselineDir, key);
 
     if (update || !existsSync(baselinePath)) {
@@ -174,13 +295,21 @@ async function capture(context, route, viewport) {
       created.push(key);
       return;
     }
-    const ratio = diffRatio(PNG.sync.read(readFileSync(baselinePath)), PNG.sync.read(buffer));
+    const baselinePng = PNG.sync.read(readFileSync(baselinePath));
+    const ratio = diffRatio(baselinePng, currentPng);
     compared.push(key);
     if (ratio > threshold) {
       writeFileSync(join(outDir, key), buffer);
-      failures.push(
-        `${key}: ${(ratio * 100).toFixed(2)}% de pixels alterados (limite ${(threshold * 100).toFixed(0)}%)`,
-      );
+      if (approvedPixelReference(route.name, viewport.name, currentPng)) {
+        const evidence = approvedHashes?.[route.name]?.evidence;
+        console.log(
+          `[visual] ${key} APPROVED (${(ratio * 100).toFixed(2)}%) · evidence run ${evidence?.runId ?? "n/a"}`,
+        );
+      } else {
+        failures.push(
+          `${key}: ${(ratio * 100).toFixed(2)}% de pixels alterados (limite ${(threshold * 100).toFixed(0)}%)`,
+        );
+      }
     } else {
       console.log(`[visual] ${key} OK (${(ratio * 100).toFixed(2)}%)`);
     }

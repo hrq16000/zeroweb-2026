@@ -18,19 +18,19 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 95 |
+| Total | 97 |
 | ORIGINAL | 1 |
-| ACCEPTABLE | 30 |
+| ACCEPTABLE | 36 |
 | ATTENTION | 59 |
-| HIGH_SIMILARITY | 5 |
+| HIGH_SIMILARITY | 0 |
 | CLONE | 0 |
-| SHARED_FALLBACK | 0 |
+| SHARED_FALLBACK | 1 |
 | Clusters | 0 |
-| Logos placeholder | 26 |
+| Logos placeholder | 27 |
 | Logos ausentes | 0 |
-| Capas sem arquivo no catálogo (legado) | 24 |
-| Capas válidas (contrato canônico) | 47 |
-| Capas pendentes (contrato canônico) | 48 |
+| Capas sem arquivo no catálogo (legado) | 25 |
+| Capas válidas (contrato canônico) | 48 |
+| Capas pendentes (contrato canônico) | 49 |
 | Capas usando imagem social | 14 |
 | Capas compartilhadas | 0 |
 | Crop severo | 19 |
@@ -45,26 +45,26 @@ Nenhum cluster acima do limiar.
 
 | A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
 |---|---|---|---|---|---|---|---|---|---|---|
-| bruna-diarista | popys-conservacao-limpeza | 66 | NEAR_DUPLICATE_LAYOUT | 65.5 | 100 | 76.9 | 80.3 | 0 | 15 | 11.1 |
-| bruna-diarista | easy-clean | 65 | NEAR_DUPLICATE_LAYOUT | 74 | 100 | 69.2 | 68.2 | 2.6 | 15 | 8.6 |
-| easy-clean | popys-conservacao-limpeza | 62 | NEAR_DUPLICATE_LAYOUT | 63.6 | 100 | 64.3 | 70.7 | 2.2 | 15 | 8.1 |
-| embalar-embalagens | maximos-cabeleireiros | 61 | NEAR_DUPLICATE_LAYOUT | 89.1 | 57.1 | 58.3 | 88.6 | 5.9 | 7.5 | 4.5 |
-| js-eletrica-manutencao | maximos-cabeleireiros | 60 | SAME_FAMILY | 73.1 | 85.7 | 54.5 | 77.1 | 0.9 | 9 | 1.9 |
-| aguia-sul-sinalizacao | diego-montador-moveis | 59 | SAME_FAMILY | 74 | 50 | 85.7 | 85.9 | 1.1 | 7.5 | 23.1 |
-| aguia-sul-sinalizacao | easy-clean | 59 | SAME_FAMILY | 61.1 | 100 | 54.5 | 71.6 | 1.1 | 2.5 | 12.5 |
-| mp-festas-eventos | studio-de-cilios | 59 | SAME_FAMILY | 76.2 | 66.7 | 61.5 | 85 | 0.8 | 4.3 | 9.6 |
-| acai-total-araucaria | aguia-sul-sinalizacao | 58 | SAME_FAMILY | 73.5 | 57.1 | 71.4 | 91.3 | 0 | 7.5 | 10.7 |
-| aguia-sul-sinalizacao | mary-diarista | 58 | SAME_FAMILY | 78.7 | 50 | 71.4 | 92.5 | 0 | 2.5 | 9.1 |
-| aguia-sul-sinalizacao | bruna-diarista | 57 | SAME_FAMILY | 60 | 100 | 41.7 | 78.9 | 0 | 2.5 | 9.1 |
-| catharine-lima-studio | cris-presentes-colonia-rio-grande | 57 | SAME_FAMILY | 78.7 | 37.5 | 76.9 | 89.7 | 1.4 | 7.5 | 9.1 |
-| confeitaria-chyrley | studio-de-cilios | 56 | SAME_FAMILY | 54 | 100 | 37.5 | 86.5 | 0.5 | 8.6 | 6.7 |
-| mimo-salgados-doces | popys-conservacao-limpeza | 56 | SAME_FAMILY | 66.7 | 50 | 76.9 | 88.4 | 0 | 5 | 13.3 |
-| acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 6 | 10 |
-| diego-montador-moveis | paulo-mestre-de-obras | 55 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 4.3 | 15.2 |
-| embalar-embalagens | js-eletrica-manutencao | 55 | SAME_FAMILY | 64.2 | 71.4 | 63.6 | 72 | 0.5 | 4.3 | 3.9 |
-| acai-total-araucaria | ecommerce-on | 54 | SAME_FAMILY | 73.5 | 42.9 | 75 | 77.5 | 0 | 7.5 | 11.1 |
-| acai-total-araucaria | embalar-embalagens | 54 | SAME_FAMILY | 48.2 | 100 | 60 | 53.1 | 0 | 2.1 | 12.1 |
-| aguia-sul-sinalizacao | enoel-portas | 54 | SAME_FAMILY | 50.8 | 100 | 60 | 50.5 | 1 | 3 | 15.4 |
+| kitutes-na-mesa | liz-moraes-nail-designer | 54 | SAME_FAMILY | 53.1 | 100 | 50 | 54.8 | 0 | 9 | 12.1 |
+| bruna-diarista | diego-montador-moveis | 52 | SAME_FAMILY | 41.4 | 100 | 50 | 64.1 | 1 | 2.5 | 12.1 |
+| embalar-embalagens | popys-conservacao-limpeza | 52 | SAME_FAMILY | 36.6 | 100 | 66.7 | 58.2 | 0 | 4.3 | 12.2 |
+| r_beauty | renata-beauty | 52 | SAME_FAMILY | 54.7 | 100 | 40.9 | 47.7 | 1.5 | 7.5 | 10 |
+| kitutes-na-mesa | miro-tech | 51 | SAME_FAMILY | 34.3 | 100 | 66.7 | 50 | 0 | 2.1 | 25 |
+| confeitaria-sabor-da-realeza | sos-presentes-cosmeticos | 50 | SAME_FAMILY | 33.8 | 100 | 50 | 70 | 0.6 | 5 | 8.8 |
+| eletro-solucoes-eficazes | eletrovale-eletromecanica | 50 | SAME_FAMILY | 23.4 | 100 | 85.7 | 44.2 | 0.8 | 9 | 9.1 |
+| fernanda-amaral-drywall | rj-servicos-drywall | 50 | SAME_FAMILY | 67.7 | 62.5 | 35.7 | 76.6 | 1.5 | 3.3 | 33.3 |
+| acai-total-araucaria | kitutes-na-mesa | 49 | SAME_FAMILY | 35.4 | 100 | 54.5 | 53.6 | 1.2 | 6 | 12.9 |
+| aguia-sul-sinalizacao | mp-festas-eventos | 49 | SAME_FAMILY | 46.8 | 100 | 33.3 | 60.9 | 0 | 2.5 | 10 |
+| assistencia-microondas-santos | liz-moraes-nail-designer | 49 | SAME_FAMILY | 55.1 | 62.5 | 46.2 | 81 | 2 | 7.5 | 10.8 |
+| confeitaria-sabor-da-realeza | miro-tech | 49 | SAME_FAMILY | 46 | 66.7 | 58.3 | 76.5 | 0.3 | 15 | 13 |
+| enoel-portas | mania-de-limpeza | 49 | SAME_FAMILY | 42.4 | 85.7 | 46.7 | 69.1 | 0 | 15 | 15.4 |
+| liz-moraes-nail-designer | refrigeracao-maresia | 49 | SAME_FAMILY | 52.5 | 83.3 | 26.7 | 82.5 | 0.6 | 3.8 | 4.7 |
+| acai-total-araucaria | liz-moraes-nail-designer | 48 | SAME_FAMILY | 25 | 100 | 66.7 | 51.5 | 0 | 2.5 | 10.5 |
+| angel-mix-brecho | woodhouse-hamburgueres | 48 | SAME_FAMILY | 8.7 | 100 | 100 | 37.7 | 0.4 | 15 | 0 |
+| kitutes-na-mesa | maximos-cabeleireiros | 48 | SAME_FAMILY | 48 | 62.5 | 61.5 | 67.9 | 0.5 | 15 | 14.3 |
+| mania-de-limpeza | maximos-cabeleireiros | 48 | SAME_FAMILY | 40.5 | 100 | 33.3 | 62 | 0 | 11.2 | 5 |
+| acai-total-araucaria | easy-clean | 47 | SAME_FAMILY | 52.7 | 50 | 55.6 | 80 | 0.8 | 6 | 11.8 |
+| catharine-lima-studio | kitutes-na-mesa | 47 | SAME_FAMILY | 44.6 | 62.5 | 69.2 | 62 | 0 | 2.5 | 11.9 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -74,106 +74,122 @@ Nenhum asset percebido compartilhado entre clientes.
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| bruna-diarista | 66 | HIGH_SIMILARITY | popys-conservacao-limpeza (66) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| popys-conservacao-limpeza | 66 | HIGH_SIMILARITY | bruna-diarista (66) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| easy-clean | 65 | HIGH_SIMILARITY | bruna-diarista (65) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| embalar-embalagens | 61 | HIGH_SIMILARITY | maximos-cabeleireiros (61) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| maximos-cabeleireiros | 61 | HIGH_SIMILARITY | embalar-embalagens (61) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| js-eletrica-manutencao | 60 | ATTENTION | maximos-cabeleireiros (60) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| aguia-sul-sinalizacao | 59 | ATTENTION | diego-montador-moveis (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
-| diego-montador-moveis | 59 | ATTENTION | aguia-sul-sinalizacao (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| mp-festas-eventos | 59 | ATTENTION | studio-de-cilios (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| acai-total-araucaria | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| mary-diarista | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| catharine-lima-studio | 57 | ATTENTION | cris-presentes-colonia-rio-grande (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| cris-presentes-colonia-rio-grande | 57 | ATTENTION | catharine-lima-studio (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| mimo-salgados-doces | 56 | ATTENTION | popys-conservacao-limpeza (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| paulo-mestre-de-obras | 55 | ATTENTION | diego-montador-moveis (55) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| ecommerce-on | 54 | ATTENTION | acai-total-araucaria (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
-| enoel-portas | 54 | ATTENTION | aguia-sul-sinalizacao (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| liz-moraes-nail-designer | 54 | ATTENTION | mp-festas-eventos (54) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| mania-de-limpeza | 54 | ATTENTION | js-eletrica-manutencao (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| sos-presentes-cosmeticos | 54 | ATTENTION | cris-presentes-colonia-rio-grande (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| denise-gomes-psicologa | 53 | ATTENTION | mp-festas-eventos (53) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_PLACEHOLDER | — |
-| kitutes-na-mesa | 53 | ATTENTION | liz-moraes-nail-designer (53) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| vila-da-capivara | 53 | ATTENTION | mp-festas-eventos (53) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| ag-electrical-services | 51 | ATTENTION | lk-alvenaria (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
-| lk-alvenaria | 51 | ATTENTION | ag-electrical-services (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| r_beauty | 51 | ATTENTION | renata-beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
-| renata-beauty | 51 | ATTENTION | r_beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| kitutes-na-mesa | 54 | ATTENTION | liz-moraes-nail-designer (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| liz-moraes-nail-designer | 54 | ATTENTION | kitutes-na-mesa (54) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| bruna-diarista | 52 | ATTENTION | diego-montador-moveis (52) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| diego-montador-moveis | 52 | ATTENTION | bruna-diarista (52) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| embalar-embalagens | 52 | ATTENTION | popys-conservacao-limpeza (52) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| popys-conservacao-limpeza | 52 | ATTENTION | embalar-embalagens (52) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| r_beauty | 52 | ATTENTION | renata-beauty (52) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
+| renata-beauty | 52 | ATTENTION | r_beauty (52) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| miro-tech | 51 | ATTENTION | kitutes-na-mesa (51) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-sabor-da-realeza | 50 | ATTENTION | sos-presentes-cosmeticos (50) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | eletro-solucoes-eficazes | 50 | ATTENTION | eletrovale-eletromecanica (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | eletrovale-eletromecanica | 50 | ATTENTION | eletro-solucoes-eficazes (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| miro-tech | 50 | ATTENTION | kitutes-na-mesa (50) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| refrigeracao-maresia | 50 | ATTENTION | liz-moraes-nail-designer (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| assistencia-microondas-santos | 49 | ATTENTION | liz-moraes-nail-designer (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| fernanda-amaral-drywall | 49 | ATTENTION | rj-servicos-drywall (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
-| papelemi-personalizados | 49 | ATTENTION | embalar-embalagens (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| rj-servicos-drywall | 49 | ATTENTION | fernanda-amaral-drywall (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| simone-lacerda-vaz | 48 | ATTENTION | embalar-embalagens (48) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| fernanda-amaral-drywall | 50 | ATTENTION | rj-servicos-drywall (50) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
+| rj-servicos-drywall | 50 | ATTENTION | fernanda-amaral-drywall (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| sos-presentes-cosmeticos | 50 | ATTENTION | confeitaria-sabor-da-realeza (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| acai-total-araucaria | 49 | ATTENTION | kitutes-na-mesa (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| aguia-sul-sinalizacao | 49 | ATTENTION | mp-festas-eventos (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| assistencia-microondas-santos | 49 | ATTENTION | liz-moraes-nail-designer (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
+| enoel-portas | 49 | ATTENTION | mania-de-limpeza (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| mania-de-limpeza | 49 | ATTENTION | enoel-portas (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| mp-festas-eventos | 49 | ATTENTION | aguia-sul-sinalizacao (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| refrigeracao-maresia | 49 | ATTENTION | liz-moraes-nail-designer (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| angel-mix-brecho | 48 | ATTENTION | woodhouse-hamburgueres (48) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| maximos-cabeleireiros | 48 | ATTENTION | kitutes-na-mesa (48) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| woodhouse-hamburgueres | 48 | ATTENTION | angel-mix-brecho (48) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| catharine-lima-studio | 47 | ATTENTION | kitutes-na-mesa (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| cris-presentes-colonia-rio-grande | 47 | ATTENTION | js-eletrica-manutencao (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| easy-clean | 47 | ATTENTION | acai-total-araucaria (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| js-eletrica-manutencao | 47 | ATTENTION | cris-presentes-colonia-rio-grande (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | salao-da-marcia | 47 | ATTENTION | liz-moraes-nail-designer (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| mary-diarista | 46 | ATTENTION | liz-moraes-nail-designer (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| paulo-mestre-de-obras | 46 | ATTENTION | liz-moraes-nail-designer (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | pinturas-nunes | 46 | ATTENTION | eletro-solucoes-eficazes (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| studio-de-cilios | 46 | ATTENTION | liz-moraes-nail-designer (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | thays-camilla | 46 | ATTENTION | cris-presentes-colonia-rio-grande (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| toquinho-de-gente-brecho | 46 | ATTENTION | woodhouse-hamburgueres (46) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| woodhouse-hamburgueres | 46 | ATTENTION | toquinho-de-gente-brecho (46) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| centro-mega | 45 | ATTENTION | mania-de-limpeza (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| galileu-locacao-brinquedos | 45 | ATTENTION | lj-cleaning (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| vila-da-capivara | 46 | ATTENTION | studio-de-cilios (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| clinica-integrada | 45 | ATTENTION | sos-presentes-cosmeticos (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| confeitaria-chyrley | 45 | ATTENTION | acai-total-araucaria (45) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| denise-gomes-psicologa | 45 | ATTENTION | liz-moraes-nail-designer (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_PLACEHOLDER | — |
+| dlara-pizzaria | 45 | ATTENTION | angel-mix-brecho (45) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | jkl-decor | 45 | ATTENTION | moreira-auto-mecanica (45) | EXCESSIVE_COPY_SIMILARITY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| lj-cleaning | 45 | ATTENTION | galileu-locacao-brinquedos (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| lk-alvenaria | 45 | ATTENTION | sos-presentes-cosmeticos (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | moreira-auto-mecanica | 45 | ATTENTION | jkl-decor (45) | EXCESSIVE_COPY_SIMILARITY | COVER_IS_LOGO, COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| your-brutus-burguer | 45 | ATTENTION | mimo-salgados-doces (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | btb-construcao | 44 | ATTENTION | embalar-embalagens (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| clinica-integrada | 44 | ATTENTION | cris-presentes-colonia-rio-grande (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| dona-lucy-salgados | 44 | ATTENTION | mania-de-limpeza (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| lucas-arruma-maquina-lavar | 44 | ATTENTION | denise-gomes-psicologa (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| eisenfer-tubos-acos | 43 | ATTENTION | no-brilho-higienizacao (43) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| no-brilho-higienizacao | 43 | ATTENTION | eisenfer-tubos-acos (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| angel-mix-brecho | 42 | ATTENTION | dlara-pizzaria (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| ecommerce-on | 44 | ATTENTION | mary-diarista (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| mimo-salgados-doces | 44 | ATTENTION | kitutes-na-mesa (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| ag-electrical-services | 43 | ATTENTION | lk-alvenaria (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
+| dona-lucy-salgados | 43 | ATTENTION | bruna-diarista (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| galileu-locacao-brinquedos | 43 | ATTENTION | eletro-solucoes-eficazes (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| papelemi-personalizados | 43 | ATTENTION | embalar-embalagens (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | artesanatos-darleia-oliveira | 42 | ATTENTION | lk-alvenaria (42) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| dlara-pizzaria | 42 | ATTENTION | angel-mix-brecho (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-atelie-presentes | 42 | ATTENTION | mirassol-delicias-caseiras (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| heloa-gas | 42 | ATTENTION | dona-lucy-salgados (42) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| lucas-arruma-maquina-lavar | 42 | ATTENTION | aguia-sul-sinalizacao (42) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | mirassol-delicias-caseiras | 42 | ATTENTION | guaratuba-atelie-presentes (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| estrutura-nacional | 41 | ATTENTION | pinturas-nunes (41) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| santos-montador-de-moveis | 41 | ATTENTION | diego-montador-moveis (41) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| auto-socorro-dentinho | 40 | ACCEPTABLE | mimo-salgados-doces (40) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
+| simone-lacerda-vaz | 42 | ATTENTION | embalar-embalagens (42) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| centro-mega | 41 | ATTENTION | aguia-sul-sinalizacao (41) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| heloa-gas | 41 | ATTENTION | catharine-lima-studio (41) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| lj-cleaning | 41 | ATTENTION | galileu-locacao-brinquedos (41) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| your-brutus-burguer | 41 | ATTENTION | liz-moraes-nail-designer (41) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | bh-barreiro-marmitas | 40 | ACCEPTABLE | your-brutus-burguer (40) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| eisenfer-tubos-acos | 40 | ACCEPTABLE | aguia-sul-sinalizacao (40) | DISTINCT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| estrutura-nacional | 40 | ACCEPTABLE | pinturas-nunes (40) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| no-brilho-higienizacao | 40 | ACCEPTABLE | eisenfer-tubos-acos (40) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | espaco-cih-luh | 39 | ACCEPTABLE | kitutes-na-mesa (39) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| manu-pasteis | 39 | ACCEPTABLE | miro-tech (39) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| lolipa-arte-em-festas | 38 | ACCEPTABLE | confeitaria-sabor-da-realeza (38) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| santos-montador-de-moveis | 39 | ACCEPTABLE | kitutes-na-mesa (39) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| arildo-madeiras | 38 | ACCEPTABLE | autoescola-aptos (38) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| auto-socorro-dentinho | 38 | ACCEPTABLE | marido-de-aluguel (38) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
+| autoescola-aptos | 38 | ACCEPTABLE | arildo-madeiras (38) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| manu-pasteis | 38 | ACCEPTABLE | miro-tech (38) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marido-de-aluguel | 38 | ACCEPTABLE | auto-socorro-dentinho (38) | DISTINCT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| toquinho-de-gente-brecho | 38 | ACCEPTABLE | woodhouse-hamburgueres (38) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| casa-nativa | 37 | ACCEPTABLE | guaratuba-oficina-nautica (37) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| guaratuba-oficina-nautica | 37 | ACCEPTABLE | casa-nativa (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| lolipa-arte-em-festas | 37 | ACCEPTABLE | confeitaria-sabor-da-realeza (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | uberlandia-eletrica-residencial | 37 | ACCEPTABLE | bh-barreiro-marmitas (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| casa-nativa | 36 | ACCEPTABLE | guaratuba-oficina-nautica (36) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| guaratuba-oficina-nautica | 36 | ACCEPTABLE | casa-nativa (36) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| beto-pasteis | 36 | ACCEPTABLE | reuse-house-brecho (36) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| reuse-house-brecho | 36 | ACCEPTABLE | beto-pasteis (36) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| almeida-torres | 35 | ACCEPTABLE | estrutura-nacional (35) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mirassol-conserta-celular | 35 | ACCEPTABLE | mirassol-delicias-caseiras (35) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | rm-fretes | 35 | ACCEPTABLE | marido-de-aluguel (35) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| pastelaria-route-66 | 34 | ACCEPTABLE | dona-lucy-salgados (34) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | raphael-construcoes | 34 | ACCEPTABLE | ton-e-cor (34) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_PLACEHOLDER | — |
 | ton-e-cor | 34 | ACCEPTABLE | raphael-construcoes (34) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
-| almeida-torres | 33 | ACCEPTABLE | estrutura-nacional (33) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| hbk-iluminacao-led | 32 | ACCEPTABLE | jc-revestimentos (32) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| jc-revestimentos | 32 | ACCEPTABLE | hbk-iluminacao-led (32) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| pastelaria-route-66 | 32 | ACCEPTABLE | mp-festas-eventos (32) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| marmitaria-dom-diego | 31 | ACCEPTABLE | woodhouse-hamburgueres (31) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| beto-pasteis | 30 | ACCEPTABLE | reuse-house-brecho (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| guaratuba-sabores-da-baia | 30 | ACCEPTABLE | heloa-gas (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| guaratuba-sabores-da-baia | 32 | ACCEPTABLE | catharine-lima-studio (32) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| hbk-iluminacao-led | 31 | ACCEPTABLE | jc-revestimentos (31) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| jc-revestimentos | 31 | ACCEPTABLE | hbk-iluminacao-led (31) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| marmitaria-dom-diego | 30 | ACCEPTABLE | angel-mix-brecho (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | premium-envelopamentos | 30 | ACCEPTABLE | jc-revestimentos (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| reuse-house-brecho | 30 | ACCEPTABLE | beto-pasteis (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| emporio-lelecute | 29 | ACCEPTABLE | assistencia-microondas-santos (29) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| guaratuba-reparos-residenciais | 27 | ACCEPTABLE | bh-barreiro-marmitas (27) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| adhonep-curitiba | 26 | ACCEPTABLE | r_beauty (26) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| dona-garimpeira-brecho | 29 | SHARED_FALLBACK | assistencia-microondas-santos (29) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | comercios |
+| emporio-lelecute | 28 | ACCEPTABLE | assistencia-microondas-santos (28) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| guaratuba-reparos-residenciais | 28 | ACCEPTABLE | bh-barreiro-marmitas (28) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| adhonep-curitiba | 27 | ACCEPTABLE | reuse-house-brecho (27) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| brecho-sao-francisco | 25 | ACCEPTABLE | toquinho-de-gente-brecho (25) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dyzpromo | 25 | ACCEPTABLE | marido-de-aluguel (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
-| autoescola-aptos | 24 | ACCEPTABLE | auto-socorro-dentinho (24) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| brecho-sao-francisco | 24 | ACCEPTABLE | toquinho-de-gente-brecho (24) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| paraiso-do-hot-dog | 24 | ACCEPTABLE | kitutes-na-mesa (24) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| sscons | 24 | ACCEPTABLE | bruna-diarista (24) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| paraiso-do-hot-dog | 24 | ACCEPTABLE | miro-tech (24) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| sscons | 24 | ACCEPTABLE | jc-revestimentos (24) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | carecas-infotec | 18 | ORIGINAL | jkl-decor (18) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 
 ## Regressão
 
-Veredito: **PASS**
+Veredito: **FAIL**
 
-Nenhuma regressão em relação à baseline.
+- COUNTER: {"kind":"COUNTER","key":"sharedFallback","label":"fallbacks compartilhados","before":0,"after":1}
+- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":26,"after":27}
+- COUNTER: {"kind":"COUNTER","key":"missingCovers","label":"capas sem arquivo no catálogo (legado)","before":24,"after":25}
+- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"dona-garimpeira-brecho","status":"SHARED_FALLBACK","score":29,"nearestMatch":"assistencia-microondas-santos"}
 
-
+Melhorias:
+- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":5,"after":0}
+- {"kind":"MODIFIED_PROJECT","slug":"bruna-diarista","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"easy-clean","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"eisenfer-tubos-acos","before":"ATTENTION","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"embalar-embalagens","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"estrutura-nacional","before":"ATTENTION","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"maximos-cabeleireiros","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"no-brilho-higienizacao","before":"ATTENTION","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"popys-conservacao-limpeza","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"santos-montador-de-moveis","before":"ATTENTION","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"toquinho-de-gente-brecho","before":"ATTENTION","after":"ACCEPTABLE"}

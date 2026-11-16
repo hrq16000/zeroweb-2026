@@ -71,6 +71,23 @@ Estados por etapa: `not_started | in_progress | complete | blocked | not_applica
 
 Não existe banco novo nem painel novo: o manifesto é arquivo versionado.
 
+**Baseline histórica protegida:** os 90 slugs existentes em
+`src/config/portfolio-legacy-baseline.json` são imutáveis. O
+`validate:portfolio-scaffold` verifica o blob Git congelado e reprova tanto a
+inclusão quanto a substituição de um slug, mesmo que a contagem continue igual.
+Novo portfólio fora dessa lista exige manifesto gerenciado; mudança excepcional
+na própria baseline exige aprovação explícita e evidência na PR.
+
+**Contrato SEO individual obrigatório para novos gerenciados:** desde
+2026-10-10, qualquer slug novo com manifesto deve declarar
+`contractVersion >= 4` e os seis gates de
+`docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`. Declarar v3, omitir versão
+ou adicionar manifesto manualmente não pode dispensar readiness/SEO. Os seis
+projetos gerenciados anteriores à adoção do v4 seguem como exceção histórica
+fixa em `scripts/lib/portfolio-new-site-contract.mjs`, sem bloquear seu
+conteúdo já publicado. `validate:portfolio-scaffold` e
+`check:portfolio-project-readiness` aplicam a mesma regra.
+
 ## 3. Bloqueio × pendência
 
 | Situação | Estado correto |
@@ -161,6 +178,64 @@ Inválido: grande área vazia/escura sem função declarada — “ficou assim p
 faltou preencher” reprova a seção.
 
 
+### 7.4 WebP responsivo e LCP para novos sites (contrato v4+)
+
+O prebuild (`bun run generate:portfolio-perf-images`) agora **descobre projetos
+novos pelo manifesto**, sem cadastrar clientes manualmente no script.
+Para cada projeto com `contractVersion >= 4`, lê
+`docs/portfolio/media-plans/<slug>.json` e gera derivados somente de
+imagens **locais** aprovadas explicitamente para otimização.
+
+- `heroMedia.asset` local PNG/JPG/JPEG com `approved: true` é a imagem hero
+  candidata à conversão; a escolha editorial do hero continua sujeita ao
+  Creative Brief e aos gates de qualidade. Hero remoto, SVG, inadequado ou
+  não aprovado não é baixado nem convertido.
+- Para logo ou outras fotos, declarar `performanceImages` no media plan:
+  `[{ "source": "public/images/loja-exemplo/logo.png", "role": "logo", "approved": true }]`.
+  Papéis: `hero`, `logo`, `content`. `widths` opcional, em ordem crescente.
+- Os originais permanecem intocados. Derivados ficam fora do Git, em
+  `public/images/_generated/<slug>/<nome>.webp` e
+  `<nome>-<width>.webp`, reconstruídos automaticamente antes do build.
+  Só são geradas larguras menores/iguais à imagem original; uma versão
+  que não reduza bytes reprova o build. Logos usam WebP lossless, inclusive
+  com comparação dos pixels visíveis. Fotos usam qualidade 92, cuja
+  aparência continua sujeita aos gates visuais e Lighthouse.
+- Após inspecionar as variantes geradas, a composição autoral pode usar
+  `<PortfolioImage src="/images/_generated/loja-exemplo/hero.webp"
+  widths={[480, 960]} priority alt="..." />` **somente** se essas duas larguras
+  constarem no log do build. Declarar um `widths` inexistente cria URLs quebradas.
+  A geração não troca automaticamente o `src` de portfólios publicados.
+- O catálogo histórico (90 legados + seis gerenciados pré-v4) continua
+  no fluxo existente. Não utilizar conversão como prova de licença,
+  origem factual, elegibilidade de indexação ou qualidade editorial.
+
+### 7.5 Contrato de srcset e LCP verificável para novos portfólios
+
+Depois do gerador WebP, `scripts/validate-portfolio-performance.mjs`
+executa o `PORTFOLIO_LCP_GATE` automaticamente para projetos cujo manifesto
+declara `contractVersion >= 4`. O gate impede que a composição publique:
+
+- `<PortfolioImage widths={[480, 960]} />` sem um `src` literal no diretório
+  exclusivo do projeto ou sem a imagem base e **todas** as variantes referidas
+  de fato presentes em disco (`public/images/<slug>/` ou
+  `public/images/_generated/<slug>/`). Nenhum `srcset` 404 é permitido.
+- `widths` dinâmico, fora de ordem, repetido ou arbitrário sem verificação
+  automática. Larguras válidas são inteiros crescentes entre 64 e 2400
+  (máximo seis). O log do pré-build mostra quais foram geradas.
+- `srcSet` ou `fetchPriority` manuais no `PortfolioImage`, ou spread de
+  propriedades (`{...props}`) que poderia sobrescrever os valores seguros.
+- Múltiplas imagens prioritárias (`priority` no `PortfolioImage`,
+  `loading="eager"` em `<img>` cru); no máximo uma candidata a LCP.
+  Uma `<img loading="eager">` crua exige `fetchPriority="high"`.
+  Prioridade dinâmica sem garantia estática não é aceita para novos v4.
+
+Imagens `PortfolioImage` sem `widths` continuam válidas, inclusive para
+origens externas, e continuam com lazy-loading padrão. O gate não escolhe
+a imagem editorial, não adiciona prioridade automaticamente e não modifica
+código/URLs dos portfólios históricos. Ele verifica a integridade das
+referências após a geração de variantes; a avaliação visual e Lighthouse
+permanecem gates independentes e obrigatórios.
+
 ## 8. Cover gate
 
 Verificar `identityMatch, segmentMatch, smallCardReadability, contrast,
@@ -189,6 +264,77 @@ próprios de cada cliente (`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`).
 
 `title, description, H1, canonical, OG, alt, hierarquia de headings, schema,
 localidade, entidade, sitemap, links internos`. Schema só com fatos confirmados.
+
+### 11.1 Bloqueio de publicação prematura e sitemap (contrato v4+)
+
+O `validate:portfolio-scaffold` executa automaticamente
+`PORTFOLIO_INDEXABILITY_GATE` de publicação para **novos** manifestos v4.
+O sitemap dinâmico da 0WEB já considera os estados do catálogo
+`approved` e `published` como possíveis URLs públicas; por isso,
+um novo projeto não pode receber nenhum desses estados enquanto o manifesto
+editorial ainda estiver em `draft`, `research`, `enrichment`, `design`
+ou `ready`. Isso evita divulgação/indexação prematura.
+
+Para publicar um novo site v4, exigir simultaneamente:
+
+- Manifesto no estágio `published` e catálogo em `approved/published`,
+  sem `live: false`;
+- `individualSiteContract.gates.PORTFOLIO_INDEXABILITY_GATE = "complete"`
+  com evidências rastreáveis registradas;
+- Para a rota compartilhada `/portfolio/:slug`, uma entrada única em
+  `PORTFOLIO_PROTOTYPES` com `indexable: true`. Esse registro não substitui
+  a análise real dos robôs, canonical, conteúdo, SSR e sitemap;
+- Depois do deploy `READY`, conferência independente da resposta HTTP,
+  `index,follow`, canonical própria e URL publicada no sitemap, com
+  acompanhamento no Google Search Console. **Estar elegível ou enviado
+  ao sitemap não garante indexação pelo Google.**
+
+Os 90 legados, os seis gerenciados históricos pré-v4 e projetos criados
+pelo painel em runtime conservam seus contratos específicos. Nenhuma URL
+existente é automaticamente promovida a `index,follow` por este gate.
+
+### 11.2 Originalidade mínima de títulos e resumos (somente novos v4)
+
+A publicação de um novo projeto (`manifest.stage = "published"`) passa também
+pelo `PORTFOLIO_SEO_ORIGINALITY_GATE`:
+
+- `title` próprio, não genérico e sem marcadores de preenchimento;
+- `summary` específico com pelo menos 80 caracteres, sem placeholders;
+- nem o título nem o resumo podem ser cópias **idênticas após normalização**
+  (caixa, acentos e pontuação) de qualquer outro projeto publicado/aprovado
+  e ativo no catálogo da 0WEB;
+- a análise é determinística, não uma licença para produzir conteúdo
+  superficialmente diferente: a originalidade factual e editorial continua
+  sendo responsabilidade dos demais gates e das evidências do negócio.
+
+Projetos em `draft/ready` continuam livres para evoluir o conteúdo; os
+90 legados e seis gerenciados históricos pré-v4 continuam intocados.
+Não é obrigatório inventar endereço, filial, prazo, oferta ou capacidade
+de atendimento para passar o gate.
+
+### 11.3 Descoberta coerente com a apresentação do negócio (v4+)
+
+Para um novo `/portfolio/:slug` entrar em `published`, o `PORTFOLIO_DISCOVERY_CLAIMS_GATE`
+compara `src/config/portfolio-discovery.json` com as informações do
+catálogo editorial correspondente ao mesmo `slug`:
+
+- `services` e `products` declarados no índice de busca precisam aparecer
+  explicitamente no título, subtítulo, resumo ou tags aprovados do negócio.
+- `locality` precisa corresponder a informações documentadas em
+  `city`, `state`, `location`, subtítulo ou resumo. Não adicionar um
+  bairro ou outra cidade só para ampliar a descoberta.
+- Campos de busca não podem conter placeholders, itens vazios ou termos
+  repetidos após normalização de acentos, espaços e maiúsculas.
+- O índice publicado deve ter ao menos um serviço/produto próprio e uma
+  categoria ou termo de busca. Rascunhos continuam livres para evoluir.
+
+**Importante:** cruzar dois arquivos do mesmo projeto demonstra consistência,
+não comprova atendimento, endereço, licença, estoque ou disponibilidade.
+Cada afirmação ainda precisa de evidência factual no workflow de descoberta,
+com aprovação editorial e demais gates de qualidade.
+
+O novo gate não altera automaticamente o catálogo ou o índice dos 96 projetos
+anteriores nem faz publicação/index-on em massa.
 
 ## 12. Funnel readiness
 
@@ -307,6 +453,10 @@ Regras permanentes aplicáveis a todo `/portfolio/:slug` novo:
 Gates obrigatórios: `CONTACT_FUNNEL_GATE` e `MEDIA_PURPOSE_GATE`
 (`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21.4 e §22.5).
 
+## Adendo condicional — restaurante com delivery transacional
+
+Para um projeto de restaurante, **não** presumir checkout a partir do segmento. Classificar `RESTAURANT_LANDING`, `MENU_LEAD_ONLY`, `TRANSACTIONAL_DELIVERY` ou escopo avançado de PDV conforme `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md`. Quando o contrato pedir loja transacional, somar um **módulo opt-in** de catálogo/quote/order/operação à landing autoral existente; o scaffold `--delivery-transactional` cria apenas manifesto com 17 gates `NOT_EXECUTED`, `orderEnabled=false` como política-alvo e `DELIVERY_READY=BLOCKED`, nunca um pedido funcional. Gates de SEO/funil/identidade continuam exigidos para a landing; o gate delivery é independente e exige E2E real, banco e segurança antes de ativar a operação.
+
 ## 13. Pipeline canônico de projetos NOVOS (piloto Careca's promovido a padrão)
 
 Fluxo obrigatório, sem etapa pulada em silêncio:
@@ -357,17 +507,22 @@ Além das existentes, `scripts/check-portfolio-project-readiness.mjs` reprova:
   (`REAL_PHOTO | BRAND_LED | SERVICE_LED | PRODUCT_LED | HYBRID | GENERATED_EDITORIAL`);
 - `contactMode` diferente de `funnelOnly` ou `funnelType` ausente;
 - workbench de scaffold ainda presente (direção criativa indefinida);
-- projeto gerenciado fora do `PortfolioBlueprintRenderer`;
+- projeto novo ainda dependente de renderer/preset genérico em vez de composição autoral;
 - `visualQA` ausente, `FAIL` ou `NOT_EXECUTED`.
   `BLOCKED_ENVIRONMENT` nunca equivale a `PASS`: passa como aviso explícito.
 
 ### 13.5 O que o scaffold gera (sempre draft)
 
-Blueprint inicial rodando pelo renderer (com marcador
-`CREATIVE_BRIEF_REQUIRED`), creative brief, enrichment stub com
+Workbench de composição autoral sobre `PortfolioCompositionRoot` (com marcador
+`COMPOSITION_BRIEF_REQUIRED`), Creative Composition Brief, enrichment stub com
 `researchLedger`/`entity`/`providerCalls`, media plan stub com fontes de
 descoberta e `referenceOnlyAssets`, quality matrix stub, discovery stub,
-funil `draft`, manifesto `stage=draft` com `visualQa=NOT_EXECUTED`, registro do
-cliente com `contactMode=funnelOnly` e `funnelType`, e entrada no registry do
-Blueprint. Nenhum stub inventa avaliação, endereço, telefone, garantia, tempo de
-mercado, equipe, número ou certificação.
+funil `draft` e manifesto `stage=draft` com `visualQa=NOT_EXECUTED`.
+
+Nenhum projeto novo entra no `PortfolioBlueprintRenderer`: ele permanece
+congelado apenas para os pilotos legados definidos no padrão de composição.
+Projetos criados pelo painel/Managed podem usar preset somente como workbench de
+preview; antes de `READY/PUBLISH` precisam ser promovidos a composição autoral
+ou a um composition graph específico do projeto que passe os mesmos gates.
+Nenhum stub inventa avaliação, endereço, telefone, garantia, tempo de mercado,
+equipe, número ou certificação.

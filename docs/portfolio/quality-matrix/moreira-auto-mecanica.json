@@ -334,7 +334,8 @@
     "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
     "identity": {
       "decision": "WORDMARK_CREATED",
-      "asset": "public/images/moreira-auto-mecanica/logo.png",
+      "asset": "public/images/_generated/moreira-auto-mecanica/logo-264.webp",
+      "sourceAsset": "public/images/moreira-auto-mecanica/logo.png",
       "provenance": "GENERATED_BRAND_ASSET",
       "evidence": "Sem logotipo público encontrado na pesquisa de entidade; wordmark original criado a partir de nome, segmento, personalidade e paleta do projeto."
     },

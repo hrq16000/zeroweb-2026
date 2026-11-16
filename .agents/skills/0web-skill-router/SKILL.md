@@ -18,13 +18,17 @@ Pick every label that applies:
 `landing-page` · `portfolio-client-site` · `portfolio-derivative` · `institutional-page` · `dashboard`
 `form` · `checkout/cart` · `funnel` · `component-refactor` · `design-system`
 `content/SEO` · `motion` · `layout-engineering` · `accessibility-fix` · `performance` · `bugfix`
-`backend/RLS` · `docs`
+`backend/RLS` · `docs` · `transactional-delivery` · `restaurant-operations`
 
 ## Step 1.5 — Discover skills dynamically
 
 The installed catalog is a starting point, not a ceiling. For substantial work, run `0web-skill-discovery`: FIND SKILLS → RANK → SECURITY REVIEW → SELECT STACK. Prefer official/original sources. Use breadth of expertise, not a pile of redundant skills or incompatible dependencies.
 
 For every new project/new `/portfolio/:slug`, every derivative/variant and every material UI/UX maintenance, read `src/config/skill-marketplace-catalog.json`, `src/config/portfolio-zero-generic-policy.json` and `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`. Search LobeHub and `https://awesomeskill.ai/search` when fresh complementary expertise may exist.
+
+For adoption of GitHub tools, new coding-agent skills, design detectors, security-audit agents, media engines, or memory/automation hooks, read `.agents/skills/0web-curated-github-adoption/SKILL.md` and `docs/skills/GITHUB_TOOL_TRIAGE_2026-11-09.md`. This adds an evidence-first selection/security pass; no third-party CLI, browser hook or production dependency is approved merely by being listed. The existing local QA and design stacks remain canonical.
+
+For evidence-first investigation of an authorized website/app behavior, consider the optional REA protocol in `docs/skills/REA_RESEARCH_ADOPTION.md`. REA is not a default dependency or an approved executable skill; do not install, attach to browsers, or execute third-party scripts before scoped authorization and `docs/skills/SECURITY.md` review.
 
 For any material UI task, `0web-experience-design-max` is mandatory after discovery. It forces coverage of strategy, UX/UI, layout engineering, design system, web engineering, content/SEO, motion and QA before visual implementation.
 
@@ -36,6 +40,7 @@ For any material UI task, `0web-experience-design-max` is mandatory after discov
 | Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md` → `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → Flexbox/Grid/intrinsic layout review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
 | Portfolio derivative (cover/modal/OG/preview/variant/domain) | `PORTFOLIO_ZERO_GENERIC_STANDARD` → `0web-skill-discovery` → `0web-experience-design-max` → reuse **identity**, never generic skeleton → media-purpose + crop/aspect review → responsive/browser QA → drift check against canonical client composition |
 | Material redesign / material maintenance | `PORTFOLIO_ZERO_GENERIC_STANDARD` when portfolio → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → `0web-design-system` → layout engineering → Apple HIG review → `0web-ui-quality-gates` |
+| Transactional delivery (restaurant storefront + backoffice) | `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` → `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` → `docs/DELIVERY_MENU_PRICING_STANDARD.md` → `docs/DELIVERY_CHECKOUT_ORDER_STANDARD.md` → `docs/DELIVERY_RESTAURANT_OPERATIONS_STANDARD.md` → `docs/DELIVERY_DATA_SECURITY_STANDARD.md` → `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md` → UX/mobile/a11y + server-side tenant isolation + real E2E; **NOT** a lead-only landing; no `DELIVERY_READY=PASS` without trusted CI evidence |
 | Dashboard / admin panel | `0web-skill-discovery` → `0web-experience-design-max` → `0web-design-system` (density, tables, states) → layout engineering → `0web-ui-quality-gates` (keyboard, empty/loading/error) |
 | Form / funnel step | `0web-experience-design-max` → `0web-ui-quality-gates` (labels, errors, touch targets) → funnel rules in `docs/PORTFOLIO_FUNNELS.md` |
 | React refactor | `react-best-practices` when relevant → composition first (see `0web-design-system` → Component API), then `bun test` + typecheck |

@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioManagedAuthorialView } from "@/components/portfolio/PortfolioManagedAuthorialView";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import type { ManagedProject } from "@/lib/portfolio-managed";
@@ -7,11 +8,13 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 /**
  * Renderizador oficial dos projetos criados pelo painel (Managed).
  *
- * Não é um template único: as composições (`preset`) mudam hierarquia,
- * enquadramento e ritmo. Identidade (cores, imagens, textos, serviços) vem
- * inteiramente dos dados do cliente — nunca da 0WEB. A casca comercial
- * (compartilhar, funil, rodapé, pop-up) é responsabilidade do
- * `PortfolioStandardShell`, que envolve este componente.
+ * WORKBENCH de compatibilidade para projetos Managed. Os `preset` daqui
+ * alteram enquadramento, mas compartilham uma topologia ampla e, por isso, NÃO
+ * qualificam um projeto novo como composição autoral final. Projetos novos
+ * ficam bloqueados em DRAFT até receberem composição própria registrada no
+ * contrato server-side. Identidade (cores, imagens, textos, serviços) continua
+ * vindo dos dados do cliente. A casca comercial é responsabilidade do
+ * `PortfolioStandardShell`.
  */
 type Props = { project: ManagedProject };
 
@@ -56,6 +59,10 @@ function focalStyle(focal: { x: number; y: number }): CSSProperties {
 }
 
 export function PortfolioManagedView({ project }: Props) {
+  if (project.compositionPlan) {
+    return <PortfolioManagedAuthorialView project={project} plan={project.compositionPlan} />;
+  }
+
   const preset = PRESET_HERO[project.preset] ?? PRESET_HERO.editorial;
   const brand = project.brandColors;
   const style = {
