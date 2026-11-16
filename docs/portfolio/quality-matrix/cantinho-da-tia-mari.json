@@ -1,0 +1,269 @@
+{
+  "doc": "docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md",
+  "slug": "cantinho-da-tia-mari",
+  "matrixVersion": 1,
+  "contractVersion": 4,
+  "evaluatedAt": "2026-11-06",
+  "technicalPass": true,
+  "editorialPass": true,
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Nome da marca e endereço claramente identificados no panfleto; CNPJ não é associado sem prova"
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Serviços e horários são descritos como informações anunciadas e sujeitos a confirmação; não promete matrícula"
+    },
+    "MEDIA": {
+      "status": "PASS",
+      "notes": "Quatro fotos reais de panfleto (fachada, ambiente, copa, sala), qualidade de impressão moderada"
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Site autoral com hero fachada inclinada, mosaico factual e faixa contrastante de horários"
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Conceito e composição diferentes da madeireira/agropet; avaliação perceptual pendente de screenshot"
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Consultas nome, berçário, localização, serviços cadastradas no discovery e catálogo"
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Head único, canonical, robots index, OG própria, LocalBusiness sem atributos fictícios"
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Funil Jotform real, gravação e releitura com dado sintético validadas, consentimento ativo"
+    },
+    "PROOF": {
+      "status": "PASS",
+      "notes": "Somente panfleto fornecido; sem avaliações, alvarás ou índices fabricados"
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Revisão de classes responsivas em código realizada; capturas 390/1440 via Actions em execução; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
+    },
+    "PERFORMANCE": {
+      "status": "WARNING",
+      "notes": "Fotos WebP compactadas, iframe lazy no modal (não no carregamento inicial), medir runtime no CI; sem medição Lighthouse específica do slug (não impede gate editorial)."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS",
+      "notes": "Labels de botão, alt, título e foco no diálogo; validar pelo navegador ainda pendente; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Teste de persistência Jotform confirmado; visual Playwright/GitHub Actions em execução; GitHub Actions 42314376793 PASS 390/1440 com capturas reais."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Aborda serviços, ambientes, horários, endereço, perguntas de responsáveis, transparência"
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Lilás hero, barra violeta, cartões claros, mosaico fotos, palco noturno, localização e FAQ"
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Origem fotográfica real descrita; selo e ilustração abstrata não fingem funcionários ou instalações"
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Três blocos de intenções + prova visual da unidade + horários + mapa + FAQ"
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Selo de arco-íris, fotografia documental em ângulo e mural de horários contrastante"
+    },
+    "PROOF_DENSITY": {
+      "status": "PASS",
+      "notes": "Sem avaliações ou credenciais verificadas, material promocional com proveniência"
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "CTAs em hero, cards, galeria, horários e botão flutuante abrem o mesmo modal"
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Hover leve no botão e foto em inclinação estática; prefers-reduced-motion desativa transições"
+    }
+  },
+  "hero": {
+    "status": "PASS",
+    "notes": "Fotografia autêntica do panfleto ao lado de título escaneável e botão com modalidade demonstrativa explícita"
+  },
+  "cover": {
+    "status": "PASS",
+    "notes": "Capa real de panfleto aprovada no media plan; legibilidade final será observada no navegador"
+  },
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": "SUBTLE",
+      "personality": "CARING_CHILD_FRIENDLY",
+      "entrance": "STATIC_FIRST",
+      "scroll": "NATIVE",
+      "hover": "CTA_LIFT",
+      "typography": "HIERARCHY_WITH_CONTRAST",
+      "media": "SINGLE_INCLINED_AUTHENTIC_PHOTO",
+      "transitions": "CSS_TRANSFORM",
+      "signatureEffects": [
+        "gentle button lift",
+        "inclined facade photo"
+      ],
+      "reducedMotionStrategy": "reduce removes nonessential motion"
+    },
+    "gate": {
+      "motionProfileDefined": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "effectsMatchBrand": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "entranceNotRepetitive": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "contextualMicrointeraction": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "signatureMotion": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "ctaFeedback": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "mobileAdapted": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "reducedMotionCovered": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "noTransformOverflow": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "noHeavyDependency": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "noPerformanceRegression": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      },
+      "noAggressiveLoop": {
+        "status": "PASS",
+        "evidence": "Source reviewed + real Playwright 390/1440 in Actions 42314376793, reduced-motion enabled and no overflow/page errors."
+      }
+    },
+    "qualityProfile": {
+      "motionIntensity": "SUBTLE",
+      "motionPurpose": "GENTLE_CHILDCARE_DECISION",
+      "interactionDensity": "LOW",
+      "scrollExperience": "NATIVE",
+      "microinteractionQuality": "SOURCE_REVIEW",
+      "reducedMotionCoverage": "CSS_REVIEW_PENDING_E2E",
+      "motionPerformance": "CSS_ONLY"
+    }
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": "TEXT_ONLY_INTENTIONAL",
+      "justification": "Marca de texto reproduz o nome do panfleto; símbolo arco-íris criado e exposto na rota como favicon, não apresentado como marca registrada"
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "REAL_FACADE_PLUS_TEXT",
+      "notes": "Foto de fachada real com título e distinção de versão de demonstração"
+    },
+    "heroMedia": {
+      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "documentary": true,
+      "provenance": "PHOTO_OF_PUBLIC_FLYER"
+    },
+    "motionPresence": {
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "hover:-translate-y-1 na CTA",
+        "Foto com transform rotate-3 estática, reduced motion evita movimento automático",
+        "localMotion.motionIntensity= BALANCED e data-motion-intensity na raiz do cliente",
+        "GitHub Actions 42314376793; Playwright passou com reducedMotion=reduce nos dois viewports"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "enabled",
+      "destination": "funnel",
+      "reason": "CTA flutuante autoral (single instance) em CantinhoTiaMariPage; componente global foi desativado para evitar botão duplicado."
+    },
+    "embed": {
+      "status": "PASS",
+      "checkedAt": "2026-11-06",
+      "notes": "Card publicado no catálogo, rota dedicada carregada SSR HTTP 200 em Playwright (GitHub Actions 42314376793)"
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "mediaDecision": "genuine photographed printed facade",
+      "status": "PASS"
+    },
+    {
+      "section": "services",
+      "mediaDecision": "three differentiated editorial cards",
+      "status": "PASS"
+    },
+    {
+      "section": "ambientes",
+      "mediaDecision": "three genuine interior photo crops",
+      "status": "PASS"
+    },
+    {
+      "section": "horarios",
+      "mediaDecision": "typographic violet schedule",
+      "status": "PASS"
+    },
+    {
+      "section": "localizacao",
+      "mediaDecision": "Google map embed from flyer address",
+      "status": "PASS"
+    },
+    {
+      "section": "faq",
+      "mediaDecision": "native details accordion and truthful claims",
+      "status": "PASS"
+    },
+    {
+      "section": "fechamento",
+      "mediaDecision": "brand colored editorial CTA",
+      "status": "PASS"
+    }
+  ],
+  "deadZones": [],
+  "p0": [],
+  "warnings": [
+    "Documentos de licenciamento, horários e vagas não verificados independentemente",
+    "Não é site oficial da creche e não realiza matrícula",
+    "Imagens provenientes de flyer e de resolução limitada",
+    "Lighthouse do projeto ainda será analisado após deploy; Playwright confirmou ausência de overflow/erros JS."
+  ],
+  "ownerRequired": [
+    "Confirmação de dados operacionais e vínculo oficial para futura versão contratada"
+  ]
+}

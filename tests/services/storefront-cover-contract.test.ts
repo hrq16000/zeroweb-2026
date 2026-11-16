@@ -17,6 +17,8 @@ describe("/servicos — contrato de capa da vitrine", () => {
     expect(source).toContain('"criacao-de-sites": blogSitesCover');
     expect(source).toContain('"landing-pages": blogRoiTrafegoCover');
     expect(source).toContain('"loja-virtual": heroDashboardCover');
+    expect(source).toContain('"google-ads-299": coverGoogleAds');
+    expect(source).toContain('"google-meu-negocio": coverLocal');
   });
 
   test("a vitrine não usa SVG gerado como placeholder", () => {
@@ -31,6 +33,7 @@ describe("/servicos — contrato de capa da vitrine", () => {
     expect(featuredSource).not.toContain("serviceCoverFallback");
     expect(featuredSource).toContain('typeof service.price === "number" && service.price > 0');
     expect(featuredSource).toContain("Boolean(service.imageUrl)");
-    expect(featuredSource).toContain("src={s.imageUrl!}");
+    expect(featuredSource).toContain("src={s.imageUrl}");
+    expect(featuredSource).toContain("<ServiceCoverImage");
   });
 });

@@ -78,6 +78,14 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Sitemaps XML sem service-role key (HTTP real)
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ""
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/check-sitemap-runtime-no-keys.mjs
+
+      - name: Sitemaps editoriais com host canonico (HTTP real)
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/check-sitemap-canonical-host.mjs
+
       - name: Snapshot de indexabilidade (produção = "antes")
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
@@ -89,6 +97,7 @@ jobs:
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           ONLY=""
+          SERVICE_IMAGES_ONLY=false
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
             FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
@@ -96,9 +105,56 @@ jobs:
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
+
+            # Isolado a imagens da loja: 6 canarios de portfolio x 2 viewports.
+            # Mudancas em portfolios, funis, CTAs ou push no main seguem globais.
+            if [ -n "$FILES" ]; then
+              SERVICE_IMAGES_ONLY=true
+              while IFS= read -r FILE; do
+                case "$FILE" in
+                  src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/components/site/ProductGallery.tsx|src/components/site/RelatedServicesCarousel.tsx|src/routes/servicos.index.tsx|'src/routes/servicos.$slug.tsx'|src/routes/servicos.google-meu-negocio.tsx|src/routes/servicos.presenca-digital.tsx|src/routes/servicos.trafego-pago-local.tsx|tests/services/special-service-images.test.ts|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|tests/services/service-gallery-image-recovery.test.ts|src/lib/services-nav.functions.ts|src/lib/service-legacy-image-recovery.ts|src/config/service-legacy-image-recovery.json|scripts/validate-catalog-images.mjs|tests/services/service-legacy-image-recovery.test.ts|src/lib/service-gallery-recovery.ts|tests/services/google-ads-gallery-recovery.test.ts|.github/workflows/lighthouse.yml|.lighthouserc.cjs|.github/workflows/portfolio-gates.yml) ;;
+                  *) SERVICE_IMAGES_ONLY=false ;;
+                esac
+              done < <(printf '%s\n' "$FILES")
+            fi
+            if [ "$SERVICE_IMAGES_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
+
+            # Verificação do painel autenticado: seis canários sem alteração
+            # de limiares; o push em main permanece 100% global.
+            ADMIN_IMAGES_ONLY=true
+            if [ -z "$FILES" ]; then ADMIN_IMAGES_ONLY=false; fi
+            while IFS= read -r FILE; do
+              case "$FILE" in
+                src/routes/_authenticated/app.servicos-imagens.tsx|src/lib/service-image-preview-state.ts|tests/services/service-image-preview-state.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml) ;;
+                *) ADMIN_IMAGES_ONLY=false ;;
+              esac
+            done < <(printf '%s\n' "$FILES")
+            if [ "$ADMIN_IMAGES_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
+
+            # Somente verificadores offline do inventário de imagens, sem
+            # alteração de componentes, assets nem HTML: exercita canários
+            # reais mantendo os mesmos gates, sem simular impacto global.
+            IMAGE_VALIDATORS_ONLY=true
+            if [ -z "$FILES" ]; then IMAGE_VALIDATORS_ONLY=false; fi
+            while IFS= read -r FILE; do
+              case "$FILE" in
+                scripts/validate-portfolio-assets.mjs|scripts/validate-service-fallback-assets.mjs|tests/services/service-fallback-assets.test.ts|package.json|.github/workflows/portfolio-gates.yml) ;;
+                *) IMAGE_VALIDATORS_ONLY=false ;;
+              esac
+            done < <(printf '%s\n' "$FILES")
+            if [ "$IMAGE_VALIDATORS_ONLY" = true ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
           fi
           echo "only=$ONLY" >> "$GITHUB_OUTPUT"
+          echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
+          echo "admin_images_only=$ADMIN_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
+          echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
 
       - name: Pop-up único em /portfolio/$slug
         env:
@@ -110,6 +166,9 @@ jobs:
       - name: Funis individuais de portfólio
         env:
           E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
+          # Dois contextos independentes: preserva todos os slugs x viewports,
+          # mas reduz o gargalo serial de 192 cenarios na verificacao global.
+          E2E_CONCURRENCY: 2
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
@@ -207,6 +266,12 @@ jobs:
             fi
           fi
 
+          # Alteração comprovadamente exclusiva de XML não modifica a UI.
+          # A função verifica o diff inteiro; escopo incerto mantém gate global.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
 
           # Quando a mudança visual está restrita a componentes/ativos de
@@ -219,14 +284,32 @@ jobs:
             # escopo normal por slug ou o global.
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
+          if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Main sempre verifica o universo completo; escopo por slug só no PR.
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            VISUAL_ONLY=""
+          fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 
       - name: Regressão visual (home + portfólios, 3 viewports)
-        if: steps.visual-scope.outputs.run == 'true'
+        if: steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
         env:
           VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+
+      - name: Regressão visual (prévia isolada com noindex e disclosure)
+        if: steps.visual-scope.outputs.run == 'true' && startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
+          VERCEL_ENV: preview
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+
+      - name: Evidência visual hero Lolipa (desktop, tablet e mobile)
+        if: github.event_name == 'pull_request' && contains(steps.visual-scope.outputs.only, 'lolipa-arte-em-festas')
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/verify-lolipa-hero.mjs
 
       - name: Relatório comparativo consolidado
         if: always()

@@ -131,6 +131,13 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             .maybeSingle();
 
           const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
+          const { isDonaGarimpeiraRoutingConsistent } = await import("@/lib/dona-garimpeira-funnel-guard");
+          if (!form || !isDonaGarimpeiraRoutingConsistent(form.slug, clientKey)) {
+            return htmlErrorPage(
+              "Link inválido",
+              "O link não corresponde ao formulário de atendimento. Volte ao site e tente novamente.",
+            );
+          }
           const clientContact =
             typeof clientKey === "string" ? await resolvePortfolioWhatsAppContactAsync(clientKey) : null;
           // Sites de clientes nunca podem cair no atendimento da 0WEB. Se a

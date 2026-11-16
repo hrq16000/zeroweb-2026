@@ -12,6 +12,11 @@ on:
       - "src/lib/portfolio-sitemap.server.ts"
       - "src/routes/sitemap-portfolio*.ts"
       - ".github/workflows/portfolio-sitemap-sync.yml"
+      - "scripts/check-live-portfolio-indexability.mjs"
+  pull_request:
+    paths:
+      - "scripts/check-live-portfolio-indexability.mjs"
+      - ".github/workflows/portfolio-sitemap-sync.yml"
   schedule:
     - cron: "17 10 * * *"
   workflow_dispatch:
@@ -58,3 +63,14 @@ jobs:
           COUNT="$(grep -o '<loc>[^<]*</loc>' "$TMP_FILE" | wc -l | tr -d ' ')"
           echo "Sitemap saudável: $COUNT URLs publicadas."
           echo "GSC/IndexNow são sincronizados transacionalmente pelo backend quando o estado de publicação muda."
+
+      - uses: actions/checkout@v4
+
+      - name: Provar indexabilidade dos portfólios no domínio oficial
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            node scripts/check-live-portfolio-indexability.mjs --all
+          else
+            node scripts/check-live-portfolio-indexability.mjs sao-francisco-pet-center
+          fi

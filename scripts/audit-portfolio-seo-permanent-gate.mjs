@@ -19,6 +19,7 @@ const checks=[
   { name:"internal-link-graph", command:"bun", args:["test","tests/portfolio/universal-seo-network.test.ts"], required:true },
   { name:"schema-runtime", command:process.execPath, args:["scripts/validate-published-structured-data.mjs",FETCH_BASE], required:true },
   { name:"runtime-indexability", command:process.execPath, args:["scripts/audit-portfolio-indexability.mjs",FETCH_BASE,CANONICAL_BASE], required:true },
+  { name:"indexability-scorecard", command:process.execPath, args:["scripts/report-portfolio-indexation-readiness.mjs"], required:true },
   { name:"discovery-consistency", command:process.execPath, args:["scripts/audit-portfolio-discovery-consistency.mjs",FETCH_BASE,CANONICAL_BASE], required:true },
   { name:"gsc-evidence", command:process.execPath, args:["scripts/audit-portfolio-gsc-evidence.mjs"], required:false },
 ];

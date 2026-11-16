@@ -171,24 +171,6 @@
       }
     }
   },
-  "dyzpromo": {
-    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
-    "reviewedAt": "2026-10-02",
-    "evidence": {
-      "baselineRunId": 36947857468,
-      "baselineArtifactId": 11204245307,
-      "candidateRunId": 36953577456,
-      "candidateArtifactId": 11205495676,
-      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
-    },
-    "viewports": {
-      "mobile": {
-        "width": 393,
-        "height": 852,
-        "pixelSha256": "a863a0c58dcc83fc78801b5a28cc7bc9a4a325a03b9d1172f82c78404c264570"
-      }
-    }
-  },
   "rm-fretes": {
     "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
     "reviewedAt": "2026-10-02",

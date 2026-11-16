@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import { ArrowRight, Sparkles, Search, AlertCircle } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
@@ -364,8 +365,11 @@ function ServicosHub() {
                       )}
                       {coverUrl ? (
                         <div className="aspect-video overflow-hidden bg-muted">
-                          <img
+                          <ServiceCoverImage
                             src={coverUrl}
+                            slug={s.slug}
+                            name={s.name}
+                            category={s.category}
                             alt={coverAlt}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

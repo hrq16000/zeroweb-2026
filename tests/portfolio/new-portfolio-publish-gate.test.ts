@@ -6,7 +6,7 @@ const item = {
   slug, clientKey: slug, status: "published", title: "Exemplo Original",
   summary: "Um resumo editorial factual específico para a empresa, seus serviços, localização e formas de solicitar atendimento, sem inventar informações.",
 };
-const client = { slug, clientKey: slug, contactMode: "funnelOnly", componentFile: "src/components/site/TestePage.tsx" };
+const client = { slug, clientKey: slug, contactMode: "funnelOnly", componentFile: "src/components/site/TestePage.tsx", routeFile: "src/routes/portfolio.$slug.tsx" };
 const core = [
   "PORTFOLIO_INDIVIDUAL_SITE_GATE", "PORTFOLIO_ENTITY_GATE",
   "PORTFOLIO_DISCOVERY_GRAPH_GATE", "PORTFOLIO_INDEXABILITY_GATE",
@@ -14,7 +14,7 @@ const core = [
 const manifest = {
   projects: {
     [slug]: {
-      stage: "published", contractVersion: 4,
+      stage: "published", lifecycleContract: 1, contractVersion: 4,
       lifecycle: { qa: "complete", publish: "complete" },
       visualQa: { status: "PASS" },
       individualSiteContract: {
@@ -39,6 +39,19 @@ describe("gate automático de publicação de novos portfólios", () => {
   it("ignora atualização de legado, novos rascunhos e nenhuma publicação", () => {
     expect(publishedCandidates([item], [item], [client], [client])).toEqual([]);
     expect(publishedCandidates([], [{ ...item, status: "draft" }], [], [client])).toEqual([]);
+  });
+  it("reprova registros duplicados e slug novo incompatível com rota", () => {
+    expect(() => publishedCandidates([], [item, item])).toThrow("slug duplicado");
+    expect(() => publishedCandidates([], [{ ...item, slug: "../inválido" }])).toThrow("novo slug publicado inválido");
+  });
+  it("reprova rota canônica ausente e versões do manifesto ausentes", () => {
+    const missingContracts = structuredClone(manifest);
+    delete missingContracts.projects[slug].lifecycleContract;
+    delete missingContracts.projects[slug].contractVersion;
+    const errors = validatePublication(slug, [item], [{ ...client, routeFile: "" }], missingContracts, allFiles);
+    expect(errors).toContain("rota canônica do cliente ausente");
+    expect(errors).toContain("contrato de lifecycle ausente");
+    expect(errors).toContain("contrato individual v4 ausente");
   });
   it("aceita somente a publicação completa com evidências e baselines", () => {
     expect(validatePublication(slug, [item], [client], manifest, allFiles)).toEqual([]);

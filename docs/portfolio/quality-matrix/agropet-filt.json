@@ -1,0 +1,285 @@
+{
+  "doc": "docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md",
+  "slug": "agropet-filt",
+  "matrixVersion": 1,
+  "contractVersion": 4,
+  "evaluatedAt": "2026-11-04",
+  "technicalPass": true,
+  "editorialPass": true,
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "SEO": {
+      "status": "WARNING",
+      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Formulário dedicado Jotform com consentimento e gravação real confirmada por submissão sintética e releitura da inbox."
+    },
+    "PROOF": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "PERFORMANCE": {
+      "status": "WARNING",
+      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+    },
+    "ACCESSIBILITY": {
+      "status": "WARNING",
+      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Visual Playwright 390/1440, build+tipagem e comprovação independente de submissão persistida em Jotform; seguir CI final."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    },
+    "PROOF_DENSITY": {
+      "status": "WARNING",
+      "notes": "Amostra factual e responsiva validada; fotos oficiais, persistência ao vivo e/ou gate de produção ainda pendentes."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "Todas as categorias, guia, header e CTA flutuante direcionam ao mesmo formulário integrado, sem WhatsApp presumido."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Evidência em brief, ledger, código exclusivo, screenshot real e E2E 390/1440."
+    }
+  },
+  "hero": {
+    "status": "PASS",
+    "notes": "Pôster original com cão e ave, texto e CTAs legíveis em screenshots reais 390/1440; sem fotos documentais fictícias."
+  },
+  "cover": {
+    "status": "PASS",
+    "notes": "Capa 1200×750 SVG editorial original revisada em código; não se apresenta como fotografia da loja."
+  },
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": "BALANCED",
+      "personality": "LOCAL_PLAYFUL",
+      "entrance": "STATIC_CONTENT_FIRST",
+      "scroll": "NATIVE",
+      "hover": "CATEGORY_LIFT",
+      "typography": "SERIF_SANS_CONTRAST",
+      "media": "SVG_FLOAT",
+      "transitions": "CSS_TRANSFORM",
+      "signatureEffects": [
+        "soft vector float",
+        "category lift"
+      ],
+      "reducedMotionStrategy": "prefers-reduced-motion removes animation"
+    },
+    "gate": {
+      "motionProfileDefined": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "effectsMatchBrand": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "entranceNotRepetitive": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "contextualMicrointeraction": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "signatureMotion": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "ctaFeedback": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "mobileAdapted": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "reducedMotionCovered": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "noTransformOverflow": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "noHeavyDependency": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "noPerformanceRegression": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      },
+      "noAggressiveLoop": {
+        "status": "PASS",
+        "evidence": "Source CSS + Playwright screenshots 390/1440; no page errors/overflow, reducedMotion=reduce"
+      }
+    },
+    "qualityProfile": {
+      "motionIntensity": "BALANCED",
+      "motionPurpose": "COMMERCIAL_CLARITY",
+      "interactionDensity": "LOW",
+      "scrollExperience": "NATIVE",
+      "microinteractionQuality": "SUBTLE",
+      "reducedMotionCoverage": "SOURCE_AND_E2E",
+      "motionPerformance": "CSS_ONLY"
+    }
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": "BRANDMARK_CREATED",
+      "asset": "/images/agropet-filt/logo.svg",
+      "provenance": "GENERATED_BRAND_ASSET",
+      "evidence": "Original 0WEB SVG; included in header and catalog; not an official prior trademark"
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "TEXT_LED_JUSTIFIED",
+      "notes": "Legible in 390/1440 snapshots and original SVG hero"
+    },
+    "heroMedia": {
+      "asset": "src/components/site/AgropetFiltPreviewPage.tsx#af-pet-illustration",
+      "kind": "GRAPHIC_MEDIA",
+      "documentary": false,
+      "provenance": "0WEB_CREATED"
+    },
+    "motionPresence": {
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "CSS af-float @keyframes",
+        "CSS af-category:hover transitions",
+        "prefers-reduced-motion media query"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "disabled",
+      "reason": "A camada de CTA flutuante pertence ao PortfolioStandardShell, evitando duas cópias do mesmo mecanismo na landing."
+    },
+    "embed": {
+      "status": "PASS",
+      "checkedAt": "2026-11-04",
+      "notes": "Card publicado no catálogo e integrado à rota /portfolio/agropet-filt com CTA próprio e formulário persistente Jotform verificado."
+    },
+    "structuralSkeleton": {
+      "topology": [
+        "pet-poster",
+        "category-marquee",
+        "six-category-mosaic",
+        "pet-choice-guide",
+        "neighborhood-note",
+        "illustrated-map",
+        "faq"
+      ],
+      "rationale": "Guia de escolha + mosaico de categoria, diferente de brechó e madeireira."
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "mediaDecision": "illustration",
+      "status": "PASS"
+    },
+    {
+      "section": "categorias",
+      "mediaDecision": "icons and colored editorial cards",
+      "status": "PASS"
+    },
+    {
+      "section": "guia",
+      "mediaDecision": "interactive decision panel",
+      "status": "PASS"
+    },
+    {
+      "section": "bairro",
+      "mediaDecision": "typographic stamp",
+      "status": "PASS"
+    },
+    {
+      "section": "localizacao",
+      "mediaDecision": "illustrative non-cartographic map",
+      "status": "PASS"
+    },
+    {
+      "section": "faq",
+      "mediaDecision": "typographic accordion",
+      "status": "PASS"
+    },
+    {
+      "section": "rodape",
+      "mediaDecision": "typographic and brand credit",
+      "status": "PASS"
+    }
+  ],
+  "deadZones": [],
+  "p0": [],
+  "warnings": [
+    "Fotos oficiais da empresa não disponibilizadas; mídia puramente editorial",
+    "Formulário persistente hospedado (Jotform), sem espelhamento no painel Supabase",
+    "Sem fotos reais, apenas mídia editorial original e informações de diretórios",
+    "Indexable=on significa elegível para rastreamento, não indexação confirmada pelo Google"
+  ],
+  "ownerRequired": [
+    "Enviar fotos oficiais da fachada e mercadorias quando disponíveis",
+    "Confirmar o WhatsApp empresarial para redirecionamento"
+  ],
+  "score": {
+    "total": null
+  }
+}

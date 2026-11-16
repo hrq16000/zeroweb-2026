@@ -12,6 +12,7 @@ import {
   buildManagedRow,
   canTransition,
   managedStatus,
+  newPublishedManagedConformanceBlockers,
   sanitizeManagedProject,
   type ManagedLifecycle,
   type ManagedProject,
@@ -594,13 +595,6 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       ...record(row.source_snapshot),
     };
 
-    await syncManagedFunnelForm(admin, {
-      clientKey: row.client_key,
-      displayName: row.display_name || slug,
-      intent: effectiveIntent || null,
-      published: existing?.lifecycle_status === "published" && Boolean(existing?.published),
-    });
-
     const patch = {
       ...row,
       source_snapshot: sourceSnapshot,
@@ -612,6 +606,28 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       updated_by: context.userId,
       updated_at: new Date().toISOString(),
     };
+
+    // Preflight before ANY write (including the individual funnel form).
+    // Updating a public site must never introduce a new SEO, identity, content,
+    // composition, CTA or funnel blocker while preserving historical debt.
+    if (existing?.lifecycle_status === "published" && existing.published) {
+      const previous = sanitizeManagedProject(existing);
+      const candidate = sanitizeManagedProject(patch);
+      if (!previous || !candidate) throw new Error("Não foi possível validar a atualização do projeto publicado.");
+      const regressions = newPublishedManagedConformanceBlockers(previous, candidate);
+      if (regressions.length > 0) {
+        throw new Error(
+          `Atualização bloqueada por regressão em projeto publicado: ${regressions.map((issue) => issue.code).join(", ")}`,
+        );
+      }
+    }
+
+    await syncManagedFunnelForm(admin, {
+      clientKey: row.client_key,
+      displayName: row.display_name || slug,
+      intent: effectiveIntent || null,
+      published: existing?.lifecycle_status === "published" && Boolean(existing?.published),
+    });
 
     const { data: saved, error } = await admin
       .from("portfolio_client_settings")

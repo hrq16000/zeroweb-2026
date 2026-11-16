@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { type NavService } from "@/lib/services-nav.functions";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { servicesNavQuery } from "@/lib/services-nav-query";
 
 type Props = {
@@ -60,8 +61,11 @@ export function FeaturedServices({
               className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary hover:-translate-y-1 hover:shadow-elegant transition-all duration-300"
             >
               <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src={s.imageUrl!}
+                <ServiceCoverImage
+                  src={s.imageUrl}
+                  slug={s.slug}
+                  name={s.name}
+                  category={s.category}
                   alt={s.imageAlt || `Ilustração do serviço ${s.name}`}
                   width={1280}
                   height={720}

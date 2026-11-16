@@ -1,12 +1,14 @@
 name: New Portfolio Publication Gate
 
-# Detecta toda PR; Lighthouse/E2E só quando há publicação nova.
+# Revalida a publicação em PR e no push integrado da main.
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 concurrency:
-  group: new-portfolio-publish-${{ github.event.pull_request.number }}
+  group: new-portfolio-publish-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -24,13 +26,13 @@ jobs:
 
       - name: Obter base da PR para comparação determinística
         env:
-          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: git fetch --no-tags --depth=1 origin "$PR_BASE_SHA"
 
       - name: Checar contrato de publicação e as 3 baselines humanas
         id: detect
         env:
-          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: node scripts/new-portfolio-publish-gate.mjs --base="$PR_BASE_SHA" --output="$GITHUB_OUTPUT"
 
   new-portfolio-qa:

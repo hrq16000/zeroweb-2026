@@ -8,7 +8,9 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { trackEvent } from "@/lib/analytics";
-import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
+// JPEG institucional versionado: o antigo asset Lovable da capa retornava HTTP 502.
+import coverLocal from "@/assets/cover-local.jpg";
+import { absUrl } from "@/lib/seo";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
@@ -25,7 +27,7 @@ const GMB_UNICO_PRODUCT = {
   category: "Marketing Local",
   price: 397,
   pricePeriod: null,
-  imageUrl: cover.url,
+  imageUrl: coverLocal,
 };
 
 const GMB_PRO_PRODUCT = {
@@ -36,7 +38,7 @@ const GMB_PRO_PRODUCT = {
   category: "Marketing Local",
   price: 247,
   pricePeriod: "mês",
-  imageUrl: cover.url,
+  imageUrl: coverLocal,
 };
 
 const benefits = [
@@ -69,11 +71,11 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: cover.url },
+      { property: "og:image", content: absUrl(coverLocal) },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: cover.url },
+      { name: "twitter:image", content: absUrl(coverLocal) },
     ],
     links: [
       { rel: "canonical", href: URL },
@@ -191,7 +193,7 @@ function GMBPage() {
           >
             <div className="absolute -inset-6 bg-gradient-to-tr from-amber-400/30 to-primary/30 rounded-[3rem] blur-3xl" />
             <img
-              src={cover.url}
+              src={coverLocal}
               alt="Sua empresa não aparece no Google? A 0WEB configura e otimiza seu Google Meu Negócio."
               width={1248}
               height={1248}

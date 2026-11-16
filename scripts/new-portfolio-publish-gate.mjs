@@ -21,16 +21,35 @@ const SITE_CORE_GATES = [
   "PORTFOLIO_INDEXABILITY_GATE",
 ];
 
+const PUBLIC_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+function indexBySlug(records, label) {
+  if (!Array.isArray(records)) throw new Error(label + ": esperado array de registros");
+  const entries = new Map();
+  for (const record of records) {
+    const slug = record?.slug;
+    if (typeof slug !== "string" || !slug.trim())
+      throw new Error(label + ": slug ausente ou inválido");
+    if (entries.has(slug)) throw new Error(label + ": slug duplicado " + slug);
+    entries.set(slug, record);
+  }
+  return entries;
+}
+
 export function publishedCandidates(baseCatalog, nextCatalog, baseClients = [], nextClients = []) {
-  const before = new Map(baseCatalog.map((p) => [p.slug, p]));
-  const oldClients = new Set(baseClients.map((p) => p.slug));
-  const newClients = new Set(nextClients.map((p) => p.slug));
-  return [...new Set(nextCatalog.filter((p) => {
+  const before = indexBySlug(baseCatalog, "catálogo base");
+  const after = indexBySlug(nextCatalog, "catálogo candidato");
+  const oldClients = indexBySlug(baseClients, "clientes base");
+  const newClients = indexBySlug(nextClients, "clientes candidatos");
+  return [...after.values()].filter((p) => {
     if (p.status !== "published") return false;
     const old = before.get(p.slug);
     return !old || old.status !== "published" ||
       (!oldClients.has(p.slug) && newClients.has(p.slug));
-  }).map((p) => p.slug))].sort();
+  }).map(({ slug }) => {
+    if (!PUBLIC_SLUG.test(slug)) throw new Error("novo slug publicado inválido: " + slug);
+    return slug;
+  }).sort();
 }
 
 export function validatePublication(slug, catalog, clients, manifests, hasFile = existsSync) {
@@ -41,12 +60,14 @@ export function validatePublication(slug, catalog, clients, manifests, hasFile =
 
   if (!item || item.status !== "published") errors.push("catálogo não publicado ou ausente");
   if (!client) errors.push("cliente não registrado");
-  if (item && client && item.clientKey !== client.clientKey)
-    errors.push("clientKey do catálogo diverge do cadastro");
+  if (client && (!client.clientKey || item?.clientKey !== client.clientKey))
+    errors.push("clientKey do catálogo ausente ou divergente do cadastro");
   if (client && client.contactMode !== "funnelOnly")
     errors.push("novo cliente deve declarar contactMode=funnelOnly");
   if (client && (!client.componentFile || !hasFile(resolve(client.componentFile))))
     errors.push("componente exclusivo do cliente ausente");
+  if (client && (!client.routeFile || !hasFile(resolve(client.routeFile))))
+    errors.push("rota canônica do cliente ausente");
   if (!item?.title || String(item.summary ?? "").trim().length < 80)
     errors.push("título próprio e resumo factual com pelo menos 80 caracteres são obrigatórios");
 
@@ -54,7 +75,8 @@ export function validatePublication(slug, catalog, clients, manifests, hasFile =
     errors.push("manifesto de ciclo de vida ausente");
   } else {
     if (manifest.stage !== "published") errors.push("manifesto não está na fase published");
-    if (Number(manifest.contractVersion) < 4) errors.push("contrato individual v4 ausente");
+    if (!(Number(manifest.lifecycleContract) >= 1)) errors.push("contrato de lifecycle ausente");
+    if (!(Number(manifest.contractVersion) >= 4)) errors.push("contrato individual v4 ausente");
     if (manifest.lifecycle?.qa !== "complete" || manifest.lifecycle?.publish !== "complete")
       errors.push("etapas qa/publish não concluídas");
     if (manifest.visualQa?.status !== "PASS")

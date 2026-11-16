@@ -9,6 +9,7 @@
  * precisa ser um caminho interno permitido (`isSafeAssetPath`).
  */
 import { hasAuthorialPortfolioComposition } from "@/config/portfolio-authorial-compositions";
+import { evaluateNewManagedEditorialReadiness } from "@/lib/portfolio-managed-editorial";
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
 import {
   sanitizeManagedAuthorialCompositionPlan,
@@ -71,6 +72,9 @@ export type ManagedProject = {
   coverFocal: ManagedFocal;
   seoTitle: string;
   seoDescription: string;
+  /** Proveniência editorial (sem alterar os fallbacks SSR dos projetos históricos). */
+  seoTitleExplicit?: boolean;
+  seoDescriptionExplicit?: boolean;
   seoKeywords: string;
   canonicalUrl: string;
   socialImage: string;
@@ -302,6 +306,8 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     coverFocal: focal(row.cover_focal),
     seoTitle: text(row.seo_title, 160) || displayName,
     seoDescription: text(row.seo_description, 400) || text(row.summary, 300),
+    seoTitleExplicit: Boolean(text(row.seo_title, 160)),
+    seoDescriptionExplicit: Boolean(text(row.seo_description, 400)),
     seoKeywords: text(row.seo_keywords, 400),
     canonicalUrl: `https://0web.com.br/portfolio/${slug}`,
     socialImage: socialImage
@@ -357,6 +363,24 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   if (!project.seoTitle || !project.seoDescription) {
     blocker("PORTFOLIO_SEO_MISSING", "Preencha título e descrição de SEO.");
   }
+  // Apenas novos Managed: não confundir fallback de renderização com SEO editorial aprovado.
+  // O marcador forward-only já é gravado na criação; legados publicados preservam seu contrato.
+  if (project.authorialCompositionRequired && (!project.seoTitleExplicit || !project.seoDescriptionExplicit)) {
+    blocker(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+      "Novo projeto exige título e descrição SEO próprios; nome e resumo não substituem esses campos.",
+    );
+  }
+  if (project.authorialCompositionRequired) {
+    for (const issue of evaluateNewManagedEditorialReadiness({
+      summary: project.summary,
+      about: project.content.about,
+      seoTitle: project.seoTitle,
+      seoDescription: project.seoDescription,
+    })) {
+      blocker(issue.code, issue.message);
+    }
+  }
   if (project.seoDescription && project.seoDescription.length < 60) {
     warn("PORTFOLIO_SEO_SHORT", "A descrição de SEO está curta (ideal: 120-160 caracteres).");
   }
@@ -403,6 +427,30 @@ export function managedStatus(project: ManagedProject) {
     canBeReady: blockers.length === 0,
     state: blockers.length === 0 ? ("COMPLETE" as const) : ("PARTIAL" as const),
   };
+}
+
+/**
+ * Forward-only protection against degrading an already published Managed page
+ * through the SAVE editor action (which does not invoke lifecycle transitions).
+ *
+ * Historical projects may have outstanding blockers: only newly introduced
+ * blocker codes prevent an edit; improvements to existing partial pages remain
+ * possible. New publication continues to use the complete managedStatus gate.
+ */
+export function newPublishedManagedConformanceBlockers(
+  previous: ManagedProject,
+  candidate: ManagedProject,
+): ManagedConformanceIssue[] {
+  if (previous.lifecycle !== "published" || !previous.published) return [];
+
+  const previousBlockers = new Set(
+    evaluateManagedConformance(previous)
+      .filter((issue) => issue.level === "blocker")
+      .map((issue) => issue.code),
+  );
+  return evaluateManagedConformance(candidate).filter(
+    (issue) => issue.level === "blocker" && !previousBlockers.has(issue.code),
+  );
 }
 
 /** Transições permitidas do ciclo de vida (o admin não pode pular etapas). */

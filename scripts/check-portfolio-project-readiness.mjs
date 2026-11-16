@@ -18,6 +18,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+import { checkNewPortfolioIndividualSiteVersion } from "./lib/portfolio-new-site-contract.mjs";
 import {
   COMPOSITION_CONTRACT_VERSION,
   evaluateProjectUniqueness,
@@ -122,6 +123,8 @@ function evaluate(slug, manifest) {
   const project = catalogBySlug.get(slug);
   const client = clients.find((c) => c.slug === slug);
   const published = project?.status === "published";
+  const contractVersionError = checkNewPortfolioIndividualSiteVersion(slug, manifest);
+  if (contractVersionError) blockers.push(contractVersionError);
 
   // --- PORTFOLIO AS INDIVIDUAL SITE CONTRACT (contrato v4+)
   if (Number(manifest.contractVersion ?? 0) >= INDIVIDUAL_SITE_CONTRACT_VERSION) {
@@ -271,8 +274,19 @@ function evaluate(slug, manifest) {
 
   // --- funnelValid
   const componentSource = client?.componentFile ? read(client.componentFile) : "";
-  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource);
-  if (!checks.funnelValid) blockers.push("funil próprio não encontrado no componente do cliente");
+  const hostedForm = readJson("src/config/portfolio-hosted-form-registry.json", { forms: {} }).forms?.[client?.clientKey ?? slug];
+  const hostedProof =
+    hostedForm?.provider === "jotform" &&
+    hostedForm?.status === "verified" &&
+    hostedForm?.consentRequired === true &&
+    hostedForm?.testSubmissionVerified === true &&
+    hostedForm?.clientKey === (client?.clientKey ?? slug) &&
+    /^https:\/\/form\.jotform\.com\/\d+$/.test(hostedForm?.url ?? "") &&
+    componentSource.includes(hostedForm.url) &&
+    componentSource.includes('data-funnel-provider="jotform"') &&
+    componentSource.includes(`data-client-key="${client?.clientKey ?? slug}"`);
+  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource) || hostedProof;
+  if (!checks.funnelValid) blockers.push("funil próprio não encontrado ou formulário hospedado sem comprovação de persistência/consentimento");
 
   // --- contactMode / funnelType (canal comercial é sempre o funil individual)
   checks.contactModeDeclared = client?.contactMode === "funnelOnly";
@@ -298,10 +312,13 @@ function evaluate(slug, manifest) {
     /leadOnly:\s*!destinationConfigured/.test(funnelSource) &&
     /requiresRecoveryContact:\s*false/.test(funnelSource);
 
-  checks.leadRecoverabilityGate = sharedGuarantee && destination.status !== "FAIL";
-  if (!sharedGuarantee) {
+  const recoverable = hostedForm ? hostedProof : sharedGuarantee;
+  checks.leadRecoverabilityGate = recoverable && destination.status !== "FAIL";
+  if (!recoverable) {
     blockers.push(
-      "LEAD_RECOVERABILITY_GATE: funil compartilhado não preserva o contrato WHATSAPP/LEAD_ONLY",
+      hostedForm
+        ? "LEAD_RECOVERABILITY_GATE: formulário hospedado sem gravação comprovada/consentimento ou destino do cliente inconsistente"
+        : "LEAD_RECOVERABILITY_GATE: funil compartilhado não preserva o contrato WHATSAPP/LEAD_ONLY",
     );
   }
 

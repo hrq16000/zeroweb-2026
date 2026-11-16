@@ -1,0 +1,55 @@
+{
+  "slug": "agropet-filt",
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "CONTEXTUAL_ILLUSTRATION",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "src/components/site/AgropetFiltPreviewPage.tsx#af-pet-illustration",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "categorias",
+      "requiredMediaRole": "CATEGORY_EXPLANATION",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "lucide category icons",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "localizacao",
+      "requiredMediaRole": "WAYFINDING_EDITORIAL",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "ilustracao vetorial com aviso de esquema nao cartografico",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "prova-real",
+      "requiredMediaRole": "REAL_BUSINESS_PHOTOS",
+      "sourceType": "MISSING_MEDIA",
+      "asset": null,
+      "status": "PENDING_OWNER_MEDIA",
+      "resolution": "change-layout"
+    },
+    {
+      "section": "social-preview",
+      "requiredMediaRole": "OG_MEDIA",
+      "sourceType": "BRAND_COMPOSITION",
+      "asset": "public/images/agropet-filt/social-og.svg",
+      "status": "COMPLETE"
+    }
+  ],
+  "notes": "Sem fotos do estabelecimento ou marca oficial disponíveis. Nenhuma foto de outro comércio é reutilizada.",
+  "cover": {
+    "approved": true,
+    "strategy": "BRAND_LED",
+    "asset": "public/images/agropet-filt/capa-card.svg",
+    "evidence": "GitHub Action 41868845709 + explicit delegated creative authorization, proprietary vector; no real business photo"
+  },
+  "heroMedia": {
+    "asset": "src/components/site/AgropetFiltPreviewPage.tsx#af-pet-illustration",
+    "kind": "GRAPHIC_MEDIA",
+    "quality": "EDITORIAL",
+    "reviewedAt": "2026-11-04",
+    "notDocumentary": true
+  }
+}

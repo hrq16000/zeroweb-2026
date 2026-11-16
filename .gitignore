@@ -44,3 +44,10 @@ seo-reports/visual/
 *.njsproj
 *.sln
 *.sw?
+
+# Backups e índices de exportação Lovable Cloud: proibido versionar dados
+*.backup
+*.pgdump
+*.dump
+*.toc
+migration-private/

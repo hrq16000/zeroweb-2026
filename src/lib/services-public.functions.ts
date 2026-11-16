@@ -3,6 +3,8 @@
 // o serviço não exista lá ainda. Usado por /servicos e /servicos/$slug.
 import { createServerFn } from "@tanstack/react-start";
 import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
+import { isKnownLegacyServiceImage } from "@/lib/service-legacy-image-recovery";
+import { recoverGoogleAdsGallery } from "@/lib/service-gallery-recovery";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
 import blogMarketingCover from "@/assets/blog-marketing.webp";
@@ -11,15 +13,16 @@ import blogChatbotCover from "@/assets/blog-ia-whatsapp.jpg";
 import blogSocialCover from "@/assets/blog-meta-ads.jpg";
 import blogSitesCover from "@/assets/blog-sites.webp";
 import blogRoiTrafegoCover from "@/assets/blog-roi-trafego.jpg";
+import blogGoogleAdsCover from "@/assets/blog-google-ads.jpg";
 import heroDashboardCover from "@/assets/hero-dashboard.webp";
 import coverLocal from "@/assets/cover-local.jpg";
 import coverSeo from "@/assets/cover-seo.jpg";
 import coverSiteExpress from "@/assets/cover-site-express.jpg";
 import coverTrafegoPago from "@/assets/cover-trafego-pago.jpg";
-import googleAds299Cover from "@/assets/google-ads-299-capa.png.asset.json";
-import googleMeuNegocioCover from "@/assets/google-meu-negocio-capa.png.asset.json";
-import presencaDigitalCover from "@/assets/presenca-digital-google-capa.png.asset.json";
-import trafegoPagoCover from "@/assets/trafego-pago-499-capa.png.asset.json";
+import coverGoogleAds from "@/assets/cover-google-ads.jpg";
+
+
+
 import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 
@@ -196,6 +199,10 @@ function normalizePublicServiceRow(row: DbServiceRow): DbServiceRow {
   if (row.slug === "google-meu-negocio") {
     return {
       ...row,
+      // A URL /__l5e legada deu 502 no host público; preferir coverLocal
+      // já versionado. Qualquer upload novo, diferente, continua prioritário.
+      image_path: isKnownLegacyServiceImage(row.slug, row.image_path) ? null : row.image_path,
+      og_image_path: isKnownLegacyServiceImage(row.slug, row.og_image_path) ? null : row.og_image_path,
       price: 397,
       price_period: null,
       conditions: "Plano Único: R$397 em pagamento único. Plano PRO: R$247/mês por 3 meses.",
@@ -319,9 +326,9 @@ export const RECOVERED_COVERS: Record<string, string> = {
   "loja-virtual": heroDashboardCover,
   "trafego-pago": coverTrafegoPago,
   "trafego-pago-local": coverLocal,
-  "google-ads-299": googleAds299Cover.url,
+  "google-ads-299": coverGoogleAds,
   seo: coverSeo,
-  "google-meu-negocio": googleMeuNegocioCover.url,
+  "google-meu-negocio": coverLocal,
   "marketing-digital": blogMarketingCover,
   "automacao-com-ia": blogAutomacaoCover,
   "chatbot-whatsapp": blogChatbotCover,
@@ -415,7 +422,12 @@ function normalizeStorefrontRow(row: DbStorefrontRow): DbStorefrontRow {
     };
   }
   if (row.slug === "google-meu-negocio") {
-    return { ...row, price: 397, price_period: null };
+    return {
+      ...row,
+      image_path: isKnownLegacyServiceImage(row.slug, row.image_path) ? null : row.image_path,
+      price: 397,
+      price_period: null,
+    };
   }
   if (row.slug === "trafego-pago") {
     return { ...row, price: 0, price_period: null };
@@ -506,10 +518,15 @@ export const listServicesPublic = createServerFn({ method: "GET" }).handler(asyn
     const mapped = await Promise.all(
       rows.map(async (raw) => {
         const r = normalizePublicServiceRow(raw);
+        const gallery = recoverGoogleAdsGallery(
+          r.slug,
+          await signGallery(signer, r.gallery),
+          { campaigns: blogGoogleAdsCover, results: blogRoiTrafegoCover },
+        );
         return mapRow(
           r,
           await signImage(signer, r.image_path),
-          await signGallery(signer, r.gallery),
+          gallery,
           await signImage(signer, r.og_image_path),
         );
       }),
@@ -557,7 +574,14 @@ export const getServicePublic = createServerFn({ method: "GET" })
       if (row) {
         const r = normalizePublicServiceRow(row as unknown as DbServiceRow);
         const imageUrl = await signImage(signer, r.image_path);
-        const gallery = await signGallery(signer, r.gallery);
+        // A galeria antiga do Google Ads referencia três assets Lovable 404.
+        // Capa repetida é omitida; duas imagens editoriais locais substituem
+        // somente os itens históricos conhecidos, sem mudar novos uploads.
+        const gallery = recoverGoogleAdsGallery(
+          r.slug,
+          await signGallery(signer, r.gallery),
+          { campaigns: blogGoogleAdsCover, results: blogRoiTrafegoCover },
+        );
         const ogImageUrl = await signImage(signer, r.og_image_path);
         return { service: mapRow(r, imageUrl, gallery, ogImageUrl), source: "db" as const };
       }

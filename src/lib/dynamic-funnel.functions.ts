@@ -3,6 +3,7 @@ import { getRequest, getRequestHeader, getRequestIP } from "@tanstack/react-star
 import { z } from "zod";
 import { PORTFOLIO_CLIENT_KEYS, isPortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
+import { DONA_GARIMPEIRA_CLIENT_KEY } from "@/lib/dona-garimpeira-funnel-guard";
 import { scoreLead } from "./lead-scoring";
 
 // ============ Types (also used by the client UI) ============
@@ -73,12 +74,33 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: form, error } = await supabaseAdmin
       .from("dynamic_forms")
-      .select("id, slug, name, description, status, config_json, whatsapp_config")
+      .select("id, slug, name, description, status, published_version_id, config_json, whatsapp_config")
       .eq("slug", data.slug)
       .eq("status", "published")
       .maybeSingle();
     if (error) throw new Error(error.message);
     if (!form) return null;
+    // Apenas este portfolio exige prova de uma versão realmente publicada.
+    // Um UPDATE isolado de status não pode expor o funil em estado incompleto.
+    if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) return null;
+
+    // A leitura pública exige o site liberado e o destino próprio do brechó.
+    if (form.slug === "funnel-dona-garimpeira-brecho") {
+      const [
+        { donaGarimpeiraIntakeReady, DONA_GARIMPEIRA_CLIENT_KEY },
+        { resolveVersionedPortfolioWhatsApp },
+        { findPortfolioPrototype },
+      ] = await Promise.all([
+        import("@/lib/dona-garimpeira-funnel-guard"),
+        import("@/lib/portfolio-whatsapp-registry.server"),
+        import("@/lib/portfolio-site-registry"),
+      ]);
+      if (!donaGarimpeiraIntakeReady(
+        isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
+        findPortfolioPrototype(DONA_GARIMPEIRA_CLIENT_KEY)?.indexable === true,
+        Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
+      )) return null;
+    }
 
     const [{ data: qs }, { data: cs }] = await Promise.all([
       supabaseAdmin
@@ -95,7 +117,12 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
 
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
     const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
-    const operationalWhatsApp = wa.enabled ? resolveOperationalWhatsAppContact() : null;
+    // O campo whatsapp_enabled representa alerta institucional, nunca o
+    // destino privado do funil do cliente. Evitar sinalização enganosa.
+    const operationalWhatsApp =
+      form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled
+        ? resolveOperationalWhatsAppContact()
+        : null;
     return {
       id: form.id,
       slug: form.slug,
@@ -213,11 +240,41 @@ export const submitFunnel = createServerFn({ method: "POST" })
 
     const { data: form, error: fErr } = await supabaseAdmin
       .from("dynamic_forms")
-      .select("id, name, slug, status, whatsapp_config")
+      .select("id, name, slug, status, published_version_id, whatsapp_config")
       .eq("id", data.form_id)
       .maybeSingle();
     if (fErr) throw new Error(fErr.message);
     if (!form || form.status !== "published") throw new Error("Funil não disponível");
+    if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) {
+      throw new Error("Funil não disponível");
+    }
+
+    // Fail closed: um rascunho do brechó publicado por engano no banco não
+    // pode enviar o lead à 0WEB ou a outro cliente. Exigir registros canônicos
+    // e os dados mínimos da jornada antes de qualquer INSERT/redirect.
+    // Proteger também o caminho inverso: ninguém envia um formulário de outro
+    // cliente usando o clientKey reservado para Dona Garimpeira.
+    if (form.slug === "funnel-dona-garimpeira-brecho" ||
+        String(data.client_metadata?.client_key ?? "") === "dona-garimpeira-brecho") {
+      const [
+        { checkDonaGarimpeiraSubmission, DONA_GARIMPEIRA_CLIENT_KEY },
+        { resolveVersionedPortfolioWhatsApp },
+        { findPortfolioPrototype },
+      ] = await Promise.all([
+        import("@/lib/dona-garimpeira-funnel-guard"),
+        import("@/lib/portfolio-whatsapp-registry.server"),
+        import("@/lib/portfolio-site-registry"),
+      ]);
+      const ready = checkDonaGarimpeiraSubmission({
+        formSlug: form.slug,
+        clientKey: data.client_metadata?.client_key,
+        registered: isPortfolioClientKey(DONA_GARIMPEIRA_CLIENT_KEY),
+        sitePublished: findPortfolioPrototype(DONA_GARIMPEIRA_CLIENT_KEY)?.indexable === true,
+        ownWhatsAppConfigured: Boolean(resolveVersionedPortfolioWhatsApp(DONA_GARIMPEIRA_CLIENT_KEY)),
+        answers: data.answers,
+      });
+      if (!ready.ok) throw new Error("Funil da Dona Garimpeira ainda não disponível.");
+    }
 
     const { data: qs } = await supabaseAdmin
       .from("dynamic_form_questions")
@@ -287,7 +344,14 @@ export const submitFunnel = createServerFn({ method: "POST" })
     // ---- Internal notification metadata ----
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
     const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
-    const operationalAlert = wa.enabled ? resolveOperationalWhatsAppContact() : null;
+    // A opção WhatsApp do formulário é um alerta operacional da 0WEB.
+    // Para a Dona Garimpeira, nunca encaminhar conteúdo/PII do lead ao
+    // WhatsApp institucional; o único destino futuro é o clientKey próprio,
+    // resolvido após a gravação pela rotina de token.
+    const operationalAlert =
+      form.slug !== "funnel-dona-garimpeira-brecho" && wa.enabled
+        ? resolveOperationalWhatsAppContact()
+        : null;
     const answersText = fmtAnswers(data.answers, questions);
     const metadataText = fmtMetadata(metadata);
     const whatsapp_user_url: string | null = null;
@@ -545,6 +609,11 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   }).parse(data))
 
   .handler(async ({ data }) => {
+    // A Dona Garimpeira só recebe leads pelo formulário próprio, com ciência de privacidade.
+    if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY) {
+      throw new Error("Use o formulário próprio da Dona Garimpeira.");
+    }
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const routingKind = await resolvePortfolioRoutingKind(supabaseAdmin as any, data.clientKey);
     if (!routingKind) throw new Error("Projeto de portfólio não registrado.");

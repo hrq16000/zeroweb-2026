@@ -4,6 +4,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { resolveBaseUrl, renderSitemap } from "@/lib/sitemap-utils";
 import { CAPITAIS } from "@/lib/capitais";
+import { selectInstitutionalCapitals } from "@/lib/sitemap-publication-policy";
 
 export const Route = createFileRoute("/sitemap-institucional.xml")({
   server: {
@@ -14,18 +15,31 @@ export const Route = createFileRoute("/sitemap-institucional.xml")({
         const published = await listPublishedLocalPages();
         const publishedBySlug = new Map(published.map((row) => [row.slug, row]));
 
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server").catch(
-          () => ({ supabaseAdmin: null as any }),
-        );
-        let unpublished = new Set<string>();
-        if (supabaseAdmin) {
-          const { data } = await supabaseAdmin
+        // A ausência de credenciais, indisponibilidade do banco ou erro de
+        // consulta não pode resultar em HTTP 500 nem em páginas locais fictícias.
+        // null indica que não foi possível confirmar as exclusões.
+        let unpublished: Set<string> | null = null;
+        try {
+          const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+          const { data, error } = await supabaseAdmin
             .from("local_pages")
             .select("slug")
             .eq("published", false)
             .limit(500);
-          unpublished = new Set((data ?? []).map((r: any) => String(r.slug)));
+          if (error) throw new Error(error.message);
+          unpublished = new Set((data ?? []).map((row) => String(row.slug)));
+        } catch (error) {
+          console.warn(
+            "[sitemap-institucional] publicação local não verificável; mantendo somente capitais confirmadas",
+            error instanceof Error ? error.message : "erro de leitura",
+          );
         }
+
+        const visibleCapitals = selectInstitutionalCapitals(
+          CAPITAIS,
+          new Set(published.filter((row) => row.published).map((row) => row.slug)),
+          unpublished,
+        );
 
         return renderSitemap(resolveBaseUrl(request), [
           {
@@ -34,7 +48,7 @@ export const Route = createFileRoute("/sitemap-institucional.xml")({
             priority: "0.95",
             lastmod: today,
           },
-          ...CAPITAIS.filter((c) => !unpublished.has(c.slug)).map((c) => ({
+          ...visibleCapitals.map((c) => ({
             path: `/criacao-de-site-institucional/${c.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",

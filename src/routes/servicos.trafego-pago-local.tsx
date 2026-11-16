@@ -3,7 +3,8 @@ import { motion } from "motion/react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CheckCircle2, XCircle, MessageCircle, Phone, ShoppingCart, Rocket, AlertTriangle, ArrowRight, Sparkles, Target } from "lucide-react";
-import capa from "@/assets/trafego-pago-499-capa.png.asset.json";
+import trafficCover from "@/assets/cover-trafego-pago.jpg";
+import { absUrl } from "@/lib/seo";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { ProductActionGate } from "@/components/site/ProductActionGate";
@@ -22,13 +23,11 @@ export const Route = createFileRoute("/servicos/trafego-pago-local")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: `https://0web.com.br${capa.url}` },
-      { property: "og:image:width", content: "1240" },
-      { property: "og:image:height", content: "1240" },
+      { property: "og:image", content: absUrl(trafficCover) },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: `https://0web.com.br${capa.url}` },
+      { name: "twitter:image", content: absUrl(trafficCover) },
     ],
     links: [
       { rel: "canonical", href: URL },
@@ -56,7 +55,7 @@ export const Route = createFileRoute("/servicos/trafego-pago-local")({
             availability: "https://schema.org/InStock",
             url: URL,
           },
-          image: `https://0web.com.br${capa.url}`,
+          image: absUrl(trafficCover),
         }),
       },
       {
@@ -97,7 +96,7 @@ function TrafegoPagoLocalPage() {
     category: "Tráfego",
     price: 499,
     pricePeriod: "mês",
-    imageUrl: capa.url,
+    imageUrl: trafficCover,
   };
 
   return (
@@ -136,7 +135,7 @@ function TrafegoPagoLocalPage() {
             </div>
             <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="relative">
               <img
-                src={capa.url}
+                src={trafficCover}
                 alt="0WEB Tráfego Pago — Mais clientes, mais vendas. Planos a partir de R$499/mês"
                 width={1240}
                 height={1240}

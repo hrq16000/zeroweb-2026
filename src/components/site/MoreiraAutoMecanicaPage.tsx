@@ -110,6 +110,8 @@ const theme = {
 
 /** Quebra de ritmo: um único bloco claro no meio da página (adendo §2). */
 const lightSurface = {
+  backgroundColor: "oklch(0.955 0.006 250)",
+  color: "oklch(0.21 0.02 249)",
   "--background": "oklch(0.955 0.006 250)",
   "--foreground": "oklch(0.21 0.02 249)",
   "--card": "oklch(0.99 0.002 250)",
@@ -133,10 +135,10 @@ export const blueprint: PortfolioBlueprint = {
      * logo real enviada pelo proprietário substitui este asset.
      */
     logo: {
-      src: "/images/moreira-auto-mecanica/logo.png",
+      src: "/images/_generated/moreira-auto-mecanica/logo-264.webp",
       alt: "Moreira Auto Mecânica",
-      width: 1536,
-      height: 512,
+      width: 264,
+      height: 88,
       managedField: "logoUrl",
     },
     tagline: "Mecânica para carros — Cidade Jardim, São José dos Pinhais — PR",
@@ -192,10 +194,10 @@ export const blueprint: PortfolioBlueprint = {
         subheadline:
           "A Moreira Auto Mecânica atende no Cidade Jardim, em São José dos Pinhais, e tem 4,8 de nota pública no Google em 105 avaliações — 93 delas de cinco estrelas. Descreva pelo formulário o que o carro está apresentando e escolha o período para levar.",
         image: {
-          src: "/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+          src: "/images/_generated/moreira-auto-mecanica/hero-1200.webp",
           alt: "Galpão coberto da Moreira Auto Mecânica com vários carros em manutenção e um veículo sobre o elevador",
-          width: 1600,
-          height: 1200,
+          width: 1200,
+          height: 900,
           priority: true,
         },
         highlights: ["Cidade Jardim · SJP", "Segunda a sexta, 08h–18h30", "Atendimento presencial na oficina"],
@@ -278,30 +280,30 @@ export const blueprint: PortfolioBlueprint = {
             title: "Galpão coberto",
             text: "Vários carros atendidos ao mesmo tempo, com elevador e área de circulação interna.",
             image: {
-              src: "/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+              src: "/images/_generated/moreira-auto-mecanica/google-mecanico-atendimento-800.webp",
               alt: "Mecânico trabalhando no compartimento do motor de um carro dentro do galpão da oficina",
-              width: 1100,
-              height: 1466,
+              width: 800,
+              height: 1066,
             },
           },
           {
             title: "Motor aberto na avaliação",
             text: "Boa parte do trabalho começa com o capô aberto e o problema sendo conferido no lugar.",
             image: {
-              src: "/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+              src: "/images/_generated/moreira-auto-mecanica/google-motor-aberto-1200.webp",
               alt: "Compartimento do motor aberto de um carro em avaliação na oficina",
-              width: 1800,
-              height: 810,
+              width: 1200,
+              height: 540,
             },
           },
           {
             title: "Entrada pela Padre Alberto Müler",
             text: "Fachada e portão de acesso da oficina, no Cidade Jardim, em São José dos Pinhais.",
             image: {
-              src: "/images/moreira-auto-mecanica/google-fachada.jpg",
+              src: "/images/_generated/moreira-auto-mecanica/google-fachada-960.webp",
               alt: "Fachada da oficina com portão metálico e árvore na calçada, em rua residencial",
-              width: 1160,
-              height: 868,
+              width: 960,
+              height: 718,
             },
           },
         ],
@@ -343,10 +345,10 @@ export const blueprint: PortfolioBlueprint = {
           },
         ],
         image: {
-          src: "/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+          src: "/images/_generated/moreira-auto-mecanica/google-motor-aberto-1200.webp",
           alt: "",
-          width: 1800,
-          height: 810,
+          width: 1200,
+          height: 540,
         },
         note: "Formas de pagamento, acessibilidade e horários conforme a ficha pública da oficina no Google em 11/09/2026.",
       },
@@ -472,10 +474,10 @@ export const blueprint: PortfolioBlueprint = {
         ],
         mapsLink: { label: "Abrir no Google Maps", href: GOOGLE_PLACE_URL },
         image: {
-          src: "/images/moreira-auto-mecanica/google-fachada.jpg",
+          src: "/images/_generated/moreira-auto-mecanica/google-fachada-960.webp",
           alt: "Portão de acesso da Moreira Auto Mecânica na R. Padre Alberto Müler",
-          width: 1160,
-          height: 868,
+          width: 960,
+          height: 718,
         },
         note: `O telefone acima é informação institucional da ficha pública, não um canal de atendimento deste site: o pedido de avaliação chega à oficina pelo formulário. ${MEDIA_ATTRIBUTION}`,
         ctaLabel: "Agendar minha avaliação",
@@ -492,10 +494,10 @@ export const blueprint: PortfolioBlueprint = {
         text: "Modelo, ano e o sintoma que você percebe. A equipe da Moreira recebe a descrição e combina o melhor dia para você levar o carro.",
         ctaLabel: "Descrever e agendar",
         image: {
-          src: "/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+          src: "/images/_generated/moreira-auto-mecanica/google-mecanico-atendimento-800.webp",
           alt: "",
-          width: 1100,
-          height: 1466,
+          width: 800,
+          height: 1066,
         },
       },
     },
@@ -550,5 +552,21 @@ export const blueprint: PortfolioBlueprint = {
 };
 
 export function MoreiraAutoMecanicaPage() {
-  return <PortfolioBlueprintRenderer blueprint={blueprint} />;
+  return (
+    <>
+      {/* H1 e subheadline já existem no SSR. Não os ocultar por animação no primeiro paint:
+          Lighthouse confirmou render delay no elemento de LCP da Moreira.
+          Escopo deliberadamente local, sem alterar motion de outros portfólios. */}
+      <style>{`
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"],
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina p[data-motion="reveal"] {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          will-change: auto !important;
+        }
+      `}</style>
+      <PortfolioBlueprintRenderer blueprint={blueprint} />
+    </>
+  );
 }

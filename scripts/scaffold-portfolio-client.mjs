@@ -30,6 +30,8 @@ const siteName = flag("name");
 const ctaMode = flag("cta") ?? "proposal";
 const clientKey = flag("client-key") ?? slug;
 const dryRun = args.includes("--dry-run");
+// Opt-in: only adds a BLOCKED delivery-readiness draft; it never enables orders.
+const transactionalDelivery = args.includes("--delivery-transactional");
 
 /** Canal comercial: o funil individual nasce com o tipo do negócio. */
 const FUNNEL_TYPES = {
@@ -47,6 +49,9 @@ if (!FUNNEL_TYPES[funnelType]) {
   process.exit(1);
 }
 const ctaLabel = FUNNEL_TYPES[funnelType];
+// Agendamento real é opt-in e nasce bloqueado até existir backend + OAuth + RLS.
+// "agendamento" sem backend continua sendo captação de intenção pelo funil.
+const managedBookingRequested = args.includes("--managed-booking") || funnelType === "agendamento";
 
 if (!slug || !siteName) {
   console.error("Uso: node scripts/scaffold-portfolio-client.mjs --slug <slug> --name \"<Nome>\"");
@@ -82,6 +87,82 @@ const write = (relPath, content) => {
   }
   written.push(relPath);
 };
+
+/**
+ * DELIVERY — opt-in classification only. Scaffolding a landing with
+ * "--funnel-type pedido" is NOT a transactional checkout.
+ * Never mutate shared storefront routes or publish payment/order capability.
+ */
+if (transactionalDelivery) {
+  const reference = JSON.parse(
+    readFileSync(resolve(root, "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"), "utf8"),
+  );
+  const deliveryManifestPath = `docs/portfolio/delivery-readiness/${slug}.json`;
+  const deliveryManifest = {
+    ...reference,
+    storeId: null, // Never invent or assume an onboarded store ID.
+    clientKey,
+    projectSlug: slug,
+    environment: "draft-only",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    notes: [
+      "DRAFT ONLY: this file does not implement or enable a delivery storefront.",
+      "An order/checkout/operational system must be built and tested separately.",
+      "All readiness gates start NOT_EXECUTED; the fail-closed preflight returns BLOCKED.",
+      "No storeId or production permissions are inferred from the portfolio slug.",
+    ],
+    gates: reference.gates.map((gate) => ({
+      id: gate.id,
+      status: "NOT_EXECUTED",
+      evidence: null,
+    })),
+  };
+  write(deliveryManifestPath, `${JSON.stringify(deliveryManifest, null, 2)}\n`);
+  console.warn(
+    `[scaffold:delivery] ${slug}: apenas manifesto BLOCKED; sem checkout, pedido ou pagamento implementado.`,
+  );
+}
+
+/**
+ * BOOKING — somente contrato de readiness. Não cria conta, slot, reserva,
+ * profissional, painel ou dados falsos. Esta capacidade é tenant-scoped.
+ */
+if (managedBookingRequested) {
+  const readiness = {
+    schemaVersion: 1,
+    capability: "portfolio_managed_booking",
+    slug,
+    clientKey,
+    sourceFunnelIntent: funnelType,
+    mode: "managed_booking",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    googleLoginOnly: true,
+    adminAccessConfigured: false, // E-mails são privados e nunca versionados no repositório.
+    gates: [
+      "google_oauth_verified",
+      "admin_email_whitelist_and_server_authorization",
+      "tenant_rls_isolation_verified",
+      "service_and_staff_catalog_real",
+      "work_hours_and_exceptions_saved",
+      "transactional_slot_conflict_guard",
+      "persistent_booking_and_protocol",
+      "public_booking_e2e_pass",
+      "client_admin_e2e_pass",
+      "public_seo_and_private_noindex_pass",
+    ].map((id) => ({ id, status: "NOT_EXECUTED", evidence: null })),
+    standard: "docs/PORTFOLIO_BOOKING_CLIENT_ADMIN_STANDARD.md",
+    note: "DRAFT/BLOCKED. Existing funnel captures only booking intent. This manifest does not enable live appointments.",
+  };
+  write(
+    `docs/portfolio/booking-readiness/${slug}.json`,
+    `${JSON.stringify(readiness, null, 2)}\n`,
+  );
+  console.warn(
+    `[scaffold:booking] ${slug}: manifesto BLOCKED; sem reserva confirmada ou painel de cliente operacional.`,
+  );
+}
 
 /**
  * SCAFFOLD DE COMPOSIÇÃO — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §16.
@@ -413,6 +494,11 @@ write(
        * PROVE_CAPABILITY · CREATE_EMOTION · BREAK_VISUAL_RHYTHM · SUPPORT_CONVERSION · BRAND_RECALL
        */
       sections: [],
+      // Prebuild gera WebP do heroMedia.asset local quando aprovado=true.
+      // Para logo/galeria, declarar { source, role, approved: true, widths? }.
+      // Nunca converte referencia remota nem altera o asset original.
+      heroMedia: null,
+      performanceImages: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
     },
@@ -695,6 +781,10 @@ if (existsSync(compositionRegistryPath)) {
 }
 
 console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
+if (transactionalDelivery) {
+  console.log(`[scaffold:delivery] readiness: docs/portfolio/delivery-readiness/${slug}.json — DELIVERY_READY=BLOCKED`);
+}
+
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`

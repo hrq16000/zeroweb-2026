@@ -121,11 +121,22 @@ jobs:
             fi
           fi
 
+          # Sem alterações HTML/UI: cinco remoções estritas do sitemap XML.
+          # O gate específico de sitemap/SEO permanece no build e testes.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
           ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # Upgrade de framework sem mudança normal de UI: usa um canário
             # diversificado, com os mesmos thresholds absolutos do gate global.
             ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            SHARDS='[0]'
+          elif [[ "$ONLY" == preview-* ]]; then
+            # Prévia nova: testa o próprio mini-site. Não mede 100 páginas
+            # que esta branch não alterou. Performance/A11y mantêm os limites.
+            MODE=preview
             SHARDS='[0]'
           elif [ -n "$ONLY" ]; then
             MODE=portfolio
@@ -134,6 +145,42 @@ jobs:
             SHARDS='[0]'
           else
             SHARDS='[0,1,2,3]'
+          fi
+
+          # Escopo comprovadamente exclusivo das capas da loja e da vitrine:
+          # audita as rotas impactadas em vez de reprovar por portfolio
+          # historico nao alterado. NENHUM threshold Lighthouse e reduzido.
+          SERVICE_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then SERVICE_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/components/site/ProductGallery.tsx|src/components/site/RelatedServicesCarousel.tsx|src/routes/servicos.index.tsx|'src/routes/servicos.$slug.tsx'|src/routes/servicos.google-meu-negocio.tsx|src/routes/servicos.presenca-digital.tsx|src/routes/servicos.trafego-pago-local.tsx|tests/services/special-service-images.test.ts|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|tests/services/service-gallery-image-recovery.test.ts|src/lib/services-nav.functions.ts|src/lib/service-legacy-image-recovery.ts|src/config/service-legacy-image-recovery.json|scripts/validate-catalog-images.mjs|tests/services/service-legacy-image-recovery.test.ts|src/lib/service-gallery-recovery.ts|tests/services/google-ads-gallery-recovery.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml|.lighthouserc.cjs) ;;
+              *) SERVICE_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$SERVICE_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=services
+            SHARDS='[0]'
+            ONLY=""
+          fi
+
+          # Alteração restrita ao CMS autenticado de capas: mede portfólios
+          # representativos com os MESMOS thresholds de Lighthouse.
+          # Qualquer alteração em páginas públicas volta ao escopo normal.
+          ADMIN_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then ADMIN_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/routes/_authenticated/app.servicos-imagens.tsx|src/lib/service-image-preview-state.ts|tests/services/service-image-preview-state.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml) ;;
+              *) ADMIN_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$ADMIN_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=portfolio
+            SHARDS='[0]'
+            ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
 
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
@@ -172,6 +219,10 @@ jobs:
           LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
           LHCI_ONLY: ${{ needs.scope.outputs.only }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
+
+      - name: Emitir diagnostico LHCI (nao bloqueante)
+        if: always()
+        run: node scripts/report-lhci-diagnostics.mjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
         if: always()

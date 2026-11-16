@@ -46,3 +46,9 @@ Se a detecção passar, o CI dispara automaticamente na mesma PR:
 O workflow sinaliza falhas automaticamente. Para **impedir por política de servidor** um merge manual que ignore os resultados, o administrador do GitHub deve exigir o check "Detectar e validar novos portfólios publicados", o QA condicional de novos portfólios quando ativo e os gates atuais na proteção de main.
 
 Sem proteção do branch não há como prometer bloqueio de merge no servidor; a equipe deve obedecer à governança até a regra ser ativada.
+
+## Relação com os gates existentes
+
+O workflow dedicado executa Lighthouse, popup, funis em modo de simulação e regressão visual para as novas publicações. Os workflows gerais continuam responsáveis por hidratação, axe, indexabilidade e demais verificações. O detector reprova catálogos ou registros de clientes duplicados, novos slugs inválidos, ausência de rota canônica e manifestos sem versões de ciclo de vida e contrato individual.
+
+O detector roda na PR e no push integrante da `main`, sempre comparando com o SHA de base do evento. Se o Git não conseguir obter esse SHA ou seus arquivos, a execução falha.

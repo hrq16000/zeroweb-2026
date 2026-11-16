@@ -2,6 +2,11 @@ name: Portfolio SEO runtime audit
 
 on:
   workflow_dispatch:
+    inputs:
+      portfolio_slug:
+        description: "Opcional: slug para verificar URL mesmo ausente do sitemap"
+        required: false
+        type: string
   schedule:
     - cron: "17 10 * * *"
 
@@ -22,8 +27,21 @@ jobs:
       - name: Install (frozen lockfile)
         run: bun install --frozen-lockfile
 
-      - name: Contratos determinísticos + produção
+      - name: Contratos determinísticos + produção (inclui Managed em runtime)
+        env:
+          PORTFOLIO_AUDIT_SLUG: ${{ inputs.portfolio_slug || '' }}
         run: node scripts/audit-portfolio-seo-permanent-gate.mjs https://0web.com.br https://0web.com.br
+
+      - name: Paridade entre domínio público e Vercel (observacional)
+        # Executar mesmo quando o gate SEO anterior reprovar: não perder diagnóstico.
+        # Cancelamentos interrompem a observação para não gastar runner à toa.
+        if: ${{ !cancelled() }}
+        # NÃO muda DNS, não requer GSC/Supabase e não autoriza index em massa.
+        # Uma diferença aponta para revisão, não prova remoção no Google.
+        continue-on-error: true
+        env:
+          PARITY_STRICT: "1"
+        run: node scripts/audit-site-origin-parity.mjs
 
       - name: Upload evidências
         if: always()
@@ -32,7 +50,10 @@ jobs:
           name: portfolio-seo-runtime
           path: |
             seo-reports/portfolio-indexability-latest.json
+            seo-reports/portfolio-indexation-readiness-latest.json
             seo-reports/portfolio-discovery-consistency-latest.json
             seo-reports/portfolio-gsc-evidence-latest.json
             seo-reports/structured-data-latest.json
+            seo-reports/seo-host-parity-latest.json
+            seo-reports/seo-host-parity-latest.md
           if-no-files-found: ignore
