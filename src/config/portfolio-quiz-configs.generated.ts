@@ -425,7 +425,7 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero consultar outro produto"
     ],
     "experienceOptions": [
-      "Vi um produto nesta loja-demo",
+      "Vi um produto nesta loja virtual",
       "Vi uma oferta nas redes sociais",
       "Quero comparar algumas opções",
       "Preciso de orientação da loja"

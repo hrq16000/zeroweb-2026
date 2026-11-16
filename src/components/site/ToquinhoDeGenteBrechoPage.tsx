@@ -63,14 +63,12 @@ export function ToquinhoDeGenteBrechoPage() {
 
         {/* mural de recados: assinatura do projeto */}
         <section className="mx-auto w-[min(94%,70rem)] py-10 md:py-16">
-          <MotionReveal variant="mask">
-            <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
-              <ManagedText
-                field="heroHeadline"
-                fallback={"Moda circular para todas as idades."}
-              />
-            </h1>
-          </MotionReveal>
+          <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
+            <ManagedText
+              field="heroHeadline"
+              fallback={"Moda circular para todas as idades."}
+            />
+          </h1>
 
           <div className="mt-10 rounded-[2rem] border-[6px] border-[var(--tq-mint)] bg-[var(--tq-mint)]/12 p-5 md:p-10">
             <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start">
@@ -90,7 +88,7 @@ export function ToquinhoDeGenteBrechoPage() {
               </div>
 
               <div className="space-y-6">
-                <MotionReveal variant="scale" delay={160}>
+                <div>
                   <div className="rotate-[2.5deg] rounded-md bg-white p-3 pb-9 shadow-2xl transition-transform duration-300 hover:rotate-0">
                     <PortfolioImage
                       src="/images/toquinho-de-gente-brecho/capa.png"
@@ -105,7 +103,7 @@ export function ToquinhoDeGenteBrechoPage() {
                       Garimpo da semana
                     </p>
                   </div>
-                </MotionReveal>
+                </div>
                 <MotionReveal variant="up" delay={220}>
                   <p className="text-base leading-relaxed text-[var(--tq-ink)]/80">
                     <ManagedText
@@ -128,6 +126,29 @@ export function ToquinhoDeGenteBrechoPage() {
               </div>
             </div>
           </div>
+
+          <aside id="consulta-vitrine" className="mt-10 rounded-[1.4rem] border-2 border-dashed border-[var(--tq-ink)]/35 bg-white/55 p-6 md:p-8" aria-labelledby="consulta-vitrine-title">
+            <p className="text-[0.66rem] font-bold uppercase tracking-[0.3em] text-[var(--tq-coral)]">
+              Consulta da vitrine
+            </p>
+            <h2 id="consulta-vitrine-title" className="mt-3 max-w-[26ch] font-display text-2xl font-black leading-tight">
+              Adulto ou infantil, tamanho e tipo de peça ajudam a começar o garimpo.
+            </h2>
+            <div className="mt-6 grid gap-5 text-sm leading-7 text-[var(--tq-ink)]/75 md:grid-cols-3">
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Faixa da vitrine</strong>
+                Informe se procura uma peça adulta ou infantil para direcionar a consulta.
+              </p>
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Tamanho</strong>
+                Dizer o tamanho que precisa reduz idas e vindas antes de apresentar os achados disponíveis.
+              </p>
+              <p>
+                <strong className="block text-[var(--tq-ink)]">Disponibilidade</strong>
+                Como o brechó trabalha peça a peça, a confirmação acontece no atendimento no momento da consulta.
+              </p>
+            </div>
+          </aside>
 
           {/* tira de lembretes fecha o mural, sem faixa de CTA */}
           <ul className="mt-10 flex flex-wrap items-center gap-3">

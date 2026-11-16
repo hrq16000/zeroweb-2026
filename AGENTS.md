@@ -6,15 +6,25 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Constituição universal: evolução aditiva, mega diretório local, preservação + enriquecimento | `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md` |
+| Cada `/portfolio/:slug` como site individual completo + SEO autônomo/agressivo legítimo | `docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
 | Discovery contínuo em LobeHub/AwesomeSkill/fontes originais | `.agents/skills/0web-skill-discovery/SKILL.md` · `.agents/skills/lobehub-skills-search-engine/SKILL.md` · `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` |
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
+| Site de referência / extração em matrizes sem copiar layout | `.agents/skills/0web-portfolio-art-direction/SKILL.md` §11 · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.1–§4.3 · `docs/PORTFOLIO_CAPABILITY_PALETTE.md` §2.1–§2.2 |
+| ECSPT (referência B2B/field service) — capabilities e motion opcionais, sem copiar template nem alterar legado | `docs/PORTFOLIO_ECSPT_ADDITIVE_REFERENCE_STANDARD.md` · `src/config/portfolio-ecspt-additive-reference.config.ts` |
+| Corpus multi-source / seleção USE-ADAPT-REJECT / clusters de decisão / motion evidence | `docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md` · `src/config/portfolio-reference-pattern-library.json` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.5 |
+| Governança canônica de referências, composição, anti-template, truth/freshness | `docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md` |
+| Limites reais, disponibilidade, estoque, preço/prazo e dados que vencem | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` §2.9.1–§2.9.2 · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` §4.4 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §9.1 |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Uso obrigatório de recursos relevantes / Resource Utilization Gate | `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
 | Inteligência de decisão/CRO baseada em 34 LPs + sites oficiais revalidados | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` |
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
+| Pesquisa pública exaustiva e ingestão/versionamento de fotos, produtos, posts e reels | `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md` |
+| Cliente com rede social / últimas 6 publicações reais com permalink e mídia | `docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md` |
+| Encerramento de frente, validação final e limpeza de Git/Vercel | `docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md` |
 | Pipeline autônomo nome + localização (R1 pesquisa → R2 composição factual → mídia/QA) | `.agents/skills/0web-portfolio-autonomous-pipeline/SKILL.md` · `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
@@ -34,6 +44,8 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
 | Narrativa e originalidade de conversão em `/portfolio` | `docs/PORTFOLIO_CONVERSION_NARRATIVE_STANDARD.md` |
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
+| Loja delivery transacional (criação, cardápio, pedidos, painel e homologação) | `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` → `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` → `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md`; scaffold `--delivery-transactional` apenas cria manifesto `BLOCKED`, nunca checkout ou pedido real |
+| RLS / isolamento Supabase / evidência de segurança no CI | `docs/RLS_CI_SECURITY_GATE.md` · `.github/workflows/rls-security.yml` |
 | Baseline congelado, política de regressão e manutenção do `/portfolio` | `docs/reports/PORTFOLIO-EXPERIENCE-FINAL-2026-09-05.md` §11 MAINTENANCE MODE |
 | Stack técnica, motion, performance e briefing de novos projetos | `docs/PORTFOLIO_TECH_STACK_PARAMETRIZATION.md` |
 | Contrato obrigatório de execução, SEO/LLM e publicação Git | `docs/0WEB_EXECUTION_CONTRACT.md` · `docs/BRAND_ASSET_POLICY.md` |
@@ -44,6 +56,14 @@ Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 Para toda tarefa, leia também `docs/0WEB_EXECUTION_CONTRACT.md`. Toda alteração
 concluída deve ser publicada no repositório oficial e integrada em `main` por PR;
 não deixar trabalho pendente em cópias locais ou hospedagens externas.
+
+Para toda tarefa material de conteúdo, SEO, portfólio, diretório local, mídia, geração
+autônoma ou evolução visual, leia também
+`docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`.
+Para qualquer tarefa em `/portfolio/:slug`, leia também
+`docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`: cada portfolio publicado é tratado como site individual, entidade própria e superfície SEO autônoma. A regra padrão é
+**preservar + enriquecer**: remover valor existente exige gatilho explícito e
+rastreável; simplificação não é evolução.
 
 # Regra oficial da zona de portfolios
 
@@ -61,6 +81,7 @@ Antes de criar ou publicar qualquer novo `/portfolio/:slug`, seguir
 obrigatoriamente `docs/PORTFOLIO_PROJECT_LIFECYCLE.md` (documento mestre).
 Um projeto novo não é considerado concluído enquanto o readiness gate
 (`bun run check:portfolio-project-readiness`) não estiver aprovado.
+Nenhuma frente de portfolio é considerada encerrada nem entra em limpeza de Git/Vercel antes de cumprir `docs/PORTFOLIO_FINALIZATION_CLEANUP_STANDARD.md`.
 Dado ausente pode ser aceitável; pesquisa não realizada, não.
 
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
@@ -126,6 +147,10 @@ somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados.
 
 **Padronizar a engenharia, nunca a criatividade.**
 
+**Paridade de criação:** painel/Managed, pipeline autônomo, scaffold, agente e código direto obedecem ao mesmo contrato de composição. Para projeto novo, `PortfolioManagedView`/`preset` é somente workbench/preview; não é superfície final publicável.
+
+**SEO universal:** todo `/portfolio/:slug` publicado usa a camada definida em `docs/PORTFOLIO_UNIVERSAL_SEO_STANDARD.md`: canonical/indexação, metadados únicos, Schema.org, sitemap e rede interna contextual fazem parte da infraestrutura comum. Nunca criar páginas doorway, texto oculto, stuffing ou fatos locais não comprovados.
+
 Nunca reutilize identidade, navegação, composição visual, conteúdo, contato,
 SEO, CTA ou linguagem de outro cliente como padrão. Reutilizar primitives de
 engenharia é permitido; reutilizar o mesmo hero/section-order/motion e apenas
@@ -144,6 +169,8 @@ recolorir não é.
 - SEO: título, descrição, canonical, social image e ícone próprios.
 - Assets: diretório próprio; mídia gerada pode apoiar a marca, mas não fingir
   equipe, sede, cliente, obra executada ou resultado real.
+- Mídia pública real: seguir `PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`; bloqueio de uma rede/provider não encerra a pesquisa. Site, Instagram, Facebook, marketplace/seller, busca pública, embeds e mirrors/indexadores devem ser percorridos conforme aplicável. Em loja/catálogo, foto real de produto tem precedência sobre ícone/placeholder quando houver mídia pública resolvível.
+- Social recente obrigatório: se o cliente possuir Instagram público ativo, seguir `PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md` e resolver as 6 publicações mais recentes com permalink real + mídia real + provenance. Perfil genérico, screenshot sem permalink ou post antigo escolhido por conveniência não satisfazem o gate.
 - Tipografia/paleta: podem e devem ser escopadas ao cliente quando a identidade
   pedir; Space Grotesk/Inter e tokens 0WEB não são skin obrigatória do portfolio.
 

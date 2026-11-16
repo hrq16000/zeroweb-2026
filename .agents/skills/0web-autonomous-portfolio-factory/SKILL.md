@@ -48,6 +48,7 @@ few words
 3. **Engineering shared, composition unique.** Primitives podem ser compartilhadas; a página final não pode ser skin de outro projeto.
 4. **No template by segment.** “Oficina”, “confeitaria”, “advocacia” etc. não escolhem automaticamente um esqueleto visual.
 5. **Three divergent directions internally.** Antes da composição final, explore direções materialmente distintas e descarte as semelhantes ao catálogo.
+6. **Creation-channel parity.** Painel/Managed, pipeline autônomo, scaffold e código direto obedecem ao mesmo gate. `PortfolioManagedView`/preset é somente workbench de preview para projeto novo; não é composição publicável final.
 6. **Build pass is insufficient.** READY exige qualidade técnica e editorial/criativa.
 7. **Tenant isolation is server-side.** Owner/editor só acessa clientKeys atribuídos; UI escondida não é segurança.
 8. **Same project, new host.** Domínio próprio promove o mesmo project id; não recrie conteúdo/site.

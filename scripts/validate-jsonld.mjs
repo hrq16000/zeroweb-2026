@@ -25,7 +25,16 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPORT_DIR = resolve(__dirname, "..", "seo-reports");
-const BASE = (process.argv[2] || "https://0web.com.br").replace(/\/$/, "");
+const BASE = (process.argv[2] || process.env.BASE_URL || "https://0web.com.br").replace(/\/$/, "");
+const BASELINE_FILE = process.env.SEO_JSONLD_BASELINE_FILE || "";
+
+async function loadAllowedFailures() {
+  if (!BASELINE_FILE) return new Set();
+  const raw = JSON.parse(await readFile(resolve(BASELINE_FILE), "utf8"));
+  return new Set(
+    (raw.allowedFailures || []).map((item) => `${item.path}::${item.check}`),
+  );
+}
 
 const FALLBACK_SLUGS = [
   "criacao-de-sites",
@@ -168,6 +177,7 @@ async function callSchemaOrgValidator(url) {
 async function main() {
   const withValidator = process.argv.includes("--with-validator");
   await mkdir(REPORT_DIR, { recursive: true });
+  const allowedFailures = await loadAllowedFailures();
   const slugs = await loadSlugs();
   const routes = ["/servicos", ...slugs.map((s) => `/servicos/${s}`)];
 
@@ -178,6 +188,12 @@ async function main() {
     try {
       const html = await fetchText(`${BASE}${path}`);
       const r = validateRoute(path, html);
+      r.knownDebt = r.failed.filter((failure) =>
+        allowedFailures.has(`${path}::${failure.name}`),
+      );
+      r.failed = r.failed.filter((failure) =>
+        !allowedFailures.has(`${path}::${failure.name}`),
+      );
       if (withValidator) {
         r.validator = await callSchemaOrgValidator(`${BASE}${path}`);
         if (r.validator.errors && r.validator.errors > 0) {
@@ -188,6 +204,9 @@ async function main() {
       const tag = r.failed.length === 0 ? colors.green("✓") : colors.red(`✗ (${r.failed.length})`);
       const extra = r.validator ? `  validator=err:${r.validator.errors ?? "?"} warn:${r.validator.warnings ?? "?"}` : "";
       console.log(`${tag} ${path}  [blocks=${r.blocks} nodes=${r.nodes}]${extra}`);
+      for (const f of r.knownDebt || []) {
+        console.log(colors.yellow(`   - baseline conhecido: ${f.name}${f.detail ? `: ${f.detail}` : ""}`));
+      }
       for (const f of r.failed) console.log(colors.red(`   - ${f.name}${f.detail ? `: ${f.detail}` : ""}`));
     } catch (err) {
       console.log(colors.red(`✗ ${path}  ${err.message}`));
@@ -197,7 +216,19 @@ async function main() {
 
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
   const jsonPath = resolve(REPORT_DIR, `${stamp}.json`);
-  await writeFile(jsonPath, JSON.stringify({ baseUrl: BASE, at: stamp, results }, null, 2));
+  await writeFile(
+    jsonPath,
+    JSON.stringify(
+      {
+        baseUrl: BASE,
+        at: stamp,
+        baselineFile: BASELINE_FILE || null,
+        results,
+      },
+      null,
+      2,
+    ),
+  );
 
   const total = results.length;
   const failedRoutes = results.filter((r) => (r.failed || []).length > 0).length;

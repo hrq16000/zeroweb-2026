@@ -74,6 +74,30 @@ Trocar classes CSS mantendo o mesmo DOM é skin swap = FAIL. O gate observa quan
 
 Cada projeto declara: `heroGeometry`, `headerTreatment`, `sectionGraph`, `contentOrder`, `gridTopology`, `mediaDistribution`, `backgroundRhythm`, `proofPlacement`, `ctaDistribution`, `navigationPattern`, `motionSignature`, `closingStructure`. Comparado contra os projetos recentes antes de READY e em toda manutenção material.
 
+### 10.1 Experience-role fingerprint
+
+O fingerprint passa a registrar também **como a página funciona**, não só como
+ela se parece:
+
+`roleGraph` · `mediaCadence` · `interactionLoci` ·
+`decisionAidPlacement` · `densityRhythm` · `mobileCompositionStrategy`.
+
+- `roleGraph`: papéis de decisão presentes, ordem relativa e quais foram
+  fundidos no mesmo capítulo;
+- `mediaCadence`: onde mídia domina, apoia, comprova ou desaparece para dar
+  respiro;
+- `interactionLoci`: pontos em que o visitante escolhe, compara, filtra,
+  diagnostica, configura ou converte;
+- `decisionAidPlacement`: onde incertezas importantes são resolvidas;
+- `densityRhythm`: alternância deliberada de densidade, contraste e contenção;
+- `mobileCompositionStrategy`: transformações reais de composição no mobile.
+
+Dois projetos com cores, textos e assets distintos, mas com
+`roleGraph + mediaCadence + interactionLoci` essencialmente equivalentes, devem
+ser tratados como risco de `SAME_JOURNEY_DIFFERENT_COPY` e passar por revisão
+autoral antes de READY.
+
+
 ## 11. Comparação perceptual
 
 Metadata não basta. Antes de READY ou de considerar uma manutenção visual concluída: screenshots em 390px, 768px e 1440px, comparação com os projetos recentes e NO-BRAND/GREYSCALE TEST do §1.
@@ -147,3 +171,76 @@ Build verde não transforma esses estados em PASS.
 ## Referências
 
 `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md` · `src/config/portfolio-zero-generic-policy.json` · `docs/PORTFOLIO_PROJECT_LIFECYCLE.md` · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` · `docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md` (histórico) · `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` (contrato de conteúdo) · `scripts/portfolio-project-uniqueness.mjs`.
+
+---
+
+## Adendo 2026-09-25 — paridade de criação e anti-template executável
+
+A origem do projeto não altera o contrato criativo. Novo portfolio criado por
+painel/Managed, pipeline autônomo, scaffold, agente, Codex ou edição manual deve
+chegar ao mesmo estado final: composição própria, derivada do negócio e
+comparada contra o catálogo.
+
+### A. Preset é workbench, não produto final
+
+`PortfolioManagedView`, `PRESET_HERO` e o campo `preset` podem existir como
+compatibilidade e preview rápido. Para projeto novo, eles não qualificam uma
+superfície como `READY` ou `PUBLISHED`.
+
+Antes de publicar, o projeto deve ser promovido para uma composição autoral em
+`PortfolioCompositionRoot` ou para um futuro composition graph que descreva a
+topologia específica daquele cliente. Um composition graph não pode ser uma
+lista fechada de templates por segmento.
+
+### B. Três direções realmente divergentes
+
+Antes do JSX/composition graph final, o Creative Composition Brief registra pelo
+menos três hipóteses materialmente diferentes. As hipóteses devem divergir em
+eixo de leitura, geometria do hero/abertura, primeiros capítulos, topologia de
+grid, distribuição de mídia, prova, conversão e gramática de motion. Três skins
+do mesmo DOM contam como uma única hipótese.
+
+A direção escolhida registra também quais padrões dos portfolios mais próximos
+foram deliberadamente evitados.
+
+### C. Prova tripla de originalidade
+
+Nenhum único sinal é suficiente. `READY/PUBLISH` exige as três camadas:
+
+1. **declared** — Creative Composition Brief + composition fingerprint completos;
+2. **structural** — análise do código/DOM real pelo gate de originalidade, sem
+   depender apenas do fingerprint autodeclarado;
+3. **perceptual** — screenshots mobile/desktop + NO-BRAND TEST comparados com os
+   vizinhos mais próximos.
+
+Se a declaração disser que é diferente, mas código ou percepção mostrarem o
+mesmo esqueleto, prevalece o resultado mais restritivo.
+
+### D. Fail closed para projeto novo
+
+Qualquer caminho de criação que não consiga produzir/evidenciar composição
+autoral permanece em `draft/composing`. Velocidade de geração não autoriza
+publicar `hero + cards + galeria + passos + sobre + FAQ` apenas com nova cor,
+logo, texto ou foto.
+
+### E. Legado protegido
+
+Esta regra é forward-only para evitar redesign em massa sem gatilho. Projetos
+publicados antes deste adendo permanecem disponíveis; ao sofrerem redesign
+material, entram no contrato vigente. A dívida histórica continua mensurada e
+pode ser reduzida por ondas.
+
+### F. Composition graph Managed
+
+O canal Managed implementa uma camada intermediária entre workbench e JSX
+manual: `src/lib/portfolio-managed-composition.ts`. Ela gera três direções,
+seleciona um graph por projeto e persiste a decisão no `source_snapshot`.
+
+O graph não pode usar `segment -> preset`. A base inclui identidade textual,
+localidade, serviços e disponibilidade real dos papéis editoriais. A assinatura
+selecionada é comparada com as composições Managed existentes e deve ficar
+abaixo do teto de similaridade definido pelo planner. O runtime final é
+`PortfolioManagedAuthorialView`; `PortfolioManagedView` só usa preset quando
+não há plano válido, situação que continua bloqueante para projeto novo marcado
+com `authorial_composition.required=true`.
+

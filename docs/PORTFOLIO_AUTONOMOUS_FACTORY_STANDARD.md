@@ -18,6 +18,11 @@ Este documento define o **produto-alvo** da zona `/portfolio` e a arquitetura qu
 
 Ele complementa `PORTFOLIO_PROJECT_LIFECYCLE.md`, `PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`, `PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`, `PORTFOLIO_CLIENT_STANDARD.md`, `PORTFOLIO_FUNNELS.md` e `0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md`.
 
+Também obedece a `0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`: cada execução
+deve preservar ativos úteis, acumular conhecimento e aumentar a autonomia da próxima
+execução. O produto-alvo inclui a função de **guia comercial/diretório local**, não apenas
+a geração isolada de páginas.
+
 Em conflito sobre **como novos projetos devem ser criados, armazenados, editados, publicados ou promovidos a domínio próprio**, este documento define o alvo arquitetural. Ele não autoriza remover gates de segurança, evidência, acessibilidade, SEO, privacidade, funil ou originalidade.
 
 > Norte em uma frase: **poucas palavras → pesquisa factual → direção criativa própria → site completo e único → preview → edição pelo cliente → publicação → domínio próprio, sem reconstrução manual.**
@@ -26,7 +31,7 @@ Em conflito sobre **como novos projetos devem ser criados, armazenados, editados
 
 `/portfolio` deixa de ser apenas uma galeria de páginas criadas manualmente e evolui para uma **plataforma multi-tenant de criação, venda, hospedagem e evolução de sites**.
 
-Cada `/portfolio/:slug` é um projeto/cliente independente com:
+Cada `/portfolio/:slug` é um projeto/cliente independente e deve nascer como **site individual completo**, conforme `PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md`, com:
 
 - identidade e fatos próprios;
 - pesquisa e provenance próprias;
@@ -34,6 +39,10 @@ Cada `/portfolio/:slug` é um projeto/cliente independente com:
 - composição e motion próprios;
 - funil e destinatário próprios;
 - SEO e domínio próprios;
+- title/description/canonical/OG/schema próprios;
+- participação em sitemap e grafo local/temático;
+- imagem social e mídia próprias;
+- contexto de bairro/cidade quando disponível;
 - permissões e proprietários próprios;
 - histórico de versões próprio;
 - analytics próprios.
@@ -55,16 +64,25 @@ Landingsite.ai, UXPilot, LeadSite, Faroleads e ferramentas equivalentes servem c
 A capacidade-alvo da 0WEB é:
 
 1. iniciar por linguagem natural e poucas palavras;
-2. pesquisar automaticamente empresa, segmento, cidade e contexto verificável;
-3. detectar o que é fato, inferência, conflito ou ausência de evidência;
-4. perguntar apenas gaps materiais;
-5. gerar no mínimo três direções visuais realmente divergentes antes da seleção;
-6. rejeitar composição parecida demais com projeto já existente;
-7. criar copy, mídia, SEO, motion e funil contextualizados;
-8. oferecer preview imediato desktop/mobile;
-9. permitir edição por formulário, controles visuais e conversa;
-10. versionar e permitir rollback;
-11. publicar em `/portfolio/:slug` e depois ligar domínio próprio ao mesmo projeto.
+2. resolver bairro/cidade/região e relações comerciais locais quando disponíveis;
+3. pesquisar automaticamente empresa, segmento, cidade e contexto verificável;
+4. pesquisar mídia oficial, catálogo/cardápio e redes sociais aplicáveis;
+5. preservar dados e materiais existentes já aprovados;
+6. detectar o que é fato, inferência, conflito ou ausência de evidência;
+7. perguntar apenas gaps materiais;
+8. gerar no mínimo três direções visuais realmente divergentes antes da seleção;
+9. rejeitar composição parecida demais com projeto já existente;
+10. criar copy, mídia, SEO, motion e funil contextualizados;
+11. integrar o negócio aos hubs e relações locais/temáticas do diretório;
+12. oferecer preview imediato desktop/mobile;
+13. permitir edição por formulário, controles visuais e conversa;
+14. versionar e permitir rollback;
+15. publicar em `/portfolio/:slug` e depois ligar domínio próprio ao mesmo projeto.
+
+O efeito comercial desejado é que a amostra demonstre capacidade suficiente para tornar
+óbvio o valor de uma evolução contratada, sem depender de prova social falsa ou alegação
+fabricada.
+
 
 ## 4. Pipeline obrigatório
 
@@ -114,6 +132,22 @@ Destino institucional 0WEB é proibido como destino de cliente. Se não houver d
 ## 7. Creative Director — criatividade antes de validação
 
 Presets podem existir temporariamente como compatibilidade técnica, mas **não podem ser a decisão criativa final**.
+
+**Regra de paridade entre canais:** `PortfolioManagedView`, `PRESET_HERO` e o campo `preset` são workbench/preview para projeto novo, nunca superfície final de publicação. O mesmo contrato vale para criação via painel, fluxo autônomo, scaffold, agente/Codex ou edição manual. Antes de `READY/PUBLISH`, o projeto precisa possuir composição autoral própria (ou composition graph específico, sem DOM universal) e passar os gates de unicidade declarada, originalidade estática e revisão perceptual.
+
+### Implementação Managed do composition graph
+
+Projetos Managed novos persistem em `source_snapshot.authorial_composition.plan` um plano de composição específico do projeto. O planner:
+
+- deriva a base de nome, localidade, serviços, disponibilidade de mídia e blocos factuais;
+- produz três direções materialmente divergentes;
+- seleciona uma direção sem mapear segmento para template;
+- compara a assinatura escolhida com projetos Managed já persistidos;
+- rejeita assinatura idêntica e também similaridade estrutural >= 0,68;
+- replaneja enquanto o projeto ainda está em `draft` quando a base factual muda;
+- renderiza o plano em `PortfolioManagedAuthorialView`; o renderer antigo permanece fallback legado/workbench.
+
+Esse graph é uma combinação de papéis, ordem, geometria de abertura, apresentação de oferta, mídia, passos, FAQ, CTA, densidade, bordas e estratégia mobile. As primitivas são finitas e compartilháveis; a composição final e sua assinatura pertencem ao cliente.
 
 Para cada projeto novo ou redesign relevante, o Creative Director deve produzir pelo menos três propostas divergentes. Cada proposta define:
 

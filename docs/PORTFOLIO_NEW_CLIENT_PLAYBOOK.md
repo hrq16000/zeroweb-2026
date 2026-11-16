@@ -124,18 +124,42 @@ Pesquisa/conteúdo pode usar skills especializadas selecionadas no discovery, ma
 
 ## 5. Imagens
 
+Seguir obrigatoriamente `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`.
+
 Prioridade:
 
 1. logo/marca oficial;
 2. fotos/produtos/trabalhos oficiais;
-3. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir ser equipe, sede, cliente ou serviço executado;
-4. composição abstrata/typographic brand art.
+3. posts/reels públicos do próprio negócio, mídia pública de seller/marketplace e outros assets reais ligados à entidade;
+4. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir ser equipe, sede, cliente ou serviço executado;
+5. composição abstrata/typographic brand art.
+
+A pesquisa deve percorrer site, Instagram, Facebook, Google/Business quando disponível, Linktree/hubs, marketplaces/seller, busca pública e mirrors/indexadores reputáveis. `PROVIDER_BLOCKED`, `CACHE_MISS`, login obrigatório ou anti-bot em uma fonte não encerram a pesquisa; muda-se de provider/fonte sem contornar controles de acesso.
+
+Para loja, catálogo ou social-commerce, cards de produto devem usar foto real quando houver mídia pública resolvível. Ícone/placeholder não é substituto aceitável para produto real disponível publicamente. `COMMERCE_PRODUCT_MEDIA_MISSING` é bloqueante.
 
 Usar `PortfolioImage`, dimensões explícitas, LCP controlado e lazy loading nas imagens abaixo da dobra. Gerar derivados WebP/AVIF quando útil sem apagar originais importantes do cliente.
 
 Cada projeto precisa distinguir finalidade dos assets. `hero`, `catalogCover`, `social/OG` e `preview` podem compartilhar uma matriz criativa, mas são entregas com proporção/crop/função próprias e precisam ser verificadas separadamente.
 
 `MEDIA_STARVATION` é falha: falta de foto real não autoriza publicar uma página vazia de mídia. Deve-se usar composição de marca, ilustração/editorial/contextual ou outro tratamento seguro sem fabricar evidência.
+
+## 5.1 Social recente obrigatório
+
+Se o cliente possuir Instagram público ativo, aplicar `docs/PORTFOLIO_SOCIAL_LATEST_SIX_STANDARD.md`.
+
+Antes de publicar ou declarar a landing pronta:
+
+- resolver as 6 publicações públicas mais recentes verificáveis do perfil oficial;
+- usar permalink real de cada post/reel;
+- renderizar imagem/vídeo real por embed oficial ou asset versionado com provenance;
+- ordenar por data real quando verificável;
+- preservar link para a publicação original;
+- não substituir post por link de perfil, screenshot solto, mídia stock ou arte gerada;
+- se a conta tiver menos de 6 posts públicos, usar todos e registrar esse estado;
+- se não for possível resolver 6 por bloqueio de provider, continuar por API/conector autorizado, embed, busca, índices e mirrors públicos sem contornar controles de acesso.
+
+`SOCIAL_LATEST_6_INCOMPLETE` impede marcar o projeto como 100% pronto em revisão material.
 
 ## 6. Layout engineering
 
@@ -197,6 +221,23 @@ bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
 
 Após o scaffold, o próximo passo **não** é publicar: é pesquisa + discovery + creative direction + composição autoral + mídia + funil + QA.
 
+### 9.1 LEGACY GROWTH GATE
+
+O legado existente foi congelado em
+`src/config/portfolio-legacy-baseline.json` em 2026-09-22.
+
+Regra para qualquer slug criado depois desse baseline:
+
+- precisa existir em `portfolio-project-manifests.json`;
+- precisa nascer pelo lifecycle gerenciado;
+- não pode ser adicionado ao baseline legado como atalho;
+- `validate:portfolio-scaffold` reprova cliente novo que não esteja nem no
+  manifesto nem no baseline congelado.
+
+O baseline é dívida histórica explicitamente identificada, não uma segunda via
+de criação. A quantidade de projetos legados só pode **diminuir**, nunca crescer.
+
+
 ## 10. Governança
 
 Issue → branch → PR → checks → revisão → merge. Nunca publicar direto em `main`.
@@ -218,6 +259,8 @@ Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Bluepri
 A mesma política vale para todo projeto legado sempre que houver manutenção material, redesign, troca de hero/capa, correção estrutural, alteração de navegação, nova campanha/variante ou republicação visual relevante.
 
 Projeto antigo pode permanecer online enquanto entra na fila de remediação, mas **legado não é sinônimo de aprovado**. `HIGH_SIMILARITY`, `ATTENTION`, capa fraca, mídia insuficiente, hero genérico e ausência de assinatura devem ser priorizados até o catálogo inteiro convergir para `ZERO_GENERIC_TOLERANCE`.
+
+Loja/catálogo legado com ícones, placeholders ou composições abstratas no lugar de fotos reais disponíveis entra em remediação imediata. A manutenção deve reexecutar a escada de mídia pública e versionar/atribuir os assets encontrados.
 
 
 ### Inteligência de decisão R3

@@ -241,6 +241,13 @@ export function HomeFinalCTAV2() {
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-background/70">
                 Explique sua necessidade e siga pelo funil comercial da 0WEB sem precisar escolher uma solução técnica antes da hora.
               </p>
+              <div className="mt-6 max-w-2xl rounded-2xl border border-background/15 bg-background/5 p-5">
+                <h3 className="text-base font-semibold text-background">Como falar com a 0WEB pelo WhatsApp?</h3>
+                <p className="mt-2 text-sm leading-6 text-background/70">
+                  O atendimento comercial começa pelo botão “Falar sobre meu projeto”. O funil registra o contexto da solicitação e,
+                  quando o atendimento pede continuidade no WhatsApp, direciona para o destino correto sem abrir uma conversa genérica.
+                </p>
+              </div>
             </div>
 
             <FunnelCTAButton

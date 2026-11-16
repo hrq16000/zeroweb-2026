@@ -8,7 +8,13 @@
  * `containsPublicContact` (LGPD/privacidade) e bloqueio de HTML; todo asset
  * precisa ser um caminho interno permitido (`isSafeAssetPath`).
  */
+import { hasAuthorialPortfolioComposition } from "@/config/portfolio-authorial-compositions";
+import { evaluateNewManagedEditorialReadiness } from "@/lib/portfolio-managed-editorial";
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
+import {
+  sanitizeManagedAuthorialCompositionPlan,
+  type ManagedAuthorialCompositionPlan,
+} from "@/lib/portfolio-managed-composition";
 import {
   PORTFOLIO_FUNNEL_INTENTS,
   type PortfolioFunnelIntent,
@@ -66,6 +72,9 @@ export type ManagedProject = {
   coverFocal: ManagedFocal;
   seoTitle: string;
   seoDescription: string;
+  /** Proveniência editorial (sem alterar os fallbacks SSR dos projetos históricos). */
+  seoTitleExplicit?: boolean;
+  seoDescriptionExplicit?: boolean;
   seoKeywords: string;
   canonicalUrl: string;
   socialImage: string;
@@ -76,6 +85,10 @@ export type ManagedProject = {
   indexable: boolean;
   robots: string;
   contentVersion: number;
+  /** Forward-only: projetos novos do painel não publicam o renderer genérico. */
+  authorialCompositionRequired?: boolean;
+  authorialCompositionAvailable?: boolean;
+  compositionPlan?: ManagedAuthorialCompositionPlan | null;
 };
 
 const HEX = /^#[0-9a-fA-F]{3,8}$/;
@@ -261,6 +274,10 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
   const socialVersion = /^[A-Za-z0-9._-]{1,40}$/.test(String(row.social_version ?? ""))
     ? String(row.social_version)
     : "";
+  const sourceSnapshot = record(row.source_snapshot);
+  const authorialPolicy = record(sourceSnapshot.authorial_composition);
+  const authorialCompositionRequired = authorialPolicy.required === true;
+  const compositionPlan = sanitizeManagedAuthorialCompositionPlan(authorialPolicy.plan);
 
   return {
     slug,
@@ -289,6 +306,8 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     coverFocal: focal(row.cover_focal),
     seoTitle: text(row.seo_title, 160) || displayName,
     seoDescription: text(row.seo_description, 400) || text(row.summary, 300),
+    seoTitleExplicit: Boolean(text(row.seo_title, 160)),
+    seoDescriptionExplicit: Boolean(text(row.seo_description, 400)),
     seoKeywords: text(row.seo_keywords, 400),
     canonicalUrl: `https://0web.com.br/portfolio/${slug}`,
     socialImage: socialImage
@@ -310,6 +329,10 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     indexable,
     robots: indexable ? "index,follow,max-image-preview:large" : "noindex,nofollow",
     contentVersion: Number(row.content_version ?? 1),
+    authorialCompositionRequired,
+    authorialCompositionAvailable:
+      hasAuthorialPortfolioComposition(slug) || Boolean(compositionPlan),
+    compositionPlan,
   };
 }
 
@@ -340,6 +363,24 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   if (!project.seoTitle || !project.seoDescription) {
     blocker("PORTFOLIO_SEO_MISSING", "Preencha título e descrição de SEO.");
   }
+  // Apenas novos Managed: não confundir fallback de renderização com SEO editorial aprovado.
+  // O marcador forward-only já é gravado na criação; legados publicados preservam seu contrato.
+  if (project.authorialCompositionRequired && (!project.seoTitleExplicit || !project.seoDescriptionExplicit)) {
+    blocker(
+      "PORTFOLIO_SEO_EDITORIAL_REQUIRED",
+      "Novo projeto exige título e descrição SEO próprios; nome e resumo não substituem esses campos.",
+    );
+  }
+  if (project.authorialCompositionRequired) {
+    for (const issue of evaluateNewManagedEditorialReadiness({
+      summary: project.summary,
+      about: project.content.about,
+      seoTitle: project.seoTitle,
+      seoDescription: project.seoDescription,
+    })) {
+      blocker(issue.code, issue.message);
+    }
+  }
   if (project.seoDescription && project.seoDescription.length < 60) {
     warn("PORTFOLIO_SEO_SHORT", "A descrição de SEO está curta (ideal: 120-160 caracteres).");
   }
@@ -358,6 +399,12 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
   }
   if (!project.shareCopy) {
     blocker("PORTFOLIO_SHARE_COPY_MISSING", "Escreva a copy de divulgação do projeto.");
+  }
+  if (project.authorialCompositionRequired && !project.authorialCompositionAvailable) {
+    blocker(
+      "PORTFOLIO_AUTHORIAL_COMPOSITION_REQUIRED",
+      "Projeto novo não pode publicar o renderer Managed/preset como composição final. Gere uma composição autoral/graph válido para este cliente antes de avançar.",
+    );
   }
   if (project.gallery.length < 2) {
     warn("PORTFOLIO_GALLERY_THIN", "Poucas imagens na galeria; o projeto fica menos convincente.");
@@ -380,6 +427,30 @@ export function managedStatus(project: ManagedProject) {
     canBeReady: blockers.length === 0,
     state: blockers.length === 0 ? ("COMPLETE" as const) : ("PARTIAL" as const),
   };
+}
+
+/**
+ * Forward-only protection against degrading an already published Managed page
+ * through the SAVE editor action (which does not invoke lifecycle transitions).
+ *
+ * Historical projects may have outstanding blockers: only newly introduced
+ * blocker codes prevent an edit; improvements to existing partial pages remain
+ * possible. New publication continues to use the complete managedStatus gate.
+ */
+export function newPublishedManagedConformanceBlockers(
+  previous: ManagedProject,
+  candidate: ManagedProject,
+): ManagedConformanceIssue[] {
+  if (previous.lifecycle !== "published" || !previous.published) return [];
+
+  const previousBlockers = new Set(
+    evaluateManagedConformance(previous)
+      .filter((issue) => issue.level === "blocker")
+      .map((issue) => issue.code),
+  );
+  return evaluateManagedConformance(candidate).filter(
+    (issue) => issue.level === "blocker" && !previousBlockers.has(issue.code),
+  );
 }
 
 /** Transições permitidas do ciclo de vida (o admin não pode pular etapas). */

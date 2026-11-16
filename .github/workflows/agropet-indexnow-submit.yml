@@ -1,0 +1,32 @@
+name: Agropet Filt · IndexNow publication
+on:
+  pull_request:
+    paths:
+      - "scripts/submit-indexnow-portfolio.mjs"
+      - ".github/workflows/agropet-indexnow-submit.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/submit-indexnow-portfolio.mjs"
+      - ".github/workflows/agropet-indexnow-submit.yml"
+      - "src/routes/portfolio.agropet-filt.tsx"
+      - "src/config/portfolio-catalog.json"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  indexnow:
+    name: Verify public indexability and notify IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify without submission during PR
+        if: github.event_name == 'pull_request'
+        run: node scripts/submit-indexnow-portfolio.mjs agropet-filt --check-only
+      - name: Submit URL after merge into main
+        if: github.event_name != 'pull_request'
+        run: node scripts/submit-indexnow-portfolio.mjs agropet-filt

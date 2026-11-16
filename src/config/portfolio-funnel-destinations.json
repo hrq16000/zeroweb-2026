@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "docs": "Livro-razão histórico de PROVENIÊNCIA dos destinos. A fonte operacional única é src/config/portfolio-whatsapp.json: número válido = WHATSAPP do próprio clientKey; null = LEAD_ONLY intencional. Este arquivo não guarda nem resolve o destino e não depende de secrets/env ou tabela privada.",
   "statuses": [
     "VERIFIED",
@@ -259,6 +259,49 @@
         "O responsável identificou autoescolaaptos.com.br como fonte oficial e autorizou o uso operacional do número fornecido.",
         "Divergência registrada: a home oficial também exibe um telefone fixo; nenhum número foi inferido ou substituído automaticamente.",
         "Destino versionado exclusivamente para client_key autoescola-aptos, sem fallback cross-client."
+      ]
+    },
+    "centro-mega": {
+      "status": "VERIFIED",
+      "source": "PUBLIC_OFFICIAL_CHANNELS+BUSINESS_SITE",
+      "confidence": 96,
+      "verifiedAt": "2026-09-21",
+      "evidence": [
+        "Linktree oficial @centro.mega lista Centro Mega - SAC, Centro Mega Outlet - São José Dos Pinhais e demais unidades/canais da marca.",
+        "VHSYS público da Centro Mega exibe o telefone 41 99858-9419 na seção Fale Conosco junto ao CNPJ 17.991.627/0001-54.",
+        "Presença social pública indexada exibe +55 41 99858-9419 para Centro Mega em São José dos Pinhais.",
+        "Destino versionado exclusivamente para client_key centro-mega; sem fallback institucional ou cross-client."
+      ]
+    },
+    "arildo-madeiras": {
+      "status": "VERIFIED",
+      "source": "OFFICIAL_WEBSITE",
+      "confidence": 98,
+      "verifiedAt": "2026-09-24",
+      "evidence": [
+        "A página oficial de Madeira de Cambará da Arildo exibe a ação 'Orçar pelo Whatsapp!' resolvendo para 41 99167-1593.",
+        "O mesmo site oficial identifica Arildo Madeiras em Av. Iraí, 1752, Weissópolis, Pinhais — PR e publica o número 41 99167-1593 no contato.",
+        "Números divergentes encontrados em índices sociais/diretórios foram rejeitados e não são usados como fallback.",
+        "Destino exclusivo do client_key arildo-madeiras; sem fallback institucional ou cross-client."
+      ]
+    },
+    "dona-garimpeira-brecho": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "evidence": [
+        "WhatsApp +55 41 99552-3363 confirmado pelo operador autorizado em 2026-11-03, substituindo o número do briefing inicial.",
+        "Conta Google Business Profile da loja ainda sujeita à verificação e telefone em análise segundo o briefing; não há evidência de teste de entrega do funil.",
+        "O destino no cadastro é exclusivo de dona-garimpeira-brecho, sem fallback institucional ou para outro cliente."
+      ]
+    },
+    "agropet-filt": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "PUBLIC_DIRECTORY_ONLY",
+      "verifiedAt": "2026-11-04",
+      "evidence": [
+        "Telefone público +55 41 99823-6598 encontrado em diretórios, mas não confirmado como WhatsApp da empresa.",
+        "O operador informou autorização para criar a página, sem fornecer confirmação do número de WhatsApp.",
+        "Canal registrado como null (LEAD_ONLY), sem redirecionamento cruzado ou fallback de outro cliente."
       ]
     }
   }

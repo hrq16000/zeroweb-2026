@@ -12,11 +12,13 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { checkNewPortfolioImagePerformance } from "./lib/portfolio-v4-image-gate.mjs";
 
 const root = process.cwd();
 const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p), "utf8") : "");
 
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
+const manifests = JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
 const errors = [];
 const warnings = [];
 
@@ -26,6 +28,14 @@ for (const client of clients) {
   if (!source) {
     errors.push(`${label} componente ausente: ${client.componentFile}`);
     continue;
+  }
+
+  // O prebuild gerou primeiro as variantes; para v4, bloquear srcset 404
+  // e LCP ambiguo sem alterar a politica historica dos 96 portfolios.
+  if (Number(manifests[client.slug]?.contractVersion ?? 0) >= 4) {
+    errors.push(...checkNewPortfolioImagePerformance(
+      client.slug, source, (candidate) => existsSync(resolve(root, candidate)),
+    ));
   }
 
   const rawImages = [...source.matchAll(/<img\b[^>]*>/gs)];

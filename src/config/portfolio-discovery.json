@@ -535,9 +535,187 @@
         "Centro Mega Facebook",
         "Poco X5 Pro 8GB 256GB",
         "Tênis Dunk Low Pro",
+        "bonés de outlet",
+        "calçados de outlet",
+        "acessórios para tecnologia",
         "Xiaomi Mi Box S",
         "Controle PlayStation 4 Original Sony",
         "Suporte de celular para Moto & Bike Renux 5203"
+      ]
+    },
+    "arildo-madeiras": {
+      "aliases": [
+        "Arildo Madeiras",
+        "Arildo Madeiras Pinhais"
+      ],
+      "categories": [
+        "madeireira",
+        "loja de madeiras",
+        "madeiras brutas",
+        "madeiras beneficiadas",
+        "materiais para construção e reforma"
+      ],
+      "services": [
+        "atacado de madeiras",
+        "varejo de madeiras",
+        "orientação para escolha de materiais"
+      ],
+      "equipment": [],
+      "products": [
+        "madeiras em geral",
+        "portas",
+        "janelas",
+        "forros",
+        "Madeira de Cambará",
+        "móveis rústicos",
+        "banquetas"
+      ],
+      "problems": [
+        "preciso de madeira para construção",
+        "preciso de madeira para reforma",
+        "quero portas ou janelas",
+        "quero forro de madeira",
+        "procuro Madeira de Cambará",
+        "quero material para assoalho, caixilho ou coluna"
+      ],
+      "useCases": [
+        "obra residencial",
+        "obra comercial",
+        "reforma",
+        "acabamento",
+        "móvel rústico",
+        "orçamento de madeiras em Pinhais"
+      ],
+      "locality": [
+        "Weissópolis",
+        "Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Arildo Madeiras",
+        "madeireira Pinhais",
+        "madeiras Pinhais",
+        "madeira para construção Pinhais",
+        "portas janelas forros Pinhais",
+        "Madeira de Cambará Pinhais",
+        "móveis rústicos Pinhais"
+      ]
+    },
+    "dona-garimpeira-brecho": {
+      "aliases": [
+        "Dona Garimpeira",
+        "Dona Garimpeira SJP",
+        "Dona Garimpeira Brechó"
+      ],
+      "categories": [
+        "brechó",
+        "loja de roupas usadas",
+        "moda circular"
+      ],
+      "services": [
+        "compra de roupas usadas",
+        "recebimento de doações de roupas"
+      ],
+      "products": [
+        "roupas femininas de segunda mão",
+        "roupas masculinas de segunda mão",
+        "roupas infantis de segunda mão",
+        "acessórios de segunda mão"
+      ],
+      "useCases": [
+        "comprar roupas presencialmente",
+        "avaliar roupas usadas para vender",
+        "entregar doações de roupas",
+        "consultar peças pelo WhatsApp"
+      ],
+      "locality": [
+        "Boneca do Iguaçu",
+        "São José dos Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Dona Garimpeira brechó",
+        "brechó São José dos Pinhais",
+        "brechó Boneca do Iguaçu",
+        "comprar roupas usadas em São José dos Pinhais"
+      ]
+    },
+    "agropet-filt": {
+      "aliases": [
+        "Agropet Filt",
+        "Aviário Agropet Filt",
+        "Agropet Filt Pinhais"
+      ],
+      "categories": [
+        "pet shop",
+        "aviário",
+        "loja de rações",
+        "loja de acessórios para pets"
+      ],
+      "services": [
+        "banho e tosa"
+      ],
+      "products": [
+        "rações",
+        "artigos para pássaros",
+        "acessórios",
+        "petiscos",
+        "pesca",
+        "jardinagem"
+      ],
+      "useCases": [
+        "procurar ração perto de casa",
+        "consultar banho e tosa em Pinhais",
+        "artigos para aves e pássaros",
+        "consultar jardinagem"
+      ],
+      "locality": [
+        "Vargem Grande",
+        "Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Agropet Filt Pinhais",
+        "aviário em Pinhais",
+        "pet shop Vargem Grande",
+        "rações Pinhais",
+        "artigos para pássaros Pinhais"
+      ]
+    },
+    "cantinho-da-tia-mari": {
+      "aliases": [
+        "Cantinho da Tia Mari",
+        "Cantinho Tia Mari",
+        "Tia Mari São José dos Pinhais"
+      ],
+      "categories": [
+        "cuidados infantis",
+        "berçário",
+        "recreação infantil"
+      ],
+      "services": [
+        "berçário",
+        "leva e busca",
+        "horários"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar informações do berçário",
+        "ver horário de atendimento",
+        "conhecer o espaço e endereço",
+        "consultar leva e busca"
+      ],
+      "locality": [
+        "Rua Pedro Alves da Rocha",
+        "Jardim Itália",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Cantinho da Tia Mari São José dos Pinhais",
+        "berçário Jardim Itália",
+        "cuidados infantis Jardim Itália",
+        "leva e busca escola CMEI Jardim Itália"
       ]
     }
   }

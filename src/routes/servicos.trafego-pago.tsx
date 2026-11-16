@@ -20,7 +20,6 @@ export const Route = createFileRoute("/servicos/trafego-pago")({
       headline="Anúncios que viram cliente"
       subheadline="Campanhas Google Ads e Meta Ads com landing pages otimizadas e tracking ponta a ponta."
       ctaLabel="Quero diagnóstico gratuito"
-      whatsappMessage="Quero rodar tráfego pago com a 0WEB."
       benefits={[
         { title: "Estrutura de campanhas profissional", description: "Search, Performance Max, Demand Gen e Meta." },
         { title: "Landing pages dedicadas", description: "1 LP por intenção, com A/B contínuo." },

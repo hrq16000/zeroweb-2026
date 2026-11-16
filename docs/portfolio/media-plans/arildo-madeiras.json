@@ -1,0 +1,111 @@
+{
+  "doc": "Media plan — Arildo Madeiras",
+  "slug": "arildo-madeiras",
+  "status": "COMPLETE_WITH_EXTERNAL_OFFICIAL_ASSETS",
+  "inventory": {
+    "realBusinessPhotos": [
+      "official-media-177",
+      "official-media-178",
+      "official-media-186",
+      "official-media-187",
+      "official-media-188",
+      "official-media-189",
+      "official-media-190",
+      "official-media-191"
+    ],
+    "officialBrandAssets": [
+      "official-logo-remote"
+    ],
+    "externalMedia": [
+      "8 imagens oficiais do site, usadas por URL com provenance"
+    ],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [
+      "/images/arildo-madeiras/capa-card.svg",
+      "/images/arildo-madeiras/capa-og.svg"
+    ],
+    "missingMedia": []
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OFFICIAL_WEBSITE",
+      "OWNER_REFERENCES",
+      "PUBLIC_SEARCH"
+    ],
+    "result": "Site oficial fornece logo, fotos de estoque/produto e catálogo. Facebook/Google share não foram promovidos por conflito/indisponibilidade."
+  },
+  "ingestion": {
+    "attempted": true,
+    "status": "ATTEMPTED_BLOCKED",
+    "reason": "Downloader da sessão não resolveu o host dos binários; URLs oficiais permanecem como fonte remota estável nesta rodada.",
+    "retryPolicy": "Versionar localmente quando o host estiver acessível por ferramenta de ingestão, sem alterar a composição."
+  },
+  "referenceOnlyAssets": [
+    "fotos de fachada/caminhão com contatos antigos embutidos foram rejeitadas para hero e galeria dominante"
+  ],
+  "sections": [
+    {
+      "section": "hero",
+      "asset": "official-media-177",
+      "purpose": "estoque/matéria-prima real",
+      "classification": "REAL_BUSINESS_PHOTO",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "section": "applications",
+      "asset": "official-media-178",
+      "purpose": "prova material",
+      "classification": "REAL_BUSINESS_PHOTO",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "section": "cambara",
+      "asset": "official-media-186",
+      "purpose": "espécie/produto publicado",
+      "classification": "REAL_BUSINESS_PHOTO",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "section": "stock-gallery",
+      "asset": "official-media-187..191",
+      "purpose": "mosaico documental de estoque",
+      "classification": "REAL_BUSINESS_PHOTO",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "section": "cover",
+      "asset": "/images/arildo-madeiras/capa-card.svg",
+      "purpose": "capa editorial do catálogo",
+      "classification": "EDITORIAL_MEDIA",
+      "source": "0WEB_AUTHORED"
+    },
+    {
+      "section": "og",
+      "asset": "/images/arildo-madeiras/capa-og.svg",
+      "purpose": "social preview",
+      "classification": "OG_MEDIA",
+      "source": "0WEB_AUTHORED"
+    }
+  ],
+  "cover": {
+    "asset": "/images/arildo-madeiras/capa-card.svg",
+    "socialAsset": "/images/arildo-madeiras/capa-og.svg",
+    "strategy": "BRAND_LED",
+    "approved": true,
+    "checks": {
+      "sourceVisibleOnPage": false,
+      "noInventedEvidence": true,
+      "smallCardReadable": true,
+      "note": "Capa é arte editorial 0WEB e não se apresenta como marca oficial ou foto real."
+    }
+  },
+  "lastUpdatedAt": "2026-09-24",
+  "heroMedia": {
+    "asset": "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+    "kind": "REAL_PHOTO",
+    "documentary": true,
+    "provenance": "OFFICIAL_WEBSITE"
+  }
+}

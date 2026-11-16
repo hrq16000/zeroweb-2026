@@ -34,6 +34,7 @@ import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocia
 import {
   CENTRO_MEGA_DEMO_PRODUCTS,
   CENTRO_MEGA_SOCIAL_FEED,
+  CENTRO_MEGA_SOCIAL_SOURCES,
   CENTRO_MEGA_STORE_SOURCES,
   type CentroMegaDemoProduct,
 } from "@/config/centro-mega-demo-products";
@@ -48,7 +49,7 @@ const quiz = {
     "Quero consultar outro produto",
   ],
   experienceOptions: [
-    "Vi um produto nesta loja-demo",
+    "Vi um produto nesta loja virtual",
     "Vi uma oferta nas redes sociais",
     "Quero comparar algumas opções",
     "Preciso de orientação da loja",
@@ -127,10 +128,37 @@ const accentStyles = {
 function ProductVisual({ product, compact = false }: { product: CentroMegaDemoProduct; compact?: boolean }) {
   const style = accentStyles[product.accent];
   const iconClass = compact ? "h-9 w-9" : "h-20 w-20 sm:h-24 sm:w-24";
+  const heightClass = compact ? "h-24" : "h-56 sm:h-64";
+
+  if (product.imageUrl) {
+    return (
+      <div className={"relative overflow-hidden bg-white " + heightClass}>
+        <PortfolioImage
+          src={product.imageUrl}
+          alt={product.imageAlt ?? product.name}
+          width={720}
+          height={720}
+          loading={compact ? "lazy" : undefined}
+          className="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.04]"
+        />
+        {!compact && product.imageSourceUrl && (
+          <a
+            href={product.imageSourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="absolute bottom-3 left-3 right-3 inline-flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-white/90 px-3 py-2 text-[10px] font-black uppercase tracking-[.12em] text-[#071022] shadow-lg backdrop-blur transition hover:bg-white"
+          >
+            <span className="truncate">{product.imageSourceLabel ?? "Mídia pública verificada"}</span>
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          </a>
+        )}
+      </div>
+    );
+  }
 
   if (product.visual === "phone") {
     return (
-      <div className={"relative grid place-items-center " + (compact ? "h-24" : "h-56 sm:h-64")}>
+      <div className={"relative grid place-items-center " + heightClass}>
         <div className={"absolute inset-7 rounded-full bg-gradient-to-br blur-3xl " + style.glow} />
         <div className="mega-product-float relative h-[72%] aspect-[.5] rounded-[1.8rem] border border-white/20 bg-gradient-to-br from-white/15 to-white/[.03] p-2 shadow-[0_35px_80px_rgba(0,0,0,.45)]">
           <div className="h-full rounded-[1.35rem] border border-white/10 bg-[#05070d] p-3">
@@ -154,7 +182,7 @@ function ProductVisual({ product, compact = false }: { product: CentroMegaDemoPr
           : PackageOpen;
 
   return (
-    <div className={"relative grid place-items-center overflow-hidden " + (compact ? "h-24" : "h-56 sm:h-64")}>
+    <div className={"relative grid place-items-center overflow-hidden " + heightClass}>
       <div className={"absolute inset-7 rounded-full bg-gradient-to-br blur-3xl " + style.glow} />
       <div className="mega-product-float relative grid aspect-square h-[72%] place-items-center rounded-[2rem] border border-white/15 bg-white/[.055] shadow-[0_35px_80px_rgba(0,0,0,.35)]">
         <Icon className={iconClass + " " + style.icon} strokeWidth={1.25} />
@@ -187,13 +215,13 @@ function StoreCTA({
       mode="proposal"
       funnelIntent="pedido"
       quizConfig={quiz}
-      initialAnswers={seededService ? { service: seededService, experience: "Seleção feita na loja-demo" } : undefined}
+      initialAnswers={seededService ? { service: seededService, experience: "Seleção feita na loja virtual" } : undefined}
       skipPrefilledSteps={Boolean(seededService)}
       orderContext={{
-        order_items: selectedNames.length ? selectedNames.join(" | ") : "Consulta geral da loja-demo Centro Mega",
+        order_items: selectedNames.length ? selectedNames.join(" | ") : "Consulta geral da loja virtual Centro Mega",
         fulfillment: "A combinar com a Centro Mega",
         customer_note:
-          "Amostra de loja virtual. Confirmar preço, estoque, tamanho, cor, condição comercial e disponibilidade atuais antes de concluir a compra.",
+          "Pedido iniciado pela loja virtual Centro Mega. Confirmar preço, estoque, tamanho, cor, condição comercial e disponibilidade atuais antes de concluir a compra.",
       }}
       className={className}
     >
@@ -348,7 +376,7 @@ export function CentroMegaPage() {
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-black uppercase tracking-[.16em]">Centro Mega</p>
-                <p className="truncate text-[10px] font-bold uppercase tracking-[.22em] text-cyan-300">Store Demo · Tech + Outlet</p>
+                <p className="truncate text-[10px] font-bold uppercase tracking-[.22em] text-cyan-300">Loja Online · Tech + Outlet</p>
               </div>
             </a>
 
@@ -383,7 +411,7 @@ export function CentroMegaPage() {
               <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5">
                 <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[.22em] text-cyan-200">
                   <Sparkles className="h-4 w-4" />
-                  Amostra autônoma de loja virtual
+                  Loja virtual Centro Mega
                 </span>
                 <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[.18em] text-white/45">
                   <ShieldCheck className="h-4 w-4 text-lime-300" />
@@ -405,7 +433,7 @@ export function CentroMegaPage() {
                   </MotionReveal>
                   <MotionReveal variant="up" delay={140}>
                     <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 sm:text-xl">
-                      Uma vitrine experimental para transformar posts, ofertas e categorias da Centro Mega em uma experiência de compra visual, pesquisável e pronta para gerar pedidos.
+                      Uma loja virtual que transforma posts, ofertas e categorias da Centro Mega em uma experiência de compra visual, pesquisável e pronta para gerar pedidos.
                     </p>
                   </MotionReveal>
 
@@ -443,32 +471,48 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <div className="mega-hero-drift relative mx-auto min-h-[34rem] max-w-2xl">
-                    <div className="absolute inset-8 rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.02] to-violet-400/10 shadow-[0_50px_140px_rgba(0,0,0,.55)]">
-                      <div className="absolute inset-0 overflow-hidden rounded-[3rem]">
-                        <div className="mega-scan absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/10 to-transparent" />
-                      </div>
-                    </div>
-
-                    <div className="absolute left-0 top-5 w-[68%] rotate-[-5deg] rounded-[2rem] border border-white/15 bg-[#0a1020]/90 p-5 shadow-2xl">
-                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[0]} compact />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-cyan-300">Social drop</p>
-                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[0].name}</p>
-                    </div>
-
-                    <div className="absolute bottom-2 right-0 w-[68%] rotate-[5deg] rounded-[2rem] border border-violet-300/20 bg-[#0d0a19]/90 p-5 shadow-2xl">
-                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[1]} compact />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-violet-300">Outlet drop</p>
-                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[1].name}</p>
-                    </div>
-
-                    <div className="mega-glow absolute left-[42%] top-[42%] grid h-28 w-28 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_80px_rgba(34,211,238,.25)]">
-                      <div className="text-center">
-                        <Zap className="mx-auto h-7 w-7 text-cyan-200" />
-                        <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em]">Store demo</p>
-                      </div>
-                    </div>
+                <div className="mega-hero-drift relative mx-auto w-full min-w-0 max-w-2xl overflow-hidden rounded-[3rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[.025] to-violet-400/10 p-4 shadow-[0_50px_140px_rgba(0,0,0,.55)] sm:p-7">
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[3rem]">
+                    <div className="mega-scan absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/10 to-transparent" />
+                    <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
+                    <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-cyan-400/15 blur-3xl" />
                   </div>
+
+                  <div className="relative grid min-w-0 gap-4 sm:grid-cols-2">
+                    {CENTRO_MEGA_DEMO_PRODUCTS.slice(0, 2).map((product, index) => (
+                      <article
+                        key={product.id}
+                        className={
+                          "group min-w-0 overflow-hidden rounded-[2rem] border bg-[#080d18]/92 p-4 shadow-2xl " +
+                          (index === 0 ? "border-cyan-300/25 sm:translate-y-4" : "border-violet-300/25 sm:-translate-y-2")
+                        }
+                      >
+                        <div className="overflow-hidden rounded-[1.35rem] border border-white/10 bg-white">
+                          <ProductVisual product={product} compact />
+                        </div>
+                        <p className={"mt-4 text-[10px] font-black uppercase tracking-[.18em] " + (index === 0 ? "text-cyan-300" : "text-violet-300")}>
+                          {index === 0 ? "Social drop" : "Outlet drop"}
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-lg font-black leading-tight text-white sm:text-xl">
+                          {product.name}
+                        </p>
+                        <p className="mt-2 text-xs leading-5 text-white/50">
+                          Foto pública versionada · consulte preço e estoque atuais
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="relative mt-4 flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-[1.6rem] border border-white/10 bg-black/25 px-4 py-3 backdrop-blur">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-black uppercase tracking-[.18em] text-cyan-200">Loja online</p>
+                      <p className="truncate text-sm font-bold text-white/70">Produtos reais + últimas publicações sociais</p>
+                    </div>
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 bg-white/10 shadow-[0_0_50px_rgba(34,211,238,.2)]">
+                      <Zap className="h-5 w-5 text-cyan-200" />
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -497,7 +541,7 @@ export function CentroMegaPage() {
             <div className="mx-auto max-w-[92rem]">
               <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-300">Vitrine experimental</p>
+                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-300">Vitrine online</p>
                   <h2 className="mt-4 text-5xl font-black tracking-[-.055em] sm:text-7xl">
                     Posts viram produtos.
                     <span className="block text-white/35">Categorias viram prateleiras.</span>
@@ -510,7 +554,7 @@ export function CentroMegaPage() {
                       value={search}
                       onChange={(event) => setSearch(event.target.value)}
                       placeholder="Buscar celular, tênis, outlet..."
-                      aria-label="Buscar produtos da amostra"
+                      aria-label="Buscar produtos da loja"
                       className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/30"
                     />
                     {search && (
@@ -564,7 +608,7 @@ export function CentroMegaPage() {
               </div>
 
               <div className="mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/[.06] px-5 py-4 text-sm leading-6 text-amber-50/70">
-                <strong className="text-amber-200">Amostra inteligente:</strong> preços históricos aparecem apenas quando a própria publicação indexada trouxe o valor. Estoque, preço atual, cor, grade, garantia e condição comercial devem ser confirmados antes da compra.
+                <strong className="text-amber-200">Compra assistida:</strong> preços históricos aparecem apenas quando a própria publicação indexada trouxe o valor. Estoque, preço atual, cor, grade, garantia e condição comercial devem ser confirmados antes da compra.
               </div>
             </div>
           </section>
@@ -578,7 +622,7 @@ export function CentroMegaPage() {
                   <p className="text-xs font-black uppercase tracking-[.24em] text-fuchsia-300">Social commerce</p>
                   <h2 className="mt-4 text-5xl font-black tracking-[-.055em] sm:text-7xl">A rede social vira prateleira.</h2>
                   <p className="mt-6 max-w-xl text-lg leading-8 text-white/55">
-                    A demonstração transforma evidências públicas e categorias reais em uma vitrine organizada. O Instagram continua como fonte viva de novidades; o catálogo só promove fatos que conseguimos resolver com segurança.
+                    A loja transforma evidências públicas, catálogo do seller e categorias reais em uma vitrine organizada. O Instagram continua como fonte viva de novidades; o catálogo só promove fatos que conseguimos resolver com segurança.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
@@ -600,30 +644,93 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <MotionStagger className="grid gap-4 sm:grid-cols-2" variant="up" step={90}>
-                  {CENTRO_MEGA_SOCIAL_FEED.map((post) => (
+                <div className="rounded-[2rem] border border-white/10 bg-white/[.035] p-5 sm:p-6">
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-white/35">Atividade pública confirmada</p>
+                  <div className="mt-4 divide-y divide-white/10">
+                    {CENTRO_MEGA_SOCIAL_FEED.slice(0, 3).map((post) => (
+                      <a
+                        key={post.href + post.title}
+                        href={post.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-start justify-between gap-4 py-4 first:pt-0 last:pb-0"
+                      >
+                        <div className="min-w-0">
+                          <p className="text-xs font-black uppercase tracking-[.14em] text-fuchsia-200/70">
+                            {post.platform} · {post.date ?? "canal oficial"}
+                          </p>
+                          <p className="mt-1 text-lg font-black tracking-[-.02em] text-white">{post.title}</p>
+                          <p className="mt-1 line-clamp-2 text-sm leading-6 text-white/45">{post.description}</p>
+                        </div>
+                        <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-white/25 transition group-hover:text-fuchsia-200" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10 lg:col-span-2">
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-300">Instagram oficial · mídia real</p>
+                      <h3 className="mt-2 text-3xl font-black tracking-[-.04em] sm:text-4xl">Posts e reels da própria Centro Mega.</h3>
+                    </div>
                     <a
-                      key={post.href + post.title}
-                      href={post.href}
+                      href={CENTRO_MEGA_STORE_SOURCES.instagram}
                       target="_blank"
                       rel="noreferrer"
-                      className="group rounded-[1.75rem] border border-white/10 bg-white/[.04] p-6 transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full border border-fuchsia-300/30 px-4 text-xs font-black uppercase tracking-[.12em] text-fuchsia-100 transition hover:bg-fuchsia-300/10"
                     >
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-white/55">
-                          {post.platform}
-                        </span>
-                        <ExternalLink className="h-4 w-4 text-white/25 transition group-hover:text-fuchsia-200" />
-                      </div>
-                      <p className="mt-8 text-2xl font-black tracking-[-.03em]">{post.title}</p>
-                      <p className="mt-3 text-sm leading-6 text-white/50">{post.description}</p>
-                      <div className="mt-6 flex items-center justify-between gap-4 text-[10px] font-black uppercase tracking-[.16em] text-white/35">
-                        <span>{post.date ?? "canal oficial"}</span>
-                        <span>{post.status}</span>
-                      </div>
+                      Abrir perfil <ExternalLink className="h-4 w-4" aria-hidden="true" />
                     </a>
-                  ))}
-                </MotionStagger>
+                  </div>
+
+                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                    {CENTRO_MEGA_SOCIAL_SOURCES.filter(
+                      (source) => source.kind === "Instagram" && /\/(?:p|reel)\//.test(source.href),
+                    ).map((source) => {
+                      if (!("mediaUrl" in source) || !("mediaAlt" in source) || !source.mediaUrl) return null;
+
+                      return (
+                        <a
+                          key={source.href}
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04] transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
+                        >
+                          <div className="relative aspect-[4/5] overflow-hidden bg-white">
+                            <PortfolioImage
+                              src={source.mediaUrl}
+                              alt={source.mediaAlt}
+                              width={1080}
+                              height={1350}
+                              loading="lazy"
+                              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent px-4 pb-4 pt-14">
+                              <div className="flex items-center justify-between gap-3">
+                                <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-black uppercase tracking-[.14em] text-white">
+                                  {source.label}
+                                </span>
+                                <ExternalLink className="h-4 w-4 text-white/80" aria-hidden="true" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="border-t border-white/10 px-4 py-4">
+                            <p className="text-xs leading-5 text-white/55">
+                              {"provenance" in source ? source.provenance : "Instagram oficial @centro.mega"}
+                            </p>
+                            {"shortcode" in source && (
+                              <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em] text-fuchsia-200/75">
+                                {source.shortcode}
+                              </p>
+                            )}
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -642,7 +749,7 @@ export function CentroMegaPage() {
                     <Store className="h-16 w-16 text-cyan-200/50" strokeWidth={1} />
                   </div>
                   <p className="mt-6 max-w-3xl text-lg leading-8 text-white/55">
-                    O Linktree oficial lista SAC, Centro Mega Outlet — São José dos Pinhais, Galeria Di Brunno, Shopping Cidade, Pinheirinho e Instagram. A amostra organiza essa presença como uma jornada comercial única.
+                    O Linktree oficial lista SAC, Centro Mega Outlet — São José dos Pinhais, Galeria Di Brunno, Shopping Cidade, Pinheirinho e Instagram. A loja organiza essa presença como uma jornada comercial única.
                   </p>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
                     {[
@@ -668,7 +775,7 @@ export function CentroMegaPage() {
                 </div>
 
                 <div className="rounded-[2.5rem] border border-white/10 bg-white/[.035] p-7 sm:p-10">
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-amber-300">Como esta amostra vende</p>
+                  <p className="text-xs font-black uppercase tracking-[.24em] text-amber-300">Como comprar nesta loja</p>
                   <div className="mt-7 space-y-6">
                     {[
                       ["01", "Explore", "Filtre categorias e encontre produtos ou oportunidades."],
@@ -700,7 +807,7 @@ export function CentroMegaPage() {
                     <span className="block text-white/35">sem perder o contexto.</span>
                   </h2>
                   <p className="mt-6 max-w-2xl text-lg leading-8 text-white/55">
-                    O pedido sai da amostra com os itens escolhidos e segue pelo funil individual da Centro Mega. Nada de WhatsApp exposto, carrinho sem saída ou mistura de clientes.
+                    O pedido sai da vitrine com os itens escolhidos e segue pelo funil individual da Centro Mega. Nada de WhatsApp exposto, carrinho sem saída ou mistura de clientes.
                   </p>
                 </div>
                 <div className="min-w-[18rem]">
@@ -735,7 +842,7 @@ export function CentroMegaPage() {
                 className="h-12 w-12 rounded-xl object-cover ring-1 ring-white/10"
               />
               <div>
-                <p className="font-black uppercase tracking-[.12em]">Centro Mega Store Demo</p>
+                <p className="font-black uppercase tracking-[.12em]">Centro Mega · Loja Virtual</p>
                 <p className="mt-1 text-sm text-white/35">Celulares · Outlet · Tênis · Bonés · Calçados · Acessórios</p>
               </div>
             </div>
@@ -770,6 +877,28 @@ export function CentroMegaPage() {
               <div className="grid md:grid-cols-[.85fr_1.15fr]">
                 <div className="border-b border-white/10 bg-white/[.025] md:border-b-0 md:border-r">
                   <ProductVisual product={activeProduct} />
+                  {activeProduct.gallery && activeProduct.gallery.length > 1 && (
+                    <div className="grid grid-cols-3 gap-2 p-3">
+                      {activeProduct.gallery.slice(0, 3).map((image) => (
+                        <a
+                          key={image.url}
+                          href={image.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="overflow-hidden rounded-xl border border-white/10 bg-white"
+                          title="Abrir fonte pública da imagem"
+                        >
+                          <PortfolioImage
+                            src={image.url}
+                            alt={image.alt}
+                            width={320}
+                            height={320}
+                            className="aspect-square h-full w-full object-contain p-1"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 sm:p-8">
                   <h2 className="text-3xl font-black tracking-[-.04em]">{activeProduct.name}</h2>
@@ -863,7 +992,7 @@ export function CentroMegaPage() {
                     <div className="mt-6 rounded-2xl border border-dashed border-white/15 bg-white/[.02] p-4">
                       <p className="text-[10px] font-black uppercase tracking-[.18em] text-white/35">Total</p>
                       <p className="mt-2 text-lg font-black">A confirmar com a loja</p>
-                      <p className="mt-2 text-xs leading-5 text-white/35">A amostra não soma valores históricos nem presume estoque atual.</p>
+                      <p className="mt-2 text-xs leading-5 text-white/35">A loja não soma valores históricos nem presume estoque atual.</p>
                     </div>
 
                     <StoreCTA

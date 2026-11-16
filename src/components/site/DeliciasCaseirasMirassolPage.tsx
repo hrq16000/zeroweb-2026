@@ -53,7 +53,7 @@ function Encomendar({ children, soft = false }: { children: React.ReactNode; sof
       className={
         soft
           ? "inline-flex min-h-12 items-center justify-center rounded-full border-2 border-[#8d5b3c] px-6 py-3 text-sm font-bold text-[#8d5b3c] transition hover:bg-[#8d5b3c] hover:text-[#fff6ee] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8d5b3c]"
-          : "inline-flex min-h-12 items-center justify-center rounded-full bg-[#e5477a] px-8 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-[#e5477a]/25 transition hover:bg-[#f2649a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e5477a] focus-visible:ring-offset-2"
+          : "inline-flex min-h-12 items-center justify-center rounded-full bg-[#b72e63] px-8 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-[#b72e63]/25 transition hover:bg-[#c8407a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b72e63] focus-visible:ring-offset-2"
       }
     >
       {children}
@@ -68,7 +68,7 @@ export function DeliciasCaseirasMirassolPage() {
       <main>
         <section id="inicio" className="px-5 py-14 text-center lg:px-8">
           <MotionReveal variant="scale" className="mx-auto max-w-3xl rounded-[3rem] border-4 border-double border-[#e5477a]/45 px-6 py-14 sm:px-12">
-            <p className="text-xs font-bold uppercase tracking-[.36em] text-[#c8407a]">Centro · Mirassol — SP</p>
+            <p className="text-xs font-bold uppercase tracking-[.36em] text-[#b72e63]">Centro · Mirassol — SP</p>
             <a href="#inicio" className="mt-4 block font-serif text-3xl font-bold sm:text-4xl">
               Delícias Caseiras
             </a>
@@ -113,10 +113,10 @@ export function DeliciasCaseirasMirassolPage() {
             </p>
             <dl className="mt-8 space-y-px overflow-hidden rounded-2xl bg-[#4a3128]/10">
               {CALENDARIO.map(([k, v], i) => (
-                <MotionReveal key={k} variant="left" delay={i * 100} className="flex flex-wrap items-baseline justify-between gap-2 bg-[#fff6ee] px-6 py-4">
+                <div key={k} className="flex flex-wrap items-baseline justify-between gap-2 bg-[#fff6ee] px-6 py-4">
                   <dt className="font-semibold">{k}</dt>
-                  <dd className="text-sm font-bold text-[#c8407a]">{v}</dd>
-                </MotionReveal>
+                  <dd className="text-sm font-bold text-[#b72e63]">{v}</dd>
+                </div>
               ))}
             </dl>
           </div>

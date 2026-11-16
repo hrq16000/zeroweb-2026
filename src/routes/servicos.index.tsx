@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import { ArrowRight, Sparkles, Search, AlertCircle } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
@@ -116,7 +117,7 @@ export const Route = createFileRoute("/servicos/")({
       <div>
         <AlertCircle className="w-10 h-10 text-destructive mx-auto" />
         <h1 className="mt-4 text-2xl font-bold">Não foi possível carregar o catálogo</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{(error instanceof Error ? error.message : String(error))}</p>
         <Link to="/" className="mt-4 inline-block text-primary underline">Voltar ao início</Link>
       </div>
     </div>
@@ -364,8 +365,11 @@ function ServicosHub() {
                       )}
                       {coverUrl ? (
                         <div className="aspect-video overflow-hidden bg-muted">
-                          <img
+                          <ServiceCoverImage
                             src={coverUrl}
+                            slug={s.slug}
+                            name={s.name}
+                            category={s.category}
                             alt={coverAlt}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

@@ -1,0 +1,298 @@
+{
+  "doc": "Entity Enrichment — Arildo Madeiras",
+  "slug": "arildo-madeiras",
+  "lastResearchAt": "2026-09-24",
+  "researchLedger": {
+    "website": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
+    },
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "O share.google fornecido não foi resolvido; busca estruturada retornou entidade homônima em Piraquara, rejeitada."
+    },
+    "services": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
+    },
+    "media": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "blocker": "As imagens oficiais são acessíveis por URL, mas a sessão atual não conseguiu baixar os binários para versionamento local."
+    },
+    "identity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "phone": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "address": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
+    },
+    "reviews": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "URL fornecida não abriu no crawler; resultados públicos conflitantes não foram promovidos."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    }
+  },
+  "identity": {
+    "name": "Arildo Madeiras",
+    "officialWebsite": "https://arildomadeiras.guiapinhais.com.br/",
+    "brandAsset": "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png",
+    "brandStatus": "OFFICIAL_WEBSITE_ASSET"
+  },
+  "entity": {
+    "candidates": [
+      {
+        "name": "Arildo Madeiras",
+        "source": "OFFICIAL_WEBSITE",
+        "url": "https://arildomadeiras.guiapinhais.com.br/",
+        "locality": "Av. Iraí, 1752 · Weissópolis · Pinhais — PR"
+      }
+    ],
+    "rejectedCandidates": [
+      {
+        "source": "GOOGLE_BUSINESS_SEARCH",
+        "locality": "Piraquara — PR",
+        "reason": "Endereço/telefone divergem do site oficial e do endereço fornecido; não é usado como mesma entidade."
+      }
+    ],
+    "resolutionStatus": "RESOLVED",
+    "resolutionSignals": [
+      "nome",
+      "endereço em Pinhais",
+      "telefone",
+      "catálogo",
+      "marca",
+      "mídia oficial"
+    ],
+    "unresolvedJustification": null
+  },
+  "evidence": [
+    {
+      "fact": "Atacado e varejo de madeiras brutas e beneficiadas",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Madeiras em geral, portas, janelas e forros",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Móveis rústicos e banquetas",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Aplicações citadas: assoalho, caixilhos, colunas e construção",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Atendimento descrito para casa, comércio e obra",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Madeira de Cambará possui página própria no catálogo",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "Av. Iraí, 1752, Weissópolis, Pinhais — PR, 83321-000",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "(41) 3668-7014 e (41) 99167-1593",
+      "source": "OFFICIAL_WEBSITE"
+    },
+    {
+      "fact": "CTA oficial Orçar pelo Whatsapp resolve para 41 99167-1593",
+      "source": "OFFICIAL_WEBSITE",
+      "usage": "destino exclusivo do funil"
+    }
+  ],
+  "sources": [
+    {
+      "type": "OFFICIAL_WEBSITE",
+      "url": "https://arildomadeiras.guiapinhais.com.br/",
+      "accessedAt": "2026-09-24"
+    },
+    {
+      "type": "OFFICIAL_WEBSITE",
+      "url": "https://arildomadeiras.guiapinhais.com.br/quem-somos/sobre-nos",
+      "accessedAt": "2026-09-24"
+    },
+    {
+      "type": "OFFICIAL_WEBSITE",
+      "url": "https://arildomadeiras.guiapinhais.com.br/produtos",
+      "accessedAt": "2026-09-24"
+    },
+    {
+      "type": "OFFICIAL_WEBSITE",
+      "url": "https://arildomadeiras.guiapinhais.com.br/produtos/madeira-de-cambara",
+      "accessedAt": "2026-09-24"
+    },
+    {
+      "type": "OWNER_REFERENCE",
+      "url": "https://www.facebook.com/p/Arildo-Madeiras-Ltda-61590244378303/",
+      "accessedAt": "2026-09-24",
+      "status": "UNRESOLVED_CURRENT_CRAWL"
+    },
+    {
+      "type": "OWNER_REFERENCE",
+      "url": "https://share.google/4sODBBlYNXSB5KZDo",
+      "accessedAt": "2026-09-24",
+      "status": "UNRESOLVED_CURRENT_CRAWL"
+    }
+  ],
+  "website": {
+    "searched": true,
+    "url": "https://arildomadeiras.guiapinhais.com.br/"
+  },
+  "location": {
+    "streetAddress": "Av. Iraí, 1752",
+    "district": "Weissópolis",
+    "city": "Pinhais",
+    "state": "PR",
+    "postalCode": "83321-000",
+    "source": "OFFICIAL_WEBSITE"
+  },
+  "services": [
+    "madeiras em geral",
+    "portas",
+    "janelas",
+    "forros",
+    "móveis rústicos",
+    "banquetas",
+    "Madeira de Cambará"
+  ],
+  "applications": [
+    "assoalho",
+    "caixilhos",
+    "colunas",
+    "construção",
+    "casa",
+    "comércio",
+    "obra"
+  ],
+  "media": {
+    "discovery": {
+      "searched": true,
+      "source": "OFFICIAL_WEBSITE"
+    },
+    "officialLogo": "https://arildomadeiras.guiapinhais.com.br/templates/default/images/logo.png",
+    "assets": [
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/178/448622032-454670737183944-3449960752074939008-n.jpg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/186/whatsapp-image-2024-11-08-at-09-33-55-copia.jpeg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/187/whatsapp-image-2024-11-08-at-09-33-52-1-copia.jpeg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/188/whatsapp-image-2024-11-08-at-09-33-51-1.jpeg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/189/whatsapp-image-2024-11-08-at-09-33-51-2.jpeg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/190/whatsapp-image-2024-11-08-at-09-33-54.jpeg",
+      "https://arildomadeiras.guiapinhais.com.br/medias/article/big/191/whatsapp-image-2024-11-08-at-09-33-52.jpeg"
+    ]
+  },
+  "conflicts": [
+    {
+      "field": "phone",
+      "externalCandidates": [
+        "41 99282-1700",
+        "41 98425-341"
+      ],
+      "officialSiteCurrent": "41 99167-1593",
+      "decision": "rejeitar números externos conflitantes; usar apenas o WhatsApp resolvido pelo CTA do site oficial"
+    }
+  ],
+  "unverified": [
+    "horários",
+    "CNPJ",
+    "preços",
+    "estoque atual",
+    "entrega",
+    "garantia",
+    "reviews",
+    "tempo de mercado",
+    "Facebook oficial atual",
+    "Instagram oficial"
+  ],
+  "providerCalls": [
+    {
+      "provider": "official-website",
+      "purpose": "entidade, catálogo, contato, marca e mídia",
+      "status": "success"
+    },
+    {
+      "provider": "facebook-public-page",
+      "purpose": "social oficial",
+      "status": "blocked"
+    },
+    {
+      "provider": "google-share",
+      "purpose": "entidade local",
+      "status": "blocked"
+    },
+    {
+      "provider": "public-search",
+      "purpose": "desambiguação",
+      "status": "success_with_conflicts"
+    }
+  ]
+}

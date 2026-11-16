@@ -2,6 +2,9 @@
 
 Status: **obrigatório** · Escopo: todas as rotas `/portfolio/<slug>`
 Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md` (isolamento e identidade do cliente).
+Obedece também a `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md`:
+infraestrutura é global, mas a evolução de cada cliente deve ser **aditiva**, localmente
+contextualizada e preservadora de conteúdo útil existente.
 
 ## 1. O que é padrão global
 
@@ -72,6 +75,11 @@ funciona como catálogo escalável: filtros persistidos na URL, busca textual,
 ordenação, carregamento incremental e priorização silenciosa por cidade estimada
 quando houver correspondência confiável. A ausência de geo mantém a ordem
 neutra.
+
+Além do catálogo raiz, a rede deve evoluir como guia comercial local: bairro e cidade
+funcionam como sinais fortes para ordenar negócios próximos quando houver dado confiável;
+em seguida entram região e afinidade de categoria/serviço. Nenhuma página deve declarar
+“perto” sem base geográfica suficiente.
 
 O sitemap e o `ItemList` são derivados do catálogo canônico, portanto cada novo
 slug publicado deve ser registrado em `portfolio-catalog.json` e

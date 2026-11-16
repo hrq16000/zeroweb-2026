@@ -52,6 +52,10 @@ Regras invioláveis:
 
 Gate: `bun run check:portfolio-funnel-operational` (roda no `prebuild`).
 
+## Separação: intenção de pedido, loja externa e delivery próprio
+
+`funnelType=pedido` e `PortfolioCTAQuiz` registram uma **intenção comercial/lead**, não um pedido transacional durável. `external_store` é a conversão na loja real **externa** do cliente, não prova de que a 0WEB implementou checkout. Quando o escopo contratado exigir delivery próprio, seguir `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` e `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md`: o CTA de compra só poderá finalizar por quote/order no servidor, pagamento conforme modalidade e protocolo verdadeiro, com `DELIVERY_READY=PASS` comprovado por testes reais. O funil atual permanece disponível como canal auxiliar, sem reclassificação retroativa dos projetos legados.
+
 ## Invariante: botão flutuante = funil do CTA da página
 
 `scripts/sync-portfolio-quiz-configs.mjs` extrai o funil declarado em cada
@@ -65,3 +69,27 @@ com precedência para um override explícito em `portfolio-global-config.json`.
 
 Funis montados em runtime (ex.: pedido do Paraíso do Hot Dog) não entram no
 registro; nesses casos declare o funil no override do cliente.
+
+
+## Painel administrativo por portfólio
+
+A rota interna `/app/funis/portfolios` oferece uma visão operacional única dos
+projetos sem alterar as páginas públicas.
+
+Princípios:
+
+- o slug canônico de funil individual continua sendo `funnel-<clientKey>`;
+- o alias histórico `portfolio-<clientKey>` é reconhecido apenas para leitura,
+  evitando duplicação;
+- a tela mostra somente o destino mascarado resolvido do cadastro versionado do
+  próprio projeto;
+- ausência de destino é exibida como `lead-only`, não como falha;
+- criar/publicar/despublicar atua apenas em `dynamic_forms` e
+  `dynamic_form_questions`; HTML, SEO, imagens e lifecycle da landing não são
+  tocados;
+- o provisionamento é idempotente e deriva as perguntas da configuração
+  canônica já existente do projeto;
+- nenhum fallback entre clientes é criado.
+
+A publicação automática existe apenas como ação administrativa explícita
+“Criar e publicar”; a alternativa segura “Criar rascunho” permanece disponível.

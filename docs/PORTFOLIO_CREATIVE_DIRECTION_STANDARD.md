@@ -38,6 +38,10 @@ proofStrategy:
 nearestPortfolioRisks:
 antiTemplateDecisions:
 resourceEffortLedger:
+experienceEnginePrimary:
+experienceEngineCounterpoint:
+experienceEngineEvidence:
+experienceEngineRejected:
 ```
 
 Para projeto publicado, nenhum campo pode permanecer como `[PREENCHER]`.
@@ -153,6 +157,240 @@ Não usar automaticamente:
 Essa ordem só é permitida se o briefing justificar cada bloco e a composição
 resultante continuar materialmente distinta do portfólio existente.
 
+## 4.1 Matriz de papéis da experiência — antes do wireframe
+
+Além do Creative DNA, toda landing nova deve transformar conteúdo bruto em uma
+**matriz de papéis** antes de escolher seções ou componentes:
+
+| Campo | Pergunta |
+|---|---|
+| `role` | Qual função este conteúdo cumpre na decisão? |
+| `visitorQuestion` | Qual pergunta real do visitante ele responde? |
+| `priority` | É essencial na primeira dobra, cedo, no meio, perto do fechamento ou apenas complementar? |
+| `evidence` | Qual fato, mídia ou fonte sustenta o bloco? |
+| `visualTreatment` | Que linguagem espacial faz sentido para este papel e esta marca? |
+| `mediaRole` | A mídia demonstra produto, trabalho, processo, localidade, identidade, contexto ou prova? |
+| `interaction` | Precisa ser leitura, seleção, comparação, filtro, galeria, simulador, diagnóstico, formulário ou nenhuma interação? |
+| `mobileTranslation` | Como a composição muda no mobile sem virar desktop simplesmente empilhado? |
+
+Papéis possíveis incluem: orientação, descoberta de oferta, conversão rápida,
+demonstração de valor, inventário/catálogo, redução de risco, apoio à decisão,
+prova, localidade/viabilidade, processo, educação e continuidade pós-ação.
+
+**Papéis não são seções obrigatórias.** Podem ser combinados, fragmentados,
+movidos ou incorporados à navegação, hero, mídia, prova e fechamento.
+
+## 4.2 Matriz de ritmo, mídia e silhueta
+
+Antes do JSX, desenhar a cadência macro com pelo menos estes eixos:
+
+`density | mediaWeight | containment | contrast | interaction | proofLevel`
+
+Exemplos de estados: `AIRY/DENSE`, `MEDIA_DOMINANT/TEXT_DOMINANT/BALANCED`,
+`FULL_BLEED/CONTAINED/OVERLAPPED`, `QUIET/CONTRASTED`,
+`STATIC/INTERACTIVE`.
+
+A intenção não é alternar mecanicamente os estados. É impedir que a página seja
+uma fila de regiões com o mesmo container, mesma largura, mesmo card, mesma
+relação imagem/texto e o mesmo encerramento.
+
+Três ou mais capítulos principais com combinação perceptiva praticamente
+idêntica exigem justificativa explícita no brief. Se a silhueta continuar igual
+a um vizinho depois de remover marca/copy/assets, a composição deve ser refeita.
+
+### Papéis narrativos de mídia
+
+Toda imagem dominante recebe uma função: `IDENTITY`, `PRODUCT`, `CRAFT`,
+`PROCESS`, `PLACE`, `PROOF`, `CONTEXT`, `EDITORIAL` ou `CLOSING`.
+
+Repetir “imagem retangular + texto ao lado” como tratamento universal não
+satisfaz estratégia de mídia. A mesma landing pode combinar, quando fizer
+sentido, imagem editorial singular, full bleed, recorte sobreposto, mosaico,
+product shelf, mídia atravessando capítulos, galeria, prova visual junto da
+claim e imagem física de localidade.
+
+## 4.3 Referência auditada — FFIX (2026-09-22)
+
+Fonte pública estudada: `https://ffix.com.br/` e rotas internas públicas
+relacionadas a assistência, TV, aparelhos usados, proteção de tela e notebooks.
+
+A referência foi absorvida como **gramática de decisão e composição**, nunca
+como layout a copiar:
+
+| Contexto observado | O que muda na arquitetura | Lição para 0WEB |
+|---|---|---|
+| Home multioferta | orçamento/configuração aparece cedo; catálogo, oficina real, usados, processo, diagnóstico, prova social e loja física recebem pesos diferentes | misturar descoberta, utilidade, prova e conversão em ritmos distintos |
+| Serviço específico | explicação do problema e taxonomia do serviço ganham precedência | o conteúdo específico deve alterar os primeiros capítulos da página |
+| Estoque de usados | vitrine/availability domina; depois entram busca, segurança da compra, inspeção e troca/venda | intenção de produto exige jornada de produto, não skeleton de serviço |
+| Reparo de TV | a dúvida “consertar ou trocar?” vira apoio à decisão | transformar objeção importante em módulo decisório no ponto certo |
+| Oferta com garantia forte | a garantia sobe na hierarquia | diferenciais reais podem reordenar a composição |
+
+Padrões de mídia absorvidos: oficina real como prova de ofício, foto de produto
+como centro da vitrine, loja física como prova de localidade e mídia de CTA
+apenas quando fortalece o fechamento. A regra resultante é **mídia por função**,
+não “uma foto por seção”.
+
+Quando uma referência externa for fornecida pelo usuário, registrar no brief:
+`referenceUrl`, `reviewedRoutes`, `rolePatterns`, `mediaPatterns`,
+`rhythmPatterns`, `interactionPatterns`, `decisionPatterns`,
+`transferablePrinciples`, `doNotCopy` e `projectSpecificTranslation`.
+
+Se o agente apenas reproduzir a ordem, silhueta ou composição distintiva da
+referência, isso é `REFERENCE_USED_AS_TEMPLATE` e reprova a direção.
+
+## 4.4 Truth/freshness pass — obrigatório antes de fechar a narrativa
+
+Depois da matriz de papéis e antes do wireframe final, revisar:
+
+1. **Escopo** — o que o negócio faz, não faz e faz somente sob condição;
+2. **Volatilidade** — quais claims podem envelhecer;
+3. **Consequência visual** — onde limite, disponibilidade ou incerteza precisam
+   aparecer para ajudar a decisão;
+4. **Fallback** — o que a página mostra quando o dado atual não está disponível.
+
+Registrar no brief:
+
+`scopeTruthMatrix` · `freshnessMatrix` · `volatileClaims` ·
+`staleFallbacks`.
+
+Isso pode alterar a composição. Exemplo: inventário mutável pode pedir vitrine +
+“consultar disponibilidade”; atendimento por região pode pedir coverage checker;
+serviço com exclusões relevantes pode pedir comparação de escopo; orçamento
+dependente de diagnóstico pode pedir fluxo de triagem em vez de preço falso.
+
+Não transformar transparência em bloco padrão. A forma continua autoral.
+
+
+
+## 4.5 Corpus de referências — seleção por modo de decisão
+
+Além das quatro matrizes de referência, novos briefs devem consultar
+`src/config/portfolio-reference-pattern-library.json` e, quando relevante, os
+ledgers em `docs/research/PORTFOLIO_REFERENCE_CORPUS_*.md`.
+
+Não selecionar referência por rótulo de segmento (“é assistência, então use
+site de assistência”). Selecionar pelas necessidades reais:
+
+- diagnóstico/incerteza;
+- prova física;
+- múltiplas unidades;
+- serviço único;
+- confiança na pessoa/fundador;
+- planos/preço configurável;
+- risco profissional/regulatório;
+- demonstração de produto;
+- múltiplas ofertas independentes.
+
+Registrar no brief:
+
+`referenceClusters | referenceUseClasses | interactionEvidence |
+selectedInteractionSignatures | motionEvidence | rejectedReferencePatterns |
+skillTranslation`
+
+### REFERENCE_SIGNAL_MATRIX
+
+`source | route | businessMode | visitorJob | compositionSignal |
+mediaSignal | interactionSignal | proofSignal | localitySignal |
+motionEvidence | useClass | transferablePrinciple | antiPattern | confidence`
+
+### Regra anti-alucinação de motion
+
+Sem observação visual/browser, não declarar que a referência usa parallax,
+stagger, easing, clip reveal, sticky choreography ou qualquer efeito específico.
+Pode-se registrar apenas `DERIVED_MOTION_CANDIDATE`, com implementação própria
+e `prefers-reduced-motion`.
+
+### Skill translation
+
+Cada padrão selecionado precisa puxar competências correspondentes. Exemplos:
+
+- diagnóstico/comparison → decision intelligence + CRO + funnel carryover;
+- multi-location → entity research + local SEO + location UX;
+- prova física → media ingestion + provenance;
+- planos/configurador → truth/freshness + form/commerce state;
+- product demo → frontend interaction + performance;
+- motion → experience-design-max + reduced-motion + accessibility.
+
+O objetivo é impedir que referências virem apenas “prints bonitos” sem alterar a
+qualidade do processo de criação.
+
+## 4.6 EXPERIENCE_ENGINE_MATRIX — motor dominante da experiência
+
+Depois de selecionar referências e antes do wireframe final, todo projeto novo
+deve declarar **qual lógica governa a experiência**. Isso existe para impedir o
+anti-padrão “usar todas as boas práticas” e terminar novamente em uma landing
+completa/genérica.
+
+Campos obrigatórios:
+
+`primaryEngine | counterpointEngine | visitorJob | decisiveUncertainty |
+evidence | compositionConsequence | mediaAnchor | interactionLocus |
+motionCandidate | mobileExpression | rejectedEngines | reason`
+
+Motores disponíveis no corpus machine-readable:
+
+- `PROBLEM_TO_DIAGNOSIS`;
+- `CRAFT_AND_PHYSICAL_PROOF`;
+- `LOCATION_AND_NETWORK`;
+- `PRODUCT_OR_SERVICE_FINDER`;
+- `PROCESS_AND_TRANSPARENCY`;
+- `PLAN_OR_SCOPE_CONFIGURATION`;
+- `FOUNDER_OR_SPECIALIST_TRUST`;
+- `INVENTORY_OR_PRODUCT_BROWSING`;
+- `URGENT_FAST_PATH`;
+- `EDUCATION_AND_RISK_REDUCTION`.
+
+### Regra primary + counterpoint
+
+1. declarar **um** motor primário;
+2. usar no máximo **um** contraponto forte quando houver razão decisória;
+3. capacidades adicionais permanecem subordinadas;
+4. o motor precisa alterar ordem narrativa, composição, mídia ou interação;
+5. não escolher motor pelo rótulo do segmento;
+6. se a página final continuar com a mesma silhueta/jornada de um vizinho, o
+   campo declarado não vale como evidência.
+
+Exemplos válidos são combinações de gramáticas, não presets:
+
+- especialista técnico de alto risco:
+  `FOUNDER_OR_SPECIALIST_TRUST + PROCESS_AND_TRANSPARENCY`;
+- rede com produto compatível por veículo:
+  `PRODUCT_OR_SERVICE_FINDER + LOCATION_AND_NETWORK`;
+- assistência com laboratório forte:
+  `CRAFT_AND_PHYSICAL_PROOF + PROBLEM_TO_DIAGNOSIS`;
+- campanha para defeito específico:
+  `URGENT_FAST_PATH + PROBLEM_TO_DIAGNOSIS`.
+
+Falhas:
+
+- `ENGINELESS_COMPLETE_SITE` — página contém tudo, mas nada governa;
+- `ENGINE_STACKING` — três ou mais motores competem com o mesmo peso;
+- `SEGMENT_ENGINE_DEFAULT` — escolha baseada só em “é oficina/assistência/etc.”;
+- `ENGINE_DECORATIVE_ONLY` — motor existe no brief, mas não muda a página.
+
+O ledger de pesquisa R2 está em
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md`.
+
+Ledgers adicionais:
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md` — interaction signatures;
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md` — facilities e consolidação operacional;
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md` — avaliação/diagnóstico → autorização explícita;
+- `docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md` — rotas locais e resolução de fontes sem novo engine.
+
+Interaction signature não substitui experience engine. Ela resolve uma decisão
+local dentro do motor dominante. Para facilities/multisserviços,
+`MULTI_NEED_SCOPE_BUILDER` só entra quando o cliente realmente consegue
+consolidar múltiplas necessidades em uma mesma avaliação/orçamento.
+
+Quando avaliação/diagnóstico e execução são compromissos distintos,
+`ASSESSMENT_TO_AUTHORIZATION` só entra se houver evidência de um ponto real de
+aprovação antes do trabalho pago. A landing/funil não pode tratar pedido de
+avaliação como consentimento automático para executar o serviço.
+
+
+
+
+
 ## 5. Tipografia e tokens do cliente
 
 Os tokens globais existem para a plataforma. Dentro de um site de cliente,
@@ -230,3 +468,19 @@ Novo projeto só pode ficar `published` quando:
   estiver explicitamente documentado;
 - SEO, a11y, performance, privacidade, build e browser QA passarem;
 - originalidade for revisada contra o portfólio real.
+
+
+Ledger adicional: `docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md` — profissões regulamentadas e limites de conteúdo/prova/formulário.
+
+
+### PROFESSIONAL_COMPLIANCE_BOUNDARY_MATRIX
+
+Para profissão regulamentada, registrar antes da composição:
+`profession | jurisdiction | officialAuthority | officialSources | rulesVerifiedAt |
+credentialDisplay | allowedProof | conditionalProof | forbiddenProof |
+pricingTreatment | promotionalClaimLimits | testimonialPolicy | caseResultPolicy |
+sensitiveDataBoundary | formFieldPolicy | contactHandoffPolicy |
+requiredDisclosures | unresolvedQuestions | implementationNotes`.
+
+Referência comercial não substitui fonte oficial. Regra de uma profissão não
+pode ser transplantada para outra por analogia.

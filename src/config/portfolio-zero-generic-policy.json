@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 9,
   "mode": "ZERO_GENERIC_TOLERANCE",
   "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
   "scope": {
@@ -62,18 +62,41 @@
     "noBrandTestRequired": true,
     "neighborComparisonRequired": true,
     "compositionFingerprintRequired": true,
-    "signatureMomentRequired": true
+    "signatureMomentRequired": true,
+    "experienceRoleMatrixRequired": true,
+    "rhythmMediaMatrixRequired": true,
+    "journeyDivergenceRequired": true,
+    "referenceDecompositionRequiredWhenReferenceSupplied": true,
+    "referenceMustNotDefineFinalSilhouette": true,
+    "primaryExperienceEngineRequired": true,
+    "maximumStrongExperienceEngines": 2,
+    "segmentDefaultEngineForbidden": true,
+    "engineMustChangeComposition": true
   },
   "mediaPolicy": {
-    "purposeSlots": ["hero", "catalogCover", "socialOg", "preview"],
+    "purposeSlots": [
+      "hero",
+      "catalogCover",
+      "socialOg",
+      "preview"
+    ],
     "mediaStrategyRequired": true,
     "generatedContextualMediaAllowed": true,
     "fabricatedEvidenceForbidden": true,
     "mediaStarvationIsFailure": true
   },
   "layoutPolicy": {
-    "requiredAssessment": ["flexbox", "css-grid", "intrinsic-sizing", "responsive-flow"],
-    "viewports": [390, 768, 1440],
+    "requiredAssessment": [
+      "flexbox",
+      "css-grid",
+      "intrinsic-sizing",
+      "responsive-flow"
+    ],
+    "viewports": [
+      390,
+      768,
+      1440
+    ],
     "semanticOrderRequired": true,
     "horizontalOverflowForbidden": true
   },
@@ -117,7 +140,23 @@
     "REDUCED_MOTION_BROKEN",
     "NO_BRAND_TEST_FAIL",
     "HIGH_SIMILARITY_UNRESOLVED",
-    "VISUAL_QA_MISSING"
+    "VISUAL_QA_MISSING",
+    "REFERENCE_DECOMPOSITION_MISSING",
+    "REFERENCE_USED_AS_TEMPLATE",
+    "SAME_JOURNEY_DIFFERENT_COPY",
+    "SECTION_ROLE_MONOTONY",
+    "MEDIA_RHYTHM_REUSED",
+    "FUNCTIONAL_DIVERSITY_MISSING",
+    "NEW_UNMANAGED_PORTFOLIO",
+    "SCOPE_OVERCLAIM",
+    "MATERIAL_LIMIT_HIDDEN",
+    "STALE_DECISION_DATA",
+    "FAKE_LIVE_AVAILABILITY",
+    "VOLATILE_CLAIM_WITHOUT_SOURCE",
+    "ENGINELESS_COMPLETE_SITE",
+    "ENGINE_STACKING",
+    "SEGMENT_ENGINE_DEFAULT",
+    "ENGINE_DECORATIVE_ONLY"
   ],
   "legacyPolicy": {
     "grandfatheredAsComplete": false,
@@ -129,6 +168,112 @@
       "weak-media-cover",
       "generic-hero",
       "missing-signature"
+    ],
+    "baselineFile": "src/config/portfolio-legacy-baseline.json",
+    "baselineFrozen": true,
+    "newProjectsMustBeManaged": true,
+    "legacyCountMayOnlyDecrease": true
+  },
+  "referenceDecompositionPolicy": {
+    "requiredWhenReferenceSupplied": true,
+    "matrices": [
+      "ROLE_MATRIX",
+      "COMPOSITION_MATRIX",
+      "RHYTHM_MEDIA_MATRIX",
+      "ANTI_COPY_MATRIX"
+    ],
+    "requiredOutputs": [
+      "referenceUrl",
+      "reviewedRoutes",
+      "rolePatterns",
+      "mediaPatterns",
+      "rhythmPatterns",
+      "interactionPatterns",
+      "decisionPatterns",
+      "transferablePrinciples",
+      "doNotCopy",
+      "projectSpecificTranslation"
+    ],
+    "principle": "ABSORB_GRAMMAR_NEVER_COPY_SILHOUETTE"
+  },
+  "truthPolicy": {
+    "scopeTruthMatrixRequired": true,
+    "freshnessMatrixRequiredForVolatileDecisionData": true,
+    "limitsMustBeVisibleBeforeConversionWhenMaterial": true,
+    "staleDecisionDataForbidden": true,
+    "fakeLiveAvailabilityForbidden": true,
+    "volatileClaimsRequireSourceAndVerifiedAt": true
+  },
+  "referenceGovernanceDoc": "docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md",
+  "referenceGovernanceStatus": "CANONICAL_ADDITIVE_REQUIRED",
+  "referenceCorpus": {
+    "patternLibrary": "src/config/portfolio-reference-pattern-library.json",
+    "selectionMode": "DECISION_MODE_NOT_SEGMENT",
+    "preferredReferenceCount": "2-4",
+    "useClasses": [
+      "USE",
+      "ADAPT",
+      "REJECT"
+    ],
+    "motionRequiresVisualEvidence": true,
+    "researchLedgers": [
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
     ]
+  },
+  "experienceEnginePolicy": {
+    "primaryRequiredForNewProjects": true,
+    "counterpointOptionalMaximum": 1,
+    "sourceLibrary": "src/config/portfolio-reference-pattern-library.json",
+    "researchLedgers": [
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R1_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R2_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R3_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R4_2026-09-23.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R5_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R6_2026-09-24.md",
+      "docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md"
+    ],
+    "engineMustBeEvidenceDriven": true,
+    "engineMustAffectAtLeastTwoAxes": [
+      "contentOrder",
+      "composition",
+      "mediaCadence",
+      "interactionLoci",
+      "ctaDistribution",
+      "mobileCompositionStrategy"
+    ]
+  },
+  "interactionSignaturePolicy": {
+    "sourceLibrary": "src/config/portfolio-reference-pattern-library.json",
+    "mustSolveRealDecision": true,
+    "mustBeEvidenceDriven": true,
+    "mustNotBecomeSegmentDefault": true,
+    "maximumRelevantNotMaximumCount": true,
+    "privacyByMinimization": true,
+    "unresolvedReferenceMustNotBeSubstituted": true,
+    "mustChangeJourneyOrContext": true,
+    "contextCarryoverRequiredWhenSelectionMatters": true,
+    "multiNeedScopeBuilderSingleFunnelRequired": true,
+    "consolidatedProviderClaimsRequireEvidence": true,
+    "consolidatedProviderMustNotImplyUnverifiedSimultaneousAvailability": true,
+    "reuseExistingBlockersBeforeAddingNewOnes": true,
+    "assessmentAuthorizationRequiresExplicitExecutionBoundary": true,
+    "assessmentAuthorizationMustNotImplyAutomaticRepair": true
+  },
+  "regulatedProfessionPolicy": {
+    "matrixRequired": true,
+    "matrixName": "PROFESSIONAL_COMPLIANCE_BOUNDARY_MATRIX",
+    "officialSourceVerificationRequired": true,
+    "commercialReferenceIsNeverFinalAuthority": true,
+    "crossProfessionRuleReuseForbidden": true,
+    "sensitiveDataMinimizationRequired": true,
+    "credentialFreshnessRequired": true,
+    "unresolvedRuleState": "UNRESOLVED_REQUIRES_OFFICIAL_SOURCE"
   }
 }

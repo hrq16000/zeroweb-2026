@@ -12,12 +12,19 @@ on:
         required: false
         default: "https://0web.com.br"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   scope:
     name: Detectar impacto em Performance + SEO
     runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.diff.outputs.run }}
+      mode: ${{ steps.diff.outputs.mode }}
+      shards: ${{ steps.diff.outputs.shards }}
+      only: ${{ steps.diff.outputs.only }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,6 +40,9 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            echo "shards=[0,1,2,3]" >> "$GITHUB_OUTPUT"
+            echo "only=" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -47,8 +57,56 @@ jobs:
           git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
+          MODE=full
+          FRAMEWORK_COMPAT=false
 
-          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
+          if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
+            RUN=true
+            MODE=framework
+            FRAMEWORK_COMPAT=true
+          fi
+
+          REGIONAL_ONLY=true
+          if [ -z "$FILES" ]; then
+            REGIONAL_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/lib/portfolio-clusters.ts|src/lib/portfolio-clusters.test.ts|'src/routes/portfolio.$segmento.$bairro.tsx') ;;
+              *) REGIONAL_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$REGIONAL_ONLY" = true ]; then
+            RUN=true
+            MODE=regional
+          fi
+
+          # Troca isolada de OG social + cache-bust não altera o DOM visível.
+          # Esses casos continuam cobertos pelos gates de link preview/head e
+          # não devem disparar regressão visual/Lighthouse de todos os projetos.
+          SOCIAL_PREVIEW_ONLY=true
+          if [ -z "$FILES" ]; then
+            SOCIAL_PREVIEW_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              public/images/*/social-og.jpg|src/config/portfolio-assets.json|src/config/portfolio-admin-seed.json) ;;
+              *) SOCIAL_PREVIEW_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$SOCIAL_PREVIEW_ONLY" = true ]; then
+            CONFIG_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- src/config/portfolio-assets.json src/config/portfolio-admin-seed.json \
+              | grep -E '^[+-]' \
+              | grep -Ev '^(---|\+\+\+)' \
+              | grep -Ev '^[+-][[:space:]]*"socialVersion":' || true)"
+            if [ -n "$CONFIG_DIFF" ]; then
+              SOCIAL_PREVIEW_ONLY=false
+            fi
+          fi
+
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
@@ -57,14 +115,79 @@ jobs:
           fi
 
           if printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
-            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:' || true)"
+            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:|@type.*WebPage|@id.*url|^[+-][[:space:]]*url,?$|name: (project\.seoTitle|title),?$|description: (project\.seoDescription|description),?$|^[+-][[:space:]]*description,?$|inLanguage: "pt-BR"|isPartOf:|^[+-][[:space:]]*[{}],?$' || true)"
             if [ -n "$ROUTE_DIFF" ]; then
               RUN=true
             fi
           fi
 
+          # Sem alterações HTML/UI: cinco remoções estritas do sitemap XML.
+          # O gate específico de sitemap/SEO permanece no build e testes.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
+          ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          if [ "$FRAMEWORK_COMPAT" = true ]; then
+            # Upgrade de framework sem mudança normal de UI: usa um canário
+            # diversificado, com os mesmos thresholds absolutos do gate global.
+            ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            SHARDS='[0]'
+          elif [[ "$ONLY" == preview-* ]]; then
+            # Prévia nova: testa o próprio mini-site. Não mede 100 páginas
+            # que esta branch não alterou. Performance/A11y mantêm os limites.
+            MODE=preview
+            SHARDS='[0]'
+          elif [ -n "$ONLY" ]; then
+            MODE=portfolio
+            SHARDS='[0]'
+          elif [ "$MODE" = "regional" ]; then
+            SHARDS='[0]'
+          else
+            SHARDS='[0,1,2,3]'
+          fi
+
+          # Escopo comprovadamente exclusivo das capas da loja e da vitrine:
+          # audita as rotas impactadas em vez de reprovar por portfolio
+          # historico nao alterado. NENHUM threshold Lighthouse e reduzido.
+          SERVICE_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then SERVICE_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/components/site/ServiceCoverImage.tsx|src/components/site/FeaturedServices.tsx|src/components/site/ProductGallery.tsx|src/components/site/RelatedServicesCarousel.tsx|src/routes/servicos.index.tsx|'src/routes/servicos.$slug.tsx'|src/routes/servicos.google-meu-negocio.tsx|src/routes/servicos.presenca-digital.tsx|src/routes/servicos.trafego-pago-local.tsx|tests/services/special-service-images.test.ts|src/lib/services-public.functions.ts|tests/services/storefront-cover-contract.test.ts|tests/services/service-gallery-image-recovery.test.ts|src/lib/services-nav.functions.ts|src/lib/service-legacy-image-recovery.ts|src/config/service-legacy-image-recovery.json|scripts/validate-catalog-images.mjs|tests/services/service-legacy-image-recovery.test.ts|src/lib/service-gallery-recovery.ts|tests/services/google-ads-gallery-recovery.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml|.lighthouserc.cjs) ;;
+              *) SERVICE_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$SERVICE_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=services
+            SHARDS='[0]'
+            ONLY=""
+          fi
+
+          # Alteração restrita ao CMS autenticado de capas: mede portfólios
+          # representativos com os MESMOS thresholds de Lighthouse.
+          # Qualquer alteração em páginas públicas volta ao escopo normal.
+          ADMIN_IMAGES_ONLY=true
+          if [ -z "$FILES" ]; then ADMIN_IMAGES_ONLY=false; fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              src/routes/_authenticated/app.servicos-imagens.tsx|src/lib/service-image-preview-state.ts|tests/services/service-image-preview-state.test.ts|.github/workflows/lighthouse.yml|.github/workflows/portfolio-gates.yml) ;;
+              *) ADMIN_IMAGES_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+          if [ "$ADMIN_IMAGES_ONLY" = true ]; then
+            RUN=true
+            MODE=portfolio
+            SHARDS='[0]'
+            ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
-          echo "impacto Lighthouse: $RUN"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
+          echo "only=$ONLY" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN ($MODE; shards=$SHARDS; only=${ONLY:-global})"
 
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
@@ -75,13 +198,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: ${{ fromJSON(needs.scope.outputs.shards) }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       - name: Install deps
         run: bun install --frozen-lockfile
@@ -89,10 +212,17 @@ jobs:
       - name: Run Lighthouse CI
         env:
           LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
+          LHCI_USE_LOCAL: ${{ github.event_name != 'workflow_dispatch' && '1' || '0' }}
           LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
           LHCI_SHARD_INDEX: ${{ matrix.shard }}
           LHCI_SHARD_COUNT: 4
+          LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
+          LHCI_ONLY: ${{ needs.scope.outputs.only }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
+
+      - name: Emitir diagnostico LHCI (nao bloqueante)
+        if: always()
+        run: node scripts/report-lhci-diagnostics.mjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
         if: always()
@@ -103,3 +233,4 @@ jobs:
             .lighthouseci/**
             lhci-reports/**
           if-no-files-found: ignore
+          include-hidden-files: true

@@ -162,6 +162,55 @@ real. Deve ser factual e respeitoso, nunca artificialmente excludente.
 
 ### 2.10 Pós-conversão faz parte da experiência
 
+
+### 2.9.1 Limites reais do serviço também qualificam
+
+Além de “para quem é / não é”, toda landing deve avaliar se existe algum limite
+operacional relevante que o visitante precisa saber **antes** de converter:
+
+- serviço que a empresa não executa;
+- região/bairro não atendido;
+- equipamento, marca, material ou faixa de tamanho não suportados;
+- reparo que depende de diagnóstico;
+- prazo que varia por disponibilidade;
+- condição que exige avaliação presencial;
+- item sem estoque fixo;
+- incompatibilidade técnica ou comercial.
+
+Quando esse limite muda a decisão, escondê-lo até depois do lead é pior UX e
+gera lead ruim. O padrão passa a exigir uma `SCOPE_TRUTH_MATRIX` com:
+
+`supported | notSupported | conditional | requiresDiagnosis | geography |
+availabilityDependency | evidence | customerImpact | placement`.
+
+A matriz não precisa virar uma seção “O que não fazemos”. Ela pode ser FAQ,
+microcopy, comparação, aviso contextual, filtro, configurador ou nota junto da
+oferta. O importante é o visitante não ser induzido a acreditar em um escopo
+maior do que o real.
+
+### 2.9.2 Conteúdo volátil precisa de contrato de freshness
+
+Preço, estoque, disponibilidade, prazo, agenda, quantidade, promoção, avaliação,
+número de reviews, horário e cobertura operacional podem mudar. Sempre que um
+dado volátil for material para a decisão, registrar uma `FRESHNESS_MATRIX`:
+
+`field | volatility | source | verifiedAt | staleAfter | refreshStrategy |
+fallbackWhenStale | owner`.
+
+Estados recomendados:
+
+- `STATIC_VERIFIED` — dado estável e comprovado;
+- `DYNAMIC_VERIFIED` — dado variável com atualização/resolução ativa;
+- `STALE_BLOCKED` — dado venceu e não pode ser mostrado como atual;
+- `ASK_FOR_CURRENT_AVAILABILITY` — mostrar a natureza variável e conduzir o
+  usuário ao funil para disponibilidade atual;
+- `HIDE_UNTIL_REFRESHED` — ocultar quando seria enganoso manter na tela.
+
+Não usar “estoque”, “disponível hoje”, “entrega em X dias”, “a partir de”,
+“promoção” ou contagem social como decoração permanente se a fonte não sustenta
+atualização.
+
+
 A Thank You Page não é um fim morto. Deve:
 
 1. confirmar o sucesso;
@@ -684,3 +733,20 @@ Antes de acrescentar seção, campo, CTA, link ou efeito, responder:
 A landing é um sistema contínuo: origem → página → auto-segmentação/ajuda → funil
 → lead → handoff → confirmação. A intenção e o contexto não podem se perder
 entre essas camadas.
+
+
+## Anexo R7 — PROFESSIONAL_COMPLIANCE_BOUNDARY_GATE
+
+Antes de publicar landing de profissão regulamentada:
+
+1. resolver conselho/órgão e jurisdição aplicáveis;
+2. registrar fontes oficiais e `rulesVerifiedAt`;
+3. separar `VERIFIED_ALLOWED`, `VERIFIED_CONDITIONAL`,
+   `VERIFIED_FORBIDDEN` e `UNRESOLVED_REQUIRES_OFFICIAL_SOURCE`;
+4. validar credencial, prova, depoimento/case, preço/claim e formulário;
+5. minimizar dado sensível antes do handoff;
+6. nunca importar regra de blog/site comercial como autoridade final;
+7. nunca reutilizar regra de outra profissão por semelhança.
+
+Fonte de pesquisa aditiva:
+`docs/research/PORTFOLIO_REFERENCE_CORPUS_R7_2026-09-24.md`.

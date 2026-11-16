@@ -89,7 +89,20 @@ function imageSize(buf, contentType) {
 
 function absolute(url) {
   if (!url) return null;
-  if (/^https?:\/\//i.test(url)) return url;
+  if (/^https?:\/\//i.test(url)) {
+    try {
+      const target = new URL(url);
+      const base = new URL(BASE);
+      const isLocalPreview = ["localhost", "127.0.0.1"].includes(base.hostname);
+      const isOwnProductionAsset = ["0web.com.br", "www.0web.com.br"].includes(target.hostname);
+      if (isLocalPreview && isOwnProductionAsset) {
+        return `${BASE}${target.pathname}${target.search}`;
+      }
+    } catch {
+      return url;
+    }
+    return url;
+  }
   return `${BASE}${url.startsWith("/") ? "" : "/"}${url}`;
 }
 

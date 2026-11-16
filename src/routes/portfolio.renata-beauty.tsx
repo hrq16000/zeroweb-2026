@@ -25,6 +25,8 @@ export const Route = createFileRoute("/portfolio/renata-beauty")({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
     links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }],

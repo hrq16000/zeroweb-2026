@@ -44,9 +44,11 @@ export function AngelMixBrechoPage() {
         <section className="relative isolate">
           <MotionImageReveal direction="up">
             <PortfolioImage
-              src="/images/angel-mix-brecho/capa.png"
+              src="/images/_generated/angel-mix-brecho/capa.webp"
               alt="Angel Mix Brechó"
               priority
+              widths={[480, 960, 1536]}
+              sizes="100vw"
               width={1536}
               height={1024}
               className="h-[78vh] w-full object-cover md:h-[88vh]"
@@ -116,6 +118,31 @@ export function AngelMixBrechoPage() {
               bairro.
             </p>
           </MotionReveal>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-6 pb-16 md:px-14 md:pb-24" aria-labelledby="angel-consulta-title">
+          <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--am-rose)]">Antes de consultar a vitrine</p>
+          <h2 id="angel-consulta-title" className="mt-3 max-w-[24ch] font-display text-3xl font-black leading-tight md:text-4xl">
+            Tipo de peça, tamanho e estilo ajudam a direcionar o garimpo.
+          </h2>
+          <p className="mt-5 max-w-[64ch] leading-8 text-[var(--am-ink)]/75">
+            O Angel Mix é apresentado como brechó de moda no Novo Mundo. Como o acervo muda, a página não trata as peças como estoque fixo:
+            o contato começa pelo que você procura e pela numeração ou estilo que faz sentido para você.
+          </p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Peça</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Vestido, blusa, jeans, saia, casaco ou acessório ajudam a orientar a consulta.</p>
+            </article>
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Tamanho</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Quando houver preferência de numeração ou caimento, vale informar antes de verificar disponibilidade.</p>
+            </article>
+            <article className="border-t border-[var(--am-rose)]/40 pt-5">
+              <h3 className="font-display text-xl font-bold">Estilo</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--am-ink)]/70">Romântico, básico, colorido ou clássico funcionam como pistas para separar opções compatíveis.</p>
+            </article>
+          </div>
         </section>
 
         {/* fechamento em faixa fina, alinhado à esquerda */}

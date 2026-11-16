@@ -68,6 +68,50 @@ Escolher 1 direção dominante e combinações complementares. Evitar repetir a 
 
 Grid de 12 colunas, breakpoints clássicos e containers centrados são ferramentas possíveis, não regra universal.
 
+## 2.1 Matriz de papéis funcionais — repertório de jornada
+
+Antes de escolher componentes, mapear papéis. Cada papel abaixo pode aparecer
+como seção, microbloco, mídia, navegação, ferramenta ou parte de outro capítulo.
+
+| Papel | Formas compositivas possíveis |
+|---|---|
+| Orientação | hero contextual, navigation rail, mapa mental da oferta, índice editorial, selector |
+| Descoberta de oferta | catálogo, product shelf, mosaic, cards editoriais, lista, rail, comparação |
+| Conversão rápida | formulário curto, configurador, escolha guiada, CTA contextual, sticky action |
+| Demonstração de valor | mídia real, antes/depois verdadeiro, demo, preview, amostra, processo visual |
+| Redução de risco | garantia real, transparência, política, inspeção, certificação, FAQ contextual |
+| Apoio à decisão | comparador, “qual escolher?”, diagnóstico, calculadora/estimativa, disponibilidade, coverage checker |
+| Prova | review verificável, case, mídia de execução, credencial, dado real, local físico |
+| Localidade/viabilidade | mapa, regiões, raio, unidade, logística, atendimento no local |
+| Processo | timeline, scrollytelling, steps integrados, diagrama, checklist |
+| Inventário/catálogo | galeria, shelf, filtros, disponibilidade, preço real, variações |
+| Educação | guia, diagnóstico de sintoma, artigo curto, perguntas frequentes contextuais |
+| Continuidade | status, próxima etapa, acompanhamento, reentrada, conteúdo pós-conversão |
+
+O mesmo papel não deve assumir automaticamente a mesma forma em todos os
+clientes. Selecionar tratamento por intenção, evidência e identidade.
+
+## 2.2 Repertório de composição de mídia
+
+A mídia pode definir a arquitetura em vez de apenas decorar cards. Avaliar:
+
+- imagem editorial singular com texto em tensão assimétrica;
+- fotografia full-bleed quando atmosfera/local/produto sustenta a dobra;
+- recorte/máscara/sobreposição guiados pela identidade;
+- mosaico ou masonry de mídia real;
+- product shelf/estoque quando disponibilidade é parte da decisão;
+- imagem atravessando dois capítulos para criar continuidade;
+- mídia de processo junto ao passo que ela comprova;
+- prova visual imediatamente adjacente à claim;
+- faixa/rail de mídia para volume sem virar grid de cards;
+- galeria/lightbox somente quando o visitante realmente precisa explorar;
+- foto de sede/loja/oficina tratada como prova de localidade/ofício;
+- poster/vídeo quando movimento explica melhor do que imagem fixa.
+
+**Anti-padrão:** transformar toda mídia em retângulo 4:3 dentro do mesmo card ou
+usar repetidamente `texto 50% + imagem 50%` sem razão narrativa.
+
+
 ## 3. Navegação e header
 
 Capacidades selecionáveis:
@@ -225,6 +269,63 @@ Traduzir referências genéricas para a stack atual:
 - responsive images/srcset quando necessário;
 - vídeo curto somente se comprimido, com poster, sem autoplay sonoro e com estratégia mobile;
 - code-split de galerias, lightboxes e mídia pesada.
+
+## 9.1 Reference-corpus media/interaction roles
+
+The reference corpus adds selectable roles; these are not new mandatory blocks:
+
+### Media roles
+- `CRAFT_MACRO` — close technical craft, bench, microscope, tool detail;
+- `PLACE_CONFIRMATION` — storefront/location as physical-presence proof;
+- `NETWORK_LOCATION` — branch-specific media tied to route/hours;
+- `PRODUCT_UI` — real product/app interface used as demonstration;
+- `FOUNDER_ACCOUNTABILITY` — person who performs/owns the delivery;
+- `LOGISTICS_PROOF` — pickup/delivery/vehicle/route evidence;
+- `OFFER_CONFIGURATION` — visual state for plans/packages/options;
+- `RISK_EXPLANATION` — diagram/media that supports a decision;
+- `SOCIAL_SOURCE_PROOF` — review/testimonial only with provenance.
+- `REAL_WORK_PROOF` — execução real usada para provar amplitude e qualidade;
+- `SAFETY_COMPLIANCE` — EPI, procedimento, licença ou certificação verificável;
+- `MULTI_DISCIPLINE_RANGE` — variedade real de frentes sem virar collage genérica.
+
+### Interaction signatures
+- symptom triage;
+- nearest-unit/location selector;
+- scope/plan configurator;
+- legitimate self-segmentation;
+- repair-vs-replace / upgrade-vs-new decision aid;
+- progressive briefing with context carryover;
+- product-state demo;
+- campaign fast path.
+
+- service-mode selector — padrão/emergencial/agendado/domicílio/remoto quando a escolha muda logística, prazo, disponibilidade ou contexto;
+- category→location selector — categoria/equipamento antes de unidade/cobertura quando isso reduz erro de encaminhamento;
+- symptom→service-mode — sintoma conduz à modalidade/caminho adequado sem exigir que o visitante conheça o nome técnico do serviço;
+- service+commerce continuity — separar reparo, peça/produto, instalação e acompanhamento sem misturar tudo numa única grade.
+- warranty-eligibility triage — identificar se o fluxo é garantia/assistência autorizada ou particular e coletar somente os dados necessários de elegibilidade.
+- product-identity capture — categoria/marca/modelo/sintoma e identificação técnica quando isso reduz erro de roteamento ou retrabalho.
+- assessment→authorization — separar avaliação/diagnóstico da autorização para executar trabalho pago quando o processo real exige achados/orçamento antes da aprovação.
+- `MULTI_NEED_SCOPE_BUILDER` — selecionar várias necessidades e consolidar em um único briefing/orçamento quando o negócio realmente opera como fornecedor integrado.
+
+### Derived motion candidates
+
+These may be designed when the client metaphor justifies them, but must never be
+reported as observed in a reference without visual evidence:
+
+- diagnostic scan/progress;
+- macro focus reveal;
+- route/location focus;
+- progress-line chapters;
+- product-state transition;
+- masked horizontal rail;
+- portrait-to-proof reveal;
+- selection/price recalculation transition.
+
+All remain subject to performance budget, keyboard access and
+`prefers-reduced-motion`.
+
+
+
 
 ## 10. Performance
 

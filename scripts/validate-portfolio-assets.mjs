@@ -7,6 +7,12 @@ const assets = JSON.parse(readFileSync(resolve("src/config/portfolio-assets.json
 const errors = [];
 for (const client of clients) {
   const entry = assets.clients?.[client.clientKey];
+  // A capa do catálogo integra o contrato de publicação dos novos portfólios.
+  // Se ela aponta para um arquivo versionado inexistente, bloqueia o build.
+  if (typeof client.image === "string" && client.image.startsWith("/images/") &&
+      !existsSync(resolve("public", client.image.slice(1).split("?")[0]))) {
+    errors.push(`${client.slug}: capa do catálogo não encontrada (${client.image})`);
+  }
   if (!entry) { errors.push(`${client.slug}: entrada de assets ausente`); continue; }
   for (const field of ["icon", "socialImage", "proof"]) {
     if (!entry[field]) errors.push(`${client.slug}: ${field} ausente`);

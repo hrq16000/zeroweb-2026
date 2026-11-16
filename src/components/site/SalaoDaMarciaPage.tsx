@@ -56,13 +56,9 @@ export function SalaoDaMarciaPage() {
           <p className="text-[.7rem] font-bold uppercase tracking-[.32em] text-[#c20d67]">
             Cidade Jardim · São José dos Pinhais
           </p>
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mx-auto mt-5 max-w-3xl font-display text-5xl font-bold leading-[.95] sm:text-7xl"
-          >
+          <h1 className="mx-auto mt-5 max-w-3xl font-display text-5xl font-bold leading-[.95] sm:text-7xl">
             Seu momento de <em className="not-italic text-[#c20d67]">se cuidar.</em>
-          </motion.h1>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-[#70274f]">
             Depilação, cabelos, pé e mão e tratamentos para você sair leve, renovada e do jeitinho que gosta.
           </p>

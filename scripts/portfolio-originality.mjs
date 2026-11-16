@@ -597,6 +597,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
 
     projects.push({
       slug,
+      publicationStatus: item.status ?? "draft",
       assetSharing,
       title: item.title ?? slug,
       segment: item.segment ?? "",
@@ -614,13 +615,18 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
 
   projects.sort((a, b) => a.slug.localeCompare(b.slug));
 
+  // DRAFT pode estar acessível em URL de preview, mas não entra nos índices
+  // comparativos de qualidade da vitrine pública até obter readiness.
+  // Preservamos seu registro em projects para diagnóstico completo.
+  const publishedProjects = projects.filter((p) => ["published", "approved"].includes(p.publicationStatus));
+
   /* ---- comparação par-a-par ---- */
   const pairs = [];
-  for (let i = 0; i < projects.length; i += 1) {
-    for (let j = i + 1; j < projects.length; j += 1) {
-      const cmp = compareFingerprints(projects[i].fingerprint, projects[j].fingerprint, { version: metricVersion });
-      const reason = pairReason(projects[i].fingerprint, projects[j].fingerprint, cmp);
-      pairs.push({ a: projects[i].slug, b: projects[j].slug, ...cmp, reason });
+  for (let i = 0; i < publishedProjects.length; i += 1) {
+    for (let j = i + 1; j < publishedProjects.length; j += 1) {
+      const cmp = compareFingerprints(publishedProjects[i].fingerprint, publishedProjects[j].fingerprint, { version: metricVersion });
+      const reason = pairReason(publishedProjects[i].fingerprint, publishedProjects[j].fingerprint, cmp);
+      pairs.push({ a: publishedProjects[i].slug, b: publishedProjects[j].slug, ...cmp, reason });
     }
   }
 
@@ -639,7 +645,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
   }
 
   /* ---- clusters (ligação simples acima do limiar HIGH) ---- */
-  const parent = new Map(projects.map((p) => [p.slug, p.slug]));
+  const parent = new Map(publishedProjects.map((p) => [p.slug, p.slug]));
   const find = (x) => (parent.get(x) === x ? x : (parent.set(x, find(parent.get(x))), parent.get(x)));
   for (const pair of pairs) {
     if (pair.score < THRESHOLDS.clone) continue;
@@ -648,7 +654,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
     if (ra !== rb) parent.set(ra, rb);
   }
   const groups = new Map();
-  for (const p of projects) {
+  for (const p of publishedProjects) {
     const root_ = find(p.slug);
     if (!groups.has(root_)) groups.set(root_, []);
     groups.get(root_).push(p.slug);
@@ -674,9 +680,11 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
       };
     });
 
-  const count = (fn) => projects.filter(fn).length;
+  const count = (fn) => publishedProjects.filter(fn).length;
   const summary = {
     total: projects.length,
+    published: publishedProjects.length,
+    draft: projects.length - publishedProjects.length,
     original: count((p) => p.originalityStatus === STATUS.ORIGINAL),
     acceptable: count((p) => p.originalityStatus === STATUS.ACCEPTABLE),
     attention: count((p) => p.originalityStatus === STATUS.ATTENTION),
@@ -708,6 +716,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
     summary,
     projects: projects.map((p) => ({
       slug: p.slug,
+      publicationStatus: p.publicationStatus,
       title: p.title,
       segment: p.segment,
       componentFile: p.componentFile,
@@ -804,6 +813,9 @@ export function detectRegressions(report, baseline) {
 
   const rank = [STATUS.ORIGINAL, STATUS.ACCEPTABLE, STATUS.ATTENTION, STATUS.SHARED_FALLBACK, STATUS.HIGH_SIMILARITY, STATUS.CLONE];
   for (const p of report.projects) {
+    // Não aprovar nem reprovar um projeto DRAFT pelo baseline da vitrine.
+    // Ao virar published, retorna ao gate normal de novos projetos.
+    if (p.publicationStatus && !["published", "approved"].includes(p.publicationStatus)) continue;
     const prev = baseline.projects?.[p.slug];
     if (!prev) {
       if ([STATUS.CLONE, STATUS.HIGH_SIMILARITY, STATUS.SHARED_FALLBACK].includes(p.originalityStatus)) {

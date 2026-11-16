@@ -257,6 +257,17 @@ export const home2MotionMatrix: Home2MotionRule[] = [
     once: true,
   },
   {
+    // Soma: blur-in dedicated to the editorial chapter heading (variation vs fade-up).
+    id: "editorial-heading",
+    selector: ".home2-editorial-top",
+    effect: "blur-in",
+    trigger: "scroll",
+    duration: 720,
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.2,
+    once: true,
+  },
+  {
     id: "cta-strip",
     selector: "[data-home2-cta-strip]",
     effect: "pop",
