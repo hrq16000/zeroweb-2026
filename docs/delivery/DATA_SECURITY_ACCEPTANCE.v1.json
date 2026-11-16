@@ -1,0 +1,313 @@
+{
+  "schemaVersion": "0web.delivery.data-security-acceptance.v1",
+  "status": "SPECIFICATION_ONLY_NOT_RUN_AGAINST_REAL_DATABASE",
+  "lastReviewed": "2026-11-01",
+  "evidencePolicy": {
+    "PASS": "Only when executed against actual isolated QA infrastructure with migrations/policies enabled and logs/results attached",
+    "BLOCKED": "No database/test credentials/schema, missing test tenant or missing integration",
+    "FAIL": "Test executed and invariant broken; disallow delivery readiness",
+    "NOT_EXECUTED": "Only scenario defined; does not prove protection"
+  },
+  "tests": [
+    {
+      "id": "DS-01",
+      "domain": "TENANT",
+      "action": "READ_ORDER",
+      "scenario": "Store A employee reads Store B order by ID",
+      "expected": "DENY",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-02",
+      "domain": "TENANT",
+      "action": "UPDATE_ORDER",
+      "scenario": "Store A manager updates Store B status",
+      "expected": "DENY",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-03",
+      "domain": "TENANT",
+      "action": "LIST_ORDERS",
+      "scenario": "Store A operator paginates without foreign store order leakage",
+      "expected": "ONLY_STORE_A",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-04",
+      "domain": "TENANT",
+      "action": "ORDER_LINE",
+      "scenario": "Cross-store product ID in cart/quote/order payload",
+      "expected": "REJECT_CROSS_STORE_REFERENCE",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-05",
+      "domain": "TENANT",
+      "action": "PAYMENT",
+      "scenario": "Store A provider event references Store B order",
+      "expected": "REJECT_NO_FINANCIAL_CHANGE",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-06",
+      "domain": "TENANT",
+      "action": "EVENT_STREAM",
+      "scenario": "Store A subscription receives only Store A events",
+      "expected": "NO_OTHER_STORE_EVENT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-07",
+      "domain": "TENANT",
+      "action": "CACHE",
+      "scenario": "Change active store while local UI is warm",
+      "expected": "NO_STALE_FOREIGN_CACHE",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-08",
+      "domain": "TENANT",
+      "action": "MEMBERSHIP",
+      "scenario": "Revoked staff token calls order endpoint",
+      "expected": "DENY_IMMEDIATELY",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-09",
+      "domain": "TENANT",
+      "action": "COURIER",
+      "scenario": "Unassigned courier accesses another delivery order",
+      "expected": "DENY_AND_NO_PII",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-10",
+      "domain": "TENANT",
+      "action": "SERVER_ADMIN",
+      "scenario": "Global app service role query missing store filter",
+      "expected": "BLOCK_BY_SERVICE_GUARD",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-11",
+      "domain": "AUTH",
+      "action": "OWNER_PRIVILEGE",
+      "scenario": "Store owner tries platform super-admin route",
+      "expected": "DENY",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-12",
+      "domain": "AUTH",
+      "action": "ROLE_ESCALATION",
+      "scenario": "Manager attempts self-grant owner role",
+      "expected": "DENY",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-13",
+      "domain": "AUTH",
+      "action": "READ_KDS",
+      "scenario": "Kitchen fetches order projection",
+      "expected": "NO_CONTACT_PAYMENT_ADDRESS",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-14",
+      "domain": "AUTH",
+      "action": "READ_VIEWER",
+      "scenario": "Viewer requests full raw customer contact",
+      "expected": "DENY_OR_REDACT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-15",
+      "domain": "AUTH",
+      "action": "CSRF",
+      "scenario": "Untrusted origin posts staff state transition using cookie",
+      "expected": "REJECT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-16",
+      "domain": "AUTH",
+      "action": "SESSION_REVOCATION",
+      "scenario": "Revoked session keeps open SSE/WebSocket",
+      "expected": "DISCONNECT_AND_DENY_RECONNECT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-17",
+      "domain": "ORDER",
+      "action": "IDEMPOTENCY",
+      "scenario": "Concurrent same key and payload",
+      "expected": "ONE_ORDER_ONE_OUTBOX_EVENT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-18",
+      "domain": "ORDER",
+      "action": "IDEMPOTENCY_CONFLICT",
+      "scenario": "Same idempotency key different payload",
+      "expected": "HTTP_409_NO_NEW_ORDER",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-19",
+      "domain": "ORDER",
+      "action": "TIMEOUT_REPLAY",
+      "scenario": "DB commit succeeded but HTTP response lost",
+      "expected": "RECOVER_SAME_ORDER",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-20",
+      "domain": "ORDER",
+      "action": "PRICE_TAMPERING",
+      "scenario": "Client submits forged total/discount",
+      "expected": "SERVER_IGNORES_OR_REJECTS",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-21",
+      "domain": "ORDER",
+      "action": "FOREIGN_KEY",
+      "scenario": "Item snapshot references product from another store",
+      "expected": "DB_CONSTRAINT_REJECTS",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-22",
+      "domain": "ORDER",
+      "action": "CONCURRENT_STOCK",
+      "scenario": "Two checkouts for final item in inventory",
+      "expected": "NO_OVERSELLING",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-23",
+      "domain": "PAYMENT",
+      "action": "WEBHOOK_FORGED",
+      "scenario": "Invalid gateway signature submits PAID",
+      "expected": "DENY_AND_NO_STATE_CHANGE",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-24",
+      "domain": "PAYMENT",
+      "action": "WEBHOOK_DUPLICATE",
+      "scenario": "Same authenticated provider event repeated",
+      "expected": "SINGLE_FINANCIAL_EVENT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-25",
+      "domain": "PAYMENT",
+      "action": "WEBHOOK_MISMATCH",
+      "scenario": "Correct signature but wrong merchant/amount/currency",
+      "expected": "DENY_AND_ALERT",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-26",
+      "domain": "PRIVACY",
+      "action": "PUBLIC_TRACKING",
+      "scenario": "Unauthenticated sequential order IDs are probed",
+      "expected": "NO_PRIVATE_DATA_LEAK",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-27",
+      "domain": "PRIVACY",
+      "action": "LOG_REDACTION",
+      "scenario": "Failed checkout with address/phone and gateway token",
+      "expected": "LOGS_WITHOUT_PII_OR_SECRETS",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-28",
+      "domain": "PRIVACY",
+      "action": "PUBLIC_SEO",
+      "scenario": "Indexable HTML/JSON-LD/sitemaps scanned for order payload",
+      "expected": "NO_PRIVATE_ORDER_DATA",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-29",
+      "domain": "RESILIENCE",
+      "action": "RESTORE",
+      "scenario": "Restore encrypted backup and reconcile orders/payment/outbox",
+      "expected": "CONSISTENT_RESTORED_STATE",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    },
+    {
+      "id": "DS-30",
+      "domain": "RESILIENCE",
+      "action": "EVENT_RETRY",
+      "scenario": "Simulate worker crash, repeated event, KDS offline",
+      "expected": "RECOVER_EVENT_WITHOUT_DUPLICATE_ORDER",
+      "severity": "P0",
+      "executionStatus": "NOT_EXECUTED",
+      "evidenceRequired": "CI run ID, environment, version/commit, anonymized test actor(s) and assertion results"
+    }
+  ]
+}

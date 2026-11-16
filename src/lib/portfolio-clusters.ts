@@ -18,9 +18,15 @@ export type PortfolioSegment = {
   services: string[];
   /** Hubs/artigos relacionados. */
   hubs: string[];
-  /** Cases reais do portfólio. */
+  /** Referências e cases relacionados ao segmento. */
   showcases: { path: string; label: string }[];
   deliverables: string[];
+  /** Segmentos reais aceitos no catálogo de portfólios. */
+  catalogSegments?: string[];
+  /** Restringe o match a projetos específicos quando o cluster é mais estreito que o segmento do catálogo. */
+  projectSlugs?: string[];
+  /** Tipos de negócio coerentes com o segmento, usados na copy programática. */
+  businessTypes?: string[];
 };
 
 export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
@@ -28,7 +34,7 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
     slug: "beleza-estetica",
     name: "Beleza & Estética",
     keyword: "criação de site para salão, studio de beleza e estética",
-    intent: "agenda cheia com agendamento direto no WhatsApp",
+    intent: "facilitar o agendamento e apresentar procedimentos com clareza",
     services: ["/servicos/google-ads-299", "/servicos/presenca-digital-google"],
     hubs: ["/sites-robustos", "/areas-de-atendimento"],
     showcases: [
@@ -41,12 +47,14 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Ficha do Google Meu Negócio otimizada",
       "Galeria antes e depois",
     ],
+    catalogSegments: ["beleza"],
+    businessTypes: ["salões de beleza", "studios de cílios e unhas", "clínicas de estética", "spas e profissionais de autocuidado"],
   },
   {
     slug: "saude-clinicas",
     name: "Saúde & Clínicas",
     keyword: "site para clínica, consultório e profissionais de saúde",
-    intent: "captação de pacientes de alto ticket pelo Google",
+    intent: "organizar serviços, informações e caminhos de contato para pacientes",
     services: ["/servicos/presenca-digital-google", "/servicos/google-ads-299"],
     hubs: ["/sites-robustos", "/areas-de-atendimento"],
     showcases: [{ path: "/sites/clinicas", label: "Clínica Integrada de Saúde" }],
@@ -54,29 +62,33 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Páginas por procedimento (SEO)",
       "Agendamento e triagem online",
       "Depoimentos e provas sociais",
-      "Conformidade com conselhos de classe",
+      "Estrutura para informações institucionais, avisos e orientações ao paciente",
     ],
+    catalogSegments: ["saude"],
+    businessTypes: ["clínicas", "consultórios", "profissionais de saúde", "centros de atendimento especializado"],
   },
   {
     slug: "advocacia-consultoria",
     name: "Advocacia & Consultoria",
     keyword: "site para advogado, escritório e consultoria",
-    intent: "autoridade técnica e consultas qualificadas",
+    intent: "apresentar áreas de atuação e facilitar o contato inicial com clareza",
     services: ["/servicos/presenca-digital-google"],
     hubs: ["/sites-robustos", "/blog"],
     showcases: [{ path: "/sites/advocacia", label: "Escritório de Advocacia" }],
     deliverables: [
-      "Conformidade com o Provimento 205 da OAB",
-      "Artigos jurídicos que ranqueiam",
+      "Estrutura editorial para conteúdo jurídico informativo",
+      "Estrutura para artigos jurídicos e conteúdo informativo",
       "Formulário com aviso LGPD",
       "Páginas por área de atuação",
     ],
+    catalogSegments: ["juridico"],
+    businessTypes: ["escritórios de advocacia", "advogados autônomos", "consultorias jurídicas", "profissionais de serviços jurídicos"],
   },
   {
     slug: "servicos-locais",
     name: "Serviços & Negócios Locais",
     keyword: "site para comércio, restaurante e prestador de serviço local",
-    intent: "mais pedidos diretos, sem pagar comissão de marketplace",
+    intent: "facilitar pedidos diretos e apresentar produtos ou serviços com clareza",
     services: ["/servicos/google-ads-299", "/servicos/presenca-digital-google"],
     hubs: ["/areas-de-atendimento", "/sites-robustos"],
     showcases: [{ path: "/sites/restaurantes", label: "Bistrô & Gastronomia" }],
@@ -84,18 +96,28 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Cardápio/catálogo digital em QR Code",
       "Pedidos diretos no WhatsApp",
       "Mapa e rota no Google Maps",
-      "Carregamento em menos de 1 segundo",
+      "Otimização de desempenho e carregamento",
     ],
+    catalogSegments: ["comercios", "servicos", "restaurantes", "prestadores-de-servicos", "construcao", "agencias"],
+    businessTypes: ["comércios locais", "restaurantes e alimentação", "prestadores de serviços", "empresas de construção e manutenção"],
   },
   {
     slug: "marido-de-aluguel",
     name: "Marido de Aluguel",
-    keyword: "marido de aluguel, reparos residenciais e manutenção residencial",
-    intent: "resolver pequenos reparos com orçamento claro e atendimento local",
+    keyword: "criação de site para marido de aluguel e prestadores de reparos residenciais",
+    intent: "organizar solicitações de orçamento para reparos e manutenção residencial",
     services: ["/portfolio/marido-de-aluguel", "/servicos/presenca-digital-google"],
     hubs: ["/areas-de-atendimento", "/portfolio"],
     showcases: [{ path: "/portfolio/marido-de-aluguel", label: "Serviços de marido de aluguel" }],
-    deliverables: ["Instalações e montagens", "Reparos hidráulicos simples", "Pintura e acabamento", "Manutenção preventiva"],
+    deliverables: [
+      "Página de serviços e áreas de atendimento",
+      "Funil para solicitação de orçamento",
+      "Galeria de trabalhos e provas visuais",
+      "Contato direto e informações do prestador",
+    ],
+    catalogSegments: ["servicos"],
+    projectSlugs: ["marido-de-aluguel"],
+    businessTypes: ["maridos de aluguel", "profissionais de reparos residenciais", "montadores e instaladores", "prestadores de manutenção residencial"],
   },
 ];
 
@@ -169,11 +191,35 @@ export function placesForSegment(segment: PortfolioSegment, limit = 12): Portfol
   return regional.concat(interleaved.slice(0).concat(interleaved.slice(0, offset))).filter((place, index, all) => all.findIndex((p) => p.slug === place.slug) === index).slice(0, limit);
 }
 
+type PortfolioCatalogProject = {
+  slug: string;
+  title: string;
+  city: string;
+  state: string;
+  location?: string;
+  status?: string;
+  segment?: string;
+};
+
 /** Projetos canônicos associados ao bairro/cidade, usados nos guias regionais. */
 export function portfolioProjectsAtPlace(place: PortfolioPlace) {
-  return (portfolioCatalog as Array<{ slug: string; title: string; city: string; state: string; location?: string; status?: string; segment?: string }>).filter(
-    (item) => item.city === place.city && item.state === place.state && item.location?.toLowerCase().includes(place.name.toLowerCase()),
+  return (portfolioCatalog as PortfolioCatalogProject[]).filter(
+    (item) =>
+      item.status === "published" &&
+      item.city === place.city &&
+      item.state === place.state &&
+      item.location?.toLowerCase().includes(place.name.toLowerCase()),
   );
+}
+
+export function portfolioProjectMatchesSegment(project: PortfolioCatalogProject, segment: PortfolioSegment): boolean {
+  if (!project.segment || !(segment.catalogSegments ?? []).includes(project.segment)) return false;
+  if (segment.projectSlugs?.length) return segment.projectSlugs.includes(project.slug);
+  return true;
+}
+
+export function portfolioProjectsForSegmentAtPlace(segment: PortfolioSegment, place: PortfolioPlace) {
+  return portfolioProjectsAtPlace(place).filter((project) => portfolioProjectMatchesSegment(project, segment));
 }
 
 /** Todas as combinações publicadas (usadas no sitemap programático). */
@@ -189,9 +235,7 @@ export function allPortfolioCombos(): { segment: PortfolioSegment; place: Portfo
  * segmento e apenas dilui o rastreamento.
  */
 export function comboHasOwnContent(segment: PortfolioSegment, place: PortfolioPlace): boolean {
-  const projects = portfolioProjectsAtPlace(place);
-  if (projects.length === 0) return false;
-  return projects.some((project) => !project.segment || project.segment === segment.slug) || projects.length > 0;
+  return portfolioProjectsForSegmentAtPlace(segment, place).length > 0;
 }
 
 /** Combinações com conteúdo próprio — as únicas que entram no mapa do site. */

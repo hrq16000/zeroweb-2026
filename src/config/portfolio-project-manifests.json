@@ -544,6 +544,590 @@
         "qualityMatrix": "docs/portfolio/quality-matrix/autoescola-aptos.json"
       },
       "lastUpdatedAt": "2026-09-21"
+    },
+    "arildo-madeiras": {
+      "slug": "arildo-madeiras",
+      "lifecycleContract": 1,
+      "contractVersion": 3,
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "madeireira",
+        "layoutFamily": "catalogo-capacidades",
+        "heroFamily": "catalog-first",
+        "sectionRhythm": "modular-grid",
+        "proofStyle": "captioned-gallery",
+        "mediaNarrative": "technical-collage",
+        "ctaStyle": "hero-primary",
+        "motionProfile": "timber-layer-balanced"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-09-24",
+        "notes": "Direção Camadas de Madeira escolhida entre três alternativas; vocabulário estrutural normalizado sem alterar o compositionFingerprint autoral."
+      },
+      "compositionContract": 2,
+      "compositionFingerprint": {
+        "heroGeometry": "oversized left material ledger with stacked horizontal timber labels and one tall documentary stock cut",
+        "headerTreatment": "thin floating material ruler with official logo, anchor notches and compact quote action",
+        "sectionGraph": "material-stage→staggered-material-ledger→application-spine→cambara-cut→stock-masonry→local-yard→quote-dock→native-faq",
+        "contentOrder": [
+          "matéria-prima",
+          "linhas de produto",
+          "aplicações",
+          "cambará",
+          "estoque real",
+          "localidade",
+          "orçamento",
+          "dúvidas"
+        ],
+        "gridTopology": "asymmetric 8/4 hero, offset horizontal ledgers, vertical application spine and 12-cell irregular stock mosaic",
+        "mediaDistribution": "one hero stock image, two application cuts, one cambara evidence block, eight official stock images across masonry",
+        "backgroundRhythm": "charcoal grain→warm timber paper→oxide accent cut→deep brown gallery→warm local ledger→charcoal closing dock",
+        "proofPlacement": "official-media proof embedded beside product/application claims and address strip, never isolated as rating cards",
+        "ctaDistribution": "hero quote, product-ledger checkpoint, cambara request, local quote and final quote dock",
+        "navigationPattern": "material-ruler anchors: materiais, aplicações, estoque, localização",
+        "motionSignature": "short plank shifts, clipped image reveals and grain-line progression",
+        "closingStructure": "full-width quote dock with material/application brief before factual accordion",
+        "roleGraph": [
+          "orientation:material-stage",
+          "offer-discovery:staggered-ledger",
+          "decision-support:application-spine",
+          "product-proof:cambara-cut",
+          "evidence:stock-masonry",
+          "locality:local-yard",
+          "conversion:quote-dock"
+        ],
+        "mediaCadence": [
+          "real-stock-hero",
+          "text-led-product-ledger",
+          "real-application-cut",
+          "real-cambara-proof",
+          "dense-real-stock-mosaic",
+          "text-map-locality"
+        ],
+        "interactionLoci": [
+          "material-anchor-ruler",
+          "contextual-funnel-cta",
+          "native-faq"
+        ],
+        "decisionAidPlacement": [
+          "product families immediately after hero",
+          "applications before Cambará highlight",
+          "measure/quantity prompt inside quote dock"
+        ],
+        "densityRhythm": [
+          "dense-hero",
+          "medium-ledger",
+          "dense-application-spine",
+          "high-media-masonry",
+          "compact-local",
+          "dense-closing"
+        ],
+        "mobileCompositionStrategy": "lâminas viram pilha vertical legível; mosaico preserva alternância 2/1 colunas; CTA final e navegação mantêm toque mínimo sem criar vazios."
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "sources": [
+          "OFFICIAL_WEBSITE",
+          "OWNER_REFERENCES"
+        ],
+        "claimsAttribution": "Somente fatos do site oficial são publicados; referências sociais conflitantes ficam fora."
+      },
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "complete"
+      },
+      "blockers": [],
+      "warnings": [
+        "Facebook e Google share fornecidos não foram resolvidos no crawler atual; nenhum dado conflitante foi promovido.",
+        "Mídia oficial permanece remota; Lighthouse recomenda formatos modernos e melhor dimensionamento, sem reprovação de performance/SEO específica da Arildo."
+      ],
+      "ownerRequired": [],
+      "searchQa": [
+        {
+          "query": "Arildo Madeiras",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "query": "madeireira Pinhais",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "query": "madeiras brutas beneficiadas",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "query": "portas janelas forros Pinhais",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "query": "Madeira de Cambará Pinhais",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "query": "Weissópolis Pinhais madeira",
+          "expect": "must_find",
+          "slug": "arildo-madeiras",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "visualQa": {
+        "status": "PASS",
+        "evaluatedAt": "2026-09-25",
+        "notes": "CI real aprovado para Arildo: popup PASS; funil desktop/mobile PASS dentro de 192 cenários; link previews/head icons/indexabilidade PASS; axe-core PASS; visual próprio PASS. Run portfolio-gates 36085703801. Lighthouse run 36085703811 sem failure de performance/SEO para /portfolio/arildo-madeiras; restaram somente warnings de best-practices/formato/dimensionamento de imagens."
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/arildo-madeiras.json",
+        "mediaPlan": "docs/portfolio/media-plans/arildo-madeiras.json",
+        "brief": "docs/portfolio/briefs/arildo-madeiras.md",
+        "qualityMatrix": "docs/portfolio/quality-matrix/arildo-madeiras.json"
+      },
+      "lastUpdatedAt": "2026-09-25",
+      "perceptualReview": {
+        "screenshots": {
+          "390": "/tmp/browser/arildo-madeiras/screenshots/390.png",
+          "1440": "/tmp/browser/arildo-madeiras/screenshots/1440.png"
+        },
+        "comparedWith": [
+          "autoescola-aptos",
+          "adhonep-curitiba",
+          "centro-mega",
+          "jkl-decor"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "NO-BRAND PASS contra Autoescola Aptos, ADHONEP Curitiba, Centro Mega e JKL Decor. Browser/runtime confirmou a composição autoral e o fluxo visual da Arildo em desktop/mobile no portfolio-gates 36085703801."
+      }
+    },
+    "agropet-filt": {
+      "slug": "agropet-filt",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "complete"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (SEO, canonical, structured data)",
+            "docs/portfolio/briefs/agropet-filt.md (conceito editorial autoral)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/agropet-filt.json (endereço, Place ID, fontes públicas pesquisadas)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (Pinhais/Vargem Grande e PostalAddress)",
+            "Fontes ondepet e Locais do Brasil verificadas 2026-11-04"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/agropet-filt/* (identidade editorial própria, sem alegar fotos reais)",
+            "docs/portfolio/media-plans/agropet-filt.json (roles de mídia e lacunas explicitadas)"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json (termos da marca/segmento/localidade)",
+            "src/lib/portfolio-site-registry.ts (entidade navegável)"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx: canonical, robots index,follow, OG e PetStore JSON-LD",
+            "src/config/portfolio-catalog.json: published live true",
+            "src/lib/portfolio-site-registry.ts: indexable true",
+            "src/config/portfolio-hosted-form-registry.json: verified consented intake, prova de gravação via Jotform 04/11/2026"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "pet shop e aviário",
+        "layoutFamily": "local-de-bairro",
+        "heroFamily": "split-editorial",
+        "sectionRhythm": "modular-grid",
+        "proofStyle": "local-seal",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "floating-persistent",
+        "motionProfile": "pet-editorial-balanced"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-04",
+        "notes": "Mosaico de produtos e guia de decisão divergem da referência Realeza e de outros portfólios, sem copiar layout."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric 53/47 pet editorial poster with original dog and bird illustration",
+        "headerTreatment": "pet mark, local wordmark and three anchor navigation",
+        "sectionGraph": "poster→product-marquee→six-category-mosaic→pet-choice-guide→local-badge→illustrated-location→faq",
+        "contentOrder": [
+          "proposta",
+          "categorias",
+          "guia",
+          "bairro",
+          "endereco",
+          "dúvidas"
+        ],
+        "gridTopology": "six colored merch tiles, split dark guide, asymmetric editorial local ending",
+        "mediaDistribution": "original illustrative vector hero with category icons and disclosure map",
+        "backgroundRhythm": "lime→cream→forest→warm paper→sage→forest",
+        "proofPlacement": "public address and confirmed category sources next to local and catalog sections",
+        "ctaDistribution": "hero/category/guide/footer lead-only consultation",
+        "navigationPattern": "section anchors and contextual dialog",
+        "motionSignature": "subtle vector float and card lift, reduced-motion off",
+        "closingStructure": "large editorial closing phrase and footer credit",
+        "roleGraph": [
+          "pet discovery",
+          "category navigation",
+          "guided inquiry",
+          "local trust",
+          "visit information"
+        ],
+        "mediaCadence": [
+          "vector hero",
+          "colored icon mosaic",
+          "type-led guide",
+          "illustrative map"
+        ],
+        "interactionLoci": [
+          "six category choices",
+          "guide toggles",
+          "three-step inquiry"
+        ],
+        "decisionAidPlacement": [
+          "guide before contact",
+          "interest set before contact data"
+        ],
+        "densityRhythm": [
+          "high-impact",
+          "grid",
+          "focused guide",
+          "local close"
+        ],
+        "mobileCompositionStrategy": "single-column hero, two-column category grid, consent-first submit"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Endereço público na Rua Monteiro Lobato 160 em Pinhais",
+          "Aviário, rações e outras categorias publicadas em diretórios, sujeitos a atualização"
+        ],
+        "sources": [
+          "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/",
+          "https://www.locaisdobrasil.com.br/encontre/pet-shop-perto-de-mim-em-pinhais-pr?pagina=6"
+        ]
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-04",
+        "reviewer": "0WEB delegated visual agent",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "arildo-madeiras",
+          "dona-garimpeira-brecho"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#1440.png"
+        },
+        "notes": "Playwright E2E PASS 390/1440 on 2026-11-04; SVG pet+bird, six category mosaic and decision tool unlike lumber commerce or brecho editorial. Screenshot real and visually inspected by agent."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-04",
+        "evidence": "GitHub Actions 41868845709: Playwright 390/1440 com HTTP 200, canonical e modal; e2e Jotform standalone de gravação/leitura 04/11/2026."
+      },
+      "blockers": [],
+      "warnings": [
+        "Ausência de fotos reais da loja; imagens editoriais vetoriais originais",
+        "Horário informado em diretórios, sujeito a confirmação",
+        "Canal WhatsApp comercial não confirmado, formulário hospedado em vez de redirecionamento",
+        "Fotos reais da loja não disponíveis; identidade editorial autoral",
+        "Registro das consultas permanece no Jotform, não no painel CRM Supabase da 0WEB"
+      ],
+      "ownerRequired": [
+        "Confirmar WhatsApp oficial, caso queira ativar redirecionamento pós-lead",
+        "Fornecer fotos da fachada e produtos para substituir ilustrações onde fizer sentido",
+        "Confirmar horário e disponibilidade do banho e tosa"
+      ],
+      "searchQa": [
+        {
+          "query": "Agropet Filt",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "aviário em Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "rações Vargem Grande",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "banho e tosa Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-04",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": true,
+        "evidence": "E2E navegador e Jotform persistidos; sem dados pessoais reais de clientes"
+      }
+    },
+    "cantinho-da-tia-mari": {
+      "slug": "cantinho-da-tia-mari",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "in_progress"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (canonical, page-specific SEO/JSON-LD)",
+            "src/components/site/CantinhoTiaMariPage.tsx (independent visual composition)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/cantinho-da-tia-mari.json (business name and address on photographed leaflet)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (Jardim Itália address and local map)"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/cantinho-da-tia-mari/fachada.webp (photo from public flyer)",
+            "public/images/cantinho-da-tia-mari/{acolhimento,copa,sala}.webp (genuine printed interior photos)",
+            "docs/portfolio/media-plans/cantinho-da-tia-mari.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts",
+            "src/config/portfolio-catalog.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (robots index,follow, self-canonical, social OG and LocalBusiness schema)",
+            "src/lib/portfolio-site-registry.ts indexable true",
+            "src/config/portfolio-catalog.json status published"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "cuidados infantis",
+        "layoutFamily": "playful-photo-led",
+        "heroFamily": "off-axis-facade-photo",
+        "sectionRhythm": "editorial-intents-evidence",
+        "proofStyle": "source-disclosed-leaflet",
+        "mediaNarrative": "real-printed-photography",
+        "ctaStyle": "persisted-hosted-intake",
+        "motionProfile": "gentle-editorial-reduced-motion"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB development",
+        "notes": "Rainbow daycare brand, authentic printed photo with rotated framing, three care paths and night schedule contrasted against pet retail and carpentry; requires real browser screenshot to complete perceptual review."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric split 54/46 yellow-sun lilac-page authentic-building-angle",
+        "headerTreatment": "rainbow stamp small multicolor daycare wordmark",
+        "sectionGraph": "photo-angle-hero→violet-values-ticker→three-care-pastels→printed-photos-mosaic→violet-hours-stage→local-map→parents-faq→rose-close",
+        "contentOrder": [
+          "proposta do estabelecimento",
+          "serviços anunciados",
+          "ambientes reais",
+          "horários",
+          "localização",
+          "perguntas e consulta"
+        ],
+        "gridTopology": "split hero, three independent service panels, asymmetric intro and photo 2x2, two-up dark hours, map duo, FAQ split",
+        "mediaDistribution": "facade print photo hero, three authentic leaflet photo crops, brand-led social OG",
+        "backgroundRhythm": "lilac→dark purple strip→cream→warm yellow cream→dark violet→white→lilac→pink",
+        "proofPlacement": "source disclosure in hero/gallery and factual notes near FAQ",
+        "ctaDistribution": "hero, each service panel, gallery, hours, closing and floating",
+        "navigationPattern": "brand header, four anchors, funnel modal and standard external 0WEB popup",
+        "motionSignature": "subtle CTA lift, inclined photo, low-motion reveals",
+        "closingStructure": "centered pink manifesto with demonstrative booking consultation",
+        "roleGraph": [
+          "business introduction",
+          "service intent",
+          "physical evidence",
+          "hours",
+          "local wayfinding",
+          "privacy-conscious consultation"
+        ],
+        "mediaCadence": [
+          "real facade",
+          "care icon cards",
+          "three real interior crops",
+          "map"
+        ],
+        "interactionLoci": [
+          "intent inquiry",
+          "floating form",
+          "FAQ",
+          "directions"
+        ],
+        "decisionAidPlacement": [
+          "service cards",
+          "schedule before inquiry",
+          "modal intro and privacy reminder"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "compact",
+          "airy",
+          "evidence-led",
+          "contrast",
+          "plain",
+          "quiet"
+        ],
+        "mobileCompositionStrategy": "single-column hero, service stack, 2-column gallery, modal inset and floating CTA"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Cantinho da Tia Mari no Jardim Itália, São José dos Pinhais",
+          "Material impresso anuncia berçário, leva e busca em escola/CMEI, horários 06:30–20:00 seg-sex e 07:30–17:00 sábado (não verificados)"
+        ],
+        "sources": [
+          "Material público fotografado pelo operador e fornecido em 2026-11-06",
+          "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB screenshot visual inspection",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "agropet-filt",
+          "arildo-madeiras"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#1440.png"
+        },
+        "notes": "Capturas reais e visualmente revisadas na rodada 06/11/2026. Header, foto inclinada, paleta, mosaico e faixa de horários distintivos. Playwright PASS 390/1440; canonical, robots, modal Jotform, fotos reais, no overflow e sem JS errors."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-06",
+        "evidence": "GitHub Actions run 42314376793, artifact 13549494572; Playwright 390/1440 PASS, screenshot visual review performed."
+      },
+      "blockers": [],
+      "warnings": [
+        "Horários, berçário e transporte são alegações em panfleto, ainda não verificados independentemente",
+        "Prospecção 0WEB, não site oficial nem cadastro de matrícula",
+        "Instagram não confirmado; 6 publicações reais não aplicável até confirmação",
+        "Fotos reais recortadas de panfleto com baixa resolução; melhores originais desejáveis",
+        "Respostas persistem no Jotform e não no CRM Supabase"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo comercial com a unidade antes de trocar rótulo de demonstração por oficial",
+        "Confirmar horários, licenciamento e disponibilidade atual de vagas",
+        "Enviar fotos originais em alta resolução quando disponíveis"
+      ],
+      "searchQa": [
+        {
+          "query": "Cantinho da Tia Mari",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "berçário Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "leva e busca escolar Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "cuidados infantis São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-06",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": true,
+        "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
+      }
     }
   }
 }

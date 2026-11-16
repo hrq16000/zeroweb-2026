@@ -1,6 +1,5 @@
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { motion } from "motion/react";
 import { ArrowRight, CircuitBoard, Network, ShieldCheck, Zap } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -64,7 +63,7 @@ export function AgElectricalServicesPage() {
               </div>
             </div>
           </div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .6 }} className="mx-auto mt-10 max-w-7xl">
+          <div className="mx-auto mt-10 max-w-7xl">
             <PortfolioImage src="/images/ag-electrical-services/rack-2.webp" alt="A&G Electrical Services: soluções integradas em elétrica e infraestrutura" priority width={720} height={960} className="h-[240px] w-full object-cover sm:h-[320px] lg:h-[420px]" managedField="heroImageUrl" />
             <dl className="grid grid-cols-2 divide-[#1c3f66] border-b border-[#1c3f66] text-xs sm:grid-cols-4 sm:divide-x">
               {[["Ambientes", "Residencial a industrial"], ["Escopo", "Projeto e execução"], ["Padrão", "Conformidade técnica"], ["Entrega", "Rack identificado"]].map(([k, v]) => (
@@ -74,7 +73,7 @@ export function AgElectricalServicesPage() {
                 </div>
               ))}
             </dl>
-          </motion.div>
+          </div>
         </section>
 
         {/* CIRCUITO: barramento horizontal com pontos numerados L1..L4 (sem cards flutuantes) */}
@@ -114,6 +113,33 @@ export function AgElectricalServicesPage() {
               </MotionReveal>
             ))}
           </ul>
+        </section>
+
+        <section className="border-b border-[#1c3f66] px-5 py-16 lg:px-10" aria-labelledby="ag-avaliacao-title">
+          <div className="mx-auto max-w-7xl">
+            <p className="font-mono text-[11px] uppercase tracking-[.22em] text-[#f47b20]">Dados para a avaliação</p>
+            <h2 id="ag-avaliacao-title" className="mt-3 max-w-4xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
+              Ambiente, pontos, equipamentos e local ajudam a dimensionar o serviço.
+            </h2>
+            <p className="mt-5 max-w-3xl leading-8 text-[#a9c2da]">
+              Elétrica geral, cabeamento UTP, CFTV, implantação de redes e organização de rack têm escopos diferentes.
+              No primeiro contato, informe o tipo de ambiente, o que precisa ser instalado ou organizado e onde será o atendimento.
+            </p>
+            <div className="mt-8 grid gap-px bg-[#1c3f66] md:grid-cols-3">
+              <article className="bg-[#061d38] p-6">
+                <h3 className="font-display text-lg font-bold uppercase text-white">Ambiente</h3>
+                <p className="mt-2 text-sm leading-7 text-[#9db6cf]">Residencial, comercial, predial ou industrial, conforme as opções já previstas no atendimento.</p>
+              </article>
+              <article className="bg-[#061d38] p-6">
+                <h3 className="font-display text-lg font-bold uppercase text-white">Escopo</h3>
+                <p className="mt-2 text-sm leading-7 text-[#9db6cf]">Quantidade de pontos, rack, câmeras, cabeamento ou instalação elétrica ajudam a contextualizar a avaliação.</p>
+              </article>
+              <article className="bg-[#061d38] p-6">
+                <h3 className="font-display text-lg font-bold uppercase text-white">Local</h3>
+                <p className="mt-2 text-sm leading-7 text-[#9db6cf]">A página informa atendimento em Curitiba e Região Metropolitana; o endereço é confirmado pelo funil.</p>
+              </article>
+            </div>
+          </div>
         </section>
 
         {/* PAINEL: fechamento em duas colunas de texto técnico + chamada */}

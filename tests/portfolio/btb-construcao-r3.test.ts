@@ -34,7 +34,7 @@ describe("BTB Construção — evolução R3", () => {
       String(item.file).includes("flyer-reference.png"),
     );
     expect(flyer?.editorialAllowed).toBe(false);
-    expect(page).toContain("composição editorial");
+    expect(page.toLowerCase()).toContain("composição editorial");
   });
 
   test("remove condição comercial não revalidada e usa schema da BTB", () => {

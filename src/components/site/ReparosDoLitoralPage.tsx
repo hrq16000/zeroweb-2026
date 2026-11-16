@@ -75,7 +75,7 @@ export function ReparosDoLitoralPage() {
 
       <main>
         <section id="inicio" className="px-5 py-10 lg:px-8">
-          <MotionReveal variant="scale" className="mx-auto max-w-5xl rounded-3xl bg-white p-7 shadow-sm sm:p-10">
+          <div className="mx-auto max-w-5xl rounded-3xl bg-white p-7 shadow-sm sm:p-10">
             <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.12] sm:text-5xl">
             <ManagedText field="heroHeadline" fallback={"Aquele conserto que voc\u00ea adia h\u00e1 semanas leva menos de uma tarde."} />
           </h1>
@@ -89,7 +89,7 @@ export function ReparosDoLitoralPage() {
                 simples.
               </p>
             </div>
-          </MotionReveal>
+          </div>
         </section>
 
         <section id="servicos" className="px-5 py-8 lg:px-8">

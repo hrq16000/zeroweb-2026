@@ -72,13 +72,13 @@ export function AtelieEncantoDaBaiaPage() {
               </span>
             </div>
             <div className="mt-14 grid gap-8 md:grid-cols-[1.15fr_.85fr] md:items-end">
-              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="text-5xl font-black leading-[.95] sm:text-7xl">
+              <h1 className="text-5xl font-black leading-[.95] sm:text-7xl">
             <ManagedRich field="heroHeadline">
                 Presente feito
                 <span className="mx-2 inline-block -rotate-2 bg-[#c25a37] px-3 text-[#fdf6ec]">à mão</span>
                 <br />
                 para gente daqui.</ManagedRich>
-          </MotionReveal>
+          </h1>
               <MotionReveal variant="right" delay={140}>
               <div className="rotate-1 rounded-3xl border-2 border-[#2f2418] bg-white p-6 shadow-[8px_8px_0_#e8c3b0]">
                 <p className="text-[0.95rem] leading-7"><ManagedRich field="heroSubheadline">
@@ -97,16 +97,16 @@ export function AtelieEncantoDaBaiaPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-black">O que sai do ateliê</h2>
             <div className="mt-8 columns-1 gap-5 sm:columns-2">
-              {COLECAO.map(([titulo, texto, giro], i) => (
-                <MotionReveal variant="scale" delay={i * 90} key={titulo} className="mb-5 break-inside-avoid">
-                <figure className={`rounded-3xl border-2 border-[#2f2418] bg-white p-6 ${giro}`}>
-                  <span className="inline-block rounded-full bg-[#f0d9b5] px-3 py-1 text-xs font-bold uppercase">
-                    Feito à mão
-                  </span>
-                  <figcaption className="mt-4 text-xl font-black">{titulo}</figcaption>
-                  <p className="mt-2 text-sm leading-7 text-[#5b4a35]">{texto}</p>
-                </figure>
-                </MotionReveal>
+              {COLECAO.map(([titulo, texto, giro]) => (
+                <div key={titulo} className="mb-5 break-inside-avoid">
+                  <figure className={`rounded-3xl border-2 border-[#2f2418] bg-white p-6 ${giro}`}>
+                    <span className="inline-block rounded-full bg-[#f0d9b5] px-3 py-1 text-xs font-bold uppercase">
+                      Feito à mão
+                    </span>
+                    <figcaption className="mt-4 text-xl font-black">{titulo}</figcaption>
+                    <p className="mt-2 text-sm leading-7 text-[#5b4a35]">{texto}</p>
+                  </figure>
+                </div>
               ))}
             </div>
           </div>

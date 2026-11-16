@@ -1,0 +1,58 @@
+{
+  "slug": "cantinho-da-tia-mari",
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "REAL_BUSINESS_FACADE",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "servicos",
+      "requiredMediaRole": "SERVICE_ICON",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "lucide Baby, Clock3, BusFront iconography",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "ambientes",
+      "requiredMediaRole": "REAL_BUSINESS_PHOTOS",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "asset": "public/images/cantinho-da-tia-mari/acolhimento.webp",
+      "relatedAssets": [
+        "copa.webp",
+        "sala.webp"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "section": "localizacao",
+      "requiredMediaRole": "LOCAL_MAP",
+      "sourceType": "GOOGLE_MAPS_LINK_EMBED",
+      "asset": "Exact address map search, no invented coordinates",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "social-preview",
+      "requiredMediaRole": "OG_MEDIA",
+      "sourceType": "BRAND_COMPOSITION",
+      "asset": "public/images/cantinho-da-tia-mari/social-og.svg",
+      "status": "COMPLETE"
+    }
+  ],
+  "cover": {
+    "approved": true,
+    "strategy": "HYBRID",
+    "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+    "evidence": "Authentic facade crop from photographed printed flyer; approved for sample by operator"
+  },
+  "heroMedia": {
+    "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+    "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+    "quality": "PRINT_EXTRACT_SMALL",
+    "reviewedAt": "2026-11-06",
+    "notDocumentary": false
+  },
+  "notes": "Fotos documentais recortadas de material público apresentado pelo operador, resolução limitada pelo panfleto. A versão demonstrativa não é o canal oficial de matrículas. Ausência de Instagram verificado é NOT_APPLICABLE."
+}

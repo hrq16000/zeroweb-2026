@@ -21,7 +21,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPORT_DIR = resolve(__dirname, "..", "seo-reports");
-const BASE = (process.argv[2] || "https://0web.com.br").replace(/\/$/, "");
+const BASE = (process.argv[2] || process.env.BASE_URL || "https://0web.com.br").replace(/\/$/, "");
 
 const REQUIRED_SLUGS = [
   "criacao-de-sites",

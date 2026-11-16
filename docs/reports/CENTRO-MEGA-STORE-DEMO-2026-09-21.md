@@ -1,13 +1,15 @@
-# Centro Mega — Store Concept · evolução autônoma
+# Centro Mega — Loja Virtual · evolução autônoma
 
 Data: 2026-09-21  
 Slug: `centro-mega`  
 Client key: `centro-mega`  
-Modo: **amostra de loja virtual / social commerce**
+
+> Atualização de 22/09/2026: este relatório nasceu durante a fase inicial chamada “Store Demo”. Esse estado foi superado. A fonte canônica atual trata Centro Mega como loja virtual funcional, com 10 cards de produto com mídia, mídia social oficial versionada e fluxo de pedido via funil individual. O nome histórico do arquivo foi preservado para rastreabilidade.
+Modo atual: **loja virtual funcional / social commerce**
 
 ## Objetivo
 
-Transformar a landing existente da Centro Mega em uma amostra convincente de loja virtual que demonstre como postagens de Facebook/Instagram podem virar:
+Transformar a landing existente da Centro Mega em uma loja virtual funcional que converte postagens de Facebook/Instagram e catálogo público em:
 
 `post → produto/categoria → busca/filtro → seleção → funil → atendimento`
 
@@ -54,19 +56,19 @@ A partir do mix informado pelo responsável e da atividade pública/cadastral da
 - calçados;
 - outlet.
 
-Bonés e calçados entram como **categorias demonstrativas**, sem SKU, foto, preço ou estoque fabricado.
+Bonés e calçados entram como **categorias dinâmicas**, sem SKU, preço ou estoque fabricado; referências visuais externas permanecem explicitamente identificadas quando não há foto própria resolvida.
 
 
 
 ## Catálogo público complementar
 
-Além dos produtos convertidos de posts sociais, a pesquisa resolveu a página pública do seller **Centro Mega** no Magazine Luiza pelo mesmo CNPJ `17.991.627/0001-54`. A amostra usa três itens adicionais como demonstração de profundidade de catálogo, sem copiar preço/estoque temporário:
+Além dos produtos convertidos de posts sociais, a pesquisa resolveu a página pública do seller **Centro Mega** no Magazine Luiza pelo mesmo CNPJ `17.991.627/0001-54`. A loja usa itens adicionais do seller público para ampliar a profundidade do catálogo, sem copiar preço/estoque temporário:
 
 - Xiaomi Mi Box S;
 - Controle PlayStation 4 Original Sony;
 - Suporte de celular para Moto & Bike Renux 5203.
 
-Esses produtos têm `sourceType=MARKETPLACE_SELLER`. A finalidade é mostrar como a futura loja pode combinar **social commerce + catálogo público**. Preço, estoque, garantia e condição comercial continuam sujeitos a revalidação.
+Esses produtos têm `sourceType=MARKETPLACE_SELLER`. A finalidade é mostrar como a loja pode combinar **social commerce + catálogo público**. Preço, estoque, garantia e condição comercial continuam sujeitos a revalidação.
 
 ## Instagram/Facebook
 
@@ -106,7 +108,7 @@ Cards ligam para Instagram/Facebook e posts já versionados. A rede continua sen
 
 ### Minha seleção
 
-Funciona como uma “sacola demonstrativa”, não checkout:
+Funciona como uma “sacola de seleção”, não checkout:
 
 - adiciona/remove produtos;
 - preserva contexto;
@@ -182,7 +184,7 @@ A rota passa a tratar Centro Mega como `Store` + `ElectronicsStore`, com:
 - área SJP/Curitiba;
 - categorias conhecidas.
 
-Não existe `Product` com preço/availability em JSON-LD porque a amostra não possui estoque/preço atual verificável.
+Não existe `Product` com preço/availability em JSON-LD porque o checkout financeiro não congela estoque/preço atual sem revalidação.
 
 ## Arquivos centrais
 

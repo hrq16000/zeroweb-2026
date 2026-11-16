@@ -139,6 +139,32 @@ export function BarreiroMarmitasPage() {
           </dl>
         </section>
 
+        <section id="planejar-semana" className="border-y border-[#241f16]/15 bg-[#fffaf0] px-5 py-14 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-extrabold uppercase tracking-[.22em] text-[#e2621b]">planejamento rápido</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold uppercase leading-tight">
+              Monte a semana a partir do que já está definido.
+            </h2>
+            <div className="mt-8 border-l-4 border-[#1f3a26] pl-5 md:columns-2 md:gap-10">
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">1 · Dia.</strong> Escolha entre segunda e sábado usando o cardápio fixo exibido acima.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">2 · Tamanho.</strong> P, M ou G conforme a porção que melhor se encaixa na sua rotina.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">3 · Recebimento.</strong> Retirada no Barreiro, entrega no bairro ou entrega na empresa, conforme confirmação da cozinha.
+              </p>
+              <p className="mb-5 break-inside-avoid text-sm leading-7 text-[#4a4234]">
+                <strong className="text-[#1f3a26]">4 · Frequência.</strong> Só hoje, de segunda a sexta ou semana inteira.
+              </p>
+            </div>
+            <p className="mt-5 max-w-3xl text-sm leading-6 text-[#6b5f4c]">
+              O quadro organiza a solicitação; disponibilidade, entrega e eventuais ajustes continuam sujeitos à confirmação da cozinha.
+            </p>
+          </div>
+        </section>
+
         <section id="pedir" className="bg-[#f2c744] px-5 py-12 lg:px-8">
           <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>

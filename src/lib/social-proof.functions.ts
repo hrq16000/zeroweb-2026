@@ -1,39 +1,20 @@
 import { createServerFn } from "@tanstack/react-start";
 
 export type SocialProofItem = {
+  id: string;
   name: string;
-  city: string;
   action: string;
   time: string;
 };
 
-const CITIES = [
-  "Curitiba, PR", "São Paulo, SP", "Rio de Janeiro, RJ", "Belo Horizonte, MG",
-  "Florianópolis, SC", "Porto Alegre, RS", "Brasília, DF", "Salvador, BA",
-  "Fortaleza, CE", "Recife, PE", "Goiânia, GO", "Campinas, SP",
-  "Maringá, PR", "Joinville, SC", "Vitória, ES", "Londrina, PR",
-];
-
-const FIRST_NAMES = [
-  "Carlos", "Ana", "Rafael", "Mariana", "Bruno", "Luana", "Pedro", "Camila",
-  "Felipe", "Joana", "Lucas", "Bruna", "Diego", "Patrícia", "Renato", "Júlia",
-  "Fernanda", "Marcos", "Eduardo", "Beatriz",
-];
-
-function anonymizeName(raw: string | null, fallbackSeed: string): string {
-  if (raw) {
-    const parts = raw.trim().split(/\s+/);
-    const first = parts[0] ?? "";
-    const lastInitial = parts.length > 1 ? parts[parts.length - 1].charAt(0).toUpperCase() : "";
-    if (first.length > 1) return lastInitial ? `${first} ${lastInitial}.` : first;
-  }
-  const seed = fallbackSeed.charCodeAt(0) + (fallbackSeed.charCodeAt(1) ?? 0);
-  return `${FIRST_NAMES[seed % FIRST_NAMES.length]} ${String.fromCharCode(65 + (seed % 26))}.`;
-}
-
-function cityForSeed(seed: string): string {
-  const n = seed.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
-  return CITIES[n % CITIES.length];
+function anonymizeName(raw: string | null): string {
+  if (!raw) return "Cliente";
+  const parts = raw.trim().split(/\s+/).filter(Boolean);
+  const first = parts[0] ?? "";
+  if (first.length < 2) return "Cliente";
+  const lastInitial =
+    parts.length > 1 ? parts[parts.length - 1].charAt(0).toUpperCase() : "";
+  return lastInitial ? `${first} ${lastInitial}.` : first;
 }
 
 function timeAgo(date: Date): string {
@@ -54,19 +35,26 @@ function actionForLead(args: {
 }): string {
   const { source, offerSlug, serviceName } = args;
   if (serviceName) return `solicitou proposta de ${serviceName}`;
-  if (offerSlug) return `iniciou um projeto de ${offerSlug.replace(/-/g, " ")}`;
-  if (source === "whatsapp") return "iniciou conversa no WhatsApp";
-  if (source === "form") return "solicitou um diagnóstico gratuito";
-  if (source === "chatbot") return "interagiu com o assistente IA";
-  return "solicitou um orçamento";
+  if (offerSlug) return `demonstrou interesse em ${offerSlug.replace(/-/g, " ")}`;
+  if (source === "whatsapp") return "iniciou atendimento";
+  if (source === "form") return "enviou um diagnóstico";
+  if (source === "chatbot") return "interagiu com o assistente";
+  return "enviou uma solicitação";
 }
 
+/**
+ * Prova social factual:
+ * - somente eventos persistidos em lead_submissions;
+ * - nome apenas quando fornecido pelo próprio visitante, sempre anonimizado;
+ * - nenhuma cidade é inferida: lead_submissions não possui cidade canônica;
+ * - serviços ativos não são convertidos artificialmente em "contratações";
+ * - sem dados reais, retorna lista vazia e a UI não renderiza notificação.
+ */
 export const getSocialProofFeed = createServerFn({ method: "GET" }).handler(
   async (): Promise<{ items: SocialProofItem[] }> => {
     let supabaseAdmin;
     try {
       ({ supabaseAdmin } = await import("@/integrations/supabase/client.server"));
-      // Falha cedo e de forma controlada quando a chave server-only não existe.
       void supabaseAdmin.from("services");
     } catch {
       return { items: [] };
@@ -77,47 +65,29 @@ export const getSocialProofFeed = createServerFn({ method: "GET" }).handler(
         .from("lead_submissions")
         .select("id, name, source, offer_slug, created_at")
         .order("created_at", { ascending: false })
-        .limit(20),
+        .limit(30),
       supabaseAdmin
         .from("services")
-        .select("slug, name, updated_at")
+        .select("slug, name")
         .eq("is_active", true)
-        .order("display_order", { ascending: true })
-        .limit(20),
+        .limit(100),
     ]);
 
-    const services = servicesRes.data ?? [];
-    const slugToName = new Map<string, string>(services.map((s) => [s.slug, s.name]));
+    const slugToName = new Map<string, string>(
+      (servicesRes.data ?? []).map((service) => [service.slug, service.name]),
+    );
 
-    const leadItems: SocialProofItem[] = (leadsRes.data ?? []).map((l) => {
-      const serviceName = l.offer_slug ? slugToName.get(l.offer_slug) ?? null : null;
-      return {
-        name: anonymizeName(l.name, l.id),
-        city: cityForSeed(l.id),
-        action: actionForLead({
-          source: l.source,
-          offerSlug: l.offer_slug,
-          serviceName,
-        }),
-        time: timeAgo(new Date(l.created_at)),
-      };
-    });
-
-    const serviceItems: SocialProofItem[] = services.slice(0, 10).map((s, i) => ({
-      name: `${FIRST_NAMES[(i * 3) % FIRST_NAMES.length]} ${String.fromCharCode(65 + i)}.`,
-      city: cityForSeed(s.slug),
-      action: `contratou ${s.name}`,
-      time: timeAgo(new Date(s.updated_at)),
+    const items: SocialProofItem[] = (leadsRes.data ?? []).map((lead) => ({
+      id: lead.id,
+      name: anonymizeName(lead.name),
+      action: actionForLead({
+        source: lead.source,
+        offerSlug: lead.offer_slug,
+        serviceName: lead.offer_slug ? slugToName.get(lead.offer_slug) ?? null : null,
+      }),
+      time: timeAgo(new Date(lead.created_at)),
     }));
 
-    // Intercalar leads e serviços para variedade
-    const merged: SocialProofItem[] = [];
-    const max = Math.max(leadItems.length, serviceItems.length);
-    for (let i = 0; i < max; i++) {
-      if (leadItems[i]) merged.push(leadItems[i]);
-      if (serviceItems[i]) merged.push(serviceItems[i]);
-    }
-
-    return { items: merged.slice(0, 30) };
+    return { items };
   },
 );

@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "ag-electrical-services": {
+    "reason": "Baseline binária histórica de 2026-08 ficou obsoleta após evoluções posteriores da página. As três capturas atuais foram revisadas visualmente após a correção determinística do hero; qualquer pixel diferente destes hashes volta a falhar.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36505601849,
+      "artifactId": 11009260617,
+      "artifactDigest": "sha256:4a60d9f29c34191462fcb29e3a120feb1904aea97c67cd097649a92c6cc9570d",
+      "headSha": "f4fb77e3383a0fd44befa01c34b1f7ee2709ca51"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "1af2bb0cdbf5dbdbb2a85c67edd43d7b767c91bce202679a12f99ac4b04e345c"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "023b4f81f9a865e0dbcda08aedd85b71bd34b2bf67215c1d196005302c0b430f"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "98f59e8d0323411565f6cdea792faf66f915cb6f20c3b28a47e5caa0afe83f15"
+      }
+    }
+  },
+  "acai-total-araucaria": {
+    "reason": "A onda de indexação adicionou uma seção editorial útil ao portfólio Açaí Total. As três capturas resultantes foram inspecionadas após build, hidratação, funis e acessibilidade aprovados; esta aprovação fixa exatamente os pixels revisados sem alterar o limite global de 2%.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36611714260,
+      "artifactId": 11055032005,
+      "artifactDigest": "sha256:2f5be72580b62dfdcda1a5647109075c2cc75017fcf1a99f4d0cc1fb05dcfdd8",
+      "headSha": "6951ddcbd4dd13515377b5b88cb1891dcc31a8ad"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "09c5364547f09a4926b816ecfe43af2092cb02b0ada33287db695d1817808c9d"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "499482a90c10f93adf72838bb0d3dccf6be8c9bea0e7049a665093defe5d2ccb"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "6871dbc18d042f1c7cefef94bd4d2e4a62eb8a4c34f7df032299925854e5b4d6"
+      }
+    }
+  },
+  "ecommerce-on": {
+    "reason": "A onda 3 removeu motion do hero e aprofundou a orientação editorial da Ecommerce On. As capturas desktop, tablet e mobile foram inspecionadas no artefato do portfolio-gates; a composição, CTAs, texto e mídia estão corretos. A aprovação fixa exatamente esses pixels e não altera o limite global de 2%.",
+    "reviewedAt": "2026-09-29",
+    "evidence": {
+      "runId": 36660404819,
+      "artifactId": 11073892716,
+      "artifactDigest": "sha256:eafdd144073fd14944f3069e3e575beff39f49d55573c30550cc01f63ef7b5fd",
+      "headSha": "d55edb2af5a75df64905ab6232227996fac9aed7"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "daa8e9a990715bede259c90bbb0bc3eed2d11edbd216fd6e97e8fdf9d4d48930"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "313b468758c3ee926b59a23d170bb4dfc433d6d0bbe50c0dab87514698068ff3"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "c8a4039767cd3e84e754d629967ddce0a7c9cac01bc87ed58c6682b085ed7a77"
+      }
+    }
+  },
+  "portfolio-index": {
+    "reason": "Baseline atual do índice /portfolio revisada manualmente em desktop, tablet e mobile durante a rodada do diretório crawlable. A aprovação é por hash exato de pixels e não altera o limite global de 2%.",
+    "reviewedAt": "2026-09-30",
+    "evidence": {
+      "runId": 36662219703,
+      "artifactId": 11074887625,
+      "artifactDigest": "sha256:586ead47ab9d660274c5f120b1eea2f445ecfe20dfd84f1fee062952bac180d6",
+      "headSha": "b1708e3fa58e066c71e8a0f99560bbf061b16a64"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "965843ebbb7f330462d8f0a5dc3c8136e304ed7a234df0d5de8cc07669d80e43"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "7b523ae2484889a7fa1ef7f6a9b8841b6d7f071c2b83462e663c97371e9899cb"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "443922f9081b12d711e143f800c38350bb369b419f599299992b7191916adc6f"
+      }
+    }
+  },
+  "aguia-sul-sinalizacao": {
+    "reason": "Onda de indexação GSC adicionou briefing técnico útil sem alterar funis, URL ou identidade. As três capturas desktop/tablet/mobile foram inspecionadas visualmente após build, hidratação, Lighthouse e demais gates; esta aprovação fixa exatamente os pixels revisados sem alterar o limite global de 2%.",
+    "reviewedAt": "2026-09-30",
+    "evidence": {
+      "runId": 36806877418,
+      "artifactId": 11137234207,
+      "artifactDigest": "sha256:5adb93734f9901e49d4c92e88bd23a3f544a4c4be5b0d8d15eb3d8e24c0b1e7f",
+      "headSha": "dcf2a8b6a5a369d8c08f322ebd92a8b493638db1"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "614591101768fd4d382fa2e1885bc46099149f70fc3dd6fd3b2069f3a440e188"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "62e2955539e1633869f4145d54d9010cbd6194faac693738c65b4bf5836ba47a"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "a88a25df7ae23fc2df2e869803a50033ae170dacc2d7eafb69dd28a463274fb7"
+      }
+    }
+  },
+  "paraiso-do-hot-dog": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "d71dcf00ede188dd525fc6f7195102becbb4cba909d905780652bc681ce9d990"
+      }
+    }
+  },
+  "marido-de-aluguel": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "5542374204a78fda3d15a69d3fde55573d141ea6df32b589572cc65cb6580b2f"
+      }
+    }
+  },
+  "rm-fretes": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "9176e6d809063aafdd11a152201a58b6837fa28663a17c510818c84a7b793bf9"
+      }
+    }
+  },
+  "rj-servicos-drywall": {
+    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "baselineRunId": 36947857468,
+      "baselineArtifactId": 11204245307,
+      "candidateRunId": 36953577456,
+      "candidateArtifactId": 11205495676,
+      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+    },
+    "viewports": {
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "0744a285f3e6caebdba57040f03e4db33b3a0b74882676107a64b93ecea4c030"
+      }
+    }
+  },
+  "eisenfer-tubos-acos": {
+    "reason": "Onda 6 adiciona roteiro de cotação técnico abaixo da tabela e remove MotionReveal apenas das cinco linhas técnicas para eliminar oscilação real do IntersectionObserver nos limites de viewport. Desktop, tablet e mobile do run 36971970370 foram inspecionados após essa estabilização; conteúdo, composição e responsividade estão íntegros. Nenhum threshold foi alterado; o limite global continua 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "runId": 36971970370,
+      "artifactId": 11211208947,
+      "artifactDigest": "sha256:6a0ea5b3386e63880ce763b60975cb12ad81183eb8bb3a6f28e7743facfa8e47",
+      "headSha": "6f555cc23c5361d304ea55e663ce3e1e6abb0f85"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "b40272b6356ddb4bf87118c6da07e2892f7cf5514fb676ac5278c7c22aa2674b"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "877af7c5c32d41db0ee03be54eab91a888addd18dfcf21563fc0bf9ae700f704"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "f3695f4660e166b4bcb823173912fa535e13da62898c73ec748df2b9ac2a8bb4"
+      }
+    }
+  },
+  "confeitaria-chyrley": {
+    "reason": "Onda 6 aprofunda o planejamento de encomenda da Chyrley. Após a primeira revisão, o headline mobile foi reduzido para eliminar overflow real; desktop, tablet e mobile do run 36958485790 foram reinspecionados e estão íntegros, responsivos e sem corte. Esta aprovação fixa somente os pixels revisados; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-02",
+    "evidence": {
+      "runId": 36958485790,
+      "artifactId": 11207650268,
+      "artifactDigest": "sha256:8cccb067301dced33306ee3a04173efc7dfdd17bf6f45e2037caf11184a7797c",
+      "headSha": "ad9bd2e9d5530b611ba3e354cd3a96c22bff228b"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "8abf6a2b3725cdb33568ba92994bcdf093008f881674fff439e56f977610f240"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "55cbf84f1dce614ae91559a7305fcfe96b053f8f8d91eab8d197d685d7067b3e"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "5ed27ab7d575ed75b884ba8c74bd3890fabd6680793ae00cfc034fd6b5f5248e"
+      }
+    }
+  },
+  "mp-festas-eventos": {
+    "reason": "Baseline binária histórica da MP Festas corresponde a um layout antigo. A sonda neutra da onda GSC 26 e a correção de LCP produziram capturas pixel a pixel idênticas em desktop, tablet e mobile; as três capturas atuais foram inspecionadas individualmente e preservam a composição vigente. Esta aprovação fixa somente esses pixels e mantém o limite global de 2%.",
+    "reviewedAt": "2026-10-04",
+    "evidence": {
+      "baselineRunId": 37174744016,
+      "baselineArtifactId": 11292589122,
+      "runId": 37175079144,
+      "artifactId": 11292554869,
+      "artifactDigest": "sha256:bbf1aae70d69bbc02dc290095b1e2af001c895590b41be9ffc54d85c2181fa9c",
+      "headSha": "20d94d16044a4b9e01322fe4203b3f990563b827"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "f192d3f33c9c9e52a89d3b5946c5ee21abc6b8ee0f77f84d2e93d93f813eda30"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "4d4dff69153bc86880ecd3ec33c190f802c22321ee5c2573e8968ebec8b108f0"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "a5f385cc8e72cf0b966a4c39ff797e31f81f453b347212a2d9b653a22072aa4e"
+      }
+    }
+  },
+  "vila-da-capivara": {
+    "reason": "A baseline binária histórica da Vila da Capivara ficou desatualizada. A sonda neutra no main atual reproduziu a mesma dívida visual da correção de LCP (desktop 29,24% vs 29,20%; tablet 1,08% em ambos; mobile 4,53% em ambos). Mobile é pixel a pixel idêntico entre sonda e correção; desktop foi inspecionado visualmente nas duas execuções e preserva a mesma composição, variando apenas rasterização do wrapper de motion. Esta aprovação fixa somente os pixels revisados de desktop e mobile; tablet já passa no limite global de 2%.",
+    "reviewedAt": "2026-10-04",
+    "evidence": {
+      "neutralRunId": 37213294438,
+      "neutralArtifactId": 11307192750,
+      "neutralArtifactDigest": "sha256:299d1e8f3154e5c89d86465415a4f4818a914b628bbe5c968365311fe5fffb45",
+      "runId": 37178011535,
+      "artifactId": 11293769765,
+      "artifactDigest": "sha256:fef38a1d09531d93c20d9cbe10640f274c77b9420244eef9e39f515b225db4f1",
+      "headSha": "d30ef4c76efc3a09cf668ed1da35a96416820263"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "8f2cba13f03a44e0e35595a761d7c39847ae7289c33c7b74483266697c613dd8"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "cae241f468c2e9786ef7b69b1723eb27bbe17593f9dccdac5fa2b0f4582ff7fd"
+      }
+    }
+  },
+  "no-brilho-higienizacao": {
+    "reason": "A baseline binária histórica da No Brilho Higienização está incompatível com o layout vigente. A sonda neutra no main atual e a correção de LCP reproduziram 100,00% / 100,00% / 100,00% contra a baseline versionada, mas as capturas atuais são pixel a pixel idênticas entre os dois runs nas três viewports. Desktop, tablet e mobile foram inspecionados individualmente. Esta aprovação fixa somente esses pixels revisados; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37323179473,
+      "neutralArtifactId": 11351495205,
+      "neutralArtifactDigest": "sha256:1302acc7d2fd31536bc737d6fd9e666e48e558fcd606fb3e52eea97f9d79f967",
+      "runId": 37262873628,
+      "artifactId": 11325685355,
+      "artifactDigest": "sha256:545fcd706c83868cb212043bb017a4e79c247046ac673e0db49e1e9330e22c95",
+      "headSha": "3e1a91af011f033519c0c99fe87902e06b395cf3"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "bc5f111be19e36d2256f1530548acca8b92abc91b74cd6533c72298e6670523e"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "6ec5288088b5e5f539aa82a50d5bd57ae6a7a24e2b4f829bfdd68c0c1acf1f7f"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "4ed71400a695c68b923ffc6989fc2e06ca0b8581bf4809edd9bfc086414dcd4f"
+      }
+    }
+  },
+  "salao-da-marcia": {
+    "reason": "A baseline binária histórica do Salão da Marcia está incompatível com o layout vigente. A sonda neutra #358 no main atual e a correção de LCP #357 reproduziram exatamente 74,67% / 70,06% / 62,09% contra a baseline versionada. As capturas atuais são byte a byte e pixel a pixel idênticas entre os dois runs nas três viewports, e desktop, tablet e mobile foram inspecionados individualmente. Esta aprovação fixa somente esses pixels revisados; o limite global permanece 2%. Os hashes registrados seguem o algoritmo do gate: SHA-256 sobre `larguraxaltura\\0` + bytes RGBA, não sobre o arquivo PNG compactado.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37330729612,
+      "neutralArtifactId": 11354821047,
+      "neutralArtifactDigest": "sha256:0336d6a2257c702f74f6d37698c645b1e383be5ae07898276c62b3cd81746855",
+      "runId": 37329649765,
+      "artifactId": 11353284510,
+      "artifactDigest": "sha256:6ddf339526e3559a41df8b93d151065d413549f15731aad6cc048d5172de3d4d",
+      "headSha": "e7ceaac71991b1b548fbc7c53333e0f3f6dad4f9"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "0a62359e245c8d620b5ead561f76fdeded07b788dca52a3ba414516395396e93"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "7507b50db148411f5df287fb928449b760ce4d109289a1b4528b124c4e942439"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "b14561a1dfc5d7fdbf98754257baef790f2b0da5f7eeaab2b9d21f8b19ac8fbd"
+      }
+    }
+  },
+  "mary-diarista": {
+    "reason": "A baseline binária histórica da Mary Diarista está incompatível com o layout vigente. A sonda neutra #361 no main atual reproduziu 21,08% / 19,09% / 21,62% contra a baseline versionada, enquanto a correção #362 reproduziu 21,04% / 19,11% / 21,72%. Desktop, tablet e mobile foram inspecionados individualmente e preservam a mesma composição, conteúdo, CTAs e mídia; as capturas da #362 são byte a byte idênticas às da primeira tentativa #359. Esta aprovação fixa somente os três pixels revisados da #362; o limite global permanece 2%. Os hashes registrados seguem o algoritmo do gate: SHA-256 sobre `larguraxaltura\\0` + bytes RGBA, não sobre o arquivo PNG compactado.",
+    "reviewedAt": "2026-10-05",
+    "evidence": {
+      "neutralRunId": 37358143895,
+      "neutralArtifactId": 11364963659,
+      "neutralArtifactDigest": "sha256:704d323501cc53ad83561e7493865fdb0a699f5ba7b2c086527ba3e3719f83a6",
+      "runId": 37358506629,
+      "artifactId": 11365229005,
+      "artifactDigest": "sha256:5d0c3ab03c828faef4be48ce8974bc0b4cf4f23be4c2ecf81fc1aa6d47608f9c",
+      "headSha": "a04111113ec9aa2551a56c61d449cbe9d32b0f43"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "bc171e20febb3553d16cffc3ee1d8cf40af41fa0224fc6c74d7cdadd40a0d51f"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "3169ac0d637433b031291ec82d03b8fc1475aa51398fc0551f1d30ec87d1ed51"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "e8cc7ac8f7e08e0ff5169cabc0c3fe081b0960f7de7fe89c6d61fed18b960008"
+      }
+    }
+  },
+  "refrigeracao-maresia": {
+    "reason": "A baseline binária histórica da Refrigeração Maresia corresponde a um layout antigo. A sonda neutra #396 reproduziu 40,98% / 47,38% / 31,31% contra essa baseline sem alterar runtime. A otimização #408 foi inspecionada em desktop, tablet e mobile e, comparada à sonda neutra, variou 0,000% / 0,018% / 0,000%. A composição, conteúdo, CTAs e mídia permanecem íntegros. Esta aprovação fixa somente os três pixels revisados; o limite global continua 2%.",
+    "reviewedAt": "2026-10-09",
+    "evidence": {
+      "neutralRunId": 37645100217,
+      "neutralArtifactId": 11494448007,
+      "neutralArtifactDigest": "sha256:cd6b8fc173804eab13e5d7401b25510c66778ff2c8f9410fa1bfb96d1c82a798",
+      "neutralHeadSha": "03a3a091199f48b684b498b60fa1f72e9647e09c",
+      "runId": 37888154709,
+      "artifactId": 11596544523,
+      "artifactDigest": "sha256:edc1a94d79ac72debec764e85740ff5451e7f5a80c9669e301ff3e951d10fce8",
+      "headSha": "00f265ac068071628dcdda72ea3cb74bb1c88e68"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "32ec3f0bf9d4c7b51b499c1427019a76e6fb7be996368b6feee56a8d8b0c1c2f"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "8550a9e1a4649a290eb240298370661773f8e224014d50f5476e8e3c78e5fc75"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "63fdb3192dbb1a1994fd17fdb44b68056a18938fdca83a81990d2c7b07fb1231"
+      }
+    }
+  },
+  "renata-beauty": {
+    "reason": "A baseline binária histórica da Renata Beauty está desatualizada. A sonda neutra #414 reproduziu 24,33% / 4,13% / 26,55% contra a baseline versionada sem qualquer mudança de runtime. A correção #413 preserva a composição atual e altera somente a estabilização do hero/LCP, a semântica H2→H3 e o contraste dos CTAs verdes; a comparação direta #413 × #414 ficou em 0,68% / 0,84% / 4,30%, sendo a diferença mobile inspecionada visualmente e localizada no CTA de contraste corrigido. Esta aprovação fixa somente os pixels revisados da #413; o limite global permanece 2%.",
+    "reviewedAt": "2026-10-09",
+    "evidence": {
+      "neutralRunId": 37939574358,
+      "neutralArtifactId": 11620592982,
+      "neutralArtifactDigest": "sha256:5c60bbc45828e9d03ac55e1bd54701edef955e08f97c9c262a9692c30f63d0cf",
+      "runId": 37938747697,
+      "artifactId": 11621450711,
+      "artifactDigest": "sha256:59bf71d070fdbff9612ba76cb01ff7dacf850d0ad1d0a47d32f69e6bb0845cf5",
+      "headSha": "ff996368c220af7fa068ab5c20f1dd228e847461"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "42d507d1e05b91cb6abb3399738c50d511b75b41babb9c0a3e1bc27d80572273"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "6b56607ca05c6f4f971e69471fd3a6a325a11be863986a9f7aabe2eb3e3d7d06"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "6e1c16b098ab18be495805092adc545a8184c22946ec1c6849d9d41c19baf28a"
+      }
+    }
+  }
+}

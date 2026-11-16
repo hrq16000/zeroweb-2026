@@ -5,6 +5,7 @@ import {
   serializeContactIntent,
   parseContactIntent,
   buildContactFallbackHref,
+  withRuntimePagePath,
   type ContactIntent,
 } from "./contact-intent";
 
@@ -87,6 +88,18 @@ describe("contact-intent", () => {
       extra: "ignored",
     });
     expect(p).toBeNull();
+  });
+
+  it("uses the real runtime pathname instead of a stale SSR root path", () => {
+    const normalized = withRuntimePagePath(base, "/sobre");
+    expect(normalized.pagePath).toBe("/sobre");
+    expect(normalized.purpose).toBe(base.purpose);
+    expect(normalized.source).toBe(base.source);
+  });
+
+  it("keeps the original pagePath when runtime path is invalid or external", () => {
+    expect(withRuntimePagePath(base, "https://evil.example").pagePath).toBe("/");
+    expect(withRuntimePagePath(base, "//evil.example").pagePath).toBe("/");
   });
 
   it("builds an internal fallback href, never external", () => {

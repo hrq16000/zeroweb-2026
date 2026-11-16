@@ -1537,3 +1537,147 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Recursos usados:** site oficial e assets versionados; Creative Composition Brief; composição autoral; media plan; motion primitives; funil por clientKey; catálogo e registries; schema local factual.
 - **Rejeitados:** template/Blueprint compartilhado, parallax, 3D, vídeo, marquee, depoimentos e métricas adicionais — sem função decisória ou evidência. Projeto Lovable de referência ficou ATTEMPTED_BLOCKED por falta de acesso.
 - **Validação:** gates e QA visual registrados no manifesto e quality matrix do cliente.
+
+# 2026-09-25 — Paridade de criação e enforcement anti-template
+
+- **Tarefa:** impedir que novos `/portfolio/:slug` sejam publicados como o
+  mesmo esqueleto com alterações cosméticas.
+- **Diagnóstico:** `PortfolioManagedView` usa ordem fixa de blocos e presets que
+  alteram principalmente hero/grid/altura; o gate Managed não cobre composição.
+  O lifecycle ainda continha referências antigas ao
+  `PortfolioBlueprintRenderer`, conflitantes com a norma autoral.
+- **Protocolo:** painel/Managed, pipeline autônomo, scaffold e código direto
+  passam a obedecer ao mesmo contrato. Preset é somente workbench/preview;
+  `READY/PUBLISH` requer composição autoral ou composition graph específico.
+- **Enforcement:** CI passa a executar a regressão de originalidade do código
+  com `--enforce`; o runner de `PROJECT_UNIQUENESS_GATE` agora respeita
+  `compositionContract` V2 e seus campos de jornada/ritmo. Projetos Managed
+  novos recebem `authorial_composition.required=true` e o gate de conformidade
+  bloqueia `READY/PUBLISHED` enquanto o slug não possuir composição autoral
+  registrada; projetos Managed legados sem essa marca permanecem intactos.
+- **Escopo:** nenhuma landing publicada foi redesenhada nesta rodada; mudança
+  forward-only de governança e gates.
+
+# 2026-09-25 — Managed composition graph · geração autoral automática
+
+- **Tarefa:** avançar a fábrica para que projeto novo Managed não dependa de JSX
+  manual para sair do workbench genérico.
+- **Implementação:** novo `portfolio-managed-composition.ts` gera três direções
+  divergentes por projeto e persiste a selecionada em
+  `source_snapshot.authorial_composition.plan`.
+- **Anti-template:** não há mapeamento `segment -> template`. A composição usa
+  a forma real do conteúdo e uma semente estável do projeto; assinaturas iguais
+  ou com similaridade >= 0,68 contra Managed existentes são rejeitadas.
+- **Runtime:** `PortfolioManagedAuthorialView` interpreta o graph e varia
+  abertura, header, ordem dos capítulos, oferta, galeria, processo, FAQ, CTA,
+  densidade, geometria e estratégia mobile. O `PortfolioManagedView` anterior
+  fica como fallback de legado/workbench.
+- **Lifecycle:** drafts Managed são recompostos quando a base factual muda;
+  READY/PUBLISH continua bloqueado se não existir composição válida.
+- **Escopo:** forward-only; nenhum portfolio legado é redesenhado nesta rodada.
+
+# 2026-09-25 — SEO universal e grafo interno de portfólios
+
+- **Escopo:** todos os `/portfolio/:slug` publicados, atuais e futuros.
+- **Rede interna:** `PortfolioStandardShell` passa a renderizar
+  `PortfolioSeoNetwork`, ligando cada projeto a até seis páginas publicadas
+  por segmento, cidade, estado e afinidade de tags/serviços.
+- **Dados estruturados:** a mesma rede é exposta como `ItemList` JSON-LD.
+- **Metadados:** rota dinâmica usa title universal determinístico, fallback de
+  description pelo catálogo, contexto editorial de keywords, `og:locale`,
+  `twitter:image:alt` e hreflang `pt-BR/x-default`.
+- **Managed:** contexto factual de nome, segmento, cidade, estado e serviços é
+  repassado ao grafo sem depender do catálogo versionado.
+- **Gate:** teste universal entrou em `test:portfolio-ops`/prebuild e garante
+  cobertura integral, seis relações, ausência de self-link e titles únicos <=65.
+- **Política:** escala não autoriza doorway pages, stuffing, conteúdo duplicado
+  ou dados locais inventados.
+
+# 2026-09-25 — Enriquecimento semântico individual · portfólios
+
+- **Contexto factual:** cada página publicada passa a expor marca/segmento/localidade e até
+  cinco temas derivados de tags ou serviços reais.
+- **SEO local:** páginas com cidade/estado reconhecidos passam a devolver links para os hubs
+  regionais já existentes em `/portfolio-em/*`, fechando o circuito hub ↔ projeto.
+- **Anti-spam:** localidade duplicada é filtrada dos tópicos e não há criação automática de
+  serviços, bairros, preços, avaliações ou fatos não comprovados.
+- **Managed:** o mesmo resolvedor usa o contexto factual já salvo no projeto.
+- **Gate:** testes universais cobrem contexto semântico e backlinks regionais.
+
+# 2026-09-25 — Grafo universal de entidades · Schema.org
+
+- **WebPage + entidade:** todos os portfolios publicados passam a emitir um
+  grafo JSON-LD com WebPage, entidade principal, BreadcrumbList e imagem real
+  quando disponível.
+- **Localidade:** cidade/estado comprovados geram `Place` e
+  `spatialCoverage`; localidades genéricas continuam excluídas.
+- **Serviços:** projetos Managed fornecem nós `Service` apenas a partir de
+  serviços explícitos já salvos. Tags do catálogo permanecem `DefinedTerm` e
+  não são promovidas a oferta.
+- **Classificação conservadora:** a entidade universal usa `Thing` para evitar
+  classificar como Organization/Person sem prova. Schemas específicos de
+  clientes continuam podendo complementar o grafo.
+- **Gate:** teste universal verifica WebPage, entidade, breadcrumb, Place e a
+  separação entre tags editoriais e serviços reais.
+
+# 2026-09-25 — Onda 1A de originalidade · Bruna Diarista
+
+- **Baseline:** Bruna score 66, HIGH_SIMILARITY com POPYS; SECTION_ORDER_SIMILARITY 100%.
+- **Mudança:** hero split/card-grid substituídos por composição editorial de agenda, pôster fotográfico, tabela linear de diárias e serviços em notas de rotina.
+- **Preservado:** preços, dias de atendimento, serviços, Curitiba/Região e funil.
+- **Plano:** `docs/PORTFOLIO_EVOLUTION_MICRO_ROUNDS.md` passa a ser a fila canônica da onda de redução de similaridade e dívida visual.
+
+# 2026-09-26 — Onda 1B de originalidade · POPYS
+
+- **Baseline pós-1A:** POPYS ↔ Easy Clean score 62, HIGH_SIMILARITY.
+- **Mudança:** composição B2B operacional com leitura rápida, matriz ambiente/escopo/modalidade, imagem em faixa e processo vertical.
+- **Removido:** hero split padrão e grid de cards de serviços.
+- **Preservado:** serviços confirmados, Curitiba/Região, modalidades pontual/periódica e funil individual.
+- **Gate de saída:** POPYS deve cair abaixo de HIGH_SIMILARITY sem regressão nos demais projetos.
+
+# 2026-09-26 — Onda 1D de originalidade · Embalar Embalagens
+
+- **Baseline:** Embalar ↔ Maximos score 61, último par HIGH_SIMILARITY.
+- **Mudança:** composição de varejo baseada em prateleiras e fotos reais da loja; manifesto amplo, mosaico documental, índice linear de categorias e consulta/retirada.
+- **Removido:** hero split clássico, grid escuro de três cards e painel final arredondado compartilhado com Maximos.
+- **Preservado:** categorias confirmadas, endereço, fotos reais, finalidade comercial e funil individual.
+- **Contexto da onda:** Micro 1B reduziu HIGH_SIMILARITY de 4 para 2; Easy Clean foi reclassificada para ATTENTION sem alteração direta.
+
+# 2026-09-26 — Onda 2A de originalidade · JS Elétrica
+
+- **Onda 1 encerrada:** 96 projetos · 0 HIGH_SIMILARITY · 0 CLONE.
+- **Baseline 2A:** JS Elétrica score 60, ATTENTION, nearest Maximos Cabeleireiros.
+- **Mudança:** landing convencional substituída por composição de central técnica: painel de escopo, mapa de circuitos, registro de campo, ambientes codificados e barra operacional.
+- **Preservado:** conteúdo oficial, foto documental, `heroImageUrl`, Curitiba/Região e funil individual.
+- **Estratégia:** alterar um lado do par primeiro e medir o efeito sobre ambos antes de tocar Maximos.
+
+# 2026-09-26 — Onda 2B de originalidade · Águia Sul Sinalização
+
+- **Baseline:** score 59, ATTENTION, nearest Diego Montador de Móveis.
+- **Direção autoral:** composição de planta de sinalização/mapa de piso, com grid técnico, legenda, mapa linear de escopo, setores de circulação e CTA operacional.
+- **Anti-template:** removidos hero split escuro, grid de quatro cards e bloco genérico de diferenciais que aproximavam Águia Sul de Diego.
+- **Mídia:** nenhuma foto de obra foi inventada; a marca oficial permanece, e a linguagem visual é construída com elementos gráficos próprios de sinalização.
+- **Preservado:** serviços, Curitiba/região e funil individual.
+
+# 2026-09-26 — Onda 2C de originalidade · MP Festas e Eventos
+
+- **Baseline:** score 59, ATTENTION, nearest Studio de Cílios.
+- **Direção autoral:** storyboard de celebração, hero fotográfico full-bleed com briefing lateral, pacotes em pauta linear e galeria como capítulo editorial.
+- **Anti-template:** removidos hero split convencional, três cards de pacote e fechamento em cartão branco semelhantes ao Studio de Cílios.
+- **Preservado:** preços a partir de R$ 160/R$ 250/R$ 350, Araucária/região, Instagram oficial já utilizado, montagem/taxa de deslocamento já presentes e funil.
+
+# 2026-09-26 — Onda 2D de originalidade · Cris Presentes
+
+- **Baseline:** score 57, ATTENTION, nearest Catharine Lima Studio.
+- **Direção autoral:** gift finder de comércio local, com busca por pistas, corredor linear de categorias, ficha da filial e CTA de disponibilidade/retirada.
+- **Anti-template:** removidos hero split de studio, grid de cinco cards, bloco imagem+texto e CTA central que coincidiam com Catharine.
+- **Preservado:** Rua Pedro Trevisan 58, lojas 06/07, Colônia Rio Grande, São José dos Pinhais, categorias registradas e funil.
+
+# 2026-09-26 — Onda 2E de originalidade · Confeitaria Chyrley
+
+- **Baseline:** score 56, ATTENTION, nearest Studio de Cílios.
+- **Direção autoral:** balcão de encomendas e cardápio de ocasião, com hero full-bleed, menu linear, faixa operacional e bloco tipográfico 6–100 pessoas.
+- **Anti-template:** removidos hero split, quatro cards em grade e fechamento em card que aproximavam Chyrley do Studio de Cílios.
+- **Preservado:** bolos personalizados, kit festa, salgados, Copo da Felicidade, faixa de kits 6–100 pessoas, crédito/débito, retirada no Rio Bonito, Uber a combinar e funil.
+- **Operação:** a micro pode ser validada em PR, mas o merge fica condicionado à normalização do build-rate-limit do Vercel para evitar ampliar divergência entre main e produção.
+

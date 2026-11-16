@@ -129,6 +129,92 @@ graphic`. Evitar landing 100% stock ou 100% gerada quando existe material real
 utilizável — e evitar o inverso, usar fotos reais ruins em toda posição só
 porque são reais (ver lifecycle §7.1).
 
+### 6.4 Experience-role / rhythm review
+
+Para projetos novos e para redesign material, avaliar também:
+
+`roleGraph · mediaCadence · interactionLoci · decisionAidPlacement ·
+densityRhythm · mobileCompositionStrategy`.
+
+Quando o usuário forneceu um site de referência, anexar ao brief a decomposição:
+
+`ROLE_MATRIX · COMPOSITION_MATRIX · RHYTHM_MEDIA_MATRIX · ANTI_COPY_MATRIX`.
+
+A revisão editorial deve responder:
+
+- os papéis da página mudaram a arquitetura ou apenas preencheram o mesmo skeleton?
+- oferta, prova, localidade, processo e objeções receberam peso conforme a decisão real?
+- a mídia tem funções diferentes ou repete o mesmo card/crop?
+- existe uma ajuda de decisão específica quando a incerteza do visitante pede isso?
+- a página mantém variedade de densidade, contenção, contraste e relação mídia/texto?
+- no mobile a composição foi redesenhada, não apenas empilhada?
+- a referência externa foi traduzida em princípios, sem reprodução de silhueta?
+
+`SAME_JOURNEY_DIFFERENT_COPY`, `MEDIA_RHYTHM_REUSED` ou
+`REFERENCE_USED_AS_TEMPLATE` tornam `editorialPass = false`.
+
+
+### 6.5 Experience engine review
+
+Para projeto novo, revisar a `EXPERIENCE_ENGINE_MATRIX` declarada no creative
+brief.
+
+Perguntas obrigatórias:
+
+- existe um `primaryEngine` sustentado por evidência do cliente/jornada?
+- o contraponto, quando existe, realmente cria contraste útil?
+- a página evita três ou mais motores disputando a mesma hierarquia?
+- o motor alterou ao menos dois eixos entre ordem narrativa, composição, mídia,
+  interação, CTA ou tradução mobile?
+- o motor foi escolhido pela decisão real, e não pelo segmento?
+- removendo logo/cor/copy, ainda é possível perceber a lógica dominante?
+
+Falhas bloqueantes:
+
+`ENGINELESS_COMPLETE_SITE` · `ENGINE_STACKING` ·
+`SEGMENT_ENGINE_DEFAULT` · `ENGINE_DECORATIVE_ONLY`.
+
+Essas falhas tornam `editorialPass = false`, mesmo quando todos os blocos
+isoladamente parecem “bons”.
+
+
+### 6.6 Interaction signature / consolidated-provider review
+
+Quando o projeto usar uma interaction signature do corpus, a revisão editorial
+deve confirmar que ela **muda a jornada ou preserva contexto útil**. Selector,
+tabs ou wizard sem consequência real são decoração e devem ser removidos.
+
+Perguntas obrigatórias:
+
+- a assinatura resolve uma incerteza real do visitante?
+- a escolha altera conteúdo, elegibilidade, modalidade, unidade, escopo,
+  logística, preço factual ou contexto do funil?
+- o estado escolhido sobrevive até o lead/handoff quando isso for relevante?
+- no mobile a interação continua clara, acessível e sem duplicar passos?
+- disponibilidade, cobertura, urgência e preço usados pela assinatura têm
+  freshness/evidência quando forem mutáveis?
+
+Para `CONSOLIDATED_PROVIDER_LED` / `MULTI_NEED_SCOPE_BUILDER`:
+
+- “fornecedor único”, “um contrato” ou equivalente só pode ser usado quando o
+  cliente realmente entrega as frentes declaradas sob a mesma coordenação;
+- cada frente selecionável precisa ter evidência de escopo/capacidade;
+- múltiplas necessidades devem chegar ao **mesmo briefing/funil individual**
+  com contexto preservado;
+- a seleção não pode prometer execução simultânea, disponibilidade, SLA ou preço
+  antes da confirmação;
+- prova física, processo, compliance e limites devem ficar próximos das claims
+  que sustentam;
+- CTA direto/WhatsApp não pode bypassar o funil 0WEB.
+
+Falhas devem reutilizar blockers já existentes sempre que possível:
+`SCOPE_OVERCLAIM`, `ENGINE_DECORATIVE_ONLY`,
+`VOLATILE_CLAIM_WITHOUT_SOURCE`, `FAKE_LIVE_AVAILABILITY` ou
+`FUNCTIONAL_DIVERSITY_MISSING`.
+
+Não criar blocker novo apenas para renomear uma falha já coberta.
+
+
 ## 7. Hero matrix
 
 Avaliado separadamente: `brandMatch · segmentMatch · visualImpact ·
@@ -152,6 +238,26 @@ quais dúvidas precisam de resposta? Não inventar conteúdo para completar a
 matriz — lacuna sem fonte vira `WARNING` + `ownerRequired`.
 
 ## 10. Proof matrix
+
+
+### 9.1 Scope truth / freshness matrix
+
+A revisão editorial também verifica:
+
+- claims de escopo não extrapolam o que a empresa realmente executa;
+- limitações materiais estão visíveis antes da conversão quando afetam a decisão;
+- preço, estoque, agenda, prazo, promoção e contagens variáveis têm fonte e
+  `verifiedAt`;
+- dado vencido não é apresentado como atual;
+- fallback para informação volátil é honesto e funcional;
+- “consultar disponibilidade” não substitui informação estável que já é conhecida;
+- ausência de atualização não é mascarada com urgência artificial.
+
+Falhas bloqueantes:
+
+`SCOPE_OVERCLAIM` · `MATERIAL_LIMIT_HIDDEN` · `STALE_DECISION_DATA` ·
+`FAKE_LIVE_AVAILABILITY` · `VOLATILE_CLAIM_WITHOUT_SOURCE`.
+
 
 Pesquisar reviews Google, depoimentos reais, cases, fotos reais, certificações,
 projetos, clientes e números comprováveis. Sem prova: `NOT_APPLICABLE` ou

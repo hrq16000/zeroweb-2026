@@ -1,17 +1,18 @@
-import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
-  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck, Star,
+  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck,
   TrendingUp, Sparkles, Flame, ArrowRight,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { trackEvent, trackConversion } from "@/lib/analytics";
-import { InstitutionalDiagnosticQuizModal } from "@/components/site/InstitutionalDiagnosticQuiz";
-import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
+import { trackEvent } from "@/lib/analytics";
+// JPEG institucional versionado: o antigo asset Lovable da capa retornava HTTP 502.
+import coverLocal from "@/assets/cover-local.jpg";
+import { absUrl } from "@/lib/seo";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
 const DESC =
@@ -26,7 +27,7 @@ const GMB_UNICO_PRODUCT = {
   category: "Marketing Local",
   price: 397,
   pricePeriod: null,
-  imageUrl: cover.url,
+  imageUrl: coverLocal,
 };
 
 const GMB_PRO_PRODUCT = {
@@ -37,7 +38,7 @@ const GMB_PRO_PRODUCT = {
   category: "Marketing Local",
   price: 247,
   pricePeriod: "mês",
-  imageUrl: cover.url,
+  imageUrl: coverLocal,
 };
 
 const benefits = [
@@ -70,11 +71,11 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: cover.url },
+      { property: "og:image", content: absUrl(coverLocal) },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: cover.url },
+      { name: "twitter:image", content: absUrl(coverLocal) },
     ],
     links: [
       { rel: "canonical", href: URL },
@@ -134,7 +135,6 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
 });
 
 function GMBPage() {
-  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -173,13 +173,15 @@ function GMBPage() {
               </a>
             </div>
 
-            <div className="mt-6 flex items-center gap-2 text-sm text-white/70">
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <span className="ml-1">+520 empresas atendidas · 20 anos de mercado</span>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/70">
+              <span className="inline-flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                Marketing digital desde 2006
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-amber-400" />
+                Estratégia de presença local no Google
+              </span>
             </div>
           </motion.div>
 
@@ -191,7 +193,7 @@ function GMBPage() {
           >
             <div className="absolute -inset-6 bg-gradient-to-tr from-amber-400/30 to-primary/30 rounded-[3rem] blur-3xl" />
             <img
-              src={cover.url}
+              src={coverLocal}
               alt="Sua empresa não aparece no Google? A 0WEB configura e otimiza seu Google Meu Negócio."
               width={1248}
               height={1248}
@@ -325,25 +327,23 @@ function GMBPage() {
                 do perfil no Google e o formato de site que sustenta essa presença — sem compromisso.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                trackConversion("diagnostic_open", { source: "gmb_page" });
-                setQuizOpen(true);
+            <FunnelCTAButton
+              pageType="service"
+              serviceSlug="google-meu-negocio"
+              intent={{
+                purpose: "proposal",
+                source: "gmb_diagnostic",
+                pagePath: typeof window === "undefined" ? "/servicos/google-meu-negocio" : window.location.pathname,
+                placement: "section",
+                serviceSlug: "google-meu-negocio",
               }}
+              label="Receber orientação"
+              location="gmb_diagnostic"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-bold px-7 py-4 hover:scale-[1.02] transition"
-            >
-              Agende seu diagnóstico agora <ArrowRight className="w-4 h-4" />
-            </button>
+            />
           </div>
         </div>
       </section>
-      <InstitutionalDiagnosticQuizModal
-        open={quizOpen}
-        onClose={() => setQuizOpen(false)}
-        source="google-meu-negocio"
-      />
-
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
@@ -370,7 +370,7 @@ function GMBPage() {
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 items-center">
               <div>
                 <p className="text-amber-400 font-semibold uppercase tracking-wider text-xs flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5" /> Clique em “Saiba Mais” e fale conosco no WhatsApp
+                  <Phone className="w-3.5 h-3.5" /> Escolha um plano ou peça orientação pelo funil
                 </p>
                 <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
                   Mais visibilidade. Mais confiança. <span className="text-amber-400">Mais clientes!</span>

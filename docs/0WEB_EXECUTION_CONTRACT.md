@@ -26,6 +26,13 @@ segurança, conversão/WhatsApp, SEO local e legibilidade por mecanismos de busc
 e LLMs. Capacidades só entram quando resolvem uma necessidade real; não há
 template visual obrigatório.
 
+Para qualquer nova landing, redesign material ou tarefa que receba site de
+referência, também é obrigatória a leitura de
+`docs/PORTFOLIO_REFERENCE_COMPOSITION_GOVERNANCE_STANDARD.md`. Referências devem
+ser decompostas em matrizes de papel/composição/ritmo/anti-cópia; limites reais
+e dados voláteis devem passar por truth/freshness. O resultado nunca pode ser
+uma reprodução de silhueta nem a mesma jornada com nova marca/conteúdo.
+
 ### Empenho obrigatório em recursos relevantes
 
 Em portfolio, “usar o máximo de recursos” significa obrigatoriamente descobrir,
@@ -79,3 +86,20 @@ generalizar silenciosamente uma identidade, funil, fonte factual, SEO local,
 asset, Kit de Presença, requisito de privacidade ou mecanismo de conversão que
 já esteja aprovado. Para discovery por nome e pacotes comerciais, seguir
 `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md`.
+
+
+## Evidência de RLS no CI
+
+CI funcional verde não autoriza afirmar que RLS foi validado quando testes foram
+pulados por ausência de credenciais. A evidência canônica é
+`docs/RLS_CI_SECURITY_GATE.md` + `.github/workflows/rls-security.yml`.
+`SUPABASE_SERVICE_ROLE_KEY` ausente deve produzir status explícito de bloqueio,
+nunca ser interpretado como PASS.
+
+## Entregas de restaurante: classificação e readiness transacional
+
+Se a tarefa pedir "delivery", "cardápio com pedido", "pizzaria com compra" ou sistema operacional de restaurante, classificar primeiro o **escopo contratado**, sem transformar uma landing/funil em checkout. Fluxo: `docs/DELIVERY_PROJECT_ONBOARDING_PLAYBOOK.md` → `docs/DELIVERY_FUNCTIONAL_SYSTEM_STANDARD.md` → `docs/DELIVERY_OPERATIONAL_VALIDATION_STANDARD.md`.
+
+Novo projeto com escopo transacional pode receber `--delivery-transactional` no scaffold para gerar somente um **manifesto de readiness BLOCKED**, sem pedidos, gateway ou loja ativa. `--funnel-type pedido` isoladamente continua registrando intenção de contato. Nunca declarar delivery publicado/homologado a partir de CI geral verde ou preenchimento manual de `PASS`; exigir implementação real de preço/quote/order, banco, painel/cozinha, autorização entre lojas, pagamento conforme configuração e E2E homologado, por estabelecimento. As regras antigas de funil e SEO não são afrouxadas por esta adição.
+
+As 8 rodadas de documentação não equivalem à implementação dos módulos. Não habilitar `orderEnabled` sem autorização de implantação e gate de produção comprovado.

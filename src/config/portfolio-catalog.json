@@ -1900,7 +1900,7 @@
     "clientKey": "centro-mega",
     "title": "Centro Mega",
     "segment": "comercios",
-    "projectType": "landing",
+    "projectType": "catalog",
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
@@ -1916,13 +1916,13 @@
       "sao-jose-dos-pinhais"
     ],
     "live": true,
-    "subtitle": "Loja virtual demo · celulares, acessórios e outlet",
+    "subtitle": "Loja virtual · celulares, acessórios, moda e outlet",
     "location": "São José dos Pinhais · Curitiba — PR",
-    "badge": "Amostra de loja virtual",
+    "badge": "Loja virtual ativa",
     "image": "/images/centro-mega/hero.png",
     "fallbackImage": "/images/centro-mega/social-og.jpg",
-    "metrics": "Produtos sociais + seleção inteligente",
-    "summary": "Amostra de loja virtual da Centro Mega com celulares, acessórios e categorias de outlet, convertendo publicações sociais em uma vitrine pesquisável com seleção de itens e funil próprio."
+    "metrics": "10 produtos com mídia + social commerce",
+    "summary": "Loja virtual da Centro Mega em São José dos Pinhais, com celulares, acessórios, moda e outlet, produtos com mídia real, conteúdo social oficial, seleção de itens e funil próprio de pedido."
   },
   {
     "slug": "pastelaria-route-66",
@@ -2055,7 +2055,7 @@
     "title": "Moreira Auto Mecânica",
     "segment": "prestadores-de-servicos",
     "projectType": "landing",
-    "status": "draft",
+    "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
@@ -2071,7 +2071,8 @@
     "image": "/images/moreira-auto-mecanica/capa.jpg",
     "fallbackImage": "/images/moreira-auto-mecanica/google-fachada.jpg",
     "metrics": "Agendamento pelo formulário",
-    "summary": "Moreira Auto Mecânica é uma oficina de mecânica para carros no bairro Cidade Jardim, em São José dos Pinhais — PR, com avaliação presencial do veículo e agendamento pelo formulário do site."
+    "summary": "Moreira Auto Mecânica é uma oficina de mecânica para carros no bairro Cidade Jardim, em São José dos Pinhais — PR, com avaliação presencial do veículo e agendamento pelo formulário do site.",
+    "live": true
   },
   {
     "slug": "carecas-infotec",
@@ -2225,5 +2226,112 @@
     "fallbackImage": "/images/autoescola-aptos/carro-aptos.webp",
     "metrics": "Agendamento pelo funil",
     "summary": "Autoescola APTOS em São José dos Pinhais: primeira habilitação, categorias A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
+  },
+  {
+    "slug": "arildo-madeiras",
+    "clientKey": "arildo-madeiras",
+    "title": "Arildo Madeiras",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "live": true,
+    "city": "Pinhais",
+    "state": "PR",
+    "tags": [
+      "madeiras",
+      "madeiras brutas",
+      "madeiras beneficiadas",
+      "portas",
+      "janelas",
+      "forros",
+      "móveis rústicos",
+      "cambará",
+      "construção"
+    ],
+    "subtitle": "Madeiras brutas e beneficiadas para construção, reforma e projetos",
+    "location": "Av. Iraí, 1752 · Weissópolis · Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/arildo-madeiras/capa-card.svg",
+    "fallbackImage": "/images/arildo-madeiras/capa-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Orçamento pelo funil",
+    "summary": "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará."
+  },
+  {
+    "slug": "dona-garimpeira-brecho",
+    "clientKey": "dona-garimpeira-brecho",
+    "title": "Dona Garimpeira",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "draft",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "moda-circular",
+      "roupas-usadas",
+      "compra-venda-doacao"
+    ],
+    "subtitle": "Brechó de roupas e acessórios · compre, venda ou doe",
+    "location": "Rua Loanda, 60 · Boneca do Iguaçu · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Segunda a domingo · 9h às 18h",
+    "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento."
+  },
+  {
+    "slug": "agropet-filt",
+    "clientKey": "agropet-filt",
+    "title": "Agropet Filt",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Pinhais",
+    "state": "PR",
+    "tags": [
+      "pet shop",
+      "aviário",
+      "rações",
+      "acessórios",
+      "petiscos",
+      "banho e tosa",
+      "artigos de pesca",
+      "jardinagem",
+      "Vargem Grande"
+    ],
+    "live": true,
+    "subtitle": "Rações, aves, acessórios e cuidados para pets em Pinhais",
+    "location": "Rua Monteiro Lobato, 160 · Vargem Grande · Pinhais — PR",
+    "badge": "Novo portfólio",
+    "image": "/images/agropet-filt/capa-card.svg",
+    "fallbackImage": "/images/agropet-filt/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta real, salva no sistema de formulários",
+    "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
+  },
+  {
+    "slug": "cantinho-da-tia-mari",
+    "clientKey": "cantinho-da-tia-mari",
+    "title": "Cantinho da Tia Mari",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "berçário",
+      "cuidados infantis",
+      "jardim itália",
+      "horário estendido",
+      "leva e busca escolar"
+    ],
+    "subtitle": "Berçário e cuidados infantis anunciados no Jardim Itália",
+    "location": "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Novo portfólio demonstrativo",
+    "image": "/images/cantinho-da-tia-mari/fachada.webp",
+    "fallbackImage": "/images/cantinho-da-tia-mari/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta de informações via formulário",
+    "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
   }
 ]

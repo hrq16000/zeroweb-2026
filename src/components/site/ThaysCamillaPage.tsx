@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal } from "@/components/motion";
+import { MotionReveal } from "@/components/motion";
 
 const quiz = {
   services: [
@@ -93,7 +93,7 @@ export function ThaysCamillaPage() {
             </p>
           </div>
           <div className="relative mx-auto mt-10 max-w-2xl">
-            <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-[2.5rem]">
+            <div className="rounded-[2.5rem]">
             <PortfolioImage
               src="/images/thays-camilla/hero.png"
               alt="Kit de caneca e azulejo personalizados Thays Camilla"
@@ -103,7 +103,7 @@ export function ThaysCamillaPage() {
               className="mx-auto w-full rounded-[2.5rem] border-8 border-white object-cover shadow-[0_30px_60px_-25px_rgba(142,76,55,.5)]"
               managedField="heroImageUrl"
             />
-            </MotionImageReveal>
+            </div>
             <MotionReveal variant="down" intensity="BALANCED" delay={240} className="mx-auto -mt-8 w-fit rotate-[-2deg] rounded-2xl bg-[#4b271d] px-6 py-4 text-[#fff9f4] shadow-xl">
               <p className="text-[.68rem] font-bold uppercase tracking-[.28em] text-[#f5b39a]">Kit promocional informado</p>
               <p className="mt-1 font-serif text-3xl">R$ 59,90</p>
@@ -148,6 +148,33 @@ export function ThaysCamillaPage() {
             </div>
           </div>
         </section>
+
+        <aside id="briefing-do-presente" className="px-5 py-14 lg:px-8" aria-labelledby="briefing-do-presente-title">
+          <div className="mx-auto max-w-4xl border-y border-[#f1d8ca] py-10">
+            <p className="text-[.7rem] font-bold uppercase tracking-[.28em] text-[#d6654a]">Briefing do presente</p>
+            <h2 id="briefing-do-presente-title" className="mt-3 max-w-3xl font-serif text-3xl sm:text-4xl">
+              Peça, ocasião, conteúdo da arte e forma de receber ajudam a organizar a personalização.
+            </h2>
+            <dl className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
+              <div>
+                <dt className="font-semibold text-[#4b271d]">O que personalizar</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Kit com caneca e azulejo, caneca de cerâmica, azulejo 15x15 cm ou outra opção a consultar.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">Para qual ocasião</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Presente, item para casa, data especial ou uma ideia ainda em definição ajudam a dar contexto à criação.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">O que vai na arte</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Frase, imagem, cores, quantidade e data podem ser enviados para combinar a proposta antes da produção.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[#4b271d]">Como e quando receber</dt>
+                <dd className="mt-2 text-sm leading-7 text-[#704738]">Retirada, entrega combinada e prazo desejado entram no atendimento antes da confirmação final.</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
 
         {/* Fechamento centralizado em cartão claro. */}
         <section id="pedido" className="px-5 pb-20 lg:px-8">

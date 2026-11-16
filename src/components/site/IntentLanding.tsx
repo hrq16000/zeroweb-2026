@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { CheckCircle2, ArrowRight, Star, Sparkles } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { TrustStrip } from "@/components/site/TrustStrip";
@@ -19,7 +18,6 @@ export type IntentLandingProps = {
   subheadline: string;
   offerSlug: string;
   ctaLabel: string;
-  whatsappMessage: string;
   benefits: { title: string; description: string }[];
   faq: { q: string; a: string }[];
   socialProof?: { name: string; role: string; quote: string }[];
@@ -201,7 +199,6 @@ export function IntentLanding(p: IntentLandingProps) {
         />
       )}
       <Footer />
-      <WhatsAppFloat />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

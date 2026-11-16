@@ -30,6 +30,8 @@ const siteName = flag("name");
 const ctaMode = flag("cta") ?? "proposal";
 const clientKey = flag("client-key") ?? slug;
 const dryRun = args.includes("--dry-run");
+// Opt-in: only adds a BLOCKED delivery-readiness draft; it never enables orders.
+const transactionalDelivery = args.includes("--delivery-transactional");
 
 /** Canal comercial: o funil individual nasce com o tipo do negócio. */
 const FUNNEL_TYPES = {
@@ -47,6 +49,9 @@ if (!FUNNEL_TYPES[funnelType]) {
   process.exit(1);
 }
 const ctaLabel = FUNNEL_TYPES[funnelType];
+// Agendamento real é opt-in e nasce bloqueado até existir backend + OAuth + RLS.
+// "agendamento" sem backend continua sendo captação de intenção pelo funil.
+const managedBookingRequested = args.includes("--managed-booking") || funnelType === "agendamento";
 
 if (!slug || !siteName) {
   console.error("Uso: node scripts/scaffold-portfolio-client.mjs --slug <slug> --name \"<Nome>\"");
@@ -82,6 +87,82 @@ const write = (relPath, content) => {
   }
   written.push(relPath);
 };
+
+/**
+ * DELIVERY — opt-in classification only. Scaffolding a landing with
+ * "--funnel-type pedido" is NOT a transactional checkout.
+ * Never mutate shared storefront routes or publish payment/order capability.
+ */
+if (transactionalDelivery) {
+  const reference = JSON.parse(
+    readFileSync(resolve(root, "docs/delivery/DELIVERY_READINESS_MANIFEST.example.json"), "utf8"),
+  );
+  const deliveryManifestPath = `docs/portfolio/delivery-readiness/${slug}.json`;
+  const deliveryManifest = {
+    ...reference,
+    storeId: null, // Never invent or assume an onboarded store ID.
+    clientKey,
+    projectSlug: slug,
+    environment: "draft-only",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    notes: [
+      "DRAFT ONLY: this file does not implement or enable a delivery storefront.",
+      "An order/checkout/operational system must be built and tested separately.",
+      "All readiness gates start NOT_EXECUTED; the fail-closed preflight returns BLOCKED.",
+      "No storeId or production permissions are inferred from the portfolio slug.",
+    ],
+    gates: reference.gates.map((gate) => ({
+      id: gate.id,
+      status: "NOT_EXECUTED",
+      evidence: null,
+    })),
+  };
+  write(deliveryManifestPath, `${JSON.stringify(deliveryManifest, null, 2)}\n`);
+  console.warn(
+    `[scaffold:delivery] ${slug}: apenas manifesto BLOCKED; sem checkout, pedido ou pagamento implementado.`,
+  );
+}
+
+/**
+ * BOOKING — somente contrato de readiness. Não cria conta, slot, reserva,
+ * profissional, painel ou dados falsos. Esta capacidade é tenant-scoped.
+ */
+if (managedBookingRequested) {
+  const readiness = {
+    schemaVersion: 1,
+    capability: "portfolio_managed_booking",
+    slug,
+    clientKey,
+    sourceFunnelIntent: funnelType,
+    mode: "managed_booking",
+    implementationStatus: "NOT_IMPLEMENTED",
+    productionEnabled: false,
+    googleLoginOnly: true,
+    adminAccessConfigured: false, // E-mails são privados e nunca versionados no repositório.
+    gates: [
+      "google_oauth_verified",
+      "admin_email_whitelist_and_server_authorization",
+      "tenant_rls_isolation_verified",
+      "service_and_staff_catalog_real",
+      "work_hours_and_exceptions_saved",
+      "transactional_slot_conflict_guard",
+      "persistent_booking_and_protocol",
+      "public_booking_e2e_pass",
+      "client_admin_e2e_pass",
+      "public_seo_and_private_noindex_pass",
+    ].map((id) => ({ id, status: "NOT_EXECUTED", evidence: null })),
+    standard: "docs/PORTFOLIO_BOOKING_CLIENT_ADMIN_STANDARD.md",
+    note: "DRAFT/BLOCKED. Existing funnel captures only booking intent. This manifest does not enable live appointments.",
+  };
+  write(
+    `docs/portfolio/booking-readiness/${slug}.json`,
+    `${JSON.stringify(readiness, null, 2)}\n`,
+  );
+  console.warn(
+    `[scaffold:booking] ${slug}: manifesto BLOCKED; sem reserva confirmada ou painel de cliente operacional.`,
+  );
+}
 
 /**
  * SCAFFOLD DE COMPOSIÇÃO — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §16.
@@ -171,6 +252,12 @@ export const composition: PortfolioComposition = {
       navigationPattern: "[PREENCHER]",
       motionSignature: "[PREENCHER]",
       closingStructure: "[PREENCHER]",
+      roleGraph: ["[PREENCHER]"],
+      mediaCadence: ["[PREENCHER]"],
+      interactionLoci: ["[PREENCHER]"],
+      decisionAidPlacement: ["[PREENCHER]"],
+      densityRhythm: ["[PREENCHER]"],
+      mobileCompositionStrategy: "[PREENCHER]",
     },
   },
 };
@@ -196,7 +283,7 @@ export function ${componentName}() {
 
 const creativeBriefSource = `# Creative Composition Brief — ${siteName}
 
-Contrato: composição v1 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
+Contrato: composição v2 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
 Norma: docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md
 
 > Preencher ANTES de escrever qualquer JSX. Nenhum campo pode permanecer como
@@ -232,6 +319,19 @@ Norma: docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md
 - navigationPattern: [PREENCHER]
 - motionSignature: [PREENCHER]
 - closingStructure: [PREENCHER]
+- roleGraph: [PREENCHER]
+- mediaCadence: [PREENCHER]
+- interactionLoci: [PREENCHER]
+- decisionAidPlacement: [PREENCHER]
+- densityRhythm: [PREENCHER]
+- mobileCompositionStrategy: [PREENCHER]
+
+## Matrizes de composição v2
+
+- ROLE_MATRIX: [PREENCHER]
+- COMPOSITION_MATRIX: [PREENCHER]
+- RHYTHM_MEDIA_MATRIX: [PREENCHER]
+- ANTI_COPY_MATRIX: [PREENCHER]
 
 ## Base editorial
 
@@ -394,6 +494,11 @@ write(
        * PROVE_CAPABILITY · CREATE_EMOTION · BREAK_VISUAL_RHYTHM · SUPPORT_CONVERSION · BRAND_RECALL
        */
       sections: [],
+      // Prebuild gera WebP do heroMedia.asset local quando aprovado=true.
+      // Para logo/galeria, declarar { source, role, approved: true, widths? }.
+      // Nunca converte referencia remota nem altera o asset original.
+      heroMedia: null,
+      performanceImages: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
     },
@@ -537,8 +642,31 @@ if (existsSync(manifestPath)) {
     manifests.projects[slug] = {
       slug,
       lifecycleContract: 1,
-      /** >= 3 exige as dimensões de experiência (adendo §19) na quality matrix. */
-      contractVersion: 3,
+      /**
+       * Contrato v4: mantém os gates de experiência e adiciona o contrato
+       * operacional "cada portfolio = site individual".
+       */
+      contractVersion: 4,
+      individualSiteContract: {
+        version: 1,
+        standard: "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        gates: {
+          PORTFOLIO_INDIVIDUAL_SITE_GATE: "not_started",
+          PORTFOLIO_ENTITY_GATE: "not_started",
+          PORTFOLIO_LOCAL_SEO_GATE: "not_started",
+          PORTFOLIO_MEDIA_RICHNESS_GATE: "not_started",
+          PORTFOLIO_DISCOVERY_GRAPH_GATE: "not_started",
+          PORTFOLIO_INDEXABILITY_GATE: "not_started",
+        },
+        evidence: {
+          PORTFOLIO_INDIVIDUAL_SITE_GATE: [],
+          PORTFOLIO_ENTITY_GATE: [],
+          PORTFOLIO_LOCAL_SEO_GATE: [],
+          PORTFOLIO_MEDIA_RICHNESS_GATE: [],
+          PORTFOLIO_DISCOVERY_GRAPH_GATE: [],
+          PORTFOLIO_INDEXABILITY_GATE: [],
+        },
+      },
       /** >= 1 ativa o STRUCTURAL_ORIGINALITY_GATE como bloqueio (adendo estrutural §7). */
       structuralContract: 1,
       /**
@@ -557,8 +685,8 @@ if (existsSync(manifestPath)) {
         motionProfile: null,
       },
       structuralOriginalityReview: { approved: false, reviewedAt: null, notes: null },
-      /** PROJECT_UNIQUENESS_GATE — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md */
-      compositionContract: 1,
+      /** PROJECT_UNIQUENESS_GATE v2 — inclui jornada/ritmo além da silhueta. */
+      compositionContract: 2,
       compositionFingerprint: null,
       perceptualReview: {
         screenshots: { 390: null, 1440: null },
@@ -653,6 +781,10 @@ if (existsSync(compositionRegistryPath)) {
 }
 
 console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
+if (transactionalDelivery) {
+  console.log(`[scaffold:delivery] readiness: docs/portfolio/delivery-readiness/${slug}.json — DELIVERY_READY=BLOCKED`);
+}
+
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`
@@ -671,8 +803,11 @@ Próximos passos obrigatórios:
   5. Criar override próprio em src/config/portfolio-motion-profiles.json.
   6. Preencher o funil ${funnelSlug}, validar e só então mudar para published.
   7. Cadastrar o secret privado ${secretName} (somente servidor), se houver contato oficial.
-  8. Rodar gates de scaffold, boundaries, meta, originality, a11y, privacy, test e build.
+  8. Preencher individualSiteContract com evidências reais dos seis gates antes de READY/PUBLISH.
+  9. Rodar gates de scaffold, boundaries, meta, originality, a11y, privacy, test e build.
 
 Herdados automaticamente pela rota compartilhada: captação 0WEB,
-compartilhamento, breadcrumbs e infraestrutura SEO. Visual NÃO é herdado.
+compartilhamento, breadcrumbs e infraestrutura SEO. A autonomia editorial,
+visual, de entidade, mídia e descoberta continua obrigatória e deve ser
+evidenciada no individualSiteContract. Visual NÃO é herdado.
 `);

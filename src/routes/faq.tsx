@@ -15,11 +15,11 @@ const DESC =
 const faqs = [
   {
     q: "Quanto custa criar um site profissional com a 0WEB?",
-    a: "Sites institucionais começam em R$ 2.500 (projeto) ou R$ 290/mês (assinatura com hospedagem, SSL e manutenção inclusos). Sites com áreas logadas, e-commerce ou sistemas sob medida têm escopo personalizado.",
+    a: "Os preços vigentes ficam publicados na loja /servicos e na página de cada produto. Serviços com preço fechado seguem a oferta publicada; projetos sob medida recebem proposta pelo funil conforme escopo e necessidade.",
   },
   {
     q: "Quanto tempo leva para criar meu site?",
-    a: "Sites institucionais ficam prontos entre 10 e 25 dias, dependendo do escopo. Landing pages podem sair em até 7 dias. E-commerces e sistemas web entre 30 e 90 dias dependendo da complexidade.",
+    a: "O prazo depende do produto e do escopo. Quando houver prazo comercial publicado, ele aparece na página do serviço. Projetos sob medida recebem cronograma após o diagnóstico e definição do escopo.",
   },
   {
     q: "O site é responsivo para celular?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Em quanto tempo o SEO traz resultado?",
-    a: "Resultados iniciais costumam aparecer entre 60 e 120 dias. SEO local (Google Meu Negócio) pode trazer leads em 30 dias. Palavras competitivas levam de 6 a 12 meses para top 3.",
+    a: "SEO não tem prazo garantido. O tempo varia conforme concorrência, histórico do domínio, qualidade técnica, conteúdo, autoridade e mercado. Trabalhamos com metas e acompanhamento, sem prometer posição ou prazo fixo.",
   },
   {
     q: "Como funciona o tráfego pago da 0WEB?",
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: "A hospedagem está inclusa?",
-    a: "Nos planos Start e Pro a hospedagem premium está inclusa. No Enterprise, dimensionamos sob demanda.",
+    a: "Quando hospedagem fizer parte do produto, isso aparece nas condições da página do serviço. Em projetos sob medida, infraestrutura e hospedagem são definidas na proposta conforme necessidade técnica.",
   },
   {
     q: "Vocês fazem manutenção depois que o site fica pronto?",
@@ -71,15 +71,15 @@ const faqs = [
   },
   {
     q: "Como funciona o suporte?",
-    a: "Suporte humanizado por WhatsApp, e-mail e chamados, com SLAs por plano.",
+    a: "Os canais e SLAs de suporte dependem do produto ou contrato. Para iniciar atendimento, use o funil da página correspondente; as condições aplicáveis ficam registradas na oferta ou proposta.",
   },
   {
     q: "Atendem empresas fora de Curitiba?",
-    a: "Sim, atendemos todo o Brasil de forma 100% remota com reuniões via Google Meet e WhatsApp. Temos clientes em SP, RJ, MG, RS, SC, BA, PE e exterior.",
+    a: "Sim. A 0WEB atende projetos remotamente em todo o Brasil. Atendimento fora do país depende do escopo, idioma e condições comerciais do projeto.",
   },
   {
     q: "Existe fidelidade obrigatória?",
-    a: "Para projetos pontuais, não. Para planos mensais, trabalhamos com contrato de 6 meses para garantir maturação de SEO e campanhas, com possibilidade de pausa em casos especiais.",
+    a: "As condições de contrato, recorrência e eventual fidelidade variam por produto. A regra válida é a publicada na página do serviço ou na proposta aceita; não existe uma condição global única para todo o catálogo.",
   },
   {
     q: "Vocês emitem nota fiscal?",
@@ -87,7 +87,7 @@ const faqs = [
   },
   {
     q: "Como começo um projeto?",
-    a: "Solicite um diagnóstico gratuito. Em até 24h apresentamos um plano sob medida.",
+    a: "Inicie pelo diagnóstico no próprio site. A equipe analisa o cenário e retorna com o próximo passo conforme escopo, prioridade e disponibilidade, sem promessa global de prazo.",
   },
 ];
 

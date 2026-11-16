@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { MessageSquare } from "lucide-react";
 import { FunnelModalWrapper } from "./FunnelModalWrapper";
+import { useFunnel } from "@/hooks/useFunnel";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactIntent } from "@/lib/contact-intent";
 import { useNearFooter } from "@/hooks/useNearFooter";
@@ -11,21 +11,26 @@ import { useNearFooter } from "@/hooks/useNearFooter";
  * institucionais (sobre, faq, planos, cases, etc.).
  */
 export function FloatingFunnelCTA({
-  funnelSlug = "funnel-common",
   label = "Fale com um especialista",
   location = "floating_common",
 }: {
+  /** @deprecated O slug é resolvido centralmente por ContactIntent. */
   funnelSlug?: string;
   label?: string;
   location?: string;
 }) {
-  const [open, setOpen] = useState(false);
   const intent: ContactIntent = {
     purpose: "diagnosis",
     source: location,
     pagePath: typeof window === "undefined" ? "/" : window.location.pathname,
     placement: "sticky-mobile",
   };
+  const { isOpen, openFunnel, closeFunnel, funnelSlug } = useFunnel(
+    "common",
+    undefined,
+    undefined,
+    intent,
+  );
   const nearFooter = useNearFooter();
   return (
     <>
@@ -33,7 +38,7 @@ export function FloatingFunnelCTA({
         type="button"
         onClick={() => {
           trackEvent("cta_click", { label: "floating_funnel", location, funnel: funnelSlug });
-          setOpen(true);
+          openFunnel();
         }}
         className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-4 z-40 sm:bottom-24 sm:left-6 ${nearFooter ? "pointer-events-none opacity-0 translate-y-6" : "opacity-100"} transition-[opacity,transform] duration-300 inline-flex items-center gap-2 rounded-full
                    bg-secondary text-secondary-foreground border border-border
@@ -49,9 +54,9 @@ export function FloatingFunnelCTA({
         <span className="sm:hidden">Fale conosco</span>
       </button>
       <FunnelModalWrapper
-        open={open}
-        onClose={() => setOpen(false)}
-        funnelSlug="diagnostico-0web"
+        open={isOpen}
+        onClose={closeFunnel}
+        funnelSlug={funnelSlug}
         intent={intent}
       />
     </>

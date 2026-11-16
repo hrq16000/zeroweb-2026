@@ -1083,7 +1083,7 @@
       "source": "Linktree oficial + Instagram/Facebook oficiais + posts públicos indexados + dados fornecidos pelo responsável em 21/09/2026",
       "reference": "https://linktr.ee/centro.mega"
     },
-    "funnelRecipientConfigured": false
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "pastelaria-route-66",
@@ -1278,5 +1278,68 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/autoescola-aptos.md"
+  },
+  {
+    "clientKey": "arildo-madeiras",
+    "slug": "arildo-madeiras",
+    "siteName": "Arildo Madeiras",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ArildoMadeirasPage.tsx",
+    "assetsDir": "public/images/arildo-madeiras",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true,
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/arildo-madeiras.md",
+    "provenance": {
+      "kind": "OFFICIAL_WEBSITE",
+      "source": "Site oficial informado pelo operador e pesquisado em 24/09/2026",
+      "reference": "https://arildomadeiras.guiapinhais.com.br/"
+    }
+  },
+  {
+    "clientKey": "agropet-filt",
+    "slug": "agropet-filt",
+    "siteName": "Aviário Agropet Filt",
+    "routeFile": "src/routes/portfolio.agropet-filt.tsx",
+    "componentFile": "src/components/site/AgropetFiltPreviewPage.tsx",
+    "assetsDir": "public/images/agropet-filt",
+    "ctaMode": "proposal",
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/agropet-filt.md",
+    "provenance": {
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "Fontes de diretórios pesquisadas em 04/11/2026; autorização comercial informada pelo operador no chat",
+      "reference": "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/"
+    }
+  },
+  {
+    "clientKey": "cantinho-da-tia-mari",
+    "slug": "cantinho-da-tia-mari",
+    "siteName": "Cantinho da Tia Mari",
+    "routeFile": "src/routes/portfolio.cantinho-da-tia-mari.tsx",
+    "componentFile": "src/components/site/CantinhoTiaMariPage.tsx",
+    "assetsDir": "public/images/cantinho-da-tia-mari",
+    "ctaMode": "proposal",
+    "funnelType": "consulta",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/cantinho-da-tia-mari.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
+      "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
+    }
   }
 ]

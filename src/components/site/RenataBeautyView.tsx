@@ -232,12 +232,7 @@ export function RenataBeautyView() {
       <section id="promocao" className="relative pt-12 pb-20 px-4">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6 text-center lg:text-left"
-          >
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-300 text-xs font-semibold uppercase tracking-wider">
               <MapPin className="w-3.5 h-3.5 text-pink-400" /> Novo Endereço · Rua Rondônia, 300 - Boneca do Iguaçu
             </div>
@@ -274,7 +269,7 @@ export function RenataBeautyView() {
                   </div>
                 </div>
 
-                <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service="Cílios — Volume Egípcio ou Brasileiro" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3.5 rounded-2xl font-bold text-sm shadow-xl shadow-green-500/30 hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
+                <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service="Cílios — Volume Egípcio ou Brasileiro" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#137A3E] hover:bg-[#0D6F39] text-white px-6 py-3.5 rounded-2xl font-bold text-sm shadow-xl shadow-green-500/30 hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
                   <MessageCircle className="w-4 h-4 fill-white" />
                   Garantir Horário
                 </BeautyBookingQuiz>
@@ -300,15 +295,10 @@ export function RenataBeautyView() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
           {/* Hero Right: Real Lash Extension Imagery & Flyer Frame */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative"
-          >
+          <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-[380px] sm:max-w-[420px] rounded-3xl p-3 bg-gradient-to-b from-pink-500/40 via-pink-500/10 to-transparent border border-pink-500/30 shadow-2xl shadow-pink-900/50 backdrop-blur-xl">
               
               <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
@@ -348,7 +338,7 @@ export function RenataBeautyView() {
               </div>
 
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </section>
@@ -428,7 +418,7 @@ export function RenataBeautyView() {
                     </div>
                   </div>
 
-                  <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service={currentServiceObj.name} className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95 transition-all">
+                  <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service={currentServiceObj.name} className="inline-flex items-center gap-2 bg-[#137A3E] hover:bg-[#0D6F39] text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-green-500/30 hover:scale-105 active:scale-95 transition-all">
                     <MessageCircle className="w-4 h-4 fill-white" />
                     <span>Agendar Agora</span>
                   </BeautyBookingQuiz>
@@ -475,7 +465,7 @@ export function RenataBeautyView() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Biossegurança e Higiene Rigorosa</h4>
+                  <h3 className="text-sm font-bold text-white">Biossegurança e Higiene Rigorosa</h3>
                   <p className="text-xs text-gray-400">Materiais descartáveis e instrumentos autoclavados para total proteção.</p>
                 </div>
               </div>
@@ -485,7 +475,7 @@ export function RenataBeautyView() {
                   <Crown className="w-5 h-5 text-yellow-300" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Mapeamento Visagista Personalizado</h4>
+                  <h3 className="text-sm font-bold text-white">Mapeamento Visagista Personalizado</h3>
                   <p className="text-xs text-gray-400">Análise do formato dos seus olhos para desenhar a curvatura perfeita para seu rosto.</p>
                 </div>
               </div>
@@ -495,7 +485,7 @@ export function RenataBeautyView() {
                   <Heart className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Café e Acolhimento VIP</h4>
+                  <h3 className="text-sm font-bold text-white">Café e Acolhimento VIP</h3>
                   <p className="text-xs text-gray-400">Música ambiente relaxante e café fresco para seu momento de autocuidado.</p>
                 </div>
               </div>

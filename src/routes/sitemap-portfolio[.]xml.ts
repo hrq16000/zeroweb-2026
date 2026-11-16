@@ -3,6 +3,10 @@ import { resolveBaseUrl, renderSitemap } from "@/lib/sitemap-utils";
 import { portfolioCombosWithContent, portfolioComboPath } from "@/lib/portfolio-clusters";
 import { getApprovedPortfolioSitemapEntries } from "@/lib/portfolio-sitemap.server";
 import { portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
+import {
+  getPortfolioPlacePublicationStatesServer,
+  portfolioPlaceIsPublished,
+} from "@/lib/portfolio-place-seo.functions";
 
 /**
  * Mapa ÚNICO do portfólio: /portfolio, projetos aprovados, hubs de
@@ -17,11 +21,15 @@ export const Route = createFileRoute("/sitemap-portfolio.xml")({
   server: {
     handlers: {
       GET: async ({ request }) => {
+        const placeStates = await getPortfolioPlacePublicationStatesServer();
+        const publishedPlaceHubs = portfolioPlaceHubs().filter((hub) =>
+          portfolioPlaceIsPublished(hub.slug, placeStates),
+        );
         const urls = [
           { path: "/portfolio", changefreq: "daily" as const, priority: "1.0" },
           ...(await getApprovedPortfolioSitemapEntries()),
           { path: "/portfolio-em", changefreq: "weekly" as const, priority: "0.9" },
-          ...portfolioPlaceHubs().map((hub) => ({
+          ...publishedPlaceHubs.map((hub) => ({
             path: portfolioPlacePath(hub.slug),
             changefreq: "weekly" as const,
             priority: hub.kind === "city" ? "0.8" : "0.7",

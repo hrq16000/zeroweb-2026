@@ -111,6 +111,32 @@ export function CasaNativaBistroPage() {
           </MotionStagger>
         </section>
 
+        <section id="antes-da-reserva" className="border-t border-[#3a332a] bg-[#1b1814] px-5 py-16 lg:px-12">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">antes de reservar</p>
+            <h2 className="mt-4 max-w-2xl text-3xl leading-tight sm:text-4xl">
+              Quatro decisões simples deixam o pedido de mesa mais claro.
+            </h2>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {[
+                ["Experiência", "Jantar à la carte, menu em quatro tempos, almoço de domingo ou evento privado."],
+                ["Número de lugares", "Mesa para 2, mesa para 4, grupo de 6 a 10 ou mais de 10 pessoas."],
+                ["Ambiente", "Salão interno, terraço ou sem preferência."],
+                ["Contexto", "Informe data, restrições alimentares e se existe alguma celebração."],
+              ].map(([title, text], index) => (
+                <article key={title} className="border-t border-[#3a332a] pt-5">
+                  <p className="text-[0.7rem] tracking-[.3em] text-[#c98a4b]">0{index + 1}</p>
+                  <h3 className="mt-2 text-xl">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#b3a894]">{text}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-8 max-w-2xl text-sm leading-7 text-[#9c917f]">
+              A solicitação não confirma mesa automaticamente; a Casa Nativa confirma a disponibilidade após receber o contexto.
+            </p>
+          </div>
+        </section>
+
         <section id="reserva" className="border-t border-[#3a332a]">
         <MotionReveal variant="mask" className="px-5 py-20 text-center lg:px-12">
           <h2 className="mx-auto max-w-2xl text-4xl leading-tight sm:text-5xl">

@@ -47,6 +47,38 @@ describe("resolver de runtime do portfólio", () => {
     expect(eff.title).toBe(base.title);
   });
 
+
+  it("rejeita overrides SEO acima dos limites e preserva fallback versionado", () => {
+    const ov = sanitizePortfolioRuntimeRow("paulo-mestre-de-obras", {
+      seo_title: "T".repeat(66),
+      seo_description: "D".repeat(166),
+      published: true,
+      lifecycle_status: "published",
+    });
+    expect(ov?.seoTitle).toBeUndefined();
+    expect(ov?.seoDescription).toBeUndefined();
+
+    const eff = applyPortfolioRuntime(base, ov);
+    expect(eff.title).toBe(base.title);
+    expect(eff.description).toBe(base.description);
+  });
+
+  it("normaliza metadata base longa sem alterar a fonte editorial", () => {
+    const longDescription =
+      "Descrição editorial completa com contexto suficiente para ultrapassar o limite de metadata, mantendo fatos úteis e sem cortar palavras no meio durante a normalização do head da página.";
+    expect(longDescription.length).toBeGreaterThan(165);
+
+    const eff = applyPortfolioRuntime(
+      { ...base, description: longDescription, title: "T".repeat(70) },
+      null,
+    );
+
+    expect(eff.description.length).toBeLessThanOrEqual(165);
+    expect(eff.description.endsWith(" ")).toBe(false);
+    expect(eff.title.length).toBeLessThanOrEqual(65);
+    expect(longDescription.length).toBeGreaterThan(eff.description.length);
+  });
+
   it("social image override e socialVersion chegam ao og:image", () => {
     const ov = sanitizePortfolioRuntimeRow("paulo-mestre-de-obras", {
       social_image_url: "/api/public/portfolio-asset/paulo/social-2.webp",
@@ -84,15 +116,25 @@ describe("resolver de runtime do portfólio", () => {
     }
   });
 
-  it("share copy administrável fica restrita ao próprio slug", () => {
+  it("share copy administrável válida fica restrita ao próprio slug", () => {
+    const shareCopy = `🔥 A Heloá Gás está de site novo!
+
+Agora ficou mais fácil conhecer os produtos e iniciar o pedido com a equipe.
+
+🌐 Confira:
+https://0web.com.br/portfolio/heloa-gas
+
+📲 Consulte disponibilidade pelo site.
+
+#HeloaGas #Piraquara #0WEB`;
     const ov = sanitizePortfolioRuntimeRow("heloa-gas", {
-      share_copy: "Heloá Gás está de site novo!",
+      share_copy: shareCopy,
       published: true,
       lifecycle_status: "published",
     });
     const eff = applyPortfolioRuntime({ ...base, slug: "heloa-gas" }, ov);
     expect(eff.slug).toBe("heloa-gas");
-    expect(eff.shareCopy).toBe("Heloá Gás está de site novo!");
+    expect(eff.shareCopy).toBe(shareCopy);
   });
 
   it("galeria aceita apenas assets internos", () => {

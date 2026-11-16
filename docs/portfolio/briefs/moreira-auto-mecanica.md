@@ -2,8 +2,8 @@
 
 - Slug: `moreira-auto-mecanica`
 - Contrato: `contractVersion 3` (Blueprint + adendo de experiência)
-- Estágio: `ready` (não publicado nesta rodada)
-- Última atualização: 2026-09-11
+- Estágio: `published` (`index,follow`, canonical própria e sitemap)
+- Última atualização: 2026-09-29
 
 ## 1. Entidade
 

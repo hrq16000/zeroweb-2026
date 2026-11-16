@@ -7,6 +7,7 @@
  */
 
 export const COMPOSITION_CONTRACT_VERSION = 1;
+export const COMPOSITION_CONTRACT_V2 = 2;
 
 export const UNIQUENESS_DIMENSIONS = [
   "CONTENT_UNIQUENESS",
@@ -19,7 +20,7 @@ export const UNIQUENESS_DIMENSIONS = [
   "PERCEPTUAL_UNIQUENESS",
 ];
 
-export const FINGERPRINT_FIELDS = [
+export const BASE_FINGERPRINT_FIELDS = [
   "heroGeometry",
   "headerTreatment",
   "sectionGraph",
@@ -33,6 +34,26 @@ export const FINGERPRINT_FIELDS = [
   "motionSignature",
   "closingStructure",
 ];
+
+export const EXPERIENCE_FINGERPRINT_FIELDS = [
+  "roleGraph",
+  "mediaCadence",
+  "interactionLoci",
+  "decisionAidPlacement",
+  "densityRhythm",
+  "mobileCompositionStrategy",
+];
+
+export const FINGERPRINT_FIELDS = [
+  ...BASE_FINGERPRINT_FIELDS,
+  ...EXPERIENCE_FINGERPRINT_FIELDS,
+];
+
+export function fingerprintFieldsForContract(contract = COMPOSITION_CONTRACT_VERSION) {
+  return Number(contract) >= COMPOSITION_CONTRACT_V2
+    ? FINGERPRINT_FIELDS
+    : BASE_FINGERPRINT_FIELDS;
+}
 
 const norm = (value) =>
   String(value ?? "")
@@ -68,9 +89,9 @@ export function textSimilarity(a, b) {
 }
 
 /** Compara dois fingerprints campo a campo. */
-export function compareFingerprints(a, b) {
+export function compareFingerprints(a, b, fields = BASE_FINGERPRINT_FIELDS) {
   const perField = {};
-  for (const field of FINGERPRINT_FIELDS) {
+  for (const field of fields) {
     const va = a?.[field];
     const vb = b?.[field];
     perField[field] = Array.isArray(va) || Array.isArray(vb)
@@ -79,7 +100,7 @@ export function compareFingerprints(a, b) {
   }
   const values = Object.values(perField);
   const overall = values.reduce((sum, value) => sum + value, 0) / (values.length || 1);
-  const identical = FINGERPRINT_FIELDS.filter((field) => perField[field] >= 0.95);
+  const identical = fields.filter((field) => perField[field] >= 0.95);
   return { perField, overall, identicalFields: identical };
 }
 
@@ -89,10 +110,16 @@ export function compareFingerprints(a, b) {
  */
 export function detectSkinSwap(comparison) {
   const structural = ["sectionGraph", "contentOrder", "gridTopology", "heroGeometry"];
+  const journey = EXPERIENCE_FINGERPRINT_FIELDS;
   const structuralHits = structural.filter((field) => comparison.perField[field] >= 0.8);
+  const journeyHits = journey.filter((field) => comparison.perField[field] >= 0.8);
   return {
-    isSkinSwap: comparison.overall >= 0.7 || structuralHits.length >= 3,
+    isSkinSwap:
+      comparison.overall >= 0.7 ||
+      structuralHits.length >= 3 ||
+      journeyHits.length >= 4,
     structuralHits,
+    journeyHits,
   };
 }
 
@@ -114,6 +141,8 @@ export function evaluateProjectUniqueness(project, peers = []) {
   const results = {};
   const details = [];
   const fingerprint = project.fingerprint ?? null;
+  const compositionContract = Number(project.compositionContract ?? COMPOSITION_CONTRACT_VERSION);
+  const requiredFields = fingerprintFieldsForContract(compositionContract);
 
   if (!fingerprint) {
     for (const dimension of UNIQUENESS_DIMENSIONS) results[dimension] = "FAIL";
@@ -125,7 +154,7 @@ export function evaluateProjectUniqueness(project, peers = []) {
     };
   }
 
-  const missing = FINGERPRINT_FIELDS.filter((field) => {
+  const missing = requiredFields.filter((field) => {
     const value = fingerprint[field];
     if (Array.isArray(value)) return value.length === 0;
     return !value || String(value).includes("[PREENCHER]");
@@ -133,7 +162,10 @@ export function evaluateProjectUniqueness(project, peers = []) {
 
   const comparisons = peers
     .filter((peer) => peer.slug !== project.slug && peer.fingerprint)
-    .map((peer) => ({ slug: peer.slug, ...compareFingerprints(fingerprint, peer.fingerprint) }));
+    .map((peer) => ({
+      slug: peer.slug,
+      ...compareFingerprints(fingerprint, peer.fingerprint, requiredFields),
+    }));
 
   const worst = comparisons.reduce(
     (acc, item) => (acc && acc.overall >= item.overall ? acc : item),
@@ -179,10 +211,18 @@ export function evaluateProjectUniqueness(project, peers = []) {
   for (const comparison of comparisons) {
     const skin = detectSkinSwap(comparison);
     if (skin.isSkinSwap) {
+      const journeyNote = skin.journeyHits?.length
+        ? ` · jornada colidida: ${skin.journeyHits.join(", ")}`
+        : "";
       details.push(
         `SKIN_SWAP vs ${comparison.slug}: similaridade ${(comparison.overall * 100).toFixed(0)}% ` +
-          `(campos estruturais colididos: ${skin.structuralHits.join(", ") || "—"})`,
+          `(campos estruturais colididos: ${skin.structuralHits.join(", ") || "—"})${journeyNote}`,
       );
+      if ((skin.journeyHits?.length ?? 0) >= 4) {
+        details.push(
+          `SAME_JOURNEY_DIFFERENT_COPY vs ${comparison.slug}: ${skin.journeyHits.join(", ")}`,
+        );
+      }
       results.COMPOSITION_UNIQUENESS = "FAIL";
       results.STRUCTURAL_UNIQUENESS = "FAIL";
     }

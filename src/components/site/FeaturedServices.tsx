@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { type NavService } from "@/lib/services-nav.functions";
+import { ServiceCoverImage } from "@/components/site/ServiceCoverImage";
 import { servicesNavQuery } from "@/lib/services-nav-query";
-import { serviceCoverFallback } from "@/lib/service-cover-fallback";
 
 type Props = {
   title?: string;
@@ -27,7 +27,9 @@ export function FeaturedServices({
   limit = 4,
 }: Props) {
   const { data } = useQuery(servicesNavQuery);
-  const items = (data?.homeFeatured ?? []).slice(0, limit);
+  const items = (data?.homeFeatured ?? [])
+    .filter((service) => typeof service.price === "number" && service.price > 0 && Boolean(service.imageUrl))
+    .slice(0, limit);
   if (items.length === 0) return null;
 
 
@@ -59,8 +61,11 @@ export function FeaturedServices({
               className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary hover:-translate-y-1 hover:shadow-elegant transition-all duration-300"
             >
               <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src={s.imageUrl || serviceCoverFallback(s.slug, s.category)}
+                <ServiceCoverImage
+                  src={s.imageUrl}
+                  slug={s.slug}
+                  name={s.name}
+                  category={s.category}
                   alt={s.imageAlt || `Ilustração do serviço ${s.name}`}
                   width={1280}
                   height={720}
@@ -77,6 +82,19 @@ export function FeaturedServices({
                 <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
                   {s.description}
                 </p>
+                {typeof s.price === "number" && s.price > 0 ? (
+                  <p className="mt-3 text-sm font-semibold text-foreground">
+                    A partir de{" "}
+                    <span className="text-primary">
+                      {s.price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                        minimumFractionDigits: s.price % 1 === 0 ? 0 : 2,
+                      })}
+                      {s.pricePeriod ? `/${s.pricePeriod}` : ""}
+                    </span>
+                  </p>
+                ) : null}
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
                   Ver detalhes <ArrowRight className="w-3 h-3" />
                 </span>
