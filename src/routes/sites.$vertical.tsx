@@ -1,11 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, MapPin, Phone, Clock3, Utensils, Scale, HeartPulse } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { absUrl } from "@/lib/seo";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 export type VerticalConfig = {
   slug: string;
@@ -21,9 +20,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   restaurantes: {
     slug: "restaurantes",
     name: "Restaurantes e Food Service",
-    hero: "Site para Restaurantes que enche a casa",
+    hero: "Site para restaurantes com cardápio, reservas e presença local",
     subheadline:
-      "Cardápio digital, reservas online, fotos profissionais dos pratos, integração com iFood e Google Meu Negócio. Apareça em 1º lugar quando alguém buscar 'restaurante perto de mim'.",
+      "Cardápio digital, reservas, horários, localização, fotos e canais de contato em uma página rápida, fácil de atualizar e preparada para busca local.",
     painPoints: [
       "Cliente não acha seu cardápio atualizado no Google",
       "Reserva por WhatsApp some no meio das mensagens",
@@ -31,18 +30,18 @@ export const VERTICALS: Record<string, VerticalConfig> = {
       "Fotos do iFood não vendem o ticket que você quer",
     ],
     services: [
-      { title: "Site Express (cardápio + reservas)", desc: "Landing pronta em 24h com cardápio e botão de reserva.", to: "/servicos/site-express" },
+      { title: "Site Express (cardápio + reservas)", desc: "Landing com cardápio, informações do salão e botão de reserva.", to: "/servicos/site-express" },
       { title: "Google Meu Negócio", desc: "Otimização do GMB para aparecer no mapa local.", to: "/servicos/google-meu-negocio" },
-      { title: "Tráfego pago local", desc: "Anúncios geo-segmentados para encher os horários vazios.", to: "/servicos/trafego-pago-local" },
+      { title: "Tráfego pago local", desc: "Campanhas geolocalizadas para captar demanda na região atendida.", to: "/servicos/trafego-pago-local" },
     ],
     keywords: "site para restaurante, cardápio digital, reserva online restaurante",
   },
   advocacia: {
     slug: "advocacia",
     name: "Advocacia e Escritórios Jurídicos",
-    hero: "Site para Advogados que gera consultas qualificadas",
+    hero: "Site institucional para escritórios de advocacia",
     subheadline:
-      "Página institucional com áreas de atuação, conteúdo jurídico que ranqueia, captação de leads via formulário e WhatsApp. Conformidade total com o Provimento 205/2021 da OAB.",
+      "Página institucional com áreas de atuação, equipe, conteúdo informativo e canais de contato, estruturada para comunicação profissional e presença orgânica.",
     painPoints: [
       "Site genérico que parece de 2010 e afasta cliente",
       "Não aparece no Google quando buscam sua especialidade",
@@ -50,16 +49,16 @@ export const VERTICALS: Record<string, VerticalConfig> = {
       "Concorrente com escritório menor capta mais",
     ],
     services: [
-      { title: "Site Pro (10+ páginas)", desc: "Site institucional completo com SEO para sua especialidade.", to: "/servicos/site-pro" },
+      { title: "Site Pro (10+ páginas)", desc: "Site institucional com áreas de atuação, equipe, conteúdo e SEO técnico.", to: "/servicos/site-pro" },
       { title: "Presença digital", desc: "Google, redes sociais e reputação cuidadas em pacote.", to: "/servicos/presenca-digital" },
-      { title: "Consultoria estratégica", desc: "Plano de marketing jurídico alinhado à OAB.", to: "/servicos/consultoria" },
+      { title: "Consultoria estratégica", desc: "Planejamento de presença digital com revisão das regras aplicáveis ao escritório.", to: "/servicos/consultoria" },
     ],
     keywords: "site para advogado, marketing jurídico, site escritório de advocacia",
   },
   imobiliarias: {
     slug: "imobiliarias",
     name: "Imobiliárias e Corretores",
-    hero: "Site para Imobiliária com busca de imóveis e captação de leads",
+    hero: "Site para imobiliárias com catálogo, filtros e captação de contatos",
     subheadline:
       "Catálogo de imóveis, filtros por bairro/valor/tipo, integração com CRM e WhatsApp. Captura lead enquanto o cliente ainda está navegando.",
     painPoints: [
@@ -78,9 +77,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   clinicas: {
     slug: "clinicas",
     name: "Clínicas e Consultórios",
-    hero: "Site para Clínica que enche a agenda",
+    hero: "Site para clínicas com especialidades, equipe e agendamento",
     subheadline:
-      "Agendamento online, especialidades, equipe, convênios e blog de saúde que ranqueia. Conformidade com o CFM/CRM e LGPD para dados sensíveis.",
+      "Agendamento, especialidades, equipe, convênios, localização e conteúdo institucional com cuidado especial para privacidade e dados sensíveis.",
     painPoints: [
       "Paciente liga, secretária ocupada, ele desiste",
       "Não aparece no Google ao buscar 'especialidade + cidade'",
@@ -97,9 +96,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   oficinas: {
     slug: "oficinas",
     name: "Oficinas Mecânicas e Auto Center",
-    hero: "Site para Oficina que aparece quando o carro quebra",
+    hero: "Site para oficinas com serviços, localização e contato rápido",
     subheadline:
-      "Serviços, especialidades (carro/moto/caminhão), localização, WhatsApp direto. Otimizado para buscas de urgência tipo 'oficina mecânica perto de mim'.",
+      "Serviços, tipos de veículo atendidos, localização, horários e contato direto em uma página preparada para buscas locais e acesso pelo celular.",
     painPoints: [
       "Cliente em emergência acha concorrente primeiro",
       "Não mostra os serviços que você cobra mais caro",
@@ -116,9 +115,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   lojas: {
     slug: "lojas",
     name: "Lojas e Comércio Físico",
-    hero: "Site para Loja que leva gente até a porta",
+    hero: "Site para lojas físicas com vitrine, localização e contato",
     subheadline:
-      "Vitrine digital dos produtos, localização, horários, WhatsApp e integração com Instagram. Atrai cliente do bairro e fortalece a marca local.",
+      "Vitrine digital de produtos, localização, horários, WhatsApp e integração com redes sociais para organizar a presença da loja na web.",
     painPoints: [
       "Cliente passa na frente mas não conhece a loja",
       "Não aparece no Google Maps quando deveria",
@@ -135,9 +134,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   comercios: {
     slug: "comercios",
     name: "Comércios e Pequenos Negócios",
-    hero: "Site para Comércio Local que disputa o Google",
+    hero: "Site para comércio local com presença no Google e canais de contato",
     subheadline:
-      "Presença profissional para qualquer comércio: padaria, mercado, pet shop, papelaria. Apareça no Google, no Maps e no WhatsApp do cliente.",
+      "Presença profissional para padarias, mercados, pet shops, papelarias e outros comércios: informações consistentes, localização, produtos e contato.",
     painPoints: [
       "Sem site, cliente acha que você fechou",
       "Concorrente com loja igual aparece sempre primeiro",
@@ -154,8 +153,8 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   beleza: {
     slug: "beleza",
     name: "Beleza e Estética",
-    hero: "Site para profissionais de beleza que lota a agenda",
-    subheadline: "Apresente seus serviços de beleza, resultados e horários com uma página elegante, rápida e otimizada para buscas locais.",
+    hero: "Site para profissionais de beleza com serviços, portfólio e agenda",
+    subheadline: "Apresente serviços, portfólio, horários, localização e formas de agendamento em uma página rápida e preparada para busca local.",
     painPoints: [
       "Cliente não encontra seus serviços no Google",
       "Instagram não explica preços, localização e agenda",
@@ -172,9 +171,9 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   "prestadores-de-servicos": {
     slug: "prestadores-de-servicos",
     name: "Prestadores de Serviços",
-    hero: "Site para Prestador de Serviço que gera orçamento todo dia",
+    hero: "Site para prestadores de serviço com portfólio e orçamento",
     subheadline:
-      "Eletricista, encanador, dedetizadora, jardineiro, marceneiro, personal, estética, beleza. Site simples, WhatsApp em destaque e SEO local agressivo.",
+      "Eletricistas, encanadores, dedetizadoras, jardineiros, marceneiros e outros profissionais podem organizar serviços, portfólio, área atendida e contato em uma página própria.",
     painPoints: [
       "Cliente urgente busca no Google e acha outro",
       "Sem portfólio visual, perde para concorrente com Insta forte",
@@ -190,6 +189,133 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
 };
 
+
+type VerticalGuide = {
+  intro: string;
+  focus: { title: string; desc: string }[];
+  faq: { q: string; a: string }[];
+};
+
+const VERTICAL_GUIDES: Record<string, VerticalGuide> = {
+  restaurantes: {
+    intro: "Para restaurantes, o site precisa reduzir fricção entre a busca e a decisão: cardápio legível no celular, horários corretos, endereço, formas de reserva e contato. A página também deve facilitar atualizações sem depender de peças estáticas espalhadas por redes sociais.",
+    focus: [
+      { title: "Cardápio e informação operacional", desc: "Organize itens, faixas de preço, horários, endereço, reservas e canais de pedido em uma estrutura que continue útil fora das redes sociais." },
+      { title: "Busca local", desc: "Conecte a página ao Google Business Profile e use conteúdo coerente com a região realmente atendida, sem criar páginas locais artificiais." },
+      { title: "Conversão no celular", desc: "Priorize leitura rápida, botão de reserva ou contato e carregamento leve, porque grande parte das pesquisas acontece durante a decisão de onde comer." },
+    ],
+    faq: [
+      { q: "Preciso publicar o cardápio inteiro no site?", a: "Não necessariamente. O importante é manter uma versão atualizável com categorias, principais itens, preços quando fizer sentido e um caminho claro para o cardápio completo ou pedido." },
+      { q: "O site substitui o iFood ou o Instagram?", a: "Não. Ele funciona como base própria da marca e pode conectar delivery, redes sociais, reservas e Google sem depender de um único canal." },
+      { q: "Vale criar páginas para cada bairro?", a: "Só quando existe atendimento ou relevância real naquele local e conteúdo específico suficiente para justificar uma página própria." },
+    ],
+  },
+  advocacia: {
+    intro: "Para escritórios de advocacia, o papel do site é apresentar áreas de atuação, equipe, experiência e formas de contato com clareza. O conteúdo precisa ser informativo e só deve publicar alegações, resultados ou comparações que possam ser sustentados e que respeitem as regras profissionais aplicáveis.",
+    focus: [
+      { title: "Áreas de atuação bem explicadas", desc: "Separe temas jurídicos por intenção de busca e explique quando cada serviço costuma ser necessário, evitando linguagem sensacionalista." },
+      { title: "Autoridade editorial", desc: "Artigos, perguntas frequentes e páginas de serviço podem demonstrar conhecimento sem prometer resultado jurídico ou criar urgência artificial." },
+      { title: "Contato com contexto", desc: "Formulários e funis curtos ajudam o escritório a receber o assunto inicial da consulta antes do atendimento humano." },
+    ],
+    faq: [
+      { q: "Um escritório precisa de uma página para cada área do Direito?", a: "Quando a área é realmente atendida e existe conteúdo próprio, sim. Isso melhora organização e permite responder intenções de busca diferentes sem duplicar texto." },
+      { q: "O site pode prometer resultado de processo?", a: "Não é uma prática responsável. O conteúdo deve informar serviços e experiência sem garantir desfechos que dependem de fatos e decisões externas." },
+      { q: "Blog jurídico ajuda no SEO?", a: "Ajuda quando publica conteúdo original, atualizado e ligado às áreas realmente atendidas pelo escritório." },
+    ],
+  },
+  imobiliarias: {
+    intro: "Em imobiliárias, o site precisa conectar catálogo e intenção de busca. Imóveis mudam rapidamente, por isso filtros, disponibilidade, bairro, faixa de valor e canal de atendimento devem ser fáceis de atualizar e não depender de páginas abandonadas.",
+    focus: [
+      { title: "Catálogo estruturado", desc: "Cada imóvel deve ter dados consistentes, imagens próprias, localização útil, características e status de disponibilidade." },
+      { title: "Busca por intenção", desc: "Filtros por tipo, bairro e faixa de preço ajudam o usuário e criam uma arquitetura mais compreensível para mecanismos de busca." },
+      { title: "Captação sem perder contexto", desc: "O contato deve carregar qual imóvel ou filtro originou a conversa, reduzindo retrabalho no atendimento." },
+    ],
+    faq: [
+      { q: "É melhor integrar o CRM ou cadastrar imóveis manualmente?", a: "Quando o CRM oferece integração confiável, sincronizar reduz duplicidade e imóveis desatualizados. Caso contrário, um painel próprio pode ser mais seguro." },
+      { q: "Páginas por bairro ajudam?", a: "Sim, quando existe estoque real e conteúdo útil para aquele bairro. Páginas vazias ou clonadas devem ficar fora do índice." },
+      { q: "Preciso mostrar o endereço exato do imóvel?", a: "Depende da estratégia comercial e de privacidade. É possível trabalhar com bairro ou região e liberar detalhes no atendimento." },
+    ],
+  },
+  clinicas: {
+    intro: "Para clínicas e consultórios, a página precisa explicar especialidades, equipe, localização, formas de agendamento e orientações iniciais sem transformar conteúdo de saúde em promessa de resultado. Privacidade e tratamento responsável de dados são requisitos do projeto.",
+    focus: [
+      { title: "Especialidades e equipe", desc: "Estruture páginas claras por especialidade e profissional quando houver informação real suficiente para cada uma." },
+      { title: "Agendamento e privacidade", desc: "Colete apenas os dados necessários para o primeiro contato e evite pedir informações clínicas sensíveis em formulários comuns." },
+      { title: "Conteúdo de orientação", desc: "Perguntas frequentes e artigos podem ajudar o paciente a entender serviços, preparo e fluxo de atendimento sem substituir avaliação profissional." },
+    ],
+    faq: [
+      { q: "O site precisa ter agendamento online?", a: "Não é obrigatório, mas deve haver um caminho claro para solicitar horário. A integração depende da agenda e do processo real da clínica." },
+      { q: "Posso publicar antes e depois de pacientes?", a: "Esse tipo de conteúdo exige avaliação das regras profissionais e de consentimento aplicáveis. O site não deve assumir autorização automaticamente." },
+      { q: "Vale criar página para cada especialidade?", a: "Sim, quando a clínica realmente oferece a especialidade e consegue manter conteúdo próprio, equipe e informações atualizadas." },
+    ],
+  },
+  oficinas: {
+    intro: "Para oficinas e auto centers, o site precisa responder rapidamente o que é atendido, onde fica a oficina, em quais horários funciona e como pedir avaliação. A intenção de busca costuma ser prática e local, então informação operacional vale mais que texto promocional genérico.",
+    focus: [
+      { title: "Serviços e veículos atendidos", desc: "Separe manutenção preventiva, diagnóstico e reparos conforme o que a oficina realmente executa." },
+      { title: "Localização e horários", desc: "Mantenha endereço, telefone, rotas e horários consistentes entre site e perfil da empresa no Google." },
+      { title: "Prova visual real", desc: "Fotos próprias da oficina, equipamentos e serviços autorizados ajudam mais do que imagens genéricas de banco." },
+    ],
+    faq: [
+      { q: "Preciso listar todos os serviços da oficina?", a: "Liste os serviços que realmente são executados e agrupe variações semelhantes. Isso facilita leitura e evita páginas quase vazias." },
+      { q: "O site ajuda em buscas perto de mim?", a: "Uma presença local consistente ajuda o Google a entender o negócio, mas posição depende também de proximidade, relevância, reputação e concorrência." },
+      { q: "Vale oferecer orçamento pelo site?", a: "Sim, desde que o formulário deixe claro quando o valor depende de diagnóstico presencial ou de informações adicionais." },
+    ],
+  },
+  lojas: {
+    intro: "Para lojas físicas, o site funciona como uma vitrine própria: mostra linhas de produto, endereço, horários, canais de atendimento e campanhas atuais. Ele complementa redes sociais e marketplaces sem depender do alcance de terceiros.",
+    focus: [
+      { title: "Vitrine organizada", desc: "Use categorias e destaques reais para mostrar o que a loja vende, evitando catálogo abandonado ou produtos sem disponibilidade." },
+      { title: "Informação local consistente", desc: "Endereço, horários, telefone e links para rotas precisam coincidir com o perfil da empresa no Google." },
+      { title: "Integração com atendimento", desc: "O usuário deve conseguir sair do produto ou categoria para um canal de consulta sem perder o contexto." },
+    ],
+    faq: [
+      { q: "Preciso ter e-commerce para ter site?", a: "Não. Uma vitrine institucional com catálogo, localização e contato já pode organizar a presença digital da loja." },
+      { q: "Posso integrar produtos do Instagram?", a: "Sim, desde que a integração use conteúdo oficial e mantenha links ou mídia de forma confiável." },
+      { q: "Quando vale criar loja virtual completa?", a: "Quando existe processo para preço, estoque, pagamento, entrega e atendimento pós-venda. Sem isso, catálogo e consulta podem ser mais adequados." },
+    ],
+  },
+  comercios: {
+    intro: "Pequenos comércios precisam de uma fonte oficial que concentre nome, produtos ou serviços, localização, horários e contato. Isso reduz dependência de postagens antigas e ajuda clientes a confirmar rapidamente se o negócio atende ao que procuram.",
+    focus: [
+      { title: "Informação básica impecável", desc: "Nome, endereço, telefone, horários e formas de atendimento precisam estar atualizados em todos os canais." },
+      { title: "Produtos e diferenciais reais", desc: "Explique categorias, marcas ou serviços que o comércio realmente oferece, sem exagerar estoque ou disponibilidade." },
+      { title: "Presença local conectada", desc: "Site, Google Business Profile e redes sociais devem apontar para a mesma identidade e os mesmos dados essenciais." },
+    ],
+    faq: [
+      { q: "Um comércio pequeno precisa mesmo de site?", a: "O site é útil quando centraliza informação que hoje está espalhada e cria uma página própria para o Google e para clientes consultarem." },
+      { q: "É melhor site ou rede social?", a: "Os canais têm funções diferentes. Redes ajudam na distribuição; o site funciona como base própria e pesquisável." },
+      { q: "Posso começar com uma página simples?", a: "Sim. O importante é publicar informação suficiente, correta e fácil de manter antes de adicionar recursos mais complexos." },
+    ],
+  },
+  beleza: {
+    intro: "Profissionais de beleza e estética precisam transformar portfólio visual em informação que o cliente consiga usar: serviços, localização, agenda, duração aproximada quando aplicável, cuidados e forma de contato. Fotos próprias e autorização de uso são especialmente importantes.",
+    focus: [
+      { title: "Serviços claros", desc: "Organize técnicas e procedimentos pelo nome usado pelos clientes e explique o que está incluído sem prometer resultados individuais." },
+      { title: "Portfólio autorizado", desc: "Use imagens reais do trabalho apenas quando houver autorização e contexto suficiente para não induzir expectativa irreal." },
+      { title: "Agendamento com contexto", desc: "Leve serviço, profissional e origem da página para a conversa de atendimento sempre que o processo permitir." },
+    ],
+    faq: [
+      { q: "Instagram substitui um site de beleza?", a: "Não completamente. O site organiza serviços, localização e contato em uma estrutura própria; o Instagram continua importante para conteúdo e relacionamento." },
+      { q: "Preciso colocar preços?", a: "Quando os valores são estáveis, isso ajuda a qualificar contatos. Serviços variáveis podem usar faixa ou explicar os fatores do orçamento." },
+      { q: "Posso usar fotos de clientes?", a: "Somente com autorização adequada. O projeto deve privilegiar mídia própria e consentida." },
+    ],
+  },
+  "prestadores-de-servicos": {
+    intro: "Para prestadores, o site precisa explicar rapidamente o que é feito, em que região o serviço realmente é atendido, como funciona o orçamento e quais trabalhos podem ser mostrados como prova. A página deve diminuir perguntas repetitivas antes do contato.",
+    focus: [
+      { title: "Escopo do serviço", desc: "Descreva tarefas atendidas, limites, materiais ou condições que alteram o orçamento e o que não faz parte do serviço." },
+      { title: "Área atendida real", desc: "Use cidades e bairros apenas quando houver atendimento verdadeiro. Evite páginas locais criadas só para ampliar palavras-chave." },
+      { title: "Portfólio e contato", desc: "Fotos próprias, exemplos de trabalho e um funil curto ajudam o cliente a enviar contexto suficiente para uma primeira resposta." },
+    ],
+    faq: [
+      { q: "Vale criar uma página para cada serviço?", a: "Sim quando cada serviço tem escopo e conteúdo próprios. Variações muito parecidas podem ser agrupadas para evitar páginas repetidas." },
+      { q: "Como trabalhar SEO local sem inventar endereço?", a: "Informe área de atendimento real e use provas de atuação. Não é necessário fingir uma sede física em cada cidade." },
+      { q: "O site pode gerar orçamento automático?", a: "Alguns serviços permitem estimativas; outros exigem fotos, medidas ou visita técnica. O site deve deixar essa diferença explícita." },
+    ],
+  },
+};
+
 export const Route = createFileRoute("/sites/$vertical")({
   loader: ({ params }) => {
     const v = VERTICALS[params.vertical];
@@ -202,6 +328,7 @@ export const Route = createFileRoute("/sites/$vertical")({
     const url = absUrl(`/sites/${v.slug}`);
     const title = `${v.hero} · 0WEB`;
     const desc = v.subheadline;
+    const guide = VERTICAL_GUIDES[v.slug];
     return {
       meta: [
         { title },
@@ -214,6 +341,7 @@ export const Route = createFileRoute("/sites/$vertical")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
+        { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -229,6 +357,20 @@ export const Route = createFileRoute("/sites/$vertical")({
             ],
           }),
         },
+        ...(guide
+          ? [{
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: guide.faq.map((item) => ({
+                  "@type": "Question",
+                  name: item.q,
+                  acceptedAnswer: { "@type": "Answer", text: item.a },
+                })),
+              }),
+            }]
+          : []),
       ],
     };
   },
@@ -256,9 +398,7 @@ export const Route = createFileRoute("/sites/$vertical")({
 
 function VerticalHub() {
   const { vertical: v } = Route.useLoaderData();
-  if (["clinicas", "advocacia", "restaurantes"].includes(v.slug)) {
-    return <PrototypeSite vertical={v} />;
-  }
+  const guide = VERTICAL_GUIDES[v.slug];
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -288,6 +428,25 @@ function VerticalHub() {
         </section>
 
         <TrustStrip variant="compact" />
+
+        {guide ? (
+          <section className="py-16">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <div className="max-w-3xl">
+                <h2 className="text-2xl sm:text-3xl font-bold">O que um site precisa resolver para {v.name}</h2>
+                <p className="mt-4 text-muted-foreground leading-7">{guide.intro}</p>
+              </div>
+              <div className="mt-8 grid gap-5 md:grid-cols-3">
+                {guide.focus.map((item) => (
+                  <article key={item.title} className="rounded-2xl border border-border bg-card p-6">
+                    <h3 className="text-lg font-bold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.desc}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
@@ -324,13 +483,29 @@ function VerticalHub() {
           </div>
         </section>
 
+        {guide ? (
+          <section className="py-16">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <h2 className="text-2xl sm:text-3xl font-bold">Perguntas frequentes sobre site para {v.name}</h2>
+              <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+                {guide.faq.map((item) => (
+                  <details key={item.q} className="p-5">
+                    <summary className="cursor-pointer font-semibold">{item.q}</summary>
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="py-20">
           <div className="mx-auto max-w-3xl px-5 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold">
-              Pronto para ser o primeiro do Google no seu segmento?
+              Quer organizar a presença digital do seu segmento?
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Em até 24h, você recebe um diagnóstico gratuito da sua presença digital e uma proposta sob medida.
+              O diagnóstico inicial identifica estrutura, conteúdo, descoberta no Google e caminho de contato sem prometer posição ou prazo de ranking.
             </p>
             <FunnelCTAButton
               intent={{ purpose: "diagnosis", source: `sites_${v.slug}_footer`, pagePath: `/sites/${v.slug}`, placement: "footer", serviceSlug: "criacao-de-sites" }}
@@ -342,60 +517,6 @@ function VerticalHub() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
-}
-
-export function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
-  const isClinic = v.slug === "clinicas";
-  const isLaw = v.slug === "advocacia";
-  const data = isClinic
-    ? {
-        eyebrow: "Cuidado que olha o todo",
-        title: "Sua saúde em boas mãos, do primeiro acolhimento ao acompanhamento.",
-        desc: "Uma equipe integrada para cuidar de você com escuta, precisão e um plano feito para a sua rotina.",
-        accent: "#1b766d", soft: "#e5f3ef", ink: "#153d3a", image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1400&q=85",
-        icon: HeartPulse, cta: "Agendar avaliação", secondary: "Conheça a clínica",
-        cards: ["Clínica médica", "Psicologia", "Nutrição"],
-        label: "Atendimento humanizado",
-      }
-    : isLaw
-    ? {
-        eyebrow: "Estratégia antes do conflito",
-        title: "Decisões jurídicas mais seguras para momentos que pedem clareza.",
-        desc: "Advocacia consultiva e contenciosa para empresas e pessoas que precisam de direção, presença e resultado.",
-        accent: "#a47745", soft: "#f4ede4", ink: "#2d2925", image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1400&q=85",
-        icon: Scale, cta: "Falar com o escritório", secondary: "Áreas de atuação",
-        cards: ["Direito empresarial", "Contratos e negócios", "Relações de trabalho"],
-        label: "Consultoria com visão de negócio",
-      }
-    : {
-        eyebrow: "Cozinha de autor · Savassi",
-        title: "Uma mesa para desacelerar. Sabores para lembrar.",
-        desc: "Ingredientes brasileiros, técnica artesanal e uma carta feita para acompanhar conversas longas.",
-        accent: "#b85c3d", soft: "#f8e8dc", ink: "#33221c", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
-        icon: Utensils, cta: "Reservar uma mesa", secondary: "Ver o cardápio",
-        cards: ["Menu degustação", "Almoço executivo", "Carta de vinhos"],
-        label: "Feito no tempo certo",
-      };
-  const Icon = data.icon;
-  return (
-    <div className="portfolio-theme-prototype min-h-screen" style={{ background: data.soft, color: data.ink }}>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8">
-        <div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full text-white" style={{ background: data.accent }}><Icon className="h-5 w-5" /></span><span className="font-display text-lg font-bold">{isClinic ? "integra" : isLaw ? "Almeida & Torres" : "casa nativa"}</span></div>
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex"><a href="#sobre">Sobre</a><a href="#servicos">{isLaw ? "Atuação" : isClinic ? "Especialidades" : "Experiência"}</a><a href="#contato">Contato</a></nav>
-        <a href="#contato" className="rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: data.accent }}>{data.cta}</a>
-      </header>
-      <main>
-        <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-20 pt-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-20">
-          <div><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>{data.eyebrow}</p><h1 className="mt-5 max-w-xl font-display text-5xl font-semibold leading-[1.03] tracking-tight sm:text-6xl">{data.title}</h1><p className="mt-6 max-w-lg text-lg leading-8 opacity-75">{data.desc}</p><div className="mt-8 flex flex-wrap gap-3"><a href="#contato" className="rounded-full px-6 py-3.5 font-semibold text-white" style={{ background: data.accent }}>{data.cta} <ArrowRight className="ml-2 inline h-4 w-4" /></a><a href="#sobre" className="rounded-full border px-6 py-3.5 font-semibold">{data.secondary}</a></div></div>
-          <div className="relative"><img src={data.image} alt={data.label} className="h-[430px] w-full rounded-[2rem] object-cover shadow-2xl"/><div className="absolute -bottom-5 -left-3 rounded-2xl bg-white p-4 shadow-xl sm:-left-6"><div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl" style={{ background: data.soft, color: data.accent }}><Icon className="h-5 w-5" /></span><div><p className="text-xs font-bold uppercase tracking-wider text-slate-500">{data.label}</p><p className="mt-1 text-sm font-semibold text-slate-800">Uma experiência pensada para você</p></div></div></div></div>
-        </section>
-        <section id="servicos" className="bg-white/65 py-20"><div className="mx-auto max-w-6xl px-5 lg:px-8"><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>{isLaw ? "Como podemos ajudar" : isClinic ? "Cuidado completo" : "Para cada momento"}</p><h2 className="mt-3 max-w-xl font-display text-4xl font-semibold">{isLaw ? "Conhecimento aplicado ao que importa." : isClinic ? "Tudo conectado para você se sentir bem." : "O melhor da casa chega à sua mesa."}</h2><div className="mt-10 grid gap-4 md:grid-cols-3">{data.cards.map((card, i) => <article key={card} className="rounded-2xl border border-black/10 bg-white p-6"><span className="text-sm font-bold" style={{ color: data.accent }}>0{i + 1}</span><h3 className="mt-10 text-xl font-semibold">{card}</h3><p className="mt-3 text-sm leading-6 opacity-65">Atendimento próximo, informação clara e uma experiência desenhada nos detalhes.</p><a href="#contato" className="mt-6 inline-flex items-center gap-2 text-sm font-bold" style={{ color: data.accent }}>Saiba mais <ArrowRight className="h-4 w-4" /></a></article>)}</div></div></section>
-        <section id="sobre" className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>A diferença está no jeito</p><h2 className="mt-3 font-display text-4xl font-semibold">Presença, cuidado e confiança em cada detalhe.</h2></div><div className="space-y-5 text-lg leading-8 opacity-75"><p>Este protótipo foi pensado para transformar a identidade do negócio em uma jornada digital clara, elegante e preparada para gerar contato.</p><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Resposta rápida e atendimento próximo</div><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Conteúdo claro para ajudar na decisão</div></div></section>
-        <section id="contato" className="px-5 pb-20 lg:px-8"><div className="mx-auto max-w-6xl rounded-[2rem] p-8 text-white sm:p-12" style={{ background: data.accent }}><div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-white/70">Vamos conversar</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold">O próximo passo começa com uma mensagem.</h2></div><a href="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold" style={{ color: data.accent }}>{data.cta} <ArrowRight className="h-4 w-4" /></a></div><div className="mt-10 flex flex-wrap gap-5 border-t border-white/20 pt-5 text-sm text-white/80"><span><Phone className="mr-2 inline h-4 w-4" />Atendimento por formulário e WhatsApp</span><span><Clock3 className="mr-2 inline h-4 w-4" />Seg–Sex · 8h às 18h</span><span><MapPin className="mr-2 inline h-4 w-4" />Atendimento presencial e online</span></div></div></section>
-      </main>
-      <PortfolioUpsellPopup pageName={`portfolio-prototype-${v.slug}`} />
     </div>
   );
 }
