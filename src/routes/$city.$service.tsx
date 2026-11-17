@@ -200,6 +200,81 @@ function GeoPage() {
           </section>
         )}
 
+        {/* Guia de decisão comercial: apenas Curitiba × criação de sites com prova publicada.
+            Não altera funis, preço do CMS, metas nem regras de indexação. */}
+        {evidence && citySlug === "curitiba" && serviceSlug === "criacao-de-sites" && (
+          <section aria-labelledby="guia-escolha-site-curitiba" className="py-14 bg-muted/10" data-testid="curitiba-site-decision-guide">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold">
+                Guia de contratação em Curitiba
+              </p>
+              <h2 id="guia-escolha-site-curitiba" className="mt-2 text-2xl lg:text-3xl font-bold">
+                Qual tipo de site faz sentido para sua empresa em Curitiba?
+              </h2>
+              <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
+                Antes de comparar orçamentos, defina o que a pessoa precisa fazer ao entrar no site.
+                Apresentar serviços, responder a um anúncio e vender produtos exigem estruturas diferentes.
+                A escolha muda o conteúdo, as integrações e as etapas que devem constar na proposta.
+              </p>
+              <div className="mt-7 grid gap-4 md:grid-cols-3">
+                <article className="rounded-2xl border border-border bg-card p-5">
+                  <h3 className="text-lg font-semibold">Site institucional</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Organiza a empresa, os serviços, perguntas recorrentes e canais de contato em páginas próprias.
+                    É uma base para evoluir conteúdo e presença orgânica ao longo do tempo.
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-border bg-card p-5">
+                  <h3 className="text-lg font-semibold">Landing page</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Prioriza uma oferta e uma ação, como solicitar orçamento após clicar em um anúncio.
+                    Mensagem, formulário e medição precisam combinar com aquela campanha.
+                  </p>
+                  <Link
+                    to="/$city/$service"
+                    params={{ city: "curitiba", service: "landing-pages" }}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary story-link"
+                  >
+                    Landing pages em Curitiba <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </article>
+                <article className="rounded-2xl border border-border bg-card p-5">
+                  <h3 className="text-lg font-semibold">Loja virtual</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Precisa de catálogo, informações de produto e etapas de compra. Pagamento, frete
+                    e integrações só entram quando previstos e aprovados no escopo.
+                  </p>
+                </article>
+              </div>
+              <div className="mt-8 rounded-2xl border border-border bg-card p-5">
+                <h3 className="font-semibold text-lg">O que conferir antes de aprovar uma proposta</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Peça a relação de páginas e entregáveis, quem fornecerá os textos e as imagens,
+                  como ficam domínio, hospedagem e manutenção, quais contatos serão integrados
+                  e como a publicação será testada. Metadados, canonical e sitemap ajudam o
+                  rastreamento, mas não garantem posição ou indexação no Google.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Confira exemplos publicados antes de decidir; os projetos reais desta página
+                  podem ser visitados sem depender de depoimentos ou números de vendas não comprovados.
+                </p>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-4 text-sm">
+                <Link
+                  to="/servicos/$slug"
+                  params={{ slug: "criacao-de-sites" }}
+                  className="inline-flex items-center gap-2 font-semibold text-primary story-link"
+                >
+                  Ver o escopo comercial de criação de sites <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/portfolio" className="inline-flex items-center gap-2 font-semibold text-primary story-link">
+                  Explorar projetos publicados <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* NEEDS */}
         <section className="py-12 bg-muted/30">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
