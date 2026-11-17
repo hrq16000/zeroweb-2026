@@ -6,12 +6,13 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { STATES, type Region, type StateInfo } from "@/lib/geo-data";
+import { isGeoCityIndexable, isGeoStateIndexable } from "@/lib/geo-hub-indexability";
 
 export const Route = createFileRoute("/estados")({
   head: () => {
     const url = absUrl("/estados");
     const title = "Estados atendidos · 0WEB Marketing Digital e Tecnologia";
-    const desc = "Conheça os estados brasileiros com cobertura ativa da 0WEB para sites, SEO, marketing digital e tecnologia.";
+    const desc = "Conheça os estados que já possuem páginas locais sustentadas por evidência publicada. O atendimento remoto permanece disponível em todo o Brasil.";
     return {
       meta: [
         { title },
@@ -49,7 +50,9 @@ export const Route = createFileRoute("/estados")({
 });
 
 function EstadosHub() {
-  const byRegion = Object.values(STATES).reduce<Record<Region, StateInfo[]>>((acc, s) => {
+  const byRegion = Object.values(STATES)
+    .filter((state) => isGeoStateIndexable(state.slug))
+    .reduce<Record<Region, StateInfo[]>>((acc, s) => {
     (acc[s.region] ||= [] as StateInfo[]).push(s);
     return acc;
   }, {} as Record<Region, StateInfo[]>);
@@ -70,7 +73,7 @@ function EstadosHub() {
               Estados <span className="text-gradient">atendidos</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cobertura ativa em capitais e regiões metropolitanas estratégicas. Selecione seu estado.
+              Os estados abaixo já possuem cidades com páginas locais sustentadas por projetos publicados.
             </p>
           </div>
         </section>
@@ -90,7 +93,9 @@ function EstadosHub() {
                     >
                       <p className="text-xs uppercase tracking-wider text-primary font-semibold">{s.code}</p>
                       <h3 className="mt-1 font-semibold text-lg">{s.name}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{s.cities.length} cidade(s) ativa(s)</p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        {s.cities.filter((slug) => isGeoCityIndexable(slug)).length} cidade(s) com evidência
+                      </p>
                       <span className="mt-3 inline-flex items-center gap-1 text-sm text-primary font-semibold">
                         Ver detalhes <ArrowRight className="w-3.5 h-3.5" />
                       </span>
