@@ -25,9 +25,9 @@ export const Route = createFileRoute("/solucoes")({
   },
   head: ({ loaderData }) => {
     const url = absUrl("/solucoes");
-    const title = "Soluções 0WEB · Estratégias sob medida para crescer no digital";
+    const title = "Soluções Web, SEO, IA e Marketing Digital | 0WEB";
     const desc =
-      "Soluções consultivas da 0WEB — projetos sob medida sem preço fechado. SEO, presença digital, automação com IA, sistemas, marketing e parcerias estratégicas.";
+      "Soluções web para empresas que precisam estruturar presença digital, sites, landing pages, SEO, tráfego, automação e IA com escopo coerente e próxima ação clara.";
     const items = loaderData?.solutions ?? [];
     const itemList = {
       "@type": "ItemList",
@@ -67,6 +67,36 @@ export const Route = createFileRoute("/solucoes")({
         mainEntity: { "@id": `${url}#solutions` },
       },
       breadcrumbLd([{ name: "Soluções", path: "/solucoes" }]),
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Qual solução web faz sentido para minha empresa?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Depende do objetivo. Site institucional organiza presença e autoridade; landing page trabalha uma oferta específica; SEO melhora descoberta orgânica; tráfego pago acelera aquisição; automação e IA reduzem tarefas repetitivas e conectam processos.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Preciso contratar tudo ao mesmo tempo?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Não. A melhor sequência depende do estágio do negócio, da oferta, dos canais já existentes e do que hoje impede descoberta, conversão ou atendimento.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Soluções sob medida substituem os serviços da loja?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Não. A loja reúne serviços com escopo mais definido. A página de soluções ajuda quando o problema exige combinar etapas, integrações ou uma arquitetura específica.",
+            },
+          },
+        ],
+      },
       itemList,
     ];
     return {
@@ -116,10 +146,105 @@ function SolucoesPage() {
             <h1 className="mt-4 text-3xl sm:text-5xl font-bold tracking-tight">
               Projetos sob medida para problemas reais
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Quando o caminho não é uma prateleira pronta, montamos um plano dedicado.
-              Estratégia, execução e métricas — sob um único time.
+            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Soluções web não começam pela ferramenta. Começam pelo problema: ser encontrado, explicar melhor a oferta,
+              transformar tráfego em contato, organizar atendimento ou conectar tarefas repetitivas. A 0WEB combina
+              estratégia, tecnologia e execução conforme a necessidade real do projeto.
             </p>
+          </div>
+        </section>
+
+        <section className="px-5 pb-16 sm:pb-20" aria-labelledby="solucoes-decisao-title">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Como escolher</p>
+              <h2 id="solucoes-decisao-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Qual solução web faz sentido para o seu momento?
+              </h2>
+              <p className="mt-4 text-base leading-7 text-muted-foreground">
+                O mesmo negócio pode precisar de caminhos diferentes em momentos diferentes. O ponto de partida é identificar
+                o gargalo atual e escolher a menor estrutura capaz de resolvê-lo com clareza.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Preciso de uma base digital própria</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Um site institucional organiza proposta, serviços, prova, contato e conteúdo em um endereço próprio, sem depender de uma rede social específica.
+                </p>
+                <Link to="/servicos/criacao-de-sites" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Criação de sites <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Tenho uma oferta ou campanha específica</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Landing pages fazem mais sentido quando existe uma única oferta, intenção de busca ou campanha que precisa de mensagem e CTA próprios.
+                </p>
+                <Link to="/servicos/landing-pages" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Landing pages <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Meu site existe, mas quase não é encontrado</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  SEO exige arquitetura, conteúdo, sinais técnicos e páginas que respondam a buscas reais. Criar URLs em volume sem conteúdo próprio não resolve esse gargalo.
+                </p>
+                <Link to="/servicos/seo" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  SEO <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Preciso gerar demanda mais rápido</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Tráfego pago pode acelerar aquisição quando anúncio, página, oferta e mensuração estão alinhados. O anúncio não corrige uma página confusa.
+                </p>
+                <Link to="/servicos/trafego-pago" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Tráfego pago <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Meu problema é presença local</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Dados consistentes, perfil da empresa, páginas locais apenas onde existe evidência e um site que explique a operação ajudam mecanismos de busca a entender o negócio.
+                </p>
+                <Link to="/servicos/google-meu-negocio" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Presença local <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">Estou repetindo tarefas e perdendo contexto</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  Automação e IA podem conectar formulários, atendimento e rotinas internas quando existe um processo claro para automatizar.
+                </p>
+                <Link to="/servicos/automacao-com-ia" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Automação com IA <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            </div>
+
+            <div className="mt-10 grid gap-6 rounded-3xl border border-border bg-muted/30 p-6 sm:p-8 lg:grid-cols-2">
+              <div>
+                <h2 className="text-2xl font-bold">Serviço de catálogo ou solução sob medida?</h2>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  A loja de serviços é adequada quando o escopo já está claro. Uma solução consultiva entra quando o problema exige
+                  combinar etapas, integrar ferramentas, validar prioridades ou desenhar uma sequência antes de contratar execução.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold">O que a 0WEB não promete</h2>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  Não existe garantia responsável de primeira posição, volume fixo de leads ou conversão antes de medir oferta,
+                  concorrência, canal e comportamento do público. A proposta é construir uma base verificável e evoluir com dados reais.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -187,6 +312,34 @@ function SolucoesPage() {
                 ))}
               </div>
             )}
+          </div>
+        </section>
+
+        <section className="px-5 pb-20" aria-labelledby="solucoes-faq-title">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="solucoes-faq-title" className="text-3xl font-bold">Perguntas frequentes sobre soluções web</h2>
+            <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card">
+              <details className="p-5">
+                <summary className="cursor-pointer font-semibold">Qual solução web faz sentido para minha empresa?</summary>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  Depende do objetivo atual. Site institucional organiza presença; landing page trabalha uma oferta; SEO melhora descoberta;
+                  tráfego pago acelera aquisição; automação e IA conectam processos repetitivos.
+                </p>
+              </details>
+              <details className="p-5">
+                <summary className="cursor-pointer font-semibold">Preciso contratar tudo ao mesmo tempo?</summary>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  Não. A sequência deve partir do principal gargalo do negócio. Muitas vezes uma única etapa bem resolvida cria base para a próxima.
+                </p>
+              </details>
+              <details className="p-5">
+                <summary className="cursor-pointer font-semibold">Soluções sob medida substituem os serviços da loja?</summary>
+                <p className="mt-3 leading-7 text-muted-foreground">
+                  Não. A loja atende escopos mais definidos. A solução consultiva é mais adequada quando ainda é necessário combinar disciplinas
+                  ou desenhar a arquitetura do projeto.
+                </p>
+              </details>
+            </div>
           </div>
         </section>
 
