@@ -12,13 +12,19 @@ export function RouteLoader() {
     select: (s) => s.isLoading,
   });
   const [visible, setVisible] = useState(false);
+  // Evita baixar a logo do overlay em toda primeira visita: monta apenas
+  // depois que a navegação exceder 120 ms, preservando o fade-out ao fechar.
+  const [hasShownLoader, setHasShownLoader] = useState(false);
 
   useEffect(() => {
     if (!isLoading) {
       setVisible(false);
       return;
     }
-    const t = setTimeout(() => setVisible(true), 120);
+    const t = setTimeout(() => {
+      setHasShownLoader(true);
+      setVisible(true);
+    }, 120);
     return () => clearTimeout(t);
   }, [isLoading]);
 
@@ -49,12 +55,14 @@ export function RouteLoader() {
       >
         <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
         <div className="relative flex flex-col items-center gap-4">
-          <BrandLogo
-            size={72}
-            alt=""
-            priority
-            className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
-          />
+          {hasShownLoader && (
+            <BrandLogo
+              size={72}
+              alt=""
+              priority
+              className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
+            />
+          )}
           <span className="text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground">
             Carregando
           </span>
