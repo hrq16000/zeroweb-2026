@@ -23,4 +23,13 @@ describe("/servicos pagination SEO", () => {
   test("página inválida é limitada ao intervalo real", () => {
     expect(route).toContain("Math.min(Math.max(requestedPage, 1), totalPages)");
   });
+
+
+  test("hub mantém índice HTML completo e ItemList dos serviços publicados", () => {
+    expect(route).toContain('id="services-discovery-index"');
+    expect(route).toContain("services.map((service) =>");
+    expect(route).toContain('"@type": "ItemList"');
+    expect(route).toContain('name: "Serviços publicados da 0WEB"');
+    expect(route).toContain('url: absUrl(`/servicos/${service.slug}`)');
+  });
 });
