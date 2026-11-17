@@ -9,6 +9,7 @@ import { mkdirSync } from "node:fs";
 
 const base = process.env.E2E_BASE_URL || "http://127.0.0.1:8080";
 const out = "seo-reports/agropet-visual";
+const formUrl = "https://form.jotform.com/263077233917057";
 mkdirSync(out, { recursive: true });
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 let failure = 0;
@@ -18,6 +19,20 @@ try {
     const page = await context.newPage();
     const errors = [];
     page.on("pageerror", (err) => errors.push(err.message));
+    // Documento de prova sem submissão/rede externa: ainda passa pela CSP real
+    // do pai. Um iframe apenas anexado ao DOM não prova que o browser o abriu.
+    await page.route(formUrl, (route) => route.fulfill({
+      contentType: "text/html; charset=utf-8",
+      body: '<!doctype html><html lang="pt-BR"><body><p data-embed-probe>Formulário autorizado carregado</p></body></html>',
+    }));
+    await page.addInitScript(() => {
+      window.__agropetFrameViolations = [];
+      document.addEventListener("securitypolicyviolation", (event) => {
+        if (event.effectiveDirective === "frame-src") {
+          window.__agropetFrameViolations.push(event.blockedURI);
+        }
+      });
+    });
     const response = await page.goto(base + "/portfolio/agropet-filt?0web_preview=1", { waitUntil: "domcontentloaded", timeout: 30000 });
     try {
       assert.equal(response?.status(), 200, "página deve responder 200");
@@ -37,10 +52,14 @@ try {
       assert.match(await page.getByRole("dialog").innerText(), /Consulta guiada/);
       const iframe = page.locator('iframe[title="Agropet Filt — formulário de consulta"]');
       await iframe.waitFor({ state: "attached", timeout: 12000 });
-      assert.equal(await iframe.getAttribute("src"), "https://form.jotform.com/263077233917057", "formulário persistente correto");
+      assert.equal(await iframe.getAttribute("src"), formUrl, "formulário persistente correto");
+      await iframe.scrollIntoViewIfNeeded();
+      await page.frameLocator('iframe[title="Agropet Filt — formulário de consulta"]')
+        .locator("[data-embed-probe]").waitFor({ state: "visible", timeout: 12000 });
+      assert.deepEqual(await page.evaluate(() => window.__agropetFrameViolations), [], "CSP deve permitir o formulário");
       assert.equal(await page.locator('[data-client-key="agropet-filt"][data-funnel-provider="jotform"]').count(), 1, "único formulário por clientKey");
       assert.equal(errors.length, 0, "nenhum erro JS: " + errors.join("; "));
-      console.log("[agropet-qa] PASS " + width + "px; index-on, canonical, modal, no-overflow, JS clean");
+      console.log("[agropet-qa] PASS " + width + "px; index-on, canonical, modal, iframe navegável sob CSP, no-overflow, JS clean");
     } catch (e) {
       failure++;
       console.error("[agropet-qa] FAIL " + width + "px: " + (e instanceof Error ? e.message : String(e)));

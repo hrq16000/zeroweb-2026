@@ -787,17 +787,17 @@
       "structuralSignature": {
         "segment": "pet shop e aviário",
         "layoutFamily": "local-de-bairro",
-        "heroFamily": "split-editorial",
+        "heroFamily": "illustrated-poster",
         "sectionRhythm": "modular-grid",
         "proofStyle": "local-seal",
         "mediaNarrative": "editorial-band",
-        "ctaStyle": "floating-persistent",
+        "ctaStyle": "category-entry-dialog",
         "motionProfile": "pet-editorial-balanced"
       },
       "structuralOriginalityReview": {
         "approved": true,
-        "reviewedAt": "2026-11-04",
-        "notes": "Mosaico de produtos e guia de decisão divergem da referência Realeza e de outros portfólios, sem copiar layout."
+        "reviewedAt": "2026-11-07",
+        "notes": "Revisão do JSX/CSS: hero 53/47 com cão/ave vetoriais, órbitas e selos em peso equivalente à tipografia caracteriza illustrated-poster, distinto do split-editorial com fotografia secundária da Moreira. Seis botões de categoria e painel-guia distribuem entradas para o diálogo Jotform; o botão flutuante é acesso complementar. category-entry-dialog descreve essa distribuição, sem alegar envio da categoria ao provedor. Vocabulário reutilizável registrado no adendo estrutural; limites comparativos preservados."
       },
       "compositionFingerprint": {
         "heroGeometry": "asymmetric 53/47 pet editorial poster with original dog and bird illustration",

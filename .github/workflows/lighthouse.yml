@@ -28,7 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          # PR scope must use the actual common ancestor, including old branches.
+          fetch-depth: 0
 
       - name: Classificar escopo
         id: diff
@@ -54,7 +55,10 @@ jobs:
             HEAD="$PUSH_HEAD_SHA"
           fi
 
-          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          git fetch --no-tags origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$(git merge-base "$BASE" "$HEAD")"
+          fi
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
           MODE=full
@@ -106,7 +110,7 @@ jobs:
             fi
           fi
 
-          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/lib/security-headers\.ts$|src/config/portfolio-(clients|meta)|scripts/generate-portfolio-|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
@@ -127,7 +131,9 @@ jobs:
             RUN=false
           fi
 
-          ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs "$BASE" "$HEAD")"
+          # A verified client-specific config/CSP repair also needs its page gate.
+          if [ -n "$ONLY" ]; then RUN=true; fi
           if [ "$FRAMEWORK_COMPAT" = true ]; then
             # Upgrade de framework sem mudança normal de UI: usa um canário
             # diversificado, com os mesmos thresholds absolutos do gate global.

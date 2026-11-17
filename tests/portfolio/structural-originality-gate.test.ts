@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 // @ts-expect-error — script utilitário em JS puro
 import { evaluateStructuralOriginality, FAMILIES, sectionOrderSimilarity } from "../../scripts/portfolio-structural-originality.mjs";
+// @ts-expect-error — script utilitário em JS puro
+import { evaluateProjectQuality } from "../../scripts/check-portfolio-landing-quality.mjs";
 
 const baseSignature = {
   segment: "marcenaria",
@@ -95,5 +98,25 @@ describe("STRUCTURAL_ORIGINALITY_GATE", () => {
   it("declara as oito famílias estruturais", () => {
     expect(FAMILIES.layoutFamilies).toHaveLength(8);
     expect(FAMILIES.comparisonWindow).toEqual({ recentProjects: 12, sameLayoutFamily: 5, sameSegment: 5 });
+  });
+
+  it.each(["agropet-filt", "autoescola-aptos"])("preserva originalidade de %s com a composição implementada", (slug) => {
+    const matrix = JSON.parse(readFileSync(`docs/portfolio/quality-matrix/${slug}.json`, "utf8"));
+    const result = evaluateProjectQuality(slug, matrix);
+    expect(result.structuralOriginality.failures).toEqual([]);
+  });
+
+  it("reprova repetição das novas famílias com os mesmos limites", () => {
+    const manifest = newProject({ signature: { heroFamily: "illustrated-poster", ctaStyle: "category-entry-dialog" } });
+    const repeated = { ...peer, signature: manifest.structuralSignature };
+    const result = evaluateStructuralOriginality({
+      slug: "novo",
+      manifest,
+      sectionOrder: ["hero.poster", "category.grid", "guide.choice", "location.map"],
+      peers: [repeated, { ...repeated, slug: "peer-b" }],
+    });
+    expect(result.checks.heroStructureUniqueEnough).toBe("FAIL");
+    expect(result.checks.ctaPatternDistinct).toBe("FAIL");
+    expect(result.checks.notPerceivedAsSkinSwap).toBe("FAIL");
   });
 });

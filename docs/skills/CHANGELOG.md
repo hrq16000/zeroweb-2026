@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-11-07 — Agropet preview CI and hosted-form repair
+
+- Applied the local skill router and UI quality gates plus Vercel deployments-cicd to inspect failed checks, separate build blockers from browser failures, and verify the requested branch.
+- Corrected structural classification without changing the rendered design; preserved collision thresholds and performance/visual budgets.
+- Added verified per-client CI scope and an iframe navigation probe under the actual CSP. Form host access is exact; no lead is submitted.
+- Evidence and applicability decisions: `docs/portfolio/AGROPET_PREVIEW_REPAIR_2026-11-07.md`.
+
 ## 2026-09-21 — Centro Mega Store Concept · social commerce autônomo
 
 - **Escopo:** evolução material de `/portfolio/centro-mega` para amostra de loja virtual tecnológica + outlet.
