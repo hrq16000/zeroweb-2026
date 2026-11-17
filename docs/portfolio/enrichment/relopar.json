@@ -1,0 +1,180 @@
+{
+  "slug": "relopar",
+  "lastVerifiedAt": "2026-11-06",
+  "stage": "research",
+  "readiness": "NOT_READY",
+  "business": {
+    "name": "Relopar — Relógios de Ponto",
+    "address": "Rua Cruz Machado, 344, Centro, Curitiba, PR",
+    "registeredCompany": "Relopar Soluções em Controle de Acesso Ltda",
+    "registeredCnpj": "33.809.415/0001-60",
+    "registeredAddressDetail": "Loja 04 segundo diretório",
+    "domainOnFacade": "www.relopar.com.br",
+    "officialWhatsapp": null
+  },
+  "facts": [
+    {
+      "field": "facade_address",
+      "value": "Rua Cruz Machado, 344",
+      "sourceType": "USER_SUPPLIED_PHOTO",
+      "status": "verified_in_photo"
+    },
+    {
+      "field": "registered_company",
+      "value": "Relopar Soluções em Controle de Acesso Ltda",
+      "status": "public_directory_requires_owner_confirmation",
+      "sourceUrl": "https://juridicoonline.com.br/empresa/33809415000160-relopar-solucoes-em-controle-de-acesso-ltda"
+    },
+    {
+      "field": "another_company_same_brand",
+      "value": "Relopar Relógios de Ponto do Paraná Ltda",
+      "status": "distinct_legal_entity_not_conflated",
+      "sourceUrl": "https://www.consultascnpj.com/relopar-relogios-de-ponto-do-parana-ltda/10392233000130"
+    },
+    {
+      "field": "domain",
+      "value": "www.relopar.com.br",
+      "status": "facade_observed_site_not_accessible_during_research"
+    },
+    {
+      "field": "services",
+      "value": [
+        "relogios de ponto",
+        "assistencia tecnica equipamentos diversos",
+        "controle de acesso"
+      ],
+      "status": "facade_and_directory_claims_to_confirm_specific_scope"
+    },
+    {
+      "field": "hours",
+      "value": null,
+      "status": "not_verified"
+    },
+    {
+      "field": "reviews",
+      "value": null,
+      "status": "not_imported"
+    },
+    {
+      "field": "instagram",
+      "value": null,
+      "status": "official_profile_not_confirmed"
+    },
+    {
+      "field": "whatsapp",
+      "value": null,
+      "status": "not_confirmed_contact_routing_disabled"
+    },
+    {
+      "field": "copyright_third_party_photos",
+      "status": "license_unconfirmed_do_not_publish_as_official"
+    }
+  ],
+  "media": {
+    "realBusinessPhotos": [
+      {
+        "source": "USER_SUPPLIED",
+        "filename": "732395.jpg",
+        "description": "Fachada e interior, foto real enviada pelo usuário",
+        "ingestion": "pending_repository_copy"
+      },
+      {
+        "source": "USER_SUPPLIED",
+        "filename": "732400.jpg",
+        "description": "Fachada lateral, foto real enviada pelo usuário",
+        "ingestion": "pending_repository_copy"
+      }
+    ],
+    "officialBrandAssets": [],
+    "externalMedia": [
+      {
+        "url": "https://www.bmvix.com.br/uploads/img/produtos/27/produtos_fotos/a586124266e77065e085a8976dd538fd.jpg",
+        "kind": "category_reference_only",
+        "usageRights": "unverified"
+      },
+      {
+        "url": "https://antirion.com.br/wp-content/uploads/2019/11/373.png",
+        "kind": "category_reference_only",
+        "usageRights": "unverified"
+      }
+    ],
+    "missingMedia": [
+      "official_logo_source",
+      "authorized_product_photos",
+      "interior_clean_shots",
+      "og_1200x630"
+    ]
+  },
+  "researchLedger": {
+    "googleMaps": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "domain_on_facade_did_not_respond"
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
+    },
+    "businessPhotos": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "remark": "Two user supplied photos, pending copy to repo"
+    }
+  },
+  "sourceLinks": [
+    "https://juridicoonline.com.br/empresa/33809415000160-relopar-solucoes-em-controle-de-acesso-ltda",
+    "https://www.consultascnpj.com/relopar-relogios-de-ponto-do-parana-ltda/10392233000130",
+    "https://cpl-feas.curitiba.pr.gov.br/Dispensas2022/dispensa0822022_000032.pdf"
+  ],
+  "nextActions": [
+    "integrate approved real photos",
+    "create v4 managed manifest",
+    "author React composition and metadata",
+    "publish canonical funnel lead-only",
+    "run CI and readiness",
+    "merge after gates",
+    "verify real production sitemap/indexability"
+  ]
+}
