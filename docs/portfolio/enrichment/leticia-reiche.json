@@ -1,0 +1,205 @@
+{
+  "slug": "leticia-reiche",
+  "lastResearchAt": "2026-11-07",
+  "stage": "R1_ENTITY_EVIDENCE",
+  "entity": {
+    "displayName": "Letícia Reiche",
+    "tradeDescription": "Manicure & Pedicure",
+    "resolutionStatus": "PROVISIONAL_OWNER_SUPPLIED",
+    "notes": "Nome e especialidade lidos em arte enviada pelo operador. Não foi localizado perfil externo que vincule de forma independente a profissional à cidade e ao número. Não confundir coincidências de nome com ficha verificada."
+  },
+  "identity": {
+    "name": {
+      "value": "Letícia Reiche",
+      "sourceType": "USER_SUPPLIED_ARTWORK",
+      "confidence": "HIGH"
+    },
+    "category": {
+      "value": "Manicure & Pedicure",
+      "sourceType": "USER_SUPPLIED_ARTWORK",
+      "confidence": "HIGH"
+    },
+    "city": {
+      "value": "Belford Roxo",
+      "state": "RJ",
+      "sourceType": "OPERATOR_MESSAGE",
+      "confidence": "MEDIUM"
+    },
+    "telephone": {
+      "value": "+55 21 99937-2351",
+      "sourceType": "OPERATOR_MESSAGE",
+      "confidence": "MEDIUM",
+      "confirmedAsWhatsapp": false
+    },
+    "address": null,
+    "businessHours": null,
+    "googlePlaceId": null,
+    "instagram": null,
+    "facebook": null,
+    "website": null
+  },
+  "campaign": {
+    "sourceType": "USER_SUPPLIED_ARTWORK",
+    "subject": "Agenda de Natal 2026",
+    "opensOn": "2026-11-09",
+    "reservationDepositPercentage": 40,
+    "expiresAt": null,
+    "validation": "PENDING_PROFESSIONAL_CONFIRMATION",
+    "notes": "Sinal de 40% referido na arte; não presumir gateway de pagamento, política de reembolso, preço final, disponibilidade de horários nem funcionamento contínuo após a campanha. Não prometer reserva confirmada sem slot real."
+  },
+  "services": [
+    {
+      "name": "Manicure",
+      "sourceType": "USER_SUPPLIED_ARTWORK",
+      "status": "MARKETED_CATEGORY",
+      "price": null,
+      "duration": null
+    },
+    {
+      "name": "Pedicure",
+      "sourceType": "USER_SUPPLIED_ARTWORK",
+      "status": "MARKETED_CATEGORY",
+      "price": null,
+      "duration": null
+    }
+  ],
+  "researchLedger": {
+    "operatorArtwork": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "notes": "Arte anexada à conversa: imagem de divulgação, não fotografia comprovada de trabalho da profissional; não copiada ao Git nesta etapa."
+    },
+    "publicNameSearch": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "queries": [
+        "\"Letícia Reiche\" \"manicure\" \"Belford Roxo\"",
+        "\"Letícia Reiche\" unhas RJ",
+        "\"Leticia Reiche\" \"Belford Roxo\" \"unhas\""
+      ]
+    },
+    "phoneSearch": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "queries": [
+        "\"21999372351\" manicure",
+        "\"21 99937 2351\" manicure"
+      ],
+      "notes": "Sem associação pública confiável."
+    },
+    "googleBusiness": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "Busca de negócio nominal em Belford Roxo não retornou a entidade solicitada. Uma listagem negativa não prova inexistência de ficha."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "Buscas por nome sem perfil oficial vinculado ao número/localidade."
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "reviews": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "businessPhotos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "A foto das mãos na arte não é identificável como foto autoral de procedimento executado pela profissional."
+    }
+  },
+  "marketContext": {
+    "region": "Belford Roxo, RJ",
+    "category": "nail salon",
+    "assessment": "Há oferta concorrente real; é uma oportunidade para uma amostra digital local, não uma promessa de demanda/ranking.",
+    "verifiedExternalEntityForClient": false
+  },
+  "media": {
+    "userFlyer": {
+      "present": true,
+      "storedInRepo": false,
+      "usagePermission": "UNCONFIRMED_FOR_PUBLIC_WEBSITE",
+      "purpose": "visual brand reference only"
+    },
+    "realWorkPhotos": [],
+    "officialLogos": [],
+    "generatedAssets": [],
+    "doNotUse": [
+      "fotos de concorrentes como trabalhos próprios",
+      "depoimentos ou avaliações fictícios",
+      "prints de agenda/horários não confirmados"
+    ]
+  },
+  "unverified": [
+    "Instagram e Facebook oficiais",
+    "Google Business Profile/Place ID",
+    "bairro/endereço e atendimento em domicílio",
+    "horários e capacidade real da agenda",
+    "tabela de serviços, preços e duração",
+    "regras de sinal, pagamento e cancelamento",
+    "WhatsApp comercial do telefone informado",
+    "direitos de uso do material promocional e fotos reais"
+  ],
+  "lifecycleRecommendation": "Pesquisa inicial concluída; prosseguir R2 em PR isolada após direção autoral e com conteúdo transparente. Não inserir manifesto stage=ready, publicar URL, vincular telefone como WhatsApp ou afirmar agendamento funcional ainda.",
+  "safeguards": {
+    "noDNSChanges": true,
+    "noLovable": true,
+    "noSupabaseServiceRoleForPortfolio": true,
+    "noFabricatedEvidence": true,
+    "noUnverifiedWhatsappRedirect": true,
+    "leadSavedBeforeRedirect": true,
+    "indexOnOnlyAfterReadiness": true
+  }
+}

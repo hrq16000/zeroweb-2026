@@ -1,0 +1,84 @@
+{
+  "slug": "leticia-reiche",
+  "status": "R2_PREVIEW_ASSETS_CREATED_NOT_PUBLICATION_APPROVED",
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "EDITORIAL_BRAND_ART",
+      "sourceType": "ORIGINAL_GRAPHIC_SVG",
+      "asset": "public/images/leticia-reiche/editorial.svg",
+      "status": "CREATED_PREVIEW",
+      "resolution": "R4 visual runtime review"
+    },
+    {
+      "section": "servicos",
+      "requiredMediaRole": "SERVICE_DECISION_VISUAL",
+      "sourceType": "ORIGINAL_TYPOGRAPHIC_DESIGN",
+      "asset": "src/components/site/LeticiaReichePreviewPage.tsx#cuidados",
+      "status": "CREATED_PREVIEW"
+    },
+    {
+      "section": "galeria",
+      "requiredMediaRole": "REAL_WORK_PHOTOS",
+      "sourceType": "MISSING_MEDIA",
+      "asset": null,
+      "status": "AWAITING_AUTHENTIC_MEDIA",
+      "resolution": "Omit gallery until verified; no fictional procedures"
+    },
+    {
+      "section": "natal_2026",
+      "requiredMediaRole": "CAMPAIGN_GRAPHIC",
+      "sourceType": "USER_FLYER_REFERENCE",
+      "asset": null,
+      "status": "RIGHTS_AND_FRESHNESS_PENDING",
+      "resolution": "Use authorial dated announcement; avoid copying flyer image"
+    },
+    {
+      "section": "catalog_cover",
+      "requiredMediaRole": "BRAND_LED_COVER",
+      "sourceType": "ORIGINAL_GRAPHIC_SVG",
+      "asset": "public/images/leticia-reiche/capa-card.svg",
+      "status": "CREATED_PREVIEW",
+      "resolution": "Review with catalog preview before publication"
+    },
+    {
+      "section": "og_social",
+      "requiredMediaRole": "SOCIAL_OG_IMAGE",
+      "sourceType": "ORIGINAL_GRAPHIC_SVG",
+      "asset": "public/images/leticia-reiche/social-og.svg",
+      "status": "CREATED_PREVIEW",
+      "resolution": "Rasterize to JPG/PNG 1200x630 for public launch"
+    }
+  ],
+  "cover": {
+    "approved": false,
+    "asset": "public/images/leticia-reiche/capa-card.svg",
+    "strategy": "EDITORIAL_BRAND_LED",
+    "status": "PENDING_VISUAL_QA"
+  },
+  "heroMedia": {
+    "asset": "public/images/leticia-reiche/editorial.svg",
+    "kind": "ORIGINAL_SVG_ILLUSTRATION",
+    "notDocumentary": true,
+    "status": "CREATED_PREVIEW"
+  },
+  "disclosure": "Nenhuma foto de mãos/unhas é apresentada como serviço de Letícia sem prova. O flyer enviado é referência cromática, não fonte licenciada de fotografia de procedimentos. Prévia protegida por VERCEL_ENV=preview; em produção loader devolve notFound. Capa SVG e OG ainda requerem avaliação visual em runtime e versão raster final. R4 form hosted: sem disponibilidade/agenda real e sem confirmação de atendimento; coleta apenas após ação voluntária dentro do iframe.",
+  "logo": {
+    "asset": "public/images/leticia-reiche/logo.svg",
+    "sourceType": "ORIGINAL_EDITORIAL_MONOGRAM",
+    "officialBusinessLogo": false
+  },
+  "page": {
+    "component": "src/components/site/LeticiaReichePreviewPage.tsx",
+    "style": "src/components/site/leticia-reiche.css",
+    "previewRoute": "src/routes/portfolio-preview.leticia-reiche.tsx",
+    "mode": "PREVIEW_ONLY_HOSTED_JOTFORM",
+    "publicRouteCreated": false,
+    "formEnabled": true,
+    "robots": "noindex,nofollow",
+    "privacy": "0WEB demonstrativo com consentimento explícito no formulário hospedado; os envios são recebidos na conta da 0WEB.",
+    "formProvider": "JOTFORM",
+    "formUrl": "https://form.jotform.com/263111116816044",
+    "formNotes": "Formulário de demonstração, incorporado à rota de preview por consentimento e carregado após clique; sem API Supabase, slot ou redirect WhatsApp. Sem publicação oficial."
+  }
+}
