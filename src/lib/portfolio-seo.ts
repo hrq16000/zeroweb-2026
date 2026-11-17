@@ -105,6 +105,27 @@ export function breadcrumbNode(trail: { name: string; path: string }[]) {
   };
 }
 
+export function portfolioWebPageNode(
+  url: string,
+  title: string,
+  description: string,
+) {
+  return {
+    "@type": "WebPage",
+    "@id": url + "#webpage",
+    url,
+    name: title,
+    description,
+    inLanguage: "pt-BR",
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": SITE_URL + "/#website",
+      url: SITE_URL,
+      name: "0WEB",
+    },
+    publisher: { "@id": SITE_URL + "/#organization" },
+  };
+}
 export function graph(nodes: unknown[]) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": nodes });
 }

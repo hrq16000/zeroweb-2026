@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import {
   listPublicPortfolioSeoDescriptors,
+  portfolioBrandedDescription,
+  portfolioBrandedTitle,
   portfolioUniversalKeywords,
   portfolioUniversalSeoTitle,
   portfolioSemanticContext,
@@ -57,9 +59,20 @@ describe("SEO universal dos portfolios", () => {
     const titles = published.map((item) => portfolioUniversalSeoTitle(item.slug));
     expect(titles.every(Boolean)).toBe(true);
     expect(titles.every((title) => (title?.length ?? 999) <= 65)).toBe(true);
+    expect(titles.every((title) => /\b0WEB\b/i.test(title ?? ""))).toBe(true);
     expect(new Set(titles).size).toBe(titles.length);
   });
 
+
+  test("títulos e descrições preservam a entidade do cliente e a autoria 0WEB", () => {
+    const aptos = published.find((item) => item.slug === "autoescola-aptos");
+    expect(portfolioBrandedTitle(aptos?.title ?? "", aptos?.city, aptos?.subtitle)).toBe(
+      "Autoescola APTOS | São José dos Pinhais | 0WEB",
+    );
+    expect(portfolioBrandedDescription(aptos?.summary ?? "", aptos?.title ?? "", aptos?.city)).toMatch(
+      /^Projeto 0WEB para Autoescola APTOS em São José dos Pinhais\./,
+    );
+  });
   test("contexto de palavras-chave usa entidade, tags e localidade sem duplicar termos", () => {
     for (const item of published) {
       const keywords = portfolioUniversalKeywords(item.slug) ?? "";
@@ -160,6 +173,8 @@ describe("SEO universal dos portfolios", () => {
   test("a rede SEO pertence à casca universal e o head dinâmico usa o resolvedor", () => {
     expect(shell).toContain("<PortfolioSeoNetwork");
     expect(route).toContain("portfolioUniversalSeoTitle");
+    expect(route).toContain("portfolioBrandedDescription");
+    expect(route).toContain("portfolioWebPageNode");
     expect(shell).toContain("seoContextOverride");
     expect(route).toContain("portfolioUniversalKeywords");
     expect(route).toContain('property: "og:locale"');
