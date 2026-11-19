@@ -1,6 +1,8 @@
--- Funil próprio, informativo e LEAD_ONLY; não redireciona para contato não confirmado.
--- A página é demonstrativa: contatos enviados são registrados na plataforma 0WEB
--- e NÃO constituem pedido, encomenda nem comunicação oficial com a padaria.
+-- Funil próprio da Panificadora Doce Coração (Santo Antônio).
+-- Intenção comercial salva com protocolo ANTES da rota WhatsApp isolada;
+-- nenhum pedido, encomenda, preço ou disponibilidade é confirmado pelo site.
+-- Destino validado contra número comercial da ficha pública e referência
+-- encaminhada pelo operador; cadastro canônico em portfolio-whatsapp.json.
 DO $$
 DECLARE v_form_id uuid;
 BEGIN
@@ -11,16 +13,16 @@ BEGIN
     INSERT INTO public.dynamic_forms (slug, name, description, status, config_json, whatsapp_config)
     VALUES (
       'funnel-panificadora-doce-coracao-santo-antonio',
-      'Informações da página · Panificadora Doce Coração',
-      'Registro de observações sobre esta apresentação demonstrativa criada pela 0WEB; sem contato oficial da padaria.',
-      'published', '{"auto_advance_ms":250}'::jsonb, '{"enabled":false}'::jsonb
+      'Consulta · Panificadora Doce Coração',
+      'Consulta de produtos e disponibilidade; após registro de intenção, o visitante pode iniciar a conversa com o WhatsApp comercial da padaria.',
+      'published', '{"auto_advance_ms":250}'::jsonb, '{"enabled":true}'::jsonb
     ) RETURNING id INTO v_form_id;
   ELSE
     UPDATE public.dynamic_forms SET
-      name = 'Informações da página · Panificadora Doce Coração',
-      description = 'Registro de observações sobre esta apresentação demonstrativa criada pela 0WEB; sem contato oficial da padaria.',
+      name = 'Consulta · Panificadora Doce Coração',
+      description = 'Consulta de produtos e disponibilidade; após registro de intenção, o visitante pode iniciar a conversa com o WhatsApp comercial da padaria.',
       status = 'published',
-      whatsapp_config = '{"enabled":false}'::jsonb
+      whatsapp_config = '{"enabled":true}'::jsonb
     WHERE id = v_form_id;
     DELETE FROM public.dynamic_form_conditions WHERE form_id = v_form_id;
     DELETE FROM public.dynamic_form_questions WHERE form_id = v_form_id;
@@ -29,17 +31,16 @@ BEGIN
   INSERT INTO public.dynamic_form_questions
     (form_id, key, type, label, hint, placeholder, order_index, required, options_json)
   VALUES
-    (v_form_id, 'aviso', 'statement',
-      'Esta é uma demonstração editorial da 0WEB',
-      'Este formulário registra sua observação sobre a página na 0WEB. Não envia mensagens, encomendas ou pedidos à padaria.', null, 0, false, '[]'::jsonb),
-    (v_form_id, 'assunto', 'radio', 'Sobre qual assunto você quer falar?', null, null, 1, true,
-      '[{"value":"correcao","label":"Corrigir endereço ou informações"},{"value":"conteudo","label":"Sugerir melhoria do conteúdo"},{"value":"responsavel","label":"Sou responsável pela empresa"},{"value":"outro","label":"Outra observação sobre esta página"}]'::jsonb),
-    (v_form_id, 'mensagem', 'long_text', 'Descreva sua observação', 'Evite compartilhar dados pessoais sensíveis.', 'O que você gostaria de nos informar?', 2, true, '[]'::jsonb),
-    (v_form_id, 'consentimento', 'radio',
-      'Você entende que a 0WEB, e não a padaria, recebe esta observação?',
-      'Não há encaminhamento automático à empresa.', null, 3, true,
-      '[{"value":"entendo","label":"Sim, entendo"},{"value":"nao","label":"Não — prefiro consultar o Google Maps"}]'::jsonb),
+    (v_form_id, 'boas_vindas', 'statement',
+      'Doce Coração: vamos preparar sua consulta',
+      'Este formulário registra sua intenção na 0WEB e abre a conversa pelo WhatsApp comercial informado publicamente. Não é uma compra ou encomenda confirmada.', null, 0, false, '[]'::jsonb),
+    (v_form_id, 'nome', 'short_text', 'Como podemos chamar você?', null, 'Seu primeiro nome', 1, true, '[]'::jsonb),
+    (v_form_id, 'categoria', 'radio', 'O que gostaria de consultar?', null, null, 2, true,
+      '[{"value":"paes","label":"Pães e café da manhã"},{"value":"salgados","label":"Salgados ou lanche"},{"value":"bolos","label":"Bolos"},{"value":"doces","label":"Doces"},{"value":"encomenda","label":"Possibilidade de encomenda"},{"value":"horarios","label":"Horários e atendimento"},{"value":"outro","label":"Outra informação"}]'::jsonb),
+    (v_form_id, 'momento', 'radio', 'Para quando você precisa?', null, null, 3, true,
+      '[{"value":"hoje","label":"Hoje"},{"value":"amanha","label":"Amanhã"},{"value":"planejamento","label":"Outra data, vou combinar com a padaria"},{"value":"so_consulta","label":"Só quero informações"}]'::jsonb),
+    (v_form_id, 'detalhes', 'long_text', 'Conte algum detalhe?', 'Opcional: produto, quantidade ou dúvida. Os valores e a disponibilidade são confirmados pela padaria.', 'Descreva sua consulta', 4, false, '[]'::jsonb),
     (v_form_id, 'conclusao', 'statement',
-      'Observação registrada',
-      'A 0WEB poderá revisar a informação. Para falar com a padaria ou consultar produtos, procure a ficha pública no Google Maps.', null, 4, false, '[]'::jsonb);
+      'Sua intenção foi registrada',
+      'Agora você poderá iniciar a conversa no WhatsApp da Panificadora Doce Coração. A equipe confirma disponibilidade, preço e condições diretamente.', null, 5, false, '[]'::jsonb);
 END $$;

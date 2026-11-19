@@ -25,7 +25,7 @@
     },
     "instagram": {
       "searched": true,
-      "found": false,
+      "found": true,
       "resolved": false,
       "verified": false,
       "accessible": false,
@@ -66,11 +66,11 @@
     "phone": {
       "searched": true,
       "found": true,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
       "ingestable": false,
-      "usable": false,
+      "usable": true,
       "blocker": null
     },
     "address": {
@@ -212,9 +212,18 @@
       "field": "instagram",
       "value": "@docecoracao.mina",
       "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
-      "confidence": "LOW",
+      "confidence": "MEDIUM",
       "verifiedAt": "2026-11-19",
-      "status": "UNVERIFIED_ASSOCIATION"
+      "status": "HANDLE_MATCHED_BY_PUBLIC_BUSINESS_PHONE_NOT_OFFICIALLY_CONFIRMED"
+    },
+    {
+      "field": "commercialWhatsApp",
+      "value": "5541991363912",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "sourceUrl": "https://restaurantguru.com/Doce-Coracao-Sao-Jose-dos-Pinhais",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-19",
+      "status": "MATCHED_IN_OWNER_SCREENSHOT_WHATSAPP_AND_PUBLIC_DIRECTORY_PHONE"
     }
   ],
   "sources": [
@@ -250,6 +259,8 @@
       "searched": true,
       "handleCandidate": "docecoracao.mina",
       "officialConfirmed": false,
+      "businessPhoneMatched": true,
+      "profileUrl": "https://www.instagram.com/docecoracao.mina/",
       "latestSixStatus": "BLOCKED_NO_VERIFIED_POSTS"
     },
     "facebook": {

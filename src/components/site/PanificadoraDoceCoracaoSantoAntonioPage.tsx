@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Clock3, ExternalLink, Heart, MapPin, Navigation, Search } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock3, ExternalLink, Heart, Instagram, MapPin, MessageCircle, Navigation, Search, Sparkles } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -9,6 +9,7 @@ import "./panificadora-doce-coracao.css";
 const slug = "panificadora-doce-coracao-santo-antonio";
 const asset = "/images/" + slug;
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Panificadora%20Doce%20Cora%C3%A7%C3%A3o%20Santo%20Ant%C3%B4nio%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais&query_place_id=ChIJK4CTr0b33JQRF5lemSGL8yA";
+const instagramUrl = "https://www.instagram.com/docecoracao.mina/";
 const guide = [
   {
     id: "cafe-da-manha", time: "01 / Começo do dia", title: "Um pão para começar",
@@ -50,6 +51,14 @@ const questions = [
     answer: "A disponibilidade de encomendas, retirada e entrega não foi confirmada diretamente com a unidade. Verifique as condições atuais com o estabelecimento.",
   },
   {
+    question: "Como consultar a padaria pelo WhatsApp?",
+    answer: "O formulário registra o interesse com a 0WEB e encaminha para a conversa no WhatsApp comercial informado publicamente. A padaria confirma preços, produtos e disponibilidade; o preenchimento não constitui compra nem encomenda.",
+  },
+  {
+    question: "Onde encontro as publicações do Instagram e Facebook?",
+    answer: "A referência recebida indica @docecoracao.mina e o número do perfil corresponde ao contato da ficha comercial. O Instagram pode ser acessado diretamente; as últimas seis postagens e uma página oficial no Facebook ainda não puderam ser verificadas para incorporação.",
+  },
+  {
     question: "Este é o site oficial da padaria?",
     answer: "Esta página é uma apresentação demonstrativa e editorial desenvolvida na vitrine da 0WEB com base em informações públicas. Não representa um canal oficial da Panificadora Doce Coração.",
   },
@@ -75,28 +84,28 @@ export const composition: PortfolioComposition = {
     spatialLanguage: "Colunas editoriais assimétricas, círculos de marca e etiquetas de prateleira.",
     heroConcept: "Capa de jornal creme com grande título vinho e ilustração original à direita.",
     navigationConcept: "Masthead compacta, navegação por âncoras e mapa externo.",
-    contentRhythm: "Capa → momentos do dia → vocabulário de panificação → etiqueta de endereço → perguntas → fechamento editorial.",
+    contentRhythm: "Capa → fita cinética → momentos do dia → categorias → endereço → redes e prova de origem → perguntas → fechamento editorial.",
     mediaNarrative: "Logo, capa e OG autorais com ilustrações vetoriais conceituais; sem fotografias falsamente documentais.",
     proofNarrative: "Localização e categorias informadas com fonte e data, sem depoimentos ou avaliações inventadas.",
-    conversionNarrative: "Rota confirmada primeiro; funil isolado para consulta demonstrativa em segundo plano.",
+    conversionNarrative: "Rota como ação local principal; funil comercial isolado abre conversa no WhatsApp da padaria após registro da intenção.",
     motionNarrative: "Carimbo com micro movimento e links expressivos, sempre respeitando movimento reduzido.",
     signatureMoments: ["Carimbo editorial de bairro", "Navegação por três ocasiões", "Etiqueta de endereço em alto contraste"],
     compositionFingerprint: {
       heroGeometry: "oversized editorial masthead illustration seal offset right",
       headerTreatment: "tiny neighborhood newspaper masthead",
-      sectionGraph: "paper cover→moment selector→food typology→burgundy address ticket→FAQ→editorial close",
-      contentOrder: ["orientação", "ocasião", "categorias", "localização", "dúvidas", "contato"],
+      sectionGraph: "paper cover→bread ticker→moment selector→food typology→burgundy address ticket→social source card→FAQ→editorial close",
+      contentOrder: ["orientação", "ritmo", "ocasião", "categorias", "localização", "redes", "dúvidas", "contato"],
       gridTopology: "asymmetric cover, horizontal moments, typographic categories, full-width locator",
       mediaDistribution: "custom SVG cover, graphic category icons, map directions, own social poster",
-      backgroundRhythm: "cream→mustard→paper→burgundy→rose→cream",
+      backgroundRhythm: "cream→burgundy ticker→mustard→paper→burgundy→cream social→rose→cream",
       proofPlacement: "address adjacent to map with research date",
-      ctaDistribution: "hero route, locator directions, closing consultation",
+      ctaDistribution: "hero route plus inquiry, locator directions, Instagram reference, closing business inquiry",
       navigationPattern: "local sticky anchors and maps, no institutional header",
       motionSignature: "short stamp + icon micro-lift / reduced motion static",
       closingStructure: "typographic note with demonstrative disclosure",
       roleGraph: ["entity orientation", "occasion guidance", "category discovery", "wayfinding", "FAQ", "consultation"],
-      mediaCadence: ["editorial illustration", "graphic menu", "map direction", "text FAQ"],
-      interactionLoci: ["moment anchors", "map", "FAQ", "funnel"],
+      mediaCadence: ["editorial illustration", "kinetic ticker", "graphic menu", "map direction", "social art", "text FAQ"],
+      interactionLoci: ["moment anchors", "map", "Instagram", "FAQ", "funnel"],
       decisionAidPlacement: ["occasion strip", "hours caveat near address"],
       densityRhythm: ["airy", "compact", "medium", "high contrast", "quiet"],
       mobileCompositionStrategy: "text precedes art, moment controls wrap, map ticket full width",
@@ -115,7 +124,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
             <span><strong>Doce Coração</strong><small>Panificadora · Santo Antônio</small></span>
           </a>
           <nav className="dc-nav" aria-label="Seções da apresentação">
-            <a href="#momentos">Momentos</a><a href="#sabores">Sabores</a><a href="#localizacao">Localização</a><a href="#perguntas">Dúvidas</a>
+            <a href="#momentos">Momentos</a><a href="#sabores">Sabores</a><a href="#localizacao">Localização</a><a href="#redes">Redes</a><a href="#perguntas">Dúvidas</a>
           </nav>
           <a className="dc-header-route" href={mapUrl} target="_blank" rel="noopener noreferrer">Ver rota <ArrowUpRight size={17} aria-hidden="true" /></a>
         </header>
@@ -134,6 +143,10 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
                 <a className="dc-button-primary" href={mapUrl} target="_blank" rel="noopener noreferrer">
                   <Navigation size={18} aria-hidden="true" /> Encontrar a padaria <ArrowUpRight size={18} aria-hidden="true" />
                 </a>
+                <FunnelCTAButton clientKey="panificadora-doce-coracao-santo-antonio" companySlug={slug}
+                  formSlug={"funnel-" + slug} location="doce_coracao_hero" className="dc-button-outline dc-button-warm">
+                  <MessageCircle size={18} aria-hidden="true" /> Consultar no WhatsApp
+                </FunnelCTAButton>
                 <a className="dc-button-quiet" href="#sabores">Conhecer os sabores <ArrowRight size={17} aria-hidden="true" /></a>
               </div>
               <p className="dc-proof-note">Apresentação editorial demonstrativa 0WEB · Informações públicas, não site oficial da padaria.</p>
@@ -147,6 +160,9 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               <span className="dc-art-caption">Ilustração de conceito · não é foto do estabelecimento</span>
             </div>
           </section>
+          <div className="dc-ticker" aria-hidden="true">
+            <div className="dc-ticker-track"><span>PÃES <b>✳</b> BOLOS <b>♡</b> PAUSAS <b>✳</b> DOCES <b>♡</b> SANTO ANTÔNIO <b>✳</b></span><span>PÃES <b>✳</b> BOLOS <b>♡</b> PAUSAS <b>✳</b> DOCES <b>♡</b> SANTO ANTÔNIO <b>✳</b></span></div>
+          </div>
 
           <section id="momentos" className="dc-moments" aria-labelledby="dc-moments-title">
             <div className="dc-section-label">01 — Um motivo para passar</div>
@@ -180,12 +196,35 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               <span className="dc-address-label"><MapPin size={19} aria-hidden="true" /> Endereço identificado na ficha pública</span>
               <address>Rua Desembargador<br />James Portugal Macedo, <strong>290</strong><span>Santo Antônio · São José dos Pinhais — PR<br />CEP 83020-620</span></address>
               <a href={mapUrl} className="dc-directions" target="_blank" rel="noopener noreferrer">Abrir localização no Google Maps <ArrowUpRight size={18} aria-hidden="true" /></a>
+              <FunnelCTAButton clientKey="panificadora-doce-coracao-santo-antonio" companySlug={slug}
+                formSlug={"funnel-" + slug} location="doce_coracao_localizacao" className="dc-location-whatsapp">
+                <MessageCircle size={18} aria-hidden="true" /> Consultar produtos pelo WhatsApp
+              </FunnelCTAButton>
               <p className="dc-location-caveat">Consulte o horário de abertura atualizado antes de sair, especialmente aos domingos e feriados.</p>
             </div>
           </section>
 
+          <section id="redes" className="dc-social" aria-labelledby="dc-social-title">
+            <div className="dc-social-intro">
+              <p className="dc-section-label">04 — Acompanhe os sabores</p>
+              <h2 id="dc-social-title">O bairro também <em>tem seu feed.</em></h2>
+              <p>O perfil <strong>@docecoracao.mina</strong> foi mencionado na captura recebida e apresenta o mesmo número de contato encontrado na ficha pública desta unidade. Para ver fotos e novidades, consulte o perfil diretamente.</p>
+              <div className="dc-social-pills"><span><Instagram size={16} aria-hidden="true" /> Instagram referenciado</span><span><Sparkles size={16} aria-hidden="true" /> Arte autoral 0WEB</span></div>
+              <a className="dc-social-cta" href={instagramUrl} target="_blank" rel="noopener noreferrer"><Instagram size={21} aria-hidden="true" /> Abrir @docecoracao.mina <ArrowUpRight size={19} aria-hidden="true" /></a>
+              <p className="dc-social-caveat">As seis postagens mais recentes ainda não foram importadas: faltam links individuais e imagens verificáveis. Nenhuma página oficial no Facebook foi confirmada. Os cartões desta seção são gráficos editoriais, não postagens reais.</p>
+            </div>
+            <div className="dc-social-art">
+              <div className="dc-social-card" aria-label="Arte editorial original ilustrativa, não publicação oficial da padaria">
+                <div className="dc-social-card-top"><img src={asset + "/logo.svg"} width="34" height="34" alt="" /><span>Doce Coração</span><small>editorial / 0WEB</small></div>
+                <div className="dc-social-card-center"><span>✳</span><strong>um intervalo<br /><em>com carinho.</em></strong><span>♡</span></div>
+                <div className="dc-social-card-bottom"><span>São José dos Pinhais · PR</span><Heart size={20} aria-hidden="true" /></div>
+              </div>
+              <div className="dc-social-note"><Instagram size={19} aria-hidden="true" /><span>Conteúdo conceitual, sem cópia de posts ou fotos de terceiros.</span></div>
+            </div>
+          </section>
+
           <section id="perguntas" className="dc-faq" aria-labelledby="dc-faq-title">
-            <div className="dc-faq-intro"><p className="dc-section-label">04 — Antes de visitar</p><h2 id="dc-faq-title">A dúvida também tem <em>seu lugar.</em></h2><p>Informação simples, sem preços presumidos, avaliações fabricadas ou promessas de entrega.</p><a href={mapUrl} target="_blank" rel="noopener noreferrer">Ver informações atuais <ExternalLink size={16} aria-hidden="true" /></a></div>
+            <div className="dc-faq-intro"><p className="dc-section-label">05 — Antes de visitar</p><h2 id="dc-faq-title">A dúvida também tem <em>seu lugar.</em></h2><p>Informação simples, sem preços presumidos, avaliações fabricadas ou promessas de entrega.</p><a href={mapUrl} target="_blank" rel="noopener noreferrer">Ver informações atuais <ExternalLink size={16} aria-hidden="true" /></a></div>
             <div className="dc-faq-list">
               {questions.map(({ question, answer }, index) => (
                 <details key={question} className="dc-faq-item" open={index === 0}>
@@ -198,10 +237,10 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
           <section className="dc-final" aria-labelledby="dc-final-title">
             <div className="dc-final-heading"><span className="dc-section-label">Um pedacinho do bairro na internet</span><h2 id="dc-final-title">O que é local merece ser <em>encontrado.</em></h2></div>
             <div className="dc-final-actions">
-              <p>Esta presença é uma demonstração editorial criada na 0WEB. Ainda não é um canal oficial da empresa. Para consultar produtos, fale diretamente com o estabelecimento pelos canais públicos. Se encontrar algo errado nesta página, registre uma observação para a equipe da 0WEB — sem encaminhamento à padaria.</p>
+              <p>Esta presença é uma demonstração editorial de <a href="/portfolio">criação de sites da 0WEB / WebRealce</a>, não o site oficial da empresa. O formulário registra a intenção antes de encaminhar a conversa ao WhatsApp comercial da padaria; preços, estoque, horários e encomendas são confirmados diretamente com a equipe.</p>
               <div className="dc-final-buttons">
                 <a className="dc-button-primary" href={mapUrl} target="_blank" rel="noopener noreferrer"><Search size={18} aria-hidden="true" /> Consultar no Google <ArrowUpRight size={17} aria-hidden="true" /></a>
-                <FunnelCTAButton clientKey="panificadora-doce-coracao-santo-antonio" companySlug={slug} formSlug={"funnel-" + slug} location="doce_coracao_demonstracao" className="dc-button-outline">Sugerir correção à 0WEB <ArrowRight size={18} aria-hidden="true" /></FunnelCTAButton>
+                <FunnelCTAButton clientKey="panificadora-doce-coracao-santo-antonio" companySlug={slug} formSlug={"funnel-" + slug} location="doce_coracao_demonstracao" className="dc-button-outline">Consultar pelo WhatsApp <MessageCircle size={18} aria-hidden="true" /></FunnelCTAButton>
               </div>
               <p className="dc-final-small">As informações foram verificadas em 19/11/2026 em <a href={mapUrl} target="_blank" rel="noopener noreferrer">Google Maps</a> e <a href="https://restaurantguru.com/Doce-Coracao-Sao-Jose-dos-Pinhais" target="_blank" rel="noopener noreferrer">Restaurant Guru</a>. Dados variáveis devem ser confirmados na origem.</p>
             </div>

@@ -8,7 +8,7 @@ Composição autoral v2. Identidade visual *conceito demonstrativo*, não repres
 - audience: Vizinhos e pessoas que procuram pães, doces, bolos e salgados na região.
 - singleGoal: Reconhecer a unidade correta, consultar categorias publicamente mencionadas e encontrar a rota.
 - sourceTruth: A ficha Food To Save da Rua Guaíra, 412, é distinta; não atribuir seus horários e parcerias à unidade Santo Antônio.
-- uncertainty: Preço, estoque, horário, disponibilidade, encomenda e entrega são voláteis; confirmar antes de visitar. Instagram @docecoracao.mina consta da captura recebida, mas não teve seis posts atuais ou vínculo oficial confirmados.
+- uncertainty: Preço, estoque, horário, disponibilidade, encomenda e entrega são voláteis; confirmar antes de visitar. Instagram @docecoracao.mina consta da captura recebida e cita o mesmo número comercial da ficha pública da unidade, mas não teve seis posts atuais ou administração oficial da conta confirmados.
 
 ## Três direções divergentes
 
@@ -27,8 +27,8 @@ Composição autoral v2. Identidade visual *conceito demonstrativo*, não repres
 - contentRhythm: reconhecimento do lugar → ocasiões → categorias → endereço contrastante → dúvidas → encerramento.
 - mediaNarrative: marca, hero, cover e OG em SVG autoral, não fotos documentais; screenshot recebido é referência EVIDENCE_ONLY.
 - proofNarrative: endereço ligado a fontes; sem reproduzir nota/avaliação volátil como selo.
-- conversionNarrative: abrir rota é ação principal; funil individual lead-only é secundário até confirmar destino.
-- motionNarrative: carimbo e ilustrações com micro movimento CSS, zero conteúdo dependente de animação.
+- conversionNarrative: abrir rota é ação principal; formulário comercial registra intenção e encaminha para o WhatsApp informado no perfil recebido e na ficha pública do mesmo estabelecimento. Sem checkout nem encomenda confirmada.
+- motionNarrative: carimbo, cards editoriais, ticker de sabores e preview social com micro movimentos CSS; zero conteúdo dependente de animação e suporte prefers-reduced-motion.
 - signatureMoments: carimbo editorial; navegação por momento; etiqueta de endereço destacável.
 - typePairing: Georgia editorial + sistema sans legível.
 - colorRoles: creme #FFF5DA; vinho #631B2F; açafrão #F7C756; papel #FFFDF4; rosa #F1C6C9.
@@ -71,11 +71,12 @@ Composição autoral v2. Identidade visual *conceito demonstrativo*, não repres
 | Google/Maps | USED | Place ID ChIJK4CTr0b33JQRF5lemSGL8yA e endereço |
 | Diretório público | USED | Restaurant Guru confirma unidade e categorias |
 | Listing homônimo | REJECTED | Food To Save descreve Rua Guaíra, 412 |
-| Instagram latest six | ATTEMPTED_BLOCKED | Sem permalinks/media recentes verificáveis |
+| Instagram latest six | ATTEMPTED_BLOCKED | @docecoracao.mina é citado na captura e o número bate com a ficha pública; sem permalinks/media recentes verificáveis |
+| Facebook | ATTEMPTED_BLOCKED | Não foi identificada uma página confirmada para esta unidade específica |
 | Fotos do negócio | ATTEMPTED_BLOCKED | Apenas screenshots de terceiros, sem licença reutilizável |
 | Arte vetorial/brand concept | USED | Assets locais originais e identificados como conceituais |
 | Google Search Console | ATTEMPTED_BLOCKED | Conector sem acesso útil (INVALID_ARGUMENT) |
-| Funil individual | PENDING | Migração gerada; testar em ambiente com dados de produção |
+| Funil individual WhatsApp | CONFIGURED_PENDING_TEST | Destino cruzado entre número da ficha comercial e bio recebida; migração com perguntas reais e canal isolado, aplicar/testar antes da publicação |
 | Motion/SEO/acessibilidade | USED | Scoped CSS + SSR e schema local com fatos confirmados |
 
 Skills: 0web-skill-router, 0web-skill-discovery, 0web-experience-design-max, 0web-portfolio-art-direction, 0web-landing-page-premium, 0web-landing-experience, 0web-design-system, 0web-ui-quality-gates, SEO local e pesquisa factual.

@@ -72,6 +72,14 @@
       "status": "complete"
     },
     {
+      "section": "redes",
+      "requiredMediaRole": "referência ao Instagram e arte social autoral",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "resolution": "Publicações não são reproduzidas sem permalinks verificáveis; card original claramente identificado.",
+      "status": "complete"
+    },
+    {
       "section": "faq",
       "requiredMediaRole": "text-led + affordance",
       "sourceType": "NO_MEDIA_NEEDED",
@@ -101,18 +109,20 @@
   },
   "performanceImages": [
     {
-      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "source": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
       "width": 1200,
       "height": 750,
       "format": "png",
-      "role": "catalog-card"
+      "role": "content",
+      "approved": true
     },
     {
-      "asset": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "source": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
       "width": 1200,
       "height": 630,
       "format": "png",
-      "role": "social-preview"
+      "role": "content",
+      "approved": true
     }
   ],
   "cover": {
