@@ -120,7 +120,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
         <a className="dc-skip" href="#conteudo">Pular para o conteúdo</a>
         <header className="dc-header">
           <a className="dc-mark" href="#inicio" aria-label="Doce Coração, voltar ao início">
-            <img src={asset + "/logo.svg"} width="50" height="50" alt="" />
+            <img src={asset + "/logo.svg"} width="50" height="50" loading="lazy" decoding="async" alt="" />
             <span><strong>Doce Coração</strong><small>Panificadora · Santo Antônio</small></span>
           </a>
           <nav className="dc-nav" aria-label="Seções da apresentação">
@@ -155,7 +155,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               <div className="dc-stamp transition-transform" aria-label="São José dos Pinhais, Paraná">
                 <Heart size={22} aria-hidden="true" /><span>Feito para<br />a vizinhança</span>
               </div>
-              <img src={asset + "/hero-ilustracao.svg"} width="740" height="800" loading="eager" fetchPriority="high"
+              <img src={asset + "/hero-ilustracao.svg"} width="740" height="800" loading="eager" decoding="async" fetchPriority="high"
                 alt="Ilustração editorial criada para esta demonstração, com pães e formas de panificação; não representa produtos fotografados da loja." />
               <span className="dc-art-caption">Ilustração de conceito · não é foto do estabelecimento</span>
             </div>
@@ -215,7 +215,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
             </div>
             <div className="dc-social-art">
               <div className="dc-social-card" aria-label="Arte editorial original ilustrativa, não publicação oficial da padaria">
-                <div className="dc-social-card-top"><img src={asset + "/logo.svg"} width="34" height="34" alt="" /><span>Doce Coração</span><small>editorial / 0WEB</small></div>
+                <div className="dc-social-card-top"><img src={asset + "/logo.svg"} width="34" height="34" loading="lazy" decoding="async" alt="" /><span>Doce Coração</span><small>editorial / 0WEB</small></div>
                 <div className="dc-social-card-center"><span>✳</span><strong>um intervalo<br /><em>com carinho.</em></strong><span>♡</span></div>
                 <div className="dc-social-card-bottom"><span>São José dos Pinhais · PR</span><Heart size={20} aria-hidden="true" /></div>
               </div>
@@ -247,7 +247,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
           </section>
         </main>
         <footer className="dc-footer">
-          <a href="#inicio" className="dc-footer-wordmark"><img src={asset + "/logo.svg"} width="32" height="32" alt="" /> Doce Coração <span>· conceito editorial</span></a>
+          <a href="#inicio" className="dc-footer-wordmark"><img src={asset + "/logo.svg"} width="32" height="32" loading="lazy" decoding="async" alt="" /> Doce Coração <span>· conceito editorial</span></a>
           <a href="#inicio">Voltar ao início ↑</a>
         </footer>
       </div>
