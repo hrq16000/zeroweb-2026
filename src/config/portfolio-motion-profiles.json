@@ -1433,6 +1433,23 @@
       "tabletBehavior": "hero em coluna e mosaico reduzido",
       "mobileBehavior": "conteúdo empilhado, CTA de consulta e sem movimento em reduced-motion"
     },
+    "panificadora-doce-coracao-santo-antonio": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "softFloat",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "subtle",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero ilustrado em composição editorial, carimbo discreto e cartões de momentos com hover",
+      "tabletBehavior": "capa empilhada com ilustração à direita e produtos em grade",
+      "mobileBehavior": "leitura vertical, botões de toque amplo, sem paralaxe; movimento reduzido respeitado"
+    },
     "cantinho-da-tia-mari": {
       "intensity": "SUBTLE",
       "preset": "EDITORIAL",

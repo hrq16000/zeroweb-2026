@@ -2309,6 +2309,26 @@
     "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
   },
   {
+    "slug": "panificadora-doce-coracao-santo-antonio",
+    "clientKey": "panificadora-doce-coracao-santo-antonio",
+    "title": "Panificadora Doce Coração",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["padaria", "panificadora", "pães", "salgados", "bolos", "doces", "Santo Antônio", "São José dos Pinhais"],
+    "subtitle": "Uma padaria do Santo Antônio apresentada com identidade editorial e SEO local",
+    "location": "Rua Desembargador James Portugal Macedo, 290 · Santo Antônio · São José dos Pinhais — PR",
+    "badge": "Novo projeto · demonstração 0WEB",
+    "image": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+    "fallbackImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+    "imageFocalPoint": "center",
+    "metrics": "Endereço confirmado, rotas e página autoral otimizada",
+    "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado."
+  },
+  {
     "slug": "cantinho-da-tia-mari",
     "clientKey": "cantinho-da-tia-mari",
     "title": "Cantinho da Tia Mari",

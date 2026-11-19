@@ -17,11 +17,12 @@ describe("portfolio WhatsApp data", () => {
     expect(resolveVersionedPortfolioWhatsApp("agropet-filt")).toBeNull();
   });
 
-  it("preserva os 70 destinos antigos e acrescenta só o destino da Dona Garimpeira", () => {
+  it("preserva os 70 destinos antigos e acrescenta Dona Garimpeira e Doce Coração", () => {
     const keys = getVersionedPortfolioWhatsAppClientKeys();
-    expect(keys).toHaveLength(71);
-    expect(keys.filter((key) => key !== "dona-garimpeira-brecho")).toHaveLength(70);
+    expect(keys).toHaveLength(72);
+    expect(keys.filter((key) => key !== "dona-garimpeira-brecho" && key !== "panificadora-doce-coracao-santo-antonio")).toHaveLength(70);
     expect(resolveVersionedPortfolioWhatsApp("dona-garimpeira-brecho")).toBe("5541995523363");
+    expect(resolveVersionedPortfolioWhatsApp("panificadora-doce-coracao-santo-antonio")).toBe("5541991363912");
     expect(resolveVersionedPortfolioWhatsApp("cliente-inexistente")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");

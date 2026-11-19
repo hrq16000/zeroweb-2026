@@ -2,19 +2,19 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-19",
   "summary": {
-    "total": 99,
-    "valid": 50,
-    "pending": 49,
+    "total": 100,
+    "valid": 48,
+    "pending": 52,
     "byStatus": {
-      "VALID": 50,
+      "VALID": 48,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 16
+      "UNCERTAIN_ORIGIN": 19
     },
     "balanced": true
   },
@@ -115,11 +115,11 @@
       "asset": "/images/arildo-madeiras/capa-card.svg",
       "catalogImage": "/images/arildo-madeiras/capa-card.svg",
       "catalogImageRole": "EDITORIAL",
-      "origin": "0WEB_AUTHORED",
-      "reviewedAt": "2026-09-24",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
       "businessName": "Arildo Madeiras",
       "segment": "comercios"
     },
@@ -242,14 +242,14 @@
     },
     {
       "slug": "cantinho-da-tia-mari",
-      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "asset": "/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImage": "/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImageRole": "EDITORIAL",
-      "origin": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
-      "reviewedAt": "2026-11-06",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
       "businessName": "Cantinho da Tia Mari",
       "segment": "comercios"
     },
@@ -303,7 +303,7 @@
       "reason": "Sem julgamento humano registrado para a capa.",
       "cardValid": false,
       "businessName": "Centro Mega",
-      "segment": "prestadores-de-servicos"
+      "segment": "comercios"
     },
     {
       "slug": "clinica-integrada",
@@ -954,6 +954,19 @@
       "cardValid": true,
       "businessName": "No Brilho Higienização",
       "segment": "servicos"
+    },
+    {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Panificadora Doce Coração",
+      "segment": "comercios"
     },
     {
       "slug": "papelemi-personalizados",
