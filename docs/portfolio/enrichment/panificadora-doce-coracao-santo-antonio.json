@@ -1,0 +1,322 @@
+{
+  "doc": "Entity enrichment; busca em fontes públicas de 19/11/2026, sem atribuição de redes sociais não confirmadas.",
+  "slug": "panificadora-doce-coracao-santo-antonio",
+  "lastResearchAt": "2026-11-19",
+  "researchLedger": {
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "blocker": null
+    },
+    "website": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Origem oficial/licença/permalinks atuais não confirmados."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Origem oficial/licença/permalinks atuais não confirmados."
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Origem oficial/licença/permalinks atuais não confirmados."
+    },
+    "otherSocial": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Origem oficial/licença/permalinks atuais não confirmados."
+    },
+    "directories": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "blocker": null
+    },
+    "phone": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": null
+    },
+    "address": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "blocker": null
+    },
+    "hours": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": null
+    },
+    "services": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "blocker": null
+    },
+    "products": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "blocker": null
+    },
+    "media": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Origem oficial/licença/permalinks atuais não confirmados."
+    },
+    "reviews": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "blocker": null
+    },
+    "identity": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": null
+    }
+  },
+  "identity": {
+    "name": "Panificadora Doce Coração",
+    "kind": "panificadora",
+    "neighborhood": "Santo Antônio",
+    "city": "São José dos Pinhais",
+    "region": "PR",
+    "status": "SOURCE_VERIFIED_PUBLIC_DIRECTORY",
+    "brandUse": "Marca gráfica demonstrativa criada pela 0WEB, não logotipo oficial."
+  },
+  "entity": {
+    "candidates": [
+      {
+        "name": "Panificadora Doce Coração",
+        "address": "Rua Desembargador James Portugal Macedo, 290",
+        "placeId": "ChIJK4CTr0b33JQRF5lemSGL8yA"
+      },
+      {
+        "name": "Panificadora Doce Coração (homônimo)",
+        "address": "Rua Guaíra, 412",
+        "disposition": "EXCLUDED_DIFFERENT_ADDRESS"
+      }
+    ],
+    "resolutionStatus": "RESOLVED",
+    "resolutionSignals": [
+      "Google Maps Place ID",
+      "logradouro/número",
+      "bairro Santo Antônio",
+      "CEP",
+      "Restaurant Guru"
+    ],
+    "unresolvedJustification": null
+  },
+  "evidence": [
+    {
+      "field": "name",
+      "value": "Panificadora Doce Coração",
+      "sourceType": "GOOGLE",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Panificadora%20Doce%20Cora%C3%A7%C3%A3o&query_place_id=ChIJK4CTr0b33JQRF5lemSGL8yA",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-19",
+      "status": "VERIFIED"
+    },
+    {
+      "field": "address",
+      "value": "Rua Desembargador James Portugal Macedo, 290, Santo Antônio, São José dos Pinhais, PR, 83020-620",
+      "sourceType": "GOOGLE",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-19",
+      "status": "VERIFIED"
+    },
+    {
+      "field": "products",
+      "value": [
+        "pães",
+        "bolos",
+        "salgados",
+        "doces"
+      ],
+      "sourceType": "PUBLIC_DIRECTORY",
+      "sourceUrl": "https://restaurantguru.com/Doce-Coracao-Sao-Jose-dos-Pinhais",
+      "confidence": "MEDIUM",
+      "verifiedAt": "2026-11-19",
+      "status": "PUBLICLY_MENTIONED"
+    },
+    {
+      "field": "instagram",
+      "value": "@docecoracao.mina",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "LOW",
+      "verifiedAt": "2026-11-19",
+      "status": "UNVERIFIED_ASSOCIATION"
+    }
+  ],
+  "sources": [
+    {
+      "type": "GOOGLE",
+      "url": "https://www.google.com/maps/search/?api=1&query=Panificadora%20Doce%20Cora%C3%A7%C3%A3o&query_place_id=ChIJK4CTr0b33JQRF5lemSGL8yA"
+    },
+    {
+      "type": "PUBLIC_DIRECTORY",
+      "url": "https://restaurantguru.com/Doce-Coracao-Sao-Jose-dos-Pinhais"
+    },
+    {
+      "type": "USER_REFERENCE",
+      "description": "capturas da busca Google recebidas; pesquisa contextual, não mídia editorial reutilizável"
+    }
+  ],
+  "google": {
+    "placeId": "ChIJK4CTr0b33JQRF5lemSGL8yA",
+    "dataId": null,
+    "cid": null,
+    "status": "resolved"
+  },
+  "reviews": {
+    "items": [],
+    "status": "SEARCHED_NOT_REPUBLISHED"
+  },
+  "photos": {
+    "items": [],
+    "status": "SEARCHED_NO_REUSABLE_LICENSE"
+  },
+  "social": {
+    "instagram": {
+      "searched": true,
+      "handleCandidate": "docecoracao.mina",
+      "officialConfirmed": false,
+      "latestSixStatus": "BLOCKED_NO_VERIFIED_POSTS"
+    },
+    "facebook": {
+      "searched": true,
+      "officialConfirmed": false
+    },
+    "other": []
+  },
+  "website": {
+    "searched": true,
+    "url": null,
+    "status": "NO_VERIFIED_OFFICIAL_SITE"
+  },
+  "location": {
+    "street": "Rua Desembargador James Portugal Macedo, 290",
+    "neighborhood": "Santo Antônio",
+    "city": "São José dos Pinhais",
+    "region": "PR",
+    "postalCode": "83020-620"
+  },
+  "services": [
+    "panificação e venda de itens de balcão, segundo fontes públicas"
+  ],
+  "media": {
+    "discovery": {
+      "searched": true
+    },
+    "assets": [
+      {
+        "type": "GRAPHIC_MEDIA",
+        "path": "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+        "license": "criação editorial original"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "field": "neighborhood",
+      "value": "Santo Antônio",
+      "status": "VERIFIED"
+    },
+    {
+      "field": "distinctFromRuaGuaira",
+      "value": true,
+      "status": "VERIFIED"
+    }
+  ],
+  "conflicts": [
+    {
+      "topic": "homônimos",
+      "resolution": "Do not mix Rua Guaíra 412/Silveira da Motta and Rua James Portugal Macedo 290/Santo Antônio."
+    }
+  ],
+  "unverified": [
+    "horário atualizado",
+    "preço",
+    "estoque",
+    "encomendas",
+    "entrega",
+    "relação oficial do Instagram com esta unidade"
+  ],
+  "providerCalls": [
+    {
+      "provider": "web public search + business listing",
+      "at": "2026-11-19",
+      "cache": "no provider images ingested",
+      "paidApiCost": "none"
+    }
+  ]
+}

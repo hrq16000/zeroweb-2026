@@ -717,6 +717,27 @@
         "cuidados infantis Jardim Itália",
         "leva e busca escola CMEI Jardim Itália"
       ]
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "aliases": [
+        "Panificadora Doce Coração",
+        "Doce Coração Santo Antônio",
+        "Padaria Doce Coração São José dos Pinhais",
+        "Panificadora Doce Coracao"
+      ],
+      "categories": [
+        "padaria",
+        "panificadora",
+        "confeitaria",
+        "alimentação"
+      ],
+      "services": ["venda de pães", "venda de salgados", "padaria de bairro"],
+      "equipment": [],
+      "products": ["pães", "pão francês", "salgados", "bolos", "doces"],
+      "problems": [],
+      "useCases": ["encontrar padaria no Santo Antônio", "localizar a Panificadora Doce Coração", "consultar endereço e horário da padaria", "conhecer categorias de pães, bolos e salgados"],
+      "locality": ["Rua Desembargador James Portugal Macedo", "Santo Antônio", "São José dos Pinhais", "PR"],
+      "keywords": ["Panificadora Doce Coração Santo Antônio", "padaria doce coração São José dos Pinhais", "padaria no Santo Antônio SJP", "pães e salgados Santo Antônio", "0WEB portfólio panificadora", "site de padaria feito pela 0WEB", "WebRealce criação de sites"]
     }
   }
 }
