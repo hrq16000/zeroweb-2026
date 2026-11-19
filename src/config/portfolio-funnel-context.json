@@ -713,7 +713,7 @@
     "nextStepBody": "Conte se procura pães, bolos, salgados ou doces. A padaria confirma preço, disponibilidade, horário e condições de retirada diretamente pelo WhatsApp.",
     "primaryCtaLabel": "Consultar a padaria",
     "theme": "gold",
-    "whatsappPrompt": "Olá, Panificadora Doce Coração! Encontrei a página de apresentação criada pela 0WEB e gostaria de consultar produtos e disponibilidade.",
+    "whatsappPrompt": "Olá, Panificadora Doce Coração! Vi uma apresentação dos seus produtos e gostaria de consultar disponibilidade e condições.",
     "whatsappSubject": "produtos da padaria",
     "proposalKind": "service"
   },
