@@ -20,6 +20,7 @@ export function CantinhoTiaMariPage() {
   const [nearFooter, setNearFooter] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const priorFocus = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const show = () => {
     if (typeof window === "undefined") return;
@@ -51,6 +52,18 @@ export function CantinhoTiaMariPage() {
     document.addEventListener("keydown", keydown, true);
     return () => { document.body.style.overflow = overflow; document.removeEventListener("keydown", keydown, true); };
   }, [open]);
+
+  useEffect(() => {
+    if (!navOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setNavOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [navOpen]);
 
   useEffect(() => {
     const footer = document.querySelector("[data-portfolio-canonical-footer]");
@@ -90,12 +103,12 @@ export function CantinhoTiaMariPage() {
           <a href="#localizacao" className="hover:text-[#9b5ab3]">Localização</a>
         </nav>
         <button type="button" className="hidden rounded-full bg-[#6b408d] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#4e316a] md:inline-flex" onClick={show}>Consultar informações <ArrowUpRight className="ml-2 h-4 w-4"/></button>
-        <button type="button" className="rounded-full border border-[#dac0e4] p-3 lg:hidden" aria-label={navOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={navOpen} onClick={() => setNavOpen(!navOpen)}>{navOpen ? <X/> : <Menu/>}</button>
+        <button ref={menuButtonRef} type="button" className="rounded-full border border-[#dac0e4] p-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b408d] lg:hidden" aria-label={navOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={navOpen} aria-controls="tm-mobile-navigation" onClick={() => setNavOpen(value => !value)}>{navOpen ? <X/> : <Menu/>}</button>
       </div>
-      {navOpen && <nav aria-label="Navegação móvel" className="flex flex-col gap-4 border-t border-[#e7d8eb] bg-white px-6 py-4 text-sm font-bold lg:hidden">
-        {[["Cuidados","#cuidados"],["O espaço","#ambientes"],["Horários","#horarios"],["Localização","#localizacao"]].map(([label, href]) => <a key={href} href={href} onClick={()=>setNavOpen(false)}>{label}</a>)}
-        <button type="button" onClick={show} className="rounded-full bg-[#6b408d] px-5 py-3 text-left text-white">Consultar informações</button>
-      </nav>}
+      <nav id="tm-mobile-navigation" aria-label="Navegação móvel" className={(navOpen ? "flex " : "hidden ") + "flex-col gap-1 border-t border-[#e7d8eb] bg-white px-6 py-4 text-sm font-bold lg:hidden"}>
+        {[["Cuidados","#cuidados"],["O espaço","#ambientes"],["Horários","#horarios"],["Localização","#localizacao"]].map(([label, href]) => <a key={href} href={href} onClick={()=>setNavOpen(false)} className="flex min-h-11 items-center rounded-lg px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b408d]">{label}</a>)}
+        <button type="button" onClick={show} className="min-h-11 rounded-full bg-[#6b408d] px-5 py-3 text-left text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b408d]">Consultar informações</button>
+      </nav>
     </header>
 
     <main id="inicio">
