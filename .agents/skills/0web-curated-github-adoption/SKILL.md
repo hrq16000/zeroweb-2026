@@ -7,6 +7,8 @@ description: Triagem operacional de ferramentas e skills externas sugeridas para
 
 Esta skill é uma camada **local, textual e não executável**. Ela NÃO instala os programas externos listados e não cria integrações de runtime. Fontes e decisões: docs/skills/GITHUB_TOOL_TRIAGE_2026-11-09.md.
 
+**Nova curadoria transversal:** `docs/skills/GITHUB_17_REFERENCES_CROSS_PROJECTS_2026-11-20.md` complementa a lista histórica de 20 ferramentas e explicita quando as 17 referências de 20/11 se aplicam aos portfólios. Não é novo executável nem substitui as skills locais.
+
 ## Antes de agir
 
 1. Ler AGENTS.md, docs/0WEB_EXECUTION_CONTRACT.md, docs/skills/SECURITY.md e 0web-skill-router.
