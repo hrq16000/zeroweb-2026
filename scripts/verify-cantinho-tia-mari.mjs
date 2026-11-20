@@ -30,8 +30,18 @@ try {
       // Exercise the candidate branch's mobile menu, not only the first paint.
       const mobileTrigger = page.locator('button[aria-controls="tm-mobile-navigation"]');
       const mobileNav = page.locator('#tm-mobile-navigation');
+      const share = page.getByRole("button",{name:"Copiar divulgação de Cantinho da Tia Mari"});
+      assert.equal(await share.isVisible(), true, "share control remains available");
+      const intersects = (a,b) => a.x < b.x+b.width && a.x+a.width > b.x && a.y < b.y+b.height && a.y+a.height > b.y;
       if (width === 390) {
         assert.equal(await mobileTrigger.isVisible(), true, "mobile menu trigger visible");
+        const menuBox = await mobileTrigger.boundingBox();
+        const shareBox = await share.boundingBox();
+        const floatingCta = page.getByRole("button",{name:"Abrir formulário para consultar informações sobre vagas"});
+        const ctaBox = await floatingCta.boundingBox();
+        assert.ok(menuBox && shareBox && ctaBox, "mobile controls have visible geometry");
+        assert.equal(intersects(menuBox,shareBox), false, "share must not block menu");
+        assert.equal(intersects(ctaBox,shareBox), false, "share must not block consultation CTA");
         assert.equal(await mobileNav.isVisible(), false, "mobile menu initially collapsed");
         await mobileTrigger.click();
         assert.equal(await mobileTrigger.getAttribute("aria-expanded"), "true");
