@@ -220,3 +220,7 @@ máquina: `src/config/experience-capabilities.json`, `src/config/skill-marketpla
 - Rollout em ondas. Não redesenhar projetos autorais aprovados sem gatilho real.
 - Projeto novo só nasce válido com direção criativa, identidade, motion, funil,
   SEO, imagens e assinatura próprias, além dos gates técnicos.
+
+## Inteligência compartilhada de skills (2026-11-20)
+
+Antes de adotar recursos externos de motion, React, QA mobile, acessibilidade ou SQL de auditoria, consultar `.agents/skills/shared-reference-intelligence/SKILL.md`. Aplicar somente competências pertinentes, sem instalar/executar código de terceiros; contratos e gates locais têm precedência. No 0WEB, aplicar a portfólios **novos**, sem retrabalhar os existentes por esta regra.
