@@ -41,6 +41,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
 | Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` · `src/config/skill-marketplace-catalog.json` |
 | TasteSkill, Transitions.dev, React Bits e RiseClub (critérios de adoção visual, licenças e limites) | `docs/skills/VISUAL_REFERENCE_ADOPTION_2026-11-17.md` |
+| 17 referências GitHub de 20/11/2026: matriz para 0WEB, EUT, O Técnico e demais projetos, inclusive aplicação de skills nos portfólios sem instalação automática | `docs/skills/GITHUB_17_REFERENCES_CROSS_PROJECTS_2026-11-20.md` |
 | Adoção seletiva de 20 ferramentas abertas, Vitor Menoli, REA e DeepSeek (sem instalação automática) | `docs/skills/OPEN_SOURCE_ECOSYSTEM_ADOPTION_2026-11-17.md` · `docs/skills/REA_RESEARCH_ADOPTION.md` |
 | Novo cliente em `/portfolio` | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` · `docs/PORTFOLIO_CLIENT_STANDARD.md` · `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` |
 | Descoberta por nome, pesquisa pública, oferta e pacotes de presença | `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md` |
