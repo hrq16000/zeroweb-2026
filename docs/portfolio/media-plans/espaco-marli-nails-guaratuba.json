@@ -46,7 +46,7 @@
       "asset": "/images/espaco-marli-nails-guaratuba/social-source.svg",
       "purpose": "OG_SOURCE_MEDIA",
       "sourceType": "GENERATED_MEDIA",
-      "notes": "Prebuild gera social-source-og.jpg 1200x630; validar após CI."
+      "notes": "JPEG 1200×630 conceitual versionado no repositório; arte SVG original preservada como fonte. Cache-busting por SHA-1 exato; não representa fotos ou logotipo oficial."
     },
     {
       "section": "ícone",
@@ -58,7 +58,6 @@
     }
   ],
   "pending": [
-    "Homologar crop e JPEG social",
     "Autorizar mídia real de trabalhos",
     "Aceite perceptual e comercial"
   ]

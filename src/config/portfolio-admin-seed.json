@@ -1403,7 +1403,7 @@
       "image": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
       "icon": "/images/espaco-marli-nails-guaratuba/logo.svg",
       "socialImage": "/images/espaco-marli-nails-guaratuba/social-source-og.jpg",
-      "socialVersion": "73b5c851",
+      "socialVersion": "7db1cdb8",
       "componentFile": "src/components/site/EspacoMarliNailsGuaratubaPage.tsx",
       "routeFile": "src/routes/portfolio.espaco-marli-nails-guaratuba.tsx",
       "assetsDir": "public/images/espaco-marli-nails-guaratuba",
