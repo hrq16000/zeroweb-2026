@@ -128,6 +128,7 @@ import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
+import { Route as PortfolioEspacoMarliNailsGuaratubaRouteImport } from './routes/portfolio.espaco-marli-nails-guaratuba'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
 import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
@@ -868,6 +869,11 @@ const PortfolioCantinhoDaTiaMariRoute = PortfolioCantinhoDaTiaMariRouteImport.up
 const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
   id: '/portfolio/agropet-filt',
   path: '/portfolio/agropet-filt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioEspacoMarliNailsGuaratubaRoute = PortfolioEspacoMarliNailsGuaratubaRouteImport.update({
+  id: '/portfolio/espaco-marli-nails-guaratuba',
+  path: '/portfolio/espaco-marli-nails-guaratuba',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
@@ -1740,6 +1746,7 @@ export interface FileRoutesByFullPath {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -1991,6 +1998,7 @@ export interface FileRoutesByTo {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -2246,6 +2254,7 @@ export interface FileRoutesById {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -2502,6 +2511,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
+    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
     | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
@@ -2753,6 +2763,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
+    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
     | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
@@ -3007,6 +3018,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/agropet-filt'
+    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
     | '/portfolio/sao-francisco-pet-center'
     | '/portfolio/r_beauty'
@@ -3260,6 +3272,7 @@ export interface RootRouteChildren {
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
+  PortfolioEspacoMarliNailsGuaratubaRoute: typeof PortfolioEspacoMarliNailsGuaratubaRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
@@ -4140,6 +4153,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/agropet-filt'
       fullPath: '/portfolio/agropet-filt'
       preLoaderRoute: typeof PortfolioAgropetFiltRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/espaco-marli-nails-guaratuba': {
+      id: '/portfolio/espaco-marli-nails-guaratuba'
+      path: '/portfolio/espaco-marli-nails-guaratuba'
+      fullPath: '/portfolio/espaco-marli-nails-guaratuba'
+      preLoaderRoute: typeof PortfolioEspacoMarliNailsGuaratubaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/dyzpromo': {
@@ -5541,6 +5561,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
+  PortfolioEspacoMarliNailsGuaratubaRoute: PortfolioEspacoMarliNailsGuaratubaRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
