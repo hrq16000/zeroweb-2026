@@ -54,3 +54,7 @@ Claude-Mem e AI Memory: não habilitar hooks que gravem prompts, segredos, dados
 ## Resultado por micro-rodada
 
 Saída objetiva: ADOTADO_COMO_PRINCIPIO, PILOTO_ISOLADO_VALIDADO, SECURITY_REVIEW_REQUIRED, REDUNDANT, FORA_DE_ESCOPO ou REJEITADO. Distinguir sempre fonte inspecionada, arquivo escrito, teste realizado, PR aberto, merge e publicação.
+
+## Atualização operacional — 21/11/2026
+
+Para tarefas envolvendo agentes de código, pesquisa social, mídia, voz, Android TV ou memória, consultar também `docs/skills/GITHUB_MAPS_AND_AGENT_TOOLS_2026-11-21.md` (19 repositórios diretos + triagem das 68 entradas dos três mapas). Usar a matriz por *capacidade verificável*, sem duplicar o roteador/QA existente. O registro no catálogo **não aprova instalação**; toda alteração executável continua sob revisão de segurança, micro-PR e gates locais.
