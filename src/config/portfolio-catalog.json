@@ -2333,5 +2333,31 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta de informações via formulário",
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "espaco-marli-nails-guaratuba",
+    "clientKey": "espaco-marli-nails-guaratuba",
+    "title": "Espaço Marli Nails Designer",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "manicure",
+      "pedicure",
+      "Coroados",
+      "Guaratuba",
+      "unhas"
+    ],
+    "subtitle": "Manicure e pedicure em Coroados · proposta independente",
+    "location": "Av. Alvorada do Sul, 786 · Coroados · Guaratuba — PR",
+    "badge": "Demonstração em preparação",
+    "image": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+    "fallbackImage": "/images/espaco-marli-nails-guaratuba/hero.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta sem reserva automática",
+    "summary": "Proposta demonstrativa independente da 0WEB para o Espaço Marli Nails Designer, em Coroados, Guaratuba. Apresentação de localização e consulta sobre manicure e pedicure, sem inventar preços, técnicas, horários ou fotos."
   }
 ]

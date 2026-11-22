@@ -25,6 +25,7 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
   "adhonep-curitiba": lazy(() =>
     import("@/components/site/AdhonepCuritibaPage").then((m) => ({ default: m.AdhonepCuritibaPage })),
   ),
+  "espaco-marli-nails-guaratuba": lazy(() => import("@/components/site/EspacoMarliNailsGuaratubaPage").then((m) => ({ default: m.EspacoMarliNailsGuaratubaPage }))),
   // "<slug>": lazy(() => import("@/components/site/<Componente>").then((m) => ({ default: m.<Componente> }))),
 };
 

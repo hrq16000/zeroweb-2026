@@ -716,5 +716,12 @@
     "whatsappPrompt": "Gostaria de receber informações gerais sobre esta demonstração. Não é matrícula nem contato oficial com a escola.",
     "whatsappSubject": "consulta demonstrativa do Cantinho da Tia Mari",
     "proposalKind": "service"
+  },
+  "espaco-marli-nails-guaratuba": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu cuidado começa com uma consulta de disponibilidade.",
+    "nextStepBody": "Indique o atendimento desejado e seu período de preferência. A solicitação não confirma horário.",
+    "primaryCtaLabel": "Consultar atendimento",
+    "theme": "pink"
   }
 }

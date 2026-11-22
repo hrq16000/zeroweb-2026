@@ -1,0 +1,65 @@
+{
+  "slug": "espaco-marli-nails-guaratuba",
+  "lastUpdatedAt": "2026-11-22",
+  "mediaStrategy": "GENERATED_EDITORIAL_NOT_DOCUMENTARY",
+  "rights": "Assets vetoriais originais criados para a demonstração 0WEB; não representam fotografias reais, trabalhos ou logotipo oficial.",
+  "cover": {
+    "strategy": "GENERATED_EDITORIAL",
+    "approved": false,
+    "asset": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+    "reason": "Capa criada e pendente de revisão visual da rodada 3."
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "status": "complete",
+      "asset": "/images/espaco-marli-nails-guaratuba/hero.svg",
+      "purpose": "HERO_MEDIA",
+      "sourceType": "GENERATED_MEDIA",
+      "resolution": "Ilustração declarada no texto alternativo"
+    },
+    {
+      "section": "consulta",
+      "status": "complete",
+      "resolution": "Seletor de preferências e conteúdo tipográfico sem fotografia"
+    },
+    {
+      "section": "localização",
+      "status": "complete",
+      "resolution": "Painel gráfico com endereço documentado e link Maps externo"
+    },
+    {
+      "section": "galeria de trabalhos",
+      "status": "blocked",
+      "resolution": "Fotos reais indisponíveis sem direitos de reutilização; apenas arte abstrata não documental"
+    },
+    {
+      "section": "capa",
+      "status": "complete",
+      "asset": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "purpose": "COVER_MEDIA",
+      "sourceType": "GENERATED_MEDIA"
+    },
+    {
+      "section": "OG",
+      "status": "complete",
+      "asset": "/images/espaco-marli-nails-guaratuba/social-source.svg",
+      "purpose": "OG_SOURCE_MEDIA",
+      "sourceType": "GENERATED_MEDIA",
+      "notes": "Prebuild gera social-source-og.jpg 1200x630; validar após CI."
+    },
+    {
+      "section": "ícone",
+      "status": "complete",
+      "asset": "/images/espaco-marli-nails-guaratuba/logo.svg",
+      "purpose": "ICON_MEDIA",
+      "sourceType": "GENERATED_MEDIA",
+      "notes": "Monograma conceitual, não marca oficial."
+    }
+  ],
+  "pending": [
+    "Homologar crop e JPEG social",
+    "Autorizar mídia real de trabalhos",
+    "Aceite perceptual e comercial"
+  ]
+}

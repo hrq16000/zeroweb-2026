@@ -1449,6 +1449,23 @@
       "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
       "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
       "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "textReveal",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "Capa tipográfica com arte abstrata, seletor de cuidados e endereço",
+      "tabletBehavior": "Hero empilhado, consulta por CTA destacado e escolhas responsivas",
+      "mobileBehavior": "Uma coluna, CTA em âncora, sem parallax nem rolagem horizontal"
     }
   },
   "decisions": {

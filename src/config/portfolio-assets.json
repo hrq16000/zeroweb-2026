@@ -1020,7 +1020,9 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "excludeFromAdminGallery": ["social.png"],
+      "excludeFromAdminGallery": [
+        "social.png"
+      ],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1221,6 +1223,18 @@
         "ctaHref": "#cuidados"
       },
       "socialVersion": "9ea8c269"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "icon": "/images/espaco-marli-nails-guaratuba/logo.svg",
+      "socialImage": "/images/espaco-marli-nails-guaratuba/social-source.svg",
+      "socialVersion": "draft-r2",
+      "proof": {
+        "eyebrow": "Demonstração 0WEB · Guaratuba",
+        "title": "Espaço Marli Nails Designer no Coroados.",
+        "description": "Localização pública e consulta de informações. Agenda, valores e serviços detalhados dependem de confirmação.",
+        "ctaLabel": "Consultar atendimento",
+        "ctaHref": "#consulta"
+      }
     }
   }
 }

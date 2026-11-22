@@ -627,6 +627,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  { slug: "espaco-marli-nails-guaratuba", vertical: "beleza", siteName: "Espaço Marli Nails Designer · Guaratuba (demonstração)", kind: "prototype", indexable: false },
 ];
 
 export function findPortfolioPrototype(slug: string) {

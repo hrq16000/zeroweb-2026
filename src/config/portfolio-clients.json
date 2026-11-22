@@ -1341,5 +1341,26 @@
       "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
       "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
     }
+  },
+  {
+    "clientKey": "espaco-marli-nails-guaratuba",
+    "slug": "espaco-marli-nails-guaratuba",
+    "siteName": "Espaço Marli Nails Designer",
+    "routeFile": "src/routes/portfolio.espaco-marli-nails-guaratuba.tsx",
+    "componentFile": "src/components/site/EspacoMarliNailsGuaratubaPage.tsx",
+    "assetsDir": "public/images/espaco-marli-nails-guaratuba",
+    "ctaMode": "booking",
+    "contactMode": "funnelOnly",
+    "funnelType": "agendamento",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/espaco-marli-nails-guaratuba.md",
+    "provenance": {
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "Pesquisa pública 22/11/2026; perfil social e canal WhatsApp ainda não confirmados",
+      "reference": "docs/portfolio/enrichment/espaco-marli-nails-guaratuba.json"
+    }
   }
 ]

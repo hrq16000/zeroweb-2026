@@ -303,6 +303,17 @@
         "O operador informou autorização para criar a página, sem fornecer confirmação do número de WhatsApp.",
         "Canal registrado como null (LEAD_ONLY), sem redirecionamento cruzado ou fallback de outro cliente."
       ]
+    },
+    "espaco-marli-nails-guaratuba": {
+      "status": "UNRESOLVED",
+      "source": "GOOGLE_BUSINESS_PUBLIC_PHONE_NOT_VERIFIED_AS_WHATSAPP",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Telefone público encontrado na ficha comercial, mas nenhuma confirmação de que recebe WhatsApp ou leads.",
+        "Registro operacional whatsapp:null: LEAD_ONLY, sem fallback entre clientes."
+      ],
+      "humanDecision": "Confirmar WhatsApp comercial com a profissional antes de habilitar encaminhamento."
     }
   }
 }

@@ -16,6 +16,7 @@ export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "dona-garimpeira-brecho",
   "autoescola-aptos",
   "adhonep-curitiba",
+  "espaco-marli-nails-guaratuba",
 ] as const;
 
 const AUTHORIAL_SET = new Set<string>(PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS);

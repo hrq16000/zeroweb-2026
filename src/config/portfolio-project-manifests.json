@@ -1128,6 +1128,94 @@
         "completed": true,
         "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "slug": "espaco-marli-nails-guaratuba",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "in_progress",
+        "discovery": "complete",
+        "blueprint": "in_progress",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "compositionContract": 0,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "not_started"
+        },
+        "evidence": {
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/espaco-marli-nails-guaratuba.json: Place ID, endereço e homônimo desambiguado"
+          ]
+        }
+      },
+      "blockers": [
+        "QA real 390/768/1440, reduced-motion, SEO e envio de lead ainda não executado.",
+        "Fotos reais não licenciadas e WhatsApp comercial não validado.",
+        "Revisão perceptual NO-BRAND TEST e autorização comercial pendentes.",
+        "Promover compositionContract para 2 e indexabilidade apenas com evidência real da rodada 3."
+      ],
+      "warnings": [
+        "Lead-only whatsapp:null, sem encaminhamento de outro cliente.",
+        "Demonstração independente, não site oficial."
+      ],
+      "ownerRequired": [
+        "Confirmar WhatsApp operacional e autorização para receber leads.",
+        "Fornecer/autorizar fotos de trabalhos ou aprovar uso de arte conceitual.",
+        "Validar serviços, horários, preços, marca e publicação comercial."
+      ],
+      "searchQa": [
+        {
+          "query": "Espaço Marli Nails Designer",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba"
+        },
+        {
+          "query": "manicure Coroados Guaratuba",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba"
+        },
+        {
+          "query": "pedicure Guaratuba PR",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba"
+        },
+        {
+          "query": "Av. Alvorada do Sul 786",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-22",
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": "Browser, funil real e revisão de responsive pendentes; não presumir PASS.",
+        "evaluatedAt": "2026-11-22"
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/espaco-marli-nails-guaratuba.json",
+        "mediaPlan": "docs/portfolio/media-plans/espaco-marli-nails-guaratuba.json",
+        "brief": "docs/portfolio/briefs/espaco-marli-nails-guaratuba.md"
+      }
     }
   }
 }
