@@ -1,5 +1,8 @@
 import { expect, test } from "bun:test";
-import { buildApprovedPortfolioEntries } from "./portfolio-sitemap.server";
+import {
+  buildApprovedPortfolioEntries,
+  normalizePortfolioSitemapOverride,
+} from "./portfolio-sitemap.server";
 
 test("sitemap do portfólio é derivado do catálogo aprovado", () => {
   const paths = buildApprovedPortfolioEntries().map((entry) => entry.path);
@@ -24,4 +27,32 @@ test("demonstração da 0WEB não duplica entrada e admite despublicação expl�
   expect(entries.filter((entry) => entry.path === path).length).toBe(1);
   const unpublished = buildApprovedPortfolioEntries([{ slug: "sao-francisco-pet-center", published: false }]);
   expect(unpublished.map((entry) => entry.path)).not.toContain(path);
+});
+
+test("sitemap e meta robots concordam mesmo com published=true em rascunho/importado/arquivado", () => {
+  const path = "/portfolio/manu-pasteis";
+  for (const lifecycle_status of ["draft", "imported", "archived"]) {
+    const override = normalizePortfolioSitemapOverride({
+      slug: "manu-pasteis",
+      published: true,
+      lifecycle_status,
+    });
+    expect(buildApprovedPortfolioEntries([override]).map((entry) => entry.path)).not.toContain(path);
+  }
+  for (const lifecycle_status of ["published", null]) {
+    const override = normalizePortfolioSitemapOverride({
+      slug: "manu-pasteis",
+      published: true,
+      lifecycle_status,
+    });
+    expect(buildApprovedPortfolioEntries([override]).map((entry) => entry.path)).toContain(path);
+  }
+  const managed = normalizePortfolioSitemapOverride({
+    slug: "managed-qa-lifecycle",
+    project_kind: "managed",
+    published: true,
+    lifecycle_status: "draft",
+  });
+  expect(buildApprovedPortfolioEntries([managed]).map((entry) => entry.path))
+    .not.toContain("/portfolio/managed-qa-lifecycle");
 });
