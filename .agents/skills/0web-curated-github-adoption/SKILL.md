@@ -7,6 +7,8 @@ description: Triagem operacional de ferramentas e skills externas sugeridas para
 
 Esta skill é uma camada **local, textual e não executável**. Ela NÃO instala os programas externos listados e não cria integrações de runtime. Fontes e decisões: docs/skills/GITHUB_TOOL_TRIAGE_2026-11-09.md.
 
+**Nova curadoria transversal:** `docs/skills/GITHUB_17_REFERENCES_CROSS_PROJECTS_2026-11-20.md` complementa a lista histórica de 20 ferramentas e explicita quando as 17 referências de 20/11 se aplicam aos portfólios. Não é novo executável nem substitui as skills locais.
+
 ## Antes de agir
 
 1. Ler AGENTS.md, docs/0WEB_EXECUTION_CONTRACT.md, docs/skills/SECURITY.md e 0web-skill-router.
@@ -52,3 +54,7 @@ Claude-Mem e AI Memory: não habilitar hooks que gravem prompts, segredos, dados
 ## Resultado por micro-rodada
 
 Saída objetiva: ADOTADO_COMO_PRINCIPIO, PILOTO_ISOLADO_VALIDADO, SECURITY_REVIEW_REQUIRED, REDUNDANT, FORA_DE_ESCOPO ou REJEITADO. Distinguir sempre fonte inspecionada, arquivo escrito, teste realizado, PR aberto, merge e publicação.
+
+## Atualização operacional — 21/11/2026
+
+Para tarefas envolvendo agentes de código, pesquisa social, mídia, voz, Android TV ou memória, consultar também `docs/skills/GITHUB_MAPS_AND_AGENT_TOOLS_2026-11-21.md` (19 repositórios diretos + triagem das 68 entradas dos três mapas). Usar a matriz por *capacidade verificável*, sem duplicar o roteador/QA existente. O registro no catálogo **não aprova instalação**; toda alteração executável continua sob revisão de segurança, micro-PR e gates locais.
