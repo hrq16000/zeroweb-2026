@@ -51,7 +51,7 @@ try {
       .replace(envAssignment, lazyBlock)
       .replace(previousGuard, lazyGuard);
     if (expectedLazy !== before && expectedLazy === after) {
-      process.stdout.write("vercel-mcp-only\\n");
+      process.stdout.write("vercel-mcp-only\n");
     }
   }
 } catch {
