@@ -59,6 +59,12 @@ jobs:
           RUN=false
           MODE=full
           FRAMEWORK_COMPAT=false
+          VERCEL_MCP_GUARD_ONLY=false
+          if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$BASE" "$HEAD" || true)" = "vercel-mcp-only" ]; then
+            RUN=true
+            MODE=portfolio
+            VERCEL_MCP_GUARD_ONLY=true
+          fi
 
           if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
             RUN=true
@@ -181,6 +187,15 @@ jobs:
             MODE=portfolio
             SHARDS='[0]'
             ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+
+          # Alteracao exclusiva do plugin MCP no build da Vercel: seis canarios
+          # de Performance/SEO com os mesmos thresholds absolutos do gate.
+          if [ "$VERCEL_MCP_GUARD_ONLY" = true ]; then
+            RUN=true
+            MODE=portfolio
+            ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            SHARDS='[0]'
           fi
 
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
