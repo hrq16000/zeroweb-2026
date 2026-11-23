@@ -55,6 +55,13 @@ try {
       await page.screenshot({ path: dir + "/" + width + ".png", fullPage: true, animations: "disabled", timeout: 30000 });
       const overflow = await page.evaluate(() => Math.max(0, document.documentElement.scrollWidth - window.innerWidth));
       assert.ok(overflow <= 2, "Overflow: " + overflow);
+      // Captura anterior (run 45132954644): CTA secundario sobreposto pelo FAB mobile.
+      if (width === 390) {
+        await page.waitForFunction(key => {
+          const fab = document.querySelector('button.fixed[data-funnel-client="' + key + '"]');
+          return fab && getComputedStyle(fab).opacity === "0" && fab.getAttribute("aria-hidden") === "true";
+        }, slug);
+      }
       const button = page.locator('button[data-funnel-cta="portfolio"][data-funnel-client="' + slug + '"]').first();
       assert.equal(await button.isVisible(), true, "Botao do funil isolado visivel");
       await button.click();

@@ -1224,7 +1224,7 @@
       "lastUpdatedAt": "2026-11-23",
       "visualQa": {
         "status": "NOT_EXECUTED",
-        "notes": "Nenhum browser QA executado até este commit."
+        "notes": "Nova captura exigida após correção de sobreposição de FAB. QA anterior 390/768/1440 PASS no run 45132954644; nenhuma aprovação visual da correção presumida."
       },
       "compositionFingerprint": {
         "heroGeometry": "left huge joyful headline on royal-blue parade stage beside yellow rotated graphic card",
@@ -1290,6 +1290,19 @@
           "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
           "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md"
         ]
+      },
+      "perceptualReview": {
+        "screenshots": {
+          "390": "seo-reports/bpl-visual/390.png · run 45132954644 / artifact 14798228779",
+          "768": "seo-reports/bpl-visual/768.png · run 45132954644 / artifact 14798228779",
+          "1440": "seo-reports/bpl-visual/1440.png · run 45132954644 / artifact 14798228779"
+        },
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "Revisão das capturas reais NO-BRAND de 390/1440 da execução 45132954644: composição distinta de Cantinho e Agropet na hierarquia, grades, topologia, narrativa e encerramento. Sobreposição de FAB mobile constatada nas capturas; corrigida nesta alteração, exigindo QA nova antes de READY."
       }
     }
   }

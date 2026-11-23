@@ -48,7 +48,7 @@ export function BplLocacoesBrinquedosPage() {
       </header>
 
       <main id="inicio">
-        <section className="relative isolate overflow-hidden bg-[#0757b3] text-white">
+        <section data-hide-portfolio-floating="bpl-locacoes-de-brinquedos" className="relative isolate overflow-hidden bg-[#0757b3] text-white">
           <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-28 size-80 rounded-full bg-[#22c8ee]/25 blur-3xl" />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/4 size-96 rounded-full bg-[#ec2084]/20 blur-3xl" />
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.04fr_.96fr] lg:items-center lg:px-10 lg:py-24">
