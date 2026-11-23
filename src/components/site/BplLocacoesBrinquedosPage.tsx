@@ -37,7 +37,7 @@ export function BplLocacoesBrinquedosPage() {
       <header className="relative z-20 border-b-4 border-[#ffce28] bg-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 md:px-10">
           <a href="#inicio" className="inline-flex min-h-12 items-center gap-2" aria-label="BPL Locações de Brinquedos — início">
-            <img src={IMAGES + "logo.svg"} alt="Marca editorial BPL Locações de Brinquedos" loading="eager" decoding="async" width={176} height={78} className="h-16 w-auto" />
+            <img src={IMAGES + "logo.svg"} alt="Marca editorial BPL Locações de Brinquedos" loading="lazy" decoding="async" width={176} height={78} className="h-16 w-auto" />
           </a>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-bold" aria-label="Navegação BPL">
             <a href="#brinquedos" className="rounded-lg py-2 hover:text-[#db237e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Brinquedos</a>
