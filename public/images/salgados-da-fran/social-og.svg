@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Salgados da Fran, encomendas em São José dos Pinhais">
+<rect width="1200" height="630" fill="#20252b"/><circle cx="1080" cy="100" r="290" fill="#31373c"/><circle cx="-70" cy="540" r="290" fill="#30383e"/>
+<rect x="74" y="72" width="157" height="157" rx="34" fill="#f6e52b"/>
+<g transform="translate(92 90) scale(.59)"><path d="M45 158 Q24 147 40 116 L68 72 Q74 62 80 72 L109 116 Q126 152 93 162 Z" fill="#e9a05d"/><path d="M85 171 Q56 159 77 112 L116 48 Q121 39 128 50 L164 114 Q184 164 146 171 Z" fill="#f5b271"/><path d="M139 159 Q118 146 137 115 L165 74 Q171 66 177 76 L202 121 Q217 151 195 159 Z" fill="#e49a55"/><g stroke="#67402e" stroke-width="4" stroke-linecap="round"><path d="M60 123v4m22-4v4m107-4v4m-33-4v4m-50-5v5m26-5v5"/><path d="M60 141q10 8 22 0m76 0q10 8 20 0m-73-5q14 23 27 0" fill="none"/></g></g>
+<text x="74" y="308" fill="#fff" font-size="97" font-weight="900" font-family="Arial, Helvetica, sans-serif" letter-spacing="-5">Salgados</text>
+<text x="74" y="425" fill="#f6e52b" font-size="111" font-weight="900" font-family="Arial, Helvetica, sans-serif" letter-spacing="-6">da Fran</text>
+<path d="M74 460h1030" stroke="#e9a05d" stroke-width="4"/>
+<text x="74" y="527" fill="#ffffff" font-size="33" font-weight="700" font-family="Arial, Helvetica, sans-serif">Encomendas · São José dos Pinhais — PR</text>
+<text x="75" y="581" fill="#cdd2d5" font-size="20" font-family="Arial, Helvetica, sans-serif">Portfólio demonstrativo 0WEB · Não é o site oficial</text>
+</svg>
