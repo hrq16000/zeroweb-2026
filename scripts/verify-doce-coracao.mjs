@@ -10,12 +10,16 @@ mkdirSync(dest, { recursive: true });
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 const report = { checks: [], noBrand: { status: "REVIEW_REQUIRED", captures: [] } };
 let failures = 0;
-const mask = [
-  "html{filter:grayscale(1)!important}",
-  "body *:not(script):not(style){color:transparent!important;text-shadow:none!important}",
-  "body img,body svg,body video,body iframe{opacity:0!important}",
-  "body [style*='background-image']{background-image:none!important}",
-].join("\n");
+// CSSOM somente no frame raiz: não interfere nos iframes de mapas sob CSP.
+const maskPage = async (page) => page.evaluate(() => {
+  document.documentElement.style.setProperty("filter", "grayscale(1)", "important");
+  for (const el of document.body.querySelectorAll("*")) {
+    el.style.setProperty("color", "transparent", "important");
+    el.style.setProperty("text-shadow", "none", "important");
+    el.style.setProperty("background-image", "none", "important");
+    if (el.matches("img,svg,video,iframe")) el.style.setProperty("opacity", "0", "important");
+  }
+});
 try {
   for (const width of [390, 768, 1440]) {
     const context = await browser.newContext({
@@ -56,6 +60,11 @@ try {
         await dialog.waitFor({ state: "visible" });
         const iframe = dialog.locator('iframe[data-funnel-provider="jotform"]');
         assert.equal(await iframe.getAttribute("src"), "https://form.jotform.com/263264367955065");
+        // Não basta o src correto: confirmar que o formulário de terceiros renderizou.
+        if(i===0) {
+          await page.frameLocator('iframe[data-funnel-provider="jotform"]')
+            .locator("form").first().waitFor({state:"visible",timeout:25000});
+        }
         assert.equal(await dialog.getByRole("link", { name: "Abrir formulário em outra aba" }).getAttribute("href"),
           "https://form.jotform.com/263264367955065");
         assert.match(await dialog.innerText(), /não são enviadas à padaria/i);
@@ -79,7 +88,8 @@ try {
         const response=await page.goto(base+"/portfolio/"+peer+"?0web_preview=1",
           {waitUntil:"domcontentloaded",timeout:30000});
         assert.equal(response?.status(),200);
-        await page.addStyleTag({content:mask});
+        await page.waitForLoadState("load",{timeout:10000}).catch(()=>{});
+        await maskPage(page);
         const name=width+"-nobrand-"+peer+".png";
         await page.screenshot({path:dest+"/"+name,fullPage:true,animations:"disabled"});
         report.noBrand.captures.push({width,slug:peer,file:name});
