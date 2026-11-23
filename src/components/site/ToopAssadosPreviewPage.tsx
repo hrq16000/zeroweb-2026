@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 
 type Dish = "frango" | "costela";
 const dishes = {
@@ -232,7 +233,8 @@ export function ToopAssadosPreviewPage({ mode = "preview" }: { mode?: "preview" 
         </section>
       </main>
       <footer className="bg-[#261811] px-5 py-7 text-center text-xs leading-relaxed text-[#EACDA6]">
-        Estudo independente de presença digital · 0WEB · Sem pedidos, pagamentos, avaliações ou atendimento operacional oficial.
+        <span className="block">Estudo independente de presença digital · Sem pedidos, pagamentos, avaliações ou atendimento operacional oficial.</span>
+        <PortfolioHostCredit className="mt-2 text-[#EACDA6]" linkClassName="underline underline-offset-4" />
       </footer>
     </div>
   );
