@@ -1145,7 +1145,7 @@
         "discovery": "complete",
         "blueprint": "in_progress",
         "seo": "in_progress",
-        "funnel": "in_progress",
+        "funnel": "complete",
         "cover": "in_progress",
         "qa": "not_started",
         "publish": "not_started"
@@ -1169,14 +1169,15 @@
         }
       },
       "blockers": [
-        "QA real 390/768/1440, reduced-motion, SEO e envio de lead ainda não executado.",
-        "Fotos reais não licenciadas e WhatsApp comercial não validado.",
+        "QA específica Chromium 390/768/1440, reduced-motion e SEO ainda não executados; formulário Jotform demonstrativo recebeu submissão sintética.",
+        "Fotos reais não licenciadas; WhatsApp comercial não validado e não utilizado (formulário demonstrativo Jotform da 0WEB).",
         "Revisão perceptual NO-BRAND TEST e autorização comercial pendentes.",
         "Promover compositionContract para 2 e indexabilidade apenas com evidência real da rodada 3."
       ],
       "warnings": [
         "Lead-only whatsapp:null, sem encaminhamento de outro cliente.",
-        "Demonstração independente, não site oficial."
+        "Demonstração independente, não site oficial.",
+        "Captação Jotform individual verificada por submissão sintética: registro no Jotform da 0WEB, não entrega à profissional nem reserva."
       ],
       "ownerRequired": [
         "Confirmar WhatsApp operacional e autorização para receber leads.",

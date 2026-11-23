@@ -937,37 +937,6 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: formato, comprimento, cor, sensibilidade ou horário ideal."
   },
-  "espaco-marli-nails-guaratuba": {
-    "services": [
-      "Manicure",
-      "Pedicure",
-      "Quero consultar os cuidados disponíveis"
-    ],
-    "experienceOptions": [
-      "Primeira visita",
-      "Já conheço o espaço",
-      "Quero tirar dúvidas"
-    ],
-    "periodOptions": [
-      "Manhã",
-      "Tarde",
-      "Tenho flexibilidade"
-    ],
-    "timingOptions": [
-      "Nesta semana",
-      "Na próxima semana",
-      "Gostaria de saber os próximos horários"
-    ],
-    "proposalKind": "service",
-    "stepTitles": {
-      "service": "O que gostaria de consultar?",
-      "experience": "Como podemos orientar você?",
-      "period": "Qual período prefere?",
-      "timing": "Quando gostaria de ser atendida?",
-      "note": "Algum detalhe importante?"
-    },
-    "notePlaceholder": "Informe dúvidas ou preferências. Horários, preços e serviços são confirmados no atendimento."
-  },
   "fernanda-amaral-drywall": {
     "proposalKind": "service",
     "services": [
