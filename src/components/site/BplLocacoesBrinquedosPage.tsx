@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { ArrowRight, BadgeCheck, MapPin, PackageCheck, ShieldCheck, Sparkles, Star, Truck } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 
-const KEY = "bpl-locacoes-de-brinquedos";
 const IMAGES = "/images/bpl-locacoes-de-brinquedos/";
 
 const questions = [
@@ -15,7 +15,7 @@ const questions = [
 function Inquiry({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <PortfolioCTAQuiz
-      clientKey={KEY}
+      clientKey="bpl-locacoes-de-brinquedos"
       studioName="BPL Locações de Brinquedos"
       recipientName="a BPL"
       mode="proposal"
@@ -200,6 +200,7 @@ export function BplLocacoesBrinquedosPage() {
           </div>
         </section>
       </main>
+      <PortfolioHostCredit className="px-6 py-4 text-center text-sm" linkClassName="underline" />
     </div>
   );
 }
