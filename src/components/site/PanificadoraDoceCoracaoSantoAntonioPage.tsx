@@ -52,7 +52,7 @@ const questions = [
     answer: "A disponibilidade de encomendas, retirada e entrega não foi confirmada diretamente com a unidade. Verifique as condições atuais com o estabelecimento.",
   },
   {
-    question: "Como consultar a padaria pelo WhatsApp?",
+    question: "Como consultar informações desta padaria?",
     answer: "O formulário demonstrativo registra o interesse na 0WEB pelo Jotform, sem envio automático à padaria. Não confirma compras, encomendas ou disponibilidade. Para falar diretamente com o estabelecimento, consulte seus canais públicos.",
   },
   {
@@ -73,7 +73,7 @@ function HostedConsultaButton({ children, className }: { children: ReactNode; cl
   return (
     <DialogPrimitive.Root>
       <DialogPrimitive.Trigger asChild>
-        <button type="button" className={className}>{children}</button>
+        <button type="button" data-testid="doce-coracao-consulta-trigger" className={className}>{children}</button>
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-[110] bg-[#341624]/80 backdrop-blur-sm" />
@@ -224,6 +224,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               ))}
             </div>
             <p className="dc-availability"><Clock3 size={18} aria-hidden="true" /> Os produtos podem variar diariamente. Para cardápio, encomendas, preços e estoque, confirme diretamente com a padaria.</p>
+            <div className="mt-6 flex justify-start"><HostedConsultaButton className="dc-button-outline dc-button-warm"><MessageCircle size={18} aria-hidden="true" /> Registrar consulta demonstrativa</HostedConsultaButton></div>
           </section>
 
           <section id="localizacao" className="dc-location" aria-labelledby="dc-location-title">
