@@ -7,6 +7,7 @@
 import { loadEnv } from "vite";
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { routeWatcherPlugin } from "./plugins/vite-plugin-route-watcher";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/tanstack/vite";
 
 // Load non-VITE_ env vars into process.env for server-side code only
 // (never injected into the client bundle).
@@ -22,7 +23,7 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
-    plugins: [routeWatcherPlugin()],
+    plugins: [routeWatcherPlugin(), mcpPlugin()],
     build: {
       rollupOptions: {
         // framer-motion/motion marcam módulos com "use client"; o Rollup avisa

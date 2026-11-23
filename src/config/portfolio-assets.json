@@ -1020,6 +1020,7 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
+      "excludeFromAdminGallery": ["social.png"],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1027,7 +1028,7 @@
         "ctaLabel": "Explorar a loja",
         "ctaHref": "#vitrine"
       },
-      "socialVersion": "9e729e85"
+      "socialVersion": "8ca0e369"
     },
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",

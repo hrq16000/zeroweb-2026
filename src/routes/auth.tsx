@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { stitchVisitorIdentity } from "@/lib/identity-stitching.functions";
+import { oauthReturnPath } from "@/lib/oauth-return-path";
 
 function readVisitorIdCookie(): string | undefined {
   if (typeof document === "undefined") return undefined;
@@ -25,9 +26,15 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/auth")({
+  validateSearch: (search: Record<string, unknown>): { next?: string } => ({ next: oauthReturnPath(search['next'] ?? "/app") }),
   head: () => ({
     meta: [
       { title: "Entrar · Área do Cliente · 0WEB" },
+      { name: "description", content: "Entre com Google para acessar sua conta e autorizar integrações da 0WEB." },
+      { property: "og:title", content: "Entrar na 0WEB" },
+      { property: "og:description", content: "Acesse sua conta e autorize conexões com a 0WEB." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),
@@ -37,6 +44,7 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
+  const next = Route.useSearch().next ?? "/app";
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -44,23 +52,23 @@ function AuthPage() {
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
       if ((event === "SIGNED_IN" || event === "USER_UPDATED") && session) {
         fireAndForgetStitch();
-        navigate({ to: "/app", replace: true });
+        void navigate({ href: next, replace: true });
       }
     });
     void supabase.auth.getUser().then(({ data }) => {
       if (data.user) {
         fireAndForgetStitch();
-        navigate({ to: "/app", replace: true });
+        void navigate({ href: next, replace: true });
       }
     });
     return () => sub.subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, next]);
 
   const google = async () => {
     setBusy(true);
     setErr(null);
     const r = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin + "/app",
+      redirect_uri: new URL(next, window.location.origin).href,
     });
     if (r.error) setErr(r.error.message);
     setBusy(false);

@@ -466,3 +466,34 @@ The expected result is:
 client-specific composition + client-specific interaction + honest constraints
 = independent commercial site`.
 
+
+
+## Post-R9 reconciliation — REFERENCE_SOURCE_AUTHORITY_GATE
+
+This reconciliation does not reopen R1–R9 research. It closes two machine-readable
+gaps left by older branches that were never safely merged into the final corpus.
+
+Every source in the reference library must declare one authority class:
+
+- `COMPOSITION_REFERENCE` — may inform composition, rhythm, interaction, media
+  roles and decision structure; never permits copying silhouette or identity.
+- `ENTITY_DISCOVERY_SOURCE` — may inform entity, locality, category, service
+  vocabulary and competitor discovery; must not define composition or motion.
+- `META_METHOD_REFERENCE` — may inform CRO, page mode, CTA and form method;
+  must not act as evidence about a client.
+- `ANTI_PATTERN_REFERENCE` — primarily records what must be rejected.
+- `INSUFFICIENT_EVIDENCE` — may not generate structural rules until evidence
+  is resolved.
+
+For `USE` and `ADAPT` sources with sufficient evidence, the library must also
+declare one primary experience engine and at most one counterpoint engine. Mapping
+is based on observed decision mode, not segment. `REJECT` and
+`INSUFFICIENT_EVIDENCE_FOR_STRUCTURAL_PATTERN` remain legitimate exemptions.
+
+Canonical machine-readable enforcement lives in:
+
+- `src/config/portfolio-reference-pattern-library.json`;
+- `src/config/portfolio-zero-generic-policy.json`.
+
+This is a governance reconciliation only: no landing, funnel, route, asset or
+public runtime behavior is changed.

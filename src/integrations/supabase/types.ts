@@ -5736,6 +5736,41 @@ export type Database = {
         }
         Relationships: []
       }
+      support_agents: {
+        Row: {
+          created_at: string
+          created_by: string
+          display_name: string
+          is_active: boolean
+          preferences: Json
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          display_name: string
+          is_active?: boolean
+          preferences?: Json
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          display_name?: string
+          is_active?: boolean
+          preferences?: Json
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "support_agents_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       support_tickets: {
         Row: {
           body: string

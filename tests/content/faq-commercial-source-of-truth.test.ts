@@ -2,9 +2,15 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
-const src = readFileSync(resolve(process.cwd(), "src/routes/faq.tsx"), "utf8");
+// A FAQ e o painel de suporte compartilham um conteúdo canônico.
+const src = readFileSync(resolve(process.cwd(), "src/lib/support-help.ts"), "utf8");
+const route = readFileSync(resolve(process.cwd(), "src/routes/faq.tsx"), "utf8");
 
 describe("FAQ commercial source of truth", () => {
+  test("o FAQ público realmente consome a fonte de suporte compartilhada", () => {
+    expect(route).toContain('import { supportHelp } from "@/lib/support-help"');
+    expect(route).toContain("const faqs = supportHelp");
+  });
   test("não mantém preços/prazos globais que divergem da loja viva", () => {
     for (const stale of ["R$ 2.500","R$ 290/mês","10 e 25 dias","até 7 dias","60 e 120 dias","6 a 12 meses","contrato de 6 meses","Em até 24h"]) {
       expect(src).not.toContain(stale);

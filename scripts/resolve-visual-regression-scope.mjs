@@ -3,7 +3,7 @@
  * Resolve o menor escopo seguro para regressão visual.
  *
  * Retorna uma lista CSV de slugs somente quando TODOS os arquivos visuais
- * relevantes pertencem a portfolios individuais registrados. Se houver
+ * relevantes pertencem a portfolios individuais identificados. Se houver
  * componente compartilhado, rota, CSS global, ativo não resolvido ou qualquer
  * outra superfície visual ampla, retorna string vazia => gate global.
  */
@@ -283,7 +283,9 @@ export function resolveVisualRegressionScope(files, clients) {
     }
 
     const assetMatch = file.match(/^public\/images\/([^/]+)\//);
-    if (assetMatch && knownSlugs.has(assetMatch[1])) {
+    if (assetMatch && (
+      knownSlugs.has(assetMatch[1]) || newRoutesOwned.has(`src/routes/portfolio.${assetMatch[1]}.tsx`)
+    )) {
       sawVisualFile = true;
       scoped.add(assetMatch[1]);
       continue;

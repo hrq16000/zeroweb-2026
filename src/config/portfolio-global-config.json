@@ -1447,6 +1447,9 @@
       }
     },
     "cantinho-da-tia-mari": {
+      "shareButton": {
+        "position": "bottom-right"
+      },
       "contactFloating": {
         "enabled": false,
         "theme": "pink",
