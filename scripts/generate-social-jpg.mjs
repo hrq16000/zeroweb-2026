@@ -23,12 +23,18 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
       .jpeg({ quality: 82, progressive: true })
       .toFile(outPath);
   }
-  entry.socialImage = jpgRel;
-  // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
-  entry.socialVersion = createHash("sha1")
-    .update(readFileSync(outPath))
-    .digest("hex")
-    .slice(0, 8);
+  // O SVG é a fonte canônica versionada. Seu JPEG derivado atende às prévias
+  // sociais da rota, mas não deve alterar o registry no prebuild: isso
+  // tornaria o seed administrativo não-determinístico. Imagens raster
+  // continuam com o comportamento histórico.
+  if (!src.toLowerCase().endsWith(".svg")) {
+    entry.socialImage = jpgRel;
+    // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
+    entry.socialVersion = createHash("sha1")
+      .update(readFileSync(outPath))
+      .digest("hex")
+      .slice(0, 8);
+  }
   changed++;
 }
 writeFileSync(file, `${JSON.stringify(cfg, null, 2)}\n`);
