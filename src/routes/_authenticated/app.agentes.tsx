@@ -1,0 +1,26 @@
+import {createFileRoute} from '@tanstack/react-router';
+import {queryOptions,useQueryClient,useSuspenseQuery} from '@tanstack/react-query';
+import {useServerFn} from '@tanstack/react-start';
+import {useState} from 'react';
+import {UserPlus,Save} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Textarea} from '@/components/ui/textarea';
+import {Switch} from '@/components/ui/switch';
+import {listSupportAgents,inviteSupportAgent,updateSupportAgent} from '@/lib/support-agents.functions';
+const options=queryOptions({queryKey:['support-agents'],queryFn:()=>listSupportAgents()});
+export const Route=createFileRoute('/_authenticated/app/agentes')({
+ head:()=>({meta:[{title:'Administração de agentes · 0WEB'},{name:'description',content:'Cadastro, perfil e acesso dos agentes no painel.'},{property:'og:title',content:'Agentes · 0WEB'},{property:'og:description',content:'Administração restrita de agentes.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary'},{name:'robots',content:'noindex,nofollow'}]}),
+ loader:({context})=>context.queryClient.ensureQueryData(options),
+ errorComponent:({error,reset})=><div role="alert" className="space-y-3"><p>{error instanceof Error ? error.message : 'Não foi possível carregar os agentes.'}</p><Button onClick={reset}>Tentar novamente</Button></div>,component:Agents,
+});
+function Agents(){const {data}=useSuspenseQuery(options);const invite=useServerFn(inviteSupportAgent);const qc=useQueryClient();const [form,setForm]=useState({email:'',name:'',preferences:''});const [busy,setBusy]=useState(false);const [error,setError]=useState('');const [success,setSuccess]=useState('');
+ return <div className="max-w-5xl space-y-6"><h1 className="font-display text-3xl font-bold">Agentes</h1>
+ <form className="border-y border-border py-6 grid gap-4 sm:grid-cols-2" onSubmit={async e=>{e.preventDefault();setBusy(true);setError('');setSuccess('');try{await invite({data:form});setSuccess('Convite enviado. O agente define a senha pelo link recebido.');setForm({email:'',name:'',preferences:''});await qc.invalidateQueries({queryKey:['support-agents']});}catch(e){setError(e instanceof Error?e.message:'Não foi possível cadastrar.');}finally{setBusy(false);}}}>
+ <label className="space-y-2 text-sm">Nome<Input required minLength={2} maxLength={100} value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="min-h-11"/></label><label className="space-y-2 text-sm">E-mail de acesso<Input required type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="min-h-11"/></label><label className="space-y-2 text-sm sm:col-span-2">Perfil e preferências<Textarea maxLength={2000} value={form.preferences} onChange={e=>setForm({...form,preferences:e.target.value})}/></label><Button disabled={busy} className="min-h-11 justify-self-start"><UserPlus/>{busy?'Enviando…':'Cadastrar e enviar convite'}</Button></form>
+ {error&&<p role="alert" className="text-destructive">{error}</p>}{success&&<p role="status" className="text-primary">{success}</p>}
+ <h2 className="text-xl font-semibold">Agentes cadastrados</h2>{!data.length&&<p className="text-muted-foreground">Nenhum agente cadastrado.</p>}<div className="space-y-6">{data.map(a=><AgentRow key={a.user_id} agent={a}/>)}</div></div>;
+}
+function AgentRow({agent}:{agent:Awaited<ReturnType<typeof listSupportAgents>>[number]}){const update=useServerFn(updateSupportAgent);const qc=useQueryClient();const notes=agent.preferences&&typeof agent.preferences==='object'&&!Array.isArray(agent.preferences)&&typeof agent.preferences['notes']==='string'?agent.preferences['notes']:'';const [name,setName]=useState(agent.display_name);const [preferences,setPreferences]=useState(notes);const [active,setActive]=useState(agent.is_active);const [busy,setBusy]=useState(false);const [error,setError]=useState('');const [saved,setSaved]=useState(false);
+return <form className="border-b border-border pb-6 space-y-3" onSubmit={async e=>{e.preventDefault();setBusy(true);setError('');setSaved(false);try{await update({data:{id:agent.user_id,name,preferences,active}});await qc.invalidateQueries({queryKey:['support-agents']});setSaved(true);}catch(e){setError(e instanceof Error?e.message:'Falha ao salvar.');}finally{setBusy(false);}}}><p className="text-sm text-muted-foreground">{agent.profiles?.email??'Conta convidada'}</p><label className="block text-sm">Nome<Input value={name} onChange={e=>setName(e.target.value)} required minLength={2} maxLength={100}/></label><label className="block text-sm">Perfil<Textarea value={preferences} onChange={e=>setPreferences(e.target.value)} maxLength={2000}/></label><label className="flex items-center gap-3 text-sm"><Switch checked={active} onCheckedChange={setActive}/>Acesso ativo</label><Button variant="outline" disabled={busy} className="min-h-11"><Save/>{busy?'Salvando…':'Salvar'}</Button>{error&&<p role="alert" className="text-destructive text-sm">{error}</p>}{saved&&<p role="status" className="text-primary text-sm">Perfil salvo.</p>}</form>;
+}

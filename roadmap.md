@@ -1,5 +1,15 @@
 # Roadmap
 
+## Painel, suporte e publicação — pedido de 23/11/2026
+- [ ] Consolidar leads com protocolo, status, filtro por funil/data e origem Jotform.
+- [ ] Exibir detalhe de cada funil com destino cadastrado, histórico e pendências.
+- [ ] Criar suporte baseado na ajuda e pedidos próprios, com encaminhamento humano.
+- [ ] Administração de agentes com nome/perfil e login por senha separado, autorizados pelo usuário.
+- [x] Fotos/reativação da galeria: puladas expressamente pelo usuário; manter draft.
+- [x] Espelho/importação Jotform Dona Garimpeira: pulados expressamente pelo usuário.
+- [ ] Confirmar funil publicado e WhatsApp exclusivo 5541995523363.
+- [ ] Publicar e verificar recomendações IA em produção.
+
 ## Integrações de agentes — escopo desta rodada
 - [x] Publicar a versão salva e homologar MCP e IA em produção; rotas MCP/consent e troca IA confirmadas em 0web.com.br em 23/11/2026.
 - [ ] Ativar espelhos Jotform de Agropet FILT e Cantinho da Tia Mari (ambos autorizados); bloqueado por contrato/endpoint `jotform-mirror` ausente do Git atual, antes de solicitar segredos ou criar registros.

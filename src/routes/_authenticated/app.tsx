@@ -65,6 +65,8 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/admin", icon: Shield, label: "Painel admin" },
   { to: "/app/paginas", icon: LayoutTemplate, label: "Páginas & Produtos" },
   { to: "/app/usuarios", icon: Users, label: "Usuários" },
+  { to: "/app/agentes", icon: Users, label: "Agentes" },
+  { to: "/app/funis/leads", icon: Inbox, label: "Leads dos funis" },
   { to: "/app/leads", icon: Inbox, label: "Leads unificados" },
   { to: "/app/leads-telefone", icon: Inbox, label: "Leads por telefone" },
   { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },

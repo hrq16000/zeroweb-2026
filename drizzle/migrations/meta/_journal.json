@@ -50,6 +50,13 @@
       "when": 1795405888688,
       "tag": "0006_revoke_user_portal_ids",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1795409374504,
+      "tag": "0007_support_agent_accounts",
+      "breakpoints": true
     }
   ]
 }

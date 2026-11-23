@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServiceRouteImport } from './routes/$service'
 import { Route as R403RouteImport } from './routes/403'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AgentActivateRouteImport } from './routes/agent-activate'
+import { Route as AgentLoginRouteImport } from './routes/agent-login'
 import { Route as AreasDeAtendimentoRouteImport } from './routes/areas-de-atendimento'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AutomacaoRouteImport } from './routes/automacao'
@@ -60,6 +62,7 @@ import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as QaEventsRouteImport } from './routes/qa-events'
 import { Route as RedesSociaisRouteImport } from './routes/redes-sociais'
 import { Route as RenataBeautyRouteImport } from './routes/renata-beauty'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as SeoRouteImport } from './routes/seo'
 import { Route as ServicosRouteImport } from './routes/servicos'
@@ -156,6 +159,8 @@ import { Route as SuportePedidoTokenRouteImport } from './routes/suporte-pedido.
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
+import { Route as AuthenticatedAppAgentProfileRouteImport } from './routes/_authenticated/app.agent-profile'
+import { Route as AuthenticatedAppAgentesRouteImport } from './routes/_authenticated/app.agentes'
 import { Route as AuthenticatedAppAtendimentoRouteImport } from './routes/_authenticated/app.atendimento'
 import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app.campaigns'
 import { Route as AuthenticatedAppClientesRouteImport } from './routes/_authenticated/app.clientes'
@@ -263,6 +268,7 @@ import { Route as ApiPublicHooksVisitorsCleanupRouteImport } from './routes/api/
 import { Route as ApiPublicPortfolioAssetSplatRouteImport } from './routes/api/public/portfolio-asset.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as RWhatsappReissueTokenRouteImport } from './routes/r.whatsapp.reissue.$token'
+import { Route as AuthenticatedAppFunisIdHistoryRouteImport } from './routes/_authenticated/app.funis.$id_.history'
 import { Route as AuthenticatedAppFunisPipelineRegrasRouteImport } from './routes/_authenticated/app.funis.pipeline.regras'
 import { Route as ApiPublicLandingImagePageFileRouteImport } from './routes/api/public/landing-image.$page.$file'
 
@@ -283,6 +289,16 @@ const R403Route = R403RouteImport.update({
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentActivateRoute = AgentActivateRouteImport.update({
+  id: '/agent-activate',
+  path: '/agent-activate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentLoginRoute = AgentLoginRouteImport.update({
+  id: '/agent-login',
+  path: '/agent-login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AreasDeAtendimentoRoute = AreasDeAtendimentoRouteImport.update({
@@ -519,6 +535,11 @@ const RedesSociaisRoute = RedesSociaisRouteImport.update({
 const RenataBeautyRoute = RenataBeautyRouteImport.update({
   id: '/renata-beauty',
   path: '/renata-beauty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RssDotxmlRoute = RssDotxmlRouteImport.update({
@@ -1017,6 +1038,17 @@ const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
 const AuthenticatedAppAdminRoute = AuthenticatedAppAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppAgentProfileRoute =
+  AuthenticatedAppAgentProfileRouteImport.update({
+    id: '/agent-profile',
+    path: '/agent-profile',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppAgentesRoute = AuthenticatedAppAgentesRouteImport.update({
+  id: '/agentes',
+  path: '/agentes',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
 const AuthenticatedAppAtendimentoRoute =
@@ -1637,6 +1669,12 @@ const RWhatsappReissueTokenRoute = RWhatsappReissueTokenRouteImport.update({
   path: '/r/whatsapp/reissue/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAppFunisIdHistoryRoute =
+  AuthenticatedAppFunisIdHistoryRouteImport.update({
+    id: '/funis/$id_/history',
+    path: '/funis/$id/history',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppFunisPipelineRegrasRoute =
   AuthenticatedAppFunisPipelineRegrasRouteImport.update({
     id: '/funis/pipeline/regras',
@@ -1654,6 +1692,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$service': typeof ServiceRoute
   '/403': typeof R403Route
+  '/agent-activate': typeof AgentActivateRoute
+  '/agent-login': typeof AgentLoginRoute
   '/areas-de-atendimento': typeof AreasDeAtendimentoRoute
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
@@ -1701,6 +1741,7 @@ export interface FileRoutesByFullPath {
   '/qa-events': typeof QaEventsRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/renata-beauty': typeof RenataBeautyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/seo': typeof SeoRoute
   '/servicos': typeof ServicosRouteWithChildren
@@ -1796,6 +1837,8 @@ export interface FileRoutesByFullPath {
   '/sites/': typeof SitesIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
+  '/app/agent-profile': typeof AuthenticatedAppAgentProfileRoute
+  '/app/agentes': typeof AuthenticatedAppAgentesRoute
   '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
@@ -1904,6 +1947,7 @@ export interface FileRoutesByFullPath {
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
+  '/app/funis/$id/history': typeof AuthenticatedAppFunisIdHistoryRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1911,6 +1955,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$service': typeof ServiceRoute
   '/403': typeof R403Route
+  '/agent-activate': typeof AgentActivateRoute
+  '/agent-login': typeof AgentLoginRoute
   '/areas-de-atendimento': typeof AreasDeAtendimentoRoute
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
@@ -1957,6 +2003,7 @@ export interface FileRoutesByTo {
   '/qa-events': typeof QaEventsRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/renata-beauty': typeof RenataBeautyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/seo': typeof SeoRoute
   '/sitemap-bh-neighborhoods.xml': typeof SitemapBhNeighborhoodsDotxmlRoute
@@ -2050,6 +2097,8 @@ export interface FileRoutesByTo {
   '/sites': typeof SitesIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
+  '/app/agent-profile': typeof AuthenticatedAppAgentProfileRoute
+  '/app/agentes': typeof AuthenticatedAppAgentesRoute
   '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
@@ -2157,6 +2206,7 @@ export interface FileRoutesByTo {
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads': typeof AuthenticatedAppLeadsIndexRoute
   '/app/portfolio': typeof AuthenticatedAppPortfolioIndexRoute
+  '/app/funis/$id/history': typeof AuthenticatedAppFunisIdHistoryRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2166,6 +2216,8 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/$service': typeof ServiceRoute
   '/403': typeof R403Route
+  '/agent-activate': typeof AgentActivateRoute
+  '/agent-login': typeof AgentLoginRoute
   '/areas-de-atendimento': typeof AreasDeAtendimentoRoute
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
@@ -2213,6 +2265,7 @@ export interface FileRoutesById {
   '/qa-events': typeof QaEventsRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/renata-beauty': typeof RenataBeautyRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/seo': typeof SeoRoute
   '/servicos': typeof ServicosRouteWithChildren
@@ -2308,6 +2361,8 @@ export interface FileRoutesById {
   '/sites/': typeof SitesIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
+  '/_authenticated/app/agent-profile': typeof AuthenticatedAppAgentProfileRoute
+  '/_authenticated/app/agentes': typeof AuthenticatedAppAgentesRoute
   '/_authenticated/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/_authenticated/app/clientes': typeof AuthenticatedAppClientesRoute
@@ -2416,6 +2471,7 @@ export interface FileRoutesById {
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/_authenticated/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/_authenticated/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
+  '/_authenticated/app/funis/$id_/history': typeof AuthenticatedAppFunisIdHistoryRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2425,6 +2481,8 @@ export interface FileRouteTypes {
     | '/'
     | '/$service'
     | '/403'
+    | '/agent-activate'
+    | '/agent-login'
     | '/areas-de-atendimento'
     | '/auth'
     | '/automacao'
@@ -2472,6 +2530,7 @@ export interface FileRouteTypes {
     | '/qa-events'
     | '/redes-sociais'
     | '/renata-beauty'
+    | '/reset-password'
     | '/rss.xml'
     | '/seo'
     | '/servicos'
@@ -2567,6 +2626,8 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/.lovable/oauth/consent'
     | '/app/admin'
+    | '/app/agent-profile'
+    | '/app/agentes'
     | '/app/atendimento'
     | '/app/campaigns'
     | '/app/clientes'
@@ -2675,6 +2736,7 @@ export interface FileRouteTypes {
     | '/app/funis/'
     | '/app/leads/'
     | '/app/portfolio/'
+    | '/app/funis/$id/history'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -2682,6 +2744,8 @@ export interface FileRouteTypes {
     | '/'
     | '/$service'
     | '/403'
+    | '/agent-activate'
+    | '/agent-login'
     | '/areas-de-atendimento'
     | '/auth'
     | '/automacao'
@@ -2728,6 +2792,7 @@ export interface FileRouteTypes {
     | '/qa-events'
     | '/redes-sociais'
     | '/renata-beauty'
+    | '/reset-password'
     | '/rss.xml'
     | '/seo'
     | '/sitemap-bh-neighborhoods.xml'
@@ -2821,6 +2886,8 @@ export interface FileRouteTypes {
     | '/sites'
     | '/.lovable/oauth/consent'
     | '/app/admin'
+    | '/app/agent-profile'
+    | '/app/agentes'
     | '/app/atendimento'
     | '/app/campaigns'
     | '/app/clientes'
@@ -2928,6 +2995,7 @@ export interface FileRouteTypes {
     | '/app/funis'
     | '/app/leads'
     | '/app/portfolio'
+    | '/app/funis/$id/history'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   id:
@@ -2936,6 +3004,8 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/$service'
     | '/403'
+    | '/agent-activate'
+    | '/agent-login'
     | '/areas-de-atendimento'
     | '/auth'
     | '/automacao'
@@ -2983,6 +3053,7 @@ export interface FileRouteTypes {
     | '/qa-events'
     | '/redes-sociais'
     | '/renata-beauty'
+    | '/reset-password'
     | '/rss.xml'
     | '/seo'
     | '/servicos'
@@ -3078,6 +3149,8 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/.lovable/oauth/consent'
     | '/_authenticated/app/admin'
+    | '/_authenticated/app/agent-profile'
+    | '/_authenticated/app/agentes'
     | '/_authenticated/app/atendimento'
     | '/_authenticated/app/campaigns'
     | '/_authenticated/app/clientes'
@@ -3186,6 +3259,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/funis/'
     | '/_authenticated/app/leads/'
     | '/_authenticated/app/portfolio/'
+    | '/_authenticated/app/funis/$id_/history'
     | '/_authenticated/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesById: FileRoutesById
@@ -3195,6 +3269,8 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   ServiceRoute: typeof ServiceRoute
   R403Route: typeof R403Route
+  AgentActivateRoute: typeof AgentActivateRoute
+  AgentLoginRoute: typeof AgentLoginRoute
   AreasDeAtendimentoRoute: typeof AreasDeAtendimentoRoute
   AuthRoute: typeof AuthRoute
   AutomacaoRoute: typeof AutomacaoRoute
@@ -3242,6 +3318,7 @@ export interface RootRouteChildren {
   QaEventsRoute: typeof QaEventsRoute
   RedesSociaisRoute: typeof RedesSociaisRoute
   RenataBeautyRoute: typeof RenataBeautyRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
   SeoRoute: typeof SeoRoute
   ServicosRoute: typeof ServicosRouteWithChildren
@@ -3377,6 +3454,20 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent-activate': {
+      id: '/agent-activate'
+      path: '/agent-activate'
+      fullPath: '/agent-activate'
+      preLoaderRoute: typeof AgentActivateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent-login': {
+      id: '/agent-login'
+      path: '/agent-login'
+      fullPath: '/agent-login'
+      preLoaderRoute: typeof AgentLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/areas-de-atendimento': {
@@ -3706,6 +3797,13 @@ declare module '@tanstack/react-router' {
       path: '/renata-beauty'
       fullPath: '/renata-beauty'
       preLoaderRoute: typeof RenataBeautyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rss.xml': {
@@ -4378,6 +4476,20 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/app/admin'
       preLoaderRoute: typeof AuthenticatedAppAdminRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/agent-profile': {
+      id: '/_authenticated/app/agent-profile'
+      path: '/agent-profile'
+      fullPath: '/app/agent-profile'
+      preLoaderRoute: typeof AuthenticatedAppAgentProfileRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/agentes': {
+      id: '/_authenticated/app/agentes'
+      path: '/agentes'
+      fullPath: '/app/agentes'
+      preLoaderRoute: typeof AuthenticatedAppAgentesRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/atendimento': {
@@ -5129,6 +5241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RWhatsappReissueTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/app/funis/$id_/history': {
+      id: '/_authenticated/app/funis/$id_/history'
+      path: '/funis/$id/history'
+      fullPath: '/app/funis/$id/history'
+      preLoaderRoute: typeof AuthenticatedAppFunisIdHistoryRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/funis/pipeline/regras': {
       id: '/_authenticated/app/funis/pipeline/regras'
       path: '/funis/pipeline/regras'
@@ -5265,6 +5384,8 @@ const AuthenticatedAppSupportRouteWithChildren =
 
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAdminRoute: typeof AuthenticatedAppAdminRoute
+  AuthenticatedAppAgentProfileRoute: typeof AuthenticatedAppAgentProfileRoute
+  AuthenticatedAppAgentesRoute: typeof AuthenticatedAppAgentesRoute
   AuthenticatedAppAtendimentoRoute: typeof AuthenticatedAppAtendimentoRoute
   AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
   AuthenticatedAppClientesRoute: typeof AuthenticatedAppClientesRoute
@@ -5332,11 +5453,14 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortfolioQualidadeRoute: typeof AuthenticatedAppPortfolioQualidadeRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
+  AuthenticatedAppFunisIdHistoryRoute: typeof AuthenticatedAppFunisIdHistoryRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAdminRoute: AuthenticatedAppAdminRoute,
+  AuthenticatedAppAgentProfileRoute: AuthenticatedAppAgentProfileRoute,
+  AuthenticatedAppAgentesRoute: AuthenticatedAppAgentesRoute,
   AuthenticatedAppAtendimentoRoute: AuthenticatedAppAtendimentoRoute,
   AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
   AuthenticatedAppClientesRoute: AuthenticatedAppClientesRoute,
@@ -5411,6 +5535,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppPortfolioQualidadeRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
+  AuthenticatedAppFunisIdHistoryRoute: AuthenticatedAppFunisIdHistoryRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
 }
@@ -5498,6 +5623,8 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   ServiceRoute: ServiceRoute,
   R403Route: R403Route,
+  AgentActivateRoute: AgentActivateRoute,
+  AgentLoginRoute: AgentLoginRoute,
   AreasDeAtendimentoRoute: AreasDeAtendimentoRoute,
   AuthRoute: AuthRoute,
   AutomacaoRoute: AutomacaoRoute,
@@ -5545,6 +5672,7 @@ const rootRouteChildren: RootRouteChildren = {
   QaEventsRoute: QaEventsRoute,
   RedesSociaisRoute: RedesSociaisRoute,
   RenataBeautyRoute: RenataBeautyRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RssDotxmlRoute: RssDotxmlRoute,
   SeoRoute: SeoRoute,
   ServicosRoute: ServicosRouteWithChildren,
