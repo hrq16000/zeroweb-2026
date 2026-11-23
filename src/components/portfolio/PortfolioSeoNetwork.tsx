@@ -116,6 +116,29 @@ export function PortfolioSeoNetwork({ slug, context }: Props) {
           </ul>
         </nav>
 
+        <aside aria-labelledby={`portfolio-marketing-${slug}`} className="mt-9 rounded-2xl border border-black/10 bg-white p-5 sm:p-6">
+          <p className="text-xs font-black uppercase tracking-[.14em] text-neutral-500">Soluções da 0WEB para empreendedores</p>
+          <h3 id={`portfolio-marketing-${slug}`} className="mt-2 text-xl font-bold">
+            Quer divulgar um negócio {current.segment === "beleza" ? "de beleza" : "como este"}?
+          </h3>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-neutral-600">
+            Este portfólio mostra uma proposta de presença digital. A 0WEB também oferece criação de sites,
+            gestão de redes sociais e soluções para encontrar clientes no Google.
+            Veja o que faz sentido para sua atividade, sem confundir os serviços da agência com os do estabelecimento.
+          </p>
+          <nav aria-label="Serviços de marketing digital da 0WEB" className="mt-4 flex flex-wrap gap-3 text-sm font-bold">
+            <a href="/servicos/presenca-digital" className="rounded-xl bg-neutral-100 px-4 py-3 text-neutral-900 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+              Criação de sites e presença digital
+            </a>
+            <a href="/servicos/gestao-redes-sociais" className="rounded-xl bg-neutral-100 px-4 py-3 text-neutral-900 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+              Gestão de redes sociais
+            </a>
+            <a href="/servicos/google-meu-negocio" className="rounded-xl bg-neutral-100 px-4 py-3 text-neutral-900 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+              Perfil da empresa no Google
+            </a>
+          </nav>
+        </aside>
+
         {entityGraph ? (
           <script
             type="application/ld+json"

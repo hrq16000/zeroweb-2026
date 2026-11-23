@@ -12,6 +12,8 @@ import {
 } from "@/lib/portfolio-seo-network";
 
 const shell = readFileSync("src/components/portfolio/PortfolioStandardShell.tsx", "utf8");
+const seoNetworkComponent = readFileSync("src/components/portfolio/PortfolioSeoNetwork.tsx", "utf8");
+const conversionNarrative = readFileSync("src/components/portfolio/PortfolioConversionNarrative.tsx", "utf8");
 const route = readFileSync("src/routes/portfolio.$slug.tsx", "utf8");
 
 describe("SEO universal dos portfolios", () => {
@@ -150,6 +152,19 @@ describe("SEO universal dos portfolios", () => {
     const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
     expect(Array.isArray(webpage?.about)).toBe(true);
     expect(webpage.about.some((node: any) => node["@type"] === "DefinedTerm")).toBe(true);
+  });
+
+  test("rede contextual oferece serviços reais da 0WEB sem se passar pelo cliente", () => {
+    expect(seoNetworkComponent).toContain('href="/servicos/presenca-digital"');
+    expect(seoNetworkComponent).toContain('href="/servicos/gestao-redes-sociais"');
+    expect(seoNetworkComponent).toContain('href="/servicos/google-meu-negocio"');
+    expect(seoNetworkComponent).toContain("sem confundir os serviços da agência");
+  });
+
+  test("CTA de conversão usa formulário hospedado validado antes de quiz legado", () => {
+    expect(conversionNarrative).toContain('hosted?.status === "verified"');
+    expect(conversionNarrative).toContain("hostedFormUrl ? (");
+    expect(conversionNarrative).toContain('data-funnel-provider="jotform"');
   });
 
   test("head não duplica WebPage que já pertence à rede universal", () => {

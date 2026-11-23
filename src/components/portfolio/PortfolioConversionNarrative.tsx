@@ -1,4 +1,5 @@
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import hostedFormRegistry from "@/config/portfolio-hosted-form-registry.json";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { resolvePortfolioClientKey } from "@/lib/portfolio-global-config";
 import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
@@ -18,6 +19,10 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
   const item = catalog.find((entry) => entry.slug === slug);
   const clientKey = resolvePortfolioClientKey(slug);
   if (!item || !clientKey) return null;
+  const hosted = (hostedFormRegistry.forms as Record<string, { status: string; url: string; provider: string } | undefined>)[clientKey];
+  const hostedFormUrl = hosted?.status === "verified" && hosted.provider === "jotform" && /^https:\/\/form\.jotform\.com\/\d+$/.test(hosted.url)
+    ? hosted.url
+    : null;
   const services = item.tags.slice(0, 4).map((tag) => tag.replace(/-/g, " "));
   const description =
     item.summary ?? item.subtitle ?? `Conheça os serviços de ${item.title} em ${item.city}.`;
@@ -60,16 +65,29 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
               </li>
             ))}
           </ul>
-          <PortfolioCTAQuiz
-            clientKey={clientKey}
-            studioName={item.title}
-            recipientName={item.title}
-            theme={narrative.theme}
-            mode={funnel.quizMode}
-            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {narrative.cta}
-          </PortfolioCTAQuiz>
+          {hostedFormUrl ? (
+            <a
+              href={hostedFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-funnel-provider="jotform"
+              data-client-key={clientKey}
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Abrir consulta demonstrativa
+            </a>
+          ) : (
+            <PortfolioCTAQuiz
+              clientKey={clientKey}
+              studioName={item.title}
+              recipientName={item.title}
+              theme={narrative.theme}
+              mode={funnel.quizMode}
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {narrative.cta}
+            </PortfolioCTAQuiz>
+          )}
         </div>
       </div>
     </section>
