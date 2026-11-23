@@ -253,7 +253,7 @@ export function AgropetFiltPreviewPage({ mode = "preview" }: { mode?: "preview" 
         <div className="af-host-credit"><PortfolioHostCredit /></div>
       </footer>
 
-      {isLive && <button className="af-live-floating-cta" onClick={() => open("racoes")} aria-label="Abrir consulta da Agropet Filt">
+      {isLive && <button className="af-live-floating-cta" data-funnel-cta="portfolio" data-funnel-client="agropet-filt" onClick={() => open("racoes")} aria-label="Abrir consulta da Agropet Filt">
         <PawPrint size={17} aria-hidden="true" /> Consultar produtos
       </button>}
 

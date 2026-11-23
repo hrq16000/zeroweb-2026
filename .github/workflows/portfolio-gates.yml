@@ -332,6 +332,7 @@ jobs:
             seo-reports/ci-audit-summary.md
             seo-reports/portfolio-funnels-e2e.json
             seo-reports/portfolio-funnels-e2e.html
+            seo-reports/portfolio-funnels-marli
             public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore

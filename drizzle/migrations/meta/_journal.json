@@ -43,6 +43,13 @@
       "when": 1793640700276,
       "tag": "0005_seed_dona_garimpeira_funnel_draft",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1795405888688,
+      "tag": "0006_revoke_user_portal_ids",
+      "breakpoints": true
     }
   ]
 }

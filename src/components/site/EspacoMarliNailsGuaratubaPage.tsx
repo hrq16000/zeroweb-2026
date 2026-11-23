@@ -8,7 +8,7 @@ import { MotionReveal } from "@/components/motion";
 const FORM = "https://form.jotform.com/263257363729062";
 
 function CTA({children, onOpen}: {children: ReactNode; onOpen: () => void}) {
-  return <button type="button" onClick={onOpen}
+  return <button type="button" data-funnel-cta="portfolio" data-funnel-client="espaco-marli-nails-guaratuba" onClick={onOpen}
     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
     {children}
   </button>;
