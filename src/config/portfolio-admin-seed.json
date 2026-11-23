@@ -3183,6 +3183,38 @@
       "blocking": []
     },
     {
+      "slug": "toop-assados",
+      "clientKey": "toop-assados",
+      "title": "Toop Assados",
+      "segment": "restaurantes",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Estudo de presença digital para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba. Proposta independente da 0WEB, sem encomendas oficiais.",
+      "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
+      "image": "/images/toop-assados/capa-card.svg",
+      "icon": "/images/toop-assados/icon.svg",
+      "socialImage": "/images/toop-assados/social-og.svg",
+      "socialVersion": "",
+      "componentFile": "src/components/site/ToopAssadosPreviewPage.tsx",
+      "routeFile": "src/routes/portfolio.toop-assados.tsx",
+      "assetsDir": "public/images/toop-assados",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/toop-assados/capa-card.svg",
+        "/images/toop-assados/icon.svg",
+        "/images/toop-assados/logo.svg",
+        "/images/toop-assados/social-og.svg"
+      ],
+      "shareCopy": "🍖 A 0WEB preparou uma demonstração independente para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba.\n\nO projeto mostra uma nova experiência digital, com apresentação dos pratos e formulário de simulação. Não é o site oficial do estabelecimento; preços e pedidos precisam de confirmação pela empresa.\n\nhttps://0web.com.br/portfolio/toop-assados\n\n#ToopAssados #AssadosCuritiba #PortfolioDemonstrativo #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "toquinho-de-gente-brecho",
       "clientKey": "toquinho-de-gente-brecho",
       "title": "Toquinho de Gente Brechó Adulto e Infantil",

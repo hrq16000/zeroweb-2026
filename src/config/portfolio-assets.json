@@ -1020,7 +1020,9 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "excludeFromAdminGallery": ["social.png"],
+      "excludeFromAdminGallery": [
+        "social.png"
+      ],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1221,6 +1223,11 @@
         "ctaHref": "#cuidados"
       },
       "socialVersion": "9ea8c269"
+    },
+    "toop-assados": {
+      "icon": "/images/toop-assados/icon.svg",
+      "socialImage": "/images/toop-assados/social-og.svg",
+      "socialVersion": ""
     }
   }
 }
