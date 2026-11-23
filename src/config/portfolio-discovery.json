@@ -722,8 +722,7 @@
       "aliases": [
         "Panificadora Doce Coração",
         "Doce Coração Santo Antônio",
-        "Padaria Doce Coração São José dos Pinhais",
-        "Panificadora Doce Coracao"
+        "Padaria Doce Coração São José dos Pinhais"
       ],
       "categories": [
         "padaria",
@@ -731,9 +730,9 @@
         "confeitaria",
         "alimentação"
       ],
-      "services": ["venda de pães", "venda de salgados", "padaria de bairro"],
+      "services": [],
       "equipment": [],
-      "products": ["pães", "pão francês", "salgados", "bolos", "doces"],
+      "products": ["pães", "salgados", "bolos", "doces"],
       "problems": [],
       "useCases": ["encontrar padaria no Santo Antônio", "localizar a Panificadora Doce Coração", "consultar endereço e horário da padaria", "conhecer categorias de pães, bolos e salgados"],
       "locality": ["Rua Desembargador James Portugal Macedo", "Santo Antônio", "São José dos Pinhais", "PR"],
