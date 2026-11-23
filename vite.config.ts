@@ -8,6 +8,7 @@ import { loadEnv } from "vite";
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { routeWatcherPlugin } from "./plugins/vite-plugin-route-watcher";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/tanstack/vite";
+import { vercelMcpRouteStubPlugin } from "./plugins/vite-plugin-vercel-mcp-stub";
 
 // Load non-VITE_ env vars into process.env for server-side code only
 // (never injected into the client bundle).
@@ -26,7 +27,7 @@ export default defineConfig({
     // Production on Vercel must not bundle Lovable's dev MCP runtime:
     // @lovable.dev/mcp-js imports cloudflare:workers (unresolvable by Vercel Rollup).
     // Keep the plugin available outside Vercel for existing development tooling.
-    plugins: [routeWatcherPlugin(), ...(!process.env.VERCEL ? [mcpPlugin()] : [])],
+    plugins: [routeWatcherPlugin(), ...(process.env.VERCEL ? [vercelMcpRouteStubPlugin()] : [mcpPlugin()])],
     build: {
       rollupOptions: {
         // framer-motion/motion marcam módulos com "use client"; o Rollup avisa
