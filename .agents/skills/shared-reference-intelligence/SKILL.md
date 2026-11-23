@@ -21,6 +21,28 @@ Use em tarefas não triviais de UI, portfólios **novos**, React/TanStack, QA re
 
 **Erro conhecido a rejeitar:** [checklist RLS inadequado](https://gist.github.com/cekuu35/e9bed1ff71f491842552fdb2d28cbe80) alega que RLS ligada sem políticas permite acesso; o PostgreSQL usa *default deny* quando nenhuma política aplicável concede acesso. Fonte primária: https://www.postgresql.org/docs/current/ddl-rowsecurity.html .
 
+## Curadoria complementar — Impeccable, Rolldown e referências de UI (2026-11-22)
+
+Esta seção amplia o repertório para **projetos atuais e futuros**, sem instalar ou ativar ferramentas. Usar o mesmo classificador `USE / ADAPT / REFERENCE_ONLY / REJECT / NOT_APPLICABLE` deste protocolo; nenhuma referência se sobrepõe ao `AGENTS.md`, às skills locais ou à arquitetura já homologada.
+
+| Ferramenta ou fonte | Aplicação apropriada | Seleção, risco e custo |
+| --- | --- | --- |
+| [Impeccable](https://impeccable.style) / [repositório](https://github.com/pbakaus/impeccable) | Vocabulário de direção visual, `critique`, `polish`, `adapt`, `harden`; [catálogo de AI slop](https://impeccable.style/slop) como heurística, não veredito de qualidade | `ADAPT` instruções após revisão; repositório declara Apache-2.0, mas confirmar licença e revisão dos artefatos utilizados. **Não executar instalador, detector/binário, hook, `live` ou `Apply` por padrão**. O `live Apply` pode invocar agentes sem proteções usuais de sandbox/aprovação; manter bloqueado sem análise específica |
+| [Rolldown](https://rolldown.rs/) / [Vite](https://vite.dev/) | Bundling/build para stacks compatíveis; Rolldown é ferramenta implementada em Rust, **não** uma skill de interface nem motivo para introduzir Rust próprio | `USE` apenas quando já integrado; `REFERENCE_ONLY` para possíveis migrações. Comparar versão Vite, configuração TanStack/Nitro SSR, plugins, opções Rollup/Rolldown, lockfile, output, duração de build/CI, rollback e custos. **Não migrar globalmente ou instalar em lote** |
+| [Rauno — Web Interface Guidelines](https://interfaces.rauno.me) | Critérios de interação, hierarquia e feedback visual | `ADAPT` princípios, respeitando acessibilidade, identidade e componentes existentes |
+| [Dark.design](https://dark.design) / [Dribbble](https://dribbble.com) | Pesquisa de direção de arte, UI escura e composição | `REFERENCE_ONLY`; não copiar layouts, marcas, imagens ou provas sociais; verificar contraste, autoria e direitos |
+| [Shoogle](https://shoogle.dev) | Busca de componentes shadcn e referências de implementação | `REFERENCE_ONLY`; conferir origem, licença, dependências, compatibilidade React/SSR e custo antes de selecionar qualquer componente |
+| [Lazyweb](https://www.lazyweb.com) | Referências de UI e possível integração via MCP | `REFERENCE_ONLY`; conexão exige autorização explícita, análise de permissões, dados enviados, planos e custo |
+| [CanIRunAI](https://canirunai.kc1t.com) | Estimar viabilidade de modelos locais no computador do operador | `REFERENCE_ONLY`; ferramenta externa de avaliação de hardware, não dependência do projeto |
+| UI/UX Pro Max (link de origem fornecido de forma truncada) | Comparar metodologia com a skill local de design e Impeccable | `REFERENCE_ONLY` até confirmar URL, autoria, licença e ausência de competências duplicadas |
+
+**Recorte inicial baseado nas stacks lidas em 22/11/2026:**
+- **0WEB:** `package.json` declara Vite `^7.3.1`, TanStack Start e Nitro; `vite.config.ts` utiliza configuração compartilhada, `rollupOptions.onwarn` e plugin de observação de rotas. Possível Vite 8/Rolldown = **avaliação isolada futura**, nunca atualização automática. A duração total do pipeline inclui validadores `prebuild`/`postbuild`; ganho de bundler não equivale a igual ganho no CI.
+- **Encontre um Técnico:** `package.json` lido declara Vite `8.1.5` e override Rolldown `1.2.1`; **não** duplicar bundler ou instalar Rust. Alterações só na rodada independente aprovada para aquele repositório.
+- **Outros projetos:** identificar stack e necessidade primeiro. Se não houver bundler JavaScript ou UI, classificar `NOT_APPLICABLE`.
+
+**Portão obrigatório para qualquer adoção executável futura:** identificar ganho específico e ausência de substituto local; fixar versão e origem; revisar `SKILL.md`, scripts, executáveis/downloads, hooks, licença, acessos a credenciais/rede, compatibilidade SSR, custo de execução e impacto na privacidade; obter autorização para cada branch e intervenção. Não conceder bypass de aprovação/sandbox nem adicionar novos gates ou serviços automaticamente. CSS/WAAPI, Playwright, padrões locais e Codex/GitHub continuam preferenciais; Lovable Max nunca sem autorização.
+
 ## Aplicação em qualquer projeto
 1. Identificar objetivo real, stack, riscos e **skill local existente**; evitar nova rota, workflow, plugin, PR ou pacote quando o equivalente já existe.
 2. Selecionar somente referências pertinentes: `USE` (padrão local existente), `ADAPT` (princípio comprovado), `REFERENCE_ONLY`, `REJECT` ou `NOT_APPLICABLE`. Registrar motivo.
