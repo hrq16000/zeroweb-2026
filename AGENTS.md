@@ -6,6 +6,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Publicação econômica Git-first, Codex/GitHub antes de Vercel, SEO técnico e evidência de indexação/ranking | `docs/0WEB_GIT_FIRST_RELEASE_AND_SEO_POLICY.md` · `docs/0WEB_EXECUTION_CONTRACT.md` |
 | Constituição universal: evolução aditiva, mega diretório local, preservação + enriquecimento | `docs/0WEB_UNIVERSAL_ADDITIVE_GROWTH_CONSTITUTION.md` |
 | Cada `/portfolio/:slug` como site individual completo + SEO autônomo/agressivo legítimo | `docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
@@ -39,6 +40,9 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
 | Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` · `src/config/skill-marketplace-catalog.json` |
+| TasteSkill, Transitions.dev, React Bits e RiseClub (critérios de adoção visual, licenças e limites) | `docs/skills/VISUAL_REFERENCE_ADOPTION_2026-11-17.md` |
+| 17 referências GitHub de 20/11/2026: matriz para 0WEB, EUT, O Técnico e demais projetos, inclusive aplicação de skills nos portfólios sem instalação automática | `docs/skills/GITHUB_17_REFERENCES_CROSS_PROJECTS_2026-11-20.md` |
+| Adoção seletiva de 20 ferramentas abertas, Vitor Menoli, REA e DeepSeek (sem instalação automática) | `docs/skills/OPEN_SOURCE_ECOSYSTEM_ADOPTION_2026-11-17.md` · `docs/skills/REA_RESEARCH_ADOPTION.md` |
 | Novo cliente em `/portfolio` | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` · `docs/PORTFOLIO_CLIENT_STANDARD.md` · `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` |
 | Descoberta por nome, pesquisa pública, oferta e pacotes de presença | `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md` |
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
@@ -217,3 +221,7 @@ máquina: `src/config/experience-capabilities.json`, `src/config/skill-marketpla
 - Rollout em ondas. Não redesenhar projetos autorais aprovados sem gatilho real.
 - Projeto novo só nasce válido com direção criativa, identidade, motion, funil,
   SEO, imagens e assinatura próprias, além dos gates técnicos.
+
+## Inteligência compartilhada de skills (2026-11-20)
+
+Antes de adotar recursos externos de motion, React, QA mobile, acessibilidade ou SQL de auditoria, consultar `.agents/skills/shared-reference-intelligence/SKILL.md`. Aplicar somente competências pertinentes, sem instalar/executar código de terceiros; contratos e gates locais têm precedência. No 0WEB, aplicar a portfólios **novos**, sem retrabalhar os existentes por esta regra.

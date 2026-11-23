@@ -169,7 +169,9 @@ export function buildRecords(root) {
       hasCta,
       hasOwnDescription,
       hasClientEntry: Boolean(client),
-      gallery: imageFiles.map((f) => `/images/${slug}/${f}`),
+      gallery: imageFiles
+        .filter((file) => !assets?.excludeFromAdminGallery?.includes(file))
+        .map((file) => `/images/${slug}/${file}`),
       shareCopy: shareCopy[slug] ?? "",
       published,
       status,

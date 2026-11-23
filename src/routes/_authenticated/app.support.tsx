@@ -1,9 +1,11 @@
+import { SupportChat } from "@/components/app/SupportChat";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { listMyTickets, createTicket } from "@/lib/clientarea.functions";
 
 export const Route = createFileRoute("/_authenticated/app/support")({
+  head: () => ({ meta: [{ title: "Suporte e atendimento · 0WEB" }, { name: "description", content: "Ajuda sobre serviços e pedidos, com atendimento humano." }, { property: "og:title", content: "Suporte · 0WEB" }, { property: "og:description", content: "Acompanhamento das suas solicitações de suporte." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex,nofollow" }] }),
   component: SupportPage,
 });
 
@@ -57,6 +59,8 @@ function SupportPage() {
         </button>
       </div>
 
+      <SupportChat />
+      <h2 className="text-xl font-semibold mt-6">Solicitações de suporte</h2>
       <ul className="mt-6 space-y-2">
         {rows.map((t) => (
           <li key={t.id}>
