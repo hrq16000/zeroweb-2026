@@ -1,5 +1,17 @@
 # Skill changelog / usage log
 
+## 2026-11-23 — Integrações de agentes MCP
+
+- Stack: 0web-skill-router, documentação oficial app-mcp TanStack/OAuth e WebMCP Tools. Referências visuais e marketplaces não aplicáveis: nenhuma revisão de composição.
+- MCP protegido em `/mcp`: `list_products`, `get_product`; cliente caller-scoped, sem admin, sem acesso a leads, mutações ou alteração de RLS.
+- OAuth ativado no Lovable Cloud existente; DCR, consent path e allow-list confirmados. Nenhum banco novo, DNS ou funil alterado.
+- Google via broker preservado; retorno canônico seguro no `/auth`. Consentimento com estados de erro e ações approve/deny; ferramenta browser-local somente lê os 12 itens visíveis em `/servicos`.
+- Manifest extraído com 2 ferramentas; harness build OK; 11 testes focados PASS. Suíte completa: 1160 PASS, 2 timeouts nos testes RLS existentes (sem alterar testes/políticas).
+- Browser: acesso anônimo e token de sessão não-OAuth retornam 401; ausência de authorization_id exibe erro; visitante retorna ao login com consent URL preservada; loja renderiza 12 produtos.
+- Limitação comprovada: lookup real de autorização retorna 400 `validation_failed: unauthorized request origin` em localhost. Approve/deny, code exchange e consultas OAuth não homologados ponta a ponta; requer republicação e teste na origem autorizada. Não houve publicação nesta rodada.
+- Browser local não oferece WebMCP nativo: registro real não verificável nesse Chromium; experiência normal permanece operacional.
+- Zod mantido em ^3.24.2 (resolvido 3.25.76); upgrade inicial para 4 foi descartado por incompatibilidade com contratos existentes.
+
 ## 2026-09-21 — Centro Mega Store Concept · social commerce autônomo
 
 - **Escopo:** evolução material de `/portfolio/centro-mega` para amostra de loja virtual tecnológica + outlet.
