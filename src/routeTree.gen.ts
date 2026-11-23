@@ -123,6 +123,7 @@ import { Route as EmpresaSlugRouteImport } from './routes/empresa.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
 import { Route as LabMotionPilotRouteImport } from './routes/lab.motion-pilot'
+import { Route as LabPortfolioComercialRouteImport } from './routes/lab.portfolio-comercial'
 import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.historico-jobs'
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
@@ -851,6 +852,11 @@ const FSlugRoute = FSlugRouteImport.update({
 const LabMotionPilotRoute = LabMotionPilotRouteImport.update({
   id: '/lab/motion-pilot',
   path: '/lab/motion-pilot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabPortfolioComercialRoute = LabPortfolioComercialRouteImport.update({
+  id: '/lab/portfolio-comercial',
+  path: '/lab/portfolio-comercial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelHistoricoJobsRoute = PainelHistoricoJobsRouteImport.update({
@@ -1796,6 +1802,7 @@ export interface FileRoutesByFullPath {
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
   '/lab/motion-pilot': typeof LabMotionPilotRoute
+  '/lab/portfolio-comercial': typeof LabPortfolioComercialRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -2056,6 +2063,7 @@ export interface FileRoutesByTo {
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
   '/lab/motion-pilot': typeof LabMotionPilotRoute
+  '/lab/portfolio-comercial': typeof LabPortfolioComercialRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -2320,6 +2328,7 @@ export interface FileRoutesById {
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
   '/lab/motion-pilot': typeof LabMotionPilotRoute
+  '/lab/portfolio-comercial': typeof LabPortfolioComercialRoute
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -2585,6 +2594,7 @@ export interface FileRouteTypes {
     | '/estados/$state'
     | '/f/$slug'
     | '/lab/motion-pilot'
+    | '/lab/portfolio-comercial'
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -2845,6 +2855,7 @@ export interface FileRouteTypes {
     | '/estados/$state'
     | '/f/$slug'
     | '/lab/motion-pilot'
+    | '/lab/portfolio-comercial'
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -3108,6 +3119,7 @@ export interface FileRouteTypes {
     | '/estados/$state'
     | '/f/$slug'
     | '/lab/motion-pilot'
+    | '/lab/portfolio-comercial'
     | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -3370,6 +3382,7 @@ export interface RootRouteChildren {
   EmpresaSlugRoute: typeof EmpresaSlugRoute
   FSlugRoute: typeof FSlugRoute
   LabMotionPilotRoute: typeof LabMotionPilotRoute
+  LabPortfolioComercialRoute: typeof LabPortfolioComercialRoute
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
@@ -4224,6 +4237,13 @@ declare module '@tanstack/react-router' {
       path: '/lab/motion-pilot'
       fullPath: '/lab/motion-pilot'
       preLoaderRoute: typeof LabMotionPilotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lab/portfolio-comercial': {
+      id: '/lab/portfolio-comercial'
+      path: '/lab/portfolio-comercial'
+      fullPath: '/lab/portfolio-comercial'
+      preLoaderRoute: typeof LabPortfolioComercialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel_/historico-jobs': {
@@ -5726,6 +5746,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmpresaSlugRoute: EmpresaSlugRoute,
   FSlugRoute: FSlugRoute,
   LabMotionPilotRoute: LabMotionPilotRoute,
+  LabPortfolioComercialRoute: LabPortfolioComercialRoute,
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
