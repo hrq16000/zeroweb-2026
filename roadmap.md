@@ -8,7 +8,9 @@
 - [x] Fotos/reativação da galeria: puladas expressamente pelo usuário; manter draft.
 - [x] Espelho/importação Jotform Dona Garimpeira: pulados expressamente pelo usuário.
 - [x] Banco confirma funil publicado; painel autenticado confirma destino exclusivo 5541995523363, sem alteração do cadastro.
-- [ ] Publicar e verificar recomendações IA em produção.
+- [x] IA em produção: troca real confirmada em SEO, Loja Virtual e Automação com IA, HTTP 200 e zero pageerror.
+- [ ] Publicação das novas telas: solicitada no commit cf056de8; /agent-login ainda 404 nos dois hosts. Bloqueio externo de disponibilização, sem conclusão comprovada.
+- [ ] Homologar convite/senha/recuperação de agente com destinatário autorizado; nenhum e-mail real fornecido para teste.
 
 ## Integrações de agentes — escopo desta rodada
 - [x] Publicar a versão salva e homologar MCP e IA em produção; rotas MCP/consent e troca IA confirmadas em 0web.com.br em 23/11/2026.

@@ -23,3 +23,9 @@ Dashboard/form/backend: 0web-design-system (tokens institucionais, densidade adm
 - A ajuda disponível é a FAQ atual do site; não foi inventada uma central externa.
 - Foto/logo/reativação da galeria e integração/importação Jotform foram puladas expressamente pelo usuário. Dona Garimpeira mantém catálogo draft e funil publicado existentes.
 - Publicação e troca IA no domínio oficial serão verificadas separadamente após o deploy.
+
+## Publicação e evidência no domínio oficial
+- Publish solicitado para cf056de805d96c213b5fbf14c4aaad9581073bee. Ferramenta confirmou agendamento, não conclusão.
+- Produção 0web.com.br: SEO, Loja Virtual e Automação com IA retornaram HTTP 200; observador DOM registrou listas diferentes antes/depois em todos os três carrosséis. Zero pageerror. Capturas de carrossel confirmam títulos e preços reais; imagens estavam lazy sem scroll, não foram homologadas nesta tarefa.
+- Nova página /agent-login retornou 404 tanto em 0web.com.br quanto em zeroweb-growth-engine.lovable.app após a solicitação. Portanto não há prova de disponibilização das novas telas e não se declara publicação efetiva concluída. Não foram feitos redeploys repetidos nem alterações DNS.
+- Git pode salvar este relatório após o commit candidato; não altera o conteúdo funcional solicitado para publicação.
