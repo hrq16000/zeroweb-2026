@@ -11,6 +11,7 @@ import { PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS } from "@/config/portfolio-author
 export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {
   "cantinho-da-tia-mari": lazy(() => import("@/components/site/CantinhoTiaMariPage").then((m) => ({default:m.CantinhoTiaMariPage}))),
   "agropet-filt": lazy(() => import("@/components/site/AgropetFiltPreviewPage").then((m) => ({ default: m.AgropetFiltPage }))),
+  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage").then((m) => ({ default: m.ToopAssadosPreviewPage }))),
   "arildo-madeiras": lazy(() =>
     import("@/components/site/ArildoMadeirasPage").then((m) => ({ default: m.ArildoMadeirasPage })),
   ),

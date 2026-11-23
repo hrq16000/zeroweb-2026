@@ -12,6 +12,7 @@
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "cantinho-da-tia-mari",
   "agropet-filt",
+  "toop-assados",
   "arildo-madeiras",
   "dona-garimpeira-brecho",
   "autoescola-aptos",

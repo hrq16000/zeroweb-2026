@@ -44,7 +44,8 @@ function FirePlateIllustration() {
   );
 }
 
-export function ToopAssadosPreviewPage() {
+export function ToopAssadosPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
+  const isLive = mode === "live";
   const [dish, setDish] = useState<Dish>("frango");
   const [quantity, setQuantity] = useState(1);
   const [showSummary, setShowSummary] = useState(false);
@@ -67,7 +68,7 @@ export function ToopAssadosPreviewPage() {
         }
       `}</style>
       <div className="bg-[#302117] px-4 py-3 text-center text-xs font-semibold tracking-wide text-[#FFE5C2]" role="note">
-        CONCEITO NÃO OFICIAL DA 0WEB · Prévia visual · Não recebe pedidos ou dados pessoais
+        {isLive ? "PORTFÓLIO DEMONSTRATIVO 0WEB · Não é o atendimento oficial do restaurante" : "CONCEITO NÃO OFICIAL DA 0WEB · Prévia visual · Não recebe pedidos ou dados pessoais"}
       </div>
 
       <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-6 sm:px-8">
@@ -198,6 +199,11 @@ export function ToopAssadosPreviewPage() {
                   <p className="mt-2">{quantity} × {chosen.label}</p>
                   <p className="mt-2 text-sm text-[#705742]">O valor anunciado no folheto não foi validado e não é aplicado nesta simulação.</p>
                   <p className="mt-3 text-sm font-bold">Nenhum pedido foi realizado.</p>
+                  {isLive && (
+                    <a href="https://form.jotform.com/263260727590056" target="_blank" rel="noopener noreferrer" data-funnel-provider="jotform" data-client-key="toop-assados" className="mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A54526] px-6 py-3 text-sm font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                      Abrir formulário de demonstração
+                    </a>
+                  )}
                 </div>
               )}
             </div>
@@ -226,7 +232,7 @@ export function ToopAssadosPreviewPage() {
         </section>
       </main>
       <footer className="bg-[#261811] px-5 py-7 text-center text-xs leading-relaxed text-[#EACDA6]">
-        Estudo de presença digital · 0WEB · Sem pedidos, pagamentos, avaliações ou atendimento operacional nesta prévia.
+        Estudo independente de presença digital · 0WEB · Sem pedidos, pagamentos, avaliações ou atendimento operacional oficial.
       </footer>
     </div>
   );

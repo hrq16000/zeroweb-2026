@@ -1449,6 +1449,23 @@
       "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
       "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
       "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
+    },
+    "toop-assados": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "static",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "tipografia monumental junto a ilustração vetorial, pratos com movimento breve apenas em hover",
+      "tabletBehavior": "hero empilhado, pratos em duas colunas se couber",
+      "mobileBehavior": "uma coluna, CTA de escolha grande e animação desligada com redução de movimento"
     }
   },
   "decisions": {

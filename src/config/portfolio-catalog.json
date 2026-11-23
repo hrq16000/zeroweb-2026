@@ -2333,5 +2333,32 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta de informações via formulário",
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "toop-assados",
+    "clientKey": "toop-assados",
+    "title": "Toop Assados",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "assados",
+      "costela",
+      "frango recheado",
+      "xaxim",
+      "curitiba",
+      "almoço"
+    ],
+    "live": false,
+    "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
+    "location": "Xaxim · Curitiba — PR",
+    "badge": "Amostra não oficial",
+    "image": "/images/toop-assados/capa-card.svg",
+    "fallbackImage": "/images/toop-assados/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Pratos anunciados em panfleto; preços sujeitos a confirmação",
+    "summary": "Estudo de presença digital para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba. Proposta independente da 0WEB, sem encomendas oficiais."
   }
 ]
