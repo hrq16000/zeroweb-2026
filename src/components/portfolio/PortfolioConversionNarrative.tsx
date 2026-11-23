@@ -70,8 +70,6 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
               href={hostedFormUrl}
               target="_blank"
               rel="noopener noreferrer"
-              data-funnel-provider="jotform"
-              data-client-key={clientKey}
               className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Abrir consulta demonstrativa

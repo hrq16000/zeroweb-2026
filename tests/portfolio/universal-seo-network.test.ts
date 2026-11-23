@@ -164,7 +164,8 @@ describe("SEO universal dos portfolios", () => {
   test("CTA de conversão usa formulário hospedado validado antes de quiz legado", () => {
     expect(conversionNarrative).toContain('hosted?.status === "verified"');
     expect(conversionNarrative).toContain("hostedFormUrl ? (");
-    expect(conversionNarrative).toContain('data-funnel-provider="jotform"');
+    expect(conversionNarrative).toContain('href={hostedFormUrl}');
+    expect(conversionNarrative).not.toContain('data-funnel-provider="jotform"');
   });
 
   test("head não duplica WebPage que já pertence à rede universal", () => {
