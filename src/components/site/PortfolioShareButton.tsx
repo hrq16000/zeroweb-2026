@@ -75,7 +75,12 @@ export function PortfolioShareButton({
       // Clipboard pode estar indisponível em contextos não seguros.
     }
   };
-  const placementClass = placement === "floating" ? `fixed z-40 ${POSITION[position]}` : "";
+  // A Marli tem CTA próprio no cabeçalho em tablet/desktop: manter a ação
+  // compartilhar visível sem cobrir "Consultar horário" (QA visual 390/768/1440).
+  const positionClass = slug === "espaco-marli-nails-guaratuba" && position === "top-right"
+    ? "right-4 top-20 md:top-36"
+    : POSITION[position];
+  const placementClass = placement === "floating" ? `fixed z-40 ${positionClass}` : "";
   const baseClass = placement === "floating"
     ? "min-h-11 rounded-full border px-4 py-2 text-xs font-bold shadow-lg backdrop-blur transition hover:-translate-y-0.5"
     : "min-h-10 rounded-xl px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
