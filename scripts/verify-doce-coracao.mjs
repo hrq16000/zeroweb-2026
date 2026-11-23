@@ -36,7 +36,7 @@ try {
       assert.equal(response?.status(), 200, "HTTP 200 preview");
       await page.locator('[data-portfolio-composition="' + slug + '"]').waitFor({ timeout: 20000 });
       assert.match(await page.locator("h1").first().innerText(), /pão.*pausa.*coração/is);
-      assert.match((await page.locator('meta[name="robots"]').getAttribute("content")) || "", /noindex/);
+      assert.match((await page.locator('meta[name="robots"]').getAttribute("content")) || "", /index,follow/, "candidate published deve ser indexável");
       assert.equal(await page.locator('link[rel="canonical"]').first().getAttribute("href"),
         "https://0web.com.br/portfolio/" + slug);
       assert.ok((await page.locator('meta[property="og:image"]').first().getAttribute("content") || "").includes(slug));

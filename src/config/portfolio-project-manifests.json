@@ -1161,7 +1161,8 @@
             "src/config/portfolio-discovery.json: aliases, categorias, produtos, localização completa; rota contém Google Maps Place ID, Instagram e Bakery schema."
           ],
           "PORTFOLIO_INDEXABILITY_GATE": [
-            "Configuração de release proposta: catálogo published/live, registry indexable, canonical próprio e robots index,follow. Regra do sitemap da PR #534; verificar inclusão e HTTP 200 APÓS Production READY, sem afirmar indexação Google."
+            "Configuração de release proposta: catálogo published/live, registry indexable, canonical próprio e robots index,follow. Regra do sitemap da PR #534; verificar inclusão e HTTP 200 APÓS Production READY, sem afirmar indexação Google.",
+            "Apto para sitemap via catálogo e registry, com canonical próprio e robots index; HTTP e sitemap serão confirmados após deployment READY."
           ]
         }
       },
@@ -1259,7 +1260,7 @@
       "contentFacts": {
         "ownSourcedContent": true
       },
-      "stage": "ready",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -1275,7 +1276,7 @@
         "funnel": "complete",
         "cover": "complete",
         "qa": "complete",
-        "publish": "in_progress"
+        "publish": "complete"
       },
       "blockers": [],
       "warnings": [
