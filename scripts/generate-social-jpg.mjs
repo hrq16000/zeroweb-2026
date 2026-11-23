@@ -32,4 +32,34 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
   changed++;
 }
 writeFileSync(file, `${JSON.stringify(cfg, null, 2)}\n`);
+// A conversão social altera a fonte do seed derivado: sincronize SOMENTE os
+// campos afetados pela nova imagem, mantendo o --check estrito para todo o resto.
+// Nunca altere estado de publicação, conformidade, status ou outros clientes.
+const seedPath = resolve("src/config/portfolio-admin-seed.json");
+if (existsSync(seedPath)) {
+  const seed = JSON.parse(readFileSync(seedPath, "utf8"));
+  let updated = 0;
+  for (const [key, entry] of Object.entries(cfg.clients)) {
+    const item = seed.projects?.find((project) => project.clientKey === key);
+    const social = entry.socialImage;
+    if (!item || !social?.startsWith(`/images/${item.slug}/`)) continue;
+    if (!existsSync(resolve("public", social.slice(1)))) continue;
+    const imageName = social.split("/").pop();
+    const gallery = entry.excludeFromAdminGallery?.includes(imageName)
+      ? item.gallery
+      : [...new Set([...(item.gallery ?? []), social])].sort();
+    if (item.socialImage === social &&
+        item.socialVersion === entry.socialVersion &&
+        JSON.stringify(item.gallery) === JSON.stringify(gallery)) continue;
+    item.socialImage = social;
+    item.socialVersion = entry.socialVersion;
+    item.gallery = gallery;
+    updated++;
+  }
+  if (updated) {
+    writeFileSync(seedPath, `${JSON.stringify(seed, null, 2)}\n`);
+    console.log(`[social-jpg] ${updated} registro(s) de mídia sincronizados com o seed derivado; --check permanece obrigatório`);
+  }
+}
+
 console.log(`[social-jpg] OK — ${changed} imagem(ns) social(is) em JPEG`);
