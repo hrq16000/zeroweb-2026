@@ -1460,6 +1460,11 @@
       "footer": {
         "variant": "light"
       }
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "contactFloating": {
+        "enabled": false
+      }
     }
   }
 }
