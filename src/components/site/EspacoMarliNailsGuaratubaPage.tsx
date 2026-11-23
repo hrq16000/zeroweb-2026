@@ -9,7 +9,7 @@ const FORM = "https://form.jotform.com/263257363729062";
 
 function CTA({children, onOpen}: {children: ReactNode; onOpen: () => void}) {
   return <button type="button" onClick={onOpen}
-    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
+    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
     {children}
   </button>;
 }
@@ -112,10 +112,13 @@ export function EspacoMarliNailsGuaratubaPage() {
             </div>
             <p className="mt-10 border-t border-[#542638]/15 pt-5 text-xs uppercase tracking-[.15em] text-[#986b80]">Identidade visual conceitual · Agenda e valores a confirmar</p>
           </div>
-          <figure className="relative">
+          <figure className="group relative [perspective:1200px]">
             <div className="absolute -inset-3 rotate-3 rounded-[2.5rem] bg-[#dfb7c5]/65" aria-hidden="true"/>
-            <PortfolioImage src="/images/espaco-marli-nails-guaratuba/hero.svg" alt="Arte abstrata original inspirada na estética de unhas, sem retratar trabalhos ou ambiente real do estabelecimento" width={1000} height={1100} priority className="relative w-full rounded-[2rem] object-cover shadow-2xl shadow-[#542638]/15"/>
-            <figcaption className="absolute bottom-5 left-5 right-5 max-w-xs rounded-2xl bg-[#fffaf4]/95 px-4 py-3 text-xs leading-5 text-[#6f4b5c] shadow-md">Ilustração da 0WEB. Fotos dos trabalhos reais dependem de autorização.</figcaption>
+            <div className="relative [transform-style:preserve-3d] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out md:motion-safe:group-hover:[transform:rotateY(-5deg)_rotateX(3deg)]">
+              <PortfolioImage src="/images/espaco-marli-nails-guaratuba/hero.svg" alt="Arte abstrata original inspirada na estética de unhas, sem retratar trabalhos ou ambiente real do estabelecimento" width={1000} height={1100} priority className="relative w-full rounded-[2rem] object-cover shadow-2xl shadow-[#542638]/15"/>
+              <div className="pointer-events-none absolute inset-4 rounded-[1.5rem] border border-white/30" aria-hidden="true"/>
+              <figcaption className="absolute bottom-5 left-5 right-5 max-w-xs rounded-2xl bg-[#fffaf4]/95 px-4 py-3 text-xs leading-5 text-[#6f4b5c] shadow-md">Ilustração da 0WEB. Fotos dos trabalhos reais dependem de autorização.</figcaption>
+            </div>
           </figure>
         </div>
       </section>
@@ -131,7 +134,7 @@ export function EspacoMarliNailsGuaratubaPage() {
             {options.map((option,i) => {
               const active = selected === option.label;
               return <button type="button" key={option.label} onClick={() => setSelected(option.label)} aria-pressed={active}
-                className={"min-h-44 rounded-[1.5rem] border p-6 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white " + (active ? "border-[#f6d1dd] bg-[#fff8f1] text-[#542638]" : "border-white/20 bg-white/[.07] text-white hover:bg-white/[.14]")}>
+                className={"min-h-44 rounded-[1.5rem] border p-6 text-left transition-colors motion-safe:transition-transform motion-safe:duration-300 md:motion-safe:hover:[transform:translateY(-4px)_rotateX(2deg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white " + (active ? "border-[#f6d1dd] bg-[#fff8f1] text-[#542638]" : "border-white/20 bg-white/[.07] text-white hover:bg-white/[.14]")}>
                 <span className="flex justify-between text-xs tracking-[.2em]"><span>0{i + 1}</span>{active ? <Check size={16} aria-hidden="true"/> : null}</span>
                 <strong className="mt-6 block font-serif text-2xl font-normal">{option.label}</strong>
                 <span className="mt-3 block text-sm leading-6 opacity-80">{option.detail}</span>
@@ -174,9 +177,17 @@ export function EspacoMarliNailsGuaratubaPage() {
             <h2 id="marli-galeria" className="font-serif text-4xl leading-tight sm:text-6xl">Trabalho real merece <em className="font-normal text-[#b4758c]">foto real.</em></h2>
             <p className="mt-6 max-w-lg leading-8 text-[#77586a]">Ainda não foram autorizadas fotografias do ambiente ou dos trabalhos. Por isso esta demonstração usa somente arte editorial original, sem imagens de outros salões.</p>
           </div>
-          <div className="grid min-h-64 grid-cols-2 gap-3" aria-label="Formas gráficas decorativas, não fotografias de serviços">
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#d6abb9]"><span className="absolute inset-6 rounded-t-full rounded-b-[2rem] border-2 border-white/70" aria-hidden="true"/></div>
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#78445a]"><span className="absolute inset-6 rounded-b-full rounded-t-[2rem] border-2 border-[#f6dbe4]/80" aria-hidden="true"/></div>
+          <div className="grid min-h-64 grid-cols-2 gap-3" aria-label="Composições gráficas editoriais originais, não fotografias de serviços">
+            <div className="group relative min-h-64 overflow-hidden rounded-[2rem] bg-[#d6abb9] [perspective:850px]">
+              <div aria-hidden="true" className="absolute inset-6 rounded-t-full rounded-b-[2rem] border-2 border-white/70 shadow-[inset_0_0_0_14px_#ffffff16] motion-safe:transition-transform motion-safe:duration-700 md:motion-safe:group-hover:[transform:rotateY(9deg)_translateZ(24px)]"/>
+              <div aria-hidden="true" className="absolute right-7 top-9 h-20 w-20 rounded-full bg-[#fff4f0]/40 blur-lg"/>
+              <span className="absolute bottom-6 left-6 text-[10px] font-bold uppercase tracking-[.24em] text-[#542638]">Composição 01</span>
+            </div>
+            <div className="group relative min-h-64 overflow-hidden rounded-[2rem] bg-[#78445a] [perspective:850px]">
+              <div aria-hidden="true" className="absolute inset-6 rounded-b-full rounded-t-[2rem] border-2 border-[#f6dbe4]/80 shadow-[inset_0_0_0_14px_#ffffff10] motion-safe:transition-transform motion-safe:duration-700 md:motion-safe:group-hover:[transform:rotateY(-9deg)_translateZ(24px)]"/>
+              <div aria-hidden="true" className="absolute bottom-9 left-9 h-16 w-16 rounded-full bg-[#efbccf]/30 blur-xl"/>
+              <span className="absolute bottom-6 left-6 text-[10px] font-bold uppercase tracking-[.24em] text-[#fff4ee]">Composição 02</span>
+            </div>
           </div>
         </div>
       </section>

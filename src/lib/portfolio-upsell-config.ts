@@ -24,6 +24,8 @@ export type PortfolioUpsellConfig = {
   ctaLabel: string;
   dismissLabel: string;
   funnelSlug: string;
+  /** Formulário externo verificado da própria 0WEB (opt-in por portfólio). */
+  hostedFormUrl?: string;
   display: PortfolioUpsellDisplay;
 };
 

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, Sparkles, CheckCircle2 } from "lucide-react";
 import { PortfolioHostLeadDialog } from "@/components/site/PortfolioHostLeadDialog";
+import { PortfolioHostedHostFormDialog } from "@/components/site/PortfolioHostedHostFormDialog";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { isPortfolioPopupQaMode, shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
@@ -285,7 +286,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
   // Captação estruturada da 0WEB: nome + WhatsApp + cidade gravados como lead
   // com atribuição de origem, e só então o redirect opaco para o WhatsApp.
-  const funnelModal = (
+  const funnelModal = cfg.hostedFormUrl ? (
+    <PortfolioHostedHostFormDialog
+      open={funnelOpen}
+      onClose={() => setFunnelOpen(false)}
+      sourceSlug={slug}
+      formUrl={cfg.hostedFormUrl}
+    />
+  ) : (
     <PortfolioHostLeadDialog
       open={funnelOpen}
       onClose={() => setFunnelOpen(false)}
