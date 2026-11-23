@@ -15,6 +15,18 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
   const jpgRel = src.endsWith(".jpg") ? src : src.replace(/\.[a-z0-9]+$/i, "-og.jpg");
   const srcPath = resolve("public", src.slice(1));
   const outPath = resolve("public", jpgRel.slice(1));
+  // JPEG pode ser um derivado de SVG próprio versionado, com origem explícita.
+  // Assim o arquivo binário não precisa ser editado a cada build.
+  const sourceSvg = typeof entry.sourceSvg === "string" && entry.sourceSvg.startsWith("/images/")
+    ? resolve("public", entry.sourceSvg.slice(1))
+    : null;
+  if (!existsSync(srcPath) && sourceSvg && existsSync(sourceSvg) && src.endsWith(".jpg")) {
+    await sharp(sourceSvg)
+      .resize(1200, 630, { fit: "cover", position: "centre" })
+      .flatten({ background: "white" })
+      .jpeg({ quality: 82, progressive: true })
+      .toFile(srcPath);
+  }
   if (!existsSync(outPath)) {
     if (!existsSync(srcPath)) { console.warn(`[social-jpg] fonte ausente: ${key} ${src}`); continue; }
     await sharp(srcPath)
@@ -23,18 +35,13 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
       .jpeg({ quality: 82, progressive: true })
       .toFile(outPath);
   }
-  // O SVG é a fonte canônica versionada. Seu JPEG derivado atende às prévias
-  // sociais da rota, mas não deve alterar o registry no prebuild: isso
-  // tornaria o seed administrativo não-determinístico. Imagens raster
-  // continuam com o comportamento histórico.
-  if (!src.toLowerCase().endsWith(".svg")) {
-    entry.socialImage = jpgRel;
-    // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
-    entry.socialVersion = createHash("sha1")
-      .update(readFileSync(outPath))
-      .digest("hex")
-      .slice(0, 8);
-  }
+  entry.socialImage = jpgRel;
+  // Imagens derivadas de SVG são versionadas pela origem canônica, não
+  // pelos bytes gerados por Sharp (que podem variar entre ambientes).
+  entry.socialVersion = createHash("sha1")
+    .update(readFileSync(sourceSvg && existsSync(sourceSvg) ? sourceSvg : outPath))
+    .digest("hex")
+    .slice(0, 8);
   changed++;
 }
 writeFileSync(file, `${JSON.stringify(cfg, null, 2)}\n`);

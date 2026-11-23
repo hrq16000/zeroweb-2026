@@ -1226,14 +1226,16 @@
     },
     "salgados-da-fran": {
       "icon": "/images/salgados-da-fran/marca.svg",
-      "socialImage": "/images/salgados-da-fran/social-og.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
       "proof": {
         "eyebrow": "Salgados da Fran · São José dos Pinhais",
         "title": "Sua ocasião merece uma encomenda bem combinada.",
         "description": "Consulte o cardápio, a quantidade, os valores e os próximos passos pelo formulário da demonstração.",
         "ctaLabel": "Consultar uma encomenda",
         "ctaHref": "#encomendas"
-      }
+      },
+      "sourceSvg": "/images/salgados-da-fran/social-og.svg",
+      "socialVersion": "386d1b3b"
     }
   }
 }
