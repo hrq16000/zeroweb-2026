@@ -501,8 +501,8 @@
       "subtitle": "Cama elástica e piscina de bolinhas para festas",
       "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
       "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
-      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "socialVersion": "20261123",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+      "socialVersion": "a14ddea6",
       "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
       "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
       "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
@@ -513,6 +513,7 @@
       "gallery": [
         "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
         "/images/bpl-locacoes-de-brinquedos/logo.svg",
+        "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
         "/images/bpl-locacoes-de-brinquedos/social-og.svg",
         "/images/bpl-locacoes-de-brinquedos/trampoline.svg"
       ],

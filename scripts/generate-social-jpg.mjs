@@ -25,8 +25,10 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
   }
   entry.socialImage = jpgRel;
   // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
+  // SVGs autorais geram JPG em build: versão depende da fonte, não do encoder/fontes do runner.
+  // Mantém o mesmo gate de sincronia do seed entre Linux, Vercel e desenvolvimento.
   entry.socialVersion = createHash("sha1")
-    .update(readFileSync(outPath))
+    .update(readFileSync(src.endsWith(".svg") ? srcPath : outPath))
     .digest("hex")
     .slice(0, 8);
   changed++;
