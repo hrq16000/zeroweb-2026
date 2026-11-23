@@ -1,0 +1,49 @@
+name: PR 542 - Fran visual evidence
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/routes/portfolio.salgados-da-fran.tsx'
+      - 'src/components/site/SalgadosDaFranPage.tsx'
+      - 'src/config/portfolio-assets.json'
+      - 'src/config/portfolio-project-manifests.json'
+      - '.github/workflows/fran-visual-evidence.yml'
+      - 'scripts/qa-fran-visual-evidence.mjs'
+permissions:
+  contents: read
+jobs:
+  fran-evidence:
+    name: Chromium 390/768/1440 and NO-BRAND captures
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Dependencies frozen
+        run: bun install --frozen-lockfile
+      - name: Chromium only
+        run: bunx playwright install --with-deps chromium
+      - name: Dev server for isolated QA (no build and no external submissions)
+        run: |
+          (bun run dev -- --host 127.0.0.1 --port 4173 > /tmp/fran-qa-vite.log 2>&1 & echo $! > /tmp/fran-qa-vite.pid)
+          for i in $(seq 1 75); do
+            if curl -fsS -o /dev/null http://127.0.0.1:4173/portfolio/salgados-da-fran; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/fran-qa-vite.log
+          exit 1
+      - name: Capture Fran and comparison portfolios
+        env:
+          FRAN_QA_URL: 'http://127.0.0.1:4173'
+        run: node scripts/qa-fran-visual-evidence.mjs
+      - name: Artifacts for actual perceptual review (not auto approval)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr542-fran-visual-evidence
+          path: |
+            seo-reports/visual/fran-pr542/**
+            /tmp/fran-qa-vite.log
+          if-no-files-found: warn
