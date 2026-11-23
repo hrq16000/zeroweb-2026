@@ -1,5 +1,11 @@
 # Roadmap
 
+## Integrações de agentes — escopo desta rodada
+- [x] Preparar MCP protegido com OAuth e consultas ao catálogo, sem alterar funis ou leads.
+- [x] Preservar retorno do login e adicionar consentimento e consulta browser-local.
+- [x] Extrair catálogo de ferramentas; build OK, 11 testes focados aprovados, acesso anônimo/token de sessão recusados.
+- [ ] Republicar e validar approve/deny e consulta OAuth na origem autorizada; o provedor recusa localhost (`unauthorized request origin`).
+
 - [x] Rodada 1: corrigir listagem de projetos, consolidar qualidade, publicação unitária e menu de contatos
 - [x] Rodada 2: revisar Mestre dos Serviços no Blueprint; bloquear publicação sem destino próprio comprovado
 - [x] Rodada 3: criar landing de captação factual com três entradas e rastreamento por marca

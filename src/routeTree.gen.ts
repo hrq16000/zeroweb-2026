@@ -38,6 +38,7 @@ import { Route as LandingPagesRouteImport } from './routes/landing-pages'
 import { Route as LgpdRouteImport } from './routes/lgpd'
 import { Route as MapaDoSiteRouteImport } from './routes/mapa-do-site'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PainelRouteImport } from './routes/painel'
 import { Route as PainelAuditoriasRouteImport } from './routes/painel-auditorias'
@@ -87,6 +88,7 @@ import { Route as TermosRouteImport } from './routes/termos'
 import { Route as TrafegoPagoRouteImport } from './routes/trafego-pago'
 import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-local'
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
@@ -151,6 +153,7 @@ import { Route as SitesRobustosSlugRouteImport } from './routes/sites-robustos.$
 import { Route as SitesIndexRouteImport } from './routes/sites.index'
 import { Route as SitesVerticalRouteImport } from './routes/sites.$vertical'
 import { Route as SuportePedidoTokenRouteImport } from './routes/suporte-pedido.$token'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
 import { Route as AuthenticatedAppAtendimentoRouteImport } from './routes/_authenticated/app.atendimento'
@@ -408,6 +411,11 @@ const MarketplaceRoute = MarketplaceRouteImport.update({
   path: '/marketplace',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ObrigadoRoute = ObrigadoRouteImport.update({
   id: '/obrigado',
   path: '/obrigado',
@@ -660,6 +668,12 @@ const CityServiceRoute = CityServiceRouteImport.update({
   path: '/$city/$service',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -988,6 +1002,11 @@ const SitesVerticalRoute = SitesVerticalRouteImport.update({
 const SuportePedidoTokenRoute = SuportePedidoTokenRouteImport.update({
   id: '/suporte-pedido/$token',
   path: '/suporte-pedido/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
@@ -1660,6 +1679,7 @@ export interface FileRoutesByFullPath {
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
   '/painel-auditorias': typeof PainelAuditoriasRoute
@@ -1709,6 +1729,7 @@ export interface FileRoutesByFullPath {
   '/trafego-pago': typeof TrafegoPagoRoute
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
@@ -1773,6 +1794,7 @@ export interface FileRoutesByFullPath {
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
   '/sites/': typeof SitesIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
@@ -1913,6 +1935,7 @@ export interface FileRoutesByTo {
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
   '/painel-auditorias': typeof PainelAuditoriasRoute
@@ -1961,6 +1984,7 @@ export interface FileRoutesByTo {
   '/trafego-pago': typeof TrafegoPagoRoute
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2024,6 +2048,7 @@ export interface FileRoutesByTo {
   '/servicos': typeof ServicosIndexRoute
   '/sites-robustos': typeof SitesRobustosIndexRoute
   '/sites': typeof SitesIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
@@ -2166,6 +2191,7 @@ export interface FileRoutesById {
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
   '/painel-auditorias': typeof PainelAuditoriasRoute
@@ -2215,6 +2241,7 @@ export interface FileRoutesById {
   '/trafego-pago': typeof TrafegoPagoRoute
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
@@ -2279,6 +2306,7 @@ export interface FileRoutesById {
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
   '/sites/': typeof SitesIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
   '/_authenticated/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
@@ -2422,6 +2450,7 @@ export interface FileRouteTypes {
     | '/lgpd'
     | '/mapa-do-site'
     | '/marketplace'
+    | '/mcp'
     | '/obrigado'
     | '/painel'
     | '/painel-auditorias'
@@ -2471,6 +2500,7 @@ export interface FileRouteTypes {
     | '/trafego-pago'
     | '/trafego-pago-local'
     | '/$city/$service'
+    | '/.well-known/oauth-protected-resource'
     | '/app'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
@@ -2535,6 +2565,7 @@ export interface FileRouteTypes {
     | '/servicos/'
     | '/sites-robustos/'
     | '/sites/'
+    | '/.lovable/oauth/consent'
     | '/app/admin'
     | '/app/atendimento'
     | '/app/campaigns'
@@ -2675,6 +2706,7 @@ export interface FileRouteTypes {
     | '/lgpd'
     | '/mapa-do-site'
     | '/marketplace'
+    | '/mcp'
     | '/obrigado'
     | '/painel'
     | '/painel-auditorias'
@@ -2723,6 +2755,7 @@ export interface FileRouteTypes {
     | '/trafego-pago'
     | '/trafego-pago-local'
     | '/$city/$service'
+    | '/.well-known/oauth-protected-resource'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -2786,6 +2819,7 @@ export interface FileRouteTypes {
     | '/servicos'
     | '/sites-robustos'
     | '/sites'
+    | '/.lovable/oauth/consent'
     | '/app/admin'
     | '/app/atendimento'
     | '/app/campaigns'
@@ -2927,6 +2961,7 @@ export interface FileRouteTypes {
     | '/lgpd'
     | '/mapa-do-site'
     | '/marketplace'
+    | '/mcp'
     | '/obrigado'
     | '/painel'
     | '/painel-auditorias'
@@ -2976,6 +3011,7 @@ export interface FileRouteTypes {
     | '/trafego-pago'
     | '/trafego-pago-local'
     | '/$city/$service'
+    | '/.well-known/oauth-protected-resource'
     | '/_authenticated/app'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
@@ -3040,6 +3076,7 @@ export interface FileRouteTypes {
     | '/servicos/'
     | '/sites-robustos/'
     | '/sites/'
+    | '/.lovable/oauth/consent'
     | '/_authenticated/app/admin'
     | '/_authenticated/app/atendimento'
     | '/_authenticated/app/campaigns'
@@ -3183,6 +3220,7 @@ export interface RootRouteChildren {
   LgpdRoute: typeof LgpdRoute
   MapaDoSiteRoute: typeof MapaDoSiteRoute
   MarketplaceRoute: typeof MarketplaceRoute
+  McpRoute: typeof McpRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PainelRoute: typeof PainelRoute
   PainelAuditoriasRoute: typeof PainelAuditoriasRoute
@@ -3232,6 +3270,7 @@ export interface RootRouteChildren {
   TrafegoPagoRoute: typeof TrafegoPagoRoute
   TrafegoPagoLocalRoute: typeof TrafegoPagoLocalRoute
   CityServiceRoute: typeof CityServiceRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   ApiGeneratePortfolioImageRoute: typeof ApiGeneratePortfolioImageRoute
   BairrosBhSlugRoute: typeof BairrosBhSlugRoute
   BairrosCwbSlugRoute: typeof BairrosCwbSlugRoute
@@ -3280,6 +3319,7 @@ export interface RootRouteChildren {
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   SitesRobustosIndexRoute: typeof SitesRobustosIndexRoute
   SitesIndexRoute: typeof SitesIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   ApiPublicFunnelRecoveryRoute: typeof ApiPublicFunnelRecoveryRoute
   ApiPublicHealthDbRoute: typeof ApiPublicHealthDbRoute
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
@@ -3512,6 +3552,13 @@ declare module '@tanstack/react-router' {
       path: '/marketplace'
       fullPath: '/marketplace'
       preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/obrigado': {
@@ -3855,6 +3902,13 @@ declare module '@tanstack/react-router' {
       path: '/$city/$service'
       fullPath: '/$city/$service'
       preLoaderRoute: typeof CityServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/app': {
@@ -4303,6 +4357,13 @@ declare module '@tanstack/react-router' {
       path: '/suporte-pedido/$token'
       fullPath: '/suporte-pedido/$token'
       preLoaderRoute: typeof SuportePedidoTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/app/': {
@@ -5462,6 +5523,7 @@ const rootRouteChildren: RootRouteChildren = {
   LgpdRoute: LgpdRoute,
   MapaDoSiteRoute: MapaDoSiteRoute,
   MarketplaceRoute: MarketplaceRoute,
+  McpRoute: McpRoute,
   ObrigadoRoute: ObrigadoRoute,
   PainelRoute: PainelRoute,
   PainelAuditoriasRoute: PainelAuditoriasRoute,
@@ -5512,6 +5574,8 @@ const rootRouteChildren: RootRouteChildren = {
   TrafegoPagoRoute: TrafegoPagoRoute,
   TrafegoPagoLocalRoute: TrafegoPagoLocalRoute,
   CityServiceRoute: CityServiceRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   ApiGeneratePortfolioImageRoute: ApiGeneratePortfolioImageRoute,
   BairrosBhSlugRoute: BairrosBhSlugRoute,
   BairrosCwbSlugRoute: BairrosCwbSlugRoute,
@@ -5561,6 +5625,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioIndexRoute: PortfolioIndexRoute,
   SitesRobustosIndexRoute: SitesRobustosIndexRoute,
   SitesIndexRoute: SitesIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   ApiPublicFunnelRecoveryRoute: ApiPublicFunnelRecoveryRoute,
   ApiPublicHealthDbRoute: ApiPublicHealthDbRoute,
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
