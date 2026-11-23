@@ -21,6 +21,10 @@ Use em tarefas não triviais de UI, portfólios **novos**, React/TanStack, QA re
 
 **Erro conhecido a rejeitar:** [checklist RLS inadequado](https://gist.github.com/cekuu35/e9bed1ff71f491842552fdb2d28cbe80) alega que RLS ligada sem políticas permite acesso; o PostgreSQL usa *default deny* quando nenhuma política aplicável concede acesso. Fonte primária: https://www.postgresql.org/docs/current/ddl-rowsecurity.html .
 
+## WebHub Motion + GSAP/Three.js/LottieFiles — referência transversal documentada
+Para tarefas de motion, microinterações, scroll, site de referência ou 3D, consulte **`docs/skills/WEBHUB_MOTION_CROSS_PROJECTS_2026-11-23.md`** antes de escolher uma tecnologia. O inventário M01–M12 registra o que é comprovado no código da WebHub, o que permanece hipótese e os limites de adoção por projeto.
+**Status:** referência técnica/catalogação apenas; nenhuma instalação GSAP/img2threejs/LottieFiles ou implantação de efeitos em sites é autorizada automaticamente. Prefira CSS/WAAPI, motion reduzido e não duplicação de skills.
+
 ## Aplicação em qualquer projeto
 1. Identificar objetivo real, stack, riscos e **skill local existente**; evitar nova rota, workflow, plugin, PR ou pacote quando o equivalente já existe.
 2. Selecionar somente referências pertinentes: `USE` (padrão local existente), `ADAPT` (princípio comprovado), `REFERENCE_ONLY`, `REJECT` ou `NOT_APPLICABLE`. Registrar motivo.
