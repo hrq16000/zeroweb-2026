@@ -59,7 +59,7 @@ try {
       const action=page.locator('a[data-funnel-provider="jotform"][data-client-key="toop-assados"]');
       await action.waitFor({state:"visible"});
       assert.equal(await action.getAttribute("href"),"https://form.jotform.com/263260727590056");
-      assert.match(await page.locator("[role=status]").innerText(),/Nenhum pedido foi realizado/i);
+      assert.equal(await page.getByText("Nenhum pedido foi realizado.", { exact: true }).count(),1,"simulated summary did not create an order");
       assert.equal(errors.length,0,"JavaScript errors: "+errors.join("; "));
       if(vp.width!==768) {
         await page.addStyleTag({content:anonymize});

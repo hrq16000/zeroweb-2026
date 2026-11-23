@@ -72,7 +72,7 @@ export function ToopAssadosPreviewPage({ mode = "preview" }: { mode?: "preview" 
         {isLive ? "PORTFÓLIO DEMONSTRATIVO 0WEB · Não é o atendimento oficial do restaurante" : "CONCEITO NÃO OFICIAL DA 0WEB · Prévia visual · Não recebe pedidos ou dados pessoais"}
       </div>
 
-      <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-6 sm:px-8">
+      <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-6 sm:px-8 md:pr-40 lg:pr-8">
         <a href="#inicio" className="flex items-center gap-3 text-[#6D331F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
           <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-current text-lg font-black" aria-hidden="true">T</span>
           <span className="text-xl font-black tracking-[-.04em]">TOOP <span className="font-normal">ASSADOS</span></span>
