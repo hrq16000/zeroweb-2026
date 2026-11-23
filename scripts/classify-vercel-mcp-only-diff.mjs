@@ -35,6 +35,25 @@ try {
       after.replace(newBlock, oldLine) === before) {
     process.stdout.write("vercel-mcp-only\n");
   }
+
+  // O segundo patch impede a avaliação do módulo: import() somente fora da
+  // Vercel. Qualquer mudança além dessas três substituições volta ao global.
+  const originalStaticImport = "import { mcpPlugin } from \"@lovable.dev/mcp-js/stacks/tanstack/vite\";\n";
+  const previousGuard = "    plugins: [routeWatcherPlugin(), ...(!process.env.VERCEL ? [mcpPlugin()] : [])],";
+  const lazyGuard = "    plugins: [routeWatcherPlugin(), ...devMcpPlugins],";
+  const envAssignment = "Object.assign(process.env, serverEnv);";
+  const lazyBlock = "Object.assign(process.env, serverEnv);\n\n// A static MCP import loads cloudflare:workers even when the plugin is disabled.\n// The development plugin must not even be imported in a Vercel build.\nconst devMcpPlugins = process.env.VERCEL\n  ? []\n  : [(await import(\"@lovable.dev/mcp-js/stacks/tanstack/vite\")).mcpPlugin()];";
+  if (before.includes(originalStaticImport) &&
+      before.includes(previousGuard) &&
+      before.includes(envAssignment)) {
+    const expectedLazy = before
+      .replace(originalStaticImport, "")
+      .replace(envAssignment, lazyBlock)
+      .replace(previousGuard, lazyGuard);
+    if (expectedLazy !== before && expectedLazy === after) {
+      process.stdout.write("vercel-mcp-only\\n");
+    }
+  }
 } catch {
   // Fail closed: sem acesso ao git/diff, não abre exceção de escopo.
 }
