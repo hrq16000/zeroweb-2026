@@ -1,7 +1,6 @@
 import { ArrowRight, ClipboardList, MapPin, MessageCircleQuestion, PartyPopper, Sparkles } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const quiz = {
   proposalKind: "service" as const,
@@ -135,7 +134,6 @@ export function SalgadosDaFranPage() {
           <PortfolioHostCredit linkClassName="font-semibold text-[#f6e52b] underline underline-offset-4" />
         </div>
       </footer>
-      <PortfolioUpsellPopup pageName="portfolio-salgados-da-fran" />
     </div>
   );
 }
