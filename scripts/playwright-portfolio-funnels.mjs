@@ -370,16 +370,17 @@ async function runTarget(target, viewport) {
 }
 
 const queue = [];
-for (const target of TARGETS) {
-  for (const viewport of VIEWPORTS) queue.push([target, viewport]);
-  if (target.slug === "espaco-marli-nails-guaratuba") {
-    // Homologação adicional apenas do novo projeto: 390/reduced, 768 e 1440.
-    for (const viewport of [
-      { name: "mobile-390-reduced", width: 390, height: 844, reducedMotion: "reduce" },
-      { name: "tablet-768", width: 768, height: 1024 },
-      { name: "desktop-1440", width: 1440, height: 900 },
-    ]) queue.push([target, viewport]);
-  }
+// Preserva literalmente o contrato de cobertura global, auditado por unit test.
+for (const target of TARGETS) for (const viewport of VIEWPORTS) queue.push([target, viewport]);
+
+// Os três cenários adicionais são exclusivos da Marli, sem substituir a matriz global.
+const marliTarget = TARGETS.find((target) => target.slug === "espaco-marli-nails-guaratuba");
+if (marliTarget) {
+  for (const viewport of [
+    { name: "mobile-390-reduced", width: 390, height: 844, reducedMotion: "reduce" },
+    { name: "tablet-768", width: 768, height: 1024 },
+    { name: "desktop-1440", width: 1440, height: 900 },
+  ]) queue.push([marliTarget, viewport]);
 }
 
 const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 1);
