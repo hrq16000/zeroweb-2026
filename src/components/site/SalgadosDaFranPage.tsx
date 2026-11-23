@@ -34,7 +34,7 @@ export function SalgadosDaFranPage() {
       <header className="bg-[#20252b] px-5 py-5 text-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
           <a href="#inicio" aria-label="Salgados da Fran, voltar ao início" className="flex min-h-12 items-center gap-3">
-            <img src="/images/salgados-da-fran/marca.svg" alt="" width="50" height="50" loading="eager" decoding="async" className="h-12 w-12" />
+            <img src="/images/salgados-da-fran/marca.svg" alt="" width="50" height="50" loading="lazy" decoding="async" className="h-12 w-12" />
             <span className="text-xl font-black tracking-tight">Salgados <span className="text-[#f6e52b]">da Fran</span></span>
           </a>
           <nav aria-label="Navegação Salgados da Fran" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
@@ -52,7 +52,7 @@ export function SalgadosDaFranPage() {
             <span className="inline-flex items-center gap-2 rounded-full border border-[#f6e52b]/50 px-4 py-2 text-xs font-bold uppercase tracking-[0.17em] text-[#f6e52b]">
               <Sparkles aria-hidden="true" className="h-4 w-4" /> São José dos Pinhais · PR
             </span>
-            <img src="/images/salgados-da-fran/marca.svg" alt="Três salgadinhos ilustrados da identidade Salgados da Fran" width="240" height="240" loading="eager" decoding="async"
+            <img src="/images/salgados-da-fran/marca.svg" alt="Três salgadinhos ilustrados da identidade Salgados da Fran" width="240" height="240" loading="eager" fetchPriority="high" decoding="async"
               className="my-7 h-40 w-40 drop-shadow-[0_18px_28px_rgba(0,0,0,.18)] sm:h-52 sm:w-52" />
             <p className="text-sm font-extrabold uppercase tracking-[0.3em] text-[#e9a46c]">Encomendas</p>
             <h1 className="mt-3 max-w-4xl text-balance text-5xl font-black leading-[1.03] tracking-[-0.055em] sm:text-7xl lg:text-[6.3rem]">
