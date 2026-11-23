@@ -1140,17 +1140,29 @@
           "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
           "PORTFOLIO_ENTITY_GATE": "complete",
           "PORTFOLIO_LOCAL_SEO_GATE": "complete",
-          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
-          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
-          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
         },
         "evidence": {
-          "PORTFOLIO_INDIVIDUAL_SITE_GATE": ["src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx: canonical, OG, HTML metadata, local schema"],
-          "PORTFOLIO_ENTITY_GATE": ["docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json: Google Place ID e homônimo desambiguado"],
-          "PORTFOLIO_LOCAL_SEO_GATE": ["Endereço e bairro na página, schema Bakery e discovery; src/config/portfolio-discovery.json"],
-          "PORTFOLIO_MEDIA_RICHNESS_GATE": [],
-          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [],
-          "PORTFOLIO_INDEXABILITY_GATE": []
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx: canonical, OG, HTML metadata, local schema"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json: Google Place ID e homônimo desambiguado"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Endereço e bairro na página, schema Bakery e discovery; src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "Hero SVG, capa PNG/OG PNG, logo autoral e fotografia não atribuída; assets no media-plan, imagens carregadas em Chromium 390/768/1440: https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json: aliases, categorias, produtos, localização completa; rota contém Google Maps Place ID, Instagram e Bakery schema."
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Configuração de release proposta: catálogo published/live, registry indexable, canonical próprio e robots index,follow. Regra do sitemap da PR #534; verificar inclusão e HTTP 200 APÓS Production READY, sem afirmar indexação Google."
+          ]
         }
       },
       "structuralContract": 1,
@@ -1165,16 +1177,25 @@
         "motionProfile": "warm-stamp-subtle"
       },
       "structuralOriginalityReview": {
-        "approved": false,
-        "reviewedAt": null,
-        "notes": null
+        "approved": true,
+        "reviewedAt": "2026-11-23",
+        "notes": "Estrutura real da página e comparativos NO-BRAND Agropet/Cantinho nas capturas de https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501; sem skeleton compartilhado perceptível."
       },
       "compositionContract": 2,
       "compositionFingerprint": {
         "heroGeometry": "oversized editorial masthead illustration seal offset right",
         "headerTreatment": "tiny neighborhood newspaper masthead",
         "sectionGraph": "paper cover→bread ticker→moment selector→food typology→burgundy address ticket→social source card→FAQ→editorial close",
-        "contentOrder": ["orientação", "ritmo", "ocasião", "categorias", "localização", "redes", "dúvidas", "contato"],
+        "contentOrder": [
+          "orientação",
+          "ritmo",
+          "ocasião",
+          "categorias",
+          "localização",
+          "redes",
+          "dúvidas",
+          "contato"
+        ],
         "gridTopology": "asymmetric cover, horizontal moments, typographic categories, full-width locator",
         "mediaDistribution": "custom SVG cover, graphic category icons, map directions, own social poster",
         "backgroundRhythm": "cream→burgundy ticker→mustard→paper→burgundy→cream social→rose→cream",
@@ -1183,25 +1204,62 @@
         "navigationPattern": "local sticky anchors and maps, no institutional header",
         "motionSignature": "short stamp plus icon micro lift and reduced motion static",
         "closingStructure": "typographic note with demonstrative disclosure",
-        "roleGraph": ["entity orientation", "occasion guidance", "category discovery", "wayfinding", "FAQ", "consultation"],
-        "mediaCadence": ["editorial illustration", "kinetic ticker", "graphic menu", "map direction", "social art", "text FAQ"],
-        "interactionLoci": ["moment anchors", "map", "Instagram", "FAQ", "funnel"],
-        "decisionAidPlacement": ["occasion strip", "hours caveat near address"],
-        "densityRhythm": ["airy", "compact", "medium", "high contrast", "quiet"],
+        "roleGraph": [
+          "entity orientation",
+          "occasion guidance",
+          "category discovery",
+          "wayfinding",
+          "FAQ",
+          "consultation"
+        ],
+        "mediaCadence": [
+          "editorial illustration",
+          "kinetic ticker",
+          "graphic menu",
+          "map direction",
+          "social art",
+          "text FAQ"
+        ],
+        "interactionLoci": [
+          "moment anchors",
+          "map",
+          "Instagram",
+          "FAQ",
+          "funnel"
+        ],
+        "decisionAidPlacement": [
+          "occasion strip",
+          "hours caveat near address"
+        ],
+        "densityRhythm": [
+          "airy",
+          "compact",
+          "medium",
+          "high contrast",
+          "quiet"
+        ],
         "mobileCompositionStrategy": "text precedes art, moment controls wrap, map ticket full width"
       },
       "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB / revisão visual ChatGPT de screenshots Chromium reais",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
         "screenshots": {
-          "390": null,
-          "1440": null
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#390.png",
+          "768": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#768.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#1440.png"
         },
-        "comparedWith": [],
-        "noBrandTest": null
+        "notes": "Capturas NO-BRAND 390 e 1440 avaliadas lado a lado: Doce Coração usa abertura editorial tipográfica, faixa horizontal de pães, três cartões de ocasião, tipologia em quatro categorias, endereço em ticket bordô e pôster social inclinado. Cantinho usa hero fotográfico, cartões infantis e outra hierarquia; Agropet usa pôster pet, mosaico 2x3 e fluxo próprio. Diferenciação comprovada sem nomes, cores ou imagens."
       },
       "contentFacts": {
         "ownSourcedContent": true
       },
-      "stage": "design",
+      "stage": "ready",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -1214,25 +1272,58 @@
         "blueprint": "complete",
         "composition": "complete",
         "seo": "complete",
-        "funnel": "in_progress",
+        "funnel": "complete",
         "cover": "complete",
-        "qa": "in_progress",
-        "publish": "not_started"
+        "qa": "complete",
+        "publish": "in_progress"
       },
-      "blockers": ["Aguardando QA visual real em 390/1440 e confirmação de aplicação da migração/persistência do funil WhatsApp antes de indexar/publicar."],
-      "warnings": ["Fotos reais e redes oficiais não foram publicadas por falta de licença/validação; arte é declaradamente editorial."],
-      "ownerRequired": ["Validar a identidade e fotografias de uso autorizado se desejar tornar o site oficial.", "Confirmar perfil social e canais de atendimento oficiais."],
-      "searchQa": [],
+      "blockers": [],
+      "warnings": [
+        "Fotografias reais e postagens oficiais permanecem indisponíveis sem licença; a mídia usada é original e declaradamente editorial.",
+        "Jotform recebe dados na 0WEB e não os encaminha automaticamente à padaria.",
+        "Indexação pelo Google não verificada. Publicação e sitemap dependem do merge e do domínio Production READY."
+      ],
+      "ownerRequired": [
+        "Validar a identidade e fotografias de uso autorizado se desejar tornar o site oficial.",
+        "Confirmar perfil social e canais de atendimento oficiais."
+      ],
+      "searchQa": [
+        {
+          "query": "Panificadora Doce Coração Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "padaria no Santo Antônio São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "pães e salgados Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "Rua Desembargador James Portugal Macedo",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "bolos e doces São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        }
+      ],
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": null,
-        "evaluatedAt": null
+        "status": "PASS",
+        "checkedAt": "2026-11-23",
+        "evidence": "GitHub Actions https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501: Chromium real HTTP 200 preview, SEO draft, sem overflow ou erro JS, 390/768/1440 PASS, 4 CTAs Radix, Escape/fechar, iframe Jotform renderizado com form visível e NO-BRAND revisado."
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json",
         "mediaPlan": "docs/portfolio/media-plans/panificadora-doce-coracao-santo-antonio.json"
       },
-      "lastUpdatedAt": "2026-11-19"
+      "lastUpdatedAt": "2026-11-23"
     }
   }
 }

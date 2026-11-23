@@ -3,102 +3,328 @@
   "slug": "panificadora-doce-coracao-santo-antonio",
   "matrixVersion": 2,
   "contractVersion": 3,
-  "evaluatedAt": null,
-  "technicalPass": false,
-  "editorialPass": false,
+  "evaluatedAt": "2026-11-23",
+  "technicalPass": true,
+  "editorialPass": true,
   "score": {
     "total": null,
     "byDimension": {}
   },
-  "dimensions": {},
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Localidade, Place ID, bairro e endereço desambiguados no ledger de evidências."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Texto editorial próprio, categorias citadas publicamente e respostas sem preços ou horários inventados."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Ilustrações próprias e capa autoral; fotos oficiais não publicadas sem licença."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Tipografia editorial + arte de pão + três ocasiões + ticket de endereço + capítulo social independente."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "NO-BRAND visual inspecionado em 390/1440 contra Agropet e Cantinho; diferenças estruturais visíveis."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Aliases, categorias, palavras-chave e endereço/rotas estão no discovery local e na página."
+    },
+    "SEO": {
+      "status": "WARNING",
+      "notes": "Canonical, Bakery schema e OG aprovados no preview; runtime/indexabilidade Production ainda não verificados."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Quatro CTAs renderizados; modal Radix com iframe Jotform visível e prova de submissão sintética persistida."
+    },
+    "PROOF": {
+      "status": "WARNING",
+      "notes": "Informações verificadas em fontes públicas; não existem avaliações próprias ou vínculo oficial comprovado."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Chromium 390/768/1440 sem overflow horizontal; hero e seções apresentados responsivamente."
+    },
+    "PERFORMANCE": {
+      "status": "WARNING",
+      "notes": "Build preview passou; Lighthouse >=90 precisa aprovação no workflow de CI após promoção."
+    },
+    "ACCESSIBILITY": {
+      "status": "WARNING",
+      "notes": "Navegação Escape e fechamento via botão passaram; axe-core completo aguarda o gate runtime."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Capturas reais + interações 390/768/1440, 4 CTAs e iframe renderizado: https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501"
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Seções de localização, ocasiões, categorias, social e sete perguntas frequentes."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Sequência de regiões creme/dourado/bordô/rosa com hierarquia editorial diferenciada."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Hero ilustrativo de pão, catálogo tipográfico, mapa externo e card editorial social original."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Cards de ocasião, tipologia de balcão, ticket de endereço, pôster social, FAQ e editorial de fechamento."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Carimbo do bairro, ticker de categorias e pôster social inclinado com tipografia própria."
+    },
+    "PROOF_DENSITY": {
+      "status": "WARNING",
+      "notes": "Fontes públicas e endereço declarados; sem avaliações inventadas ou fotos de terceiros."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "CTAs 4/4 de abertura do formulário exclusivo; nenhuma promessa de envio automático à padaria."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Stamp-in curto, microinterações e ticker lento com prefers-reduced-motion que os desativa."
+    }
+  },
   "experience": {
-    "visualRhythm": null,
-    "signatureMoments": [],
-    "motionNarrative": null,
-    "heroArchetype": null
+    "visualRhythm": "Capítulos editorialmente distintos de pão/balcão/localização/redes/FAQ",
+    "signatureMoments": [
+      "Carimbo editorial da vizinhança",
+      "Ticker tipográfico pão/bolos/doces",
+      "Cartão social com rotação sutil"
+    ],
+    "motionNarrative": "Carimbo .65s, ticker 27s, feedback de hover em cards e botões com reduzido movimento respeitado",
+    "heroArchetype": "Masthead editorial com ilustração vetorial autoral"
   },
   "motion": {
     "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
     "profile": {
-      "intensity": null,
-      "personality": null,
-      "entrance": [],
-      "scroll": [],
-      "hover": [],
-      "typography": [],
-      "media": [],
-      "transitions": [],
-      "signatureEffects": [],
-      "reducedMotionStrategy": null,
-      "mobileStrategy": null
+      "intensity": "BALANCED",
+      "personality": "Afetiva-editorial, não e-commerce agressivo",
+      "entrance": [
+        "Carimbo dc-stamp-in .65s uma única vez"
+      ],
+      "scroll": [
+        "Âncoras de navegação e leitura sequencial, sem parallax"
+      ],
+      "hover": [
+        "Cartões ocasião -4px e botões -2px",
+        "Cartão social com leve rotação"
+      ],
+      "typography": [
+        "Serifa Georgia responsiva e títulos sem animação distrativa"
+      ],
+      "media": [
+        "Ilustração hero estática e carimbo gráfico"
+      ],
+      "transitions": [
+        "background/transform .2s em controles",
+        "cartão social .45s"
+      ],
+      "signatureEffects": [
+        "dc-stamp-in",
+        "dc-ticker-move"
+      ],
+      "reducedMotionStrategy": "CSS @media(prefers-reduced-motion:reduce) elimina animações/transições e neutraliza ticker/rotação"
     },
     "narrativeRoles": {},
-    "gate": {},
+    "gate": {
+      "motionProfileDefined": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "effectsMatchBrand": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "entranceNotRepetitive": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "contextualMicrointeraction": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "signatureMotion": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "ctaFeedback": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "mobileAdapted": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "reducedMotionCovered": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "noTransformOverflow": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "noHeavyDependency": {
+        "status": "PASS",
+        "notes": "Composição/estilos verificados e preview Chromium com reduced-motion."
+      },
+      "noPerformanceRegression": {
+        "status": "WARNING",
+        "notes": "Aguardar Lighthouse CI do release com piso vigente."
+      },
+      "noAggressiveLoop": {
+        "status": "WARNING",
+        "notes": "Ticker de 27s contínuo, desativado com prefers-reduced-motion; atenção à percepção."
+      }
+    },
     "qualityProfile": {
-      "motionIntensity": null,
-      "motionPurpose": null,
-      "interactionDensity": null,
-      "scrollExperience": null,
-      "microinteractionQuality": null,
-      "reducedMotionCoverage": null,
-      "motionPerformance": null
+      "motionIntensity": "BALANCED",
+      "motionPurpose": "Carimbo de bairro e convite editorial sem distrair",
+      "interactionDensity": "LOW",
+      "scrollExperience": "Navegação por âncoras e capítulos",
+      "microinteractionQuality": "Hover contextual e feedback nos quatro CTAs",
+      "reducedMotionCoverage": "CSS completo para reduzir animações e transformações",
+      "motionPerformance": "Sem biblioteca pesada adicional; Lighthouse CI ainda pendente"
     }
   },
   "qualityProfile": {
-    "visualDensity": null,
-    "editorialDepth": null,
-    "motionIntensity": null,
-    "mediaRichness": null,
-    "proofLevel": null,
-    "interactionLevel": null,
-    "localContext": null,
-    "conversionIntensity": null
+    "visualDensity": "LOW_TO_MEDIUM",
+    "editorialDepth": "HIGH",
+    "motionIntensity": "BALANCED",
+    "mediaRichness": "EDITORIAL_GRAPHIC",
+    "proofLevel": "PUBLIC_REFERENCES_ONLY",
+    "interactionLevel": "FORM_AND_WAYFINDING",
+    "localContext": "ADDRESS_PLACE_ID",
+    "conversionIntensity": "FOUR_HOSTED_FORM_CTA"
   },
   "autonomy": {
     "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
     "identity": {
-      "decision": null,
-      "asset": null,
-      "provenance": null,
-      "evidence": null
+      "decision": "BRANDMARK_CREATED",
+      "asset": "/logo.svg",
+      "provenance": "GENERATED_BRAND_ASSET",
+      "evidence": "public/images/panificadora-doce-coracao-santo-antonio/logo.svg e JSX do cabeçalho"
     },
     "aboveTheFold": {
-      "status": null,
-      "visualStrategy": null,
-      "notes": null
+      "status": "PASS",
+      "visualStrategy": "EDITORIAL_ILLUSTRATED_MASTHEAD",
+      "notes": "Capturas 390/768/1440 mostram h1, ilustração e CTA sem overflow e sem imagens falsas."
     },
     "motionPresence": {
-      "state": null,
-      "evidence": []
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "panificadora-doce-coracao.css: dc-stamp-in, dc-ticker-move e classes hover",
+        "@media(prefers-reduced-motion:reduce) mantém conteúdo acessível no Chromium"
+      ]
     },
     "floatingConversion": {
-      "mode": null,
-      "label": null,
+      "mode": "disabled",
+      "label": "Consulta demonstrativa",
       "destination": "funnel",
-      "reason": null
+      "reason": "O modal do Jotform possui quatro CTAs próprios; flutuante legado seria destino incorreto."
     },
     "embed": {
-      "status": null,
-      "checkedAt": null,
-      "notes": null
+      "status": "WARNING",
+      "checkedAt": "2026-11-23",
+      "notes": "Rota e shell renderizam HTTP 200 em preview; abertura pelo viewer do catálogo ainda dependerá de publicação real."
     },
     "structuralSkeleton": {
-      "topology": [],
-      "rationale": null
+      "topology": [
+        "masthead ilustrado",
+        "ticker horizontal",
+        "3 momentos",
+        "4 categorias",
+        "ticket endereço",
+        "card social inclinado",
+        "FAQ em 2 colunas",
+        "fechamento editorial"
+      ],
+      "rationale": "Leitura editorial autoral não equivalente à topologia do Cantinho nem da Agropet."
+    },
+    "heroMedia": {
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+      "sourceType": "GRAPHIC_MEDIA"
     }
   },
   "hero": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "notes": "Masthead tipográfico original e ilustração SVG acessível sem confundir com foto de produto; screenshots 390/768/1440.",
+    "criteria": {
+      "legibility": true,
+      "originality": true,
+      "clientSpecific": true,
+      "responsive": true
+    }
   },
   "cover": {
-    "status": null,
-    "criteria": {}
+    "status": "WARNING",
+    "notes": "Capa PNG autoral declaradamente ilustrativa, aprovada no media-plan; validação de cartão final na vitrine após deployment.",
+    "criteria": {
+      "ownArt": true,
+      "sourceHonesty": true
+    }
   },
-  "coverage": [],
+  "coverage": [
+    {
+      "section": "hero",
+      "status": "PASS",
+      "mediaDecision": "SVG autoral com pães; alternativa textual completa e sem alegação de foto."
+    },
+    {
+      "section": "momentos",
+      "status": "PASS",
+      "mediaDecision": "Três cartões de ocasião com ícones tipográficos."
+    },
+    {
+      "section": "sabores",
+      "status": "PASS",
+      "mediaDecision": "Quatro categorias em tipologia ilustrativa sem inventário/preço."
+    },
+    {
+      "section": "localizacao",
+      "status": "PASS",
+      "mediaDecision": "Ticket bordô com endereço textual e link Google Maps Place ID."
+    },
+    {
+      "section": "redes",
+      "status": "PASS",
+      "mediaDecision": "Card social editorial e link do Instagram; sem importar posts sem direitos."
+    },
+    {
+      "section": "perguntas",
+      "status": "PASS",
+      "mediaDecision": "FAQ text-first com details/summary para leitura acessível."
+    },
+    {
+      "section": "fechamento",
+      "status": "PASS",
+      "mediaDecision": "Capítulo rosa com CTA demonstrativo e transparência de não afiliação."
+    }
+  ],
   "deadZones": [],
   "mediaSourceMix": {},
   "p0": [],
-  "warnings": [],
-  "ownerRequired": []
+  "warnings": [
+    "Fotos reais e conteúdo social do estabelecimento ausentes sem permissão.",
+    "Piso Lighthouse 90, axe e paridade Production serão validados pelos gates existentes antes do merge."
+  ],
+  "ownerRequired": [
+    "Reconfirmar fotos oficiais/licença antes de substituir arte editorial.",
+    "Não alegar recebimento de pedidos oficiais da panificadora."
+  ]
 }

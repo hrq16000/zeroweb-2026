@@ -15,7 +15,7 @@ export const Route = createFileRoute("/portfolio/panificadora-doce-coracao-santo
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "robots", content: "noindex,follow,max-image-preview:large" },
+      { name: "robots", content: "index,follow,max-image-preview:large" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },

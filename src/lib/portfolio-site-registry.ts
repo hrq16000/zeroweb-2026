@@ -11,7 +11,7 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
-  { slug: "panificadora-doce-coracao-santo-antonio", vertical: "comercios", siteName: "Panificadora Doce Coração · Santo Antônio, São José dos Pinhais", kind: "prototype", indexable: false },
+  { slug: "panificadora-doce-coracao-santo-antonio", vertical: "comercios", siteName: "Panificadora Doce Coração · Santo Antônio, São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "cantinho-da-tia-mari", vertical: "comercios", siteName: "Cantinho da Tia Mari · Jardim Itália, São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "agropet-filt", vertical: "comercios", siteName: "Aviário Agropet Filt · Pinhais — PR", kind: "prototype", indexable: true },
   { slug: "arildo-madeiras", vertical: "comercios", siteName: "Arildo Madeiras · Pinhais — PR", kind: "prototype", indexable: true },
