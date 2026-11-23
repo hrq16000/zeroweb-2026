@@ -37,7 +37,7 @@ export function BplLocacoesBrinquedosPage() {
       <header className="relative z-20 border-b-4 border-[#ffce28] bg-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 md:px-10">
           <a href="#inicio" className="inline-flex min-h-12 items-center gap-2" aria-label="BPL Locações de Brinquedos — início">
-            <img src={IMAGES + "logo.svg"} alt="Marca editorial BPL Locações de Brinquedos" width={176} height={78} className="h-16 w-auto" />
+            <img src={IMAGES + "logo.svg"} alt="Marca editorial BPL Locações de Brinquedos" loading="eager" decoding="async" width={176} height={78} className="h-16 w-auto" />
           </a>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-bold" aria-label="Navegação BPL">
             <a href="#brinquedos" className="rounded-lg py-2 hover:text-[#db237e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Brinquedos</a>
@@ -73,7 +73,7 @@ export function BplLocacoesBrinquedosPage() {
             <div className="relative mx-auto w-full max-w-xl">
               <div aria-hidden="true" className="absolute -inset-4 rotate-6 rounded-[3rem] bg-[#f8c631]" />
               <div className="relative overflow-hidden rounded-[3rem] border-[10px] border-white bg-[#8de9f9] shadow-2xl shadow-[#021844]/50">
-                <img src={IMAGES + "trampoline.svg"} alt="Ilustração editorial de uma cama elástica colorida; não é fotografia do equipamento da BPL" width={600} height={500} fetchPriority="high" loading="eager" className="aspect-[6/5] w-full object-cover" />
+                <img src={IMAGES + "trampoline.svg"} alt="Ilustração editorial de uma cama elástica colorida; não é fotografia do equipamento da BPL" width={600} height={500} fetchPriority="high" loading="eager" decoding="async" className="aspect-[6/5] w-full object-cover" />
               </div>
               <span className="absolute -bottom-5 -left-3 -rotate-6 rounded-2xl bg-[#eb2580] px-5 py-3 text-sm font-black text-white shadow-xl">É hora de brincar!</span>
               <Star aria-hidden="true" className="absolute -right-4 -top-6 size-12 rotate-12 fill-[#ffdf5b] text-[#ffdf5b]" />
@@ -94,7 +94,7 @@ export function BplLocacoesBrinquedosPage() {
             <div className="grid gap-7 md:grid-cols-2">
               <article className="overflow-hidden rounded-[2.5rem] border-2 border-[#c3e6fd] bg-[#e8f6ff]">
                 <div className="flex min-h-[260px] items-center justify-center bg-[#b7effe] p-6">
-                  <img src={IMAGES + "trampoline.svg"} alt="Ilustração de cama elástica com rede de proteção e estrutura colorida" loading="lazy" width={600} height={500} className="max-h-[300px] w-full object-contain" />
+                  <img src={IMAGES + "trampoline.svg"} alt="Ilustração de cama elástica com rede de proteção e estrutura colorida" loading="lazy" decoding="async" width={600} height={500} className="max-h-[300px] w-full object-contain" />
                 </div>
                 <div className="p-8">
                   <span className="text-xs font-black uppercase tracking-wider text-[#0873b8]">Movimento e diversão</span>
@@ -105,7 +105,7 @@ export function BplLocacoesBrinquedosPage() {
               </article>
               <article className="overflow-hidden rounded-[2.5rem] border-2 border-[#f7c9dc] bg-[#fff0f7]">
                 <div className="flex min-h-[260px] items-center justify-center bg-[#ffdef0] p-6">
-                  <img src={IMAGES + "ballpit.svg"} alt="Ilustração de piscina de bolinhas multicoloridas com cobertura" loading="lazy" width={600} height={500} className="max-h-[300px] w-full object-contain" />
+                  <img src={IMAGES + "ballpit.svg"} alt="Ilustração de piscina de bolinhas multicoloridas com cobertura" loading="lazy" decoding="async" width={600} height={500} className="max-h-[300px] w-full object-contain" />
                 </div>
                 <div className="p-8">
                   <span className="text-xs font-black uppercase tracking-wider text-[#c32371]">Cores e descobertas</span>
