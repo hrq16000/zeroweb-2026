@@ -11,6 +11,7 @@
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "cantinho-da-tia-mari",
+  "bpl-locacoes-de-brinquedos",
   "agropet-filt",
   "arildo-madeiras",
   "dona-garimpeira-brecho",

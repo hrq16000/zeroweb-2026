@@ -1,0 +1,47 @@
+{
+  "slug": "bpl-locacoes-de-brinquedos",
+  "updatedAt": "2026-11-23",
+  "origin": "EDITORIAL_0WEB_FROM_OWNER_SUPPLIED_FLYER",
+  "assets": [
+    {
+      "path": "public/images/bpl-locacoes-de-brinquedos/logo.svg",
+      "role": "editorial-wordmark",
+      "isRealBrandAsset": false,
+      "approvedForDemo": true
+    },
+    {
+      "path": "public/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+      "role": "editorial-illustration",
+      "represents": "cama elástica anunciada",
+      "isRealEquipmentPhoto": false,
+      "approvedForDemo": true
+    },
+    {
+      "path": "public/images/bpl-locacoes-de-brinquedos/ballpit.svg",
+      "role": "editorial-illustration",
+      "represents": "piscina de bolinhas anunciada",
+      "isRealEquipmentPhoto": false,
+      "approvedForDemo": true
+    },
+    {
+      "path": "public/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "role": "social-preview",
+      "isRealBrandAsset": false,
+      "approvedForDemo": true
+    }
+  ],
+  "missing": [
+    "foto oficial autorizada dos equipamentos",
+    "marca vetorial original autorizada",
+    "referência social oficial independente",
+    "QA visual 390/768/1440"
+  ],
+  "warnings": [
+    "Imagens digitais criadas como conceito editorial, não substituem fotografias do estoque."
+  ],
+  "heroMedia": {
+    "source": "public/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+    "purpose": "conceptual illustration",
+    "isRealPhoto": false
+  }
+}

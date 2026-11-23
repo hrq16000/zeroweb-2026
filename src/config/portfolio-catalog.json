@@ -2333,5 +2333,29 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta de informações via formulário",
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "bpl-locacoes-de-brinquedos",
+    "clientKey": "bpl-locacoes-de-brinquedos",
+    "title": "BPL Locações de Brinquedos",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "locação de brinquedos",
+      "cama elástica",
+      "piscina de bolinhas",
+      "festas infantis"
+    ],
+    "subtitle": "Cama elástica e piscina de bolinhas para festas",
+    "location": "São José dos Pinhais e região — PR",
+    "badge": "Portfólio demonstrativo em preparação",
+    "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+    "fallbackImage": "/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+    "metrics": "Consulte informações e condições",
+    "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço."
   }
 ]

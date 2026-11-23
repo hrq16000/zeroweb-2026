@@ -1341,5 +1341,26 @@
       "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
       "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
     }
+  },
+  {
+    "clientKey": "bpl-locacoes-de-brinquedos",
+    "slug": "bpl-locacoes-de-brinquedos",
+    "siteName": "BPL Locações de Brinquedos",
+    "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
+    "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
+    "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
+    "ctaMode": "proposal",
+    "funnelType": "orcamento",
+    "contactMode": "funnelOnly",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Panfleto fotografado fornecido pelo operador em 23/11/2026; apenas demonstração editorial, sem vínculo oficial",
+      "reference": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json"
+    }
   }
 ]

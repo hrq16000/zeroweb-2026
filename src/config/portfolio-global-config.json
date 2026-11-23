@@ -1460,6 +1460,50 @@
       "footer": {
         "variant": "light"
       }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a BPL",
+        "label": "Consultar locação",
+        "mode": "proposal",
+        "quizConfig": {
+          "services": [
+            "Cama elástica",
+            "Piscina de bolinhas",
+            "Ambos os brinquedos",
+            "Tenho uma dúvida"
+          ],
+          "experienceOptions": [
+            "Aniversário infantil",
+            "Festa em família",
+            "Evento escolar",
+            "Outra comemoração"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Noite",
+            "Horário a definir"
+          ],
+          "timingOptions": [
+            "Nos próximos 7 dias",
+            "Neste mês",
+            "No mês que vem",
+            "Ainda estou planejando"
+          ],
+          "stepTitles": {
+            "service": "Qual brinquedo procura?",
+            "experience": "Qual será a ocasião?",
+            "period": "Em qual período?",
+            "timing": "Para quando precisa?"
+          },
+          "notePlaceholder": "Ex.: data do evento, cidade, espaço disponível e idade das crianças."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
     }
   }
 }

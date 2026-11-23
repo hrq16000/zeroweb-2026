@@ -1128,6 +1128,104 @@
         "completed": true,
         "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "compositionContract": 2,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "in_progress",
+        "evidence": "complete",
+        "media": "in_progress",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "in_progress",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "blockers": [
+        "CI_AND_READINESS_NOT_YET_VERIFIED",
+        "BROWSER_QA_REQUIRED_390_768_1440",
+        "FUNNEL_DELIVERY_NOT_VERIFIED",
+        "PRODUCTION_BUILD_FIX_541_PENDING"
+      ],
+      "warnings": [
+        "Fonte única: panfleto fotografado; presença web/Google não confirmada independentemente.",
+        "SVG editorial ilustrativo não é fotografia dos brinquedos reais.",
+        "Não há vínculo oficial com a empresa comprovado e o contato permanece demonstrativo."
+      ],
+      "ownerRequired": [
+        "Confirmar interesse em usar a demonstração e autorização de fotos/logo originais",
+        "Confirmar destino e operação do funil de atendimento"
+      ],
+      "searchQa": [
+        {
+          "query": "BPL Locações de Brinquedos",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos"
+        },
+        {
+          "query": "cama elástica São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos"
+        },
+        {
+          "query": "piscina de bolinhas São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos"
+        }
+      ],
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "São José dos Pinhais e região constam no panfleto; sem endereço inventado"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Pendente validação antes de promover catálogo/robots/sitemap"
+          ]
+        }
+      },
+      "notes": {
+        "brief": "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md",
+        "enrichment": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
+        "mediaPlan": "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+      },
+      "lastUpdatedAt": "2026-11-23",
+      "visualQa": {
+        "status": "PENDING",
+        "notes": "Nenhum browser QA executado até este commit."
+      }
     }
   }
 }

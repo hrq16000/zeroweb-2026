@@ -717,6 +717,43 @@
         "cuidados infantis Jardim Itália",
         "leva e busca escola CMEI Jardim Itália"
       ]
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "aliases": [
+        "BPL Locações",
+        "BPL Locações de Brinquedos",
+        "BPL brinquedos SJP"
+      ],
+      "categories": [
+        "locação de brinquedos",
+        "brinquedos para festas"
+      ],
+      "services": [
+        "locação de cama elástica",
+        "locação de piscina de bolinhas"
+      ],
+      "equipment": [
+        "cama elástica",
+        "piscina de bolinhas"
+      ],
+      "products": [
+        "cama elástica",
+        "piscina de bolinhas"
+      ],
+      "problems": [],
+      "useCases": [
+        "festa infantil",
+        "aniversário infantil"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "aluguel de cama elástica São José dos Pinhais",
+        "locação de piscina de bolinhas São José dos Pinhais",
+        "BPL brinquedos SJP"
+      ]
     }
   }
 }
