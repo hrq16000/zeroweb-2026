@@ -48,6 +48,8 @@ type Props = {
   funnelIntent?: PortfolioFunnelIntent;
   className?: string;
   ariaLabel?: string;
+  /** Oculta do foco e da árvore de acessibilidade quando o CTA flutuante não pode cobrir a ação principal. */
+  "aria-hidden"?: boolean;
   onOpen?: () => void;
   orderContext?: {
     order_items?: string;
@@ -152,6 +154,7 @@ export function BeautyBookingQuiz({
   funnelIntent,
   className,
   ariaLabel,
+  "aria-hidden": ariaHidden = false,
   onOpen,
   orderContext,
   initialAnswers,
@@ -344,7 +347,7 @@ export function BeautyBookingQuiz({
           : null;
   return (
     <>
-      <button type="button" onClick={start} className={className} aria-label={ariaLabel} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
+      <button type="button" onClick={start} className={className} aria-label={ariaLabel} aria-hidden={ariaHidden} tabIndex={ariaHidden ? -1 : undefined} disabled={ariaHidden} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
         {children}
       </button>
 

@@ -55,6 +55,8 @@ try {
       await page.screenshot({ path: dir + "/" + width + ".png", fullPage: true, animations: "disabled", timeout: 30000 });
       const overflow = await page.evaluate(() => Math.max(0, document.documentElement.scrollWidth - window.innerWidth));
       assert.ok(overflow <= 2, "Overflow: " + overflow);
+      // O screenshot de pagina inteira pode alterar o scroll; voltar ao hero para testar ocultacao do FAB.
+      await page.evaluate(() => window.scrollTo(0, 0));
       // Captura anterior (run 45132954644): CTA secundario sobreposto pelo FAB mobile.
       if (width === 390) {
         await page.waitForFunction(key => {
