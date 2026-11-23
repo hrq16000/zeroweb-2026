@@ -1277,9 +1277,9 @@
         "notes": "Não homologado visualmente; aguardando Chromium 390/768/1440."
       },
       "visualQa": {
-        "status": "PENDING",
+        "status": "NOT_EXECUTED",
         "checkedAt": null,
-        "evidence": "No CI/Chromium performed for this change yet"
+        "evidence": "QA visual da Fran não executado; não constitui PASS. Necessário Chromium real 390/768/1440 e revisão perceptual."
       },
       "blockers": [
         "Visual QA Chromium 390/768/1440 pendente",

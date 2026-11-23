@@ -2917,6 +2917,36 @@
       "blocking": []
     },
     {
+      "slug": "salgados-da-fran",
+      "clientKey": "salgados-da-fran",
+      "title": "Salgados da Fran",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial.",
+      "subtitle": "Salgados por encomenda em São José dos Pinhais",
+      "image": "/images/salgados-da-fran/social-og.svg",
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og.svg",
+      "socialVersion": "",
+      "componentFile": "src/components/site/SalgadosDaFranPage.tsx",
+      "routeFile": "src/routes/portfolio.salgados-da-fran.tsx",
+      "assetsDir": "public/images/salgados-da-fran",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/salgados-da-fran/marca.svg",
+        "/images/salgados-da-fran/social-og.svg"
+      ],
+      "shareCopy": "🥟 Salgados da Fran, em São José dos Pinhais — PR: conheça a proposta demonstrativa de presença digital criada pela 0WEB a partir da identidade do cartão de encomendas da marca.\n\nSaiba como consultar opções de salgados, informar data, ocasião e quantidade e solicitar condições atuais. Cardápio, preços, entrega e disponibilidade não foram confirmados; esta não é uma página oficial do estabelecimento.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/salgados-da-fran\n\n#SalgadosDaFran #SalgadosPorEncomenda #SaoJoseDosPinhais #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "santos-montador-de-moveis",
       "clientKey": "santos-montador-de-moveis",
       "title": "Santos Montador de Móveis",

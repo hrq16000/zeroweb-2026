@@ -1020,7 +1020,9 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "excludeFromAdminGallery": ["social.png"],
+      "excludeFromAdminGallery": [
+        "social.png"
+      ],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1221,6 +1223,17 @@
         "ctaHref": "#cuidados"
       },
       "socialVersion": "9ea8c269"
+    },
+    "salgados-da-fran": {
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og.svg",
+      "proof": {
+        "eyebrow": "Salgados da Fran · São José dos Pinhais",
+        "title": "Sua ocasião merece uma encomenda bem combinada.",
+        "description": "Consulte o cardápio, a quantidade, os valores e os próximos passos pelo formulário da demonstração.",
+        "ctaLabel": "Consultar uma encomenda",
+        "ctaHref": "#encomendas"
+      }
     }
   }
 }
