@@ -25,7 +25,7 @@ export const composition: PortfolioComposition = {
     contentRhythm: "Cartaz de marca → guia curto de encomenda → perguntas essenciais → localidade → grande convite final.",
     mediaNarrative: "Arte gráfica SVG autoral baseada nas cores e mascotes do cartão; nenhuma fotografia fabricada.",
     proofNarrative: "Identidade/WhatsApp no cartão e ficha pública com telefone correspondente; produtos e condições ainda sujeitos a confirmação.",
-    conversionNarrative: "Quiz próprio para intenção de encomenda, persistência server-side e roteamento do mesmo cliente, sem wa.me no bundle.",
+    conversionNarrative: "Quiz próprio para intenção de encomenda, persistência server-side e roteamento protegido para o contato do próprio cliente.",
     motionNarrative: "Hover leve e gradação estática; reduced-motion respeitado por motion-safe.",
     signatureMoments: ["Três mascotes em selo central", "Trilha de encomenda em cartões com grandes numerais", "Faixa amarela de consulta final"],
     compositionFingerprint: {
