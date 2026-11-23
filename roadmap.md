@@ -1,13 +1,13 @@
 # Roadmap
 
 ## Painel, suporte e publicação — pedido de 23/11/2026
-- [ ] Consolidar leads com protocolo, status, filtro por funil/data e origem Jotform.
-- [ ] Exibir detalhe de cada funil com destino cadastrado, histórico e pendências.
-- [ ] Criar suporte baseado na ajuda e pedidos próprios, com encaminhamento humano.
-- [ ] Administração de agentes com nome/perfil e login por senha separado, autorizados pelo usuário.
+- [x] Leads consolidados com protocolo persistido, status, filtros, paginação e coluna de metadados Jotform (importação pulada).
+- [x] Histórico individual de funil com destino cadastrado e contagem de alertas pendentes/falhos.
+- [x] Suporte com ajuda canônica, pedidos próprios e encaminhamento persistido; QA sintético end-to-end aprovado.
+- [x] Administração de agentes por convite, nome/perfil e suspensão; login por senha separado implementado. Convite por e-mail e recuperação ainda não homologados com destinatário real.
 - [x] Fotos/reativação da galeria: puladas expressamente pelo usuário; manter draft.
 - [x] Espelho/importação Jotform Dona Garimpeira: pulados expressamente pelo usuário.
-- [ ] Confirmar funil publicado e WhatsApp exclusivo 5541995523363.
+- [x] Banco confirma funil publicado; painel autenticado confirma destino exclusivo 5541995523363, sem alteração do cadastro.
 - [ ] Publicar e verificar recomendações IA em produção.
 
 ## Integrações de agentes — escopo desta rodada
