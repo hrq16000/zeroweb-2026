@@ -36,4 +36,7 @@ Use em tarefas não triviais de UI, portfólios **novos**, React/TanStack, QA re
 - **O Técnico de Informática**: conteúdo técnico verificado, experiência de serviço, acessibilidade, performance, marca e funil; não usar imagens IA nem fabricar prova social.
 - **Demais projetos**: usar o mesmo método de seleção, subordinado aos `AGENTS.md` locais, stack, marca e regras comerciais; funcionalidades sem UI não precisam de motion.
 
+## Curadoria WebHub Motion / GSAP / LottieFiles / img2threejs (2026-11-23)
+Consultar `docs/skills/WEBHUB_MOTION_GSAP_LOTTIE_IMG2THREEJS_2026-11-23.md` em tarefas pertinentes a motion, scroll, microinterações ou reconstrução 3D. **GSAP Skills (8)** = referência de sequenciamento/ScrollTrigger/performance; **LottieFiles Motion Design Skill** = direção de movimento agnóstica ao motor; **img2threejs** = especialidade 3D condicionada a objetivo, orçamento e evidência. O inventário WebHub M01–M12 contém 11 padrões com código identificável (M08 parcial) e M09 não confirmado; não alegar QA visual. Forks GitHub não significam instalação em projetos. Preferir stack local e CSS/WAAPI; sem instalação/deploy automático. Para EUT, Técnico de Informática e demais repositórios, a adoção depende de decisão local e dos respectivos `AGENTS.md`.
+
 **Estado da referência:** método documentado; nenhum código externo, skill executável, CLI ou dependência do Reanimate/Gists foi instalado ou homologado em runtime.
