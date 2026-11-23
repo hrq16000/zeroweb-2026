@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ArrowRight, BadgeCheck, MapPin, PackageCheck, ShieldCheck, Sparkles, Star, Truck } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 
@@ -11,7 +12,7 @@ const questions = [
   ["Esta é a página oficial da BPL?", "Não. Esta página é uma demonstração editorial criada pela 0WEB a partir do material apresentado, sem representação ou reserva oficial pela empresa."],
 ] as const;
 
-function Inquiry({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Inquiry({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <PortfolioCTAQuiz
       clientKey={KEY}
