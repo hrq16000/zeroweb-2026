@@ -491,6 +491,38 @@
       "blocking": []
     },
     {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "clientKey": "bpl-locacoes-de-brinquedos",
+      "title": "BPL Locações de Brinquedos",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço.",
+      "subtitle": "Cama elástica e piscina de bolinhas para festas",
+      "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "socialVersion": "20261123",
+      "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
+      "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
+      "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
+        "/images/bpl-locacoes-de-brinquedos/logo.svg",
+        "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+        "/images/bpl-locacoes-de-brinquedos/trampoline.svg"
+      ],
+      "shareCopy": "🎉 A BPL Locações de Brinquedos anuncia cama elástica e piscina de bolinhas para comemorações em São José dos Pinhais e região.\n\nA 0WEB criou uma proposta demonstrativa de apresentação digital inspirada no panfleto da marca, com catálogo visual, perguntas frequentes e consulta de informações. A página não é o site oficial da empresa; valores e disponibilidade dependem de confirmação.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/bpl-locacoes-de-brinquedos\n\n#BPLLocacoes #CamaElastica #PiscinaDeBolinhas #SaoJoseDosPinhais #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "brecho-sao-francisco",
       "clientKey": "brecho-sao-francisco",
       "title": "Brechó São Francisco",
