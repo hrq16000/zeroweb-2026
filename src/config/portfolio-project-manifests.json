@@ -1170,10 +1170,10 @@
       "structuralSignature": {
         "segment": "alimentacao-padaria",
         "layoutFamily": "editorial-premium",
-        "heroFamily": "local-narrative",
+        "heroFamily": "proof-first",
         "sectionRhythm": "airy-editorial",
-        "proofStyle": "local-seal",
-        "mediaNarrative": "editorial-band",
+        "proofStyle": "why-they-search",
+        "mediaNarrative": "media-timeline",
         "ctaStyle": "next-step-block",
         "motionProfile": "warm-stamp-subtle"
       },
