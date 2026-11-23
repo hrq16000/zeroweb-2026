@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-23",
   "summary": {
-    "total": 99,
+    "total": 100,
     "valid": 50,
-    "pending": 49,
+    "pending": 50,
     "byStatus": {
       "VALID": 50,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 16
+      "UNCERTAIN_ORIGIN": 17
     },
     "balanced": true
   },
@@ -200,6 +200,19 @@
       "cardValid": false,
       "businessName": "Marmitas do Barreiro",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "asset": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "BPL Locações de Brinquedos",
+      "segment": "comercios"
     },
     {
       "slug": "brecho-sao-francisco",

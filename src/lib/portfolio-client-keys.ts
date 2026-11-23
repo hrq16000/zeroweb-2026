@@ -1,5 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
+  "bpl-locacoes-de-brinquedos",
   "cantinho-da-tia-mari",
   "agropet-filt",
   
