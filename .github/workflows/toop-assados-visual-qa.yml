@@ -34,11 +34,19 @@ jobs:
         run: VERCEL_ENV=preview bunx vite build --mode development
       - name: Verify real pages and collect visual evidence
         run: VERCEL_ENV=preview CI_PREVIEW_ATTEMPTS=1 node scripts/ci-with-prod-preview.mjs -- node scripts/verify-toop-assados.mjs
+      - name: Capture canonical visual-regression baselines (393/834/1280), unapproved
+        if: always()
+        run: VERCEL_ENV=preview VISUAL_ONLY=toop-assados CI_PREVIEW_ATTEMPTS=1 node scripts/ci-with-prod-preview.mjs -- node scripts/playwright-visual-regression.mjs
+      - name: Emit captured baseline bytes for independent visual review
+        if: always()
+        run: node scripts/emit-toop-baselines.mjs
       - name: Upload unapproved screenshots for human review
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: toop-assados-real-390-768-1440-no-brand
-          path: seo-reports/toop-assados-visual/*.png
+          path: |
+            seo-reports/toop-assados-visual/*.png
+            tests/visual/baseline/toop-assados-*.png
           if-no-files-found: warn
           retention-days: 30

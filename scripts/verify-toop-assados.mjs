@@ -50,7 +50,7 @@ try {
       assert.ok(overflow<=2,"horizontal overflow="+overflow);
       assert.equal(await page.locator('a[href^="https://wa.me"]').count(),0,"no direct WhatsApp");
       const html=await page.locator("body").innerText();
-      assert.match(html,/não oficial/i,"explicit independent-project disclosure");
+      assert.match(html,/não é (?:o )?(?:atendimento|canal|site) oficial/i,"explicit independent-project disclosure");
       const png=dest+"/"+name+".png";
       await page.screenshot({path:png,fullPage:true,animations:"disabled",timeout:45000});
       printEvidence(name,png);

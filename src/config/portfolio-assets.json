@@ -1227,7 +1227,14 @@
     "toop-assados": {
       "icon": "/images/toop-assados/icon.svg",
       "socialImage": "/images/toop-assados/social-og.svg",
-      "socialVersion": ""
+      "socialVersion": "",
+      "proof": {
+        "eyebrow": "Fonte: panfleto fornecido à 0WEB",
+        "title": "Uma proposta de cardápio digital demonstrativo.",
+        "description": "O material de referência cita costela e frango recheado no Xaxim, Curitiba. Preços e condições comerciais permanecem sem confirmação.",
+        "ctaLabel": "Conhecer a simulação",
+        "ctaHref": "#simulacao"
+      }
     }
   }
 }
