@@ -1460,6 +1460,15 @@
       "footer": {
         "variant": "light"
       }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consulta 0WEB",
+        "recipientName": "0WEB",
+        "studioName": "Espaço Marli Nails Designer"
+      }
     }
   }
 }
