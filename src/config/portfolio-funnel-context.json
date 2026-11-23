@@ -720,7 +720,7 @@
   "bpl-locacoes-de-brinquedos": {
     "intent": "orcamento",
     "nextStepTitle": "Conte como imagina a festa.",
-    "nextStepBody": "Escolha entre cama elástica e piscina de bolinhas, informe a data e o local e registre sua consulta demonstrativa. A 0WEB não confirma reservas pela BPL.",
+    "nextStepBody": "Escolha entre cama elástica e piscina de bolinhas, informe a data e o local e registre sua consulta demonstrativa. Não há confirmação de reserva neste portfólio.",
     "primaryCtaLabel": "Consultar opções",
     "theme": "navy",
     "whatsappPrompt": "Gostaria de consultar cama elástica ou piscina de bolinhas para uma festa. Podem informar disponibilidade e valores?",
