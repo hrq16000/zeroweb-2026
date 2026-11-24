@@ -38,3 +38,8 @@ The hash-locked disposable override now:
 5. refuses the override if any expected row occurs zero or multiple times.
 
 The source migration remains unchanged. This is a local disposable replay compatibility shim only; it does not repair or certify the production migration history. The native PostgreSQL fixture job passed on the previous attempt and remains unchanged.
+
+
+## Runner integrity correction
+
+A source review of the updated workflow runner found two editing defects before treating the new run as valid: a duplicate compatibility-write block and a missing newline between consecutive Python here-documents. Both are corrected. The runner now records the single staged override exactly once and keeps the two Python programs syntactically separated. No migration or database was touched.

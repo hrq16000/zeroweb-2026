@@ -100,15 +100,6 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         replay_path=override_dir/p.name
         replay_path.write_text(original.replace(before,after,1),encoding="utf-8")
         overrides.append({"source":source["source"],"source_sha256":digest,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only compatibility patch: add nullable placeholder/hint columns and normalize all 7/8/9-value tuples to the 9-column schema","added_columns":["placeholder","hint"],"normalized_rows":["welcome","nome","servico","problema","local","telefone","confirmacao"]})
-        after="(form_id,key,type,label,placeholder,hint,order_index,required,options_json)"
-        if original.count(before)!=1:
-            report("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH",{"file":p.name,"source":source["source"]})
-            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH: "+p.name)
-        override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
-        override_dir.mkdir(parents=True,exist_ok=True)
-        replay_path=override_dir/p.name
-        replay_path.write_text(original.replace(before,after,1),encoding="utf-8")
-        overrides.append({"source":source["source"],"source_sha256":digest,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only correction of the explicit INSERT column list; generated DB types confirm placeholder and hint columns","added_columns":["placeholder","hint"]})
     # Refuse client-side psql commands and file/program execution. Dollar
     # quoted SQL is passed unchanged; no naive statement splitting.
     if re.search(r"(?m)^\s*\\",replay_path.read_text()):
@@ -132,7 +123,8 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
 status="PASS_LOCAL_SQL_REPLAY_WITH_HASH_LOCKED_OVERRIDE" if overrides else "PASS_LOCAL_SQL_REPLAY"
 report(status)
 print(status+":",len(done))
-PYpython3 - "$scratch/status.env" "$root" <<'PY'
+PY
+python3 - "$scratch/status.env" "$root" <<'PY'
 import os,pathlib,re,subprocess,sys
 from urllib.parse import urlparse
 env={}

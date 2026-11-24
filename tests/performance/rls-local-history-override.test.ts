@@ -10,6 +10,7 @@ test("Eletrovale replay compatibility patch is hash-locked and schema-backed", (
   expect(runner).toContain('before="(form_id,key,type,label,order_index,required,options_json)"');
   expect(runner).toContain('after="(form_id,key,type,label,placeholder,hint,order_index,required,options_json)"');
   expect(runner).toContain("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT_MISMATCH");
+  expect((runner.match(/overrides\\.append/g) ?? []).length).toBe(1);
   expect(runner).toContain("NULL,NULL,0,false");
   expect(runner).toContain("NULL,NULL,2,true");
   expect(runner).toContain("NULL,7,false");
