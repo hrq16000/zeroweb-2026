@@ -54,6 +54,8 @@ type LighthouseRun = {
 type AuditRow = {
   route: string;
   slug: string | null;
+  observedAt?: string;
+  historical?: boolean;
   status?: number | null;
   canonical?: string | null;
   robots?: string | null;
@@ -67,6 +69,11 @@ type AuditRow = {
 
 type Snapshot = {
   generatedAt: string;
+  provenance?: {
+    measurement?: string;
+    currentRoutes?: number;
+    previousSnapshot?: string;
+  };
   commit: string | null;
   runUrl: string | null;
   base: string | null;
@@ -194,7 +201,9 @@ function AuditPanel() {
           <div>
             <h1 className="font-display text-2xl font-semibold">Auditorias por rota</h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Prévia social, ícones do <code>&lt;head&gt;</code>, indexabilidade e Lighthouse consolidados pelo CI.
+              {snapshot?.provenance?.measurement
+                ? `Lighthouse público · ${snapshot.provenance.currentRoutes ?? 12} rotas medidas · histórico preservado.`
+                : "Prévia social, ícones, indexabilidade e Lighthouse consolidados pelo CI."}
               {snapshot ? (
                 <>
                   {" "}Última execução: {new Date(snapshot.generatedAt).toLocaleString("pt-BR")}
@@ -202,6 +211,11 @@ function AuditPanel() {
                 </>
               ) : null}
             </p>
+            {snapshot?.provenance?.previousSnapshot && (
+              <a className="text-xs text-primary underline" href={snapshot.provenance.previousSnapshot}>
+                Relatório anterior · 28/08/2026
+              </a>
+            )}
           </div>
           <div className="flex gap-2">
             <button
@@ -279,7 +293,15 @@ function AuditPanel() {
                   )}
                   {rows.map((row) => (
                     <tr key={row.route} className="border-t border-border align-top">
-                      <td className="px-2 py-2 font-mono text-xs">{row.route}</td>
+                      <td className="px-2 py-2 font-mono text-xs">
+                        {row.route}
+                        {row.observedAt && (
+                          <div className="mt-1 text-muted-foreground">
+                            {row.historical ? "Histórico · " : "Medição · "}
+                            {new Date(row.observedAt).toLocaleDateString("pt-BR", { timeZone: "UTC" })}
+                          </div>
+                        )}
+                      </td>
                       <td className="px-2 py-2">{row.status ?? "—"}</td>
                       <td className="px-2 py-2 text-right tabular-nums">{pct(row.lighthouse?.performance)}</td>
                       <td className="px-2 py-2 text-right tabular-nums">{pct(row.lighthouse?.seo)}</td>

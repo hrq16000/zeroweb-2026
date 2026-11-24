@@ -130,7 +130,7 @@ export function LhciAdmin() {
                 <YAxis domain={[0, 100]} tick={{ fontSize: 10 }} />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="perf" stroke="hsl(var(--primary))" dot={false} name="Perf" />
+                <Line type="monotone" dataKey="perf" stroke="var(--primary)" dot={false} name="Perf" />
                 <Line type="monotone" dataKey="seo" stroke="#10b981" dot={false} name="SEO" />
               </LineChart>
             </ResponsiveContainer>

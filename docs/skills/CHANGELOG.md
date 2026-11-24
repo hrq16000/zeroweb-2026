@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Publicação solicitada, matriz factual e transporte de testes
+
+- Contratos de execução/Git-first/RLS relidos; referências locais de skill router/discovery/quality gates tratadas como documentação, sem ativar drafts ou executar terceiros. Runtime/server-functions/grants/roles consultados para diagnóstico, sem alterar permissões. Design/mídia/redesign NOT_APPLICABLE: identidades e Blueprint congelados preservados.
+- 24 medições reais em 12 rotas públicas: 18 reprovações e 6 aprovações individuais importadas com origem/data; painel autenticado confirma leitura. LHCI oficial falha em 7 rotas dos dois lotes principais, mas passa lote Carecas/JKL pela agregação oficial; matriz conservadora preserva toda execução reprovada. Sem aprovação manual, nota CRM ou atribuição de SHA servido não comprovado.
+- Relatório antigo arquivado integralmente; todas as 59 medições antigas e 33 rotas não reavaliadas continuam disponíveis com datas, somadas a 24 medições/12 rotas atuais. Painel distingue origem pública de CI e preserva metadados administrativos noindex; token de cor do gráfico corrigido sem alterar tema global.
+- Preload happy-dom restaura fetch/Request/Response/Headers/Abort nativos: 6 testes reais RLS/identidade e suíte final 1225 PASS/0 FAIL, incluindo dois novos testes sintéticos. QA autenticado 45 rotas/24 notas/gráfico visível e sete rotas públicas em 1440/390px sem pageerror/overflow; brand/boundaries/meta/diff/harness PASS. Sem novos pacotes/lock/secrets/settings. Bun local 1.4.4 registrado, não afirmar execução 1.4.0.
+- Release apenas agendada, não comprovada; CI remoto/RLS/webhook/integração OAuth/pessoas continuam com bloqueios explícitos. Trigger real previamente aplicado, CRM atual sem leads/histórico, candidato atômico inativo. Evidência: docs/reports/PUBLICATION_LIGHTHOUSE_HOMOLOGATION_2026-11-24.md.
+
 ## 2026-11-24 — Rodada 2, trigger autorizado e candidatos críticos de pintura
 
 - Stack local: 0web-skill-router, discovery de competências pertinentes, 0web-experience-design-max, art-direction/design-system como preservação de identidade, 0web-ui-quality-gates para verdade de evidência, SSR/semântica/reduced-motion/QA; runtime/server-functions/roles/grants consultados. Sem redesign, marketplace install ou pacote novo: redundantes/incompatíveis com manutenção pontual.

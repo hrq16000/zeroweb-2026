@@ -1,16 +1,19 @@
 # Roadmap
 
 ## Publicação e homologação solicitadas às 07:25 UTC de 24/11/2026
-- [ ] Confirmar histórico real já aplicado, leitura correta no CRM/painel e integridade das fixtures limpas; não recriar eventos passados nem alterar encerrados.
-- [ ] Conferir Centro Mega real e acesso público de Carecas/JKL sem alterar identidades ou gates.
-- [ ] Identificar os agentes bloqueados e a causa antes de liberar; não conceder acesso amplo ou modificar contas por suposição.
-- [ ] Solicitar publicação do estado pronto após verificar segurança; confirmar implantação e executar Lighthouse das dez candidaturas, mantendo thresholds e atualizando matriz factual.
-- [ ] Comprovar ingestão/read-back das notas Lighthouse no painel autenticado; distinguir pontuação de performance de nota/interação CRM.
-- [ ] Homologar CI no HEAD atual sem reduzir gates, contornar restrições GitHub ou fabricar credenciais; registrar bloqueios restantes.
+- [x] Histórico real: trigger mínimo já aplicado; RLS/identidade 6 PASS e suíte geral final 1225 PASS/0 FAIL após restaurar transporte nativo. CRM autenticado lê fonte atual com zero leads/histórico; não inventar/backfill eventos. Fixtures antigas continuam ausentes.
+- [x] Centro Mega real HTTP 200/conteúdo visível/última conferência sem pageerror; Carecas/JKL HTTP 200 e 4 novas medições públicas, layouts congelados intactos.
+- [x] Matriz das dez candidaturas + Carecas/JKL: 24 medições públicas, 18 failed/6 passed individualmente; 11/12 rotas conservadoras com reprovação. LHCI assert dos dois lotes de dez falha em 7 rotas; lote Carecas/JKL passa agregação oficial apesar de uma medição reprovada em cada cliente. Gates intactos.
+- [x] Notas reais importadas em lhci_runs com proveniência explícita/read-back autenticado; nenhuma aprovação ou nota CRM. Snapshot antigo e 59 medições preservados; painel estático mantém 33 rotas históricas + 12 atuais, datas e origem.
+- [ ] Confirmar publicação rastreável: ferramenta apenas agendou publicação; SHA efetivamente servido não comprovado. Sem nova publicação/merge enquanto homologação estiver incompleta.
+- [ ] Liberar pessoas: support_agents vazio; aguardar nomes/contas na pergunta já aberta. IA/Codex: #548 ainda Draft, atualização de branch bloqueada por OAuth App da organização; não contornar por outro ator/token.
+- [ ] Homologar CI remoto: 42011df6 tem build/hydration/estáticos PASS, visual em andamento na consulta e Lighthouse skipped; 4949e96b teve gates cancelados. RLS remoto segue BLOCKED_MISSING_SECRET. Sem rerun sem credencial/método autorizado.
+- [ ] Homologar envio automático assinado LHCI: chave/configuração ausentes e workflow não envia ao webhook; importação manual autorizada não substitui E2E do webhook. Sem secret/configuração inventados.
+- [ ] Nota CRM atômica: candidato segue inativo; depende de autorização específica de migração distinta do trigger já aplicado. Deduplicação/ledger intocados por escolha expressa do usuário.
 
 ## CONTINUAR — Rodada 2 autorizada em 24/11/2026 às 06:53 UTC
 - [x] Conferir HEAD/base/checks de #548/#530 a partir de R1; #548 gate compartilhado SUCCESS às 07:02 UTC, compatibilidade PASS; sem reinventário/rerun.
-- [ ] Resolver bloqueios restantes: RLS remoto BLOCKED_MISSING_SECRET; suíte geral 1221 PASS/2 FAIL (user_ref timeout + RLS/happy-dom); Lighthouse canônico não repetido, Carecas/JKL dependem de Blueprint congelado e animação institucional intocada. Não reduzir gates.
+- [ ] Resolver bloqueios restantes: RLS remoto BLOCKED_MISSING_SECRET e integração GitHub bloqueada. Atualização 07:25: transporte nativo corrigido, suíte geral final 1225 PASS/0 FAIL; 24 medições públicas registradas sem aprovar release. Carecas/JKL/Blueprint institucional intocados. Não reduzir gates.
 - [x] Aplicar SOMENTE leads_after_change autorizado: SECURITY DEFINER/search_path/EXECUTE restrito; metadata e 2 testes RLS isolados PASS, nenhuma policy aberta/registro encerrado/agente alterado.
 - [x] Limpar dois portais sintéticos t-a/t-b-1795408221054, leads/history/eventos/membros e duas contas/profiles de teste, autorizado às 07:10 UTC; todos os vínculos conferidos, read-back zero; sem dados reais.
 - [x] Preparar dez candidatos LCP locais preservando conteúdo/design/motion restante; 35 testes PASS, 80 verificações visuais PASS, 10 funis abrem/fecham e 10 SSR sem JS; brand/boundaries/meta/build harness PASS. Pilotos/Blueprint intactos; sem score ou release PASS.
