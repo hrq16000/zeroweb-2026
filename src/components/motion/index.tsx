@@ -19,6 +19,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
+import { isMotionContentVisible } from "@/lib/motion-visibility";
 import { cardChoreography, roleChoreography, type SurfaceId } from "@/lib/motion-choreography";
 import {
   INTENSITY_TUNING,
@@ -38,6 +39,12 @@ const TUNING = INTENSITY_TUNING;
 const ENTER = MOTION_EASING.enter;
 
 const IntensityContext = createContext<MotionIntensity>("BALANCED");
+const FirstPaintContext = createContext(false);
+
+/** Opt-in only around the critical first section; no DOM/layout or global disable. */
+export function MotionFirstPaint({ children }: { children: ReactNode }) {
+  return <FirstPaintContext.Provider value={true}>{children}</FirstPaintContext.Provider>;
+}
 
 /** Define a intensidade do bloco. Cada projeto escolhe a sua. */
 export function MotionScope({
@@ -149,16 +156,18 @@ export function MotionReveal({
   const [armed, setArmed] = useState(false);
   const { ref, seen } = useInViewOnce<HTMLDivElement>();
 
+  const firstPaint = useContext(FirstPaintContext);
+
   useEffect(() => {
     setArmed(true);
   }, []);
 
-  const active = !armed || seen || reduced;
-  const useMask = variant === "mask" && !reduced;
+  const active = isMotionContentVisible({ firstPaint, armed, seen, reduced });
+  const useMask = variant === "mask" && !reduced && !firstPaint;
   // Variantes horizontais deslocam o bloco inteiro: sem clip, a página ganha
   // 16px de rolagem lateral enquanto o reveal está armado (§zero overflow).
   const horizontal = variant === "left" || variant === "right";
-  const state = reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed";
+  const state = reduced || firstPaint ? "static" : !armed ? "idle" : seen ? "played" : "armed";
 
   // O clip do modo "mask" fica em um filho: aplicado no próprio elemento
   // observado, o IntersectionObserver enxerga área zero e o reveal nunca
@@ -191,7 +200,7 @@ export function MotionReveal({
         ...style,
       }}
     >
-      {horizontal && !reduced ? (
+      {horizontal && !reduced && !firstPaint ? (
         <div
           style={{
             transform: active ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
@@ -294,8 +303,9 @@ export function MotionImageReveal({
   const reduced = usePrefersReducedMotion();
   const [armed, setArmed] = useState(false);
   const { ref, seen } = useInViewOnce<HTMLDivElement>();
+  const firstPaint = useContext(FirstPaintContext);
   useEffect(() => setArmed(true), []);
-  const active = !armed || seen || reduced;
+  const active = isMotionContentVisible({ firstPaint, armed, seen, reduced });
   const hidden = direction === "left" ? "inset(0 100% 0 0)" : "inset(0 0 100% 0)";
   const zoomScale = Math.min(tune.scale, MOTION_LIMITS.maxZoomScale);
   const zoomDuration = Math.max(tune.duration + 240, MOTION_LIMITS.minZoomDurationMs);
@@ -305,7 +315,7 @@ export function MotionImageReveal({
       className={cn("overflow-hidden", className)}
       {...motionDataAttrs(
         "imageReveal",
-        reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed",
+        reduced || firstPaint ? "static" : !armed ? "idle" : seen ? "played" : "armed",
         intensity ?? scopeIntensity,
       )}
     >

@@ -93,6 +93,7 @@ import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-loca
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as AuthenticatedPainelLighthouseRouteImport } from './routes/_authenticated/painel-lighthouse'
 import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
 import { Route as BairrosBhSlugRouteImport } from './routes/bairros-bh.$slug'
@@ -198,6 +199,7 @@ import { Route as AuthenticatedAppPortfolioMotionRouteImport } from './routes/_a
 import { Route as AuthenticatedAppPortfolioSeoLocalRouteImport } from './routes/_authenticated/app.portfolio-seo-local'
 import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authenticated/app.profile'
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
+import { Route as AuthenticatedAppPublicacaoRouteImport } from './routes/_authenticated/app.publicacao'
 import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
 import { Route as AuthenticatedAppResultadosRouteImport } from './routes/_authenticated/app.resultados'
@@ -701,6 +703,12 @@ const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   path: '/app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPainelLighthouseRoute =
+  AuthenticatedPainelLighthouseRouteImport.update({
+    id: '/painel-lighthouse',
+    path: '/painel-lighthouse',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiGeneratePortfolioImageRoute =
   ApiGeneratePortfolioImageRouteImport.update({
     id: '/api/generate-portfolio-image',
@@ -1267,6 +1275,12 @@ const AuthenticatedAppProjectsRoute =
     path: '/projects',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPublicacaoRoute =
+  AuthenticatedAppPublicacaoRouteImport.update({
+    id: '/publicacao',
+    path: '/publicacao',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppRankingLocalRoute =
   AuthenticatedAppRankingLocalRouteImport.update({
     id: '/ranking-local',
@@ -1779,6 +1793,7 @@ export interface FileRoutesByFullPath {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -1883,6 +1898,7 @@ export interface FileRoutesByFullPath {
   '/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2040,6 +2056,7 @@ export interface FileRoutesByTo {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2143,6 +2160,7 @@ export interface FileRoutesByTo {
   '/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2305,6 +2323,7 @@ export interface FileRoutesById {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/_authenticated/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2409,6 +2428,7 @@ export interface FileRoutesById {
   '/_authenticated/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/_authenticated/app/profile': typeof AuthenticatedAppProfileRoute
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/_authenticated/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
   '/_authenticated/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2571,6 +2591,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/app'
+    | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -2675,6 +2696,7 @@ export interface FileRouteTypes {
     | '/app/portfolio-seo-local'
     | '/app/profile'
     | '/app/projects'
+    | '/app/publicacao'
     | '/app/ranking-local'
     | '/app/reports'
     | '/app/resultados'
@@ -2832,6 +2854,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
+    | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -2935,6 +2958,7 @@ export interface FileRouteTypes {
     | '/app/portfolio-seo-local'
     | '/app/profile'
     | '/app/projects'
+    | '/app/publicacao'
     | '/app/ranking-local'
     | '/app/reports'
     | '/app/resultados'
@@ -3096,6 +3120,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/app'
+    | '/_authenticated/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -3200,6 +3225,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/portfolio-seo-local'
     | '/_authenticated/app/profile'
     | '/_authenticated/app/projects'
+    | '/_authenticated/app/publicacao'
     | '/_authenticated/app/ranking-local'
     | '/_authenticated/app/reports'
     | '/_authenticated/app/resultados'
@@ -4030,6 +4056,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/painel-lighthouse': {
+      id: '/_authenticated/painel-lighthouse'
+      path: '/painel-lighthouse'
+      fullPath: '/painel-lighthouse'
+      preLoaderRoute: typeof AuthenticatedPainelLighthouseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/generate-portfolio-image': {
       id: '/api/generate-portfolio-image'
       path: '/api/generate-portfolio-image'
@@ -4765,6 +4798,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppProjectsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/publicacao': {
+      id: '/_authenticated/app/publicacao'
+      path: '/publicacao'
+      fullPath: '/app/publicacao'
+      preLoaderRoute: typeof AuthenticatedAppPublicacaoRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/ranking-local': {
       id: '/_authenticated/app/ranking-local'
       path: '/ranking-local'
@@ -5443,6 +5483,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortfolioSeoLocalRoute: typeof AuthenticatedAppPortfolioSeoLocalRoute
   AuthenticatedAppProfileRoute: typeof AuthenticatedAppProfileRoute
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
+  AuthenticatedAppPublicacaoRoute: typeof AuthenticatedAppPublicacaoRoute
   AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
   AuthenticatedAppResultadosRoute: typeof AuthenticatedAppResultadosRoute
@@ -5521,6 +5562,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppPortfolioSeoLocalRoute,
   AuthenticatedAppProfileRoute: AuthenticatedAppProfileRoute,
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
+  AuthenticatedAppPublicacaoRoute: AuthenticatedAppPublicacaoRoute,
   AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
   AuthenticatedAppResultadosRoute: AuthenticatedAppResultadosRoute,
@@ -5566,10 +5608,12 @@ const AuthenticatedAppRouteWithChildren =
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAppRoute: typeof AuthenticatedAppRouteWithChildren
+  AuthenticatedPainelLighthouseRoute: typeof AuthenticatedPainelLighthouseRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAppRoute: AuthenticatedAppRouteWithChildren,
+  AuthenticatedPainelLighthouseRoute: AuthenticatedPainelLighthouseRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

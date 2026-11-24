@@ -1,259 +1,127 @@
-// LHCI admin: trends + table + RBAC + JSON/HTML report download.
-import { useEffect, useMemo, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import {
-  decideLhciRun, getLhciRun, lhciTrends, listLhciRuns,
-} from "@/lib/lhci.functions";
-import { CheckCircle2, XCircle, RefreshCcw, Activity, Download, FileText } from "lucide-react";
-import {
-  LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
-} from "recharts";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useServerFn } from '@tanstack/react-start';
+import { Link } from '@tanstack/react-router';
+import { Activity, CheckCircle2, ChevronLeft, ChevronRight, Download, FileText, RefreshCcw, XCircle } from 'lucide-react';
+import { decideLhciRun, getLhciCoverage, getLhciRun, listLhciRuns } from '@/lib/lhci.functions';
+import { buildReceiptCoverage, receiptEvaluation, receiptMetadata, type ReceiptRow } from '@/lib/lhci-receipt-tracking';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
-type Row = {
-  id: string; environment: string; url: string;
-  performance: number | null; seo: number | null;
-  lcp_ms: number | null; cls: number | null; tbt_ms: number | null;
-  status: string; decision: string | null; decision_reason: string | null;
-  created_at: string;
-};
-
-const pct = (n: number | null) => (n == null ? "—" : `${Math.round(n * 100)}`);
-const ms = (n: number | null) => (n == null ? "—" : `${Math.round(n)}ms`);
-
-function statusBadge(s: string) {
-  return s === "passed" ? "bg-emerald-500/15 text-emerald-700"
-    : s === "failed" ? "bg-red-500/15 text-red-700"
-    : s === "approved" ? "bg-blue-500/15 text-blue-700"
-    : s === "rejected" ? "bg-red-500/15 text-red-700"
-    : "bg-muted text-muted-foreground";
-}
-
-function download(name: string, content: string, mime: string) {
-  const blob = new Blob([content], { type: mime });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url; a.download = name; a.click();
+const PAGE_SIZE = 50;
+const pct = (n: number | null) => n == null ? '—' : Math.round(n * 100);
+const date = (value: string | null) => value ? new Date(value).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : 'Não informada';
+const title = (slug: string) => slug.split('-').map(word => word[0]?.toUpperCase() + word.slice(1)).join(' ');
+function path(url: string) { try { return new URL(url).pathname; } catch { return url; } }
+function download(name: string, value: unknown) {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: 'application/json' }));
+  const link = document.createElement('a'); link.href = url; link.download = name; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-function reportHtml(run: any) {
-  const errs: string[] = (run?.logs?.errors ?? []) as string[];
-  const warns: string[] = (run?.logs?.warnings ?? []) as string[];
-  const li = (a: string[]) => a.map((e) => `<li>${e.replace(/</g, "&lt;")}</li>`).join("") || "<li>—</li>";
-  return `<!doctype html><meta charset="utf-8"><title>SEO report ${run.id}</title>
-<style>body{font:14px system-ui;padding:24px;max-width:880px;margin:auto}h1{font-size:20px}h2{margin-top:24px;font-size:16px}code{background:#f3f4f6;padding:2px 4px;border-radius:4px}.err{color:#b91c1c}.warn{color:#a16207}</style>
-<h1>LHCI build ${run.id}</h1>
-<p><strong>URL:</strong> ${run.url}<br><strong>Env:</strong> ${run.environment}<br><strong>Status:</strong> ${run.status} · ${run.decision ?? "sem decisão"}<br><strong>Quando:</strong> ${new Date(run.created_at).toLocaleString("pt-BR")}</p>
-<p>Perf <strong>${pct(run.performance)}</strong> · SEO <strong>${pct(run.seo)}</strong> · LCP <strong>${ms(run.lcp_ms)}</strong> · CLS <strong>${run.cls ?? "—"}</strong> · TBT <strong>${ms(run.tbt_ms)}</strong></p>
-<h2 class="err">Erros do validador SEO (${errs.length})</h2><ul>${li(errs)}</ul>
-<h2 class="warn">Avisos (${warns.length})</h2><ul>${li(warns)}</ul>`;
 }
 
 export function LhciAdmin() {
   const list = useServerFn(listLhciRuns);
   const get = useServerFn(getLhciRun);
   const decide = useServerFn(decideLhciRun);
-  const trends = useServerFn(lhciTrends);
-
-  const [env, setEnv] = useState<string>("");
-  const [rows, setRows] = useState<Row[]>([]);
-  const [trend, setTrend] = useState<any[]>([]);
+  const coverageRead = useServerFn(getLhciCoverage);
+  const [environment, setEnvironment] = useState('all');
+  const [offset, setOffset] = useState(0);
+  const [search, setSearch] = useState('');
+  const [rows, setRows] = useState<ReceiptRow[]>([]);
+  const [coverageRows, setCoverageRows] = useState<ReceiptRow[]>([]);
+  const [coverageComplete, setCoverageComplete] = useState(true);
+  const [total, setTotal] = useState(0);
   const [canDecide, setCanDecide] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [configured, setConfigured] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [openId, setOpenId] = useState<string | null>(null);
-  const [detail, setDetail] = useState<any>(null);
+  const [detail, setDetail] = useState<Awaited<ReturnType<typeof getLhciRun>>['row'] | null>(null);
+  const [decision, setDecision] = useState<{ id: string; action: 'approved' | 'rejected' } | null>(null);
+  const [reason, setReason] = useState('');
+  const [saving, setSaving] = useState(false);
 
-  const refresh = async () => {
-    setLoading(true);
+  const refresh = useCallback(async () => {
+    setLoading(true); setError('');
     try {
-      const [r, t] = await Promise.all([
-        list({ data: { environment: env || undefined, limit: 30 } }),
-        trends({ data: { environment: env || undefined, limit: 50 } }),
+      const [result, coverage] = await Promise.all([
+        list({ data: { ...(environment === 'all' ? {} : { environment }), limit: PAGE_SIZE, offset } }), coverageRead(),
       ]);
-      setRows((r.rows ?? []) as Row[]);
-      setCanDecide(!!r.canDecide);
-      setTrend(t.rows ?? []);
-    } finally { setLoading(false); }
+      setRows(result.rows as ReceiptRow[]); setTotal(result.total);
+      setCanDecide(result.canDecide); setConfigured(result.receivingConfigured);
+      setCoverageRows(coverage.rows as ReceiptRow[]); setCoverageComplete(coverage.complete);
+    } catch { setError('Não foi possível atualizar os recebimentos.'); }
+    finally { setLoading(false); }
+  }, [list, coverageRead, environment, offset]);
+  useEffect(() => { void refresh(); }, [refresh]);
+  useEffect(() => {
+    const timer = setInterval(() => { if (document.visibilityState === 'visible') void refresh(); }, 60000);
+    return () => clearInterval(timer);
+  }, [refresh]);
+
+  const coverage = useMemo(() => buildReceiptCoverage(coverageRows), [coverageRows]);
+  const pending = coverage.filter(item => !item.latest).length;
+  const automatic = coverageRows.filter(row => receiptMetadata(row).automatic).length;
+  const visible = rows.filter(row => row.url.toLowerCase().includes(search.trim().toLowerCase()));
+  const chart = [...rows].reverse().map(row => ({ t: date(receiptMetadata(row).measuredAt ?? row.created_at), perf: pct(row.performance), seo: pct(row.seo) }));
+
+  const open = async (id: string) => {
+    setOpenId(id); setDetail(null); setError('');
+    try { const result = await get({ data: { id } }); setDetail(result.row); }
+    catch { setError('Não foi possível abrir esta medição.'); }
+  };
+  const saveDecision = async () => {
+    if (!decision || !canDecide || !reason.trim()) return;
+    setSaving(true);
+    try { await decide({ data: { id: decision.id, decision: decision.action, reason: reason.trim() } }); setDecision(null); setReason(''); await refresh(); }
+    catch { setError('Não foi possível salvar a decisão.'); }
+    finally { setSaving(false); }
   };
 
-  useEffect(() => { void refresh(); /* eslint-disable-next-line */ }, [env]);
-
-  const openDetail = async (id: string) => {
-    setOpenId(id); setDetail(null);
-    const r = await get({ data: { id } });
-    setDetail(r.row);
-  };
-
-  const onDecide = async (id: string, d: "approved" | "rejected") => {
-    if (!canDecide) return alert("Você não tem permissão para decidir builds.");
-    const reason = window.prompt(d === "approved" ? "Motivo (opcional)" : "Motivo da reprovação") ?? "";
-    if (d === "rejected" && !reason.trim()) return;
-    await decide({ data: { id, decision: d, reason } });
-    await refresh();
-    if (openId === id) await openDetail(id);
-  };
-
-  const hasTrend = useMemo(() => trend.length > 1, [trend]);
-
-  return (
-    <div className="rounded-2xl border border-border bg-card p-5">
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <h3 className="font-semibold font-display flex items-center gap-2">
-          <Activity className="w-4 h-4 text-primary" /> Lighthouse CI · builds & tendências
-        </h3>
-        <div className="flex items-center gap-2">
-          <select value={env} onChange={(e) => setEnv(e.target.value)}
-            className="rounded-lg border border-border bg-background px-2 py-1 text-sm">
-            <option value="">Todos</option><option value="dev">dev</option>
-            <option value="staging">staging</option><option value="prod">prod</option>
-          </select>
-          <button onClick={refresh} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs">
-            <RefreshCcw className="w-3 h-3" /> {loading ? "..." : "Atualizar"}
-          </button>
-        </div>
-      </div>
-
-      {!canDecide && (
-        <p className="mt-3 text-[11px] text-muted-foreground">
-          Modo somente leitura — apenas usuários <strong>admin</strong> podem aprovar/reprovar builds.
-        </p>
-      )}
-
-      {/* Trends */}
-      <div className="mt-5 grid lg:grid-cols-2 gap-4">
-        <ChartCard title="Performance & SEO (%)">
-          {hasTrend ? (
-            <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={trend}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                <XAxis dataKey="t" tick={{ fontSize: 10 }} />
-                <YAxis domain={[0, 100]} tick={{ fontSize: 10 }} />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="perf" stroke="hsl(var(--primary))" dot={false} name="Perf" />
-                <Line type="monotone" dataKey="seo" stroke="#10b981" dot={false} name="SEO" />
-              </LineChart>
-            </ResponsiveContainer>
-          ) : <Empty />}
-        </ChartCard>
-        <ChartCard title="LCP (ms) & TBT (ms)">
-          {hasTrend ? (
-            <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={trend}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                <XAxis dataKey="t" tick={{ fontSize: 10 }} />
-                <YAxis tick={{ fontSize: 10 }} />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="lcp" stroke="#ef4444" dot={false} name="LCP" />
-                <Line type="monotone" dataKey="tbt" stroke="#8b5cf6" dot={false} name="TBT" />
-              </LineChart>
-            </ResponsiveContainer>
-          ) : <Empty />}
-        </ChartCard>
-        <ChartCard title="CLS">
-          {hasTrend ? (
-            <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={trend}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                <XAxis dataKey="t" tick={{ fontSize: 10 }} />
-                <YAxis tick={{ fontSize: 10 }} />
-                <Tooltip />
-                <Line type="monotone" dataKey="cls" stroke="#f59e0b" dot={false} name="CLS" />
-              </LineChart>
-            </ResponsiveContainer>
-          ) : <Empty />}
-        </ChartCard>
-      </div>
-
-      <div className="mt-6 overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
-              <th className="py-2 px-2">Quando</th><th className="py-2 px-2">Env</th>
-              <th className="py-2 px-2">URL</th>
-              <th className="py-2 px-2 text-right">Perf</th><th className="py-2 px-2 text-right">SEO</th>
-              <th className="py-2 px-2 text-right">LCP</th><th className="py-2 px-2 text-right">CLS</th>
-              <th className="py-2 px-2">Status</th><th className="py-2 px-2">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.length === 0 && (<tr><td colSpan={9} className="py-4 text-center text-muted-foreground">Sem builds.</td></tr>)}
-            {rows.map((r) => (
-              <tr key={r.id} className="border-t border-border">
-                <td className="py-2 px-2 whitespace-nowrap">{new Date(r.created_at).toLocaleString("pt-BR")}</td>
-                <td className="py-2 px-2"><span className="rounded-full bg-muted px-2 py-0.5 text-xs">{r.environment}</span></td>
-                <td className="py-2 px-2 max-w-[16rem] truncate" title={r.url}>
-                  <button className="hover:underline" onClick={() => openDetail(r.id)}>{r.url}</button>
-                </td>
-                <td className="py-2 px-2 text-right tabular-nums">{pct(r.performance)}</td>
-                <td className="py-2 px-2 text-right tabular-nums">{pct(r.seo)}</td>
-                <td className="py-2 px-2 text-right tabular-nums">{ms(r.lcp_ms)}</td>
-                <td className="py-2 px-2 text-right tabular-nums">{r.cls == null ? "—" : r.cls.toFixed(3)}</td>
-                <td className="py-2 px-2"><span className={`rounded-full px-2 py-0.5 text-xs ${statusBadge(r.status)}`}>{r.status}</span></td>
-                <td className="py-2 px-2">
-                  <div className="flex gap-1">
-                    <button title="Aprovar" disabled={!canDecide} onClick={() => onDecide(r.id, "approved")}
-                      className="p-1 rounded hover:bg-emerald-500/10 text-emerald-600 disabled:opacity-30 disabled:cursor-not-allowed">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </button>
-                    <button title="Reprovar" disabled={!canDecide} onClick={() => onDecide(r.id, "rejected")}
-                      className="p-1 rounded hover:bg-red-500/10 text-red-600 disabled:opacity-30 disabled:cursor-not-allowed">
-                      <XCircle className="w-4 h-4" />
-                    </button>
-                    <button title="Detalhes" onClick={() => openDetail(r.id)} className="p-1 rounded hover:bg-muted">
-                      <FileText className="w-4 h-4" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {openId && (
-        <div className="mt-6 rounded-xl border border-border bg-muted/30 p-4">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="text-sm font-semibold">Logs do build</div>
-            <div className="flex gap-2">
-              {detail && (
-                <>
-                  <button onClick={() => download(`lhci-${detail.id}.json`, JSON.stringify(detail, null, 2), "application/json")}
-                    className="inline-flex items-center gap-1 rounded-lg border border-border bg-background px-2 py-1 text-xs">
-                    <Download className="w-3 h-3" /> JSON
-                  </button>
-                  <button onClick={() => download(`lhci-${detail.id}.html`, reportHtml(detail), "text/html")}
-                    className="inline-flex items-center gap-1 rounded-lg border border-border bg-background px-2 py-1 text-xs">
-                    <Download className="w-3 h-3" /> HTML
-                  </button>
-                </>
-              )}
-              <button onClick={() => { setOpenId(null); setDetail(null); }} className="text-xs text-muted-foreground">fechar</button>
-            </div>
-          </div>
-          {!detail ? <p className="mt-2 text-xs text-muted-foreground">Carregando…</p> : (
-            <>
-              {detail.decision_reason && <p className="mt-2 text-xs">Motivo: {detail.decision_reason}</p>}
-              <pre className="mt-2 max-h-80 overflow-auto rounded bg-background p-3 text-[11px] leading-snug whitespace-pre-wrap break-all">
-                {JSON.stringify(detail.logs ?? detail.raw ?? {}, null, 2)}
-              </pre>
-            </>
-          )}
-        </div>
-      )}
+  return <section aria-label="Recebimentos Lighthouse" className="min-w-0 space-y-6 border-y border-border py-6">
+    <div className="flex flex-wrap items-start justify-between gap-4">
+      <div><h2 className="flex items-center gap-2 font-display text-2xl font-semibold"><Activity className="size-5 text-primary" />Medições Lighthouse</h2><p className="mt-1 text-sm text-muted-foreground">Datas em Brasília · {total} recebimentos</p></div>
+      <div className="flex flex-wrap gap-2"><Button variant="outline" className="min-h-11" asChild><Link to="/painel-lighthouse"><FileText />Painel de recebimentos</Link></Button><Button variant="outline" className="min-h-11" onClick={() => void refresh()} disabled={loading}><RefreshCcw className={loading ? 'animate-spin motion-reduce:animate-none' : ''} />Atualizar medições</Button></div>
     </div>
-  );
-}
-
-function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="rounded-xl border border-border bg-muted/30 p-3">
-      <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">{title}</div>
-      {children}
+    {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
+    <div className="grid gap-5 border-y border-border py-5 sm:grid-cols-3">
+      <Metric label="Produção recebida" value={`${coverage.length - pending}/${coverage.length}`} />
+      <Metric label="Sem medição recebida" value={String(pending)} />
+      <Metric label="Recebimentos automáticos em produção" value={String(automatic)} />
     </div>
-  );
+    <p role="status" className="text-sm text-muted-foreground">{configured ? (automatic ? 'Chave configurada · recebimento automático registrado.' : 'Chave configurada · aguardando primeiro recebimento automático de produção.') : 'Recebimento automático sem chave configurada.'}</p>
+    {!coverageComplete && <p className="text-sm text-destructive">Cobertura parcial: há mais registros do que o limite desta consulta.</p>}
+    <div><h3 className="mb-3 font-semibold">Candidaturas acompanhadas · produção</h3>
+      <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3">{coverage.map(item => <div key={item.slug} className="flex min-w-0 items-center justify-between gap-3 border-b border-border py-3 text-sm">
+        <span className="min-w-0"><span className="block font-medium">{title(item.slug)}</span><span className="text-xs text-muted-foreground">{item.latest ? date(receiptMetadata(item.latest).measuredAt) : 'Aguardando medição'}</span></span>
+        <span className={item.latest ? 'shrink-0 text-primary' : 'shrink-0 text-muted-foreground'}>{item.count ? `${item.count} recebidas` : 'Pendente'}</span>
+      </div>)}</div>
+    </div>
+    <div className="flex flex-wrap gap-3">
+      <Input aria-label="Filtrar URL nesta página" placeholder="Filtrar URL nesta página" value={search} onChange={e => setSearch(e.target.value)} className="min-h-11 sm:max-w-sm" />
+      <Select value={environment} onValueChange={value => { setEnvironment(value); setOffset(0); }}><SelectTrigger aria-label="Ambiente Lighthouse" className="min-h-11 w-44"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="all">Todos os ambientes</SelectItem><SelectItem value="prod">Produção</SelectItem><SelectItem value="staging">Prévia de revisão</SelectItem><SelectItem value="dev">Desenvolvimento</SelectItem></SelectContent></Select>
+    </div>
+    {rows.length > 1 && <div className="min-w-0" aria-label="Performance e SEO das medições"><h3 className="mb-2 text-sm font-medium">Performance e SEO · notas de 0 a 100</h3><ResponsiveContainer width="100%" height={180}><LineChart data={chart}><CartesianGrid stroke="var(--border)" strokeDasharray="3 3" /><XAxis dataKey="t" hide /><YAxis domain={[0,100]} /><Tooltip /><Line type="linear" dataKey="perf" name="Performance" stroke="var(--primary)" dot={false} isAnimationActive={false} /><Line type="linear" dataKey="seo" name="SEO" stroke="var(--accent)" dot={false} isAnimationActive={false} /></LineChart></ResponsiveContainer></div>}
+    <div className="overflow-x-auto" role="region" aria-label="Histórico de medições" tabIndex={0}>
+      <table className="w-full min-w-[900px] text-sm"><thead><tr className="border-b border-border text-left text-xs text-muted-foreground"><th className="py-3 pr-4">Medição / recebimento</th><th className="pr-4">Página</th><th className="pr-4">Nota</th><th className="pr-4">SEO / A11y</th><th className="pr-4">LCP / TBT</th><th className="pr-4">Origem</th><th className="pr-4">Status / decisão</th><th>Ações</th></tr></thead><tbody>
+        {!visible.length && <tr><td colSpan={8} className="py-8 text-center text-muted-foreground">{loading ? 'Carregando medições…' : 'Nenhuma medição neste filtro.'}</td></tr>}
+        {visible.map(row => { const meta = receiptMetadata(row); const evaluation = receiptEvaluation(row); return <tr key={row.id} className="border-b border-border align-top">
+          <td className="whitespace-nowrap py-4 pr-4 tabular-nums">{date(meta.measuredAt)}<span className="block text-xs text-muted-foreground">Recebida: {date(meta.receivedAt)}</span></td>
+          <td className="max-w-64 py-4 pr-4"><Button variant="link" onClick={() => void open(row.id)} className="h-auto min-h-11 whitespace-normal p-0 text-left break-all">{path(row.url)}</Button><span className="block text-xs text-muted-foreground">{row.environment}</span></td>
+          <td className="py-4 pr-4 font-semibold tabular-nums">{pct(row.performance)}</td>
+          <td className="py-4 pr-4 tabular-nums">{pct(row.seo)} / {pct(row.accessibility)}</td>
+          <td className="whitespace-nowrap py-4 pr-4 tabular-nums">{row.lcp_ms == null ? '—' : Math.round(row.lcp_ms)} / {row.tbt_ms == null ? '—' : Math.round(row.tbt_ms)} ms</td>
+          <td className="py-4 pr-4">{meta.automatic ? 'Automática' : meta.signed ? 'Envio assinado' : 'Manual / histórica'}</td>
+          <td className="py-4 pr-4"><span className={evaluation.status === 'failed' ? 'text-destructive' : 'text-primary'}>{evaluation.status === 'failed' ? 'Reprovada' : 'Aprovada nos limites'}</span><span className="block text-xs text-muted-foreground">{row.decision === 'approved' ? 'Liberada pelo admin' : row.decision === 'rejected' ? 'Recusada pelo admin' : 'Sem decisão administrativa'}</span></td>
+          <td className="py-3"><div className="flex gap-1"><Button variant="ghost" size="icon" className="size-11" title="Detalhes da medição" aria-label="Detalhes da medição" onClick={() => void open(row.id)}><FileText /></Button>{canDecide && <><Button variant="ghost" size="icon" className="size-11" title="Liberar administrativamente" aria-label="Liberar administrativamente" onClick={() => { setReason(''); setDecision({ id: row.id, action: 'approved' }); }}><CheckCircle2 /></Button><Button variant="ghost" size="icon" className="size-11 text-destructive" title="Recusar administrativamente" aria-label="Recusar administrativamente" onClick={() => { setReason(''); setDecision({ id: row.id, action: 'rejected' }); }}><XCircle /></Button></>}</div></td>
+        </tr>; })}
+      </tbody></table>
+    </div>
+    <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground"><span>{total ? `${offset + 1}–${Math.min(offset + PAGE_SIZE,total)} de ${total}` : '0 recebimentos'}</span><div className="flex gap-2"><Button variant="outline" className="size-11" size="icon" aria-label="Página anterior" disabled={offset === 0 || loading} onClick={() => setOffset(Math.max(0,offset-PAGE_SIZE))}><ChevronLeft /></Button><Button variant="outline" className="size-11" size="icon" aria-label="Próxima página" disabled={offset+PAGE_SIZE >= total || loading} onClick={() => setOffset(offset+PAGE_SIZE)}><ChevronRight /></Button></div></div>
+    <Dialog open={openId !== null} onOpenChange={value => { if (!value) { setOpenId(null); setDetail(null); } }}><DialogContent className="max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto rounded-lg"><DialogHeader><DialogTitle>Detalhes da medição</DialogTitle><DialogDescription>{detail ? path(String(detail.url)) : 'Carregando…'}</DialogDescription></DialogHeader>{detail && <><dl className="grid gap-3 text-sm sm:grid-cols-2"><div><dt className="text-muted-foreground">Data original</dt><dd>{date(receiptMetadata(detail as ReceiptRow).measuredAt)}</dd></div><div><dt className="text-muted-foreground">Recebida em</dt><dd>{date(String(detail.created_at))}</dd></div><div><dt className="text-muted-foreground">Performance</dt><dd>{pct(detail.performance)}</dd></div><div><dt className="text-muted-foreground">Status recebido</dt><dd>{String(detail.status)}</dd></div></dl>{detail.decision_reason && <p className="text-sm">{String(detail.decision_reason)}</p>}<Button variant="outline" className="min-h-11 justify-self-start" onClick={() => download(`lighthouse-${detail.id}.json`,detail)}><Download />Baixar JSON</Button><pre className="max-h-64 overflow-auto whitespace-pre-wrap break-all bg-muted p-3 text-xs">{JSON.stringify(detail.logs ?? {},null,2)}</pre></>}</DialogContent></Dialog>
+    <Dialog open={decision !== null} onOpenChange={value => { if (!value) setDecision(null); }}><DialogContent className="w-[calc(100%-2rem)] rounded-lg"><DialogHeader><DialogTitle>Decisão administrativa</DialogTitle><DialogDescription>A nota medida permanece inalterada.</DialogDescription></DialogHeader><label className="space-y-2 text-sm">Motivo<Input value={reason} maxLength={500} onChange={e => setReason(e.target.value)} /></label><Button disabled={saving || !reason.trim()} className="min-h-11" onClick={() => void saveDecision()}>{saving ? 'Salvando…' : 'Confirmar decisão'}</Button></DialogContent></Dialog>
+  </section>;
 }
-function Empty() {
-  return <div className="h-[200px] flex items-center justify-center text-xs text-muted-foreground">Sem dados suficientes.</div>;
-}
+function Metric({label,value}:{label:string;value:string}) { return <div><p className="text-xs text-muted-foreground">{label}</p><p className="mt-1 font-display text-2xl font-semibold tabular-nums">{value}</p></div>; }

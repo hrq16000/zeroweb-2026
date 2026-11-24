@@ -32,7 +32,7 @@ jobs:
         run: |
           if [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
             echo "::error title=RLS BLOCKED_MISSING_SECRET::O secret SUPABASE_SERVICE_ROLE_KEY não está configurado no GitHub Actions. RLS NÃO foi validado."
-            echo "Configure o secret no repositório e execute novamente este workflow."
+            echo "Não solicitar chave de serviço indisponível no Lovable Cloud. Consultar docs/RLS_CI_SECURITY_GATE.md para homologação autorizada e registrar BLOCKED, nunca PASS."
             exit 1
           fi
           echo "Credencial do gate presente. O valor não será exibido."
@@ -41,7 +41,9 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: RLS — tabelas sensíveis
-        run: bun tests/rls/sensitive_tables.test.ts
+        id: rls-sensitive
+        run: bun test tests/rls/sensitive_tables.test.ts
 
       - name: RLS — isolamento entre portais
-        run: bun tests/rls/portal_isolation.test.ts
+        if: ${{ !cancelled() && (steps.rls-sensitive.outcome == 'success' || steps.rls-sensitive.outcome == 'failure') }}
+        run: bun test tests/rls/portal_isolation.test.ts
