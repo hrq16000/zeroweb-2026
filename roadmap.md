@@ -1,17 +1,19 @@
 # Roadmap
 
 ## Reconexão, publicação e correções — pedido de 24/11/2026 às 04:58 UTC
-- [ ] Recuperar acesso da conexão Vercel à equipe msolus/projeto zeroweb-2026 por credencial segura; não alterar DNS, banco ou acesso dos agentes.
-- [ ] Publicar exatamente 873a1938 após acesso liberado e gates comprovados; não incluir correções posteriores nesse SHA.
-- [ ] Corrigir link de cases e identificação de fotos ilustrativas em nova alteração incremental; validar e publicar somente após reconexão.
-- [ ] Consultar HEAD/checks/logs atuais da PR #530 e corrigir somente falhas Lighthouse comprovadas, sem reduzir gates ou desativar MCP.
-- [ ] Página administrativa autorizada às 05:10 UTC: seleção de commits reais da main, checks e estado Vercel, somente leitura; validar acesso administrativo e interface.
+- [x] Acesso Vercel restaurado por reconexão segura: projeto/equipe exatos e histórico HTTP 200; tentativa de criar token via credencial anterior foi recusada 403, não gerou token.
+- [ ] Publicação exata 873a1938 solicitada uma vez: dpl_2p37yyDbFFFhbKw55y2hWv11QFBX, BUILDING/aliasAssigned=false às 05:28 UTC; aguarda resultado externo READY/ERROR. Último Production READY confirmado: 58032d30, dpl_FcL5kPsArmdCToF47oCzeRu61GGA.
+- [x] Link /sobre → /cases e identificação das seis fotos ilustrativas de redes sociais corrigidos; navegação, imagens reais carregadas e aviso conferidos no navegador.
+- [ ] Publicar correções/painel após gates: suíte local 1174 PASS / 2 FAIL; RLS existente falha em lead_history e teste multi-tenant tem timeout. Não alterar políticas ou reduzir gates fora deste escopo; nova publicação aguarda essas dependências.
+- [x] PR #530 HEAD 6cf27155 revalidada: gate individual Doce Coração e QA 390/768/1440 PASS; três shards globais falham em 12 outros portfolios, sem alteração da cliente ou desativação de MCP.
+- [ ] Release #530 depende de remediação externa dos gates globais e regressão visual existentes; não reabrir 12 outros clientes implicitamente nem repetir workflows.
+- [x] Página /app/publicacao autorizada: commits reais da main, checks, status Vercel e histórico; seleção/cópia de SHA sem deploy automático. QA com conta admin, visitante bloqueado, 390px sem overflow, zero pageerror; 14 testes focados PASS.
 
 ## Recuperação definitiva — continuidade híbrida autorizada às 04:01 UTC de 24/11/2026
 - [x] Reconciliar referências: main 747c1f9b, #548 9d496e16, #547 b8b25830 e #530 6cf27155; inventário de PRs recuperado sem repetir workflows.
 - [x] Revisar a correção nova do Codex na #548: adaptador auditado do leitor de ambiente preserva transporte/OAuth, sem 404/503 ou mocks; descrição da PR atualizada.
 - [x] Validar CI equivalente Vercel existente: Node 24.22.3/Bun 1.4.0, build completo, output e três testes reais PASS; conferência isolada Node 22.23.5 e guardas do adaptador PASS.
-- [ ] Recuperar acesso Vercel: listas de projetos vazias no escopo solicitado; proprietário precisa confirmar conta/membership e token restrito a msolus/zeroweb-2026. Não presumir escopo pela falha de listagem de equipe.
+- [x] Recuperar acesso Vercel: reconexão segura concluída; projeto/equipe/histórico HTTP 200 em 24/11/2026. IDs e último READY confirmados no relatório de publicação administrativa.
 - [ ] Concluir gates e publicar: #548 tem build/hidratação/estáticos/compatibilidade aprovados, gate compartilhado em andamento; último READY/rollback/configuração real inacessíveis. Nenhum merge/deploy iniciado.
 - [ ] Avançar na primeira candidata após infraestrutura: #530 atual em homologação; BPL/Fran/Marli têm checks reprovados nos HEADs consultados.
 - [x] Registrar handoff em docs/reports/VERCEL_MCP_RECOVERY_HANDOFF_2026-11-24.md; 747c1f9b é documental, sem correções de cases/fotos.
@@ -20,7 +22,7 @@
 - [x] Recuperar os nove workflows existentes da PR #530 sem repetir runs; logo 149726 → 87136 bytes, -41,80%, dimensões/RGBA idênticos.
 - [x] Identificar a cadeia de `cloudflare:workers`; teste isolado Node/esbuild PASS, sem presumir compatibilidade Vercel.
 - [x] Registrar checkpoint na PR #548 e em `docs/reports/PUBLICATION_HYBRID_CHECKPOINT_2026-11-24.md`; preservar trabalho Codex sem duplicar #547/#548.
-- [ ] Obter logs/configuração Vercel: conexão autorizada retorna 403 para equipe e 404 para projeto/deployment alvo; operador precisa liberar acesso correto ou fornecer logs sanitizados.
+- [x] Obter logs/configuração Vercel: após reconexão, logs HTTP 200 confirmam cloudflare:workers como causa da falha histórica 45ea4abe; correção #548 continua não integrada.
 - [x] Correção MCP evoluiu na #548: o estado 503 histórico foi substituído por adaptação Node auditada; validação funcional/compilação Vercel PASS, ainda sem integração.
 - [ ] Homologar/publicar: compatibilidade da candidata confirmada no CI, gate compartilhado e acesso Vercel pendentes; READY/SHA publicado não confirmados.
 - [ ] Avançar na primeira candidata: #530 tem novo HEAD 6cf27155 e homologação em andamento; as três falhas Lighthouse/46 diferenças pertencem à rodada anterior, não inferir estado atual.

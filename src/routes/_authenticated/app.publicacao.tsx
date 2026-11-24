@@ -22,7 +22,7 @@ export const Route = createFileRoute("/_authenticated/app/publicacao")({
   ] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(overviewQuery),
   pendingComponent: () => <div role="status" className="space-y-5"><h1 className="font-display text-3xl font-bold">Publicação</h1><p className="text-muted-foreground">Consultando conexões…</p></div>,
-  errorComponent: ({ error, reset }) => <div role="alert" className="max-w-3xl space-y-4"><h1 className="font-display text-3xl font-bold">Publicação</h1><p className="text-destructive">{error.message}</p><Button variant="outline" className="min-h-11" onClick={reset}><RefreshCw />Tentar novamente</Button></div>,
+  errorComponent: ({ error, reset }) => <div role="alert" className="max-w-3xl space-y-4"><h1 className="font-display text-3xl font-bold">Publicação</h1><p className="text-destructive">{error instanceof Error ? error.message : "Não foi possível consultar a publicação."}</p><Button variant="outline" className="min-h-11" onClick={reset}><RefreshCw />Tentar novamente</Button></div>,
   component: PublicationPage,
 });
 
