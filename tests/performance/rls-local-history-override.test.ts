@@ -15,7 +15,7 @@ test("six historical funnel seeds remain immutable and only the disposable repla
   ] as const;
   for (const [path, expectedBlob] of fixtures) {
     const bytes = readFileSync(path);
-    const blobHeader = Buffer.from(\`blob \${bytes.length}\\0\`);
+    const blobHeader = Buffer.from("blob " + bytes.length + "\0");
     const actualBlob = createHash("sha1").update(Buffer.concat([blobHeader, bytes])).digest("hex");
     expect(actualBlob).toBe(expectedBlob);
     expect(runner).toContain(path);
