@@ -1,5 +1,13 @@
 # Roadmap
 
+## Publicação e homologação solicitadas às 07:25 UTC de 24/11/2026
+- [ ] Confirmar histórico real já aplicado, leitura correta no CRM/painel e integridade das fixtures limpas; não recriar eventos passados nem alterar encerrados.
+- [ ] Conferir Centro Mega real e acesso público de Carecas/JKL sem alterar identidades ou gates.
+- [ ] Identificar os agentes bloqueados e a causa antes de liberar; não conceder acesso amplo ou modificar contas por suposição.
+- [ ] Solicitar publicação do estado pronto após verificar segurança; confirmar implantação e executar Lighthouse das dez candidaturas, mantendo thresholds e atualizando matriz factual.
+- [ ] Comprovar ingestão/read-back das notas Lighthouse no painel autenticado; distinguir pontuação de performance de nota/interação CRM.
+- [ ] Homologar CI no HEAD atual sem reduzir gates, contornar restrições GitHub ou fabricar credenciais; registrar bloqueios restantes.
+
 ## CONTINUAR — Rodada 2 autorizada em 24/11/2026 às 06:53 UTC
 - [x] Conferir HEAD/base/checks de #548/#530 a partir de R1; #548 gate compartilhado SUCCESS às 07:02 UTC, compatibilidade PASS; sem reinventário/rerun.
 - [ ] Resolver bloqueios restantes: RLS remoto BLOCKED_MISSING_SECRET; suíte geral 1221 PASS/2 FAIL (user_ref timeout + RLS/happy-dom); Lighthouse canônico não repetido, Carecas/JKL dependem de Blueprint congelado e animação institucional intocada. Não reduzir gates.
