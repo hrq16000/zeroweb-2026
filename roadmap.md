@@ -1,5 +1,12 @@
 # Roadmap
 
+## Reconexão, publicação e correções — pedido de 24/11/2026 às 04:58 UTC
+- [ ] Recuperar acesso da conexão Vercel à equipe msolus/projeto zeroweb-2026 por credencial segura; não alterar DNS, banco ou acesso dos agentes.
+- [ ] Publicar exatamente 873a1938 após acesso liberado e gates comprovados; não incluir correções posteriores nesse SHA.
+- [ ] Corrigir link de cases e identificação de fotos ilustrativas em nova alteração incremental; validar e publicar somente após reconexão.
+- [ ] Consultar HEAD/checks/logs atuais da PR #530 e corrigir somente falhas Lighthouse comprovadas, sem reduzir gates ou desativar MCP.
+- [ ] Página administrativa de publicação: aguarda esclarecer autorização, pois uma página nova exige alteração de código.
+
 ## Recuperação definitiva — continuidade híbrida autorizada às 04:01 UTC de 24/11/2026
 - [x] Reconciliar referências: main 747c1f9b, #548 9d496e16, #547 b8b25830 e #530 6cf27155; inventário de PRs recuperado sem repetir workflows.
 - [x] Revisar a correção nova do Codex na #548: adaptador auditado do leitor de ambiente preserva transporte/OAuth, sem 404/503 ou mocks; descrição da PR atualizada.
