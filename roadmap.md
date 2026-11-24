@@ -1,13 +1,22 @@
 # Roadmap
 
+## Recuperação definitiva — continuidade híbrida autorizada às 04:01 UTC de 24/11/2026
+- [x] Reconciliar referências: main 747c1f9b, #548 9d496e16, #547 b8b25830 e #530 6cf27155; inventário de PRs recuperado sem repetir workflows.
+- [x] Revisar a correção nova do Codex na #548: adaptador auditado do leitor de ambiente preserva transporte/OAuth, sem 404/503 ou mocks; descrição da PR atualizada.
+- [x] Validar CI equivalente Vercel existente: Node 24.22.3/Bun 1.4.0, build completo, output e três testes reais PASS; conferência isolada Node 22.23.5 e guardas do adaptador PASS.
+- [ ] Recuperar acesso Vercel: listas de projetos vazias no escopo solicitado; proprietário precisa confirmar conta/membership e token restrito a msolus/zeroweb-2026. Não presumir escopo pela falha de listagem de equipe.
+- [ ] Concluir gates e publicar: #548 tem build/hidratação/estáticos/compatibilidade aprovados, gate compartilhado em andamento; último READY/rollback/configuração real inacessíveis. Nenhum merge/deploy iniciado.
+- [ ] Avançar na primeira candidata após infraestrutura: #530 atual em homologação; BPL/Fran/Marli têm checks reprovados nos HEADs consultados.
+- [x] Registrar handoff em docs/reports/VERCEL_MCP_RECOVERY_HANDOFF_2026-11-24.md; 747c1f9b é documental, sem correções de cases/fotos.
+
 ## Estabilização e publicação — rodada autorizada de 24/11/2026
 - [x] Recuperar os nove workflows existentes da PR #530 sem repetir runs; logo 149726 → 87136 bytes, -41,80%, dimensões/RGBA idênticos.
 - [x] Identificar a cadeia de `cloudflare:workers`; teste isolado Node/esbuild PASS, sem presumir compatibilidade Vercel.
 - [x] Registrar checkpoint na PR #548 e em `docs/reports/PUBLICATION_HYBRID_CHECKPOINT_2026-11-24.md`; preservar trabalho Codex sem duplicar #547/#548.
 - [ ] Obter logs/configuração Vercel: conexão autorizada retorna 403 para equipe e 404 para projeto/deployment alvo; operador precisa liberar acesso correto ou fornecer logs sanitizados.
-- [ ] Corrigir incompatibilidade preservando MCP/OAuth: #547/#548 não integradas, pois substituem acesso por 404/503 e não têm todos os gates aprovados; depende dos logs/configuração reais.
-- [ ] Homologar/publicar: faltam compatibilidade Vercel e gates aprovados; READY/SHA publicado não confirmados, nenhum deployment iniciado.
-- [ ] Avançar na primeira candidata: #530 atual passa build/QA próprio, mas tem três shards Lighthouse e 46 diferenças visuais reprovados; depende da estabilização e homologação compartilhada.
+- [x] Correção MCP evoluiu na #548: o estado 503 histórico foi substituído por adaptação Node auditada; validação funcional/compilação Vercel PASS, ainda sem integração.
+- [ ] Homologar/publicar: compatibilidade da candidata confirmada no CI, gate compartilhado e acesso Vercel pendentes; READY/SHA publicado não confirmados.
+- [ ] Avançar na primeira candidata: #530 tem novo HEAD 6cf27155 e homologação em andamento; as três falhas Lighthouse/46 diferenças pertencem à rodada anterior, não inferir estado atual.
 
 ### Backlog consolidado — não executar nesta rodada
 Administração de portfólios; funis/contatos oficiais; leads/Jotform; SEO/blog; métricas reais; preços/cases/comissões; aquisição regional; homologação administrativa em produção. Reutilizar contratos existentes, sem catálogo concorrente, sem novas funcionalidades durante a estabilização e sem SQL/migrações no banco real.
