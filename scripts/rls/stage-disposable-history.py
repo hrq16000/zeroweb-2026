@@ -53,6 +53,13 @@ for _,p,s in entries:
 entries.sort(key=lambda x:(x[0], x[2], x[1].name))
 mapping = []
 risk = []
+reviewed_local_cron = {
+    "20260605011011_e6fde5e0-95dd-4396-a80b-c20c0c5b1415.sql": "2e878745668d38d5e90d1fd5b1d6707c6e28f470",
+    "20260605030038_9d0fe9d9-ece4-4b23-9a58-a47438ffa7dc.sql": "930977c003cb9a73254c0e7c56f75ff64bb9c969",
+}
+reviewed = []
+# These exact historical blobs schedule only local purge/refresh SQL.
+# pg_net extension creation is not a network request. No HTTP call is allowed.
 # Fail closed before replay if historical SQL may initiate external work.
 external = re.compile(r"\b(?:net\s*\.\s*http_\w+|http_(?:post|get|put|delete|patch)|cron\s*\.\s*schedule(?:_in_database)?|dblink\w*|postgres_fdw|file_fdw|copy\b[^;]*\bprogram)\b", re.I | re.S)
 for i,(when,p,source) in enumerate(entries, 1):
@@ -65,8 +72,12 @@ for i,(when,p,source) in enumerate(entries, 1):
         raise SystemExit("BLOCKED: byte mismatch")
     mapping.append({"source":str(p.relative_to(root)),"staged":name,"originalTime":when.isoformat(),"sha256":digest})
     if external.search(data.decode("utf-8")):
-        risk.append(str(p.relative_to(root)))
-report.write_text(json.dumps({"status":"PLAN_ONLY","ordering":"candidate chronology: Supabase filename UTC + Drizzle journal UTC; not a claim about historical applied order","numberedSupabase":sum(s=="supabase" for _,_,s in entries),"drizzle":len(journal),"excluded":skipped,"duplicateVersions":sorted(duplicates),"migrationMap":mapping,"externalReviewRequired":risk},indent=2)+"\n")
+        blob = hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()
+        if reviewed_local_cron.get(p.name) == blob:
+            reviewed.append({"file": str(p.relative_to(root)), "gitBlob": blob, "reason": "reviewed local-only cron purge/refresh; no external HTTP invocation"})
+        else:
+            risk.append(str(p.relative_to(root)))
+report.write_text(json.dumps({"status":"PLAN_ONLY","ordering":"candidate chronology: Supabase filename UTC + Drizzle journal UTC; not a claim about historical applied order","numberedSupabase":sum(s=="supabase" for _,_,s in entries),"drizzle":len(journal),"excluded":skipped,"duplicateVersions":sorted(duplicates),"migrationMap":mapping,"externalReviewRequired":risk,"reviewedLocalCron":reviewed},indent=2)+"\n")
 print(f"Prepared {len(mapping)} byte-identical staged migrations, excluded {len(skipped)} non-versioned scripts, collisions={sorted(duplicates)}")
 if risk:
     print("BLOCKED_EXTERNAL_SQL_REVIEW: " + ", ".join(risk))
