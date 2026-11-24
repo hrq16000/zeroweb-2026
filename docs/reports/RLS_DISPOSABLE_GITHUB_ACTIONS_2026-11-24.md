@@ -7,3 +7,15 @@ Native job 138594810885: portal, trigger and CRM PASS on PostgreSQL 16.11, image
 
 ## Round 2.3
 Run 45437254362: native fixtures PASS again; 210 staged byte-identical, local CLI initialized, db reset failed SQLSTATE 42601 without identifying migration. Replace CLI statement replay with native psql against fresh loopback-only database, verified empty public schema and synthetic credentials; apply each file unchanged in planned order; fail on first SQLSTATE with exact filename and line, publish only sanitized metadata. Refuse psql meta commands. No historical rewrite or claim of parity. This revised runner is a candidate pending execution.
+
+
+## Round 2.4 — precise disposable replay blocker
+
+Run 45439022801 / job 138604639044 stopped at staged source `supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql`, line 5, SQLSTATE 42601. The INSERT declared seven columns but supplied nine values. The two additional values are the intended `placeholder` and `hint`; the generated database types confirm both columns exist.
+
+The historical migration remains byte-identical. The disposable runner now applies a single hash-locked, temporary compatibility patch to the staged copy only:
+- source SHA-256: `c6719327b862ed6573c8e07ecd876a27bb182865c93185c68d4f0d3d625ca3af`;
+- add `placeholder,hint` to the INSERT column list;
+- record source/replay hashes and the reason in `rls-replay-result.json`.
+
+Any different source hash or SQL context fails closed. No migration file, remote database or production data is modified. The three native fixture tests remain preserved and are skipped when only the history replay runner changes. Remote RLS remains `BLOCKED_MISSING_SECRET`; local replay does not certify production RLS.

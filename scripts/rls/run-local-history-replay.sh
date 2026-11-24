@@ -34,8 +34,8 @@ fi
 # Use the actual PostgreSQL parser, one byte-identical file at a time, in
 # this fresh disposable stack. No reset, schema inference or SQL rewrite.
 localcli status -o env > "$scratch/status.env"
-python3 - "$scratch/status.env" "$scratch/staged" "$RUNNER_TEMP/rls-replay-result.json" <<'PY'
-import json,os,pathlib,re,subprocess,sys
+python3 - "$scratch/status.env" "$scratch/staged" "$RUNNER_TEMP/rls-replay-result.json" "$RUNNER_TEMP/rls-history-plan.json" <<'PY'
+import hashlib,json,os,pathlib,re,subprocess,sys
 from urllib.parse import urlparse,unquote
 env={}
 for line in pathlib.Path(sys.argv[1]).read_text().splitlines():
@@ -46,39 +46,68 @@ if url.scheme not in ("postgresql","postgres") or url.hostname not in ("127.0.0.
     raise SystemExit("BLOCKED: not the newly generated local database URL")
 pg={"PATH":os.environ["PATH"],"HOME":os.environ["HOME"],"PGHOST":url.hostname,"PGPORT":str(url.port),"PGDATABASE":"postgres","PGUSER":"postgres","PGPASSWORD":unquote(url.password),"PGCONNECT_TIMEOUT":"10","PGOPTIONS":"-c statement_timeout=120000 -c lock_timeout=10000"}
 out=pathlib.Path(sys.argv[3])
+plan=json.loads(pathlib.Path(sys.argv[4]).read_text())
+by_staged={entry["staged"]:entry for entry in plan.get("migrationMap",[])}
 done=[]
+overrides=[]
 def report(status,failed=None):
-    out.write_text(json.dumps({"status":status,"applied":done,"failed":failed},indent=2)+"\n")
+    out.write_text(json.dumps({"status":status,"applied":done,"overrides":overrides,"failed":failed},indent=2)+"\n")
 # Validate that the CLI actually exposed a clean local database, not a
 # pre-populated schema. Never change a remote or pre-existing instance.
 check=subprocess.run(["psql","-X","-At","-v","ON_ERROR_STOP=1","-c","SELECT count(*) FROM pg_catalog.pg_tables WHERE schemaname='public'"],env=pg,capture_output=True,text=True,timeout=20)
 if check.returncode or check.stdout.strip()!="0":
     raise SystemExit("BLOCKED: local public schema is not empty")
 for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
+    source=by_staged.get(p.name)
+    if not source:
+        report("BLOCKED_UNMAPPED_MIGRATION",{"file":p.name})
+        raise SystemExit("BLOCKED_UNMAPPED_MIGRATION: "+p.name)
+    original_bytes=p.read_bytes()
+    digest=hashlib.sha256(original_bytes).hexdigest()
+    if digest!=source.get("sha256"):
+        report("BLOCKED_STAGED_HASH_MISMATCH",{"file":p.name,"source":source.get("source")})
+        raise SystemExit("BLOCKED_STAGED_HASH_MISMATCH: "+p.name)
+    replay_path=p
+    if source.get("source")=="supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql":
+        expected="c6719327b862ed6573c8e07ecd876a27bb182865c93185c68d4f0d3d625ca3af"
+        if digest!=expected:
+            report("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH",{"file":p.name,"source":source["source"],"sha256":digest})
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH: "+p.name)
+        original=original_bytes.decode("utf-8")
+        before="(form_id,key,type,label,order_index,required,options_json)"
+        after="(form_id,key,type,label,placeholder,hint,order_index,required,options_json)"
+        if original.count(before)!=1:
+            report("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH",{"file":p.name,"source":source["source"]})
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH: "+p.name)
+        override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
+        override_dir.mkdir(parents=True,exist_ok=True)
+        replay_path=override_dir/p.name
+        replay_path.write_text(original.replace(before,after,1),encoding="utf-8")
+        overrides.append({"source":source["source"],"source_sha256":digest,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only correction of the explicit INSERT column list; generated DB types confirm placeholder and hint columns","added_columns":["placeholder","hint"]})
     # Refuse client-side psql commands and file/program execution. Dollar
     # quoted SQL is passed unchanged; no naive statement splitting.
-    if re.search(r"(?m)^\s*\\",p.read_text()):
-        report("BLOCKED_PSQL_META_COMMAND",{"file":p.name})
+    if re.search(r"(?m)^\s*\\",replay_path.read_text()):
+        report("BLOCKED_PSQL_META_COMMAND",{"file":p.name,"source":source["source"]})
         raise SystemExit("BLOCKED_PSQL_META_COMMAND: "+p.name)
     print("REPLAY_FILE: "+p.name,flush=True)
     try:
-        result=subprocess.run(["psql","-X","-v","ON_ERROR_STOP=1","-v","VERBOSITY=verbose","-f",str(p)],env=pg,capture_output=True,text=True,timeout=150)
+        result=subprocess.run(["psql","-X","-v","ON_ERROR_STOP=1","-v","VERBOSITY=verbose","-f",str(replay_path)],env=pg,capture_output=True,text=True,timeout=150)
     except subprocess.TimeoutExpired:
-        report("BLOCKED_TIMEOUT",{"file":p.name})
+        report("BLOCKED_TIMEOUT",{"file":p.name,"source":source["source"]})
         raise SystemExit("BLOCKED_TIMEOUT: "+p.name)
     if result.returncode:
         # Never print SQL, result rows or credentials. Only file/line/state.
         states=sorted(set(re.findall(r"(?:ERROR|FATAL):\s+([0-9A-Z]{5}):",result.stderr)))
         lines=re.findall(r"\.sql:(\d+):",result.stderr)
-        failed={"file":p.name,"sqlstates":states,"lines":lines[-3:],"returncode":result.returncode}
+        failed={"file":p.name,"source":source["source"],"source_sha256":digest,"sqlstates":states,"lines":lines[-3:],"returncode":result.returncode}
         report("BLOCKED_LOCAL_HISTORY_REPLAY",failed)
         print("BLOCKED_LOCAL_HISTORY_REPLAY "+json.dumps(failed))
         raise SystemExit(1)
     done.append(p.name)
-report("PASS_LOCAL_SQL_REPLAY")
-print("PASS_LOCAL_SQL_REPLAY:",len(done))
-PY
-python3 - "$scratch/status.env" "$root" <<'PY'
+status="PASS_LOCAL_SQL_REPLAY_WITH_HASH_LOCKED_OVERRIDE" if overrides else "PASS_LOCAL_SQL_REPLAY"
+report(status)
+print(status+":",len(done))
+PYpython3 - "$scratch/status.env" "$root" <<'PY'
 import os,pathlib,re,subprocess,sys
 from urllib.parse import urlparse
 env={}

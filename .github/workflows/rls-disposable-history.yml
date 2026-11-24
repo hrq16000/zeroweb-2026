@@ -22,8 +22,22 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+          fetch-depth: 2
+      - name: Detect changes to native fixture inputs
+        id: native_scope
+        shell: bash
+        run: |
+          if git diff --name-only HEAD^ HEAD | grep -Eq '^(tests/rls/|scripts/rls/run-native-disposable-fixtures\.sh$)'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Native PostgreSQL, no network or real credentials
+        if: steps.native_scope.outputs.run == 'true'
         run: bash scripts/rls/run-native-disposable-fixtures.sh
+      - name: Reuse existing native fixture evidence
+        if: steps.native_scope.outputs.run != 'true'
+        run: echo "SKIPPED_UNCHANGED_NATIVE_FIXTURES"
   replay-local:
     runs-on: ubuntu-latest
     timeout-minutes: 35
