@@ -1,0 +1,48 @@
+number,title,draft,head,branch,url
+548,fix(vercel): preserve MCP OAuth with audited Node runtime adapter,True,9d496e16e7f7a8ca0212c70b8ebca0bd0769f717,fix/vercel-mcp-runtime-isolation-20261124,https://github.com/hrq16000/zeroweb-2026/pull/548
+530,feat(portfolio): Panificadora Doce Coração · Santo Antônio + SEO individual,True,6cf27155c709bff5c130e65e2284a335e378373b,feat/portfolio-doce-coracao-santo-antonio-20261119,https://github.com/hrq16000/zeroweb-2026/pull/530
+543,feat(portfolio): BPL Locações de Brinquedos — demonstração autoral,True,2d78b56d4f27215e1b78f4381c9a0420f74c7860,feat/portfolio-bpl-locacoes-20261123,https://github.com/hrq16000/zeroweb-2026/pull/543
+542,feat(portfolio): Salgados da Fran — demonstração autoral São José dos Pinhais,True,f09bdfd319703266255fa1afdba30ee998411b22,feat/portfolio-salgados-da-fran-20261123,https://github.com/hrq16000/zeroweb-2026/pull/542
+544,feat(portfolio): protótipo visual CRM e qualificação B2B sem integrar sistemas,False,f1abd0e6087724e97c31492e2df412159a809c14,feat/visual-crm-b2b-showcase-20261123,https://github.com/hrq16000/zeroweb-2026/pull/544
+511,feat(portfolio): Toop Assados — site autoral e funil demonstrativo isolado [QA pendente],True,fea828bb545b787c412cc1ab985e5192850ed271,feat/portfolio-toop-assados-proposta-20261107,https://github.com/hrq16000/zeroweb-2026/pull/511
+547,fix(vercel): remover rota MCP Cloudflare-only do bundle SSR Vercel,True,b8b258307362fd26a0990aab3dbac30044ffa267,fix/vercel-mcp-route-cloudflare-import-20261123,https://github.com/hrq16000/zeroweb-2026/pull/547
+539,perf(portfolio): título LCP visível em R_Beauty e Angel Mix,True,c8a8d25e9a625fe125db955da9349a386c136a6a,fix/lighthouse-hero-lcp-rbeauty-angelmix-20261123,https://github.com/hrq16000/zeroweb-2026/pull/539
+536,feat(portfolio): Marli Guaratuba — consulta Jotform verificada (R3),True,923a11d843b29d1972d595bdc6b520d236408e77,feat/portfolio-espaco-marli-guaratuba-r1,https://github.com/hrq16000/zeroweb-2026/pull/536
+537,"docs(skills): WebHub Motion v0.3 + GSAP, img2threejs e LottieFiles",False,bba12c63f2c5d8a022d9a98b7abf9862ee316fc9,docs/webhub-motion-cross-projects-20261123,https://github.com/hrq16000/zeroweb-2026/pull/537
+535,fix(a11y): reduzir movimento do botão Voltar ao topo nos portfólios,True,912c7af04a55f0824a962bb946155fd2b92e64e1,fix/portfolio-backtotop-reduced-motion-20261121,https://github.com/hrq16000/zeroweb-2026/pull/535
+525,feat(seo): reforçar associação de todos os portfólios com a 0WEB,False,f26a2fef94a3554c8bfec9281573802229a119fc,feat/portfolio-seo-0web-association-20261114,https://github.com/hrq16000/zeroweb-2026/pull/525
+503,"fix(agropet): repair preview QA scope, structural gates and hosted form CSP",True,952c12a2443c639116722ddbfb0c12998d22e835,feat/agropet-filt-preview-20261104,https://github.com/hrq16000/zeroweb-2026/pull/503
+502,feat(portfolio): verificação Google-only e associação de administrador por empresa,True,9c9f9a4869fe408fefdc37a873674c09618fdb91,feat/portfolio-booking-google-admin-guard-20261107,https://github.com/hrq16000/zeroweb-2026/pull/502
+512,feat(portfolio): Letícia Reiche — preview funcional + candidata SEO pública (R5),True,53d59f604a5dddb0e5ae36e4b5f379ccb4cf62a9,feat/portfolio-leticia-reiche-r1,https://github.com/hrq16000/zeroweb-2026/pull/512
+497,draft: Relopar Curitiba — pesquisa factual e direção criativa,True,31e00c105e2c0742995ad53c788df0740891fb3c,research/relopar-curitiba-20261106,https://github.com/hrq16000/zeroweb-2026/pull/497
+466,perf: adiar montagem do logo no loader de navegação invisível,True,651ac99025752620a664d38aa90f7f856df092ee,perf/route-loader-lazy-logo-20261029,https://github.com/hrq16000/zeroweb-2026/pull/466
+458,SEO competitivo R4: impedir métricas e ranking falsos com GSC desatualizado,False,6f5d4aa4f02858c2bd642778a5d7902ba4751953,fix/gsc-snapshot-freshness-competitive-r4-20261027,https://github.com/hrq16000/zeroweb-2026/pull/458
+456,SEO competitivo R2: guia de decisão e provas para criação de sites Curitiba,False,e76944227fa1779cb7dd4566a03c97337b3dc37e,feat/seo-curitiba-site-decisao-20261027,https://github.com/hrq16000/zeroweb-2026/pull/456
+446,feat: ponte opcional de aulas OpenMAIC em HTML offline (sem ativação),True,df1391473e92ff4d522c730c628a7d5b16f92b0f,feat/openmaic-learning-bridge-20261017,https://github.com/hrq16000/zeroweb-2026/pull/446
+295,AI: gateway OpenAI universal economy-first (rebased),False,d232d5ac9bd76bfe16ab88fef1a3c08c5ef52722,feat/openai-shared-gateway-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/295
+285,test(seo): exigir cada portfolio como site individual completo,False,206ca275fa2903945999c105351c8a978e928cd3,test/portfolio-individual-site-gate-20260928,https://github.com/hrq16000/zeroweb-2026/pull/285
+283,feat(seo): tratar cada portfólio como site individual,False,4e48ecd0b9b93a76f81802fbfbb8529920e23563,feat/portfolio-individual-site-seo-20260928,https://github.com/hrq16000/zeroweb-2026/pull/283
+282,feat(seo): tornar cada portfolio uma presença digital individual,False,97e579e39e031ae8e094e271009294526aa996c9,feat/portfolio-individual-seo-universal-20260928,https://github.com/hrq16000/zeroweb-2026/pull/282
+278,fix(seo): consolidar entidade Organization no portfólio,False,87726b292212ee777dc4f4260383dd69c26845b9,fix/portfolio-schema-org-consolidation-20260928,https://github.com/hrq16000/zeroweb-2026/pull/278
+273,feat(seo): segunda onda de conteúdo original em portfólios,False,160c02812b7d05e780b8f4107060b8cd1cf0dff8,seo/portfolio-original-content-wave2-20260928,https://github.com/hrq16000/zeroweb-2026/pull/273
+272,feat(seo): aprofundar conteúdo original em portfólios reais,False,a4ead5a9bdf4b654806046b0ac242d15c2cb33d1,seo/portfolio-original-content-wave-20260928,https://github.com/hrq16000/zeroweb-2026/pull/272
+270,feat(seo): publicar Home2 e Home3 como LPs autênticas,False,eb366389740f9fda2d1825d2356878ebfe5f0086,feat/home2-home3-indexable-lps-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/270
+271,fix(seo): consolidar indexação universal dos serviços,False,798f742249293a1d086748c8206052b7d182a0e3,seo/services-universal-indexability-rebased2-20260928,https://github.com/hrq16000/zeroweb-2026/pull/271
+269,feat(seo): aprofundar hub de soluções web,False,163eaac1d50b7e427cbe8898b1a4c570e0c852e6,seo/solucoes-web-gsc-20260928,https://github.com/hrq16000/zeroweb-2026/pull/269
+265,fix(seo): consolidar indexação universal do portfólio,False,c38eeca2363517d7db57431bb0a896c165e331d6,seo/portfolio-universal-indexability-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/265
+267,fix(seo): consolidar governança editorial e indexação factual,False,b401feca52fc60ebe311af98bb08de5553e48cf5,seo/editorial-quality-governance-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/267
+263,fix(seo): alinhar áreas de atendimento à evidência real,False,5041d339496d7fa2a04bd032c44af75c35613fe0,fix/areas-hub-evidence-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/263
+261,fix(seo): indexar capitais institucionais só com evidência,False,3ed7a28b87b6b965ad60a4f4a469b0bfba7c0310,fix/institutional-capital-evidence-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/261
+262,fix(seo): indexar hubs geográficos só com evidência,False,2f71c4e2e1072d5a68c14e9418d5d9e8b262b32b,fix/geo-hubs-evidence-rebased-20260928,https://github.com/hrq16000/zeroweb-2026/pull/262
+260,feat(seo): enriquecer páginas de sites por segmento,False,e4837dc3dd8ae52508692eb406603b666684a0cd,seo/sites-verticals-authentic-content-20260928,https://github.com/hrq16000/zeroweb-2026/pull/260
+216,feat: originality wave 2I Kitutes menu,False,5278b863755965bdab8bfee8fb6a49bd79814fa7,feat/portfolio-originality-wave2i-kitutes-menu-20260926,https://github.com/hrq16000/zeroweb-2026/pull/216
+214,feat: portfolio cover wave 3A for Autoescola APTOS,False,899e2fa75175459228606fa4b9ee9c9d2e63b6b0,feat/portfolio-cover-wave3a-autoescola-aptos-20260926,https://github.com/hrq16000/zeroweb-2026/pull/214
+212,feat: originality wave 2I for Kitutes na Mesa,False,33ae5ce47214efc227cfd11b0658546413975666,feat/portfolio-originality-wave2i-kitutes-20260926,https://github.com/hrq16000/zeroweb-2026/pull/212
+204,feat: originality wave 2B for Aguia Sul,False,1958a429e238160d42fd1bedcdad47aa682cead4,feat/portfolio-originality-wave2-aguia-sul-20260926,https://github.com/hrq16000/zeroweb-2026/pull/204
+194,fix: blindar divulgação canônica e testar clipboard dos portfolios,False,e0403160624f51b5f4a9e37aba917fbe4eb4362c,fix/portfolio-share-runtime-e2e-20260925,https://github.com/hrq16000/zeroweb-2026/pull/194
+193,fix: blindar Copiar divulgação em todos os portfolios,False,0090b6d293906590c9fa2af434375dbccb76aa97,fix/portfolio-share-canonical-e2e-20260925,https://github.com/hrq16000/zeroweb-2026/pull/193
+96,"Home3: matriz estrutural, visual e motion das referências",True,c881ec3768151b1ce12b9c99d970efc27a52d88c,docs/home3-reference-matrix-v2,https://github.com/hrq16000/zeroweb-2026/pull/96
+93,Portfolio P0: ADHONEP premium + ownership por projeto + fábrica autônoma,True,c9024764c3c7645cfef117f8132b3bcbfabf7c7c,feat/portfolio-p0-autonomy-adhonep,https://github.com/hrq16000/zeroweb-2026/pull/93
+90,Fix WhatsApp destination verification integrity,False,868b96d36869c8bb95053775272f4d9622ce5efe,fix/portfolio-whatsapp-integrity,https://github.com/hrq16000/zeroweb-2026/pull/90
+84,fix(portfolio): estabilizar vínculos de destino por clientKey,True,404faae407fd6e07f9052c3b5bd558a1230cd8df,fix/portfolio-destination-integrity,https://github.com/hrq16000/zeroweb-2026/pull/84
+81,Frente A Turno 3: restaurar TTL e janela de reuso do redirect,False,995aa0548ba555488e0d6e881f40759ba0bce572,fix/frente-a-turno-3,https://github.com/hrq16000/zeroweb-2026/pull/81

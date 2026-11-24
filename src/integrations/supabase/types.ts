@@ -2751,8 +2751,10 @@ export type Database = {
           environment: string
           fcp_ms: number | null
           id: string
+          ingestion_key: string | null
           lcp_ms: number | null
           logs: Json | null
+          measured_at: string | null
           performance: number | null
           raw: Json | null
           seo: number | null
@@ -2774,8 +2776,10 @@ export type Database = {
           environment?: string
           fcp_ms?: number | null
           id?: string
+          ingestion_key?: string | null
           lcp_ms?: number | null
           logs?: Json | null
+          measured_at?: string | null
           performance?: number | null
           raw?: Json | null
           seo?: number | null
@@ -2797,8 +2801,10 @@ export type Database = {
           environment?: string
           fcp_ms?: number | null
           id?: string
+          ingestion_key?: string | null
           lcp_ms?: number | null
           logs?: Json | null
+          measured_at?: string | null
           performance?: number | null
           raw?: Json | null
           seo?: number | null
@@ -6917,6 +6923,16 @@ export type Database = {
           status: string
           use_count: number
         }[]
+      }
+      crm_add_history_atomic: {
+        Args: {
+          p_actor: string
+          p_kind: string
+          p_lead_id: string
+          p_note: string
+          p_portal_id: string
+        }
+        Returns: string
       }
       db_required_tables_check: {
         Args: { _tables: string[] }

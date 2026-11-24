@@ -8,7 +8,7 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -138,7 +138,7 @@ export function EmbalarEmbalagensPage() {
         </header>
 
         <main>
-          <section id="inicio" className="px-5 pb-12 pt-10 lg:px-10 lg:pb-16 lg:pt-14">
+          <MotionFirstPaint><section id="inicio" className="px-5 pb-12 pt-10 lg:px-10 lg:pb-16 lg:pt-14">
             <div className="mx-auto max-w-7xl">
               <div className="grid gap-8 border-b border-[#27363a]/12 pb-10 lg:grid-cols-[.72fr_.28fr] lg:items-end">
                 <div>
@@ -233,7 +233,7 @@ export function EmbalarEmbalagensPage() {
                 </aside>
               </div>
             </div>
-          </section>
+          </section></MotionFirstPaint>
 
           <section id="prateleiras" className="px-5 py-20 lg:px-10 lg:py-24">
             <div className="mx-auto max-w-7xl">
