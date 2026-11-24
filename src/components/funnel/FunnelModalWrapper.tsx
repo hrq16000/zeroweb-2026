@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Loader2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { FunnelRunner } from "./FunnelRunner";
+// The runner includes form validation, motion and lead/geo integrations.
+// Keep it out of the initial modal shell; the user opens the dialog first.
+const FunnelRunner = lazy(() => import("./FunnelRunner").then(({ FunnelRunner }) => ({ default: FunnelRunner })));
 import { getPublicFunnel, type FunnelDefinition } from "@/lib/dynamic-funnel.functions";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactIntent } from "@/lib/contact-intent";
@@ -158,14 +160,21 @@ export function FunnelModalWrapper({
             )}
             {!loading && !error && funnel && !completed && (
               <div data-testid="funnel-modal" data-funnel-slug={funnel.slug}>
-                <FunnelRunner
-                  funnel={funnel}
-                  embedded
-                  prefill={prefill}
-                  context={context}
-                  clientKey={intent?.companySlug}
-                  onComplete={() => setCompleted(true)}
-                />
+                <Suspense fallback={
+                  <div role="status" className="min-h-[320px] grid place-items-center">
+                    <span className="sr-only">Carregando formulário</span>
+                    <Loader2 aria-hidden="true" className="w-6 h-6 animate-spin text-primary" />
+                  </div>
+                }>
+                  <FunnelRunner
+                    funnel={funnel}
+                    embedded
+                    prefill={prefill}
+                    context={context}
+                    clientKey={intent?.companySlug}
+                    onComplete={() => setCompleted(true)}
+                  />
+                </Suspense>
               </div>
             )}
 
