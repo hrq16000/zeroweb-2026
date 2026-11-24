@@ -4,8 +4,8 @@
 - [x] Conferir 19 caminhos diretos de leads/histórico, entradas dinâmicas, planilha, automações, 12 composições Lighthouse e relatórios/decisões alternativas.
 - [x] Registrar conformidade por trechos lidos e reproduzir em isolamento ingestão sem métricas/TBT ignorado e consolidação que omite reprovação; nenhum dado ou configuração alterado.
 - [x] Documentar complementos em RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md; preservar registros encerrados, permissões, exemplos e agentes, sem publicar.
-- [ ] Preparar correções adicionais de ingestão/painel Lighthouse, planilha/notas CRM e teste SQL legado: aguarda escolha do usuário na pergunta aberta.
-- [ ] Preparar proteção da deduplicação/ledger para encerrados e separação de clientes: aguarda autorização na pergunta aberta, sem aplicar SQL.
+- [x] Preparar correções adicionais de ingestão/painel Lighthouse, planilha/notas CRM e teste SQL legado: 44 testes focused e 7 verificações SQL descartáveis PASS; relatório ADDITIONAL_PREPARATION; notas atômicas INATIVAS fora de src/migrations até autorização, sem publicar/migrar/dados reais/configurações/permissões.
+- [x] Deduplicação/ledger: resposta às 06:40 UTC autoriza SOMENTE registrar achados; manter código e dados intactos, sem preparar proteção nesta rodada.
 
 ## RLS e Lighthouse — preparação autorizada em 24/11/2026 às 06:00 UTC
 - [x] Reproduzir os dois testes RLS e conferir metadata: timeout de 5 s escondia constraint inválida em visitantes e INSERT de histórico negado; nenhum scanner novo.

@@ -8,6 +8,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
 import { fetchAnalyticsDiscards, DEFAULT_DISCARD_THRESHOLD, type DiscardSummary } from "@/lib/analytics-discards";
+import { normalizeAuditSnapshot } from "@/lib/lhci-evaluation.mjs";
 import {
   fetchOpsJobRuns,
   fetchOpsJobControl,
@@ -25,6 +26,10 @@ export const Route = createFileRoute("/painel-auditorias")({
           "Consulta, filtro e exportação das auditorias por rota: prévia social, ícones, indexabilidade e Lighthouse, com histórico por deploy.",
       },
       { name: "robots", content: "noindex,nofollow" },
+      { property: "og:title", content: "Painel · Auditorias por rota · 0WEB" },
+      { property: "og:description", content: "Resultados de auditoria, métricas Lighthouse e problemas por rota do portal 0WEB." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: () => (
@@ -42,6 +47,8 @@ type LighthouseRun = {
   bestPractices: number | null;
   lcp: number | null;
   cls: number | null;
+  tbt?: number | null;
+  runs?: LighthouseRun[];
 };
 
 type AuditRow = {
@@ -146,7 +153,7 @@ function AuditPanel() {
         setSnapshot(null);
       } else {
         setMissing(false);
-        setSnapshot((await snapRes.json()) as Snapshot);
+        setSnapshot(normalizeAuditSnapshot((await snapRes.json()) as Snapshot));
       }
       setHistory(histRes.ok ? ((await histRes.json()) as HistoryEntry[]) : []);
       setSocialRuns(socialRes.ok ? ((await socialRes.json()) as SocialRegenRun[]) : []);

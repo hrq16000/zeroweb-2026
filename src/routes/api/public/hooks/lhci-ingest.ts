@@ -4,6 +4,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { createHmac, timingSafeEqual } from "node:crypto";
+import { evaluateLhci } from "@/lib/lhci-evaluation.mjs";
 
 const Body = z.object({
   environment: z.enum(["dev", "staging", "prod"]).default("prod"),
@@ -14,10 +15,10 @@ const Body = z.object({
   seo: z.number().min(0).max(1).nullable().optional(),
   accessibility: z.number().min(0).max(1).nullable().optional(),
   best_practices: z.number().min(0).max(1).nullable().optional(),
-  lcp_ms: z.number().nullable().optional(),
-  cls: z.number().nullable().optional(),
-  tbt_ms: z.number().nullable().optional(),
-  fcp_ms: z.number().nullable().optional(),
+  lcp_ms: z.number().finite().nonnegative().nullable().optional(),
+  cls: z.number().finite().nonnegative().nullable().optional(),
+  tbt_ms: z.number().finite().nonnegative().nullable().optional(),
+  fcp_ms: z.number().finite().nonnegative().nullable().optional(),
   logs: z.any().optional(),
   raw: z.any().optional(),
 });
@@ -37,17 +38,16 @@ export const Route = createFileRoute("/api/public/hooks/lhci-ingest")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
         const { getSettingValue } = await import("@/lib/settings.functions");
 
         const raw = await request.text();
 
         const secret =
-          (await getSettingValue("lhci.hmac_secret")) || process.env.LHCI_HMAC_SECRET;
+          (await getSettingValue("lhci.hmac_secret")) || process.env["LHCI_HMAC_SECRET"];
         const sigHeader = request.headers.get("x-signature") || "";
         const tokenHeader = request.headers.get("x-ingest-token") || "";
         const expectedToken =
-          (await getSettingValue("lhci.ingest_token")) || process.env.LHCI_INGEST_TOKEN;
+          (await getSettingValue("lhci.ingest_token")) || process.env["LHCI_INGEST_TOKEN"];
 
         let authed = false;
         if (secret) {
@@ -78,28 +78,24 @@ export const Route = createFileRoute("/api/public/hooks/lhci-ingest")({
         const seoMin = Number((await getSettingValue(`lhci.${env}.min_seo`)) ?? 0.95);
         const lcpMax = Number((await getSettingValue(`lhci.${env}.max_lcp_ms`)) ?? 2500);
         const clsMax = Number((await getSettingValue(`lhci.${env}.max_cls`)) ?? 0.1);
-
-        const failed: string[] = [];
-        if (parsed.data.performance != null && parsed.data.performance < perfMin)
-          failed.push(`performance<${perfMin}`);
-        if (parsed.data.seo != null && parsed.data.seo < seoMin) failed.push(`seo<${seoMin}`);
-        if (parsed.data.lcp_ms != null && parsed.data.lcp_ms > lcpMax)
-          failed.push(`lcp>${lcpMax}`);
-        if (parsed.data.cls != null && parsed.data.cls > clsMax) failed.push(`cls>${clsMax}`);
-        const status = failed.length ? "failed" : "passed";
+        const { status, failed, missing } = evaluateLhci(parsed.data, {
+          performance: perfMin, seo: seoMin, lcp_ms: lcpMax, cls: clsMax,
+        });
+        const reasons = [...failed, ...missing.map((metric) => `missing:${metric}`)];
+        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
         const { data, error } = await supabaseAdmin
           .from("lhci_runs")
           .insert({
             ...parsed.data,
             status,
-            decision_reason: failed.length ? `Limites: ${failed.join(", ")}` : null,
+            decision_reason: reasons.length ? `Medição: ${reasons.join(", ")}` : null,
           })
           .select("id")
           .single();
         if (error) return new Response(error.message, { status: 500 });
 
-        return Response.json({ ok: true, id: data?.id, status, failedThresholds: failed });
+        return Response.json({ ok: true, id: data?.id, status, failedThresholds: failed, missingMetrics: missing });
       },
     },
   },

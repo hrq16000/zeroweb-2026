@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Candidatos adicionais Lighthouse/CRM/SQL legado
+
+- Autorização das três frentes às 06:40 UTC; resposta posterior limita deduplicação/ledger a achados documentados, sem alterações. Somente preparação, fixtures sintéticas, sem publicação/migração/dados reais/permissões/configuração/agents.
+- Stack local revisto: router → discovery de competências locais → quality gates de estados/verdade de medição; contratos de runtime, server-functions, roles/grants e RLS. Art direction/mídia/motion/redesign e novos pacotes/marketplaces visuais NOT_APPLICABLE: nenhuma composição material alterada. Conhecimento de skills draft consultado como referência dos contratos, sem executar terceiros.
+- Política pura compartilhada LHCI: ausentes/invalidas falham, A11y/TBT preservados, todas as medições e reprovações no report/painel; snapshots antigos somente em memória. Planilha informa falhas reais/concorrência, protege encerrados e preserva edições pendentes. Nota transacional é candidato INATIVO fora de src/migrations; SQL legado sem DROP/FK e sem catch-all.
+- Validação: 44 testes focused PASS; 7 verificações PostgreSQL local PASS, incluindo mutações negativas; brand/boundaries/diff PASS; harness build OK. Bun disponível 1.4.4 vs requisito 1.4.0 registrado; nenhuma dependência/lock alterado. Sem suite/QA/remediação real que escreva no backend; pendências reais de trigger/CI/produção mantidas.
+- Evidência/detalhes/limitações: docs/reports/RLS_LIGHTHOUSE_ADDITIONAL_PREPARATION_2026-11-24.md. Preservar handler atual de notas até autorização de migração + types + homologação; não ativar RPC inexistente e não inventar release PASS.
+
 ## 2026-11-24 — Conferência dos caminhos relacionados RLS/Lighthouse
 
 - Mesmo escopo de preparação e stack de diagnóstico; sem publicação, migração, permissões/settings, agentes, mídia ou redesign.

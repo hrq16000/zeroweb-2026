@@ -63,9 +63,12 @@ reaproveitar contas reais sem aprovação ou desabilitar o preflight.
   e verifica persistência, histórico único e negativas de leitura/forja depois.
   Substituir somente a linha `-- APPLY_CANDIDATE` pelo candidato, usando função
   de substituição (não string de replacement, que corrompe os delimitadores $$).
-- O script histórico `tests/rls/portal_isolation.sql` não é a via de homologação
-  desta preparação: contém DROP de FK e captura `OR others` que pode mascarar
-  sucesso de escrita indevida. Não executado; usar os testes TypeScript corrigidos.
+- O script histórico `tests/rls/portal_isolation.sql` foi corrigido na preparação
+  adicional de 24/11: agora exige fixture descartável, preserva FK, usa dados
+  únicos e aceita somente `42501` como escrita negada. Exige leitura positiva do
+  próprio registro e negativa entre portais em ambas as direções. A fixture
+  local `portal-isolation.fixture.sql` não replica toda a produção nem substitui
+  os testes TypeScript/CI. Nenhuma execução contra o backend nesta rodada.
 
 Evidência e condições para promoção do SQL em
 `docs/reports/RLS_LIGHTHOUSE_PREPARATION_2026-11-24.md`.
