@@ -79,6 +79,31 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         if original.count(before)!=1:
             report("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH",{"file":p.name,"source":source["source"]})
             raise SystemExit("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH: "+p.name)
+        # This legacy seed has three tuple shapes (7, 8 and 9 values) in one
+        # INSERT. The two new nullable columns must be populated consistently.
+        row_patches=[
+            ("(v_form_id,'welcome','statement','Vamos avaliar seu equipamento ⚙️',0,false,'[]'::jsonb)","(v_form_id,'welcome','statement','Vamos avaliar seu equipamento ⚙️',NULL,NULL,0,false,'[]'::jsonb)"),
+            ("(v_form_id,'nome','short_text','Qual é o seu nome?',1,true,'[]'::jsonb)","(v_form_id,'nome','short_text','Qual é o seu nome?',NULL,NULL,1,true,'[]'::jsonb)"),
+            ("(v_form_id,'servico','radio','Qual equipamento precisa de atenção?',2,true,","(v_form_id,'servico','radio','Qual equipamento precisa de atenção?',NULL,NULL,2,true,"),
+            ("(v_form_id,'problema','radio','O que está acontecendo?',3,true,","(v_form_id,'problema','radio','O que está acontecendo?',NULL,NULL,3,true,"),
+            ("(v_form_id,'local','radio','Onde está o equipamento?',4,true,","(v_form_id,'local','radio','Onde está o equipamento?',NULL,NULL,4,true,"),
+            ("(v_form_id,'telefone','phone','Qual WhatsApp para retorno?',6,true,'[]'::jsonb)","(v_form_id,'telefone','phone','Qual WhatsApp para retorno?',NULL,NULL,6,true,'[]'::jsonb)"),
+            ("(v_form_id,'confirmacao','statement','Solicitação recebida! ✅','A Eletrovale confirmará os próximos passos.',7,false,'[]'::jsonb)","(v_form_id,'confirmacao','statement','Solicitação recebida! ✅','A Eletrovale confirmará os próximos passos.',NULL,7,false,'[]'::jsonb)")
+        ]
+        for old_row,new_row in row_patches:
+            if original.count(old_row)!=1:
+                report("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT_MISMATCH",{"file":p.name,"row":old_row.split(",")[1]})
+                raise SystemExit("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT_MISMATCH")
+            original=original.replace(old_row,new_row,1)
+        override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
+        override_dir.mkdir(parents=True,exist_ok=True)
+        replay_path=override_dir/p.name
+        replay_path.write_text(original.replace(before,after,1),encoding="utf-8")
+        overrides.append({"source":source["source"],"source_sha256":digest,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only compatibility patch: add nullable placeholder/hint columns and normalize all 7/8/9-value tuples to the 9-column schema","added_columns":["placeholder","hint"],"normalized_rows":["welcome","nome","servico","problema","local","telefone","confirmacao"]})
+        after="(form_id,key,type,label,placeholder,hint,order_index,required,options_json)"
+        if original.count(before)!=1:
+            report("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH",{"file":p.name,"source":source["source"]})
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH: "+p.name)
         override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
         override_dir.mkdir(parents=True,exist_ok=True)
         replay_path=override_dir/p.name

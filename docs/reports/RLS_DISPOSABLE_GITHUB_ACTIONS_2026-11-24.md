@@ -21,3 +21,20 @@ The historical migration remains byte-identical. The disposable runner now appli
 - record source/replay hashes and the reason in `rls-replay-result.json`.
 
 Any different source hash or SQL context fails closed. No migration file, remote database or production data is modified. The three native fixture tests remain preserved and are skipped when only the history replay runner changes. Remote RLS remains `BLOCKED_MISSING_SECRET`; local replay does not certify production RLS.
+
+
+## Round 2.4 — second disposable replay correction
+
+The next run reached the Eletrovale seed but still returned SQLSTATE 42601 at line 5. The staged SQL confirms the reason: the original INSERT has seven declared columns while its rows use three different arities:
+- six rows have 7 values;
+- the confirmation row has 8 values;
+- the details row has 9 values.
+
+The hash-locked disposable override now:
+1. expands the INSERT column list to include nullable `placeholder` and `hint`;
+2. adds `NULL,NULL` to the six legacy 7-value rows;
+3. adds `NULL` to the 8-value confirmation row;
+4. preserves the 9-value details row unchanged;
+5. refuses the override if any expected row occurs zero or multiple times.
+
+The source migration remains unchanged. This is a local disposable replay compatibility shim only; it does not repair or certify the production migration history. The native PostgreSQL fixture job passed on the previous attempt and remains unchanged.
