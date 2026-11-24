@@ -1149,14 +1149,16 @@
         "seo": "in_progress",
         "funnel": "in_progress",
         "cover": "in_progress",
-        "qa": "not_started",
+        "qa": "in_progress",
         "publish": "not_started"
       },
       "blockers": [
         "CI_AND_READINESS_NOT_YET_VERIFIED",
-        "BROWSER_QA_REQUIRED_390_768_1440",
         "FUNNEL_DELIVERY_NOT_VERIFIED",
-        "PRODUCTION_BUILD_FIX_541_PENDING"
+        "PRODUCTION_BUILD_FIX_541_PENDING",
+        "NEW_NO_BRAND_ARTIFACT_INDEPENDENT_REVIEW_PENDING",
+        "ENTITY_RESEARCH_TARGETS_PENDING",
+        "COVER_CATALOG_REVIEW_PENDING"
       ],
       "warnings": [
         "Fonte única: panfleto fotografado; presença web/Google não confirmada independentemente.",
@@ -1221,10 +1223,10 @@
         "enrichment": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
         "mediaPlan": "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
       },
-      "lastUpdatedAt": "2026-11-23",
+      "lastUpdatedAt": "2026-11-24",
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": "Nova captura exigida após correção de sobreposição de FAB. QA anterior 390/768/1440 PASS no run 45132954644; nenhuma aprovação visual da correção presumida."
+        "status": "PASS",
+        "notes": "QA automatizado do draft: run 45434035986 / job 138586849775 / artifact 14940177606, 390/768/1440 SSR, assets, abertura/fechamento de modal, reduced motion e overflow. Não comprova entrega real do lead nem revisão perceptual independente do novo artifact."
       },
       "compositionFingerprint": {
         "heroGeometry": "left huge joyful headline on royal-blue parade stage beside yellow rotated graphic card",

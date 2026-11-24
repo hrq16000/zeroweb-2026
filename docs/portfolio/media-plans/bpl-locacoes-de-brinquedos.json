@@ -33,8 +33,7 @@
   "missing": [
     "foto oficial autorizada dos equipamentos",
     "marca vetorial original autorizada",
-    "referência social oficial independente",
-    "QA visual 390/768/1440"
+    "referência social oficial independente"
   ],
   "warnings": [
     "Imagens digitais criadas como conceito editorial, não substituem fotografias do estoque."
@@ -42,6 +41,56 @@
   "heroMedia": {
     "source": "public/images/bpl-locacoes-de-brinquedos/trampoline.svg",
     "purpose": "conceptual illustration",
-    "isRealPhoto": false
-  }
+    "isRealPhoto": false,
+    "asset": "/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+    "sourceType": "GRAPHIC_MEDIA"
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "ilustração editorial",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+      "status": "complete"
+    },
+    {
+      "section": "brinquedos",
+      "requiredMediaRole": "distinguir as duas categorias",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
+      "resolution": "Cama elástica e piscina de bolinhas ilustradas, sem alegar fotos de estoque.",
+      "status": "complete"
+    },
+    {
+      "section": "compromissos",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "resolution": "Ícones e claims atribuídas ao panfleto.",
+      "status": "complete"
+    },
+    {
+      "section": "regiao e checklist",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "resolution": "Mapa simbólico, lista textual; nenhum endereço fictício.",
+      "status": "complete"
+    },
+    {
+      "section": "duvidas",
+      "sourceType": "NO_MEDIA_NEEDED",
+      "resolution": "FAQ textual.",
+      "status": "complete"
+    },
+    {
+      "section": "fechamento",
+      "sourceType": "EDITORIAL_TYPOGRAPHY",
+      "resolution": "CTA demonstrativo; não promete reserva.",
+      "status": "complete"
+    }
+  ],
+  "cover": {
+    "asset": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+    "strategy": "GENERATED_EDITORIAL / SERVICE_LED",
+    "approved": false,
+    "notes": "Arquivo existente; aprovação de capa no catálogo e imagem social raster ainda não comprovadas."
+  },
+  "qaEvidence": "Chromium run 45434035986 job 138586849775 artifact 14940177606: 390/768/1440 aprovados em draft."
 }
