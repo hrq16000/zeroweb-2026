@@ -1774,3 +1774,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Change:** suppress initial full-screen loader/logo while preserving client-navigation progress/overlay; defer 404-only Header/Footer modules.
 - **Safety:** no BrandLogo/header/footer source, logo pixels, CSS, client page, funnel persistence, CRM, database or production data changed; no dependency added.
 - **QA:** focused unit/source-contract tests plus existing build, hydration, visual, funnel and Lighthouse gates on the updated PR HEAD.
+
+
+# 2026-11-24 — 0WEB shared entry chunk follow-up
+
+- **Evidence:** Lighthouse run 45447892645 found 213–224 kB unused JavaScript in the same 548 kB root entry asset; CSS/font blocking was left untouched.
+- **Change:** defer contact dialog shell, cart drawer, auth guard, debug overlay, 404 UI and slow-navigation logo until their actual trigger.
+- **Behavior preservation:** first cart-open event is replayed after lazy drawer listeners mount; contact wrapper remains mounted after first open; auth guard stays active on /app* and /painel*; 404 and debug behavior remain available.
+- **Scope:** no CSS, fonts, image pixels, funnel persistence, CRM, catalog, database or production data changes; no new dependencies.

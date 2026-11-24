@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode, createContext, useContext, useCallback } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode, createContext, useContext, useCallback } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X, ArrowRight, MessageCircle, Check, Sparkles, ExternalLink } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
@@ -12,7 +12,7 @@ import {
 } from "@/lib/wa-funnel";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 import { persistWaFunnelOpen, persistWaFunnelStep, persistWaFunnelComplete } from "@/lib/persistence";
-import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
+const FunnelModalWrapper = lazy(() => import("@/components/funnel/FunnelModalWrapper").then(({ FunnelModalWrapper }) => ({ default: FunnelModalWrapper })));
 import type { ContactIntent } from "@/lib/contact-intent";
 import { getLeadAttribution } from "@/lib/lead-attribution";
 import { saveAttributionSnapshot } from "@/lib/lead-attribution-snapshot";
@@ -26,6 +26,7 @@ export function useWaFunnel() {
 
 export function WaFunnelProvider({ children }: { children: ReactNode }) {
   const [isOpen, setOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
   const [location, setLocation] = useState("unknown");
   const [cfg, setCfg] = useState<FunnelConfig>(() => getFunnelConfig());
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -38,6 +39,7 @@ export function WaFunnelProvider({ children }: { children: ReactNode }) {
 
   const open = useCallback((loc: string) => {
     setLocation(loc);
+    setHasOpened(true);
     setOpen(true);
     trackEvent("wa_funnel_open", { location: loc });
     void persistWaFunnelOpen(cfg.steps.length);
@@ -53,12 +55,16 @@ export function WaFunnelProvider({ children }: { children: ReactNode }) {
   return (
     <FunnelCtx.Provider value={{ open }}>
       {children}
-      <FunnelModalWrapper
-        open={isOpen && cfg.enabled}
-        onClose={() => setOpen(false)}
-        funnelSlug="diagnostico-0web"
-        intent={intent}
-      />
+      {hasOpened ? (
+        <Suspense fallback={null}>
+          <FunnelModalWrapper
+            open={isOpen && cfg.enabled}
+            onClose={() => setOpen(false)}
+            funnelSlug="diagnostico-0web"
+            intent={intent}
+          />
+        </Suspense>
+      ) : null}
     </FunnelCtx.Provider>
   );
 }

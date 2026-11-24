@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { shouldShowRouteLoaderOverlay } from "@/lib/route-loader-state";
 import { useRouterState } from "@tanstack/react-router";
-import { BrandLogo } from "@/components/site/BrandLogo";
+const BrandLogo = lazy(() => import("@/components/site/BrandLogo").then(({ BrandLogo }) => ({ default: BrandLogo })));
 
 /**
  * Loader global de navegação. Aparece após 120ms de pending para não
@@ -56,12 +56,14 @@ export function RouteLoader() {
         >
           <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
           <div className="relative flex flex-col items-center gap-4">
-            <BrandLogo
-              size={72}
-              alt=""
-              priority
-              className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
-            />
+            <Suspense fallback={null}>
+              <BrandLogo
+                size={72}
+                alt=""
+                priority
+                className="animate-logo-pulse drop-shadow-[0_8px_30px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
+              />
+            </Suspense>
             <span className="text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground">
               Carregando
             </span>
