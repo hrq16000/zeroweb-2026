@@ -1,5 +1,12 @@
 # Roadmap
 
+## Automação Lighthouse, CRM e publicação — 24/11/2026 às 14:19 UTC
+- [ ] Configurar recebimento automático assinado Lighthouse e envio no workflow existente, mantendo thresholds e importações anteriores; homologar assinatura, gravação e leitura real no painel.
+- [ ] Aplicar correção adicional de nota/interação CRM agora autorizada, preservando estados terminais e isolamento; validar com fixtures sintéticas descartáveis, sem reconstruir eventos passados.
+- [ ] Completar painel existente com cada medição, data, nota, status e identificação do que falta; preservar histórico e distinguir Lighthouse de notas CRM.
+- [ ] Conferir bloqueios de IA/Codex pela integração existente e preservar acesso administrativo já confirmado; sem contornar restrições de organização.
+- [ ] Verificar segurança, solicitar publicação do estado pronto e registrar implantação/CI comprovados ou bloqueios, sem afrouxar gates.
+
 ## Respostas de acesso e CRM — 24/11/2026 às 14:06 UTC
 - [x] Conta indicada hrq16000@gmail.com já possui admin/super_admin, e-mail confirmado e nenhum bloqueio de conta. Identidade confirmada no perfil; /app/agentes, /painel e /painel-crm autenticados PASS no preview, zero pageerror e visitante negado. Sem convite/conta duplicada ou alteração de papéis.
 - [x] CRM: usuário escolheu **Manter preparado**; não aplicar candidato de nota/interação atômica, não reconstruir eventos antigos e manter somente o trigger já autorizado/aplicado.
