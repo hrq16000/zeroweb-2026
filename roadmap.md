@@ -1,5 +1,12 @@
 # Roadmap
 
+## RLS e Lighthouse — preparação autorizada em 24/11/2026 às 06:00 UTC
+- [x] Reproduzir os dois testes RLS e conferir metadata: timeout de 5 s escondia constraint inválida em visitantes e INSERT de histórico negado; nenhum scanner novo.
+- [x] Corrigir testes/runner com requisições limitadas e asserts positivos/negativos; isolamento real PASS. Preparar SQL fora de migrations: fixture PostgreSQL local + mutações PASS, sem aplicar no backend.
+- [x] Ler 24 LHR existentes dos 12 portfólios, corrigir parser LCP aninhado e preparar matriz por cliente; páginas, thresholds, composição e agentes intocados, sem LHCI rerun.
+- [x] Testes auxiliares PASS; suíte 1187 PASS / 1 FAIL real de histórico; brand/boundaries PASS, harness build OK. Relatório/CSV e SQL preparados para Git, sem merge/publicação/DNS.
+- Aplicação e homologação não executadas: histórico real aguarda autorização para migrar; gate remoto aguarda método seguro no runner; Lighthouse aguarda implementação/QA do candidato; #548 continua fora desta preparação.
+
 ## Growth Engine 360° — Rodada 1 autorizada em 24/11/2026 às 05:37 UTC
 - [x] Reconciliar main/PRs/branches/issues, workflows e Vercel reais: main 66a30f7d, 47 PRs (18 Draft), 566 branches, 17 issues sem PR, 27 deployments; preservar todos os deltas, sem fetch/merge/deploy.
 - [x] Inventariar 7 novas entidades fora da main + Dona Garimpeira draft; descobrir implementação Relopar 14288e4f fora da PR de pesquisa. Moreira/São Francisco são reconciliações de existentes, não sites novos; 87 overrides legacy e zero Managed.
