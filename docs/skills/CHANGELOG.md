@@ -8,8 +8,8 @@
 - Painel em `/app/publicacao`: dados reais da main e Vercel via conexões server-side; somente admin/super_admin; seleção e cópia de SHA, checks e histórico sem deploy automático. Respostas projetadas sem chaves, e-mails ou leads.
 - Link de `/sobre` aponta para `/cases`; galeria de redes sociais identifica as fotografias editoriais sem apresentá-las como equipe/sede da 0WEB. Preços, imagens e CTAs preservados.
 - Motion: apenas feedback de consulta com redução de movimento; reveals, parallax, marquee e assinatura cinematográfica não aplicáveis à ferramenta. MCP/OAuth/agentes intocados.
-- Vercel negou criar token (403); reconexão segura requer credencial da conta autorizada. PR #530: gate individual da Doce Coração aprovado; três shards globais falham em outras páginas, não são falhas específicas do novo cliente.
-- Validação: testes de isolamento/permissões e QA autenticado em andamento; nenhuma publicação comprovada nesta etapa.
+- Vercel negou criar token (403); reconexão segura concluída, projeto/equipe/histórico HTTP 200. PR #530: gate individual da Doce Coração aprovado; três shards globais falham em outras páginas, não são falhas específicas do novo cliente.
+- Validação final: 14 testes focados PASS; brand/privacy PASS; QA admin autenticado, visitante bloqueado, 390px sem overflow e zero pageerror; link cases e seis imagens/aviso conferidos. Harness build OK. Suíte geral: 1174 PASS / 2 FAIL em RLS existente; não afrouxada. Uma publicação exata 873a1938 terminou ERROR por cloudflare:workers, sem retry. Evidência e continuidade em docs/reports/PUBLICATION_ADMIN_RECONNECTION_2026-11-24.md.
 
 ## 2026-11-23 — Integrações de agentes MCP
 

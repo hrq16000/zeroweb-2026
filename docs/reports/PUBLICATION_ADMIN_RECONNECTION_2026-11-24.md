@@ -6,7 +6,7 @@ Pedido híbrido de 24/11/2026 às 04:58 UTC; página administrativa autorizada �
 
 - **Conexão Vercel: operacional.** Consulta do projeto retornou HTTP 200 e confirmou `prj_IiJJUu2Rr4vV20tWJ6WaZ7nlr6xv`, `accountId=team_m7IZ2zkytSEOtp2bTsQy0R0A`, equipe `msolus`, projeto `zeroweb-2026`.
 - A credencial antiga negou criação de token com `403 forbidden`, `action=create`, `resource=token`. Nenhum token foi gerado por essa tentativa. A conexão foi atualizada pelo fluxo seguro de reconexão; não foi solicitado nem exposto token em código/chat.
-- **Publicação exata 873a1938:** uma chamada POST `/v13/deployments`, `target=production`, SHA fixo confirmado em `gitSource` e `meta.githubCommitSha`. ID `dpl_2p37yyDbFFFhbKw55y2hWv11QFBX`; última leitura às 05:28 UTC: **BUILDING**, `aliasAssigned=false`. Isso não é READY nem comprova versão no domínio oficial.
+- **Publicação exata 873a1938: NÃO.** Uma chamada POST `/v13/deployments`, `target=production`, SHA fixo confirmado em `gitSource` e `meta.githubCommitSha`. ID `dpl_2p37yyDbFFFhbKw55y2hWv11QFBX`; inicialmente BUILDING, leitura final às 05:29 UTC: **ERROR**, `errorCode=module_not_found`, `errorStep=buildStep`, `aliasAssigned=false`. Logs finais lidos às 05:30 UTC comprovam o import `cloudflare:workers` não resolvido pelo build Vercel. Nenhum retry efetuado.
 - URL candidata: `https://zeroweb-2026-gjra5eunw-msolus.vercel.app`. Não apresentada como site publicado.
 - Última produção READY confirmada no histórico consultado: `dpl_FcL5kPsArmdCToF47oCzeRu61GGA`, SHA `58032d30991b9203ebdadb4501d83acaafd1a3a8`. Preservada para retorno; nenhum deployment apagado/cancelado.
 
@@ -48,17 +48,17 @@ Imagens existentes, preços, escopos comerciais, carrinho, CTAs, funis e metadad
 - `tests/rls/sensitive_tables.test.ts`: atualização admin de `lead_submissions` falha porque uma inserção em `lead_history` viola RLS. Não afrouxar políticas para publicar; esse trabalho requer frente específica de segurança/banco.
 - As fixtures dos testes existentes usam `finally` para limpeza. Nenhum novo dado de pedido/lead foi usado para homologar o painel, que é somente leitura.
 
-Não publicado um novo commit de correções enquanto a suite geral tem falhas reais e a publicação exata anterior ainda está em andamento. A publicação no host Lovable/domínio oficial não foi solicitada para substituir silenciosamente o SHA 873a1938 por um commit posterior.
+Não publicado um novo commit de correções enquanto a suite geral tem falhas reais e o runtime Vercel da base falha. A publicação no host Lovable/domínio oficial não foi solicitada para substituir silenciosamente o SHA 873a1938 por um commit posterior.
 
 ## Doce Coração — não confundir falha global com falha do cliente
 
-PR #530 permanece aberta em `6cf27155c709bff5c130e65e2284a335e378373b`. Checks existentes consultados; nenhum rerun disparado.
+PR #530 foi conferida no HEAD abreviado `6cf27155`. Checks existentes consultados; nenhum rerun disparado.
 
-- `Lighthouse, funis e visual dos novos portfólios` (job `138207537215`): **SUCCESS**.
-- `Doce Coracao - Chromium 390/768/1440` (job `138207459926`): **SUCCESS**.
+- `Lighthouse, funis e visual dos novos portfólios`: **SUCCESS**.
+- `Doce Coracao - Chromium 390/768/1440`: **SUCCESS**.
 - Build, hidratação e estáticos: **SUCCESS**.
 - Shards globais 0, 1 e 2: **FAILURE**; shard 3: **SUCCESS**.
-- Gate compartilhado de pop-up/funis/acessibilidade/regressão visual: **FAILURE** (job `138207813073`). Não apresentado como aprovado.
+- Gate compartilhado de pop-up/funis/acessibilidade/regressão visual: **FAILURE**. Não apresentado como aprovado.
 
 Falhas efetivas dos três shards, com threshold de performance **0,90 preservado**:
 
@@ -79,19 +79,19 @@ Falhas efetivas dos três shards, com threshold de performance **0,90 preservado
 
 Não existe evidência desses logs de que alterar Doce Coração corrija essas 12 páginas. Não remodelar outros clientes nem mudar thresholds/baselines implicitamente. A release #530 aguarda remediação dos gates globais/revisão externa já em curso; não reconstruir a candidata em main.
 
-## Erro histórico Vercel confirmado após acesso liberado
+## Erro Vercel confirmado na publicação solicitada
 
-Logs do deployment `dpl_5FWa81yxMBkQX9RzLF3iXPQWEREh` (45ea4abe) agora acessíveis, HTTP 200:
+Logs finais HTTP 200 da publicação `dpl_2p37yyDbFFFhbKw55y2hWv11QFBX` (873a1938) confirmam a mesma causa já encontrada no deployment histórico `dpl_5FWa81yxMBkQX9RzLF3iXPQWEREh` (45ea4abe):
 
 ```text
 [vite]: Rollup failed to resolve import "cloudflare:workers" from
 "/vercel/path0/node_modules/@lovable.dev/mcp-js/dist/validation-xzkdIA-x.js".
 ```
 
-A correção auditada está na PR #548, HEAD `9d496e16e7f7a8ca0212c70b8ebca0bd0769f717`, ainda aberta/não integrada na conferência. Não aplicada silenciosamente ao SHA documental solicitado. Esse erro histórico é evidência real, não o resultado final da tentativa 873a1938 que ainda estava BUILDING.
+A correção auditada está na PR #548, HEAD `9d496e16e7f7a8ca0212c70b8ebca0bd0769f717`, ainda aberta/não integrada na conferência. Não aplicada silenciosamente ao SHA documental solicitado. Agora a mesma causa está comprovada diretamente nos logs finais da tentativa 873a1938, não apenas inferida do histórico.
 
 ## Continuidade híbrida
 
-Código já salvo no commit `9e4c2fa8` pelo estado sincronizado da plataforma; correção final do tratamento de erro e este relatório devem ser versionados sem reescrever o histórico. GitHub main continua canônico; não recriar alterações em outra cópia. Nenhuma operação de DNS, domínio, settings Vercel, reset, force-push, merge ou migração foi usada.
+Código salvo no commit `9e4c2fa8` pelo estado sincronizado da plataforma; correção final do tratamento de erro e relatório inicial no commit `6958cfa3`. Este fechamento registra o erro terminal em commit posterior, sem reescrever histórico. GitHub main continua canônico; não recriar alterações em outra cópia. Nenhuma operação de DNS, domínio, settings Vercel, reset, force-push, merge ou migração foi usada.
 
-Próximo operador: conferir READY/ERROR de `dpl_2p37yyDbFFFhbKw55y2hWv11QFBX`, ler seus logs finais, manter SHA exato/rollback e resolver os bloqueios específicos antes de publicar o commit posterior. Publicação da nova página, correções editoriais e Doce Coração permanecem pendentes; nada foi declarado no ar sem evidência.
+Próximo operador: revisar gates e integração da PR #548 preservando MCP/OAuth, resolver os dois testes RLS e os gates globais da #530 nas frentes correspondentes, então publicar um SHA novo aprovado. **873a1938 não pode passar esse build Vercel sem alteração posterior**; não repetir o mesmo deployment à espera de resultado diferente. Publicação da nova página, correções editoriais e Doce Coração permanecem pendentes; nada foi declarado no ar sem evidência.

@@ -2,7 +2,7 @@
 
 ## Reconexão, publicação e correções — pedido de 24/11/2026 às 04:58 UTC
 - [x] Acesso Vercel restaurado por reconexão segura: projeto/equipe exatos e histórico HTTP 200; tentativa de criar token via credencial anterior foi recusada 403, não gerou token.
-- [ ] Publicação exata 873a1938 solicitada uma vez: dpl_2p37yyDbFFFhbKw55y2hWv11QFBX, BUILDING/aliasAssigned=false às 05:28 UTC; aguarda resultado externo READY/ERROR. Último Production READY confirmado: 58032d30, dpl_FcL5kPsArmdCToF47oCzeRu61GGA.
+- [ ] Publicação exata 873a1938 falhou: dpl_2p37yyDbFFFhbKw55y2hWv11QFBX, ERROR/module_not_found, aliasAssigned=false; logs finais confirmam cloudflare:workers. Bloqueio: adaptar esse runtime via #548, ainda não integrada; não alterar SHA documental nem repetir deploy. Último Production READY: 58032d30, dpl_FcL5kPsArmdCToF47oCzeRu61GGA.
 - [x] Link /sobre → /cases e identificação das seis fotos ilustrativas de redes sociais corrigidos; navegação, imagens reais carregadas e aviso conferidos no navegador.
 - [ ] Publicar correções/painel após gates: suíte local 1174 PASS / 2 FAIL; RLS existente falha em lead_history e teste multi-tenant tem timeout. Não alterar políticas ou reduzir gates fora deste escopo; nova publicação aguarda essas dependências.
 - [x] PR #530 HEAD 6cf27155 revalidada: gate individual Doce Coração e QA 390/768/1440 PASS; três shards globais falham em 12 outros portfolios, sem alteração da cliente ou desativação de MCP.
@@ -14,7 +14,7 @@
 - [x] Revisar a correção nova do Codex na #548: adaptador auditado do leitor de ambiente preserva transporte/OAuth, sem 404/503 ou mocks; descrição da PR atualizada.
 - [x] Validar CI equivalente Vercel existente: Node 24.22.3/Bun 1.4.0, build completo, output e três testes reais PASS; conferência isolada Node 22.23.5 e guardas do adaptador PASS.
 - [x] Recuperar acesso Vercel: reconexão segura concluída; projeto/equipe/histórico HTTP 200 em 24/11/2026. IDs e último READY confirmados no relatório de publicação administrativa.
-- [ ] Concluir gates e publicar: #548 tem build/hidratação/estáticos/compatibilidade aprovados, gate compartilhado em andamento; último READY/rollback/configuração real inacessíveis. Nenhum merge/deploy iniciado.
+- [ ] Concluir gates e integrar/publicar #548: compatibilidade aprovada, gate compartilhado ainda exige revisão; acesso Vercel e rollback recuperados. Nenhum merge/deploy da candidata iniciado; publicação exata 873a1938 falhou por cloudflare:workers.
 - [ ] Avançar na primeira candidata após infraestrutura: #530 atual em homologação; BPL/Fran/Marli têm checks reprovados nos HEADs consultados.
 - [x] Registrar handoff em docs/reports/VERCEL_MCP_RECOVERY_HANDOFF_2026-11-24.md; 747c1f9b é documental, sem correções de cases/fotos.
 
@@ -24,7 +24,7 @@
 - [x] Registrar checkpoint na PR #548 e em `docs/reports/PUBLICATION_HYBRID_CHECKPOINT_2026-11-24.md`; preservar trabalho Codex sem duplicar #547/#548.
 - [x] Obter logs/configuração Vercel: após reconexão, logs HTTP 200 confirmam cloudflare:workers como causa da falha histórica 45ea4abe; correção #548 continua não integrada.
 - [x] Correção MCP evoluiu na #548: o estado 503 histórico foi substituído por adaptação Node auditada; validação funcional/compilação Vercel PASS, ainda sem integração.
-- [ ] Homologar/publicar: compatibilidade da candidata confirmada no CI, gate compartilhado e acesso Vercel pendentes; READY/SHA publicado não confirmados.
+- [ ] Homologar/publicar: compatibilidade da candidata confirmada no CI, gate compartilhado pendente; acesso Vercel liberado, publicação 873a1938 ERROR. Integrar correção somente após gates, sem reescrever histórico.
 - [ ] Avançar na primeira candidata: #530 tem novo HEAD 6cf27155 e homologação em andamento; as três falhas Lighthouse/46 diferenças pertencem à rodada anterior, não inferir estado atual.
 
 ### Backlog consolidado — não executar nesta rodada
