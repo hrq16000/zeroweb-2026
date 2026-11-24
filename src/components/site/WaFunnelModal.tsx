@@ -11,7 +11,6 @@ import {
   type FunnelStep,
 } from "@/lib/wa-funnel";
 import { trackConversion, trackEvent } from "@/lib/analytics";
-import { persistWaFunnelOpen, persistWaFunnelStep, persistWaFunnelComplete } from "@/lib/persistence";
 const FunnelModalWrapper = lazy(() => import("@/components/funnel/FunnelModalWrapper").then(({ FunnelModalWrapper }) => ({ default: FunnelModalWrapper })));
 import type { ContactIntent } from "@/lib/contact-intent";
 import { getLeadAttribution } from "@/lib/lead-attribution";
@@ -42,7 +41,9 @@ export function WaFunnelProvider({ children }: { children: ReactNode }) {
     setHasOpened(true);
     setOpen(true);
     trackEvent("wa_funnel_open", { location: loc });
-    void persistWaFunnelOpen(cfg.steps.length);
+    void import("@/lib/persistence")
+      .then(({ persistWaFunnelOpen }) => persistWaFunnelOpen(cfg.steps.length))
+      .catch(() => {});
   }, [cfg.steps.length]);
 
   const intent: ContactIntent = {
@@ -133,7 +134,9 @@ function ChatbotModal({
     setMessages((m) => [...m, { who: "user", text: value }]);
     setDraft("");
     trackEvent("wa_funnel_step", { step: step + 1, total, field: current.id, location });
-    void persistWaFunnelStep(step + 1, nextAnswers);
+    void import("@/lib/persistence")
+      .then(({ persistWaFunnelStep }) => persistWaFunnelStep(step + 1, nextAnswers))
+      .catch(() => {});
 
     if (step < total - 1) {
       setTyping(true);
@@ -154,7 +157,9 @@ function ChatbotModal({
     setMessages((m) => [...m, { who: "bot", kind: "text", text: cfg.successMessage }]);
     setTimeout(() => setTyping(false), 500);
     trackConversion("wa_funnel_complete", { location, steps: total, mode });
-    void persistWaFunnelComplete(finalAnswers);
+    void import("@/lib/persistence")
+      .then(({ persistWaFunnelComplete }) => persistWaFunnelComplete(finalAnswers))
+      .catch(() => {});
     try { saveAttributionSnapshot(getLeadAttribution(`wa_funnel:${location}`, `wa_funnel_${location}`)); } catch { /* noop */ }
     trackConversion("funnel_complete", { location: `legacy_adapter:${location}` });
   }
