@@ -239,6 +239,16 @@ jobs:
         if: always()
         run: node scripts/report-lhci-diagnostics.mjs
 
+      - name: Enviar todas as medições ao painel (inclusive reprovadas)
+        if: always() && hashFiles('.lighthouseci/lhr-*.json') != ''
+        env:
+          LHCI_HMAC_SECRET: ${{ secrets.LHCI_HMAC_SECRET }}
+          LHCI_INGEST_URL: https://0web.com.br/api/public/hooks/lhci-ingest
+          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
+          LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
+          LHCI_SHARD_INDEX: ${{ matrix.shard }}
+        run: node scripts/send-lhci-receipts.mjs
+
       - name: Upload Lighthouse reports (JSON/HTML)
         if: always()
         uses: actions/upload-artifact@v4

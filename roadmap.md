@@ -1,11 +1,14 @@
 # Roadmap
 
 ## Automação Lighthouse, CRM e publicação — 24/11/2026 às 14:19 UTC
-- [ ] Configurar recebimento automático assinado Lighthouse e envio no workflow existente, mantendo thresholds e importações anteriores; homologar assinatura, gravação e leitura real no painel.
-- [ ] Aplicar correção adicional de nota/interação CRM agora autorizada, preservando estados terminais e isolamento; validar com fixtures sintéticas descartáveis, sem reconstruir eventos passados.
-- [ ] Completar painel existente com cada medição, data, nota, status e identificação do que falta; preservar histórico e distinguir Lighthouse de notas CRM.
-- [ ] Conferir bloqueios de IA/Codex pela integração existente e preservar acesso administrativo já confirmado; sem contornar restrições de organização.
-- [ ] Verificar segurança, solicitar publicação do estado pronto e registrar implantação/CI comprovados ou bloqueios, sem afrouxar gates.
+- [x] Chave LHCI_HMAC_SECRET salva no projeto; usuário confirmou às 14:32 UTC que salvou o mesmo valor no GitHub Actions. Não expor/verificar valor; validar pelo envio assinado.
+- [x] Implementar receptor HMAC-only, limite real de 64 KiB, idempotência e envio de todos os relatórios no workflow. Medição pública real Dlara 92/100/100 recebida no banco e relida no painel; unsigned 401/retry sem duplicação PASS. Proveniência lighthouse-cli, não fingir GitHub Actions.
+- [x] Aplicar função atômica nota/interação no banco real e conectá-la ao CRM autorizado. Nota sintética gravada/reaberta no UI; recusa terminal preserva histórico/last_interaction; limpeza exata com read-back zero. Sem backfill, eventos encerrados reais ou alteração de deduplicação/ledger.
+- [x] Painel /painel-lighthouse autenticado: 25 recebimentos, datas originais/recebidas, notas, status, decisões separadas, filtros, detalhes/JSON e cobertura 12/12. Desktop/mobile/reduced-motion sem overflow; visitante redirecionado sem dados. 18 failed/7 passed individuais preservados.
+- [x] Conta hrq16000@gmail.com e administração de agentes preservadas/verificadas. Integração existente GitHub HTTP 200 de leitura; #548 continua Draft/a3d44a79, sem autorização de escrita/reconciliação comprovada. Não contornar restrição OAuth anterior nem criar pessoas duplicadas.
+- [x] Suíte 1239 PASS/0 FAIL; fixtures SQL/mutações, brand/boundaries/meta/diff/harness PASS. Bun local 1.4.4; não afirmar build oficial 1.4.0. Scan rápido sem findings ativos novos; revisões profundas não executadas nesta rodada.
+- [ ] Homologar envio automático de GitHub Actions na produção: bloqueado até integrar/publicar receptor/workflow no Git oficial; 0 recebimentos com origem github-actions hoje. Chave confirmada pelo usuário, sem ler seu valor. Envio real assinado local não substitui workflow remoto.
+- [ ] Integrar/publicar versão final por PR e liberar IA/Codex: bloqueado por reconciliação/autorização de #548 e homologação RLS remota (último run 45352326130 failure). Main b394e920 tinha 7 checks success/2 skipped, mas é só planejamento, não contém esta implementação. Sem novo deploy ou merge; relatório LIGHTHOUSE_CRM_AUTOMATION_2026-11-24.md.
 
 ## Respostas de acesso e CRM — 24/11/2026 às 14:06 UTC
 - [x] Conta indicada hrq16000@gmail.com já possui admin/super_admin, e-mail confirmado e nenhum bloqueio de conta. Identidade confirmada no perfil; /app/agentes, /painel e /painel-crm autenticados PASS no preview, zero pageerror e visitante negado. Sem convite/conta duplicada ou alteração de papéis.
@@ -20,7 +23,7 @@
 - [x] Pessoas: conta indicada às 14:06 UTC já possui acesso administrativo, validado no preview; support_agents continua vazio porque é cadastro distinto, sem convite duplicado/concessão de papel.
 - [ ] IA/Codex: #548 ainda Draft, atualização de branch bloqueada por OAuth App da organização na última consulta; não contornar por outro ator/token. Resposta de conta administrativa não resolve autorização da integração.
 - [ ] Homologar CI remoto: 42011df6 tem build/hydration/estáticos PASS, visual em andamento na consulta e Lighthouse skipped; 4949e96b teve gates cancelados. RLS remoto segue BLOCKED_MISSING_SECRET. Sem rerun sem credencial/método autorizado.
-- [ ] Homologar envio automático assinado LHCI: chave/configuração ausentes e workflow não envia ao webhook; importação manual autorizada não substitui E2E do webhook. Sem secret/configuração inventados.
+- [ ] Homologar envio automático remoto LHCI: configuração/implementação supersedem ausência anterior na seção atual; resta produção + run real de Actions, não substituído pelo teste assinado local.
 - [x] Nota CRM atômica: decisão às 14:06 UTC **Manter preparado**; candidato inativo, sem migração adicional/backfill. Deduplicação/ledger intocados por escolha expressa do usuário.
 
 ## CONTINUAR — Rodada 2 autorizada em 24/11/2026 às 06:53 UTC

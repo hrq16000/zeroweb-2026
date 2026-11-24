@@ -93,6 +93,7 @@ import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-loca
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as AuthenticatedPainelLighthouseRouteImport } from './routes/_authenticated/painel-lighthouse'
 import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
 import { Route as BairrosBhSlugRouteImport } from './routes/bairros-bh.$slug'
@@ -701,6 +702,12 @@ const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   path: '/app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPainelLighthouseRoute =
+  AuthenticatedPainelLighthouseRouteImport.update({
+    id: '/painel-lighthouse',
+    path: '/painel-lighthouse',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiGeneratePortfolioImageRoute =
   ApiGeneratePortfolioImageRouteImport.update({
     id: '/api/generate-portfolio-image',
@@ -1779,6 +1786,7 @@ export interface FileRoutesByFullPath {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2040,6 +2048,7 @@ export interface FileRoutesByTo {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2305,6 +2314,7 @@ export interface FileRoutesById {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/_authenticated/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
@@ -2571,6 +2581,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/app'
+    | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -2832,6 +2843,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
+    | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -3096,6 +3108,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/app'
+    | '/_authenticated/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
@@ -4027,6 +4040,13 @@ declare module '@tanstack/react-router' {
       path: '/app'
       fullPath: '/app'
       preLoaderRoute: typeof AuthenticatedAppRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/painel-lighthouse': {
+      id: '/_authenticated/painel-lighthouse'
+      path: '/painel-lighthouse'
+      fullPath: '/painel-lighthouse'
+      preLoaderRoute: typeof AuthenticatedPainelLighthouseRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/api/generate-portfolio-image': {
@@ -5567,10 +5587,12 @@ const AuthenticatedAppRouteWithChildren =
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAppRoute: typeof AuthenticatedAppRouteWithChildren
+  AuthenticatedPainelLighthouseRoute: typeof AuthenticatedPainelLighthouseRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAppRoute: AuthenticatedAppRouteWithChildren,
+  AuthenticatedPainelLighthouseRoute: AuthenticatedPainelLighthouseRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

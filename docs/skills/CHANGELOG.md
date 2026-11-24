@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Lighthouse assinado, CRM atômico e painel de recebimentos
+
+- Competências locais: router/discovery, design-system e UI quality gates para painel administrativo; referências Experience Design lidas para avaliação, sem ativar Max mode. Runtime, server-functions, grants/roles e segurança de secrets revisados. Sem pacote, identidade global, portfólio ou integração externa nova; marketplace/art direction/mídia NOT_APPLICABLE ao histórico operacional.
+- Receptor HMAC-only, limite streaming de 64 KiB, idempotência e proveniência; workflow envia inclusive medições failed. Chave salva pelo formulário seguro, usuário confirmou GitHub. Medição real Dlara 92/100/100 recebida no banco/relida UI; unsigned 401, retry mesmo ID. Origem CLI assinada, não fingir origem de workflow ainda não homologado.
+- Migração aditiva aplicada: função CRM SECURITY INVOKER com lock/portal/estados terminais/EXECUTE service_role, sem backfill; data original e identidade de ingestão Lighthouse. Nota sintética gravada e relida pelo CRM; terminal recusado sem alterar histórico/interação; limpeza exata/read-back zero. Helper lê portal por RLS do usuário antes de privilégio; nenhuma policy aberta.
+- /painel-lighthouse sob _authenticated: 25 medições, cobertura 12/12, filtros/paginação/detalhes/JSON, origem assinada vs Actions vs histórica, decisão separada do gate. Desktop/390px/reduced-motion/foco e visitante protegido; cinco páginas públicas atuais 200/zero pageerror, Centro Mega com conteúdo e produtos reais intactos.
+- 1239 testes PASS/0 FAIL, 7 verificações SQL/mutações PASS, brand/boundaries/meta/diff/YAML/harness PASS; Bun 1.4.4 local, não afirmar 1.4.0/build oficial. Sem Max mode, terceiros, media generation ou novo pacote. AGENTS.md permanece intacto: orçamento excedido por regras do usuário impede nova regra estrutural.
+- Release e IA/Codex NÃO concluídos: main b394e920 contém só planejamento, #548 ainda Draft; restrição OAuth anterior não contornada; RLS remoto failure/BLOCKED_MISSING_SECRET. Automação Actions ainda 0 recebimentos; requer receptor publicado + execução oficial. Evidência: docs/reports/LIGHTHOUSE_CRM_AUTOMATION_2026-11-24.md.
+
 ## 2026-11-24 — Publicação solicitada, matriz factual e transporte de testes
 
 - Contratos de execução/Git-first/RLS relidos; referências locais de skill router/discovery/quality gates tratadas como documentação, sem ativar drafts ou executar terceiros. Runtime/server-functions/grants/roles consultados para diagnóstico, sem alterar permissões. Design/mídia/redesign NOT_APPLICABLE: identidades e Blueprint congelados preservados.
