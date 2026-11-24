@@ -4,7 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal } from "@/components/motion";
 
 /**
  * Site exclusivo de D’Lara Pizzaria, Esfiharia e Hamburgueria (/portfolio/dlara-pizzaria).
@@ -48,7 +48,7 @@ export function DlaraPizzariaPage() {
       }
     >
       <main>
-        <section className="mx-auto flex max-w-4xl flex-col items-center px-5 pb-14 pt-14 text-center md:pt-20">
+        <MotionFirstPaint><section className="mx-auto flex max-w-4xl flex-col items-center px-5 pb-14 pt-14 text-center md:pt-20">
           <span className="rounded-full border border-[var(--dl-ember)]/50 px-4 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-[var(--dl-ember)]">
             Jardim Itália · São José dos Pinhais
           </span>
@@ -92,7 +92,7 @@ export function DlaraPizzariaPage() {
           >
             <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
           </FunnelCTAButton>
-        </section>
+        </section></MotionFirstPaint>
 
         <section
           aria-labelledby="dl-frentes"

@@ -1,5 +1,14 @@
 # Roadmap
 
+## CONTINUAR — Rodada 2 autorizada em 24/11/2026 às 06:53 UTC
+- [x] Conferir HEAD/base/checks de #548/#530 a partir de R1; #548 gate compartilhado SUCCESS às 07:02 UTC, compatibilidade PASS; sem reinventário/rerun.
+- [ ] Resolver bloqueios restantes: RLS remoto BLOCKED_MISSING_SECRET; suíte geral 1221 PASS/2 FAIL (user_ref timeout + RLS/happy-dom); Lighthouse canônico não repetido, Carecas/JKL dependem de Blueprint congelado e animação institucional intocada. Não reduzir gates.
+- [x] Aplicar SOMENTE leads_after_change autorizado: SECURITY DEFINER/search_path/EXECUTE restrito; metadata e 2 testes RLS isolados PASS, nenhuma policy aberta/registro encerrado/agente alterado.
+- [x] Limpar dois portais sintéticos t-a/t-b-1795408221054, leads/history/eventos/membros e duas contas/profiles de teste, autorizado às 07:10 UTC; todos os vínculos conferidos, read-back zero; sem dados reais.
+- [x] Preparar dez candidatos LCP locais preservando conteúdo/design/motion restante; 35 testes PASS, 80 verificações visuais PASS, 10 funis abrem/fecham e 10 SSR sem JS; brand/boundaries/meta/build harness PASS. Pilotos/Blueprint intactos; sem score ou release PASS.
+- [ ] Integrar #548/reconciliar #530: ambas update-branch HTTP 403 por política OAuth App da organização; não contornar. Production 873a1938 ERROR não repetida, READY histórico 58032d30 preservado; sem merge/deploy.
+- [x] Entregar GROWTH_ENGINE_R2_CHECKPOINT_2026-11-24.md com evidências/fila R3 reaproveitada e bloqueios; Rodada 3/4 não iniciadas. NO-GO para publicação.
+
 ## Conferência dos caminhos relacionados — complemento RLS/Lighthouse
 - [x] Conferir 19 caminhos diretos de leads/histórico, entradas dinâmicas, planilha, automações, 12 composições Lighthouse e relatórios/decisões alternativas.
 - [x] Registrar conformidade por trechos lidos e reproduzir em isolamento ingestão sem métricas/TBT ignorado e consolidação que omite reprovação; nenhum dado ou configuração alterado.
@@ -12,7 +21,7 @@
 - [x] Corrigir testes/runner com requisições limitadas e asserts positivos/negativos; isolamento real PASS. Preparar SQL fora de migrations: fixture PostgreSQL local + mutações PASS, sem aplicar no backend.
 - [x] Ler 24 LHR existentes dos 12 portfólios, corrigir parser LCP aninhado e preparar matriz por cliente; páginas, thresholds, composição e agentes intocados, sem LHCI rerun.
 - [x] Testes auxiliares PASS; suíte 1187 PASS / 1 FAIL real de histórico; brand/boundaries PASS, harness build OK. Relatório/CSV e SQL preparados para Git, sem merge/publicação/DNS.
-- Aplicação e homologação não executadas: histórico real aguarda autorização para migrar; gate remoto aguarda método seguro no runner; Lighthouse aguarda implementação/QA do candidato; #548 continua fora desta preparação.
+- Estado histórico desta preparação: migração não aplicada então. Atualização Rodada 2 acima: trigger autorizado aplicado e RLS isolado PASS; CI remoto, Lighthouse canônico e #548 ainda bloqueados, sem publicação.
 
 ## Growth Engine 360° — Rodada 1 autorizada em 24/11/2026 às 05:37 UTC
 - [x] Reconciliar main/PRs/branches/issues, workflows e Vercel reais: main 66a30f7d, 47 PRs (18 Draft), 566 branches, 17 issues sem PR, 27 deployments; preservar todos os deltas, sem fetch/merge/deploy.

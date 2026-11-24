@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Rodada 2, trigger autorizado e candidatos críticos de pintura
+
+- Stack local: 0web-skill-router, discovery de competências pertinentes, 0web-experience-design-max, art-direction/design-system como preservação de identidade, 0web-ui-quality-gates para verdade de evidência, SSR/semântica/reduced-motion/QA; runtime/server-functions/roles/grants consultados. Sem redesign, marketplace install ou pacote novo: redundantes/incompatíveis com manutenção pontual.
+- Trigger mínimo autorizado aplicado; 2 testes RLS isolados PASS, leitura/escrita direta protegidas; CI remoto BLOCKED_MISSING_SECRET. Limpeza autorizada de duas fixtures antigas com guards transacionais e read-back zero; agentes/dados reais/ledger intocados.
+- Dez composições com opt-in crítico sem wrapper DOM ou initial oculto; default e seções posteriores preservados. Wrapper inválido p/div da Centro Mega deixou de existir só no opt-in, hydration error resolvido na prova. Experimento de Blueprint rejeitado e revertido integralmente: Carecas/JKL permanecem congelados e pendentes.
+- 35 testes focados PASS; 80 provas browser em sete larguras/reduced-motion PASS; 10 funis abrem/fecham sem envio; 10 páginas com conteúdo sem JS. Imagens derivadas locais reconstruídas pelo gerador existente. Brand/boundaries/meta/diff PASS; harness build OK.
+- Suíte inteira 1221 PASS/2 FAIL preservados (user_ref timeout + requisição RLS com happy-dom); agrupamento inadequado intermediário rejeitado. Bun 1.4.4 local vs 1.4.0 exigido; sem build manual/rerun LHCI. Não declarar score ≥90 ou release verde.
+- #548 gate compartilhado terminou SUCCESS; update-branch #548/#530 HTTP 403 por OAuth App da organização, não contornado. Sem integração/deploy/R3. Evidência: docs/reports/GROWTH_ENGINE_R2_CHECKPOINT_2026-11-24.md.
+
 ## 2026-11-24 — Candidatos adicionais Lighthouse/CRM/SQL legado
 
 - Autorização das três frentes às 06:40 UTC; resposta posterior limita deduplicação/ledger a achados documentados, sem alterações. Somente preparação, fixtures sintéticas, sem publicação/migração/dados reais/permissões/configuração/agents.
