@@ -83,12 +83,8 @@ export function RBeautyEditorialView() {
       <section className="pt-16 pb-24 px-4 relative">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-6"
-          >
+          {/* H1 da primeira dobra: permanecer visível no SSR/LCP. */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-[11px] font-bold uppercase tracking-widest">
               <Sparkles className="w-3 h-3" /> Exclusividade em Cílios & Nails
             </div>
@@ -145,7 +141,7 @@ export function RBeautyEditorialView() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
           {/* Hero Visual Card */}
           <motion.div 

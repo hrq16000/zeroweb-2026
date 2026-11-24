@@ -1,5 +1,17 @@
 # Roadmap
 
+## Estabilização e publicação — rodada autorizada de 24/11/2026
+- [x] Recuperar os nove workflows existentes da PR #530 sem repetir runs; logo 149726 → 87136 bytes, -41,80%, dimensões/RGBA idênticos.
+- [x] Identificar a cadeia de `cloudflare:workers`; teste isolado Node/esbuild PASS, sem presumir compatibilidade Vercel.
+- [x] Registrar checkpoint na PR #548 e em `docs/reports/PUBLICATION_HYBRID_CHECKPOINT_2026-11-24.md`; preservar trabalho Codex sem duplicar #547/#548.
+- [ ] Obter logs/configuração Vercel: conexão autorizada retorna 403 para equipe e 404 para projeto/deployment alvo; operador precisa liberar acesso correto ou fornecer logs sanitizados.
+- [ ] Corrigir incompatibilidade preservando MCP/OAuth: #547/#548 não integradas, pois substituem acesso por 404/503 e não têm todos os gates aprovados; depende dos logs/configuração reais.
+- [ ] Homologar/publicar: faltam compatibilidade Vercel e gates aprovados; READY/SHA publicado não confirmados, nenhum deployment iniciado.
+- [ ] Avançar na primeira candidata: #530 atual passa build/QA próprio, mas tem três shards Lighthouse e 46 diferenças visuais reprovados; depende da estabilização e homologação compartilhada.
+
+### Backlog consolidado — não executar nesta rodada
+Administração de portfólios; funis/contatos oficiais; leads/Jotform; SEO/blog; métricas reais; preços/cases/comissões; aquisição regional; homologação administrativa em produção. Reutilizar contratos existentes, sem catálogo concorrente, sem novas funcionalidades durante a estabilização e sem SQL/migrações no banco real.
+
 ## Painel, suporte e publicação — pedido de 23/11/2026
 - [x] Leads consolidados com protocolo persistido, status, filtros, paginação e coluna de metadados Jotform (importação pulada).
 - [x] Histórico individual de funil com destino cadastrado e contagem de alertas pendentes/falhos.
