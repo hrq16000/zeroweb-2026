@@ -52,6 +52,140 @@ done=[]
 overrides=[]
 def report(status,failed=None):
     out.write_text(json.dumps({"status":status,"applied":done,"overrides":overrides,"failed":failed},indent=2)+"\n")
+def split_top_level_sql(value):
+    parts=[]
+    start=0
+    depth=0
+    quote=None
+    dollar_tag=None
+    i=0
+    while i<len(value):
+        char=value[i]
+        if dollar_tag:
+            if value.startswith(dollar_tag,i):
+                i+=len(dollar_tag)
+                dollar_tag=None
+            else:
+                i+=1
+            continue
+        if quote:
+            if char==quote:
+                if quote=="'" and i+1<len(value) and value[i+1]=="'":
+                    i+=2
+                    continue
+                quote=None
+            i+=1
+            continue
+        if char in ("'","\""):
+            quote=char
+            i+=1
+            continue
+        if char=="$":
+            match=re.match(r"\$[A-Za-z_0-9]*\$",value[i:])
+            if match:
+                dollar_tag=match.group(0)
+                i+=len(dollar_tag)
+                continue
+        if char=="(":
+            depth+=1
+        elif char==")":
+            depth-=1
+        elif char=="," and depth==0:
+            parts.append(value[start:i].strip())
+            start=i+1
+        i+=1
+    parts.append(value[start:].strip())
+    return parts
+
+def normalize_dynamic_form_question_seed(sql,expected_rows,expected_arities):
+    pattern=re.compile(r"(?is)(INSERT\s+INTO\s+public\.dynamic_form_questions\s*)\(([^)]*)\)(\s*VALUES\s*)")
+    matches=list(pattern.finditer(sql))
+    expected_columns=["form_id","key","type","label","order_index","required","options_json"]
+    new_columns="form_id,key,type,label,placeholder,hint,order_index,required,options_json"
+    if len(matches)!=1:
+        raise SystemExit("BLOCKED_LOCAL_OVERRIDE_INSERT_COUNT")
+    match=matches[0]
+    columns=[column.strip().lower() for column in split_top_level_sql(match.group(2))]
+    if columns!=expected_columns:
+        raise SystemExit("BLOCKED_LOCAL_OVERRIDE_COLUMN_CONTEXT")
+    i=match.end()
+    rows=[]
+    counts={7:0,8:0,9:0}
+    while i<len(sql):
+        while i<len(sql) and sql[i].isspace():
+            i+=1
+        if i>=len(sql) or sql[i]!="(":
+            break
+        start=i+1
+        i+=1
+        depth=1
+        quote=None
+        dollar_tag=None
+        while i<len(sql) and depth:
+            char=sql[i]
+            if dollar_tag:
+                if sql.startswith(dollar_tag,i):
+                    i+=len(dollar_tag)
+                    dollar_tag=None
+                else:
+                    i+=1
+                continue
+            if quote:
+                if char==quote:
+                    if quote=="'" and i+1<len(sql) and sql[i+1]=="'":
+                        i+=2
+                        continue
+                    quote=None
+                i+=1
+                continue
+            if char in ("'","\""):
+                quote=char
+                i+=1
+                continue
+            if char=="$":
+                tag_match=re.match(r"\$[A-Za-z_0-9]*\$",sql[i:])
+                if tag_match:
+                    dollar_tag=tag_match.group(0)
+                    i+=len(dollar_tag)
+                    continue
+            if char=="(":
+                depth+=1
+            elif char==")":
+                depth-=1
+            i+=1
+        if depth:
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_UNCLOSED_TUPLE")
+        fields=split_top_level_sql(sql[start:i-1])
+        arity=len(fields)
+        if arity not in counts:
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_UNEXPECTED_ARITY")
+        counts[arity]+=1
+        if not fields or fields[0]!="v_form_id" or not re.fullmatch(r"'[a-z0-9_]+'",fields[1],re.I):
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT")
+        if arity==7:
+            fields[4:4]=["NULL","NULL"]
+        elif arity==8:
+            fields.insert(5,"NULL")
+        rows.append("("+", ".join(fields)+")")
+        while i<len(sql) and sql[i].isspace():
+            i+=1
+        if i<len(sql) and sql[i]==",":
+            i+=1
+            continue
+        break
+    if len(rows)!=expected_rows or counts!=expected_arities:
+        raise SystemExit("BLOCKED_LOCAL_OVERRIDE_ROW_ARITY_PROFILE")
+    replacement=match.group(1)+"("+new_columns+")"+match.group(3)+"\n  "+",\n  ".join(rows)
+    return sql[:match.start()]+replacement+sql[i:],{"rows":len(rows),"original_arities":counts,"normalized_7":counts[7],"normalized_8":counts[8],"preserved_9":counts[9]}
+
+DISPOSABLE_SEED_OVERRIDES={
+    "supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql":{"blob_sha":"74d3d57450d1847f647fac1890a0ab8f6a4845c1","rows":8,"arities":{7:6,8:1,9:1}},
+    "supabase/migrations/20260828084333_seed_eletro_solucoes_eficazes_funnel.sql":{"blob_sha":"af7cf865a09ef6211666858ec2fc8f96239a7479","rows":8,"arities":{7:6,8:1,9:1}},
+    "supabase/migrations/20260828085118_seed_eisenfer_tubos_acos_funnel.sql":{"blob_sha":"d0984eb849b3393239858b30b8d0f558f99c1698","rows":8,"arities":{7:6,8:1,9:1}},
+    "supabase/migrations/20260828085941_seed_mary_diarista_funnel.sql":{"blob_sha":"b9abb73004e59d4e4dc5a5a8b738823888ebd48c","rows":8,"arities":{7:6,8:1,9:1}},
+    "supabase/migrations/20260828090817_seed_acai_total_araucaria_funnel.sql":{"blob_sha":"ff6b8425b67cc09e8f1f4f8f5995d4cbff242ee6","rows":8,"arities":{7:6,8:1,9:1}},
+    "supabase/migrations/20260828091600_seed_jkl_marcenaria_funnel.sql":{"blob_sha":"e8d13f96ded1a49d1ec801f9241fbcbc3b9819ee","rows":9,"arities":{7:7,8:1,9:1}},
+}
 # Validate that the CLI actually exposed a clean local database, not a
 # pre-populated schema. Never change a remote or pre-existing instance.
 check=subprocess.run(["psql","-X","-At","-v","ON_ERROR_STOP=1","-c","SELECT count(*) FROM pg_catalog.pg_tables WHERE schemaname='public'"],env=pg,capture_output=True,text=True,timeout=20)
@@ -68,38 +202,23 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         report("BLOCKED_STAGED_HASH_MISMATCH",{"file":p.name,"source":source.get("source")})
         raise SystemExit("BLOCKED_STAGED_HASH_MISMATCH: "+p.name)
     replay_path=p
-    if source.get("source")=="supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql":
-        expected="87e1e3779ca9be580654cc994f3fbefd2757c7e16b8cbd562346c686ceed73ab"
-        if digest!=expected:
-            report("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH",{"file":p.name,"source":source["source"],"sha256":digest})
-            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH: "+p.name)
+    if source.get("source") in DISPOSABLE_SEED_OVERRIDES:
+        override_spec=DISPOSABLE_SEED_OVERRIDES[source["source"]]
+        blob_sha=hashlib.sha1(b"blob "+str(len(original_bytes)).encode()+b"\0"+original_bytes).hexdigest()
+        if blob_sha!=override_spec["blob_sha"]:
+            report("BLOCKED_LOCAL_OVERRIDE_GIT_BLOB_MISMATCH",{"file":p.name,"source":source["source"],"blob_sha":blob_sha})
+            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_GIT_BLOB_MISMATCH: "+p.name)
         original=original_bytes.decode("utf-8")
-        before="(form_id,key,type,label,order_index,required,options_json)"
-        after="(form_id,key,type,label,placeholder,hint,order_index,required,options_json)"
-        if original.count(before)!=1:
-            report("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH",{"file":p.name,"source":source["source"]})
-            raise SystemExit("BLOCKED_LOCAL_OVERRIDE_CONTEXT_MISMATCH: "+p.name)
-        # This legacy seed has three tuple shapes (7, 8 and 9 values) in one
-        # INSERT. The two new nullable columns must be populated consistently.
-        row_patches=[
-            ("(v_form_id,'welcome','statement','Vamos avaliar seu equipamento ⚙️',0,false,'[]'::jsonb)","(v_form_id,'welcome','statement','Vamos avaliar seu equipamento ⚙️',NULL,NULL,0,false,'[]'::jsonb)"),
-            ("(v_form_id,'nome','short_text','Qual é o seu nome?',1,true,'[]'::jsonb)","(v_form_id,'nome','short_text','Qual é o seu nome?',NULL,NULL,1,true,'[]'::jsonb)"),
-            ("(v_form_id,'servico','radio','Qual equipamento precisa de atenção?',2,true,","(v_form_id,'servico','radio','Qual equipamento precisa de atenção?',NULL,NULL,2,true,"),
-            ("(v_form_id,'problema','radio','O que está acontecendo?',3,true,","(v_form_id,'problema','radio','O que está acontecendo?',NULL,NULL,3,true,"),
-            ("(v_form_id,'local','radio','Onde está o equipamento?',4,true,","(v_form_id,'local','radio','Onde está o equipamento?',NULL,NULL,4,true,"),
-            ("(v_form_id,'telefone','phone','Qual WhatsApp para retorno?',6,true,'[]'::jsonb)","(v_form_id,'telefone','phone','Qual WhatsApp para retorno?',NULL,NULL,6,true,'[]'::jsonb)"),
-            ("(v_form_id,'confirmacao','statement','Solicitação recebida! ✅','A Eletrovale confirmará os próximos passos.',7,false,'[]'::jsonb)","(v_form_id,'confirmacao','statement','Solicitação recebida! ✅','A Eletrovale confirmará os próximos passos.',NULL,7,false,'[]'::jsonb)")
-        ]
-        for old_row,new_row in row_patches:
-            if original.count(old_row)!=1:
-                report("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT_MISMATCH",{"file":p.name,"row":old_row.split(",")[1]})
-                raise SystemExit("BLOCKED_LOCAL_OVERRIDE_ROW_CONTEXT_MISMATCH")
-            original=original.replace(old_row,new_row,1)
+        patched,stats=normalize_dynamic_form_question_seed(
+            original,
+            expected_rows=override_spec["rows"],
+            expected_arities=override_spec["arities"],
+        )
         override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
         override_dir.mkdir(parents=True,exist_ok=True)
         replay_path=override_dir/p.name
-        replay_path.write_text(original.replace(before,after,1),encoding="utf-8")
-        overrides.append({"source":source["source"],"source_sha256":digest,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only compatibility patch: add nullable placeholder/hint columns and normalize all 7/8/9-value tuples to the 9-column schema","added_columns":["placeholder","hint"],"normalized_rows":["welcome","nome","servico","problema","local","telefone","confirmacao"]})
+        replay_path.write_text(patched,encoding="utf-8")
+        overrides.append({"source":source["source"],"source_sha256":digest,"source_git_blob_sha":blob_sha,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only compatibility patch: add nullable placeholder/hint columns and normalize the verified 7/8/9-value tuple shapes","added_columns":["placeholder","hint"],"normalized_rows":stats})
     # Refuse client-side psql commands and file/program execution. Dollar
     # quoted SQL is passed unchanged; no naive statement splitting.
     if re.search(r"(?m)^\s*\\",replay_path.read_text()):

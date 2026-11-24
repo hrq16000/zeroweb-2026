@@ -43,3 +43,20 @@ The source migration remains unchanged. This is a local disposable replay compat
 ## Runner integrity correction
 
 A source review of the updated workflow runner found two editing defects before treating the new run as valid: a duplicate compatibility-write block and a missing newline between consecutive Python here-documents. Both are corrected. The runner now records the single staged override exactly once and keeps the two Python programs syntactically separated. No migration or database was touched.
+
+
+## Full seed-chain diagnosis — six confirmed historical INSERT defects
+
+A static SQL-structure scan covered all 55 funnel seed migrations in the 201-file migration history. Exactly six seed files in the 2026-08-28 batch have the same invalid shape: the declared \`dynamic_form_questions\` INSERT has seven columns, but its tuples contain 7, 8 and 9 values. The schema's generated types confirm nullable \`placeholder\` and \`hint\` columns.
+
+Affected source migrations (all remain byte-identical and hash-locked by Git blob SHA in the disposable runner):
+- Eletrovale Eletromecânica — 8 rows (6×7, 1×8, 1×9)
+- Eletro Soluções Eficazes — 8 rows (6×7, 1×8, 1×9)
+- Eisenfer Tubos e Aços — 8 rows (6×7, 1×8, 1×9)
+- Mary Diarista — 8 rows (6×7, 1×8, 1×9)
+- Açaí Total Araucária — 8 rows (6×7, 1×8, 1×9)
+- JKL Marcenaria — 9 rows (7×7, 1×8, 1×9)
+
+The temporary replay adapter expands the insert to the nine-column schema, adds \`NULL,NULL\` after the label for every 7-value row, adds \`NULL\` for the missing hint in every 8-value confirmation row, and preserves the already-correct 9-value details row. Across all six seeds, 43 rows are normalized and 6 are preserved as-is. It validates the exact Git blob hash, expected column list, tuple count, key format and arity profile before writing only to the disposable staging directory. Any unexpected SQL shape fails closed.
+
+No historical migration, migration timestamp, database schema, remote secret, production data or production RLS policy is changed. The replay remains local-only and does not certify remote production RLS.
