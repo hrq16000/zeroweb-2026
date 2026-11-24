@@ -1,5 +1,15 @@
 # Roadmap
 
+## Estabilização e publicação — rodada autorizada de 24/11/2026
+- [ ] Recuperar os nove workflows existentes da PR #530 e a evidência do logo, sem repetir runs do mesmo SHA.
+- [ ] Identificar a cadeia real de `cloudflare:workers` e consultar o deployment Vercel reprovado.
+- [ ] Corrigir somente a incompatibilidade comprovada, com teste focado e PR isolada; preservar a main e a sincronização.
+- [ ] Homologar no ambiente de publicação, confirmar gates, SHA, READY e host oficial sem alterar DNS ou banco.
+- [ ] Avançar somente na primeira PR de portfólio elegível após restabelecer publicação.
+
+### Backlog consolidado — não executar nesta rodada
+Administração de portfólios; funis/contatos oficiais; leads/Jotform; SEO/blog; métricas reais; preços/cases/comissões; aquisição regional; homologação administrativa em produção. Reutilizar contratos existentes, sem catálogo concorrente, sem novas funcionalidades durante a estabilização e sem SQL/migrações no banco real.
+
 ## Painel, suporte e publicação — pedido de 23/11/2026
 - [x] Leads consolidados com protocolo persistido, status, filtros, paginação e coluna de metadados Jotform (importação pulada).
 - [x] Histórico individual de funil com destino cadastrado e contagem de alertas pendentes/falhos.
