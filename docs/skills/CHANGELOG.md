@@ -1,5 +1,42 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Conferência dos caminhos relacionados RLS/Lighthouse
+
+- Mesmo escopo de preparação e stack de diagnóstico; sem publicação, migração, permissões/settings, agentes, mídia ou redesign.
+- Lidos trechos pertinentes dos 19 produtores/consumidores diretos de lead/history, caminhos dinâmicos, triggers, cron e 12 composições incluindo Blueprint e motion/react.
+- Provas isoladas: ingestão aceita métricas ausentes e TBT=400 como passed; consolidação de LHR real 0,82 gera zero problems. Sem endpoint externo chamado nem relatório inserido no banco.
+- Achados adicionais de planilha/notas, SQL legado, deduplicação e ledger registrados/submetidos a autorização; registros terminais e dados reais preservados. Não declarar esses caminhos homologados por leitura.
+- Evidência em docs/reports/RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md; pendências anteriores de aplicação RLS, runner remoto e medição Lighthouse mantidas.
+
+## 2026-11-24 — Preparação RLS/Lighthouse, sem publicação
+
+- Stack: 0web-skill-router, 0web-skill-discovery como seleção de competências locais, 0web-ui-quality-gates como revisão de performance/evidência; contratos de runtime, grants, roles, privacidade e execução híbrida preservados.
+- Reprodução real: timeout de 5000 ms escondia constraint inválida de visitantes; trigger SECURITY INVOKER sem policy INSERT bloqueia histórico. Corrigidos testes/runner e exigida evidência positiva/negativa; SQL de elevação preparado fora de migrations, não aplicado.
+- Validação: isolamento PASS no backend, sensível FAIL real preservado; 6 testes auxiliares PASS; fixture PostgreSQL descartável PASS e duas mutações detectadas. Suíte 1187 PASS / 1 FAIL. Fixtures sintéticas limpas.
+- Lighthouse: artifacts existentes da #530, 24 LHR/12 páginas; medidos seletores/timings reais, render delay e bytes evitáveis. Corrigido parser de tabelas aninhadas com 6 testes PASS e matriz de remediação própria por cliente; nenhuma página/sistema de motion alterado e nenhum LHCI rerun.
+- Recursos externos de redesign/mídia/novas bibliotecas rejeitados por ausência de revisão visual material. Engine SQL temporária somente em /tmp; nenhuma dependência no app. PostgreSQL nativo bloqueado por usuário de SO, fallback WASM validado; falha inicial de substituição $$ corrigida antes do PASS.
+- Brand/boundaries/diff PASS, harness build OK. MCP/OAuth, agentes, clientes, preços, SEO, banco real e publicação intocados. Evidência: docs/reports/RLS_LIGHTHOUSE_PREPARATION_2026-11-24.md + CSV. Pendentes aplicação autorizada do SQL e homologação de CI/desempenho; nenhuma alegação de segurança geral ou release verde.
+
+## 2026-11-24 — Growth Engine 360°, exclusivamente Rodada 1
+
+- Stack pertinente: 0web-skill-router (docs/diagnóstico), contrato de execução, Git-first, crescimento aditivo e protocolo conservador de fila; regras de isolamento e segurança preservadas.
+- Inventário paginado: 47 PRs, 566 branches, 17 issues sem PR, 27 deployments; catálogo 99 (98 publicados/1 draft), 87 overrides legacy, zero Managed. Não confundir branches/aliases com novos clientes.
+- Descoberta adicional: Relopar implementada em branch exclusiva sem checks/PR de HEAD, além da PR documental. Sete entidades novas fora da main; Dona Garimpeira permanece draft; São Francisco publicado fora do catálogo e Moreira com lifecycle divergente.
+- Evidência reaproveitada, não testes novos: #548 agora gate compartilhado SUCCESS, Draft/mergeable clean e divergente da main; #530 individual SUCCESS, 3 shards atingem 12 outros clientes e 38 diferenças compartilhadas; #539 parcial, Angel Mix 85/90; RLS remoto falha no preflight e difere dos dois FAIL locais históricos.
+- Consultas públicas em GET e metadata administrativa sem PII/contatos; nenhuma edição de código, banco, agentes, DNS, segurança ou publicação. Recursos de redesign/motion/mídia/auditoria nova rejeitados por não pertencerem à Rodada 1; zero dependências instaladas.
+- Validação do inventário: seis páginas de branches completas, PR/issues/deployments sem página seguinte, CSVs sem duplicação de linhas e links dos jobs conferidos. Relatório e snapshots em docs/reports/GROWTH_ENGINE_360_R1_2026-11-24.md. NO-GO para Production; rodadas posteriores não iniciadas.
+
+## 2026-11-24 — Publicação administrativa e correções editoriais autorizadas
+
+- Stack: 0web-skill-router → 0web-skill-discovery → 0web-experience-design-max → 0web-design-system → 0web-ui-quality-gates; contratos de servidor, auth/roles e conexões consultados.
+- Catálogo/marketplaces reavaliados: competências locais cobrem painel tabelar, permissões e QA; novas bibliotecas/efeitos/skills externas são redundantes neste escopo. Documentação original Vercel consultada para criação de token.
+- Direção: ferramenta administrativa densa, seções não enquadradas, Flexbox com wrap para ações, tabela com overflow interno; tokens e componentes existentes. Nenhuma alteração na zona institucional congelada.
+- Painel em `/app/publicacao`: dados reais da main e Vercel via conexões server-side; somente admin/super_admin; seleção e cópia de SHA, checks e histórico sem deploy automático. Respostas projetadas sem chaves, e-mails ou leads.
+- Link de `/sobre` aponta para `/cases`; galeria de redes sociais identifica as fotografias editoriais sem apresentá-las como equipe/sede da 0WEB. Preços, imagens e CTAs preservados.
+- Motion: apenas feedback de consulta com redução de movimento; reveals, parallax, marquee e assinatura cinematográfica não aplicáveis à ferramenta. MCP/OAuth/agentes intocados.
+- Vercel negou criar token (403); reconexão segura concluída, projeto/equipe/histórico HTTP 200. PR #530: gate individual da Doce Coração aprovado; três shards globais falham em outras páginas, não são falhas específicas do novo cliente.
+- Validação final: 14 testes focados PASS; brand/privacy PASS; QA admin autenticado, visitante bloqueado, 390px sem overflow e zero pageerror; link cases e seis imagens/aviso conferidos. Harness build OK. Suíte geral: 1174 PASS / 2 FAIL em RLS existente; não afrouxada. Uma publicação exata 873a1938 terminou ERROR por cloudflare:workers, sem retry. Evidência e continuidade em docs/reports/PUBLICATION_ADMIN_RECONNECTION_2026-11-24.md.
+
 ## 2026-11-23 — Integrações de agentes MCP
 
 - Stack: 0web-skill-router, documentação oficial app-mcp TanStack/OAuth e WebMCP Tools. Referências visuais e marketplaces não aplicáveis: nenhuma revisão de composição.

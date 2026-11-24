@@ -161,8 +161,7 @@ function SobrePage() {
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3 shadow-glow-primary"
                 />
                 <Link
-                  to="/"
-                  hash="cases"
+                  to="/cases"
                   className="inline-flex items-center gap-2 rounded-full glass-dark text-background font-semibold px-6 py-3 hover:bg-background/10"
                 >
                   Ver cases de clientes

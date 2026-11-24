@@ -18,7 +18,7 @@ const DESC =
   "Sua marca ativa todos os dias no Instagram, Facebook, TikTok e LinkedIn. Calendário editorial, design profissional, reels, copywriting e relatórios reais. Planos a partir de R$149,99/mês.";
 const URL = "https://0web.com.br/servicos/gestao-redes-sociais";
 
-// Fotos reais (Unsplash — fotografia profissional, sem IA)
+// Fotografias editoriais ilustrativas do Unsplash; não documentam a equipe 0WEB.
 const HERO_IMG =
   "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1600&q=80";
 const GALLERY = [
@@ -354,16 +354,16 @@ function GestaoRedesSociaisPage() {
         </div>
       </section>
 
-      {/* GALERIA REAL */}
+      {/* GALERIA EDITORIAL ILUSTRATIVA */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">Nosso dia a dia</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">Referências visuais</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              Equipe real, <span className="text-gradient">trabalho real</span>
+              Conteúdo, estratégia e <span className="text-gradient">colaboração</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Fotografia profissional — nada de imagem gerada por IA. É gente cuidando da sua marca.
+              Fotografias ilustrativas do Unsplash. As pessoas e ambientes retratados não representam a equipe, a sede ou trabalhos realizados pela 0WEB.
             </p>
           </div>
 
@@ -379,7 +379,7 @@ function GestaoRedesSociaisPage() {
               >
                 <img
                   src={g.src}
-                  alt={g.alt}
+                  alt={`Fotografia ilustrativa do Unsplash: ${g.alt}. Não retrata a equipe 0WEB.`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"

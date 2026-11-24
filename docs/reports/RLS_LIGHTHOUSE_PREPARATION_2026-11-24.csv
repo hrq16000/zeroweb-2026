@@ -1,0 +1,13 @@
+slug,performance_min,performance_max,lcp_ms_min,lcp_ms_max,render_delay_ms_min,render_delay_ms_max,lcp_selector
+angel-mix-brecho,82,83,2671.84,2724.47,2536.98,2583.26,div.absolute > div.overflow-hidden > div > h1.mt-4
+auto-socorro-dentinho,88,88,1984.8,2007.49,1845.97,1866.95,div.relative > div.max-w-2xl > div > h1.mt-6
+carecas-infotec,88,89,1985.58,1990.16,1848.06,1853.73,div.flex > div.max-w-[46ch] > h1.overflow-hidden > div
+centro-mega,88,89,1857.88,1943.85,1721.82,1802.53,div.grid > div > div > p.mt-7
+dlara-pizzaria,87,88,2076.02,2080,1402.23,1856.67,div.relative > div.overflow-hidden > div > img.relative
+embalar-embalagens,85,87,2281.57,2423.9,1683.48,1948.7,div.mx-auto > div.mt-6 > div.overflow-hidden > img.h-[430px]
+jkl-decor,88,88,2000.2,2054.12,1859.14,1909.17,div.flex > div.max-w-[46ch] > h1.overflow-hidden > div
+mania-de-limpeza,86,89,1938.04,2225.6,1303.1,1986.58,div.mx-auto > div > div > img.aspect-video
+marmitaria-dom-diego,88,89,1934.6,1978.11,1796.35,1836.56,div.mx-auto > div > div > h1.mt-3
+paulo-mestre-de-obras,88,88,1984.49,2009.33,1654.42,1869.21,section#inicio > div.mx-auto > div > img.mx-auto
+refrigeracao-maresia,86,87,2147.42,2178.63,1538.93,1987.92,div.mx-auto > div.overflow-hidden > div > img.relative
+your-brutus-burguer,86,87,2217.27,2288.05,1579.23,1894.33,section.relative > div.relative > div.relative > img.aspect-[1.28]

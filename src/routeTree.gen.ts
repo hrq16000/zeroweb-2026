@@ -197,6 +197,7 @@ import { Route as AuthenticatedAppPortfolioMotionRouteImport } from './routes/_a
 import { Route as AuthenticatedAppPortfolioSeoLocalRouteImport } from './routes/_authenticated/app.portfolio-seo-local'
 import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authenticated/app.profile'
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
+import { Route as AuthenticatedAppPublicacaoRouteImport } from './routes/_authenticated/app.publicacao'
 import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
 import { Route as AuthenticatedAppResultadosRouteImport } from './routes/_authenticated/app.resultados'
@@ -1260,6 +1261,12 @@ const AuthenticatedAppProjectsRoute =
     path: '/projects',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPublicacaoRoute =
+  AuthenticatedAppPublicacaoRouteImport.update({
+    id: '/publicacao',
+    path: '/publicacao',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppRankingLocalRoute =
   AuthenticatedAppRankingLocalRouteImport.update({
     id: '/ranking-local',
@@ -1875,6 +1882,7 @@ export interface FileRoutesByFullPath {
   '/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2134,6 +2142,7 @@ export interface FileRoutesByTo {
   '/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2399,6 +2408,7 @@ export interface FileRoutesById {
   '/_authenticated/app/portfolio-seo-local': typeof AuthenticatedAppPortfolioSeoLocalRoute
   '/_authenticated/app/profile': typeof AuthenticatedAppProfileRoute
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/_authenticated/app/publicacao': typeof AuthenticatedAppPublicacaoRoute
   '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
   '/_authenticated/app/resultados': typeof AuthenticatedAppResultadosRoute
@@ -2664,6 +2674,7 @@ export interface FileRouteTypes {
     | '/app/portfolio-seo-local'
     | '/app/profile'
     | '/app/projects'
+    | '/app/publicacao'
     | '/app/ranking-local'
     | '/app/reports'
     | '/app/resultados'
@@ -2923,6 +2934,7 @@ export interface FileRouteTypes {
     | '/app/portfolio-seo-local'
     | '/app/profile'
     | '/app/projects'
+    | '/app/publicacao'
     | '/app/ranking-local'
     | '/app/reports'
     | '/app/resultados'
@@ -3187,6 +3199,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/portfolio-seo-local'
     | '/_authenticated/app/profile'
     | '/_authenticated/app/projects'
+    | '/_authenticated/app/publicacao'
     | '/_authenticated/app/ranking-local'
     | '/_authenticated/app/reports'
     | '/_authenticated/app/resultados'
@@ -4744,6 +4757,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppProjectsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/publicacao': {
+      id: '/_authenticated/app/publicacao'
+      path: '/publicacao'
+      fullPath: '/app/publicacao'
+      preLoaderRoute: typeof AuthenticatedAppPublicacaoRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/ranking-local': {
       id: '/_authenticated/app/ranking-local'
       path: '/ranking-local'
@@ -5422,6 +5442,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortfolioSeoLocalRoute: typeof AuthenticatedAppPortfolioSeoLocalRoute
   AuthenticatedAppProfileRoute: typeof AuthenticatedAppProfileRoute
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
+  AuthenticatedAppPublicacaoRoute: typeof AuthenticatedAppPublicacaoRoute
   AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
   AuthenticatedAppResultadosRoute: typeof AuthenticatedAppResultadosRoute
@@ -5500,6 +5521,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppPortfolioSeoLocalRoute,
   AuthenticatedAppProfileRoute: AuthenticatedAppProfileRoute,
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
+  AuthenticatedAppPublicacaoRoute: AuthenticatedAppPublicacaoRoute,
   AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
   AuthenticatedAppResultadosRoute: AuthenticatedAppResultadosRoute,

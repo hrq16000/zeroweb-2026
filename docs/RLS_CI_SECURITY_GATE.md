@@ -35,8 +35,40 @@ repositório. O segredo que não pode ser versionado é:
 
 `SUPABASE_SERVICE_ROLE_KEY`
 
-Ele deve existir em GitHub repository/environment secrets. Nunca deve ser
-gravado em `.env`, source code, logs, artefatos ou documentação.
+O workflow legado só pode utilizar essa credencial se ela já estiver disponível
+por um meio autorizado. **Lovable Cloud não fornece essa chave ao proprietário**;
+não pedir que ele a obtenha, não fabricar um valor e não trocar de backend.
+Nunca gravar credenciais em `.env`, source code, logs, artefatos ou documentação.
+
+Enquanto o runner não tiver autorização suficiente, manter
+`BLOCKED_MISSING_SECRET`. Uma execução no ambiente autorizado do Lovable Cloud
+com fixtures sintéticas fornece evidência local, mas **não substitui** o gate
+remoto. Adequar o gate a um método autorizado de sessão/fixtures é uma frente
+separada: requer provisionamento seguro no runner, dois sujeitos sem privilégios
+globais e um administrador de teste; nunca expor um endpoint público de testes,
+reaproveitar contas reais sem aprovação ou desabilitar o preflight.
+
+## Preparação de 24/11/2026 — não aplicada ao banco
+
+- Os testes agora usam `bun test`, limite de 180 s para a sequência completa e
+  cancelamento por requisição após 10 s. O isolamento exige leitura positiva do
+  próprio lead e negativa entre portais; falhas de rede/FK não contam como PASS.
+- `visitantes_rastreio` usa INSERT com hashes sintéticos únicos; o índice real
+  inclui `COALESCE(path, '')`, não é a chave `(ip_hash, day)` assumida pelo teste.
+- `docs/rls/lead-history-trigger-candidate.sql` prepara somente a elevação do
+  trigger de histórico, search_path seguro e revogação de EXECUTE público; não
+  cria permissões diretas para ler/forjar histórico nem modifica o corpo/roles.
+- `tests/rls/lead-history-trigger.fixture.sql` é **exclusivamente para banco local
+  descartável**. Não executá-lo no backend: ele reproduz a falha antes do ajuste
+  e verifica persistência, histórico único e negativas de leitura/forja depois.
+  Substituir somente a linha `-- APPLY_CANDIDATE` pelo candidato, usando função
+  de substituição (não string de replacement, que corrompe os delimitadores $$).
+- O script histórico `tests/rls/portal_isolation.sql` não é a via de homologação
+  desta preparação: contém DROP de FK e captura `OR others` que pode mascarar
+  sucesso de escrita indevida. Não executado; usar os testes TypeScript corrigidos.
+
+Evidência e condições para promoção do SQL em
+`docs/reports/RLS_LIGHTHOUSE_PREPARATION_2026-11-24.md`.
 
 ## Semântica de status
 
