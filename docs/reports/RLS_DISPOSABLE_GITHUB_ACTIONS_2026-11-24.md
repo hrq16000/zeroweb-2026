@@ -11,10 +11,12 @@ Run 45437254362: native fixtures PASS again; 210 staged byte-identical, local CL
 
 ## Round 2.4 — precise disposable replay blocker
 
+The first hash guard intentionally failed closed because the hand-reconstructed expected digest did not match the staged file. The artifact's SHA-256 is authoritative; the guard now uses the exact staged digest `87e1e3779ca9be580654cc994f3fbefd2757c7e16b8cbd562346c686ceed73ab`.
+
 Run 45439022801 / job 138604639044 stopped at staged source `supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql`, line 5, SQLSTATE 42601. The INSERT declared seven columns but supplied nine values. The two additional values are the intended `placeholder` and `hint`; the generated database types confirm both columns exist.
 
 The historical migration remains byte-identical. The disposable runner now applies a single hash-locked, temporary compatibility patch to the staged copy only:
-- source SHA-256: `c6719327b862ed6573c8e07ecd876a27bb182865c93185c68d4f0d3d625ca3af`;
+- source SHA-256: `87e1e3779ca9be580654cc994f3fbefd2757c7e16b8cbd562346c686ceed73ab`;
 - add `placeholder,hint` to the INSERT column list;
 - record source/replay hashes and the reason in `rls-replay-result.json`.
 

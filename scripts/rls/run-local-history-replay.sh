@@ -69,7 +69,7 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         raise SystemExit("BLOCKED_STAGED_HASH_MISMATCH: "+p.name)
     replay_path=p
     if source.get("source")=="supabase/migrations/20260828083427_seed_eletrovale_eletromecanica_funnel.sql":
-        expected="c6719327b862ed6573c8e07ecd876a27bb182865c93185c68d4f0d3d625ca3af"
+        expected="87e1e3779ca9be580654cc994f3fbefd2757c7e16b8cbd562346c686ceed73ab"
         if digest!=expected:
             report("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH",{"file":p.name,"source":source["source"],"sha256":digest})
             raise SystemExit("BLOCKED_LOCAL_OVERRIDE_HASH_MISMATCH: "+p.name)
