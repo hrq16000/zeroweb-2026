@@ -1,0 +1,44 @@
+name: Lighthouse receiver authentication preflight
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/lhci-receiver-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Non-persisting signed malformed JSON probe
+        env:
+          LHCI_HMAC_SECRET: ${{ secrets.LHCI_HMAC_SECRET }}
+        run: |
+          node --input-type=module <<'JS'
+          import { createHmac } from 'node:crypto';
+          const secret=process.env.LHCI_HMAC_SECRET;
+          if (!secret) { console.error('BLOCKED_MISSING_SECRET'); process.exit(1); }
+          const url='https://0web.com.br/api/public/hooks/lhci-ingest';
+          // Both deployed and candidate receivers parse JSON only after authentication.
+          // Malformed JSON cannot pass schema validation or create a database receipt.
+          const body='{';
+          const valid='sha256='+createHmac('sha256',secret).update(body).digest('hex');
+          const invalid='sha256='+createHmac('sha256',secret).update(body+'x').digest('hex');
+          async function probe(signature) {
+            const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','X-Signature':signature},body,redirect:'manual',signal:AbortSignal.timeout(15000)});
+            // Never print signature, headers, body, or credential.
+            await response.body?.cancel();
+            return response.status;
+          }
+          const rejected=await probe(invalid);
+          const accepted=await probe(valid);
+          console.log('Invalid signature HTTP '+rejected+'; valid signature, malformed JSON HTTP '+accepted);
+          if (rejected!==401 || accepted!==400) {
+            console.error(accepted===401 ? 'BLOCKED_RECEIVER_AUTH_MISMATCH_OR_LEGACY_ORIGIN' : 'BLOCKED_RECEIVER_CONTRACT');
+            process.exit(1);
+          }
+          console.log('PASS_RECEIVER_AUTH_ONLY; no receipt persisted, no performance assertion.');
+          JS
