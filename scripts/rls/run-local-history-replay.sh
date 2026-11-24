@@ -185,6 +185,11 @@ DISPOSABLE_SEED_OVERRIDES={
     "supabase/migrations/20260828085941_seed_mary_diarista_funnel.sql":{"blob_sha":"b9abb73004e59d4e4dc5a5a8b738823888ebd48c","rows":8,"arities":{7:6,8:1,9:1}},
     "supabase/migrations/20260828090817_seed_acai_total_araucaria_funnel.sql":{"blob_sha":"ff6b8425b67cc09e8f1f4f8f5995d4cbff242ee6","rows":8,"arities":{7:6,8:1,9:1}},
     "supabase/migrations/20260828091600_seed_jkl_marcenaria_funnel.sql":{"blob_sha":"e8d13f96ded1a49d1ec801f9241fbcbc3b9819ee","rows":9,"arities":{7:7,8:1,9:1}},
+    "supabase/migrations/20260901194230_seed_ton_e_cor_funnel.sql":{"blob_sha":"6385195058b66581494c9d2d04a83805a1f88375","kind":"legacy_step_order_seed","column_lists":4},
+    "supabase/migrations/20260901200424_seed_raphael_construcoes_funnel.sql":{"blob_sha":"fe3f3efe5b7ad707bc2cf960983bdcdd0e5c7804","kind":"legacy_step_order_seed","column_lists":4},
+    "supabase/migrations/20260902004904_seed_jc_revestimentos_funnel.sql":{"blob_sha":"901be15ede8c1c27d0ece0f1990dc759a850dd5a","kind":"legacy_step_order_seed","column_lists":4},
+    "supabase/migrations/20260906190903_seed_mania_de_limpeza_funnel.sql":{"blob_sha":"6f582f719f6f4bbd54dcc690dab82389bd5e51fb","kind":"legacy_dynamic_form_id_seed"},
+    "supabase/migrations/20260906194009_seed_dona_lucy_salgados_funnel.sql":{"blob_sha":"4123146537ada970b7259888da0953be4548043f","kind":"legacy_dynamic_form_id_seed"},
 }
 # Validate that the CLI actually exposed a clean local database, not a
 # pre-populated schema. Never change a remote or pre-existing instance.
@@ -209,11 +214,37 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
             report("BLOCKED_LOCAL_OVERRIDE_GIT_BLOB_MISMATCH",{"file":p.name,"source":source["source"],"blob_sha":blob_sha})
             raise SystemExit("BLOCKED_LOCAL_OVERRIDE_GIT_BLOB_MISMATCH: "+p.name)
         original=original_bytes.decode("utf-8")
-        patched,stats=normalize_dynamic_form_question_seed(
-            original,
-            expected_rows=override_spec["rows"],
-            expected_arities=override_spec["arities"],
-        )
+        if override_spec.get("kind")=="legacy_step_order_seed":
+            old_columns="form_id, step_order, question_key, question_text, question_type, options, is_required"
+            new_columns="form_id, order_index, key, label, type, options_json, required"
+            count=original.count(old_columns)
+            if count!=override_spec.get("column_lists"):
+                report("BLOCKED_LOCAL_LEGACY_STEP_COLUMN_COUNT",{"file":p.name,"expected":override_spec.get("column_lists"),"actual":count})
+                raise SystemExit("BLOCKED_LOCAL_LEGACY_STEP_COLUMN_COUNT")
+            patched=original.replace(old_columns,new_columns)
+            stats={"legacy_column_lists":count,"mapping":"step_order/question_key/question_text/question_type/options/is_required -> order_index/key/label/type/options_json/required"}
+        elif override_spec.get("kind")=="legacy_dynamic_form_id_seed":
+            patched=original
+            replacements=[
+                (r"\\bdynamic_form_id\\b","form_id",3),
+                (r"\\bposition\\b","order_index",1),
+                (r"\\bquestion_key\\b","key",1),
+                (r"\\boptions\\b","options_json",1),
+            ]
+            stats={}
+            for pattern,replacement,expected_count in replacements:
+                patched,count=re.subn(pattern,replacement,patched,flags=re.I)
+                if count!=expected_count:
+                    report("BLOCKED_LOCAL_LEGACY_FORM_COLUMN_COUNT",{"file":p.name,"pattern":pattern,"expected":expected_count,"actual":count})
+                    raise SystemExit("BLOCKED_LOCAL_LEGACY_FORM_COLUMN_COUNT")
+                stats[pattern]=count
+            stats["mapping"]="dynamic_form_id/position/question_key/options -> form_id/order_index/key/options_json"
+        else:
+            patched,stats=normalize_dynamic_form_question_seed(
+                original,
+                expected_rows=override_spec["rows"],
+                expected_arities=override_spec["arities"],
+            )
         override_dir=pathlib.Path(sys.argv[2]).parent/"overrides"
         override_dir.mkdir(parents=True,exist_ok=True)
         replay_path=override_dir/p.name

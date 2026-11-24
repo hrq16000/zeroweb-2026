@@ -60,3 +60,14 @@ Affected source migrations (all remain byte-identical and hash-locked by Git blo
 The temporary replay adapter expands the insert to the nine-column schema, adds \`NULL,NULL\` after the label for every 7-value row, adds \`NULL\` for the missing hint in every 8-value confirmation row, and preserves the already-correct 9-value details row. Across all six seeds, 43 rows are normalized and 6 are preserved as-is. It validates the exact Git blob hash, expected column list, tuple count, key format and arity profile before writing only to the disposable staging directory. Any unexpected SQL shape fails closed.
 
 No historical migration, migration timestamp, database schema, remote secret, production data or production RLS policy is changed. The replay remains local-only and does not certify remote production RLS.
+
+
+## Round 2.5 — hash-locked legacy question-column replay compatibility
+
+The local replay passed the Eletrovale mixed-tuple migration and advanced to `20260901194230_seed_ton_e_cor_funnel.sql`, where PostgreSQL returned SQLSTATE 42703 on the legacy question columns. The generated database types in this same commit identify the current canonical columns as `form_id`, `key`, `type`, `label`, `options_json`, `order_index`, and `required`.
+
+The disposable-only runner now adds five exact Git-blob-locked compatibility shims:
+- Ton & Cor, Raphael Construções, and JC Revestimentos: maps the four legacy `INSERT ... SELECT` column lists from `step_order/question_key/question_text/question_type/options/is_required` to the canonical question columns.
+- Mania de Limpeza and Dona Lucy Salgados: maps the old `dynamic_form_id/position/question_key/options` names to `form_id/order_index/key/options_json`, including the corresponding deletes against `dynamic_form_conditions`.
+
+Each shim validates the original Git blob and the exact expected replacement counts. It writes only under the temporary replay directory; the source migration files and any real database remain untouched. This is replay compatibility evidence, not a production migration repair or a production schema certification.
