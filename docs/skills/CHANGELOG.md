@@ -1,5 +1,16 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Publicação administrativa e correções editoriais autorizadas
+
+- Stack: 0web-skill-router → 0web-skill-discovery → 0web-experience-design-max → 0web-design-system → 0web-ui-quality-gates; contratos de servidor, auth/roles e conexões consultados.
+- Catálogo/marketplaces reavaliados: competências locais cobrem painel tabelar, permissões e QA; novas bibliotecas/efeitos/skills externas são redundantes neste escopo. Documentação original Vercel consultada para criação de token.
+- Direção: ferramenta administrativa densa, seções não enquadradas, Flexbox com wrap para ações, tabela com overflow interno; tokens e componentes existentes. Nenhuma alteração na zona institucional congelada.
+- Painel em `/app/publicacao`: dados reais da main e Vercel via conexões server-side; somente admin/super_admin; seleção e cópia de SHA, checks e histórico sem deploy automático. Respostas projetadas sem chaves, e-mails ou leads.
+- Link de `/sobre` aponta para `/cases`; galeria de redes sociais identifica as fotografias editoriais sem apresentá-las como equipe/sede da 0WEB. Preços, imagens e CTAs preservados.
+- Motion: apenas feedback de consulta com redução de movimento; reveals, parallax, marquee e assinatura cinematográfica não aplicáveis à ferramenta. MCP/OAuth/agentes intocados.
+- Vercel negou criar token (403); reconexão segura requer credencial da conta autorizada. PR #530: gate individual da Doce Coração aprovado; três shards globais falham em outras páginas, não são falhas específicas do novo cliente.
+- Validação: testes de isolamento/permissões e QA autenticado em andamento; nenhuma publicação comprovada nesta etapa.
+
 ## 2026-11-23 — Integrações de agentes MCP
 
 - Stack: 0web-skill-router, documentação oficial app-mcp TanStack/OAuth e WebMCP Tools. Referências visuais e marketplaces não aplicáveis: nenhuma revisão de composição.

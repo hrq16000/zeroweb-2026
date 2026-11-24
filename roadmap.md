@@ -5,7 +5,7 @@
 - [ ] Publicar exatamente 873a1938 após acesso liberado e gates comprovados; não incluir correções posteriores nesse SHA.
 - [ ] Corrigir link de cases e identificação de fotos ilustrativas em nova alteração incremental; validar e publicar somente após reconexão.
 - [ ] Consultar HEAD/checks/logs atuais da PR #530 e corrigir somente falhas Lighthouse comprovadas, sem reduzir gates ou desativar MCP.
-- [ ] Página administrativa de publicação: aguarda esclarecer autorização, pois uma página nova exige alteração de código.
+- [ ] Página administrativa autorizada às 05:10 UTC: seleção de commits reais da main, checks e estado Vercel, somente leitura; validar acesso administrativo e interface.
 
 ## Recuperação definitiva — continuidade híbrida autorizada às 04:01 UTC de 24/11/2026
 - [x] Reconciliar referências: main 747c1f9b, #548 9d496e16, #547 b8b25830 e #530 6cf27155; inventário de PRs recuperado sem repetir workflows.
