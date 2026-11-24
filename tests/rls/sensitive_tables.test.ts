@@ -131,7 +131,7 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
       .eq("id", catalogId)
       .select("id");
     check(
-      Boolean(userWrite.error) || (userWrite.data ?? []).length === 0,
+      userWrite.error ? userWrite.error.code === "42501" : (userWrite.data ?? []).length === 0,
       "usuário comum NÃO escreve em service_catalog",
       "usuário comum escreveu em service_catalog",
     );

@@ -1,0 +1,47 @@
+name: RLS disposable history and native fixtures
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/rls-disposable-history.yml'
+      - 'scripts/rls/**'
+      - 'tests/rls/**'
+      - 'drizzle/migrations/**'
+      - 'supabase/migrations/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Native PostgreSQL, no network or real credentials
+        run: bash scripts/rls/run-native-disposable-fixtures.sh
+  replay-local:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Install frozen dependencies
+        run: bun install --frozen-lockfile
+      - name: Stage history and run local Supabase RLS
+        run: bash scripts/rls/run-local-history-replay.sh
+      - name: Archive non-secret migration plan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: disposable-rls-history-plan
+          path: ${{ runner.temp }}/rls-history-plan.json
+          if-no-files-found: warn
