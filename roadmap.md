@@ -1,5 +1,12 @@
 # Roadmap
 
+## Growth Engine 360° — Rodada 1 autorizada em 24/11/2026 às 05:37 UTC
+- [x] Reconciliar main/PRs/branches/issues, workflows e Vercel reais: main 66a30f7d, 47 PRs (18 Draft), 566 branches, 17 issues sem PR, 27 deployments; preservar todos os deltas, sem fetch/merge/deploy.
+- [x] Inventariar 7 novas entidades fora da main + Dona Garimpeira draft; descobrir implementação Relopar 14288e4f fora da PR de pesquisa. Moreira/São Francisco são reconciliações de existentes, não sites novos; 87 overrides legacy e zero Managed.
+- [x] Confirmar bloqueios atuais: #548 agora 7 PASS/2 SKIP e mergeable clean, mas Draft/divergente (3 exclusivos/5 atrás); #530 individual PASS, 12 outras páginas nos 3 shards e 38 diferenças globais; #539 parcial (Angel Mix 85/90); RLS remoto bloqueado no preflight, sem repetir testes.
+- [x] Relatório GROWTH_ENGINE_360_R1_2026-11-24.md + CSVs completos; NO-GO, main ainda com gates em andamento. Build/RLS/Lighthouse pesados encaminhados ao GitHub/Codex; zero mudança de aplicação/publicação nesta rodada.
+Rodadas 2–4 (ordenação, evolução do painel, recuperação e publicação) não autorizadas automaticamente nesta execução; nenhuma implementação ou deployment dessas frentes.
+
 ## Reconexão, publicação e correções — pedido de 24/11/2026 às 04:58 UTC
 - [x] Acesso Vercel restaurado por reconexão segura: projeto/equipe exatos e histórico HTTP 200; tentativa de criar token via credencial anterior foi recusada 403, não gerou token.
 - [ ] Publicação exata 873a1938 falhou: dpl_2p37yyDbFFFhbKw55y2hWv11QFBX, ERROR/module_not_found, aliasAssigned=false; logs finais confirmam cloudflare:workers. Bloqueio: adaptar esse runtime via #548, ainda não integrada; não alterar SHA documental nem repetir deploy. Último Production READY: 58032d30, dpl_FcL5kPsArmdCToF47oCzeRu61GGA.
@@ -14,7 +21,7 @@
 - [x] Revisar a correção nova do Codex na #548: adaptador auditado do leitor de ambiente preserva transporte/OAuth, sem 404/503 ou mocks; descrição da PR atualizada.
 - [x] Validar CI equivalente Vercel existente: Node 24.22.3/Bun 1.4.0, build completo, output e três testes reais PASS; conferência isolada Node 22.23.5 e guardas do adaptador PASS.
 - [x] Recuperar acesso Vercel: reconexão segura concluída; projeto/equipe/histórico HTTP 200 em 24/11/2026. IDs e último READY confirmados no relatório de publicação administrativa.
-- [ ] Concluir gates e integrar/publicar #548: compatibilidade aprovada, gate compartilhado ainda exige revisão; acesso Vercel e rollback recuperados. Nenhum merge/deploy da candidata iniciado; publicação exata 873a1938 falhou por cloudflare:workers.
+- [ ] Integrar/publicar #548 na rodada autorizada: compatibilidade e gate compartilhado PASS em 9d496e16; main tem cinco commits posteriores, candidatos devem ser reconciliados e RLS/publicação continuam pendentes. Nenhum merge/deploy da candidata iniciado.
 - [ ] Avançar na primeira candidata após infraestrutura: #530 atual em homologação; BPL/Fran/Marli têm checks reprovados nos HEADs consultados.
 - [x] Registrar handoff em docs/reports/VERCEL_MCP_RECOVERY_HANDOFF_2026-11-24.md; 747c1f9b é documental, sem correções de cases/fotos.
 
@@ -24,7 +31,7 @@
 - [x] Registrar checkpoint na PR #548 e em `docs/reports/PUBLICATION_HYBRID_CHECKPOINT_2026-11-24.md`; preservar trabalho Codex sem duplicar #547/#548.
 - [x] Obter logs/configuração Vercel: após reconexão, logs HTTP 200 confirmam cloudflare:workers como causa da falha histórica 45ea4abe; correção #548 continua não integrada.
 - [x] Correção MCP evoluiu na #548: o estado 503 histórico foi substituído por adaptação Node auditada; validação funcional/compilação Vercel PASS, ainda sem integração.
-- [ ] Homologar/publicar: compatibilidade da candidata confirmada no CI, gate compartilhado pendente; acesso Vercel liberado, publicação 873a1938 ERROR. Integrar correção somente após gates, sem reescrever histórico.
+- [ ] Homologar/publicar na rodada própria: compatibilidade e gate compartilhado da #548 PASS; acesso Vercel liberado, publicação 873a1938 ERROR. Reconciliar main e gates de release, sem reescrever histórico.
 - [ ] Avançar na primeira candidata: #530 tem novo HEAD 6cf27155 e homologação em andamento; as três falhas Lighthouse/46 diferenças pertencem à rodada anterior, não inferir estado atual.
 
 ### Backlog consolidado — não executar nesta rodada

@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Growth Engine 360°, exclusivamente Rodada 1
+
+- Stack pertinente: 0web-skill-router (docs/diagnóstico), contrato de execução, Git-first, crescimento aditivo e protocolo conservador de fila; regras de isolamento e segurança preservadas.
+- Inventário paginado: 47 PRs, 566 branches, 17 issues sem PR, 27 deployments; catálogo 99 (98 publicados/1 draft), 87 overrides legacy, zero Managed. Não confundir branches/aliases com novos clientes.
+- Descoberta adicional: Relopar implementada em branch exclusiva sem checks/PR de HEAD, além da PR documental. Sete entidades novas fora da main; Dona Garimpeira permanece draft; São Francisco publicado fora do catálogo e Moreira com lifecycle divergente.
+- Evidência reaproveitada, não testes novos: #548 agora gate compartilhado SUCCESS, Draft/mergeable clean e divergente da main; #530 individual SUCCESS, 3 shards atingem 12 outros clientes e 38 diferenças compartilhadas; #539 parcial, Angel Mix 85/90; RLS remoto falha no preflight e difere dos dois FAIL locais históricos.
+- Consultas públicas em GET e metadata administrativa sem PII/contatos; nenhuma edição de código, banco, agentes, DNS, segurança ou publicação. Recursos de redesign/motion/mídia/auditoria nova rejeitados por não pertencerem à Rodada 1; zero dependências instaladas.
+- Validação do inventário: seis páginas de branches completas, PR/issues/deployments sem página seguinte, CSVs sem duplicação de linhas e links dos jobs conferidos. Relatório e snapshots em docs/reports/GROWTH_ENGINE_360_R1_2026-11-24.md. NO-GO para Production; rodadas posteriores não iniciadas.
+
 ## 2026-11-24 — Publicação administrativa e correções editoriais autorizadas
 
 - Stack: 0web-skill-router → 0web-skill-discovery → 0web-experience-design-max → 0web-design-system → 0web-ui-quality-gates; contratos de servidor, auth/roles e conexões consultados.
