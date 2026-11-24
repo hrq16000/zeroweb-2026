@@ -1764,3 +1764,13 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** bolos personalizados, kit festa, salgados, Copo da Felicidade, faixa de kits 6–100 pessoas, crédito/débito, retirada no Rio Bonito, Uber a combinar e funil.
 - **Operação:** a micro pode ser validada em PR, mas o merge fica condicionado à normalização do build-rate-limit do Vercel para evitar ampliar divergência entre main e produção.
 
+
+
+# 2026-11-24 — 0WEB shared performance correction
+
+- **Scope:** PR #552, initial route loading and 404-only module graph.
+- **Skill:** `react-best-practices` (`APPROVED_GLOBAL`, Vercel Labs/agent-skills); applied `bundle-dynamic-imports`, `bundle-conditional`, and `rendering-hydration-no-flicker`.
+- **Evidence:** existing Lighthouse artifacts showed only 6.7 kB mean script-transfer reduction from the first FunnelRunner split, while the global RouteLoader eagerly fetched the 149.7 kB institutional logo and root statically imported 404-only Header/Footer.
+- **Change:** suppress initial full-screen loader/logo while preserving client-navigation progress/overlay; defer 404-only Header/Footer modules.
+- **Safety:** no BrandLogo/header/footer source, logo pixels, CSS, client page, funnel persistence, CRM, database or production data changed; no dependency added.
+- **QA:** focused unit/source-contract tests plus existing build, hydration, visual, funnel and Lighthouse gates on the updated PR HEAD.

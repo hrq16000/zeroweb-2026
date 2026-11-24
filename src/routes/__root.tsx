@@ -8,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 import { ArrowRight, Globe, Megaphone, Search, Bot } from "lucide-react";
 
 import appCss from "../styles.css?url";
@@ -21,13 +21,17 @@ import { ErrorState } from "../components/site/ErrorState";
 import { RouteLoader } from "../components/site/RouteLoader";
 import { CartDrawer } from "../components/site/CartDrawer";
 import { AuthErrorGuard } from "../components/site/AuthErrorGuard";
-import { Header } from "../components/site/Header";
-import { Footer } from "../components/site/Footer";
+
+
 import { Toaster } from "../components/ui/sonner";
 import { SpacingDebugOverlay } from "../components/site/SpacingDebugOverlay";
 import { logNotFound } from "../lib/route-404.functions";
 import { HYDRATION_GUARD_SCRIPT } from "@/lib/hydration-guard";
 import { FUNNEL_EARLY_CLICK_SCRIPT } from "@/lib/funnel-early-click";
+
+// 404 chrome is not needed on successful routes; keep its modules out of the shared entry chunk.
+const Header = lazy(() => import("../components/site/Header").then(({ Header }) => ({ default: Header })));
+const Footer = lazy(() => import("../components/site/Footer").then(({ Footer }) => ({ default: Footer })));
 
 const NOT_FOUND_SERVICES: Array<{ slug: string; name: string; desc: string; Icon: typeof Globe }> = [
   { slug: "criacao-de-sites", name: "Criação de Sites", desc: "Sites profissionais, rápidos e prontos para converter.", Icon: Globe },
@@ -58,7 +62,7 @@ function NotFoundComponent() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Header />
+      <Suspense fallback={null}><Header /></Suspense>
       <main className="flex-1 pt-32 lg:pt-40 pb-20">
         <div className="mx-auto max-w-5xl px-5 lg:px-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Erro 404</p>
@@ -105,7 +109,7 @@ function NotFoundComponent() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Suspense fallback={null}><Footer /></Suspense>
     </div>
   );
 }
