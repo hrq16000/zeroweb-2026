@@ -1,5 +1,10 @@
 # Roadmap
 
+## Inspeção final e transferência para Codex — 24/11/2026 às 14:54 UTC
+- [x] Reconciliar HEAD eecb2829 local/remoto: 3019 arquivos idênticos/zero exclusivos; 47 PRs/566 branches preservadas, Vercel READY 58032d30 e ERROR 873a1938. Sem merge/publicação/SQL/testes repetidos.
+- [x] Inventário nominal: 99 cards/99 sitemap leafs, 100 entidades 200 + alias JKL; sete novas rotas 404 e uma reativação draft. Ordenação por array/geo/relevância e busca truncada comprovadas, sem editar aplicação.
+- [x] Consolidar 34 frentes/17 issues e autonomia parcial em docs/handoff/LOVABLE-TO-CODEX.md; prompt P0 preparado. Branch documental isolada recusada HTTP 403 OAuth App; nenhum bypass. Código já sincronizado; documento salvo pelo Git da plataforma e confirmação final registrada no fechamento.
+
 ## Automação Lighthouse, CRM e publicação — 24/11/2026 às 14:19 UTC
 - [x] Chave LHCI_HMAC_SECRET salva no projeto; usuário confirmou às 14:32 UTC que salvou o mesmo valor no GitHub Actions. Não expor/verificar valor; validar pelo envio assinado.
 - [x] Implementar receptor HMAC-only, limite real de 64 KiB, idempotência e envio de todos os relatórios no workflow. Medição pública real Dlara 92/100/100 recebida no banco e relida no painel; unsigned 401/retry sem duplicação PASS. Proveniência lighthouse-cli, não fingir GitHub Actions.
