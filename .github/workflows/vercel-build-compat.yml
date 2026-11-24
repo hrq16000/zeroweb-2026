@@ -1,0 +1,42 @@
+name: Vercel build compatibility
+
+on:
+  pull_request:
+    paths:
+      - 'vite.config.ts'
+      - 'plugins/vite-plugin-vercel-mcp.ts'
+      - 'src/routes/mcp.ts'
+      - 'src/routes/[.well-known]/oauth-protected-resource.ts'
+      - 'src/lib/mcp/**'
+      - 'package.json'
+      - 'bun.lock'
+      - '.github/workflows/vercel-build-compat.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-build-compat-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vercel-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      VERCEL: '1'
+      NITRO_PRESET: vercel
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install frozen dependencies
+        run: bun install --frozen-lockfile
+      - name: Compile production for the Vercel preset
+        run: bun run build
+      - name: Confirm Vercel build output
+        run: test -f .vercel/output/config.json
