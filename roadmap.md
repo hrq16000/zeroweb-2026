@@ -1,5 +1,12 @@
 # Roadmap
 
+## Conferência dos caminhos relacionados — complemento RLS/Lighthouse
+- [x] Conferir 19 caminhos diretos de leads/histórico, entradas dinâmicas, planilha, automações, 12 composições Lighthouse e relatórios/decisões alternativas.
+- [x] Registrar conformidade por trechos lidos e reproduzir em isolamento ingestão sem métricas/TBT ignorado e consolidação que omite reprovação; nenhum dado ou configuração alterado.
+- [x] Documentar complementos em RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md; preservar registros encerrados, permissões, exemplos e agentes, sem publicar.
+- [ ] Preparar correções adicionais de ingestão/painel Lighthouse, planilha/notas CRM e teste SQL legado: aguarda escolha do usuário na pergunta aberta.
+- [ ] Preparar proteção da deduplicação/ledger para encerrados e separação de clientes: aguarda autorização na pergunta aberta, sem aplicar SQL.
+
 ## RLS e Lighthouse — preparação autorizada em 24/11/2026 às 06:00 UTC
 - [x] Reproduzir os dois testes RLS e conferir metadata: timeout de 5 s escondia constraint inválida em visitantes e INSERT de histórico negado; nenhum scanner novo.
 - [x] Corrigir testes/runner com requisições limitadas e asserts positivos/negativos; isolamento real PASS. Preparar SQL fora de migrations: fixture PostgreSQL local + mutações PASS, sem aplicar no backend.

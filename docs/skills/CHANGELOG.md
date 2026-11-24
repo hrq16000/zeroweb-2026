@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Conferência dos caminhos relacionados RLS/Lighthouse
+
+- Mesmo escopo de preparação e stack de diagnóstico; sem publicação, migração, permissões/settings, agentes, mídia ou redesign.
+- Lidos trechos pertinentes dos 19 produtores/consumidores diretos de lead/history, caminhos dinâmicos, triggers, cron e 12 composições incluindo Blueprint e motion/react.
+- Provas isoladas: ingestão aceita métricas ausentes e TBT=400 como passed; consolidação de LHR real 0,82 gera zero problems. Sem endpoint externo chamado nem relatório inserido no banco.
+- Achados adicionais de planilha/notas, SQL legado, deduplicação e ledger registrados/submetidos a autorização; registros terminais e dados reais preservados. Não declarar esses caminhos homologados por leitura.
+- Evidência em docs/reports/RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md; pendências anteriores de aplicação RLS, runner remoto e medição Lighthouse mantidas.
+
 ## 2026-11-24 — Preparação RLS/Lighthouse, sem publicação
 
 - Stack: 0web-skill-router, 0web-skill-discovery como seleção de competências locais, 0web-ui-quality-gates como revisão de performance/evidência; contratos de runtime, grants, roles, privacidade e execução híbrida preservados.

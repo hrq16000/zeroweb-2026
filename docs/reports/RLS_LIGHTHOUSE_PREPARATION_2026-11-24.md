@@ -160,3 +160,7 @@ O diagnóstico melhorado foi rodado sobre os 24 LHR já existentes.
 
 Entrega Git de preparação, não release. As pendências antigas de publicação,
 Doce Coração, outros clientes e integrações continuam fora desta rodada.
+
+Complemento: [conferência dos caminhos relacionados](RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md)
+registra produtores/consumidores, composições alternativas e defeitos adicionais
+submetidos à autorização, sem alterar o comportamento de produção.
