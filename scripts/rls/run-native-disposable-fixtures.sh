@@ -10,9 +10,9 @@ import pathlib,sys
 root, out = map(pathlib.Path, sys.argv[1:])
 def read(p): return (root/p).read_text()
 def embed(f, marker, sql, name):
-    fixture=read(f)
-    assert fixture.count(marker)==1, f"missing marker {marker}"
-    (out/name).write_text(fixture.replace(marker,sql))
+    lines=read(f).splitlines(keepends=True)
+    assert sum(line.strip()==marker for line in lines)==1, f"missing or ambiguous standalone marker {marker}"
+    (out/name).write_text("".join(sql.rstrip()+"\n" if line.strip()==marker else line for line in lines))
 embed("tests/rls/portal-isolation.fixture.sql","-- RUN_LEGACY_TEST",read("tests/rls/portal_isolation.sql"),"portal.sql")
 embed("tests/rls/lead-history-trigger.fixture.sql","-- APPLY_CANDIDATE",read("drizzle/migrations/0008_fix_lead_history_trigger_access.sql"),"trigger.sql")
 migration=read("drizzle/migrations/0009_crm_atomic_history_and_lighthouse_receipts.sql")

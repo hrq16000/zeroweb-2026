@@ -3,10 +3,11 @@ set -euo pipefail
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 scratch="$(mktemp -d "$RUNNER_TEMP/0web-rls.XXXXXX")"
 mkdir -p "$scratch/home"
+python3 "$root/scripts/rls/stage-disposable-history.py" "$scratch/staged" "$RUNNER_TEMP/rls-history-plan.json" "$RUNNER_TEMP"
 cli="$scratch/supabase"
 # Download a pinned official release, verify the GitHub asset digest before executing.
-curl --fail --silent --show-error --location https://github.com/supabase/cli/releases/download/v3.4.0/supabase_3.4.0_linux_amd64.tar.gz -o "$scratch/cli.tar.gz"
-printf '%s  %s\n' d82f8fc8a1611c45b9422b10378f61df614325f7e25624acda3704544513d6ac "$scratch/cli.tar.gz" | sha256sum -c -
+curl --fail --silent --show-error --location https://github.com/supabase/cli/releases/download/v2.79.0/supabase_linux_amd64.tar.gz -o "$scratch/cli.tar.gz"
+printf '%s  %s\n' 624dc29c696345dcc4fbe5293925c10c163f99f2952adeaeae892200740a3a27 "$scratch/cli.tar.gz" | sha256sum -c -
 mkdir "$scratch/bin"
 tar -xzf "$scratch/cli.tar.gz" -C "$scratch/bin" supabase
 cli="$scratch/bin/supabase"
@@ -16,13 +17,14 @@ trap cleanup EXIT
 localcli --version
 localcli init --help >/dev/null
 localcli init >/dev/null
+test -f "$scratch/supabase/config.toml" || { echo "BLOCKED_LOCAL_CONFIG_NOT_CREATED"; exit 1; }
+mkdir -p "$scratch/supabase/migrations"
 # The fresh config cannot contain the versioned project_ref or an external URL.
 test ! -e "$scratch/supabase/.temp/project-ref"
 if grep -q 'lxajhxocyqzwwbcfahya' "$scratch/supabase/config.toml"; then echo "BLOCKED: production project ref"; exit 1; fi
 localcli start --help >/dev/null
 localcli db reset --help | grep -q -- '--local'
 localcli db reset --help | grep -q -- '--no-seed'
-python3 "$root/scripts/rls/stage-disposable-history.py" "$scratch/staged" "$RUNNER_TEMP/rls-history-plan.json" "$RUNNER_TEMP"
 # Start an empty local stack, then replay the reviewed candidate chronology.
 # CLI output may contain generated credentials; do not echo it.
 if ! localcli start >"$scratch/start.log" 2>&1; then
