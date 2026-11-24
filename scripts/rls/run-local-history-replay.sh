@@ -226,10 +226,10 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         elif override_spec.get("kind")=="legacy_dynamic_form_id_seed":
             patched=original
             replacements=[
-                (r"\\bdynamic_form_id\\b","form_id",3),
-                (r"\\bposition\\b","order_index",1),
-                (r"\\bquestion_key\\b","key",1),
-                (r"\\boptions\\b","options_json",1),
+                (r"\bdynamic_form_id\b","form_id",3),
+                (r"\bposition\b","order_index",1),
+                (r"\bquestion_key\b","key",1),
+                (r"\boptions\b","options_json",1),
             ]
             stats={}
             for pattern,replacement,expected_count in replacements:
