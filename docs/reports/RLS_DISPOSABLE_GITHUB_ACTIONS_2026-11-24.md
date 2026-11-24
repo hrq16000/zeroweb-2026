@@ -4,3 +4,6 @@ Remote gate unchanged: BLOCKED_MISSING_SECRET in 45418525760. The new workflow t
 
 ## Round 2.2
 Native job 138594810885: portal, trigger and CRM PASS on PostgreSQL 16.11, image digest sha256:468e1f126ca5af849799cda06ac9b03d8090aae9fa5163408b3e8da44fad0702. Replay job 138594811240 staged 210 byte-identical migrations, blocked two cron migrations. Full SQL review: first schedules local visitor purge, second schedules local materialized view refresh and blocklist purge; neither invokes external HTTP. Exact Git blob allowlist only; any changed bytes or other matched SQL remain blocked. No historical SQL changed, no remote database access. Candidate ordering remains unproven.
+
+## Round 2.3
+Run 45437254362: native fixtures PASS again; 210 staged byte-identical, local CLI initialized, db reset failed SQLSTATE 42601 without identifying migration. Replace CLI statement replay with native psql against fresh loopback-only database, verified empty public schema and synthetic credentials; apply each file unchanged in planned order; fail on first SQLSTATE with exact filename and line, publish only sanitized metadata. Refuse psql meta commands. No historical rewrite or claim of parity. This revised runner is a candidate pending execution.

@@ -43,5 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: disposable-rls-history-plan
-          path: ${{ runner.temp }}/rls-history-plan.json
+          path: |
+            ${{ runner.temp }}/rls-history-plan.json
+            ${{ runner.temp }}/rls-replay-result.json
           if-no-files-found: warn
