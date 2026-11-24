@@ -13,6 +13,12 @@ import { routeWatcherPlugin } from "./plugins/vite-plugin-route-watcher";
 const serverEnv = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
 Object.assign(process.env, serverEnv);
 
+// A static MCP import loads cloudflare:workers even when the plugin is disabled.
+// The development plugin must not even be imported in a Vercel build.
+const devMcpPlugins = process.env.VERCEL
+  ? []
+  : [(await import("@lovable.dev/mcp-js/stacks/tanstack/vite")).mcpPlugin()];
+
 export default defineConfig({
   tanstackStart: {
     // Validate the SSR payload before TanStack's hydrateStart can run.
@@ -22,7 +28,10 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
-    plugins: [routeWatcherPlugin()],
+    // Production on Vercel must not bundle Lovable's dev MCP runtime:
+    // @lovable.dev/mcp-js imports cloudflare:workers (unresolvable by Vercel Rollup).
+    // Keep the plugin available outside Vercel for existing development tooling.
+    plugins: [routeWatcherPlugin(), ...devMcpPlugins],
     build: {
       rollupOptions: {
         // framer-motion/motion marcam módulos com "use client"; o Rollup avisa

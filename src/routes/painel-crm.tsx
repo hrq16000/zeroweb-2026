@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
+import { Button } from "@/components/ui/button";
 import {
   listLeads,
   getLeadDetail,
@@ -19,6 +20,11 @@ export const Route = createFileRoute("/painel-crm")({
   head: () => ({
     meta: [
       { title: "CRM · Pipeline comercial · 0WEB" },
+      { name: "description", content: "Consulta administrativa de leads, etapas comerciais e histórico de interações da 0WEB." },
+      { property: "og:title", content: "CRM · Pipeline comercial · 0WEB" },
+      { property: "og:description", content: "Leads, responsáveis e interações comerciais no CRM protegido da 0WEB." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),
@@ -514,6 +520,7 @@ function LeadDrawer({
 }) {
   const [data, setData] = useState<{ lead: any; history: any[] } | null>(null);
   const [note, setNote] = useState("");
+  const [noteError, setNoteError] = useState("");
   const [busy, setBusy] = useState(false);
 
   const load = async () => {
@@ -537,12 +544,17 @@ function LeadDrawer({
   };
   const addNote = async (kind: "note" | "contact" | "action") => {
     if (!note.trim()) return;
+    setNoteError("");
     setBusy(true);
+    let recorded = false;
     try {
       await addLeadHistory({ data: { lead_id: id, kind, note } });
+      recorded = true;
       setNote("");
       await load();
       onChanged();
+    } catch {
+      setNoteError(recorded ? "Interação gravada; não foi possível atualizar o histórico. Reabra o lead para conferir." : "Interação não registrada. Confira se o lead está aberto; sua anotação foi preservada.");
     } finally {
       setBusy(false);
     }
@@ -649,16 +661,17 @@ function LeadDrawer({
                 placeholder="Anote contato, ação ou observação…"
                 className="mt-2 w-full px-2 py-2 rounded-lg border border-border bg-background text-sm"
               />
-              <div className="mt-2 flex gap-2">
-                <button onClick={() => void addNote("contact")} disabled={busy} className="px-3 py-1.5 rounded-lg border border-border text-xs">
+              {noteError && <p role="alert" className="mt-2 text-sm text-destructive">{noteError}</p>}
+              <div className="mt-2 flex flex-wrap gap-2">
+                <Button variant="outline" onClick={() => void addNote("contact")} disabled={busy} className="min-h-11 text-xs">
                   + Contato
-                </button>
-                <button onClick={() => void addNote("action")} disabled={busy} className="px-3 py-1.5 rounded-lg border border-border text-xs">
+                </Button>
+                <Button variant="outline" onClick={() => void addNote("action")} disabled={busy} className="min-h-11 text-xs">
                   + Ação
-                </button>
-                <button onClick={() => void addNote("note")} disabled={busy} className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs">
+                </Button>
+                <Button onClick={() => void addNote("note")} disabled={busy} className="min-h-11 text-xs">
                   + Nota
-                </button>
+                </Button>
               </div>
             </div>
 

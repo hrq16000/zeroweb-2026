@@ -9,6 +9,8 @@ import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
+import { useWebMCP } from "use-webmcp-tool";
+import { runWebMCPTool } from "@/lib/webmcp-telemetry";
 
 /** Produtos com mais de uma opção comercial real exigem escolha do plano. */
 const MULTI_VARIANT_SERVICE_SLUGS = new Set([
@@ -193,6 +195,18 @@ function ServicosHub() {
   };
   // Index global (na lista filtrada) para badge "Novo" nos 3 primeiros.
   const newSet = new Set(filtered.slice(0, 3).map((s) => s.slug));
+
+  useWebMCP({
+    name: "list_visible_products",
+    description: "Consulte somente os produtos visíveis na página atual, respeitando os filtros e a paginação.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    annotations: { readOnlyHint: true, untrustedContentHint: true },
+    execute: () => runWebMCPTool("list_visible_products", () => {
+      if (isPending) return "Catálogo carregando.";
+      if (!paginated.length) return "Nenhum produto nesta página.";
+      return paginated.map(s => `${s.slug}: ${s.name} — R$ ${Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}${s.pricePeriod ? `/${s.pricePeriod}` : ""} — ${s.description}`).join("\n");
+    }),
+  });
 
 
   return (

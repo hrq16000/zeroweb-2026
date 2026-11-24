@@ -6,20 +6,19 @@
  * reaches this file when SUPABASE_SERVICE_ROLE_KEY exists.
  */
 import { test } from "bun:test";
-import { createClient } from "@supabase/supabase-js";
+import { assertDenied, assertHidden, rlsClient, rlsEnvironment, RLS_TEST_TIMEOUT_MS } from "./helpers";
 
-const URL = process.env["SUPABASE_URL"] || process.env["VITE_SUPABASE_URL"];
-const ANON =
-  process.env["SUPABASE_PUBLISHABLE_KEY"] || process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
-const SRK = process.env["SUPABASE_SERVICE_ROLE_KEY"];
-const HAS_RLS_ENV = Boolean(URL && ANON && SRK);
+const environment = rlsEnvironment();
+const HAS_RLS_ENV = environment !== null;
 
 const rlsTest = HAS_RLS_ENV ? test : test.skip;
 
 rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
-  const admin = createClient(URL!, SRK!, { auth: { persistSession: false } });
+  if (!environment) throw new Error("RLS_BLOCKED_MISSING_SECRET");
+  const { url, publishableKey, serviceKey } = environment;
+  const admin = rlsClient(url, serviceKey);
   const stamp = Date.now();
-  const password = "Rls-Sens!123";
+  const password = crypto.randomUUID();
   const userEmail = `rls-user-${stamp}@example.com`;
   const adminEmail = `rls-admin-${stamp}@example.com`;
 
@@ -40,7 +39,7 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
   };
 
   const signedClient = async (email: string) => {
-    const client = createClient(URL!, ANON!, { auth: { persistSession: false } });
+    const client = rlsClient(url, publishableKey);
     const { error } = await client.auth.signInWithPassword({ email, password });
     if (error) {
       if (/Email logins are disabled|email_provider_disabled/i.test(error.message)) {
@@ -49,7 +48,7 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
             "o gate dedicado não pode comprovar autorização authenticated.",
         );
       }
-      throw new Error(`login falhou (${email}): ${error.message}`);
+      throw new Error(`login de teste falhou: ${error.message}`);
     }
     return client;
   };
@@ -61,7 +60,8 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
       email_confirm: true,
     });
     if (e1) throw new Error(e1.message);
-    userId = u1.user!.id;
+    if (!u1.user) throw new Error("create user returned no user");
+    userId = u1.user.id;
 
     const { data: u2, error: e2 } = await admin.auth.admin.createUser({
       email: adminEmail,
@@ -69,7 +69,8 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
       email_confirm: true,
     });
     if (e2) throw new Error(e2.message);
-    adminId = u2.user!.id;
+    if (!u2.user) throw new Error("create admin returned no user");
+    adminId = u2.user.id;
 
     const { error: roleError } = await admin
       .from("user_roles")
@@ -92,50 +93,37 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
     if (svcError) throw new Error(`seed service_catalog: ${svcError.message}`);
     catalogId = svc.id as string;
 
-    const anonClient = createClient(URL!, ANON!, { auth: { persistSession: false } });
+    const anonClient = rlsClient(url, publishableKey);
     const userClient = await signedClient(userEmail);
     const adminClient = await signedClient(adminEmail);
+
+    for (const [client, label] of [[anonClient, "anon"], [userClient, "usuário comum"], [adminClient, "admin"]] as const) {
+      const history = await client.from("lead_history").select("id").eq("lead_id", leadId);
+      assertHidden(history, `${label} não lê histórico protegido diretamente`);
+      const directWrite = await client.from("lead_history").insert({ lead_id: leadId, kind: "status_change", actor: "forged" });
+      assertDenied(directWrite.error, `${label} não forja histórico`);
+    }
 
     const anonLead = await anonClient
       .from("lead_submissions")
       .select("id")
       .eq("id", leadId);
-    check(
-      Boolean(anonLead.error) || (anonLead.data ?? []).length === 0,
-      "anon NÃO lê lead_submissions",
-      "anon leu lead_submissions",
-      anonLead.data,
-    );
+    assertHidden(anonLead, "anon NÃO lê lead_submissions");
 
     const anonSvc = await anonClient.from("service_catalog").select("id").eq("id", catalogId);
-    check(
-      Boolean(anonSvc.error) || (anonSvc.data ?? []).length === 0,
-      "anon NÃO lê service_catalog",
-      "anon leu service_catalog",
-      anonSvc.data,
-    );
+    assertHidden(anonSvc, "anon NÃO lê service_catalog");
 
     const userLead = await userClient
       .from("lead_submissions")
       .select("id")
       .eq("id", leadId);
-    check(
-      Boolean(userLead.error) || (userLead.data ?? []).length === 0,
-      "usuário comum NÃO lê lead_submissions",
-      "usuário comum leu lead_submissions",
-      userLead.data,
-    );
+    assertHidden(userLead, "usuário comum NÃO lê lead_submissions");
 
     const userSvc = await userClient
       .from("service_catalog")
       .select("id")
       .eq("id", catalogId);
-    check(
-      Boolean(userSvc.error) || (userSvc.data ?? []).length === 0,
-      "usuário comum NÃO lê service_catalog",
-      "usuário comum leu service_catalog",
-      userSvc.data,
-    );
+    assertHidden(userSvc, "usuário comum NÃO lê service_catalog");
 
     const userWrite = await userClient
       .from("service_catalog")
@@ -182,6 +170,13 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
       adminLeadWrite.error?.message,
     );
 
+    if (!adminLeadWrite.error) {
+      const saved = await admin.from("lead_submissions").select("status").eq("id", leadId).single();
+      check(!saved.error && saved.data?.status === "em_atendimento", "status persistido", "status não persistido");
+      const history = await admin.from("lead_history").select("from_value,to_value,actor").eq("lead_id", leadId).eq("kind", "status_change");
+      check(!history.error && history.data?.length === 1 && history.data[0]?.to_value === "em_atendimento" && history.data[0]?.actor === "admin", "histórico gravado uma única vez pelo trigger", "histórico ausente ou divergente");
+    }
+
     if (failures.length > 0) {
       throw new Error(`RLS sensível falhou: ${failures.join(" | ")}`);
     }
@@ -194,7 +189,7 @@ rlsTest("RLS sensível — anon, usuário comum e admin", async () => {
     }
     if (userId) await admin.auth.admin.deleteUser(userId);
   }
-});
+}, RLS_TEST_TIMEOUT_MS);
 
 if (!HAS_RLS_ENV) {
   console.log(

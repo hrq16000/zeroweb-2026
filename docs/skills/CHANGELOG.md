@@ -1,5 +1,88 @@
 # Skill changelog / usage log
 
+## 2026-11-24 — Lighthouse assinado, CRM atômico e painel de recebimentos
+
+- Competências locais: router/discovery, design-system e UI quality gates para painel administrativo; referências Experience Design lidas para avaliação, sem ativar Max mode. Runtime, server-functions, grants/roles e segurança de secrets revisados. Sem pacote, identidade global, portfólio ou integração externa nova; marketplace/art direction/mídia NOT_APPLICABLE ao histórico operacional.
+- Receptor HMAC-only, limite streaming de 64 KiB, idempotência e proveniência; workflow envia inclusive medições failed. Chave salva pelo formulário seguro, usuário confirmou GitHub. Medição real Dlara 92/100/100 recebida no banco/relida UI; unsigned 401, retry mesmo ID. Origem CLI assinada, não fingir origem de workflow ainda não homologado.
+- Migração aditiva aplicada: função CRM SECURITY INVOKER com lock/portal/estados terminais/EXECUTE service_role, sem backfill; data original e identidade de ingestão Lighthouse. Nota sintética gravada e relida pelo CRM; terminal recusado sem alterar histórico/interação; limpeza exata/read-back zero. Helper lê portal por RLS do usuário antes de privilégio; nenhuma policy aberta.
+- /painel-lighthouse sob _authenticated: 25 medições, cobertura 12/12, filtros/paginação/detalhes/JSON, origem assinada vs Actions vs histórica, decisão separada do gate. Desktop/390px/reduced-motion/foco e visitante protegido; cinco páginas públicas atuais 200/zero pageerror, Centro Mega com conteúdo e produtos reais intactos.
+- 1239 testes PASS/0 FAIL, 7 verificações SQL/mutações PASS, brand/boundaries/meta/diff/YAML/harness PASS; Bun 1.4.4 local, não afirmar 1.4.0/build oficial. Sem Max mode, terceiros, media generation ou novo pacote. AGENTS.md permanece intacto: orçamento excedido por regras do usuário impede nova regra estrutural.
+- Release e IA/Codex NÃO concluídos: main b394e920 contém só planejamento, #548 ainda Draft; restrição OAuth anterior não contornada; RLS remoto failure/BLOCKED_MISSING_SECRET. Automação Actions ainda 0 recebimentos; requer receptor publicado + execução oficial. Evidência: docs/reports/LIGHTHOUSE_CRM_AUTOMATION_2026-11-24.md.
+
+## 2026-11-24 — Publicação solicitada, matriz factual e transporte de testes
+
+- Contratos de execução/Git-first/RLS relidos; referências locais de skill router/discovery/quality gates tratadas como documentação, sem ativar drafts ou executar terceiros. Runtime/server-functions/grants/roles consultados para diagnóstico, sem alterar permissões. Design/mídia/redesign NOT_APPLICABLE: identidades e Blueprint congelados preservados.
+- 24 medições reais em 12 rotas públicas: 18 reprovações e 6 aprovações individuais importadas com origem/data; painel autenticado confirma leitura. LHCI oficial falha em 7 rotas dos dois lotes principais, mas passa lote Carecas/JKL pela agregação oficial; matriz conservadora preserva toda execução reprovada. Sem aprovação manual, nota CRM ou atribuição de SHA servido não comprovado.
+- Relatório antigo arquivado integralmente; todas as 59 medições antigas e 33 rotas não reavaliadas continuam disponíveis com datas, somadas a 24 medições/12 rotas atuais. Painel distingue origem pública de CI e preserva metadados administrativos noindex; token de cor do gráfico corrigido sem alterar tema global.
+- Preload happy-dom restaura fetch/Request/Response/Headers/Abort nativos: 6 testes reais RLS/identidade e suíte final 1225 PASS/0 FAIL, incluindo dois novos testes sintéticos. QA autenticado 45 rotas/24 notas/gráfico visível e sete rotas públicas em 1440/390px sem pageerror/overflow; brand/boundaries/meta/diff/harness PASS. Sem novos pacotes/lock/secrets/settings. Bun local 1.4.4 registrado, não afirmar execução 1.4.0.
+- Release apenas agendada, não comprovada; CI remoto/RLS/webhook/integração OAuth/pessoas continuam com bloqueios explícitos. Trigger real previamente aplicado, CRM atual sem leads/histórico, candidato atômico inativo. Evidência: docs/reports/PUBLICATION_LIGHTHOUSE_HOMOLOGATION_2026-11-24.md.
+
+## 2026-11-24 — Rodada 2, trigger autorizado e candidatos críticos de pintura
+
+- Stack local: 0web-skill-router, discovery de competências pertinentes, 0web-experience-design-max, art-direction/design-system como preservação de identidade, 0web-ui-quality-gates para verdade de evidência, SSR/semântica/reduced-motion/QA; runtime/server-functions/roles/grants consultados. Sem redesign, marketplace install ou pacote novo: redundantes/incompatíveis com manutenção pontual.
+- Trigger mínimo autorizado aplicado; 2 testes RLS isolados PASS, leitura/escrita direta protegidas; CI remoto BLOCKED_MISSING_SECRET. Limpeza autorizada de duas fixtures antigas com guards transacionais e read-back zero; agentes/dados reais/ledger intocados.
+- Dez composições com opt-in crítico sem wrapper DOM ou initial oculto; default e seções posteriores preservados. Wrapper inválido p/div da Centro Mega deixou de existir só no opt-in, hydration error resolvido na prova. Experimento de Blueprint rejeitado e revertido integralmente: Carecas/JKL permanecem congelados e pendentes.
+- 35 testes focados PASS; 80 provas browser em sete larguras/reduced-motion PASS; 10 funis abrem/fecham sem envio; 10 páginas com conteúdo sem JS. Imagens derivadas locais reconstruídas pelo gerador existente. Brand/boundaries/meta/diff PASS; harness build OK.
+- Suíte inteira 1221 PASS/2 FAIL preservados (user_ref timeout + requisição RLS com happy-dom); agrupamento inadequado intermediário rejeitado. Bun 1.4.4 local vs 1.4.0 exigido; sem build manual/rerun LHCI. Não declarar score ≥90 ou release verde.
+- #548 gate compartilhado terminou SUCCESS; update-branch #548/#530 HTTP 403 por OAuth App da organização, não contornado. Sem integração/deploy/R3. Evidência: docs/reports/GROWTH_ENGINE_R2_CHECKPOINT_2026-11-24.md.
+
+## 2026-11-24 — Candidatos adicionais Lighthouse/CRM/SQL legado
+
+- Autorização das três frentes às 06:40 UTC; resposta posterior limita deduplicação/ledger a achados documentados, sem alterações. Somente preparação, fixtures sintéticas, sem publicação/migração/dados reais/permissões/configuração/agents.
+- Stack local revisto: router → discovery de competências locais → quality gates de estados/verdade de medição; contratos de runtime, server-functions, roles/grants e RLS. Art direction/mídia/motion/redesign e novos pacotes/marketplaces visuais NOT_APPLICABLE: nenhuma composição material alterada. Conhecimento de skills draft consultado como referência dos contratos, sem executar terceiros.
+- Política pura compartilhada LHCI: ausentes/invalidas falham, A11y/TBT preservados, todas as medições e reprovações no report/painel; snapshots antigos somente em memória. Planilha informa falhas reais/concorrência, protege encerrados e preserva edições pendentes. Nota transacional é candidato INATIVO fora de src/migrations; SQL legado sem DROP/FK e sem catch-all.
+- Validação: 44 testes focused PASS; 7 verificações PostgreSQL local PASS, incluindo mutações negativas; brand/boundaries/diff PASS; harness build OK. Bun disponível 1.4.4 vs requisito 1.4.0 registrado; nenhuma dependência/lock alterado. Sem suite/QA/remediação real que escreva no backend; pendências reais de trigger/CI/produção mantidas.
+- Evidência/detalhes/limitações: docs/reports/RLS_LIGHTHOUSE_ADDITIONAL_PREPARATION_2026-11-24.md. Preservar handler atual de notas até autorização de migração + types + homologação; não ativar RPC inexistente e não inventar release PASS.
+
+## 2026-11-24 — Conferência dos caminhos relacionados RLS/Lighthouse
+
+- Mesmo escopo de preparação e stack de diagnóstico; sem publicação, migração, permissões/settings, agentes, mídia ou redesign.
+- Lidos trechos pertinentes dos 19 produtores/consumidores diretos de lead/history, caminhos dinâmicos, triggers, cron e 12 composições incluindo Blueprint e motion/react.
+- Provas isoladas: ingestão aceita métricas ausentes e TBT=400 como passed; consolidação de LHR real 0,82 gera zero problems. Sem endpoint externo chamado nem relatório inserido no banco.
+- Achados adicionais de planilha/notas, SQL legado, deduplicação e ledger registrados/submetidos a autorização; registros terminais e dados reais preservados. Não declarar esses caminhos homologados por leitura.
+- Evidência em docs/reports/RLS_LIGHTHOUSE_FLOW_SWEEP_2026-11-24.md; pendências anteriores de aplicação RLS, runner remoto e medição Lighthouse mantidas.
+
+## 2026-11-24 — Preparação RLS/Lighthouse, sem publicação
+
+- Stack: 0web-skill-router, 0web-skill-discovery como seleção de competências locais, 0web-ui-quality-gates como revisão de performance/evidência; contratos de runtime, grants, roles, privacidade e execução híbrida preservados.
+- Reprodução real: timeout de 5000 ms escondia constraint inválida de visitantes; trigger SECURITY INVOKER sem policy INSERT bloqueia histórico. Corrigidos testes/runner e exigida evidência positiva/negativa; SQL de elevação preparado fora de migrations, não aplicado.
+- Validação: isolamento PASS no backend, sensível FAIL real preservado; 6 testes auxiliares PASS; fixture PostgreSQL descartável PASS e duas mutações detectadas. Suíte 1187 PASS / 1 FAIL. Fixtures sintéticas limpas.
+- Lighthouse: artifacts existentes da #530, 24 LHR/12 páginas; medidos seletores/timings reais, render delay e bytes evitáveis. Corrigido parser de tabelas aninhadas com 6 testes PASS e matriz de remediação própria por cliente; nenhuma página/sistema de motion alterado e nenhum LHCI rerun.
+- Recursos externos de redesign/mídia/novas bibliotecas rejeitados por ausência de revisão visual material. Engine SQL temporária somente em /tmp; nenhuma dependência no app. PostgreSQL nativo bloqueado por usuário de SO, fallback WASM validado; falha inicial de substituição $$ corrigida antes do PASS.
+- Brand/boundaries/diff PASS, harness build OK. MCP/OAuth, agentes, clientes, preços, SEO, banco real e publicação intocados. Evidência: docs/reports/RLS_LIGHTHOUSE_PREPARATION_2026-11-24.md + CSV. Pendentes aplicação autorizada do SQL e homologação de CI/desempenho; nenhuma alegação de segurança geral ou release verde.
+
+## 2026-11-24 — Growth Engine 360°, exclusivamente Rodada 1
+
+- Stack pertinente: 0web-skill-router (docs/diagnóstico), contrato de execução, Git-first, crescimento aditivo e protocolo conservador de fila; regras de isolamento e segurança preservadas.
+- Inventário paginado: 47 PRs, 566 branches, 17 issues sem PR, 27 deployments; catálogo 99 (98 publicados/1 draft), 87 overrides legacy, zero Managed. Não confundir branches/aliases com novos clientes.
+- Descoberta adicional: Relopar implementada em branch exclusiva sem checks/PR de HEAD, além da PR documental. Sete entidades novas fora da main; Dona Garimpeira permanece draft; São Francisco publicado fora do catálogo e Moreira com lifecycle divergente.
+- Evidência reaproveitada, não testes novos: #548 agora gate compartilhado SUCCESS, Draft/mergeable clean e divergente da main; #530 individual SUCCESS, 3 shards atingem 12 outros clientes e 38 diferenças compartilhadas; #539 parcial, Angel Mix 85/90; RLS remoto falha no preflight e difere dos dois FAIL locais históricos.
+- Consultas públicas em GET e metadata administrativa sem PII/contatos; nenhuma edição de código, banco, agentes, DNS, segurança ou publicação. Recursos de redesign/motion/mídia/auditoria nova rejeitados por não pertencerem à Rodada 1; zero dependências instaladas.
+- Validação do inventário: seis páginas de branches completas, PR/issues/deployments sem página seguinte, CSVs sem duplicação de linhas e links dos jobs conferidos. Relatório e snapshots em docs/reports/GROWTH_ENGINE_360_R1_2026-11-24.md. NO-GO para Production; rodadas posteriores não iniciadas.
+
+## 2026-11-24 — Publicação administrativa e correções editoriais autorizadas
+
+- Stack: 0web-skill-router → 0web-skill-discovery → 0web-experience-design-max → 0web-design-system → 0web-ui-quality-gates; contratos de servidor, auth/roles e conexões consultados.
+- Catálogo/marketplaces reavaliados: competências locais cobrem painel tabelar, permissões e QA; novas bibliotecas/efeitos/skills externas são redundantes neste escopo. Documentação original Vercel consultada para criação de token.
+- Direção: ferramenta administrativa densa, seções não enquadradas, Flexbox com wrap para ações, tabela com overflow interno; tokens e componentes existentes. Nenhuma alteração na zona institucional congelada.
+- Painel em `/app/publicacao`: dados reais da main e Vercel via conexões server-side; somente admin/super_admin; seleção e cópia de SHA, checks e histórico sem deploy automático. Respostas projetadas sem chaves, e-mails ou leads.
+- Link de `/sobre` aponta para `/cases`; galeria de redes sociais identifica as fotografias editoriais sem apresentá-las como equipe/sede da 0WEB. Preços, imagens e CTAs preservados.
+- Motion: apenas feedback de consulta com redução de movimento; reveals, parallax, marquee e assinatura cinematográfica não aplicáveis à ferramenta. MCP/OAuth/agentes intocados.
+- Vercel negou criar token (403); reconexão segura concluída, projeto/equipe/histórico HTTP 200. PR #530: gate individual da Doce Coração aprovado; três shards globais falham em outras páginas, não são falhas específicas do novo cliente.
+- Validação final: 14 testes focados PASS; brand/privacy PASS; QA admin autenticado, visitante bloqueado, 390px sem overflow e zero pageerror; link cases e seis imagens/aviso conferidos. Harness build OK. Suíte geral: 1174 PASS / 2 FAIL em RLS existente; não afrouxada. Uma publicação exata 873a1938 terminou ERROR por cloudflare:workers, sem retry. Evidência e continuidade em docs/reports/PUBLICATION_ADMIN_RECONNECTION_2026-11-24.md.
+
+## 2026-11-23 — Integrações de agentes MCP
+
+- Stack: 0web-skill-router, documentação oficial app-mcp TanStack/OAuth e WebMCP Tools. Referências visuais e marketplaces não aplicáveis: nenhuma revisão de composição.
+- MCP protegido em `/mcp`: `list_products`, `get_product`; cliente caller-scoped, sem admin, sem acesso a leads, mutações ou alteração de RLS.
+- OAuth ativado no Lovable Cloud existente; DCR, consent path e allow-list confirmados. Nenhum banco novo, DNS ou funil alterado.
+- Google via broker preservado; retorno canônico seguro no `/auth`. Consentimento com estados de erro e ações approve/deny; ferramenta browser-local somente lê os 12 itens visíveis em `/servicos`.
+- Manifest extraído com 2 ferramentas; harness build OK; 11 testes focados PASS. Suíte completa: 1160 PASS, 2 timeouts nos testes RLS existentes (sem alterar testes/políticas).
+- Browser: acesso anônimo e token de sessão não-OAuth retornam 401; ausência de authorization_id exibe erro; visitante retorna ao login com consent URL preservada; loja renderiza 12 produtos.
+- Limitação comprovada: lookup real de autorização retorna 400 `validation_failed: unauthorized request origin` em localhost. Approve/deny, code exchange e consultas OAuth não homologados ponta a ponta; requer republicação e teste na origem autorizada. Não houve publicação nesta rodada.
+- Browser local não oferece WebMCP nativo: registro real não verificável nesse Chromium; experiência normal permanece operacional.
+- Zod mantido em ^3.24.2 (resolvido 3.25.76); upgrade inicial para 4 foi descartado por incompatibilidade com contratos existentes.
+
 ## 2026-09-21 — Centro Mega Store Concept · social commerce autônomo
 
 - **Escopo:** evolução material de `/portfolio/centro-mega` para amostra de loja virtual tecnológica + outlet.

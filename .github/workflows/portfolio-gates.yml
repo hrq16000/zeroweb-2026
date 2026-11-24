@@ -105,6 +105,9 @@ jobs:
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
+            if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "vercel-mcp-only" ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
 
             # Isolado a imagens da loja: 6 canarios de portfolio x 2 viewports.
             # Mudancas em portfolios, funis, CTAs ou push no main seguem globais.
@@ -217,6 +220,11 @@ jobs:
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
           FRAMEWORK_COMPAT=false
+          VERCEL_MCP_GUARD_ONLY=false
+          if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$BASE" "$HEAD" || true)" = "vercel-mcp-only" ]; then
+            RUN=true
+            VERCEL_MCP_GUARD_ONLY=true
+          fi
 
           if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
             RUN=true
@@ -287,8 +295,13 @@ jobs:
           if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
-          # Main sempre verifica o universo completo; escopo por slug só no PR.
-          if [ "${{ github.event_name }}" != "pull_request" ]; then
+          # Guard MCP: canarios representativos sem mexer no limite de 2%.
+          # O classificador somente aceita o diff exato do plugin para Vercel.
+          if [ "$VERCEL_MCP_GUARD_ONLY" = true ]; then
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Main permanece global para todo diff visual; guard MCP nao altera DOM.
+          if [ "${{ github.event_name }}" != "pull_request" ] && [ "$VERCEL_MCP_GUARD_ONLY" != true ]; then
             VISUAL_ONLY=""
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
