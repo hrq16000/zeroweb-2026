@@ -76,3 +76,45 @@ jobs:
           name: dyzpromo-changelog
           path: seo-reports/dyzpromo-changelog.md
           if-no-files-found: ignore
+
+  vercel-runtime-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Detect runtime build changes
+        id: impact
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          files="$(git diff --name-only "$BASE" "$HEAD")"
+          if printf '%s\n' "$files" | grep -Eq '^(vite\.config\.ts|package\.json|bun\.lockb?|vercel\.json|scripts/prepare-vercel-mcp-runtime\.mjs|tests/mcp/vercel-runtime\.test\.mjs|src/lib/mcp/|src/routes/mcp\.ts|src/routes/\[\.well-known\]/oauth-protected-resource\.ts|\.github/workflows/build-validate\.yml)$|^src/lib/mcp/'; then
+            echo "affected=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.impact.outputs.affected == 'true'
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2
+        if: steps.impact.outputs.affected == 'true'
+        with:
+          bun-version: '1.4.0'
+      - name: Install frozen dependencies
+        if: steps.impact.outputs.affected == 'true'
+        run: bun install --frozen-lockfile
+      - name: Vercel production build
+        if: steps.impact.outputs.affected == 'true'
+        env:
+          VERCEL: '1'
+          NITRO_PRESET: vercel
+        run: bun run build
+      - name: Verify Vercel output and real MCP SDK on Node
+        if: steps.impact.outputs.affected == 'true'
+        run: |
+          test -f .vercel/output/config.json
+          node --test tests/mcp/vercel-runtime.test.mjs
