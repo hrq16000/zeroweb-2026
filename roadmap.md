@@ -1,15 +1,20 @@
 # Roadmap
 
+## Respostas de acesso e CRM — 24/11/2026 às 14:06 UTC
+- [x] Conta indicada hrq16000@gmail.com já possui admin/super_admin, e-mail confirmado e nenhum bloqueio de conta. Identidade confirmada no perfil; /app/agentes, /painel e /painel-crm autenticados PASS no preview, zero pageerror e visitante negado. Sem convite/conta duplicada ou alteração de papéis.
+- [x] CRM: usuário escolheu **Manter preparado**; não aplicar candidato de nota/interação atômica, não reconstruir eventos antigos e manter somente o trigger já autorizado/aplicado.
+
 ## Publicação e homologação solicitadas às 07:25 UTC de 24/11/2026
 - [x] Histórico real: trigger mínimo já aplicado; RLS/identidade 6 PASS e suíte geral final 1225 PASS/0 FAIL após restaurar transporte nativo. CRM autenticado lê fonte atual com zero leads/histórico; não inventar/backfill eventos. Fixtures antigas continuam ausentes.
 - [x] Centro Mega real HTTP 200/conteúdo visível/última conferência sem pageerror; Carecas/JKL HTTP 200 e 4 novas medições públicas, layouts congelados intactos.
 - [x] Matriz das dez candidaturas + Carecas/JKL: 24 medições públicas, 18 failed/6 passed individualmente; 11/12 rotas conservadoras com reprovação. LHCI assert dos dois lotes de dez falha em 7 rotas; lote Carecas/JKL passa agregação oficial apesar de uma medição reprovada em cada cliente. Gates intactos.
 - [x] Notas reais importadas em lhci_runs com proveniência explícita/read-back autenticado; nenhuma aprovação ou nota CRM. Snapshot antigo e 59 medições preservados; painel estático mantém 33 rotas históricas + 12 atuais, datas e origem.
 - [ ] Confirmar publicação rastreável: ferramenta apenas agendou publicação; SHA efetivamente servido não comprovado. Sem nova publicação/merge enquanto homologação estiver incompleta.
-- [ ] Liberar pessoas: support_agents vazio; aguardar nomes/contas na pergunta já aberta. IA/Codex: #548 ainda Draft, atualização de branch bloqueada por OAuth App da organização; não contornar por outro ator/token.
+- [x] Pessoas: conta indicada às 14:06 UTC já possui acesso administrativo, validado no preview; support_agents continua vazio porque é cadastro distinto, sem convite duplicado/concessão de papel.
+- [ ] IA/Codex: #548 ainda Draft, atualização de branch bloqueada por OAuth App da organização na última consulta; não contornar por outro ator/token. Resposta de conta administrativa não resolve autorização da integração.
 - [ ] Homologar CI remoto: 42011df6 tem build/hydration/estáticos PASS, visual em andamento na consulta e Lighthouse skipped; 4949e96b teve gates cancelados. RLS remoto segue BLOCKED_MISSING_SECRET. Sem rerun sem credencial/método autorizado.
 - [ ] Homologar envio automático assinado LHCI: chave/configuração ausentes e workflow não envia ao webhook; importação manual autorizada não substitui E2E do webhook. Sem secret/configuração inventados.
-- [ ] Nota CRM atômica: candidato segue inativo; depende de autorização específica de migração distinta do trigger já aplicado. Deduplicação/ledger intocados por escolha expressa do usuário.
+- [x] Nota CRM atômica: decisão às 14:06 UTC **Manter preparado**; candidato inativo, sem migração adicional/backfill. Deduplicação/ledger intocados por escolha expressa do usuário.
 
 ## CONTINUAR — Rodada 2 autorizada em 24/11/2026 às 06:53 UTC
 - [x] Conferir HEAD/base/checks de #548/#530 a partir de R1; #548 gate compartilhado SUCCESS às 07:02 UTC, compatibilidade PASS; sem reinventário/rerun.

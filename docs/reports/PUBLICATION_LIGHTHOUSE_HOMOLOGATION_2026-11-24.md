@@ -52,3 +52,11 @@ Consulta GitHub pela conexão Henrique's GitHub API (1):
 ## Sem alterações nesta entrega
 
 Nenhuma nova migração, concessão de papel/permissão, configuração, secret, DNS, integração de PR ou segunda publicação. Zona institucional, conteúdo/mídia/identidade dos clientes e agentes preservados. A solicitação de publicar/liberar está **parcialmente atendida**, com impedimentos acima; este relatório não autoriza bypass dos gates.
+
+## Respostas e conferência de acesso — 24/11/2026 às 14:06 UTC
+
+- O usuário identificou sua conta existente como destinatária do acesso. Consulta exata confirmou e-mail validado, `admin` e `super_admin` em `user_roles`, sem suspensão; não foi necessária concessão de privilégios.
+- A sessão da conta indicada foi restaurada pelo mecanismo autorizado e a identidade foi confirmada na tela de perfil antes das verificações. `/app/agentes`, `/painel` e `/painel-crm` abriram no preview autenticado, após o carregamento, sem pageerror. O visitante sem sessão permaneceu bloqueado em `/painel`.
+- `support_agents` permanece vazio: cadastro de atendimento é distinto da autorização administrativa existente. Nenhum convite, recuperação de senha, cadastro duplicado ou mudança de papel foi enviado/aplicado. Esta conferência não equivale à homologação do login por senha dos agentes nem da publicação em produção.
+- Resposta **Manter preparado** confirmada para o candidato de nota/interação atômica do CRM. Não aplicar migração adicional, não reconstruir eventos antigos, não alterar notas/última interação ou registros encerrados. O trigger mínimo anteriormente autorizado permanece aplicado; o candidato adicional permanece inativo.
+- Escopo desta atualização: documentação e verificação somente. Matriz Lighthouse, dados, gates, permissões, configurações e integrações preservados. Os impedimentos de IA/Codex, CI remoto e publicação descritos acima não são resolvidos pela identificação dessa conta.
