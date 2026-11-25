@@ -26,6 +26,18 @@ describe("indexability diff policy", () => {
     expect(classifyIndexabilityDelta(base, { ...base, problems: ["ausente do sitemap"] }).hard).toBe(true);
   });
 
+  it("distingue rascunho novo comprovado de regressões em páginas públicas", () => {
+    const absent = { ...base, route: "/portfolio/x", status: 404, canonical: null, problems: ["status 404", "sem canonical"] };
+    const draft = { ...base, route: "/portfolio/x", noindex: true, problems: ["noindex"] };
+    const options = { expectedUnpublishedDraft: true };
+    expect(classifyIndexabilityDelta(absent, draft, options).hard).toBe(false);
+    expect(classifyIndexabilityDelta(absent, draft).hard).toBe(true);
+    expect(classifyIndexabilityDelta(base, draft, options).hard).toBe(true);
+    expect(classifyIndexabilityDelta(absent, { ...draft, canonical: null }, options).hard).toBe(true);
+    expect(classifyIndexabilityDelta(absent, { ...draft, nofollow: true }, options).hard).toBe(true);
+    expect(classifyIndexabilityDelta(absent, { ...draft, noindex: false, problems: ["ausente do sitemap"] }, options).hard).toBe(true);
+  });
+
   it("bloqueia rota removida", () => {
     expect(classifyIndexabilityDelta(base, undefined).hard).toBe(true);
   });

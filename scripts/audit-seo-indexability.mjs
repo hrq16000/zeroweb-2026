@@ -175,6 +175,15 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
   const byRoute = (snap) => Object.fromEntries(snap.routes.map((r) => [r.route, r]));
   const b = byRoute(before);
   const a = byRoute(after);
+  const catalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
+  const draftRoutes = new Set(catalog
+    .filter((item) => item.status === "draft" && item.live === false)
+    .map((item) => `/portfolio/${item.slug}`));
+  const inventoryPaths = (snapshot) => new Set(snapshot.sitemap.urls.map((url) => {
+    try { return new URL(url).pathname.replace(/\/$/, "") || "/"; } catch { return url; }
+  }));
+  const beforeInventory = inventoryPaths(before);
+  const afterInventory = inventoryPaths(after);
   const lines = [
     "# Auditoria de indexabilidade — antes vs. depois",
     "",
@@ -191,7 +200,9 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
     const x = b[route];
     const y = a[route];
     const chg = (from, to) => (String(from ?? "—") === String(to ?? "—") ? String(to ?? "—") : `${from ?? "—"} → **${to ?? "—"}**`);
-    const delta = classifyIndexabilityDelta(x, y);
+    const expectedUnpublishedDraft = draftRoutes.has(route)
+      && !beforeInventory.has(route) && !afterInventory.has(route);
+    const delta = classifyIndexabilityDelta(x, y, { expectedUnpublishedDraft });
     if (delta.hard) regressions++;
     const observation =
       delta.schemaDelta < 0
