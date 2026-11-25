@@ -5,8 +5,7 @@
  * e recebe somente evoluções próprias, sem compartilhar novas mudanças com
  * `/home2`.
  */
-import { createFileRoute } from "@tanstack/react-router";
-import { Home3MixExperience } from "@/components/site/Home3MixExperience";
+import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 
 const TITLE = "0WEB · Laboratório visual Home3";
 const DESC =
@@ -23,5 +22,5 @@ export const Route = createFileRoute("/home3")({
       { property: "og:type", content: "website" },
     ],
   }),
-  component: Home3MixExperience,
+  component: lazyRouteComponent(() => import("@/components/site/Home3MixExperience"), "Home3MixExperience"),
 });

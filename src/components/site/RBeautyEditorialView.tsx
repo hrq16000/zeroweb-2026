@@ -1,5 +1,5 @@
 import { useState, type ComponentProps } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   Sparkles, 
   Clock, 
@@ -34,6 +34,7 @@ function BeautyBookingQuiz(props: Omit<ComponentProps<typeof PortfolioCTAQuiz>, 
 }
 
 export function RBeautyEditorialView() {
+  const reduceMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState<"cilios" | "unhas" | "sobrancelhas">("cilios");
 
   return (
@@ -84,9 +85,7 @@ export function RBeautyEditorialView() {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={false}
             className="lg:col-span-7 space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-[11px] font-bold uppercase tracking-widest">
@@ -149,9 +148,9 @@ export function RBeautyEditorialView() {
 
           {/* Hero Visual Card */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={reduceMotion ? false : { scale: 0.98 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.35 }}
             className="lg:col-span-5 relative"
           >
             <div className="rounded-3xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl p-2 bg-[#171315]/80 backdrop-blur-xl">
