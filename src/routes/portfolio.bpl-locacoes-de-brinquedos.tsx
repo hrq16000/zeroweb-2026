@@ -56,7 +56,7 @@ export const Route = createFileRoute("/portfolio/bpl-locacoes-de-brinquedos")({
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "robots", content: "index,follow,max-image-preview:large" },
+      { name: "robots", content: "noindex,follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
