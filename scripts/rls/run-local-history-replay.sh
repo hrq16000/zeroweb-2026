@@ -28,6 +28,31 @@ localcli db reset --help | grep -q -- '--no-seed'
 # Start an empty local stack, then replay the reviewed candidate chronology.
 # CLI output may contain generated credentials; do not echo it.
 if ! localcli start >"$scratch/start.log" 2>&1; then
+  # Keep the failed start diagnosable without publishing generated credentials.
+  docker_version="$(docker version --format '{{.Server.Version}}' 2>/dev/null || echo unavailable)"
+  compose_version="$(docker compose version --short 2>/dev/null || echo unavailable)"
+  python3 - "$scratch/start.log" "$RUNNER_TEMP/rls-start-diagnostic.json" "$docker_version" "$compose_version" <<'PY'
+import json,pathlib,re,sys
+source=pathlib.Path(sys.argv[1])
+raw=source.read_text(errors="replace").splitlines() if source.exists() else []
+def redact(line):
+    line=re.sub(r'(?i)(password|secret|token|service[_-]?role[_-]?key|anon[_-]?key|jwt[_-]?secret|api[_-]?key)(\\s*[:=]\\s*)[^,\\s]+',r'\\1\\2[REDACTED]',line)
+    line=re.sub(r'(?i)(postgres(?:ql)?://)[^/@\\s]+:[^/@\\s]+@',r'\\1[REDACTED]@',line)
+    line=re.sub(r'eyJ[A-Za-z0-9_-]{20,}\\.[A-Za-z0-9_-]{20,}\\.[A-Za-z0-9_-]{10,}','[JWT_REDACTED]',line)
+    return line[:500]
+safe=[redact(line) for line in raw if re.search(r'(?i)(error|failed|fatal|denied|unavailable|permission|socket|docker|compose|port|pull|health|timeout|exit code|cannot connect|no such file)',line)]
+if not safe:
+    safe=[redact(line) for line in raw[-12:]]
+result={
+  "status":"BLOCKED_LOCAL_STACK_START",
+  "dockerServerVersion":sys.argv[3],
+  "dockerComposeVersion":sys.argv[4],
+  "startLogLines":len(raw),
+  "diagnostics":safe[-24:],
+}
+pathlib.Path(sys.argv[2]).write_text(json.dumps(result,indent=2)+"\\n")
+print("LOCAL_STACK_DIAGNOSTIC "+json.dumps(result))
+PY
   echo "BLOCKED_LOCAL_STACK_START"; exit 1
 fi
 # The CLI reset returned SQLSTATE 42601 without identifying a migration.
