@@ -3,7 +3,6 @@
  *  WhatsApp/Facebook não renderizam WebP em link preview. */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { stat } from "node:fs/promises";
 import { resolve } from "node:path";
 import sharp from "sharp";
 
@@ -30,21 +29,6 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
     .update(readFileSync(outPath))
     .digest("hex")
     .slice(0, 8);
-
-  if (key === "maximos-cabeleireiros") {
-    for (const width of [480, 768, 960]) {
-      const variantPath = resolve("public", jpgRel.slice(1).replace(/\.jpg$/i, `-${width}.jpg`));
-      await sharp(outPath)
-        .resize({ width, withoutEnlargement: true })
-        .jpeg({ quality: 82, progressive: true })
-        .toFile(variantPath);
-      const [sourceStat, variantStat] = await Promise.all([stat(outPath), stat(variantPath)]);
-      if (variantStat.size >= sourceStat.size) {
-        throw new Error(`[social-jpg] variante Maximos não reduziu bytes: ${width}px`);
-      }
-      console.log(`[social-jpg] Maximos ${width}px: ${sourceStat.size} -> ${variantStat.size} bytes`);
-    }
-  }
 
   changed++;
 }
