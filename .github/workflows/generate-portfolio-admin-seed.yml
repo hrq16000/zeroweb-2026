@@ -1,0 +1,23 @@
+name: Generate portfolio admin seed (one-time)
+on:
+  push:
+    branches:
+      - ops/generate-portfolio-admin-seed-20261125
+permissions:
+  contents: read
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Generate deterministic admin seed
+        run: node scripts/build-portfolio-admin-seed.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-admin-seed-${{ github.sha }}
+          path: src/config/portfolio-admin-seed.json
+          if-no-files-found: error
+          retention-days: 1
