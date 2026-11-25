@@ -59,7 +59,7 @@ export function PortfolioImage({
       sizes={srcSet ? sizes : undefined}
       loading={priority ? "eager" : loading ?? "lazy"}
       fetchPriority={priority ? "high" : "auto"}
-      decoding="async"
+      decoding={priority ? "sync" : requestedDecoding ?? "async"}
       {...rest}
     />
   );

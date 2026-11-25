@@ -32,3 +32,7 @@
 .portfolio-standard-shell[data-portfolio-slug="beto-pasteis"] main {
   animation: none;
 }
+[data-portfolio-slug="embalar-embalagens"] main,
+[data-portfolio-slug="your-brutus-burguer"] main {
+  animation: none;
+}

@@ -101,7 +101,7 @@ const gallery = [
 export function EmbalarEmbalagensPage() {
   return (
     <MotionScope intensity="BALANCED">
-      <div className="min-h-dvh overflow-hidden bg-[#fff9f2] text-[#27363a]">
+      <div data-portfolio-slug="embalar-embalagens" className="min-h-dvh overflow-hidden bg-[#fff9f2] text-[#27363a]">
         <header className="border-b border-[#27363a]/10 bg-[#fff9f2] px-5 py-4 lg:px-10">
           <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
             <a href="#inicio" aria-label="Embalar Embalagens" className="flex items-center gap-3">

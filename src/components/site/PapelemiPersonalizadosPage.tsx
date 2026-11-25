@@ -21,7 +21,7 @@ const products = [
 export function PapelemiPersonalizadosPage() {
   return (
     <MotionScope intensity="BALANCED">
-      <div className="min-h-dvh overflow-hidden bg-[#f7f3ef] text-[#34465d]">
+      <div data-portfolio-slug="papelemi-personalizados" className="min-h-dvh overflow-hidden bg-[#f7f3ef] text-[#34465d]">
         <header className="sticky top-0 z-30 border-b border-[#dce1e7] bg-[#f7f3ef]/95 px-5 py-4 backdrop-blur lg:px-10">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-5">
             <a href="#inicio" aria-label="PapeLemi Papelaria Personalizada" className="shrink-0">
