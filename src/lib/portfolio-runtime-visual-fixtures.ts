@@ -6,12 +6,10 @@ import type { PortfolioRuntimeRow } from "./portfolio-runtime";
  * Os slugs abaixo são apenas as chaves técnicas das rotas já versionadas.
  */
 const slugs = [
-  "r_beauty",
   "studio-de-cilios",
   "refrigeracao-maresia",
   "lk-alvenaria",
   "paulo-mestre-de-obras",
-  "portfolio-index",
 ] as const;
 
 const syntheticRow = (slug: string): PortfolioRuntimeRow => ({

@@ -56,6 +56,7 @@ export function PortfolioImage({
     <img
       src={managedSrc}
       alt={alt}
+      data-portfolio-managed-field={managedField}
       srcSet={srcSet}
       sizes={srcSet ? sizes : undefined}
       loading={priority ? "eager" : loading ?? "lazy"}
