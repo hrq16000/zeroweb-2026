@@ -40,6 +40,7 @@ export function PortfolioImage({
   sizes = "(min-width: 1024px) 960px, 100vw",
   managedField,
   loading,
+  decoding: requestedDecoding,
   ...rest
 }: Props) {
   const runtime = usePortfolioRuntime();
