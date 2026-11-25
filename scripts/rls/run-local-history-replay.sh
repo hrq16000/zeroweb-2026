@@ -278,20 +278,35 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
             }
         elif override_spec.get("kind")=="legacy_dynamic_form_id_seed":
             patched=original
+            # The old PL/pgSQL variable `form_id` collides with the canonical
+            # column `form_id` after dynamic_form_id is normalized. Rename only
+            # the local variable in this hash-locked disposable copy first.
+            variable_replacements=[
+                (r"\bdeclare\s+form_id\s+uuid\s*;","declare v_form_id uuid;",1),
+                (r"\bselect\s+id\s+into\s+form_id\b","select id into v_form_id",1),
+                (r"\bdynamic_form_id\s*=\s*form_id\b","dynamic_form_id = v_form_id",2),
+                (r"(?m)^([ \t]*)\(form_id,","\\1(v_form_id,",7),
+            ]
+            stats={}
+            for pattern,replacement,expected_count in variable_replacements:
+                patched,count=re.subn(pattern,replacement,patched,flags=re.I)
+                if count!=expected_count:
+                    report("BLOCKED_LOCAL_LEGACY_FORM_VARIABLE_COUNT",{"file":p.name,"pattern":pattern,"expected":expected_count,"actual":count})
+                    raise SystemExit("BLOCKED_LOCAL_LEGACY_FORM_VARIABLE_COUNT")
+                stats[pattern]=count
             replacements=[
                 (r"\bdynamic_form_id\b","form_id",3),
                 (r"\bposition\b","order_index",1),
                 (r"\bquestion_key\b","key",1),
                 (r"\boptions\b","options_json",1),
             ]
-            stats={}
             for pattern,replacement,expected_count in replacements:
                 patched,count=re.subn(pattern,replacement,patched,flags=re.I)
                 if count!=expected_count:
                     report("BLOCKED_LOCAL_LEGACY_FORM_COLUMN_COUNT",{"file":p.name,"pattern":pattern,"expected":expected_count,"actual":count})
                     raise SystemExit("BLOCKED_LOCAL_LEGACY_FORM_COLUMN_COUNT")
                 stats[pattern]=count
-            stats["mapping"]="dynamic_form_id/position/question_key/options -> form_id/order_index/key/options_json"
+            stats["mapping"]="local variable form_id -> v_form_id; dynamic_form_id/position/question_key/options -> form_id/order_index/key/options_json"
         else:
             patched,stats=normalize_dynamic_form_question_seed(
                 original,
