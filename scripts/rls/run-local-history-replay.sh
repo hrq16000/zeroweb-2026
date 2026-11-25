@@ -185,9 +185,9 @@ DISPOSABLE_SEED_OVERRIDES={
     "supabase/migrations/20260828085941_seed_mary_diarista_funnel.sql":{"blob_sha":"b9abb73004e59d4e4dc5a5a8b738823888ebd48c","rows":8,"arities":{7:6,8:1,9:1}},
     "supabase/migrations/20260828090817_seed_acai_total_araucaria_funnel.sql":{"blob_sha":"ff6b8425b67cc09e8f1f4f8f5995d4cbff242ee6","rows":8,"arities":{7:6,8:1,9:1}},
     "supabase/migrations/20260828091600_seed_jkl_marcenaria_funnel.sql":{"blob_sha":"e8d13f96ded1a49d1ec801f9241fbcbc3b9819ee","rows":9,"arities":{7:7,8:1,9:1}},
-    "supabase/migrations/20260901194230_seed_ton_e_cor_funnel.sql":{"blob_sha":"6385195058b66581494c9d2d04a83805a1f88375","kind":"legacy_step_order_seed","column_lists":4},
-    "supabase/migrations/20260901200424_seed_raphael_construcoes_funnel.sql":{"blob_sha":"fe3f3efe5b7ad707bc2cf960983bdcdd0e5c7804","kind":"legacy_step_order_seed","column_lists":4},
-    "supabase/migrations/20260902004904_seed_jc_revestimentos_funnel.sql":{"blob_sha":"901be15ede8c1c27d0ece0f1990dc759a850dd5a","kind":"legacy_step_order_seed","column_lists":4},
+    "supabase/migrations/20260901194230_seed_ton_e_cor_funnel.sql":{"blob_sha":"6385195058b66581494c9d2d04a83805a1f88375","kind":"legacy_step_order_seed","column_lists":4},,"single_choice_values":4
+    "supabase/migrations/20260901200424_seed_raphael_construcoes_funnel.sql":{"blob_sha":"fe3f3efe5b7ad707bc2cf960983bdcdd0e5c7804","kind":"legacy_step_order_seed","column_lists":4},,"single_choice_values":4
+    "supabase/migrations/20260902004904_seed_jc_revestimentos_funnel.sql":{"blob_sha":"901be15ede8c1c27d0ece0f1990dc759a850dd5a","kind":"legacy_step_order_seed","column_lists":4},,"single_choice_values":4
     "supabase/migrations/20260906190903_seed_mania_de_limpeza_funnel.sql":{"blob_sha":"6f582f719f6f4bbd54dcc690dab82389bd5e51fb","kind":"legacy_dynamic_form_id_seed"},
     "supabase/migrations/20260906194009_seed_dona_lucy_salgados_funnel.sql":{"blob_sha":"4123146537ada970b7259888da0953be4548043f","kind":"legacy_dynamic_form_id_seed"},
 }
@@ -218,11 +218,21 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
             old_columns="form_id, step_order, question_key, question_text, question_type, options, is_required"
             new_columns="form_id, order_index, key, label, type, options_json, required"
             count=original.count(old_columns)
+            type_count=original.count("'single_choice'")
             if count!=override_spec.get("column_lists"):
                 report("BLOCKED_LOCAL_LEGACY_STEP_COLUMN_COUNT",{"file":p.name,"expected":override_spec.get("column_lists"),"actual":count})
                 raise SystemExit("BLOCKED_LOCAL_LEGACY_STEP_COLUMN_COUNT")
-            patched=original.replace(old_columns,new_columns)
-            stats={"legacy_column_lists":count,"mapping":"step_order/question_key/question_text/question_type/options/is_required -> order_index/key/label/type/options_json/required"}
+            if type_count!=override_spec.get("single_choice_values"):
+                report("BLOCKED_LOCAL_LEGACY_STEP_TYPE_COUNT",{"file":p.name,"expected":override_spec.get("single_choice_values"),"actual":type_count})
+                raise SystemExit("BLOCKED_LOCAL_LEGACY_STEP_TYPE_COUNT")
+            # The verified legacy single_choice value maps to the current
+            # radio control. The mapping is applied only to the disposable copy.
+            patched=original.replace(old_columns,new_columns).replace("'single_choice'","'radio'")
+            stats={
+                "legacy_column_lists":count,
+                "legacy_single_choice_values":type_count,
+                "mapping":"step_order/question_key/question_text/question_type/options/is_required -> order_index/key/label/type/options_json/required; single_choice -> radio",
+            }
         elif override_spec.get("kind")=="legacy_dynamic_form_id_seed":
             patched=original
             replacements=[
@@ -249,7 +259,7 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         override_dir.mkdir(parents=True,exist_ok=True)
         replay_path=override_dir/p.name
         replay_path.write_text(patched,encoding="utf-8")
-        overrides.append({"source":source["source"],"source_sha256":digest,"source_git_blob_sha":blob_sha,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"disposable-only compatibility patch: add nullable placeholder/hint columns and normalize the verified 7/8/9-value tuple shapes","added_columns":["placeholder","hint"],"normalized_rows":stats})
+        overrides.append({"source":source["source"],"source_sha256":digest,"source_git_blob_sha":blob_sha,"staged":p.name,"replay_sha256":hashlib.sha256(replay_path.read_bytes()).hexdigest(),"reason":"hash-verified compatibility patch applied only to the disposable replay copy; original migration bytes remain unchanged","added_columns":["placeholder","hint"],"normalized_rows":stats})
     # Refuse client-side psql commands and file/program execution. Dollar
     # quoted SQL is passed unchanged; no naive statement splitting.
     if re.search(r"(?m)^\s*\\",replay_path.read_text()):
