@@ -301,7 +301,7 @@ export function ArildoMadeirasPage() {
                 width="900"
                 height="1200"
                 loading="eager"
-                decoding="sync"
+                decoding="async"
                 fetchPriority="high"
                 referrerPolicy="no-referrer"
               />
