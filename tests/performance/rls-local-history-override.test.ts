@@ -29,6 +29,10 @@ test("historical funnel seeds remain immutable and only disposable replay normal
   expect(runner).toContain("def normalize_dynamic_form_question_seed");
   expect(runner).toContain("legacy_step_order_seed");
   expect(runner).toContain("legacy_dynamic_form_id_seed");
+  expect(runner).toContain("declare v_form_id uuid;");
+  expect(runner).toContain("dynamic_form_id = v_form_id");
+  expect(runner).toContain("form_id -> v_form_id");
+  expect(runner).toContain("BLOCKED_LOCAL_LEGACY_FORM_VARIABLE_COUNT");
   expect(runner).toContain("BLOCKED_LOCAL_LEGACY_STEP_COLUMN_COUNT");
   expect(runner).toContain("BLOCKED_LOCAL_LEGACY_FORM_COLUMN_COUNT");
   expect(runner).toContain("BLOCKED_LOCAL_OVERRIDE_ROW_ARITY_PROFILE");
