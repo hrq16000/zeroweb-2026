@@ -273,20 +273,21 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         schema_name=diagnostic("SCHEMA NAME")
         table_name=diagnostic("TABLE NAME")
         column_name=diagnostic("COLUMN NAME")
-        message=re.search(r"(?m)^ERROR:\s+[0-9A-Z]{5}:\s*(.*)$",result.stderr)
+        message=re.search(r"(?m)^.*ERROR:\s+[0-9A-Z]{5}:\s*(.*)$",result.stderr)
         definition=None
-        if constraint and schema_name and table_name:
+        if (
+            constraint and schema_name and table_name
+            and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*",constraint)
+            and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*",schema_name)
+            and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*",table_name)
+        ):
+            lookup_sql=(
+                "SELECT pg_get_constraintdef(oid) FROM pg_constraint "
+                f"WHERE conname = '{constraint}' "
+                f"AND conrelid = '{schema_name}.{table_name}'::regclass"
+            )
             lookup=subprocess.run(
-                [
-                    "psql","-X","-At","-v","ON_ERROR_STOP=1",
-                    "-v",f"constraint_name={constraint}",
-                    "-v",f"schema_name={schema_name}",
-                    "-v",f"table_name={table_name}",
-                    "-c",
-                    "SELECT pg_get_constraintdef(oid) FROM pg_constraint "
-                    "WHERE conname = :'constraint_name' "
-                    "AND conrelid = to_regclass(format('%I.%I', :'schema_name', :'table_name'))",
-                ],
+                ["psql","-X","-At","-v","ON_ERROR_STOP=1","-c",lookup_sql],
                 env=pg,capture_output=True,text=True,timeout=15,
             )
             if lookup.returncode==0 and lookup.stdout.strip():
