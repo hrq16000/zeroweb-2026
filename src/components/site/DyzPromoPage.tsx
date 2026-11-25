@@ -101,8 +101,7 @@ function DyzImage({
   // O original continua sendo usado na lightbox; a página usa derivados WebP responsivos.
   const imageName = src.match(/^\/images\/dyzpromo\/([a-z-]+)\.jpeg$/)?.[1];
   const hasResponsive = !!imageName && imageName !== "panfletagem-semaforo";
-  const upperWidth =
-    imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName)
+  const upperWidth = imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName)
       ? 640
       : 800;
   const srcSet = hasResponsive
@@ -217,8 +216,8 @@ export function DyzPromoPage() {
   return (
     <div className="portfolio-theme-dyz min-h-screen bg-background text-foreground">
       <DyzHeader />
-      <main>
-        <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <main style={{ animation: "none" }}>
+        <section id="inicio" style={{ animation: "none" }} className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.28),transparent_35%),radial-gradient(circle_at_90%_10%,hsl(var(--accent)/0.16),transparent_30%)]" aria-hidden="true" />
           <motion.div animate={{ x: [0, 24, 0], y: [0, -16, 0], scale: [1, 1.08, 1] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
           <motion.div animate={{ x: [0, -20, 0], y: [0, 18, 0], scale: [1, 0.92, 1] }} transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#f7c948]/10 blur-3xl" aria-hidden="true" />

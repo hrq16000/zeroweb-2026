@@ -81,7 +81,7 @@ export function RBeautyEditorialView() {
       </header>
 
       {/* Hero Section with Kinetic Typography */}
-      <section id="inicio" className="pt-16 pb-24 px-4 relative">
+      <section id="inicio" style={{ animation: "none" }} className="pt-16 pb-24 px-4 relative">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
           <motion.div 

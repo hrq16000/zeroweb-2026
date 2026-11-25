@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Angel Mix Brechó (/portfolio/angel-mix-brecho).
@@ -39,9 +39,10 @@ export function AngelMixBrechoPage() {
       }
     >
       <MotionScope intensity="EXPRESSIVE">
-      <main>
+      <main style={{ animation: "none" }}>
         {/* capa de revista: fotografia em tela cheia com o título sobreposto */}
         <MotionFirstPaint><section className="relative isolate">
+          <MotionImageReveal direction="up">
           <PortfolioImage
             src="/images/_generated/angel-mix-brecho/capa.webp"
             alt="Angel Mix Brechó"
@@ -54,6 +55,7 @@ export function AngelMixBrechoPage() {
             className="h-[78vh] w-full object-cover md:h-[88vh]"
             managedField="heroImageUrl"
           />
+          </MotionImageReveal>
           <div
             className="absolute inset-0 bg-gradient-to-t from-[var(--am-ink)]/85 via-[var(--am-ink)]/25 to-transparent"
             aria-hidden
