@@ -1,6 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Lock } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 
 type GateState = "checking" | "unauth" | "forbidden" | "ok";
@@ -10,32 +9,48 @@ export function PainelGate({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let cancelled = false;
-    const check = async () => {
-      const { data: userData, error: userErr } = await supabase.auth.getUser();
-      if (cancelled) return;
-      if (userErr || !userData?.user) {
-        setState("unauth");
-        return;
-      }
-      // Server-side authorization: super_admin OR admin role.
-      const { data: isSuper } = await supabase.rpc("is_super_admin", { _uid: userData.user.id });
-      if (isSuper) {
-        if (!cancelled) setState("ok");
-        return;
-      }
-      const { data: isAdmin } = await supabase.rpc("has_role", {
-        _user_id: userData.user.id,
-        _role: "admin",
-      });
-      if (cancelled) return;
-      setState(isAdmin ? "ok" : "forbidden");
-    };
-    void check();
+    let unsubscribe: (() => void) | undefined;
 
-    const { data: sub } = supabase.auth.onAuthStateChange(() => void check());
+    void import("@/integrations/supabase/client")
+      .then(({ supabase }) => {
+        if (cancelled) return;
+
+        const check = async () => {
+          const { data: userData, error: userErr } = await supabase.auth.getUser();
+          if (cancelled) return;
+          if (userErr || !userData?.user) {
+            setState("unauth");
+            return;
+          }
+
+          // Server-side authorization: super_admin OR admin role.
+          const { data: isSuper } = await supabase.rpc("is_super_admin", {
+            _uid: userData.user.id,
+          });
+          if (isSuper) {
+            if (!cancelled) setState("ok");
+            return;
+          }
+
+          const { data: isAdmin } = await supabase.rpc("has_role", {
+            _user_id: userData.user.id,
+            _role: "admin",
+          });
+          if (cancelled) return;
+          setState(isAdmin ? "ok" : "forbidden");
+        };
+
+        const { data: sub } = supabase.auth.onAuthStateChange(() => void check());
+        unsubscribe = () => sub.subscription.unsubscribe();
+        void check();
+      })
+      .catch(() => {
+        if (!cancelled) setState("unauth");
+      });
+
     return () => {
       cancelled = true;
-      sub.subscription.unsubscribe();
+      unsubscribe?.();
     };
   }, []);
 
@@ -72,6 +87,7 @@ export function PainelGate({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={async () => {
+              const { supabase } = await import("@/integrations/supabase/client");
               await supabase.auth.signOut();
               setState("unauth");
             }}

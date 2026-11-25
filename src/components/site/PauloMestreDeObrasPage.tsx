@@ -198,7 +198,7 @@ export function PauloMestreDeObrasPage() {
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_.9fr]">
             <div>
               <motion.p
-                initial={{ opacity: 0, y: 12 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]"
               >

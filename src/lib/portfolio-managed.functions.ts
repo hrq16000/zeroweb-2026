@@ -18,7 +18,7 @@ import {
   type ManagedProject,
 } from "@/lib/portfolio-managed";
 import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
-import { UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-admin";
+import { UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-public-safety";
 import {
   buildManagedAuthorialCompositionPlan,
   managedCompositionSignature,
