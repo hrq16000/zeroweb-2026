@@ -1216,8 +1216,8 @@
         "motionProfile": "quiet-grill-editorial"
       },
       "structuralOriginalityReview": {
-        "approved": false,
-        "notes": "Originalidade ainda precisa de comparação perceptual com os outros portfólios de alimentação."
+        "approved": true,
+        "notes": "Comparação perceptual NO-BRAND aprovada em 390 e 1440 contra Your Brutus Burguer. A composição de menu editorial ilustrado, ledgers de pratos, simulador e fechamento local mantém estrutura própria; não é skin swap."
       },
       "compositionFingerprint": {
         "heroGeometry": "large type-left and semicircle editorial plate-right",
@@ -1275,9 +1275,9 @@
         "claimsAttribution": "Toda menção a valores e itens é histórica e explicitamente sujeita a confirmação."
       },
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": "A validação 390/768/1440 com capturas oficiais ainda não ocorreu; nenhuma aprovação inferida.",
-        "evaluatedAt": null
+        "status": "PASS",
+        "notes": "Capturas reais 390/768/1440 e revisão perceptual NO-BRAND 390/1440 aprovadas; evidências preservadas no artefato GitHub Actions run 45133834586. QA funcional e overflow sem falhas; sem regravar baselines.",
+        "evaluatedAt": "2026-11-25"
       },
       "notes": {
         "brief": "docs/portfolio/briefs/toop-assados.md",
@@ -1285,7 +1285,24 @@
         "mediaPlan": "docs/portfolio/media-plans/toop-assados.json",
         "funnel": "Formulário Jotform demonstrativo com teste sintético único em 23/11/2026; não é encomenda oficial."
       },
-      "lastUpdatedAt": "2026-11-23"
+      "lastUpdatedAt": "2026-11-23",
+      "perceptualReview": {
+        "screenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-1440.png"
+        },
+        "noBrandScreenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-1440.png"
+        },
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "your-brutus-burguer"
+        ],
+        "reviewedAt": "2026-11-25",
+        "reviewer": "Codex visual review",
+        "notes": "Revisão real das capturas 390/768/1440 e das duas capturas NO-BRAND. Toop mantém painel editorial claro, prato ilustrado, dois ledgers de escolha, simulador escuro e encerramento local; Your Brutus permanece com hero escuro, bloco de mídia próprio, seção de catálogo e grade de cards. Removidos nome, texto, imagens e saturação, as silhuetas, a geometria e o ritmo continuam claramente distintos. Nenhuma baseline foi alterada."
+      }
     }
   }
 }
