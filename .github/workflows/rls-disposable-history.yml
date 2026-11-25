@@ -60,4 +60,5 @@ jobs:
           path: |
             ${{ runner.temp }}/rls-history-plan.json
             ${{ runner.temp }}/rls-replay-result.json
+            ${{ runner.temp }}/rls-start-diagnostic.json
           if-no-files-found: warn
