@@ -27,8 +27,8 @@ const syntheticRow = (slug: string): PortfolioRuntimeRow => ({
   cta_label: "Ver demonstração",
   gallery: ["/images/visual-fixtures/gallery.svg"],
   brand_colors: { primary: "#334155", accent: "#e2e8f0" },
-  lifecycle_status: "published",
-  published: true,
+  lifecycle_status: "draft",
+  published: false,
   content_version: 1,
 });
 

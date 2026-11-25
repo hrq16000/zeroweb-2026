@@ -840,7 +840,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       meta: [
         { title: eff.title },
         { name: "description", content: eff.description },
-        { name: "robots", content: loaderData?.visualFixture ? "noindex,nofollow" : eff.robots },
+        { name: "robots", content: eff.robots },
         {
           name: "keywords",
           content: eff.keywords ?? (isArildoMadeiras

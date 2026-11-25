@@ -30,7 +30,8 @@ describe("fixtures sintéticas de overrides visuais", () => {
     expect(effective.logoUrl).toBe("/images/visual-fixtures/logo.svg");
     expect(effective.socialImage).toBe("/images/visual-fixtures/social.svg");
     expect(effective.gallery).toEqual(["/images/visual-fixtures/gallery.svg"]);
-    expect(effective.indexable).toBe(true);
+    expect(effective.indexable).toBe(false);
+    expect(effective.robots).toBe("noindex,nofollow");
     expect(effective.overriddenFields).toContain("hero");
   });
 });
