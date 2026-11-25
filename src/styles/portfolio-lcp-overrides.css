@@ -18,3 +18,17 @@
 [data-blueprint="moreira-auto-mecanica"] main {
   animation: none;
 }
+
+/* These routes had a measured LCP render delay dominated by the global
+   page-reveal animation. Keep the shared motion system intact, but let the
+   first meaningful paint happen immediately on the affected portfolios. */
+.portfolio-standard-shell[data-portfolio-slug="marmitaria-dom-diego"] main,
+.portfolio-standard-shell[data-portfolio-slug="toquinho-de-gente-brecho"] main,
+.portfolio-standard-shell[data-portfolio-slug="papelemi-personalizados"] main,
+.portfolio-standard-shell[data-portfolio-slug="autoescola-aptos"] main,
+.portfolio-standard-shell[data-portfolio-slug="manu-pasteis"] main,
+.portfolio-standard-shell[data-portfolio-slug="thays-camilla"] main,
+.portfolio-standard-shell[data-portfolio-slug="jc-revestimentos"] main,
+.portfolio-standard-shell[data-portfolio-slug="beto-pasteis"] main {
+  animation: none;
+}

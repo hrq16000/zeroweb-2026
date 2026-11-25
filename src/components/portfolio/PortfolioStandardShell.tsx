@@ -71,7 +71,7 @@ export function PortfolioStandardShell({
 
   return (
     // overflow-x-clip: reveals horizontais em curso não podem gerar scroll lateral no mobile.
-    <div className="portfolio-standard-shell overflow-x-clip">
+    <div className="portfolio-standard-shell overflow-x-clip" data-portfolio-slug={slug}>
       <PortfolioVitals slug={slug} />
       <PortfolioView slug={slug} />
       {standards.shareButton.enabled ? (

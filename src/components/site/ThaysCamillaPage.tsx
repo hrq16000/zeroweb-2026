@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal } from "@/components/motion";
 
 const quiz = {
   services: [
@@ -80,7 +80,7 @@ export function ThaysCamillaPage() {
 
       <main>
         {/* HERO centralizado com etiqueta de presente pendurada — sem grade 2 colunas. */}
-        <section id="inicio" className="px-5 pb-16 pt-4 text-center lg:px-8">
+        <MotionFirstPaint><section id="inicio" className="px-5 pb-16 pt-4 text-center lg:px-8">
           <div className="mx-auto max-w-3xl">
             <MotionReveal as="h1" variant="down" intensity="BALANCED" className="mx-auto max-w-2xl font-serif text-[2.6rem] font-semibold leading-[1.02] sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Personalize carinho em cada detalhe."} />
@@ -113,7 +113,7 @@ export function ThaysCamillaPage() {
           <div className="mt-10">
             <CTA>Montar meu presente <ArrowRight className="h-4 w-4" /></CTA>
           </div>
-        </section>
+        </section></MotionFirstPaint>
 
         {/* Duas peças, lado a lado com divisor central — não é grade de 3 cards. */}
         <section id="kit" className="border-y border-[#f1d8ca] bg-[#f8e4d8] px-5 py-16 lg:px-8">
