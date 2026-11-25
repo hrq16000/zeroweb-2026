@@ -24,7 +24,7 @@
    first meaningful paint happen immediately on the affected portfolios. */
 .portfolio-standard-shell[data-portfolio-slug="marmitaria-dom-diego"] main,
 .portfolio-standard-shell[data-portfolio-slug="toquinho-de-gente-brecho"] main,
-.portfolio-standard-shell[data-portfolio-slug="papelemi-personalizados"] main,
+[data-portfolio-slug="papelemi-personalizados"] main,
 .portfolio-standard-shell[data-portfolio-slug="autoescola-aptos"] main,
 .portfolio-standard-shell[data-portfolio-slug="manu-pasteis"] main,
 .portfolio-standard-shell[data-portfolio-slug="thays-camilla"] main,
