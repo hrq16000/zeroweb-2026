@@ -55,6 +55,10 @@ const steps = [
 const faq = [
   ["Preciso trocar meu site?", "Não necessariamente. Primeiro avaliamos a página existente. Ajustes ou novas páginas são propostos apenas quando úteis e orçados separadamente."],
   ["Posso aproveitar minha conta do Google Ads?", "Sim. O ideal é manter a conta e o histórico sob sua titularidade e conceder acesso de gestão, sem compartilhar senhas."],
+  ["Direito Criminal e Direito de Família podem compartilhar o mesmo site?", "Sim. Cada especialidade pode ter uma página própria no mesmo site. O plano introdutório contempla uma campanha prioritária; campanhas adicionais são avaliadas e orçadas separadamente."],
+  ["Os R$ 297 são um preço permanente?", "Não. É uma condição introdutória por até 90 dias, sem fidelidade obrigatória. Antes de qualquer continuidade em novas condições, o escopo e o valor serão apresentados para sua aprovação, sem reajuste automático."],
+  ["Preciso contratar por três meses?", "Não. Recomendamos 90 dias para coletar dados, otimizar e avaliar a viabilidade, sem garantir retorno nem exigir permanência mínima."],
+  ["Por que o preço de gestão varia?", "O valor depende da verba, quantidade de campanhas, especialidades, regiões, complexidade da mensuração, frequência de acompanhamento e tempo técnico necessário. Um percentual fixo da mídia, isoladamente, não determina o preço."],
   ["Posso começar com Direito de Família?", "Sim. Uma campanha inicial pode priorizar essa área e sua região de atendimento. Direito Criminal e outras áreas podem ser avaliadas posteriormente."],
   ["Quanto preciso investir em anúncios?", "A verba depende da concorrência, região e palavras-chave. O investimento é definido em conjunto após diagnóstico e pago diretamente ao Google, separado da gestão."],
   ["Existe garantia de novos contratos?", "Não. Buscas, concorrência, atendimento e outros fatores influenciam o resultado. A proposta é mensurar e otimizar o investimento, sem promessa de clientes, posição ou retorno financeiro."],
@@ -106,23 +110,29 @@ function MarketingJuridico() {
         <section id="plano" className="scroll-mt-28 border-y border-border bg-card/60 py-14 sm:py-20">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-8 lg:grid-cols-2">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary">Plano inicial · Google Ads</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary">Condição introdutória · Google Ads</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Comece com uma campanha enxuta.</h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">Ideal para escritórios que já possuem site e querem melhorar a eficiência dos anúncios, sem contratar serviços que não precisam. O escopo definitivo é confirmado em proposta.</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Para escritórios com site e estrutura compatíveis, que desejam experimentar uma gestão operacional essencial. Recomendamos 90 dias de acompanhamento para aprendizado, otimização e avaliação da viabilidade, sem fidelidade obrigatória nem promessa de retorno.</p>
               <div className="mt-6 rounded-2xl border border-border bg-background p-5">
-                <h3 className="font-bold">Expansão gradual</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Após analisar o desempenho, podemos avaliar novas especialidades, regiões e campanhas. Nenhuma expansão de orçamento sem aprovação.</p>
+                <h3 className="font-bold">Expansão gradual</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">Mais campanhas, regiões, verba e complexidade podem exigir mais tempo técnico e acompanhamento. A gestão é dimensionada pelo trabalho necessário, não apenas por um percentual fixo da mídia. Qualquer ampliação de escopo, verba ou valor depende de proposta e aprovação prévia.</p>
               </div>
             </div>
             <article className="rounded-3xl border border-primary/40 bg-background p-6 sm:p-8">
               <h3 className="text-xl font-bold">Gestão Essencial</h3>
-              <p className="mt-4 text-sm text-muted-foreground">Referência inicial de gestão mensal</p>
-              <p className="mt-1 text-4xl font-bold tracking-tight">R$ 297 <span className="text-base font-normal text-muted-foreground">/mês a partir de</span></p>
-              <p className="mt-3 text-sm text-muted-foreground">Verba de anúncios não inclusa. Referência sujeita à confirmação do escopo e diagnóstico.</p>
-              <ul className="mt-6 space-y-3">
-                {["Uma especialidade prioritária", "Configuração e gestão de campanha de pesquisa", "Segmentação regional e palavras-chave negativas", "Revisão periódica de termos e desempenho", "Relatório mensal de investimento e indicadores"].map((item) => (
+              <p className="mt-4 text-sm text-muted-foreground">Condição promocional de entrada · até 90 dias</p>
+              <p className="mt-1 text-4xl font-bold tracking-tight">R$ 297 <span className="text-base font-normal text-muted-foreground">/mês</span></p>
+              <p className="mt-3 text-sm text-muted-foreground">Verba de anúncios paga diretamente ao Google, não inclusa. Condição sujeita a diagnóstico e aprovação do escopo, sem fidelidade obrigatória. A continuidade após o período introdutório depende de nova proposta aceita pelo cliente, sem aumento automático.</p>
+              <h4 className="mt-6 font-bold">O que está incluso</h4>
+              <ul className="mt-3 space-y-3">
+                {["Uma campanha de pesquisa e uma especialidade prioritária", "Gestão operacional da campanha acordada", "Revisão semanal dos indicadores, termos e ajustes pontuais de segmentação e palavras-chave negativas", "Acompanhamento do orçamento e relatório mensal simplificado", "Suporte operacional em horário comercial, dentro do escopo", "Até 3 horas acumuladas de dedicação técnica por mês"].map((item) => (
                   <li key={item} className="flex gap-3 text-sm"><CheckCircle2 aria-hidden="true" className="size-5 shrink-0 text-primary" />{item}</li>
                 ))}
               </ul>
+              <h4 className="mt-6 border-t border-border pt-5 font-bold">O que não está incluso</h4>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+                {["Verba de anúncios, domínio e hospedagem", "Criação ou reformulação de sites e landing pages", "Campanhas extras, SEO e redes sociais", "Consultoria comercial ilimitada, gestor exclusivo ou monitoramento humano diário", "Garantias de clientes, posição ou faturamento"].map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Briefing, acesso autorizado à conta e diagnóstico são pré-requisitos. A configuração inicial e eventuais adequações de mensuração ou site são avaliadas e orçadas separadamente quando necessárias.</p>
               <div className="mt-7"><FunnelCTAButton intent={{ ...intent, placement: "section" }} label="Conversar sobre o plano" location="marketing-juridico-plano" /></div>
             </article>
           </div>
