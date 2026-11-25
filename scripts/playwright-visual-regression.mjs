@@ -30,11 +30,19 @@ const update = process.argv.includes("--update");
 const threshold = Number(process.env.VISUAL_THRESHOLD ?? 0.02); // 2% dos pixels
 const routeTimeout = Number(process.env.VISUAL_ROUTE_TIMEOUT_MS ?? 20000);
 const concurrency = Math.max(1, Number(process.env.VISUAL_CONCURRENCY ?? 3));
+const viewportSpec = process.env.VISUAL_VIEWPORTS ?? "";
 const only = (process.env.VISUAL_ONLY ?? "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-const baselineDir = resolve(process.cwd(), "tests/visual/baseline");
+const skip = (process.env.VISUAL_SKIP ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const baselineDir = resolve(
+  process.cwd(),
+  process.env.VISUAL_BASELINE_DIR ?? "tests/visual/baseline",
+);
 const outDir = resolve(process.cwd(), "seo-reports/visual");
 const approvedHashesPath = resolve(process.cwd(), "tests/visual/approved-hashes.json");
 const approvedHashes = existsSync(approvedHashesPath)
@@ -69,14 +77,24 @@ const dedicatedOnly = only
   .filter((slug) => !allRoutes.some((route) => route.name === slug))
   .filter((slug) => existsSync(resolve(process.cwd(), `src/routes/portfolio.${slug}.tsx`)))
   .map((slug) => ({ path: `/portfolio/${slug}`, name: slug }));
-const routes = only.length
+const selectedRoutes = only.length
   ? [...allRoutes.filter((r) => only.includes(r.name)), ...dedicatedOnly]
   : allRoutes;
-const viewports = [
-  { name: "desktop", width: 1280, height: 900 },
-  { name: "tablet", width: 834, height: 1112 },
-  { name: "mobile", width: 393, height: 852 },
-];
+const routes = selectedRoutes.filter((route) => !skip.includes(route.name));
+const viewports = viewportSpec
+  ? viewportSpec.split(",").map((entry) => {
+      const [name, dimensions] = entry.trim().split(":");
+      const [width, height] = (dimensions ?? "").split("x").map(Number);
+      if (!name || !Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+        throw new Error(`[visual] viewport inválido: ${entry}`);
+      }
+      return { name, width, height };
+    })
+  : [
+      { name: "desktop", width: 1280, height: 900 },
+      { name: "tablet", width: 834, height: 1112 },
+      { name: "mobile", width: 393, height: 852 },
+    ];
 
 /**
  * CSS injetado antes do primeiro paint.
@@ -203,6 +221,27 @@ async function capture(context, route, viewport) {
   const page = await context.newPage();
   page.setDefaultTimeout(routeTimeout);
   try {
+    if (process.env.VISUAL_READ_ONLY === "1") {
+      await page.addInitScript(() => {
+        try {
+          Object.defineProperty(navigator, "sendBeacon", {
+            configurable: true,
+            value: () => true,
+          });
+        } catch {
+          /* navegador pode expor sendBeacon como propriedade não configurável */
+        }
+      });
+      await page.route("**/*", async (route) => {
+        const method = route.request().method();
+        if (!["GET", "HEAD", "OPTIONS"].includes(method)) {
+          await route.abort();
+          return;
+        }
+        await route.continue();
+      });
+    }
+
     await page.addInitScript(
       (ab) => {
         try {

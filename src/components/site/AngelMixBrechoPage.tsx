@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionFirstPaint, MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Angel Mix Brechó (/portfolio/angel-mix-brecho).
@@ -28,7 +28,7 @@ const arara = [
 export function AngelMixBrechoPage() {
   return (
     <div
-      className="min-h-dvh bg-[var(--am-cream)] text-[var(--am-ink)]"
+      className="portfolio-theme-angel-mix min-h-dvh bg-[var(--am-cream)] text-[var(--am-ink)]"
       style={
         {
           "--am-cream": "oklch(0.97 0.02 350)",
@@ -42,19 +42,18 @@ export function AngelMixBrechoPage() {
       <main>
         {/* capa de revista: fotografia em tela cheia com o título sobreposto */}
         <MotionFirstPaint><section className="relative isolate">
-          <MotionImageReveal direction="up">
-            <PortfolioImage
-              src="/images/_generated/angel-mix-brecho/capa.webp"
-              alt="Angel Mix Brechó"
-              priority
-              widths={[480, 960, 1536]}
-              sizes="100vw"
-              width={1536}
-              height={1024}
-              className="h-[78vh] w-full object-cover md:h-[88vh]"
-              managedField="heroImageUrl"
-            />
-          </MotionImageReveal>
+          <PortfolioImage
+            src="/images/_generated/angel-mix-brecho/capa.webp"
+            alt="Angel Mix Brechó"
+            priority
+            decoding="sync"
+            widths={[480, 960, 1536]}
+            sizes="100vw"
+            width={1536}
+            height={1024}
+            className="h-[78vh] w-full object-cover md:h-[88vh]"
+            managedField="heroImageUrl"
+          />
           <div
             className="absolute inset-0 bg-gradient-to-t from-[var(--am-ink)]/85 via-[var(--am-ink)]/25 to-transparent"
             aria-hidden

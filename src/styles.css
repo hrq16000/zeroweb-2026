@@ -185,17 +185,26 @@
    quando se aproxima da viewport. O fallback mantém a página totalmente
    visível em navegadores sem scroll-driven animations. */
 @media (prefers-reduced-motion: no-preference) {
-  .portfolio-theme-dyz section,
-  .portfolio-theme-renata section,
-  .portfolio-theme-rbeauty section,
-  .portfolio-theme-prototype section,
-  .portfolio-theme-emporio section,
-  .portfolio-theme-paraiso section {
+  .portfolio-theme-dyz section:not(#inicio),
+  .portfolio-theme-renata section:not(#inicio),
+  .portfolio-theme-rbeauty section:not(#inicio),
+  .portfolio-theme-prototype section:not(#inicio),
+  .portfolio-theme-emporio section:not(#inicio),
+  .portfolio-theme-paraiso section:not(#inicio) {
     animation: section-reveal linear both;
     animation-timeline: view();
     animation-range: entry 0% cover 28%;
   }
-  .portfolio-theme-rj section { animation: section-reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 24%; }
+  .portfolio-theme-rj section:not(#inicio) { animation: section-reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 24%; }
+}
+
+/* A animação global de entrada não pode atrasar o LCP das rotas homologadas. */
+.portfolio-theme-dyz main,
+.portfolio-theme-rbeauty main,
+.portfolio-theme-angel-mix main,
+.portfolio-theme-maximos main,
+[data-blueprint="moreira-auto-mecanica"] main {
+  animation: none;
 }
 
 .rj-grid-lines { background-image: linear-gradient(color-mix(in oklab, var(--accent) 20%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--accent) 20%, transparent) 1px, transparent 1px); background-size: 42px 42px; }

@@ -187,7 +187,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "asymmetric",
       order: 10,
       id: "inicio-oficina",
-      motion: { intensity: "BALANCED", reveal: "up", stagger: 80, parallax: 26 },
+      motion: { intensity: "BALANCED", reveal: "up", stagger: 80, parallax: 26, firstPaint: true },
       content: {
         eyebrow: "Mecânica para carros · São José dos Pinhais — PR",
         headline: "A oficina do bairro que o cliente indica para o vizinho.",

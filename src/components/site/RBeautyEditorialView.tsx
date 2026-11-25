@@ -81,7 +81,7 @@ export function RBeautyEditorialView() {
       </header>
 
       {/* Hero Section with Kinetic Typography */}
-      <section className="pt-16 pb-24 px-4 relative">
+      <section id="inicio" className="pt-16 pb-24 px-4 relative">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           
           <motion.div 
@@ -158,7 +158,8 @@ export function RBeautyEditorialView() {
                 <img 
                   src="/images/renata-beauty-flyer.jpg" 
                   alt="Espaço R_Beauty Studio" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   width={682} height={1024}

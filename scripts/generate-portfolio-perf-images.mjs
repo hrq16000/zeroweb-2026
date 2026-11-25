@@ -141,6 +141,7 @@ const responsiveTargets = [
   {
     source: "public/images/angel-mix-brecho/capa.png",
     width: 1536,
+    quality: 88,
     output: "public/images/_generated/angel-mix-brecho/capa-1536.webp",
   },
   // SOS Presentes: formatos 480/960px permitem downloads proporcionais ao viewport.
