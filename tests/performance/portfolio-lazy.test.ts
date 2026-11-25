@@ -49,7 +49,10 @@ describe("abstrações de performance", () => {
   test("PortfolioImage é lazy por padrão e eager apenas com priority", () => {
     expect(image).toContain('loading={priority ? "eager" : loading ?? "lazy"}');
     expect(image).toContain('fetchPriority={priority ? "high" : "auto"}');
-    expect(image).toContain('decoding="async"');
+    // Priority/LCP images use synchronous decoding; ordinary images retain
+    // async by default, with explicit caller override outside the priority path.
+    expect(image).toContain('decoding: requestedDecoding,');
+    expect(image).toContain('decoding={priority ? "sync" : requestedDecoding ?? "async"}');
   });
 
   test("PortfolioImage só emite srcset quando há variantes declaradas", () => {
