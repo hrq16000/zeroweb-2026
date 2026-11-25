@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "@/styles/portfolio-lcp-overrides.css";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioContactFloating } from "@/components/portfolio/PortfolioContactFloating";

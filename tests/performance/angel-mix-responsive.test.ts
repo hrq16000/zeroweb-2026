@@ -31,6 +31,8 @@ describe("Angel Mix Brechó — imagem autêntica e LCP responsivo", () => {
   it("preserva a identidade editorial e o funil individual", () => {
     expect(page).toContain('clientKey="angel-mix-brecho"');
     expect(page).toContain('formSlug="funnel-angel-mix-brecho"');
-    expect(page).toContain('<MotionImageReveal direction="up">');
+    expect(page).toContain("<MotionFirstPaint><section");
+    expect(page).toContain("</section></MotionFirstPaint>");
+    expect(page).toContain('<MotionReveal variant="up" delay={80}>');
   });
 });

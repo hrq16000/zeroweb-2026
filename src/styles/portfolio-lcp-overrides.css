@@ -1,0 +1,20 @@
+/* Critical first paint: keep hero and page content visible before motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-theme-dyz #inicio,
+  .portfolio-theme-renata #inicio,
+  .portfolio-theme-rbeauty #inicio,
+  .portfolio-theme-prototype #inicio,
+  .portfolio-theme-emporio #inicio,
+  .portfolio-theme-paraiso #inicio,
+  .portfolio-theme-rj #inicio {
+    animation: none;
+  }
+}
+
+.portfolio-theme-dyz main,
+.portfolio-theme-rbeauty main,
+.portfolio-theme-angel-mix main,
+.portfolio-theme-maximos main,
+[data-blueprint="moreira-auto-mecanica"] main {
+  animation: none;
+}

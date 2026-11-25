@@ -181,7 +181,9 @@ describe("escopo seguro da regressão visual", () => {
     }
     expect(generator).toContain("for (const width of [480, upperWidth])");
     expect(generator).toContain('["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800');
-    expect(page).toContain("const upperWidth = imageName");
+    expect(page).toContain("const upperWidth =");
+    expect(page).toContain('imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName)');
+    expect(page).toContain("${imageName}-${upperWidth}.webp ${upperWidth}w");
     expect(generator).toContain("converted[0] >= converted[1]");
     expect(page).toContain("srcSet={srcSet}");
     expect(page).toContain("detail: { src, alt }");
