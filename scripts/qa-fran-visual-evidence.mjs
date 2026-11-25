@@ -10,7 +10,7 @@ mkdirSync(dest, { recursive: true });
 const expected = "Salgados da Fran";
 const slugs = ["salgados-da-fran", "mimo-salgados-doces", "manu-pasteis"];
 const widths = [390, 768, 1440];
-const report = { purpose: "evidência real, NÃO aprovação NO-BRAND", createdAt: new Date().toISOString(), source: "Playwright Chromium", screenshots: [], failures: [] };
+const report = { purpose: "evidência estrutural NO-BRAND com texto, marca, cores e mídia neutralizados; revisão manual obrigatória", createdAt: new Date().toISOString(), source: "Playwright Chromium", screenshots: [], failures: [] };
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 try {
   for (const slug of slugs) {
@@ -35,10 +35,28 @@ try {
         // Remove pistas de marca e cor sem alterar layout; documento revisável,
         // NÃO avaliação automática de similaridade.
         await page.addStyleTag({ content: `
-          html { filter: grayscale(1) !important; }
-          img[src*="/marca."], img[src*="/logo."] { opacity: 0 !important; }
-          [data-portfolio-client="salgados-da-fran"] h1 { color: #555 !important; }
-          *, *::before, *::after { animation: none !important; transition: none !important; }
+          html, body { background: #fff !important; color-scheme: light !important; }
+          *, *::before, *::after {
+            box-sizing: border-box !important;
+            color: transparent !important;
+            -webkit-text-fill-color: transparent !important;
+            text-shadow: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border-color: #999 !important;
+            box-shadow: none !important;
+            outline-color: #999 !important;
+            filter: none !important;
+            animation: none !important;
+            transition: none !important;
+          }
+          img, svg, video, canvas, iframe, object, picture, [role="img"] {
+            opacity: 0 !important;
+          }
+          header, nav, main, section, article, aside, footer, form, button, a, details, summary {
+            background-color: #f0f0f0 !important;
+            border: 1px solid #aaa !important;
+          }
         ` });
         const noBrand = join(dest, `${slug}-${width}-no-brand.png`);
         await page.screenshot({ path: noBrand, fullPage: true, animations: "disabled" });
