@@ -6,7 +6,7 @@
  */
 export const UPLOAD_PUBLIC_PREFIX = "/api/public/portfolio-asset";
 
-const SAFE_ASSET = /^\\/(images|api\\/public\\/portfolio-asset)\\/[A-Za-z0-9/_.-]+$/;
+const SAFE_ASSET = /^\/(images|api\/public\/portfolio-asset)\/[A-Za-z0-9/_.-]+$/;
 
 /** Accept only internal asset paths; reject external URLs and javascript:. */
 export function isSafeAssetPath(value: string): boolean {
@@ -16,5 +16,5 @@ export function isSafeAssetPath(value: string): boolean {
 
 /** Operational contacts must never be written into public portfolio content. */
 export function containsPublicContact(value: string): boolean {
-  return /(wa\\.me|api\\.whatsapp\\.com|whatsapp\\.com\\/send|tel:\\+?\\d|mailto:)/i.test(value);
+  return /(wa\.me|api\.whatsapp\.com|whatsapp\.com\/send|tel:\+?\d|mailto:)/i.test(value);
 }
