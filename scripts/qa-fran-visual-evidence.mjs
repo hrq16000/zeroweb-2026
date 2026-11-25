@@ -22,6 +22,7 @@ try {
       try {
         const response = await page.goto(`${baseUrl}/portfolio/${slug}`, { waitUntil: "domcontentloaded", timeout: 45000 });
         await page.locator("body").waitFor({ state: "visible", timeout: 15000 });
+        await page.locator("h1").first().waitFor({ state: "visible", timeout: 30000 });
         await page.evaluate(async () => { await document.fonts.ready; });
         const htmlStatus = response?.status() ?? 0;
         const h1 = await page.locator("h1").first().textContent().catch(() => "");
@@ -34,7 +35,7 @@ try {
         await page.screenshot({ path: branded, fullPage: true, animations: "disabled" });
         // Remove pistas de marca e cor sem alterar layout; documento revisável,
         // NÃO avaliação automática de similaridade.
-        await page.addStyleTag({ content: `
+        const noBrandStyle = `
           html, body { background: #fff !important; color-scheme: light !important; }
           *, *::before, *::after {
             box-sizing: border-box !important;
@@ -57,9 +58,11 @@ try {
             background-color: #f0f0f0 !important;
             border: 1px solid #aaa !important;
           }
-        ` });
+        `;
         const noBrand = join(dest, `${slug}-${width}-no-brand.png`);
-        await page.screenshot({ path: noBrand, fullPage: true, animations: "disabled" });
+        // Playwright applies the stylesheet during the screenshot and restores it.
+        // Avoid persistent style injection into a context invalidated by Vite HMR.
+        await page.screenshot({ path: noBrand, fullPage: true, animations: "disabled", style: noBrandStyle, timeout: 45000 });
         report.screenshots.push({ ...health, brand: branded, noBrand, noBrandResult: "PENDING_MANUAL_REVIEW" });
         if (htmlStatus !== 200) report.failures.push(`${slug} ${width}: HTTP ${htmlStatus}`);
         if (!h1?.trim()) report.failures.push(`${slug} ${width}: h1 ausente`);
