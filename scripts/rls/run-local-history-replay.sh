@@ -213,6 +213,7 @@ DISPOSABLE_SEED_OVERRIDES={
     "supabase/migrations/20260901194230_seed_ton_e_cor_funnel.sql":{"blob_sha":"6385195058b66581494c9d2d04a83805a1f88375","kind":"legacy_step_order_seed","column_lists":4,"single_choice_values":4},
     "supabase/migrations/20260901200424_seed_raphael_construcoes_funnel.sql":{"blob_sha":"fe3f3efe5b7ad707bc2cf960983bdcdd0e5c7804","kind":"legacy_step_order_seed","column_lists":4,"single_choice_values":4},
     "supabase/migrations/20260902004904_seed_jc_revestimentos_funnel.sql":{"blob_sha":"901be15ede8c1c27d0ece0f1990dc759a850dd5a","kind":"legacy_step_order_seed","column_lists":4,"single_choice_values":4},
+    "supabase/migrations/20260902010516_seed_hbk_iluminacao_led_funnel.sql":{"blob_sha":"96327ae5894c587f21cb281e67a4c479fc231750","kind":"legacy_step_key_seed","column_lists":1,"rows":4},
     "supabase/migrations/20260906190903_seed_mania_de_limpeza_funnel.sql":{"blob_sha":"6f582f719f6f4bbd54dcc690dab82389bd5e51fb","kind":"legacy_dynamic_form_id_seed"},
     "supabase/migrations/20260906194009_seed_dona_lucy_salgados_funnel.sql":{"blob_sha":"4123146537ada970b7259888da0953be4548043f","kind":"legacy_dynamic_form_id_seed"},
 }
@@ -257,6 +258,23 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
                 "legacy_column_lists":count,
                 "legacy_single_choice_values":type_count,
                 "mapping":"step_order/question_key/question_text/question_type/options/is_required -> order_index/key/label/type/options_json/required; single_choice -> radio",
+            }
+        elif override_spec.get("kind")=="legacy_step_key_seed":
+            old_columns="form_id, step_key, title, options, position"
+            new_columns="form_id, key, label, options_json, order_index, type, required"
+            column_count=original.count(old_columns)
+            row_count=len(re.findall(r"(?im)^\s*select id,",original))
+            if column_count!=override_spec.get("column_lists") or row_count!=override_spec.get("rows"):
+                report("BLOCKED_LOCAL_LEGACY_STEP_KEY_SHAPE",{"file":p.name,"columns":column_count,"rows":row_count})
+                raise SystemExit("BLOCKED_LOCAL_LEGACY_STEP_KEY_SHAPE")
+            patched=original.replace(old_columns,new_columns)
+            patched,row_count=re.subn(r"(?im)^(\s*select id,.*?,\s*\d+)\s*$",r"\1, 'radio', false",patched)
+            if row_count!=override_spec.get("rows"):
+                report("BLOCKED_LOCAL_LEGACY_STEP_KEY_ROWS",{"file":p.name,"expected":override_spec.get("rows"),"actual":row_count})
+                raise SystemExit("BLOCKED_LOCAL_LEGACY_STEP_KEY_ROWS")
+            stats={
+                "legacy_step_keys":row_count,
+                "mapping":"step_key -> question key; title -> label; options -> options_json; position -> order_index; legacy option question type -> radio; step_id remains NULL",
             }
         elif override_spec.get("kind")=="legacy_dynamic_form_id_seed":
             patched=original
