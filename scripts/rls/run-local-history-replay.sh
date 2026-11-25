@@ -262,10 +262,49 @@ for p in sorted(pathlib.Path(sys.argv[2]).glob("*.sql")):
         report("BLOCKED_TIMEOUT",{"file":p.name,"source":source["source"]})
         raise SystemExit("BLOCKED_TIMEOUT: "+p.name)
     if result.returncode:
-        # Never print SQL, result rows or credentials. Only file/line/state.
+        # Never print SQL, failing row values or credentials. Capture only
+        # PostgreSQL's structural error metadata from this disposable database.
         states=sorted(set(re.findall(r"(?:ERROR|FATAL):\s+([0-9A-Z]{5}):",result.stderr)))
         lines=re.findall(r"\.sql:(\d+):",result.stderr)
-        failed={"file":p.name,"source":source["source"],"source_sha256":digest,"sqlstates":states,"lines":lines[-3:],"returncode":result.returncode}
+        def diagnostic(label):
+            match=re.search(r"(?m)^"+re.escape(label)+r":\s*(.*)$",result.stderr)
+            return match.group(1).strip()[:180] if match else None
+        constraint=diagnostic("CONSTRAINT NAME")
+        schema_name=diagnostic("SCHEMA NAME")
+        table_name=diagnostic("TABLE NAME")
+        column_name=diagnostic("COLUMN NAME")
+        message=re.search(r"(?m)^ERROR:\s+[0-9A-Z]{5}:\s*(.*)$",result.stderr)
+        definition=None
+        if constraint and schema_name and table_name:
+            lookup=subprocess.run(
+                [
+                    "psql","-X","-At","-v","ON_ERROR_STOP=1",
+                    "-v",f"constraint_name={constraint}",
+                    "-v",f"schema_name={schema_name}",
+                    "-v",f"table_name={table_name}",
+                    "-c",
+                    "SELECT pg_get_constraintdef(oid) FROM pg_constraint "
+                    "WHERE conname = :'constraint_name' "
+                    "AND conrelid = to_regclass(format('%I.%I', :'schema_name', :'table_name'))",
+                ],
+                env=pg,capture_output=True,text=True,timeout=15,
+            )
+            if lookup.returncode==0 and lookup.stdout.strip():
+                definition=lookup.stdout.strip()[:500]
+        failed={
+            "file":p.name,
+            "source":source["source"],
+            "source_sha256":digest,
+            "sqlstates":states,
+            "lines":lines[-3:],
+            "returncode":result.returncode,
+            "schema":schema_name,
+            "table":table_name,
+            "column":column_name,
+            "constraint":constraint,
+            "message":message.group(1).strip()[:220] if message else None,
+            "constraint_definition":definition,
+        }
         report("BLOCKED_LOCAL_HISTORY_REPLAY",failed)
         print("BLOCKED_LOCAL_HISTORY_REPLAY "+json.dumps(failed))
         raise SystemExit(1)
