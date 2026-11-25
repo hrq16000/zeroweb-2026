@@ -234,7 +234,7 @@ function MaterialCta({
 export function ArildoMadeirasPage() {
   return (
     <PortfolioCompositionRoot composition={composition}>
-      <main className="arildo-site pb-24 md:pb-0">
+      <main data-portfolio-slug="arildo-madeiras" className="arildo-site pb-24 md:pb-0">
         <header className="arildo-ruler fixed inset-x-3 top-3 z-40 mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 md:inset-x-6 md:px-5">
           <a href="#inicio" className="shrink-0" aria-label="Arildo Madeiras — início">
             <img
@@ -301,7 +301,7 @@ export function ArildoMadeirasPage() {
                 width="900"
                 height="1200"
                 loading="eager"
-                decoding="async"
+                decoding="sync"
                 fetchPriority="high"
                 referrerPolicy="no-referrer"
               />
