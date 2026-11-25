@@ -138,7 +138,7 @@ function DyzImage({
   );
 }
 
-const impactPoints = [const impactPoints = [
+const impactPoints = [
   { icon: Target, value: "Público certo", text: "Ação desenhada para o bairro e o perfil da sua oferta." },
   { icon: Timer, value: "Resposta rápida", text: "Briefing objetivo, equipe alinhada e campanha pronta para sair." },
   { icon: ShieldCheck, value: "Presença confiável", text: "Promotores identificados, orientados e cuidadosos com a sua marca." },
