@@ -71,3 +71,18 @@ The disposable-only runner now adds five exact Git-blob-locked compatibility shi
 - Mania de Limpeza and Dona Lucy Salgados: maps the old `dynamic_form_id/position/question_key/options` names to `form_id/order_index/key/options_json`, including the corresponding deletes against `dynamic_form_conditions`.
 
 Each shim validates the original Git blob and the exact expected replacement counts. It writes only under the temporary replay directory; the source migration files and any real database remain untouched. This is replay compatibility evidence, not a production migration repair or a production schema certification.
+
+## Round 2.6 — disambiguar variável do seed legado no replay descartável
+
+A repetição isolada do job `replay-local` (run 45561300624, attempt 2) avançou até `20260906190903_seed_mania_de_limpeza_funnel.sql` e identificou SQLSTATE 42702 na referência `form_id`. A migration histórica declara uma variável PL/pgSQL chamada `form_id`; o adaptador descartável da Rodada 2.5 renomeia a coluna legada `dynamic_form_id` para a coluna canônica `form_id`, criando colisão entre coluna e variável nas cláusulas `WHERE`.
+
+Correção aplicada somente ao adaptador da cópia descartável, com a migration original ainda protegida pelo Git blob SHA existente:
+- renomeia a variável local `form_id` para `v_form_id` em declaração, lookup, dois filtros e sete tuplas;
+- depois normaliza `dynamic_form_id/position/question_key/options` para `form_id/order_index/key/options_json`;
+- valida a contagem exata de cada transformação e falha fechado se o formato histórico mudar;
+- preserva os bytes e o SHA do arquivo original; nenhuma migration versionada foi alterada.
+
+Commit de correção do runner: `705cdf481d748bfd8407f4c0c1b383a5f341deaa`.  
+Teste estático da proteção: `7b94af4012ccdd77c68b0e1d3bf75b53279d02aa`.
+
+Aguardando nova execução do replay integral para confirmar que a correção remove o SQLSTATE 42702 e identificar a próxima migration, se houver. Os testes nativos anteriormente aprovados não foram repetidos. Nenhum SQL ou dado de produção foi executado/modificado.
