@@ -64,16 +64,17 @@ export const submitPublicLead = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: allowed } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
+    const { data: allowed } = await supabaseAdmin.rpc("check_and_record_rate_limit", {
       p_scope: "public_lead_intake",
       p_ip_hash: await requestFingerprint(),
       p_window_seconds: 300,
       p_max_hits: 12,
     });
     if (allowed === false) return { ok: false as const, reason: "rate_limited" as const };
-    const { data: row, error } = await (supabaseAdmin as any)
+    const insert = data as Database["public"]["Tables"]["lead_submissions"]["Insert"];
+    const { data: row, error } = await supabaseAdmin
       .from("lead_submissions")
-      .insert(data)
+      .insert(insert)
       .select("id")
       .single();
     if (error || !row?.id) return { ok: false as const, reason: "db_error" as const };
