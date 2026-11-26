@@ -1,4 +1,4 @@
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useMemo, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
@@ -175,6 +175,7 @@ export function ParaisoHotDogPage() {
   return (
     <MotionScope intensity="EXPRESSIVE">
     <main className="portfolio-theme-paraiso min-h-screen bg-[#fff8e8] text-[#24170d]">
+      <MotionFirstPaint>
       <section className="relative overflow-hidden bg-[#17130f] px-5 py-12 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_.8fr]">
           <div>
@@ -211,6 +212,7 @@ export function ParaisoHotDogPage() {
           </button>
         </div>
       </section>
+      </MotionFirstPaint>
       <section
         id="cardapio"
         className="mx-auto grid max-w-6xl gap-8 px-5 py-14 lg:grid-cols-[1.2fr_.8fr]"
