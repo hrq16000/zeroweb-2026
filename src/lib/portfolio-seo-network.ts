@@ -112,7 +112,7 @@ export function resolvePortfolioSeoDescriptor(
   slug: string,
   override?: PortfolioSeoContextOverride,
 ): PortfolioSeoDescriptor | null {
-  const base = (portfolioCatalog as CatalogItem[]).find((item) => item.slug === slug);
+  const base = PUBLIC_ITEMS.find((item) => item.slug === slug);
   const fallback = base ? descriptorFromCatalog(base) : null;
 
   const title = clean(override?.title) || fallback?.title || "";
