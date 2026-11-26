@@ -1128,6 +1128,138 @@
         "completed": true,
         "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
+    },
+    "infinito-spa": {
+      "slug": "infinito-spa",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "compositionContract": 0,
+      "individualSiteContract": {
+        "version": 1,
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "Dedicated route and authored composition"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "Owner-supplied intake; public homonyms rejected"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Santiago, Chile; home address omitted"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "Original SVG brand art; real photos pending"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "Catalog, discovery aliases and site registry"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Unique canonical; intentional noindex until client approval"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "masoterapia y bienestar",
+        "layoutFamily": "editorial-premium",
+        "heroFamily": "cinematic-fullbleed",
+        "sectionRhythm": "alternating-contrast",
+        "proofStyle": "service-timeline",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "floating-persistent",
+        "motionProfile": "gentle-editorial-reduced-motion"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-25",
+        "reviewer": "0WEB development",
+        "notes": "Firma estructural propia; revisión perceptual pendiente. compositionContract permanece 0."
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Infinito Spa es la marca informada por la profesional.",
+          "Roze ofrece masajes/masoterapia en Santiago.",
+          "Atiende en su apartamento, en una sala preparada para clientes.",
+          "El objetivo declarado es atraer nuevos clientes."
+        ],
+        "sources": [
+          "Intake 0WEB 2026-11-25",
+          "Conversación WhatsApp compartida por el operador"
+        ]
+      },
+      "visualQa": {
+        "status": "BLOCKED_ENVIRONMENT",
+        "checkedAt": "2026-11-25",
+        "evidence": "Pendiente de capturas Playwright 390/768/1440 y revisión perceptual."
+      },
+      "blockers": [
+        "QA visual y revisión perceptual pendientes.",
+        "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación."
+      ],
+      "warnings": [
+        "Homónimos públicos no asociados.",
+        "No se suministraron logo, fotos, comuna, modalidades específicas, precios, horarios ni credenciales.",
+        "No se muestran reseñas ni resultados no verificados."
+      ],
+      "ownerRequired": [
+        "Confirmar logo, perfiles sociales y comuna.",
+        "Confirmar modalidades, duración, precios y disponibilidad.",
+        "Enviar fotos reales y aprobar identidad conceptual.",
+        "Aprobar publicación oficial e indexable."
+      ],
+      "searchQa": [
+        {
+          "query": "Infinito Spa masajes Santiago Chile",
+          "expect": "must_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "masoterapia Santiago de Chile",
+          "expect": "must_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "masajes en Santiago",
+          "expect": "must_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "Infinito Spa Santiago",
+          "expect": "must_find",
+          "slug": "infinito-spa"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-25",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": false,
+        "evidence": "La promoción exige capturas reales, no-brand test y revisión visual."
+      }
     }
   }
 }

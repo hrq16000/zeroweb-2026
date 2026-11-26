@@ -1341,5 +1341,28 @@
       "source": "Panfleto público fotografado e enviado pelo operador 06/11/2026",
       "reference": "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
     }
+  },
+  {
+    "clientKey": "infinito-spa",
+    "slug": "infinito-spa",
+    "siteName": "Infinito Spa",
+    "routeFile": "src/routes/portfolio.infinito-spa.tsx",
+    "componentFile": "src/components/site/InfinitoSpaPage.tsx",
+    "assetsDir": "public/images/infinito-spa",
+    "ctaMode": "booking",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true,
+    "funnelType": "agendamento",
+    "segment": "beleza",
+    "city": "Santiago",
+    "state": "Chile",
+    "location": "Santiago — Chile",
+    "locale": "es-CL",
+    "creativeContractVersion": 2,
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_INTAKE",
+      "date": "2026-11-25"
+    }
   }
 ]

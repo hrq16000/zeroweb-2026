@@ -3356,6 +3356,39 @@
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
+    },
+    {
+      "slug": "infinito-spa",
+      "clientKey": "infinito-spa",
+      "title": "Infinito Spa",
+      "segment": "beleza",
+      "city": "Santiago",
+      "state": "Chile",
+      "location": "Santiago — Chile",
+      "summary": "Propuesta visual demostrativa de Infinito Spa en Santiago, Chile: presencia digital para masajes y masoterapia, consulta de modalidades y coordinación de sesiones por WhatsApp. Información basada en el diagnóstico inicial; modalidades, precios y disponibilidad deben confirmarse directamente con Roze.",
+      "subtitle": "Masajes y masoterapia · Santiago, Chile",
+      "image": "/images/infinito-spa/capa-card.svg",
+      "icon": "/images/infinito-spa/mark.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "76dc05f9",
+      "componentFile": "src/components/site/InfinitoSpaPage.tsx",
+      "routeFile": "src/routes/portfolio.infinito-spa.tsx",
+      "assetsDir": "public/images/infinito-spa",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/infinito-spa/capa-card.svg",
+        "/images/infinito-spa/hero-orbit.svg",
+        "/images/infinito-spa/mark.svg",
+        "/images/infinito-spa/social-og.jpg"
+      ],
+      "shareCopy": "🌿 Infinito Spa presenta una propuesta digital para acercar sus servicios de masoterapia a personas de Santiago.\n\nConsulta las opciones de masaje, comparte tus preferencias y coordina una sesión directamente con Roze. Esta es una propuesta visual demostrativa basada en el diagnóstico inicial.\n\n🌐 Conoce la propuesta:\nhttps://0web.com.br/portfolio/infinito-spa\n\n#InfinitoSpa #MasajesSantiago #Masoterapia #Bienestar #0WEB",
+      "status": "COMPLETE",
+      "published": true,
+      "issues": [],
+      "blocking": []
     }
   ]
 }

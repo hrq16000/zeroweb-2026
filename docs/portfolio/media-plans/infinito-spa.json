@@ -1,0 +1,57 @@
+{
+  "slug": "infinito-spa",
+  "status": "BRAND_LED_DEMONSTRATION",
+  "cover": {
+    "asset": "public/images/infinito-spa/capa-card.svg",
+    "strategy": "BRAND_COMPOSITION",
+    "approved": true,
+    "approvalScope": "0WEB DEMO ONLY"
+  },
+  "hero": {
+    "asset": "public/images/infinito-spa/hero-orbit.svg",
+    "kind": "GENERATED_BRAND_ASSET"
+  },
+  "social": {
+    "asset": "public/images/infinito-spa/social-og.jpg",
+    "dimensions": "600x315",
+    "purpose": "Propuesta social; reemplazar por 1200x630 antes de la publicación comercial definitiva."
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "status": "complete",
+      "asset": "public/images/infinito-spa/hero-orbit.svg"
+    },
+    {
+      "id": "consultation",
+      "status": "complete",
+      "resolution": "Narrativa tipográfica"
+    },
+    {
+      "id": "private-space",
+      "status": "pending-client-media",
+      "resolution": "No se recibieron fotos reales; no usar stock como si fuera el establecimiento."
+    },
+    {
+      "id": "faq",
+      "status": "complete",
+      "resolution": "Contenido factual del intake"
+    },
+    {
+      "id": "closing",
+      "status": "complete",
+      "resolution": "CTA de funil individual"
+    }
+  ],
+  "realBusinessMedia": {
+    "searched": true,
+    "found": false,
+    "usable": false
+  },
+  "pending": [
+    "fotos reales",
+    "logo oficial",
+    "comuna",
+    "aprobación de Roze"
+  ]
+}

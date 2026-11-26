@@ -2333,5 +2333,33 @@
     "imageFocalPoint": "center",
     "metrics": "Consulta de informações via formulário",
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "infinito-spa",
+    "clientKey": "infinito-spa",
+    "title": "Infinito Spa",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "Santiago",
+    "state": "Chile",
+    "tags": [
+      "masajes",
+      "masoterapia",
+      "bienestar",
+      "santiago-de-chile",
+      "atencion-con-reserva"
+    ],
+    "live": true,
+    "subtitle": "Masajes y masoterapia · Santiago, Chile",
+    "location": "Santiago — Chile",
+    "badge": "Propuesta demostrativa · 0WEB",
+    "image": "/images/infinito-spa/capa-card.svg",
+    "fallbackImage": "/images/infinito-spa/social-og.jpg",
+    "metrics": "Consulta de modalidades y disponibilidad",
+    "summary": "Propuesta visual demostrativa de Infinito Spa en Santiago, Chile: presencia digital para masajes y masoterapia, consulta de modalidades y coordinación de sesiones por WhatsApp. Información basada en el diagnóstico inicial; modalidades, precios y disponibilidad deben confirmarse directamente con Roze.",
+    "country": "CL",
+    "locale": "es-CL",
+    "indexable": false
   }
 ]

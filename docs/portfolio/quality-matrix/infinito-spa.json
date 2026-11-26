@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "slug": "infinito-spa",
+  "contractVersion": 4,
+  "checkedAt": "2026-11-25",
+  "technicalPass": true,
+  "editorialPass": true,
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS"
+    },
+    "CONTENT": {
+      "status": "PASS"
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Fotos y logo oficial pendientes."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS"
+    },
+    "ORIGINALITY": {
+      "status": "PASS"
+    },
+    "DISCOVERY": {
+      "status": "PASS"
+    },
+    "SEO": {
+      "status": "PASS"
+    },
+    "CONVERSION": {
+      "status": "PASS"
+    },
+    "PROOF": {
+      "status": "NOT_APPLICABLE"
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS"
+    },
+    "PERFORMANCE": {
+      "status": "WARNING",
+      "notes": "Lighthouse runtime pendiente."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS"
+    },
+    "QA": {
+      "status": "WARNING",
+      "notes": "Playwright y capturas pendientes."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS"
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS"
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "WARNING"
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS"
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS"
+    },
+    "PROOF_DENSITY": {
+      "status": "NOT_APPLICABLE"
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS"
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS"
+    }
+  },
+  "hero": {
+    "status": "PASS"
+  },
+  "cover": {
+    "status": "PASS"
+  },
+  "motion": {
+    "profile": {
+      "intensity": "SUBTLE",
+      "personality": "serena",
+      "entrance": "fade",
+      "scroll": "native",
+      "hover": "elevación mínima",
+      "depth": "flat",
+      "typography": "estática",
+      "media": "SVG",
+      "transitions": "opacity/transform",
+      "signatureEffects": [
+        "órbita gráfica",
+        "CTA sutil"
+      ],
+      "reducedMotionStrategy": "motion-reduce elimina desplazamientos"
+    },
+    "gate": {
+      "motionProfileDefined": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "effectsMatchBrand": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "entranceNotRepetitive": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "contextualMicrointeraction": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "signatureMotion": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "ctaFeedback": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "mobileAdapted": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "reducedMotionCovered": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "noTransformOverflow": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "noHeavyDependency": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "noPerformanceRegression": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      },
+      "noAggressiveLoop": {
+        "status": "PASS",
+        "evidence": "CSS/Tailwind; sin loops ni dependencias."
+      }
+    },
+    "qualityProfile": {
+      "motionIntensity": "SUBTLE",
+      "motionPurpose": "jerarquía",
+      "interactionDensity": "baja",
+      "scrollExperience": "nativa",
+      "microinteractionQuality": "CTA hover/focus",
+      "reducedMotionCoverage": "motion-reduce",
+      "motionPerformance": "CSS-only"
+    }
+  },
+  "autonomy": {
+    "identity": {
+      "decision": "BRANDMARK_CREATED",
+      "asset": "public/images/infinito-spa/mark.svg",
+      "provenance": "GENERATED_BRAND_ASSET"
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "BRAND_LED_ABSTRACT_ART"
+    },
+    "heroMedia": {
+      "asset": "public/images/infinito-spa/hero-orbit.svg",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    "motionPresence": {
+      "state": "MOTION_IMPLEMENTED",
+      "evidence": [
+        "CSS CTA hover",
+        "motionIntensity SUBTLE",
+        "reduced motion"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "enabled",
+      "destination": "funnel"
+    },
+    "embed": {
+      "status": "PASS"
+    }
+  },
+  "coverage": {
+    "hero": "brand art",
+    "consultation": "3 pasos",
+    "privateSpace": "copy factual",
+    "faq": "preguntas",
+    "closing": "CTA"
+  },
+  "p0": [],
+  "warnings": [
+    "Demo noindex hasta aprobación y QA visual.",
+    "Fotos reales y datos comerciales pendientes."
+  ]
+}

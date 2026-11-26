@@ -717,6 +717,43 @@
         "cuidados infantis Jardim Itália",
         "leva e busca escola CMEI Jardim Itália"
       ]
+    },
+    "infinito-spa": {
+      "aliases": [
+        "Infinito Spa",
+        "Infinito Spa Santiago",
+        "Roze masoterapeuta Santiago"
+      ],
+      "categories": [
+        "masajes",
+        "masoterapia",
+        "bienestar",
+        "spa"
+      ],
+      "services": [
+        "masajes",
+        "masoterapia",
+        "consulta de modalidades",
+        "coordinación de sesiones"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar modalidades de masaje",
+        "consultar disponibilidad",
+        "coordinar una sesión"
+      ],
+      "locality": [
+        "Santiago",
+        "Región Metropolitana",
+        "Chile"
+      ],
+      "keywords": [
+        "Infinito Spa Santiago",
+        "masajes Santiago de Chile",
+        "masoterapia Santiago",
+        "sesiones de masaje Santiago",
+        "bienestar Santiago"
+      ]
     }
   }
 }

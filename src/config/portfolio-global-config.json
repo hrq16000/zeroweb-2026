@@ -1460,6 +1460,62 @@
       "footer": {
         "variant": "light"
       }
+    },
+    "infinito-spa": {
+      "shareButton": {
+        "position": "top-right",
+        "variant": "dark",
+        "label": "Compartir propuesta"
+      },
+      "contactFloating": {
+        "enabled": true,
+        "position": "bottom-right",
+        "theme": "gold",
+        "label": "Consultar disponibilidad",
+        "recipientName": "Roze",
+        "studioName": "Infinito Spa",
+        "mode": "booking",
+        "quizConfig": {
+          "locale": "es-CL",
+          "services": [
+            "Quiero consultar las opciones de masaje disponibles",
+            "Busco un momento de relajación y bienestar",
+            "Tengo una consulta antes de reservar"
+          ],
+          "experienceOptions": [
+            "Es mi primera sesión de masoterapia",
+            "Ya he recibido masajes antes",
+            "Prefiero conversar antes de decidir"
+          ],
+          "periodOptions": [
+            "Mañana",
+            "Tarde",
+            "Noche",
+            "Tengo flexibilidad"
+          ],
+          "timingOptions": [
+            "Lo antes posible",
+            "Durante esta semana",
+            "La próxima semana",
+            "Solo estoy consultando"
+          ],
+          "stepTitles": {
+            "service": "¿Qué te gustaría consultar?",
+            "experience": "¿Ya has recibido masajes antes?",
+            "period": "¿Qué horario prefieres?",
+            "timing": "¿Cuándo te gustaría coordinar?",
+            "note": "¿Quieres agregar algún detalle?"
+          },
+          "stepSubtitles": {
+            "service": "Cuéntanos qué atención estás buscando.",
+            "experience": "Esto ayuda a orientar la conversación.",
+            "period": "La disponibilidad se confirma directamente.",
+            "timing": "Es una preferencia, no una reserva confirmada.",
+            "note": "Comparte una pregunta para Roze."
+          },
+          "notePlaceholder": "Qué buscas, alguna preferencia o una pregunta para Roze."
+        }
+      }
     }
   }
 }

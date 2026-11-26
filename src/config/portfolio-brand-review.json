@@ -313,6 +313,14 @@
       "authored": true,
       "logo": "/images/arildo-madeiras/logo.svg",
       "notes": "A landing usa o logo oficial remoto do site da Arildo. O SVG local é fallback técnico para ownership do diretório e não é tratado como reprodução oficial."
+    },
+    "infinito-spa": {
+      "brandOrigin": "GENERATED_BRAND_ASSET",
+      "brandReview": "APPROVED",
+      "classification": "BRAND_CONCEPT_FOR_DEMONSTRATION",
+      "authored": true,
+      "logo": "/images/infinito-spa/mark.svg",
+      "notes": "Marca conceptual creada por 0WEB para propuesta demostrativa; no es logotipo oficial y requiere aprobación."
     }
   }
 }

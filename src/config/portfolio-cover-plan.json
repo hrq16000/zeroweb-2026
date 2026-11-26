@@ -424,6 +424,15 @@
       },
       "issues": [],
       "notes": "Composição de marca própria para beleza e autocuidado."
+    },
+    "infinito-spa": {
+      "source": "public/images/infinito-spa/capa-card.svg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Capa tipográfica original para demo; no simula fotografía ni logotipo oficial."
     }
   }
 }

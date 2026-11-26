@@ -303,6 +303,16 @@
         "O operador informou autorização para criar a página, sem fornecer confirmação do número de WhatsApp.",
         "Canal registrado como null (LEAD_ONLY), sem redirecionamento cruzado ou fallback de outro cliente."
       ]
+    },
+    "infinito-spa": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "verifiedAt": null,
+      "evidence": [
+        "WhatsApp fornecido pela profissional no formulário 0WEB em 2026-11-25.",
+        "Destino armazenado como referência ao segredo Vercel PORTFOLIO_WHATSAPP_INFINITO_SPA; nenhum número é versionado no repositório.",
+        "Número ainda não foi confirmado por chamada ou mensagem de teste."
+      ]
     }
   }
 }

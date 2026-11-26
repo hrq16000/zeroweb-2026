@@ -1,0 +1,95 @@
+{
+  "slug": "infinito-spa",
+  "identity": {
+    "brand": "Infinito Spa",
+    "owner": "Roze",
+    "segment": "Masajes / masoterapia",
+    "locality": "Santiago, Chile",
+    "sourceType": "OWNER_SUPPLIED",
+    "confidence": "HIGH",
+    "note": "Marca y datos confirmados por intake 0WEB; no equivale a razón social."
+  },
+  "researchLedger": {
+    "publicWeb": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "Resultados homónimos no vinculados."
+    },
+    "googleMaps": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "La profesional indicó que no tiene sitio."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "No se obtuvo handle inequívoco."
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false
+    },
+    "publicDirectories": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "Homónimos descartados por falta de convergencia."
+    }
+  },
+  "sources": [
+    {
+      "value": "Infinito Spa / masajes / Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH"
+    },
+    {
+      "value": "Atiende en su apartamento, en una sala preparada para clientes",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH"
+    }
+  ],
+  "allowedClaims": [
+    "Masajes y masoterapia en Santiago",
+    "Atención en espacio privado con coordinación previa",
+    "Consultar modalidades y disponibilidad con Roze"
+  ],
+  "unverified": [
+    "modalidades específicas",
+    "precios y duración",
+    "horarios",
+    "comuna",
+    "dirección exacta",
+    "certificaciones",
+    "logo",
+    "redes oficiales",
+    "fotos",
+    "testimonios"
+  ],
+  "rejectedMatches": [
+    "Negocios homónimos sin dos señales convergentes."
+  ],
+  "lastResearchAt": "2026-11-25T21:10:00-03:00"
+}

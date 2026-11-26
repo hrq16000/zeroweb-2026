@@ -1020,7 +1020,9 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "excludeFromAdminGallery": ["social.png"],
+      "excludeFromAdminGallery": [
+        "social.png"
+      ],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1221,6 +1223,19 @@
         "ctaHref": "#cuidados"
       },
       "socialVersion": "9ea8c269"
+    },
+    "infinito-spa": {
+      "icon": "/images/infinito-spa/mark.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "76dc05f9",
+      "proof": {
+        "enabled": false,
+        "eyebrow": "Propuesta demostrativa",
+        "title": "Información basada en el diagnóstico inicial",
+        "description": "No se muestran reseñas, valoraciones ni resultados porque todavía no fueron aportados o verificados.",
+        "ctaLabel": "Consultar disponibilidad",
+        "ctaHref": "#contacto"
+      }
     }
   }
 }

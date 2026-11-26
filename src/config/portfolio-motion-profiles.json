@@ -1449,6 +1449,23 @@
       "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
       "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
       "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
+    },
+    "infinito-spa": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "Editorial asimétrico, órbitas estáticas y CTA sutil.",
+      "tabletBehavior": "Hero apilado y bloques editoriales.",
+      "mobileBehavior": "Columna única y CTA flotante; reduced motion sin desplazamientos."
     }
   },
   "decisions": {

@@ -716,5 +716,18 @@
     "whatsappPrompt": "Gostaria de receber informações gerais sobre esta demonstração. Não é matrícula nem contato oficial com a escola.",
     "whatsappSubject": "consulta demonstrativa do Cantinho da Tia Mari",
     "proposalKind": "service"
+  },
+  "infinito-spa": {
+    "intent": "agendamento",
+    "proposalKind": "service",
+    "quizMode": "booking",
+    "theme": "gold",
+    "primaryCtaLabel": "Consultar disponibilidad",
+    "nextStepTitle": "Tu momento de pausa comienza con una conversación",
+    "nextStepBody": "Cuéntale a Roze qué estás buscando. Ella podrá orientarte sobre las modalidades y confirmar disponibilidad.",
+    "whatsappSubject": "una sesión de masoterapia",
+    "whatsappPrompt": "¿Podrías contarme qué tipos de masaje ofreces y qué horarios tienes disponibles?",
+    "successTitle": "Consulta registrada",
+    "successBody": "Tu consulta quedó organizada para continuar la conversación con Infinito Spa."
   }
 }
