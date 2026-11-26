@@ -67,6 +67,27 @@ if (check) {
   }
 
   if (currentNormalized !== next) {
+    try {
+      const currentPayload = normalizePayload(JSON.parse(current || "{}"));
+      const currentBySlug = new Map((currentPayload.projects ?? []).map((project) => [project.slug, project]));
+      const nextBySlug = new Map(payload.projects.map((project) => [project.slug, project]));
+      const missing = [...nextBySlug.keys()].filter((slug) => !currentBySlug.has(slug)).sort();
+      const extra = [...currentBySlug.keys()].filter((slug) => !nextBySlug.has(slug)).sort();
+      const changed = [...nextBySlug.entries()]
+        .flatMap(([slug, nextProject]) => {
+          const currentProject = currentBySlug.get(slug);
+          if (!currentProject) return [];
+          const fields = [...new Set([...Object.keys(currentProject), ...Object.keys(nextProject)])]
+            .filter((field) => JSON.stringify(currentProject[field]) !== JSON.stringify(nextProject[field]))
+            .sort();
+          return fields.length ? [{ slug, fields }] : [];
+        });
+      console.error(
+        `[portfolio-admin-seed] divergências: ${JSON.stringify({ missing, extra, changed })}`,
+      );
+    } catch {
+      console.error("[portfolio-admin-seed] seed atual inválido; não foi possível resumir divergências.");
+    }
     if (autoRegenerateDerivedSeed) {
       fs.writeFileSync(target, next);
       console.log(
