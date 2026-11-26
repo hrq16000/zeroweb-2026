@@ -163,23 +163,15 @@ jobs:
         env:
           POPUP_CONCURRENCY: 4
           POPUP_SLUGS: ${{ steps.e2e-scope.outputs.only }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
         env:
           E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
-          # Dois contextos independentes: preserva todos os slugs x viewports,
-          # mas reduz o gargalo serial de 192 cenarios na verificacao global.
+          # Dois contextos independentes; o gate de PR nunca grava leads externos.
           E2E_CONCURRENCY: 2
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: |
-          if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
-            node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
-          else
-            echo "SUPABASE_SERVICE_ROLE_KEY não está configurada no GitHub; executando o gate E2E sem escrita externa."
-            E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
-          fi
+          E2E_DRY_RUN: "1"
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
 
       - name: Prévias de link e ícones (headless)
         run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
