@@ -1,59 +1,20 @@
-import assert from "node:assert/strict";
-import test from "node:test";
-import { resolveVisualRegressionScope } from "../../scripts/resolve-visual-regression-scope.mjs";
-
-const own = [
-  "src/routes/portfolio.sao-francisco-pet-center.tsx",
-  "src/components/site/SaoFranciscoPetCenterPage.tsx",
-  "src/components/site/sao-francisco-pet-center.css",
-  "public/images/sao-francisco-pet-center/favicon-demonstracao.svg",
-  "src/routeTree.gen.ts",
-  "docs/portfolio/briefs/sao-francisco-pet-center.md",
-  "scripts/playwright-visual-regression.mjs",
-  "scripts/resolve-visual-regression-scope.mjs",
-  "tests/portfolio/dedicated-demo-route-scope.test.mjs",
-];
-
-test("novo site autoral tem scope próprio com página real", () => {
-  assert.deepEqual(resolveVisualRegressionScope(own, []), ["sao-francisco-pet-center"]);
-});
-
-test("nunca restringir mudança global junto de novo site", () => {
-  assert.deepEqual(resolveVisualRegressionScope([...own, "src/components/portfolio/PortfolioStandardShell.tsx"], []), []);
-  assert.deepEqual(resolveVisualRegressionScope([...own, "src/styles/global.css"], []), []);
-});
-
-test("routeTree isolada não remove gates globais", () => {
-  assert.deepEqual(resolveVisualRegressionScope(["src/routeTree.gen.ts"], []), []);
-});
-
-test("edição isolada de JSX e CSS de rota dedicada existente não exige QA global", () => {
-  assert.deepEqual(
-    resolveVisualRegressionScope([
-      "src/components/site/SaoFranciscoPetCenterPage.tsx",
-      "src/components/site/sao-francisco-pet-center.css",
-    ], []),
-    ["sao-francisco-pet-center"],
-  );
-});
-
-test("asset no diretório da rota dedicada usa o mesmo escopo da rota", () => {
-  assert.deepEqual(
-    resolveVisualRegressionScope(["public/images/sao-francisco-pet-center/favicon-demonstracao.svg"], []),
-    ["sao-francisco-pet-center"],
-  );
-  assert.deepEqual(
-    resolveVisualRegressionScope([...own, "public/images/sem-rota/favicon.svg"], []),
-    [],
-  );
-});
-
-test("mudança de routeTree sem alteração da rota nunca é mascarada", () => {
-  assert.deepEqual(
-    resolveVisualRegressionScope([
-      "src/routeTree.gen.ts",
-      "src/components/site/SaoFranciscoPetCenterPage.tsx",
-    ], []),
-    [],
-  );
-});
+{
+  "truncated": true,
+  "truncation": {
+    "arrays": 0,
+    "omittedArrayItems": 0,
+    "objects": 0,
+    "omittedObjectKeys": 0,
+    "strings": 1,
+    "omittedStringChars": 1776,
+    "depth": 0,
+    "budget": 0
+  },
+  "warning": "This response is incomplete; some data was omitted to bound its size. Do not conclude that something is missing because it is absent here. 1 string shortened, omitting 1776 characters.",
+  "result": {
+    "data": "aW1wb3J0IGFzc2VydCBmcm9tICJub2RlOmFzc2VydC9zdHJpY3QiOwppbXBvcnQgdGVzdCBmcm9tICJub2RlOnRlc3QiOwppbXBvcnQgeyByZXNvbHZlVmlzdWFsUmVncmVzc2lvblNjb3BlIH0gZnJvbSAiLi4vLi4vc2NyaXB0cy9yZXNvbHZlLXZpc3VhbC1yZWdyZXNzaW9uLXNjb3BlLm1qcyI7Cgpjb25zdCBvd24gPSBbCiAgInNyYy9yb3V0ZXMvcG9ydGZvbGlvLnNhby1mcmFuY2lzY28tcGV0LWNlbnRlci50c3giLAogICJzcmMvY29tcG9uZW50cy9zaXRlL1Nhb0ZyYW5jaXNjb1BldENlbnRlclBhZ2UudHN4IiwKICAic3JjL2NvbXBvbmVudHMvc2l0ZS9zYW8tZnJhbmNpc2NvLXBldC1jZW50ZXIuY3NzIiwKICAicHVibGljL2ltYWdlcy9zYW8tZnJhbmNpc2NvLXBldC1jZW50ZXIvZmF2aWNvbi1kZW1vbnN0cmFjYW8uc3ZnIiwKICAic3JjL3JvdXRlVHJlZS5nZW4udHMiLAogICJkb2NzL3BvcnRmb2xpby9icmllZnMvc2FvLWZyYW5jaXNjby1wZXQtY2VudGVyLm1kIiwKICAic2NyaXB0cy9wbGF5d3JpZ2h0LXZpc3VhbC1yZWdyZXNzaW9uLm1qcyIsCiAgInNjcmlwdHMvcmVzb2x2ZS12aXN1YWwtcmVncmVzc2lvbi1zY29wZS5tanMiLAogICJ0ZXN0cy9wb3J0Zm9saW8vZGVkaWNhdGVkLWRlbW8tcm91dGUtc2NvcGUudGVzdC5tanMiLApdOwoKY29uc3QgY2xpZW50cyA9IFt7CiAgc2x1ZzogInNhby1mcmFuY2lzY28tcGV0LWNlbnRlciIsCiAgY29tcG9uZW50RmlsZTogInNyYy9jb21wb25lbnRzL3NpdGUvU2FvRnJhbmNpc2NvUGV0Q2VudGVyUGFnZS50c3giLAp9XTsKY29uc3Qgcm91dGVUcmVlRGlmZiA9IFsKICAiZGlmZiAtLWdpdCBhL3NyYy9yb3V0ZVRyZWUuZ2VuLnRzIGIvc3JjL3JvdXRlVHJlZS5nZW4udHMiLAogICIrICAnL3BvcnRmb2xpby9zYW8tZnJhbmNpc2NvLXBldC1jZW50ZXInOiB0eXBlb2YgUG9ydGZvbGlvU2FvRnJhbmNpc2NvUGV0Q2VudGVyUm91dGUiLAogICIiLApdLmpvaW4oIlxuIik7CmNvbnN0IG9wdGlvbnMgPSB7CiAgYWRkZWRGaWxlczogbmV3IFNldChbCiAgICAic3JjL3JvdXRlcy9wb3J0Zm9saW8uc2FvLWZyYW5jaXNjby1wZXQtY2VudGVyLnRzeCIsCiAgICAic3JjL2NvbXBvbmVudHMvc2l0ZS9TYW9GcmFuY2lzY29QZXRDZW50ZXJQYWdlLnRzeCIsCiAgICAic3JjL2NvbXBvbmVudHMvc2l0ZS9zYW8tZnJhbmNpc2NvLXBldC1jZW50ZXIuY3NzIiwKICBdKSwKICByb3V0ZVRyZWVEaWZmLAp9OwoKdGVzdCgibm92byBzaXRlIGF1dG9yYWwgdGVtIHNjb3BlIHByw7NwcmlvIGNvbSBww6FnaW5hIHJlYWwiLCAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChyZXNvbHZlVmlzdWFsUmVncmVzc2lvblNjb3BlKG93biwgY2xpZW50cywgb3B0aW9ucyksIFsic2FvLWZyYW5jaXNjby1wZXQtY2VudGVyIl0pOwp9KTsKCnRlc3QoIm51bmNhIHJlc3RyaW5naXIgbXVkYW7Dp2EgZ2xvYmFsIGp1bnRvIGRlIG5vdm8gc2l0ZSIsICgpID0+IHsKICBhc3NlcnQuZGVlcEVxdWFsKHJlc29sdmVWaXN1YWxSZWdy...[truncated]",
+    "encoding": "base64",
+    "contentType": "application/octet-stream",
+    "size": 2832
+  }
+}
