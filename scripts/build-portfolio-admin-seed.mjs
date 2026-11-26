@@ -67,16 +67,6 @@ if (check) {
   }
 
   if (currentNormalized !== next) {
-    try {
-      const currentProjects = JSON.parse(current || "{}").projects ?? [];
-      const currentInfinito = currentProjects.find((project) => project.slug === "infinito-spa");
-      const expectedInfinito = payload.projects.find((project) => project.slug === "infinito-spa");
-      console.error(
-        `[portfolio-admin-seed] infinito-spa socialVersion: ${currentInfinito?.socialVersion ?? "missing"} -> ${expectedInfinito?.socialVersion ?? "missing"}`,
-      );
-    } catch {
-      console.error("[portfolio-admin-seed] não foi possível comparar socialVersion de Infinito Spa.");
-    }
     if (autoRegenerateDerivedSeed) {
       fs.writeFileSync(target, next);
       console.log(

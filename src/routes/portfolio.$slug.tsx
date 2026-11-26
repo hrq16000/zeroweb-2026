@@ -829,6 +829,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         canonicalUrl: url,
         socialImage,
         logoUrl: icon,
+        lifecycle: prototype?.indexable === false ? "draft" : "published",
+        published: prototype?.indexable !== false,
+        indexable: prototype?.indexable !== false,
       },
       loaderData?.overrides ?? null,
     );
@@ -842,7 +845,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       meta: [
         { title: eff.title },
         { name: "description", content: eff.description },
-        { name: "robots", content: prototype?.indexable === false ? "noindex,follow" : eff.robots },
+        { name: "robots", content: eff.robots },
         {
           name: "keywords",
           content: eff.keywords ?? (isInfinitoSpa
