@@ -143,6 +143,46 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // Thays Camilla: LHCI shard 0 comprovou desperdício no PNG do hero e logo.
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 192,
+    output: "public/images/_generated/thays-camilla/logo.webp",
+  },
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 96,
+    output: "public/images/_generated/thays-camilla/logo-96.webp",
+  },
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 192,
+    output: "public/images/_generated/thays-camilla/logo-192.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-480.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 720,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-720.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-960.webp",
+  },
   // Embalar: assets locais originais preservados; dimensões naturais confirmadas pelo LHCI #552.
   // Logo reduzido para o tamanho de exibição; fotos recebem variantes responsivas em WebP.
   {
@@ -498,6 +538,15 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// Thays Camilla: downloads proporcionais, sem trocar a identidade ou os originais.
+for (const [name, widths] of [["hero", [480, 720, 960]], ["logo", [96, 192]]]) {
+  const sizes = await Promise.all(widths.map(async width =>
+    (await stat(resolve(`public/images/_generated/thays-camilla/${name}-${width}.webp`))).size));
+  if (sizes.some((size, i) => i > 0 && size <= sizes[i - 1])) {
+    throw new Error(`[portfolio-perf-images] Thays responsive sizes out of order: ${name}`);
+  }
 }
 
 // SOS Presentes: a variante móvel deve pesar menos que a desktop.

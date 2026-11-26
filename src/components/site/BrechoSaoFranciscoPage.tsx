@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Brechó São Francisco (/portfolio/brecho-sao-francisco).
@@ -66,14 +66,14 @@ export function BrechoSaoFranciscoPage() {
                 Brechó São Francisco · Curitiba
               </p>
             </MotionReveal>
-            <MotionReveal variant="up" delay={100}>
+            <MotionFirstPaint><MotionReveal variant="up" delay={100}>
               <h1 className="mt-5 font-display text-[2.2rem] font-semibold leading-[1.05] md:text-[3.2rem]">
                 <ManagedText
                   field="heroHeadline"
                   fallback={"Pe\u00e7as com hist\u00f3ria em uma vitrine acolhedora."}
                 />
               </h1>
-            </MotionReveal>
+            </MotionReveal></MotionFirstPaint>
             <MotionReveal variant="left" delay={200}>
               <div className="mt-6 h-px w-24 bg-[var(--sf-gold)]" />
             </MotionReveal>

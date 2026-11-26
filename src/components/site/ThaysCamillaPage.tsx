@@ -65,8 +65,11 @@ export function ThaysCamillaPage() {
           <a href="#inicio" aria-label="Thays Camilla Personalizados">
             <PortfolioImage
               managedField="logoUrl"
-              priority
-              src="/images/thays-camilla/logo.png"
+              loading="eager"
+              fetchPriority="low"
+              src="/images/_generated/thays-camilla/logo.webp"
+              widths={[96, 192]}
+              sizes="84px"
               alt="Thays Camilla Personalizados"
               width={1536}
               height={1024}
@@ -95,7 +98,9 @@ export function ThaysCamillaPage() {
           <div className="relative mx-auto mt-10 max-w-2xl">
             <div className="rounded-[2.5rem]">
             <PortfolioImage
-              src="/images/thays-camilla/hero.png"
+              src="/images/_generated/thays-camilla/hero.webp"
+              widths={[480, 720, 960]}
+              sizes="(min-width: 768px) 656px, calc(100vw - 56px)"
               alt="Kit de caneca e azulejo personalizados Thays Camilla"
               priority
               width={1280}
