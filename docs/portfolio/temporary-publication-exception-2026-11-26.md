@@ -17,6 +17,9 @@ Esta é uma exceção operacional temporária ao fluxo de homologação integral
 - Manter `noindex` enquanto a rota não tiver conteúdo, autorização e SEO
   individual reavaliados. A exceção libera a página pública direta em Production,
   não afirma indexação ou posicionamento no Google.
+- Enquanto o manifesto estiver pendente, manter `status=draft` e `live=false` no
+  catálogo. A rota direta fica acessível, mas não aparece como cliente ativo nem
+  entra no sitemap.
 - Registrar cada rota publicada e o SHA da Production. Corrigir links/CTAs que
   possam induzir contato oficial antes de promover a indexação.
 
