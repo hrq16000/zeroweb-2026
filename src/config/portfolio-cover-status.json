@@ -1330,6 +1330,19 @@
       "cardValid": false,
       "businessName": "Panificadora Doce Coração",
       "segment": "comercios"
+    },
+    {
+      "slug": "infinito-spa",
+      "asset": "/images/infinito-spa/capa-card.jpg",
+      "catalogImage": "/images/infinito-spa/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "0WEB_GENERATED",
+      "reviewedAt": "2026-11-26T03:18:31.010Z",
+      "status": "VALID",
+      "reason": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento.",
+      "cardValid": true,
+      "businessName": "Infinito Spa",
+      "segment": "beleza"
     }
   ]
 }

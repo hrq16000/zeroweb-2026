@@ -314,6 +314,16 @@
         "O telefone cruzado é forte evidência de correspondência de entidade, mas não substitui autorização do responsável nem teste de entrega no aplicativo.",
         "Destino exclusivo do clientKey panificadora-doce-coracao-santo-antonio, sem fallback institucional ou entre clientes."
       ]
+    },
+    "infinito-spa": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "verifiedAt": null,
+      "evidence": [
+        "WhatsApp fornecido pela profissional no formulário 0WEB em 2026-11-25.",
+        "Destino armazenado como referência ao segredo Vercel PORTFOLIO_WHATSAPP_INFINITO_SPA; nenhum número é versionado no repositório.",
+        "Número ainda não foi confirmado por chamada ou mensagem de teste."
+      ]
     }
   }
 }

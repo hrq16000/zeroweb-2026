@@ -629,6 +629,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  { slug: "infinito-spa", vertical: "beleza", siteName: "Infinito Spa — Masajes y masoterapia en Santiago, Chile", kind: "prototype", indexable: false },
 ];
 
 export function findPortfolioPrototype(slug: string) {

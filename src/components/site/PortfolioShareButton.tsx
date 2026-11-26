@@ -46,6 +46,7 @@ export function PortfolioShareButton({
   siteName,
   placement = "floating",
   className = "",
+  locale,
 }: {
   position?: SharePosition;
   variant?: SurfaceVariant;
@@ -54,8 +55,10 @@ export function PortfolioShareButton({
   siteName?: string;
   placement?: Placement;
   className?: string;
+  locale?: "es-CL";
 } = {}) {
   const [copied, setCopied] = useState(false);
+  const spanish = locale === "es-CL";
   const runtime = usePortfolioRuntime();
   const copyPromotion = async () => {
     // Isolamento por projeto: o override só vale quando é do MESMO slug.
@@ -83,11 +86,11 @@ export function PortfolioShareButton({
     <button
       type="button"
       onClick={copyPromotion}
-      aria-label={`Copiar divulgação de ${siteName ?? "este projeto"}`}
+      aria-label={spanish ? `Compartir ${siteName ?? "este proyecto"}` : `Copiar divulgação de ${siteName ?? "este projeto"}`}
       className={`inline-flex items-center justify-center gap-2 ${baseClass} ${placementClass} ${VARIANT[variant]} ${className}`}
     >
       {copied ? <Check className="h-4 w-4 text-emerald-600" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-      {copied ? "Divulgação copiada" : label}
+      {copied ? (spanish ? "Propuesta copiada" : "Divulgação copiada") : label}
     </button>
   );
 }

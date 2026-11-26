@@ -1248,6 +1248,19 @@
         "ctaHref": "#localizacao"
       },
       "socialVersion": "20261119"
+    },
+    "infinito-spa": {
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "proof": {
+        "enabled": false,
+        "eyebrow": "Información inicial",
+        "title": "Información basada en el diagnóstico inicial",
+        "description": "No se muestran reseñas, valoraciones ni resultados porque todavía no fueron aportados o verificados.",
+        "ctaLabel": "Consultar disponibilidad",
+        "ctaHref": "#consulta"
+      }
     }
   }
 }

@@ -76,7 +76,7 @@ export function resolveCoverStatus({
     asset: coverSource ?? catalogImage ?? null,
     catalogImage: catalogImage ?? null,
     catalogImageRole: catalogRole,
-    origin: coverSource ? "VISUAL_REVIEW" : catalogImage ? "CATALOG" : "NONE",
+    origin: review?.coverOrigin ?? (coverSource ? "VISUAL_REVIEW" : catalogImage ? "CATALOG" : "NONE"),
     reviewedAt: review?.reviewedAt ?? null,
   };
 
@@ -90,7 +90,7 @@ export function resolveCoverStatus({
       return pending(COVER_STATUS.NEEDS_CROP, "Asset aprovado é imagem social (OG); precisa de recorte editorial de card.");
     if (sourceRole === "LOGO")
       return pending(COVER_STATUS.LOGO_ONLY, "Asset aprovado é marca/logo, não fotografia editorial.");
-    return { ...base, status: COVER_STATUS.VALID, reason: null, cardValid: true };
+    return { ...base, status: COVER_STATUS.VALID, reason: review?.coverApprovedReason ?? null, cardValid: true };
   }
 
   // 2. Bloqueios registrados na revisão humana.

@@ -2386,5 +2386,33 @@
     "imageFocalPoint": "center",
     "metrics": "Endereço confirmado, rotas e página autoral otimizada",
     "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado."
+  },
+  {
+    "slug": "infinito-spa",
+    "clientKey": "infinito-spa",
+    "title": "Infinito Spa",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "Santiago",
+    "state": "Chile",
+    "tags": [
+      "masajes",
+      "masoterapia",
+      "bienestar",
+      "santiago-de-chile",
+      "atencion-con-reserva"
+    ],
+    "live": true,
+    "subtitle": "Masajes y masoterapia · Santiago, Chile",
+    "location": "Santiago — Chile",
+    "badge": "Atención con coordinación previa",
+    "image": "/images/infinito-spa/capa-card.svg",
+    "fallbackImage": "/images/infinito-spa/social.svg",
+    "metrics": "Consulta de modalidades y disponibilidad",
+    "summary": "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta directamente con Roze las modalidades, duración y disponibilidad antes de coordinar tu sesión.",
+    "country": "CL",
+    "locale": "es-CL",
+    "indexable": false
   }
 ]

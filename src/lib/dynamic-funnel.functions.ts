@@ -236,6 +236,9 @@ function digitsOnly(p: string): string { return p.replace(/\D/g, ""); }
 export const submitFunnel = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => submitSchema.parse(data))
   .handler(async ({ data }) => {
+    if (String(data.client_metadata?.client_key ?? "") === "infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const { data: form, error: fErr } = await supabaseAdmin
@@ -245,6 +248,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       .maybeSingle();
     if (fErr) throw new Error(fErr.message);
     if (!form || form.status !== "published") throw new Error("Funil não disponível");
+    if (form.slug === "portfolio-infinito-spa" || form.slug === "funnel-infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) {
       throw new Error("Funil não disponível");
     }
@@ -587,6 +593,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
     funnelIntent: z.enum(PORTFOLIO_FUNNEL_INTENTS).optional(),
+    locale: z.enum(["pt-BR", "es-CL"]).optional(),
     pageUrl: z.string().url().max(500).optional(),
     sessionId: z.string().min(4).max(120).optional(),
     visitorId: z.string().min(4).max(120).optional(),
@@ -596,7 +603,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       fulfillment: softText(120).optional(),
       customer_note: softText(2000).optional(),
     }).optional(),
-    // Campo opcional mantido por compatibilidade; portfolio sem número não o exige.
+    // Campos opcionais para clientes legados; Infinito Spa exige ambos server-side.
+    contactName: softText(120).optional(),
     recoveryContact: z.string().max(40).optional(),
     previewLocation: softText(120).optional(),
     answers: z.object({
@@ -609,6 +617,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   }).parse(data))
 
   .handler(async ({ data }) => {
+    // Clientes com formulário dedicado não podem cair no funil legado.
+    if (data.clientKey === "infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     // A Dona Garimpeira só recebe leads pelo formulário próprio, com ciência de privacidade.
     if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY) {
       throw new Error("Use o formulário próprio da Dona Garimpeira.");
@@ -690,7 +702,14 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const geo = await lookupGeo(ip);
     const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
       await import("@/lib/lead-recoverability");
-    const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
+    const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null, data.locale ?? "pt-BR");
+    const contactName = data.contactName?.trim() || null;
+    if (data.clientKey === "infinito-spa" && !contactName) {
+      throw new Error("Ingresa tu nombre para registrar la consulta.");
+    }
+    if (data.clientKey === "infinito-spa" && !recoveryPhone) {
+      throw new Error("Ingresa un WhatsApp chileno válido para registrar la consulta.");
+    }
 
     const quizMetadata: Record<string, unknown> = {
       source: "portfolio_client",
@@ -701,6 +720,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       mode: data.mode,
       proposal_kind: data.proposalKind,
       ...(data.funnelIntent ? { funnel_intent: data.funnelIntent } : {}),
+      ...(data.locale ? { locale: data.locale } : {}),
       ...(hasOrderContext ? { order_context: orderContext } : {}),
       completed_at: new Date().toISOString(),
       page_url: data.pageUrl ?? pageUrl,
@@ -727,7 +747,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         form_id: form.id,
         answers_json: data.answers,
         metadata_json: quizMetadata,
-        contact_name: null,
+        contact_name: contactName,
         contact_email: null,
         contact_phone: recoveryPhone,
         whatsapp_user_url: null,

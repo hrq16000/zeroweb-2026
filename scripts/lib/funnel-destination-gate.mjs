@@ -8,7 +8,8 @@
  *
  * O livro-razão de proveniência continua útil como evidência histórica, mas
  * não substitui nem bloqueia o registro operacional versionado.
- * Nenhum secret/env/tabela privada participa desta decisão.
+ * Segredos Vercel são referenciados por nome no registro e validados por
+ * proveniência explícita; o valor nunca entra no repositório.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -32,6 +33,15 @@ function validWhatsApp(raw) {
   return digits.length >= 10 && digits.length <= 15;
 }
 
+export function isSecretDestinationReference(whatsapp, provenance, expectedEnvKey) {
+  const allowedProvenance =
+    (provenance?.status === "CONFIGURED_UNVERIFIED" && provenance?.source === "CLIENT_SUPPLIED") ||
+    (provenance?.status === "VERIFIED" && provenance?.source === "OPERATIONAL_SECRET+GOOGLE_ENTITY");
+  return whatsapp === `env:${expectedEnvKey}` && allowedProvenance &&
+    Array.isArray(provenance?.evidence) &&
+    provenance.evidence.some((line) => String(line).split(/[^A-Z0-9_]+/).includes(expectedEnvKey));
+}
+
 /** Cliente sem canal comercial não participa do gate. */
 export function expectsOperationalDelivery(client) {
   if (!client) return true;
@@ -47,7 +57,7 @@ export function expectsOperationalDelivery(client) {
  *   provenanceStatus: string|null
  * }}
  */
-export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = {}) {
+export function evaluateFunnelDestination(slug, { clients, ledger, contacts, env } = {}) {
   const allClients = clients ?? readJson("src/config/portfolio-clients.json", []);
   const book = ledger ?? readJson("src/config/portfolio-funnel-destinations.json", { entries: {} });
   const registry =
@@ -87,6 +97,8 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = 
   const whatsapp = registry[clientKey]?.whatsapp;
   const provenance = entries[clientKey] ?? entries[slug] ?? null;
   const provenanceStatus = provenance?.status ?? null;
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+  const secretReference = isSecretDestinationReference(whatsapp, provenance, expectedEnvKey);
 
   if (whatsapp === null) {
     // Estado deliberado: o projeto salva lead/protocolo e não redireciona.
@@ -97,6 +109,21 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = 
       warnings,
       provenanceStatus,
     };
+  }
+
+  if (secretReference) {
+    if (env !== undefined) {
+      const secretValue = env?.[expectedEnvKey];
+      if (validWhatsApp(secretValue)) {
+        return { status: "PASS", mode: "WHATSAPP", blockers, warnings, provenanceStatus };
+      }
+      warnings.push(secretValue
+        ? "BLOCKED_INVALID_SECRET: o segredo não contém um WhatsApp válido; o lead permanece em modo LEAD_ONLY."
+        : "BLOCKED_MISSING_SECRET: o segredo não está disponível neste ambiente; o lead permanece em modo LEAD_ONLY.");
+      return { status: "PASS", mode: "LEAD_ONLY", blockers, warnings, provenanceStatus };
+    }
+    warnings.push("FUNNEL_DESTINATION_GATE: referência server-only validada por proveniência; o valor não é lido no CI e o runtime mantém fallback LEAD_ONLY.");
+    return { status: "PASS", mode: "WHATSAPP", blockers, warnings, provenanceStatus };
   }
 
   if (!validWhatsApp(whatsapp)) {

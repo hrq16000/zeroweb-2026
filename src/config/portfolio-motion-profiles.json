@@ -1483,6 +1483,23 @@
       "desktopBehavior": "hero ilustrado em composição editorial, carimbo discreto e cartões de momentos com hover",
       "tabletBehavior": "capa empilhada com ilustração à direita e produtos em grade",
       "mobileBehavior": "leitura vertical, botões de toque amplo, sem paralaxe; movimento reduzido respeitado"
+    },
+    "infinito-spa": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "Editorial asimétrico, órbitas estáticas y CTA sutil.",
+      "tabletBehavior": "Hero apilado y bloques editoriales.",
+      "mobileBehavior": "Columna única y CTA flotante; reduced motion sin desplazamientos."
     }
   },
   "decisions": {

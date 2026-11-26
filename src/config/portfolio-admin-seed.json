@@ -10,14 +10,18 @@
     "SEO": "PORTFOLIO_SEO_MISSING",
     "POPUP": "PORTFOLIO_POPUP_MISSING",
     "SHARE": "PORTFOLIO_SHARE_COPY_MISSING",
-    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING"
+    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING",
+    "TECHNICAL": "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+    "APPROVAL": "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
   },
   "blocking": [
+    "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
     "PORTFOLIO_COMPONENT_MISSING",
     "PORTFOLIO_CTA_MISSING",
     "PORTFOLIO_LOGO_MISSING",
     "PORTFOLIO_SEO_MISSING",
-    "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+    "PORTFOLIO_SOCIAL_IMAGE_MISSING",
+    "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
   ],
   "projects": [
     {
@@ -1013,9 +1017,13 @@
       ],
       "shareCopy": "♻️ Conheça a Dona Garimpeira! Um brechó de roupas e acessórios femininos, masculinos e infantis na Rua Loanda, 60, Boneca do Iguaçu, São José dos Pinhais — PR. Atendimento habitual de segunda a domingo, das 9h às 18h.\n\nQuer comprar uma peça, vender roupas em bom estado ou fazer uma doação? Acesse o portfólio, escolha sua intenção e preencha o atendimento que prepara uma mensagem para o WhatsApp da loja. Disponibilidade e avaliação são confirmadas pela equipe.\n\nhttps://0web.com.br/portfolio/dona-garimpeira-brecho\n\n#DonaGarimpeira #Brecho #SaoJoseDosPinhais #ModaCircular #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "dona-lucy-salgados",
@@ -1677,6 +1685,49 @@
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
+    },
+    {
+      "slug": "infinito-spa",
+      "clientKey": "infinito-spa",
+      "title": "Infinito Spa",
+      "segment": "beleza",
+      "city": "Santiago",
+      "state": "Chile",
+      "summary": "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta directamente con Roze las modalidades, duración y disponibilidad antes de coordinar tu sesión.",
+      "subtitle": "Masajes y masoterapia · Santiago, Chile",
+      "image": "/images/infinito-spa/capa-card.svg",
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "componentFile": "src/components/site/InfinitoSpaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/infinito-spa",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/infinito-spa/capa-card.jpg",
+        "/images/infinito-spa/capa-card.svg",
+        "/images/infinito-spa/capa.svg",
+        "/images/infinito-spa/detail.svg",
+        "/images/infinito-spa/hero-orbit.svg",
+        "/images/infinito-spa/logo.svg",
+        "/images/infinito-spa/mark.svg",
+        "/images/infinito-spa/social-og.jpg",
+        "/images/infinito-spa/social.svg"
+      ],
+      "shareCopy": "🌿 Infinito Spa ofrece masajes y masoterapia en Santiago, Chile.\n\nConsulta con Roze las modalidades, duración y disponibilidad para coordinar una sesión con atención previa.\n\n🌐 Conoce Infinito Spa:\nhttps://0web.com.br/portfolio/infinito-spa\n\n#InfinitoSpa #MasajesSantiago #Masoterapia #Bienestar #0WEB",
+      "published": false,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "jc-revestimentos",
