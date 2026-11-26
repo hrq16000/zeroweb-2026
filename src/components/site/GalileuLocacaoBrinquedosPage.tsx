@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal } from "@/components/motion";
 
 const attractions = [
   { n: "01", title: "Tobogã inflável", text: "A descida que vira o ponto alto da comemoração.", tone: "bg-[#e2231a] text-white", chip: "bg-white/20 text-white" },
@@ -26,7 +26,7 @@ export function GalileuLocacaoBrinquedosPage() {
       <header className="sticky top-0 z-20 border-b border-white/10 bg-[#09265b]/95 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Galileu Locação de Brinquedos" className="shrink-0">
-            <PortfolioImage managedField="logoUrl" priority src="/images/galileu-locacao-brinquedos/logo.png" alt="Galileu Locação de Brinquedos" width={768} height={256} decoding="async" className="h-11 w-auto" />
+            <PortfolioImage managedField="logoUrl" priority src="/images/_generated/galileu-locacao-brinquedos/logo.webp" alt="Galileu Locação de Brinquedos" width={768} height={256} decoding="async" className="h-11 w-auto" />
           </a>
           <nav className="hidden gap-6 text-sm font-bold text-white/80 md:flex">
             <a href="#atracoes" className="hover:text-[#f3ae00]">Atrações</a>
@@ -40,6 +40,7 @@ export function GalileuLocacaoBrinquedosPage() {
       </header>
 
       <main>
+        <MotionFirstPaint>
         <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-20">
           <div>
             <p className="inline-flex rounded-full bg-[#f3ae00] px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-[#09265b]">Locação de brinquedos · festas e eventos</p>
@@ -67,9 +68,11 @@ export function GalileuLocacaoBrinquedosPage() {
           </div>
           <MotionImageReveal intensity="EXPRESSIVE" direction="left" className="rounded-[2rem]">
           <PortfolioImage
-            src="/images/galileu-locacao-brinquedos/cena.png"
+            src="/images/_generated/galileu-locacao-brinquedos/cena.webp"
             alt="Cartela de atrações Galileu: tobogã inflável, cama elástica, piscina de bolinhas e kit personalizado"
             priority
+            widths={[480, 960]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
             width={1200}
             height={1200}
             className="w-full rounded-[2rem] border border-white/10 shadow-2xl shadow-black/30"
@@ -77,6 +80,7 @@ export function GalileuLocacaoBrinquedosPage() {
           />
           </MotionImageReveal>
         </section>
+        </MotionFirstPaint>
 
         <section id="atracoes" className="bg-[#f4f8ff] px-5 py-20 text-[#09265b] lg:px-8">
           <div className="mx-auto max-w-6xl">
