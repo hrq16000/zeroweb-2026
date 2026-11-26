@@ -1221,7 +1221,7 @@
       "blockers": [
         "QA visual y revisión perceptual pendientes.",
         "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación.",
-        "SUPABASE_SERVICE_ROLE_KEY ausente en Vercel; grabación real de leads y redirección posterior no verificadas."
+        "Persistencia de leads y handoff comercial aún no comprobados en el entorno operativo nativo de 0WEB."
       ],
       "warnings": [
         "Homónimos públicos no asociados.",
