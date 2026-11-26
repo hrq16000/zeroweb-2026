@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import { resolvePortfolioFunnelContext } from "../../src/lib/portfolio-funnel-context";
 import {
   buildPortfolioQuizMessage,
@@ -8,6 +9,16 @@ import { normalizeRecoveryPhone } from "../../src/lib/lead-recoverability";
 import { evaluateFunnelDestination } from "../../scripts/lib/funnel-destination-gate.mjs";
 
 describe("Infinito Spa — funil chileno", () => {
+  test("a escrita pública é exclusiva do cliente Infinito Spa e usa o tipo do banco", () => {
+    const intake = readFileSync("src/lib/lead-intake.functions.ts", "utf8");
+    const form = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
+    expect(form).toContain("submitInfinitoSpaPublicLead");
+    expect(intake).toContain('data.source !== "portfolio:infinito-spa"');
+    expect(intake).toContain('Database["public"]["Tables"]["lead_submissions"]["Insert"]');
+    expect(intake).not.toContain("as any");
+    expect(intake).not.toContain("SUPABASE_SERVICE_ROLE_KEY");
+  });
+
   test("usa contexto e mensagem de agendamento em espanhol, com dados de retorno", () => {
     const context = resolvePortfolioFunnelContext("infinito-spa");
     expect(context.intent).toBe("agendamento");
