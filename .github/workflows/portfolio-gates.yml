@@ -305,7 +305,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 552 && steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
         env:
           E2E_BASE_URL: https://www.0web.com.br
-          # Mídias administradas são validadas em Production e ocultadas apenas na comparação visual.
+          # Mídias administradas são validadas em Production antes da máscara visual; a lista também é coberta por teste estático.
           VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
           VISUAL_BASELINE_DIR: seo-reports/visual-production-baseline
           VISUAL_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
