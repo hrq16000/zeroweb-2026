@@ -164,6 +164,8 @@ export type PortfolioQuizMessageInput = {
   proposalKind?: PortfolioProposalKind;
   pageUrl?: string;
   location?: string;
+  contactName?: string;
+  contactPhone?: string;
   funnelContext?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">;
   locale?: PortfolioQuizLocale;
 };
@@ -182,17 +184,21 @@ export function buildPortfolioQuizMessage({
   proposalKind = "service",
   pageUrl = "",
   location = "",
+  contactName,
+  contactPhone,
   funnelContext,
   locale = "pt-BR",
 }: PortfolioQuizMessageInput): string {
   const copy = applyPortfolioFunnelIntentCopy(
-    getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName),
+    getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName, locale),
     funnelContext,
     locale,
   );
 
   if (locale === "es-CL") {
     const lines = [copy.messageTitle, "", `Hola, ${recipientName}. ¿Cómo estás?`, "", `Te escribo desde la página de *${studioName}* para consultar por ${copy.subject}.`, ...(pageUrl ? [`🔗 Enlace: ${pageUrl}`] : []), ...(location ? [`📍 Mi ubicación: ${location}.`] : []), copy.intro, "", copy.sectionTitle, `• *${copy.labels.service}:* ${answers.service || copy.fallbacks.service}`, `• *${copy.labels.experience}:* ${answers.experience || copy.fallbacks.experience}`, `• *${copy.labels.period}:* ${answers.period || copy.fallbacks.period}`, `• *${copy.labels.timing}:* ${answers.timing || copy.fallbacks.timing}`];
+    if (contactName?.trim()) lines.push(`• *Nombre:* ${contactName.trim()}`);
+    if (contactPhone?.trim()) lines.push(`• *WhatsApp de contacto:* ${contactPhone.trim()}`);
     if (answers.note.trim()) lines.push("", "*COMENTARIO*", answers.note.trim());
     lines.push("", "*SIGUIENTE PASO*", copy.nextStep, "", "Quedo atento/a a tu respuesta.");
     return lines.join("\n");
@@ -216,6 +222,8 @@ export function buildPortfolioQuizMessage({
     `• *${copy.labels.timing}:* ${answers.timing || copy.fallbacks.timing}`,
   ];
 
+  if (contactName?.trim()) lines.push(`• *Nome:* ${contactName.trim()}`);
+  if (contactPhone?.trim()) lines.push(`• *WhatsApp para retorno:* ${contactPhone.trim()}`);
   if (answers.note.trim()) lines.push("", "*OBSERVAÇÃO*", answers.note.trim());
   lines.push("", "*PRÓXIMO PASSO*", copy.nextStep, "", "Aguardo seu retorno.");
   return lines.join("\n");

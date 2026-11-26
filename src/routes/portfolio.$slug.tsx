@@ -29,6 +29,7 @@ import {
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
+  const isInfinitoSpa = project.slug === "infinito-spa";
   const url = project.canonicalUrl;
   const social = project.socialImage
     ? project.socialImage.startsWith("http")
@@ -40,7 +41,7 @@ function managedHead(project: ManagedProject) {
     meta: [
       { title: project.seoTitle },
       { name: "description", content: project.seoDescription },
-      { name: "robots", content: project.robots },
+      { name: "robots", content: isInfinitoSpa ? "noindex,follow" : project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
       { property: "og:title", content: project.seoTitle },
       { property: "og:description", content: project.seoDescription },
@@ -50,8 +51,8 @@ function managedHead(project: ManagedProject) {
       { property: "og:site_name", content: project.displayName },
       { property: "og:image", content: social },
       { property: "og:image:secure_url", content: social },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
+      { property: "og:image:width", content: isInfinitoSpa ? "600" : "1200" },
+      { property: "og:image:height", content: isInfinitoSpa ? "315" : "630" },
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: project.seoTitle },
@@ -61,7 +62,7 @@ function managedHead(project: ManagedProject) {
     ],
     links: [
       { rel: "canonical", href: url },
-      { rel: "alternate", hrefLang: "pt-BR", href: url },
+      { rel: "alternate", hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR", href: url },
       { rel: "alternate", hrefLang: "x-default", href: url },
       { rel: "icon", href: icon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
@@ -841,7 +842,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       meta: [
         { title: eff.title },
         { name: "description", content: eff.description },
-        { name: "robots", content: eff.robots },
+        { name: "robots", content: prototype?.indexable === false ? "noindex,follow" : eff.robots },
         {
           name: "keywords",
           content: eff.keywords ?? (isInfinitoSpa
@@ -951,13 +952,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:description", content: eff.description },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
-        { property: "og:locale", content: "pt_BR" },
+        { property: "og:locale", content: isInfinitoSpa ? "es_CL" : "pt_BR" },
         { property: "og:site_name", content: isInfinitoSpa ? "Infinito Spa" : eff.title },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
+        { property: "og:image:width", content: isInfinitoSpa ? "600" : "1200" },
+        { property: "og:image:height", content: isInfinitoSpa ? "315" : "630" },
         { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: eff.title },
@@ -988,7 +989,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
               type: "application/ld+json",
               children: graph([
                 organizationNode(),
-                ...(isInfinitoSpa ? [{ "@type": "Service", "@id": `${url}#service`, name: "Masajes y masoterapia", serviceType: "Masoterapia", provider: { "@type": "Organization", name: "Infinito Spa" }, areaServed: { "@type": "City", name: "Santiago", containedInPlace: { "@type": "Country", name: "Chile" } }, description: "Consulta de modalidades y coordinación de sesiones; detalles sujetos a confirmación directa." }] : []),
+                ...(isInfinitoSpa ? [{ "@type": "Service", "@id": `${url}#infinito-spa-service`, name: "Masajes y masoterapia", serviceType: "Masoterapia", provider: { "@type": "Organization", name: "Infinito Spa" }, areaServed: { "@type": "City", name: "Santiago", containedInPlace: { "@type": "Country", name: "Chile" } }, description: "Consulta de modalidades y coordinación de sesiones; detalles sujetos a confirmación directa." }] : []),
                 ...(isBtb
                   ? [
                       {
