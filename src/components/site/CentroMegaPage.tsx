@@ -21,7 +21,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import {
+import { MotionFirstPaint,
   MotionOverlay,
   MotionReveal,
   MotionScope,
@@ -401,7 +401,7 @@ export function CentroMegaPage() {
         </header>
 
         <main>
-          <section id="inicio" className="relative isolate overflow-hidden px-4 pb-18 pt-14 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28">
+          <MotionFirstPaint><section id="inicio" className="relative isolate overflow-hidden px-4 pb-18 pt-14 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28">
             <div className="absolute inset-0 -z-30 opacity-25 bg-[linear-gradient(rgba(34,211,238,.16)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,.16)_1px,transparent_1px)] bg-[size:54px_54px]" />
             <div className="absolute left-[-12rem] top-[-10rem] -z-20 h-[34rem] w-[34rem] rounded-full bg-cyan-400/20 blur-[110px]" />
             <div className="absolute right-[-8rem] top-[8rem] -z-20 h-[32rem] w-[32rem] rounded-full bg-violet-500/20 blur-[120px]" />
@@ -515,7 +515,7 @@ export function CentroMegaPage() {
                 </div>
               </div>
             </div>
-          </section>
+          </section></MotionFirstPaint>
 
           <div className="overflow-hidden border-y border-white/10 bg-white/[.035] py-3">
             <div className="mega-marquee flex gap-10 whitespace-nowrap text-[11px] font-black uppercase tracking-[.22em] text-white/55">
