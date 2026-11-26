@@ -254,7 +254,7 @@ function safeCompositionRegistryDiff(diff, owned) {
   if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
 
   const additions = changes.filter((line) => line.startsWith("+"));
-  const components = [...owned.entries()].filter(([file]) => /^src\\/components\\/site\\/[^/]+\\.tsx$/.test(file));
+  const components = [...owned.entries()].filter(([file]) => file.startsWith("src/components/site/") && file.endsWith(".tsx"));
   if (!components.length || additions.length !== components.length) return false;
 
   return additions.every((line) =>
@@ -398,7 +398,7 @@ if (invokedAsScript) {
       });
       options.addedFiles = new Set(
         gitDiff("diff", "--diff-filter=A", "--name-only", base, head)
-          .split(/\\r?\\n/)
+          .split("\n")
           .map(normalize)
           .filter(Boolean),
       );
