@@ -39,6 +39,7 @@ import { Route as InfraestruturaRouteImport } from './routes/infraestrutura'
 import { Route as LandingPagesRouteImport } from './routes/landing-pages'
 import { Route as LgpdRouteImport } from './routes/lgpd'
 import { Route as MapaDoSiteRouteImport } from './routes/mapa-do-site'
+import { Route as MarketingJuridicoRouteImport } from './routes/marketing-juridico'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
@@ -423,6 +424,11 @@ const LgpdRoute = LgpdRouteImport.update({
 const MapaDoSiteRoute = MapaDoSiteRouteImport.update({
   id: '/mapa-do-site',
   path: '/mapa-do-site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingJuridicoRoute = MarketingJuridicoRouteImport.update({
+  id: '/marketing-juridico',
+  path: '/marketing-juridico',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketplaceRoute = MarketplaceRouteImport.update({
@@ -1739,6 +1745,7 @@ export interface FileRoutesByFullPath {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -2004,6 +2011,7 @@ export interface FileRoutesByTo {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -2269,6 +2277,7 @@ export interface FileRoutesById {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -2537,6 +2546,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -2802,6 +2812,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -3066,6 +3077,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -3334,6 +3346,7 @@ export interface RootRouteChildren {
   LandingPagesRoute: typeof LandingPagesRoute
   LgpdRoute: typeof LgpdRoute
   MapaDoSiteRoute: typeof MapaDoSiteRoute
+  MarketingJuridicoRoute: typeof MarketingJuridicoRoute
   MarketplaceRoute: typeof MarketplaceRoute
   McpRoute: typeof McpRoute
   ObrigadoRoute: typeof ObrigadoRoute
@@ -3676,6 +3689,13 @@ declare module '@tanstack/react-router' {
       path: '/mapa-do-site'
       fullPath: '/mapa-do-site'
       preLoaderRoute: typeof MapaDoSiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-juridico': {
+      id: '/marketing-juridico'
+      path: '/marketing-juridico'
+      fullPath: '/marketing-juridico'
+      preLoaderRoute: typeof MarketingJuridicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/marketplace': {
@@ -5714,6 +5734,7 @@ const rootRouteChildren: RootRouteChildren = {
   LandingPagesRoute: LandingPagesRoute,
   LgpdRoute: LgpdRoute,
   MapaDoSiteRoute: MapaDoSiteRoute,
+  MarketingJuridicoRoute: MarketingJuridicoRoute,
   MarketplaceRoute: MarketplaceRoute,
   McpRoute: McpRoute,
   ObrigadoRoute: ObrigadoRoute,
