@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" fill="none">
+<defs>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(510 500 -510 520 1130 460)" gradientUnits="userSpaceOnUse"><stop stop-color="#b9c2ad" stop-opacity=".46"/><stop offset="1" stop-color="#b9c2ad" stop-opacity="0"/></radialGradient>
+<linearGradient id="ring" x1="820" x2="1450" y1="170" y2="960"><stop stop-color="#d2a184"/><stop offset=".5" stop-color="#d9dfd1"/><stop offset="1" stop-color="#8da08b"/></linearGradient>
+</defs>
+<circle cx="1120" cy="545" r="490" fill="url(#glow)"/>
+<circle cx="1120" cy="545" r="410" stroke="#e4e5d9" stroke-opacity=".12"/>
+<circle cx="1120" cy="545" r="345" stroke="#e4e5d9" stroke-opacity=".17"/>
+<circle cx="1120" cy="545" r="280" stroke="#e4e5d9" stroke-opacity=".2"/>
+<circle cx="1120" cy="545" r="215" stroke="#e4e5d9" stroke-opacity=".24"/>
+<path d="M750 550c94-206 263-303 383-50 120 253 288 156 382-50M750 550c94 206 263 303 383 50 120-253 288-156 382 50" stroke="url(#ring)" stroke-width="18" stroke-linecap="round" opacity=".85"/>
+<path d="M920 175c-120 132-176 246-176 370 0 246 197 443 443 443 147 0 277-71 358-180" stroke="#d2a184" stroke-opacity=".55" stroke-width="2" stroke-dasharray="3 13"/>
+<circle cx="1515" cy="546" r="8" fill="#d2a184"/><circle cx="920" cy="175" r="5" fill="#e4e5d9"/>
+<text x="1120" y="575" fill="#f1eee5" fill-opacity=".74" text-anchor="middle" font-family="Georgia,serif" font-size="26" letter-spacing="12">INFINITO</tex¶»§q«^

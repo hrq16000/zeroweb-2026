@@ -1,0 +1,48 @@
+{
+  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliar antes de readiness/publish.",
+  "slug": "infinito-spa",
+  "matrixVersion": 2,
+  "contractVersion": 4,
+  "evaluatedAt": "2026-11-25",
+  "technicalPass": false,
+  "editorialPass": false,
+  "score": {
+    "total": null,
+    "byDimension": {}
+  },
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Identidade confirmada pelo intake; hom√¥nimos exclu√≠dos."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Descreve apenas masajes, atendimento individual e Santiago."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Arte vetorial original; fotos e redes oficiais n√£o verificadas."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "WARNING",
+      "notes": "Composi√ß√£o autoral; browser QA pendente."
+    },
+    "ORIGINALITY": {
+      "status": "WARNING",
+      "notes": "Topologia autoral; compara√ß√£o visual final pendente."
+    },
+    "DISCOVERY": {
+      "status": "WARNING",
+      "notes": "Perfil oficial e posts recentes dependem de handle."
+    },
+    "SEO": {
+      "status": "WARNING",
+      "notes": "Metadados e Schema.org local implementados; build/crawl pendentes."
+    },
+    "CONVERSION": {
+      "status": "WARNING",
+      "notes": "Funil individual configurado; migration e redirect E2E pendentes."
+    },
+    "PROOF": {
+      "status": "NOT_APPLICABLE",
+ ∂ªßq´^

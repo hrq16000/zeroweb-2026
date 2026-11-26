@@ -39,27 +39,4 @@ export function resolveVersionedPortfolioWhatsApp(
 ): string | null {
   if (!clientKey) return null;
   const raw = CONTACTS[clientKey]?.whatsapp;
-  const digits = typeof raw === "string" ? raw.replace(/\D/g, "") : "";
-  if (digits.length < 10 || digits.length > 15) return null;
-  return digits;
-}
-
-export function isPortfolioWhatsAppNotApplicable(
-  clientKey?: string | null,
-): boolean {
-  return Boolean(clientKey && WHATSAPP_NOT_APPLICABLE.has(clientKey));
-}
-
-export function getVersionedPortfolioWhatsAppClientKeys(): readonly string[] {
-  return Object.freeze(
-    Object.keys(CONTACTS).filter((clientKey) => Boolean(resolveVersionedPortfolioWhatsApp(clientKey))),
-  );
-}
-
-export function getPortfolioContactClientKeys(): readonly string[] {
-  return Object.freeze(Object.keys(CONTACTS));
-}
-
-export function getWhatsAppNotApplicableClientKeys(): readonly string[] {
-  return Object.freeze([...WHATSAPP_NOT_APPLICABLE]);
-}
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().repla¶»§q«^

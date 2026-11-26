@@ -1,0 +1,50 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md Â§7). Preencher antes de fechar o Blueprint.",
+  "slug": "infinito-spa",
+  "status": "MEDIA_ENRICHMENT_IN_PROGRESS",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [
+      "/images/infinito-spa/hero.svg",
+      "/images/infinito-spa/detail.svg",
+      "/images/infinito-spa/capa.svg",
+      "/images/infinito-spa/social.svg",
+      "/images/infinito-spa/capa-card.svg"
+    ],
+    "graphicMedia": [
+      "/images/infinito-spa/logo.svg"
+    ],
+    "missingMedia": []
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OWNER_SUPPLIED",
+      "GOOGLE_PUBLIC_MEDIA",
+      "OFFICIAL_SOCIAL",
+      "OFFICIAL_WEBSITE",
+      "OFFICIAL_BRAND",
+      "LICENSED_MEDIA",
+      "GENERATED_CONTEXTUAL_MEDIA"
+    ],
+    "result": "No se verificaron fotos, logo ni redes oficiales; homÃ³nimos excluidos. Arte vectorial original para identidad, hero, portada y OG."
+  },
+  "referenceOnlyAssets": [],
+  "sections": [
+    {
+      "section": "hero",
+      "mediaRole": "BRAND_REFERENCE",
+      "source": "PROJECT_AUTHORED_VECTOR",
+      "asset": "/images/infinito-spa/hero.svg",
+      "provenance": "Arte vectorial original",
+      "status": "READY",
+      "mediaNarrative": "CREATE_EMOTION"
+    },
+    {
+      "section": "attention",
+      "mediaRole": "GENERATED_CONTEXTUAL_MEDIA",
+      "source": "PROJECT_AUTHORED_VECTOR",
+      "ass¶»§q«^
