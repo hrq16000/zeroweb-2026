@@ -29,6 +29,7 @@ const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const update = process.argv.includes("--update");
 const threshold = Number(process.env.VISUAL_THRESHOLD ?? 0.02); // 2% dos pixels
 const routeTimeout = Number(process.env.VISUAL_ROUTE_TIMEOUT_MS ?? 20000);
+const settleMs = Math.max(600, Number(process.env.VISUAL_SETTLE_MS ?? 1200) || 1200);
 const concurrency = Math.max(1, Number(process.env.VISUAL_CONCURRENCY ?? 3));
 const viewportSpec = process.env.VISUAL_VIEWPORTS ?? "";
 const only = (process.env.VISUAL_ONLY ?? "")
@@ -111,6 +112,15 @@ const FREEZE_CSS = `
   scroll-behavior: auto !important;
   caret-color: transparent !important;
 }
+/* Imagens administradas podem divergir entre Production e Preview sem service-role.
+   Elas mantêm o espaço visual, enquanto o teste de fixtures valida seu contrato de renderização. */
+.portfolio-standard-shell[data-portfolio-slug="studio-de-cilios"] img[data-portfolio-managed-field],
+.portfolio-standard-shell[data-portfolio-slug="refrigeracao-maresia"] img[data-portfolio-managed-field],
+.portfolio-standard-shell[data-portfolio-slug="paulo-mestre-de-obras"] img[data-portfolio-managed-field],
+.portfolio-standard-shell[data-portfolio-slug="lk-alvenaria"] img[data-portfolio-managed-field] {
+  visibility: hidden !important;
+}
+
 /* O cue Framer da D.Y.Z escreve transform inline mesmo quando CSS animations=none.
    Congelar só nos screenshots torna a comparação determinística, sem tocar no produto. */
 [data-visual-freeze-dyz-arrow="true"] {
@@ -287,9 +297,9 @@ async function capture(context, route, viewport) {
       }));
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     }).catch(() => {});
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(settleMs);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
-    let buffer = await page.screenshot({ timeout: routeTimeout });
+    let buffer = await page.screenshot({ timeout: routeTimeout, animations: "disabled" });
     let currentPng = PNG.sync.read(buffer);
     const longPage = await page
       .evaluate(() => document.documentElement.scrollHeight > window.innerHeight * 1.25)

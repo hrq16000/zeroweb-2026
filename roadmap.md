@@ -144,3 +144,10 @@ Administração de portfólios; funis/contatos oficiais; leads/Jotform; SEO/blog
 - [ ] Integrar catálogo, registros, funil individual, destino e SEO/schema
 - [ ] Executar gates, QA visual/runtime e publicar em 0web.com.br
 - [x] Seção 'Você também pode gostar' com IA em /servicos/$slug
+
+## Dona Garimpeira Brechó
+
+- [ ] BLOQUEADO (aguardando cliente): cobrar de Henrique as peças reais (foto, nome, preço) no início da próxima rodada — ver `docs/portfolio/PENDENCIA_DONA_GARIMPEIRA_PECAS.md`
+- [ ] Montar galeria e "Você também pode gostar" somente com as peças reais recebidas
+- [ ] BLOQUEADO (gates de logo/capa/originalidade): tirar a Dona Garimpeira de rascunho no catálogo — depende de logo oficial e capa real
+- [x] Publicar o site (2026-11-26)
