@@ -12,7 +12,9 @@ describe("Infinito Spa — funil chileno", () => {
   test("a escrita pública é exclusiva do cliente Infinito Spa e usa o tipo do banco", () => {
     const intake = readFileSync("src/lib/lead-intake.functions.ts", "utf8");
     const form = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
+    const operationalGate = readFileSync("scripts/check-portfolio-funnel-operational.mjs", "utf8");
     expect(form).toContain("submitInfinitoSpaPublicLead");
+    expect(operationalGate).toContain("submitInfinitoSpaPublicLead");
     expect(intake).toContain("export const submitPublicLead");
     expect(intake).toContain('data.source !== "portfolio:infinito-spa"');
     const infinitoAction = intake.slice(intake.indexOf("export const submitInfinitoSpaPublicLead"));
