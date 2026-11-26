@@ -107,6 +107,7 @@ export function BrechoSaoFranciscoPage() {
           </MotionFirstPaint>
 
           {/* coluna de leitura: retrato + araras numeradas */}
+          <MotionFirstPaint>
           <div className="min-w-0">
             <figure className="max-w-md">
               <PortfolioImage
@@ -167,6 +168,7 @@ export function BrechoSaoFranciscoPage() {
               Roupas com história merecem uma descoberta cuidadosa.
             </p>
           </div>
+          </MotionFirstPaint>
         </div>
       </main>
       </MotionScope>
