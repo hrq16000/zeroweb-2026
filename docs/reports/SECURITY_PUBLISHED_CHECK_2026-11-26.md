@@ -47,15 +47,24 @@ Nenhum encontrado.
 - Rotas `/painel*` e `/app/agentes` entregam apenas a casca da página; os dados dependem de sessão e papel verificados no servidor (conferido em rodadas anteriores no preview).
 - Dependências: 0 vulnerabilidades na varredura de cadeia de suprimentos.
 
-## Correções realizadas
-Nenhuma — mudanças de permissão no banco real aguardam autorização do proprietário.
+## Correções realizadas (26/11/2026 02:33 UTC, autorizadas "Aplicar tudo")
+Migração `0010_lock_maintenance_functions_and_internal_reports`:
+- 11 rotinas de manutenção/identidade: EXECUTE só para `service_role`
+  (`purge_*`, `anonymize_visitantes_rastreio_old`, `refresh_visitor_mvs`, `pgrst_reload_schema`,
+  `db_required_tables_check`, `resolve_or_create_identity`, `stitch_visitor_identity`).
+- `check_and_record_rate_limit`: sem `anon`; mantido para `authenticated` (chat de suporte) e `service_role`.
+- `mv_visitors_daily`, `mv_visitors_hourly`, `mv_block_reasons_daily`, `partner_ranking_30d`: sem `anon`.
+- `license_overview`: só `service_role`.
+Evidência pós-correção: leitura anônima das 5 visões → 401; `db_required_tables_check` e `pgrst_reload_schema` anônimos → 401;
+Home, `/servicos`, `/portfolio`, `/portfolio/centro-mega`, `/portfolio/dona-garimpeira-brecho` e `/api/public/health-db` → 200.
 
-## Correção preparada (não aplicada)
-- Revogar EXECUTE de `PUBLIC`/`anon`/`authenticated` nas funções de manutenção e conceder só a `service_role`,
-  após confirmar que cada chamada usa o cliente privilegiado.
-- Revogar EXECUTE de `anon` nas funções de checagem de papel, mantendo `authenticated`.
-- Revogar SELECT de `anon`/`authenticated` nas três visões materializadas e em `license_overview`/`partner_ranking_30d`,
-  ou convertê-las para `security_invoker`, validando painel de visitantes, licenças e parceiros.
+## Resíduos conhecidos (não alterados)
+- `wa_funnel_update_session` e `bump_experiment` seguem executáveis por anônimo: o funil os chama direto do navegador;
+  restringir exige mover a chamada para o servidor e publicar.
+- As três visões de tráfego e `partner_ranking_30d` seguem legíveis por qualquer usuário logado (o painel publicado lê
+  com a sessão do usuário); fechar exige checagem de papel no servidor + publicação.
+- Funções de checagem de papel seguem executáveis por anônimo (usadas dentro das regras de acesso).
+- Painel e funis não foram testados com sessão logada após a mudança.
 
 ## Não verificado
 - Tentativas autenticadas de escalada de privilégio com conta comum.

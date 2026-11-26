@@ -4,10 +4,9 @@
 - [x] Busca global do catálogo: São Francisco Pet Center, rascunhos, identificadores e status localizáveis; resultados fora dos filtros aparecem ao final.
 - [x] Ordenação por datas reais (criação/atualização, do histórico Git) e ordem aleatória.
 - [x] Branch de transferência `docs/lovable-to-codex-handoff-20261124` criada no GitHub em 26/11 02:23 UTC a partir da main 14ceb8b5, após aprovação do dono da organização; existência confirmada. Sem PR/merge.
-- [ ] Dona Garimpeira: central de leads no painel — bloqueio: neste projeto só existe a página de portfólio em rascunho (funil sem banco); aguardando o usuário indicar a loja real.
-- [ ] Dona Garimpeira: "Você também pode gostar" com produtos reais — bloqueio: não há páginas de produto da Dona Garimpeira neste projeto nem nos 27 projetos acessíveis; aguardando endereço da loja.
 - [x] Checagem de segurança do 0web.com.br publicado: 0 críticos, 2 altos (funções de manutenção e visões legíveis/executáveis por anônimo), relatório em docs/reports/SECURITY_PUBLISHED_CHECK_2026-11-26.md.
-- [ ] Aplicar correções de permissão dos 2 achados altos — bloqueio: autorização do proprietário para alterar permissões no banco real.
+- [x] Correções de permissão dos 2 achados altos aplicadas (migração 0010): visitantes recebem 401 nas rotinas de manutenção e nos 5 relatórios internos; páginas públicas e health-db 200. Resíduos (funções do funil chamadas pelo navegador, relatórios para usuários logados) registrados no relatório.
+- [ ] Dona Garimpeira "Você também pode gostar": página publicada conferida (desktop/celular, sem erros); não há seção de recomendações nem produtos — galeria vazia (GALLERY_ITEMS = []). Bloqueio: usuário precisa enviar peças reais (foto, nome, preço). Central de leads/painel: ignorada a pedido do usuário.
 
 ## Inspeção final e transferência para Codex — 24/11/2026 às 14:54 UTC
 - [x] Reconciliar HEAD eecb2829 local/remoto: 3019 arquivos idênticos/zero exclusivos; 47 PRs/566 branches preservadas, Vercel READY 58032d30 e ERROR 873a1938. Sem merge/publicação/SQL/testes repetidos.
