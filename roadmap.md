@@ -3,10 +3,11 @@
 ## Catálogo, busca e pendências do arquivo de execução — 26/11/2026
 - [x] Busca global do catálogo: São Francisco Pet Center, rascunhos, identificadores e status localizáveis; resultados fora dos filtros aparecem ao final.
 - [x] Ordenação por datas reais (criação/atualização, do histórico Git) e ordem aleatória.
-- [ ] Branch de transferência no GitHub — bloqueio: o dono da organização `hrq16000` precisa aprovar o aplicativo OAuth do conector GitHub da Lovable (ou autorizar outro método oficial).
-- [ ] Dona Garimpeira: central de leads no painel — não iniciada nesta rodada (aguarda pedido).
-- [ ] Dona Garimpeira: "Você também pode gostar" com produtos reais — não iniciada nesta rodada.
-- [ ] Checagem de segurança do site publicado — não iniciada nesta rodada.
+- [x] Branch de transferência `docs/lovable-to-codex-handoff-20261124` criada no GitHub em 26/11 02:23 UTC a partir da main 14ceb8b5, após aprovação do dono da organização; existência confirmada. Sem PR/merge.
+- [ ] Dona Garimpeira: central de leads no painel — bloqueio: neste projeto só existe a página de portfólio em rascunho (funil sem banco); aguardando o usuário indicar a loja real.
+- [ ] Dona Garimpeira: "Você também pode gostar" com produtos reais — bloqueio: não há páginas de produto da Dona Garimpeira neste projeto nem nos 27 projetos acessíveis; aguardando endereço da loja.
+- [x] Checagem de segurança do 0web.com.br publicado: 0 críticos, 2 altos (funções de manutenção e visões legíveis/executáveis por anônimo), relatório em docs/reports/SECURITY_PUBLISHED_CHECK_2026-11-26.md.
+- [ ] Aplicar correções de permissão dos 2 achados altos — bloqueio: autorização do proprietário para alterar permissões no banco real.
 
 ## Inspeção final e transferência para Codex — 24/11/2026 às 14:54 UTC
 - [x] Reconciliar HEAD eecb2829 local/remoto: 3019 arquivos idênticos/zero exclusivos; 47 PRs/566 branches preservadas, Vercel READY 58032d30 e ERROR 873a1938. Sem merge/publicação/SQL/testes repetidos.
