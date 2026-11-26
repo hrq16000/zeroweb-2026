@@ -1180,7 +1180,8 @@
           "PORTFOLIO_INDEXABILITY_GATE": [
             "Unique canonical; intentional noindex until client approval"
           ]
-        }
+        },
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md"
       },
       "structuralContract": 1,
       "structuralSignature": {
@@ -1259,7 +1260,9 @@
         "targetCompositionContract": 2,
         "completed": false,
         "evidence": "La promoción exige capturas reales, no-brand test y revisión visual."
-      }
+      },
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "creativeBriefFile": "docs/portfolio/briefs/infinito-spa.md"
     }
   }
 }

@@ -1346,7 +1346,7 @@
     "clientKey": "infinito-spa",
     "slug": "infinito-spa",
     "siteName": "Infinito Spa",
-    "routeFile": "src/routes/portfolio.infinito-spa.tsx",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
     "componentFile": "src/components/site/InfinitoSpaPage.tsx",
     "assetsDir": "public/images/infinito-spa",
     "ctaMode": "booking",
@@ -1363,6 +1363,8 @@
     "provenance": {
       "kind": "OWNER_SUPPLIED_INTAKE",
       "date": "2026-11-25"
-    }
+    },
+    "contactMode": "funnelOnly",
+    "creativeBriefFile": "docs/portfolio/briefs/infinito-spa.md"
   }
 ]

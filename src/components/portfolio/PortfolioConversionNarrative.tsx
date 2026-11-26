@@ -25,7 +25,8 @@ export function PortfolioConversionNarrative({ slug, locale }: { slug: string; l
     item.summary ?? item.subtitle ?? `Conheça os serviços de ${item.title} em ${item.city}.`;
   // Estrutura padronizada, mensagem e ação próprias de cada negócio.
   const funnel = resolvePortfolioFunnelContext(slug);
-  const recipientName = resolvePortfolioStandards(slug).contactFloating.recipientName || item.title;
+  const standards = resolvePortfolioStandards(slug);
+  const recipientName = standards.contactFloating.recipientName || item.title;
   const narrative = {
     title: funnel.nextStepTitle,
     step: funnel.nextStepBody,

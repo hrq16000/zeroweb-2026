@@ -3372,7 +3372,7 @@
       "socialImage": "/images/infinito-spa/social-og.jpg",
       "socialVersion": "0e570453",
       "componentFile": "src/components/site/InfinitoSpaPage.tsx",
-      "routeFile": "src/routes/portfolio.infinito-spa.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/infinito-spa",
       "ctaMode": "booking",
       "hasCta": true,
