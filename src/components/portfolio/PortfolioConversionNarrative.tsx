@@ -64,17 +64,26 @@ export function PortfolioConversionNarrative({ slug, locale }: { slug: string; l
               </li>
             ))}
           </ul>
-          <PortfolioCTAQuiz
-            clientKey={clientKey}
-            studioName={item.title}
-            recipientName={recipientName}
-            theme={narrative.theme}
-            mode={funnel.quizMode}
-            quizConfig={standards.contactFloating.quizConfig}
-            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {narrative.cta}
-          </PortfolioCTAQuiz>
+          {slug === "infinito-spa" ? (
+            <a
+              href="#consulta"
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {narrative.cta}
+            </a>
+          ) : (
+            <PortfolioCTAQuiz
+              clientKey={clientKey}
+              studioName={item.title}
+              recipientName={recipientName}
+              theme={narrative.theme}
+              mode={funnel.quizMode}
+              quizConfig={standards.contactFloating.quizConfig}
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {narrative.cta}
+            </PortfolioCTAQuiz>
+          )}
         </div>
       </div>
     </section>
