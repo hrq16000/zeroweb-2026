@@ -285,11 +285,26 @@ export function resolveVisualRegressionScope(files, clients, options = {}) {
   const localDirectoryScope = localDirectoryRepresentativeScope(files);
   if (localDirectoryScope) return localDirectoryScope;
 
-  const byComponent = new Map(
-    clients
-      .filter((client) => client?.componentFile && client?.slug)
-      .map((client) => [normalize(client.componentFile), client.slug]),
-  );
+  const byComponent = new Map();
+  const stylesheetOwners = new Map();
+  for (const client of clients.filter((item) => item?.componentFile && item?.slug)) {
+    const componentFile = normalize(client.componentFile);
+    byComponent.set(componentFile, client.slug);
+    try {
+      const componentSource = readFileSync(resolve(process.cwd(), componentFile), "utf8");
+      for (const match of componentSource.matchAll(/import ["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)) {
+        const stylesheet = componentFile.replace(/[^/]+$/, match[1]);
+        const owners = stylesheetOwners.get(stylesheet) ?? new Set();
+        owners.add(client.slug);
+        stylesheetOwners.set(stylesheet, owners);
+      }
+    } catch {
+      // Component ausente ou dinâmico não ganha escopo individual por inferência.
+    }
+  }
+  for (const [stylesheet, owners] of stylesheetOwners) {
+    if (owners.size === 1) byComponent.set(stylesheet, [...owners][0]);
+  }
   const knownSlugs = new Set(clients.map((client) => client?.slug).filter(Boolean));
   const addedFiles = options.addedFiles instanceof Set ? options.addedFiles : new Set(options.addedFiles ?? []);
   const newRoutesOwned = dedicatedNewClientFiles(clients, addedFiles);
