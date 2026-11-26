@@ -68,6 +68,26 @@ export function normalizeBrazilPhone(input: unknown): NormalizedPhone {
   return { ok: true, digits, e164: `55${digits}` };
 }
 
+/** Normaliza móviles e linhas fixas do Chile sem reclassificá-los como DDI 55. */
+export function normalizeChilePhone(input: unknown): NormalizedPhone {
+  let digits = String(input ?? "").replace(/\\D/g, "");
+  if (!digits) return { ok: false };
+  if (digits.startsWith("00")) digits = digits.slice(2);
+  if (digits.startsWith("56")) digits = digits.slice(2);
+  if (!/^(?:9\\d{8}|2\\d{8})$/.test(digits)) return { ok: false };
+  const international = `56${digits}`;
+  return { ok: true, digits: international, e164: international };
+}
+
+/** Converte telefone armazenado em destino WhatsApp sem perder DDI chileno. */
+export function toWhatsAppPhoneDigits(input: unknown): string | null {
+  const digits = String(input ?? "").replace(/\\D/g, "");
+  if (digits.length < 10 || digits.length > 15) return null;
+  if (/^56\\d{9}$/.test(digits)) return digits;
+  if (digits.length <= 11) return `55${digits}`;
+  return digits;
+}
+
 /** Mascara telefone para exibição em listas administrativas. */
 export function maskPhoneForDisplay(value: unknown): string {
   const digits = String(value ?? "").replace(/\D/g, "");
