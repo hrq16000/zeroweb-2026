@@ -85,6 +85,8 @@
     "check:portfolio-uniqueness": "node scripts/check-portfolio-uniqueness.mjs",
     "check:portfolio-funnel-operational": "node scripts/check-portfolio-funnel-operational.mjs",
     "build:portfolio-cover-status": "node scripts/build-portfolio-cover-status.mjs",
+    "build:portfolio-project-dates": "node scripts/build-portfolio-project-dates.mjs",
+    "check:portfolio-project-dates": "node scripts/build-portfolio-project-dates.mjs --check",
     "check:portfolio-cover-status": "node scripts/build-portfolio-cover-status.mjs --check",
     "report:portfolio-covers": "node scripts/report-portfolio-cover-inventory.mjs",
     "check:portfolio-originality:baseline": "node scripts/check-portfolio-originality.mjs --report --write-baseline",
