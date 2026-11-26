@@ -45,6 +45,11 @@ try {
       assert.match(await page.locator("title").innerText(),/Toop Assados/i);
       const canonical=await page.locator('link[rel="canonical"]').getAttribute("href");
       assert.equal(canonical,"https://0web.com.br/portfolio/toop-assados");
+      const robots = await page.locator('meta[name="robots"]').getAttribute("content");
+      assert.equal(robots, "noindex,nofollow", "demo must remain non-indexable until authorization");
+      const sitemap = await page.request.get(base+"/sitemap.xml");
+      assert.equal(sitemap.status(), 200, "sitemap available");
+      assert.ok(!(await sitemap.text()).includes("https://0web.com.br/portfolio/toop-assados"), "demo absent from sitemap");
       await page.evaluate(()=>document.fonts.ready);
       const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-window.innerWidth));
       assert.ok(overflow<=2,"horizontal overflow="+overflow);
