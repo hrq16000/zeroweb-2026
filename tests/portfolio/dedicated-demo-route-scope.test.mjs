@@ -14,13 +14,31 @@ const own = [
   "tests/portfolio/dedicated-demo-route-scope.test.mjs",
 ];
 
+const clients = [{
+  slug: "sao-francisco-pet-center",
+  componentFile: "src/components/site/SaoFranciscoPetCenterPage.tsx",
+}];
+const routeTreeDiff = [
+  "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+  "+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute",
+  "",
+].join("\n");
+const options = {
+  addedFiles: new Set([
+    "src/routes/portfolio.sao-francisco-pet-center.tsx",
+    "src/components/site/SaoFranciscoPetCenterPage.tsx",
+    "src/components/site/sao-francisco-pet-center.css",
+  ]),
+  routeTreeDiff,
+};
+
 test("novo site autoral tem scope próprio com página real", () => {
-  assert.deepEqual(resolveVisualRegressionScope(own, []), ["sao-francisco-pet-center"]);
+  assert.deepEqual(resolveVisualRegressionScope(own, clients, options), ["sao-francisco-pet-center"]);
 });
 
 test("nunca restringir mudança global junto de novo site", () => {
-  assert.deepEqual(resolveVisualRegressionScope([...own, "src/components/portfolio/PortfolioStandardShell.tsx"], []), []);
-  assert.deepEqual(resolveVisualRegressionScope([...own, "src/styles/global.css"], []), []);
+  assert.deepEqual(resolveVisualRegressionScope([...own, "src/components/portfolio/PortfolioStandardShell.tsx"], clients, options), []);
+  assert.deepEqual(resolveVisualRegressionScope([...own, "src/styles/global.css"], clients, options), []);
 });
 
 test("routeTree isolada não remove gates globais", () => {
@@ -39,11 +57,11 @@ test("edição isolada de JSX e CSS de rota dedicada existente não exige QA glo
 
 test("asset no diretório da rota dedicada usa o mesmo escopo da rota", () => {
   assert.deepEqual(
-    resolveVisualRegressionScope(["public/images/sao-francisco-pet-center/favicon-demonstracao.svg"], []),
+    resolveVisualRegressionScope(["public/images/sao-francisco-pet-center/favicon-demonstracao.svg"], clients),
     ["sao-francisco-pet-center"],
   );
   assert.deepEqual(
-    resolveVisualRegressionScope([...own, "public/images/sem-rota/favicon.svg"], []),
+    resolveVisualRegressionScope([...own, "public/images/sem-rota/favicon.svg"], clients, options),
     [],
   );
 });
