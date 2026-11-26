@@ -149,7 +149,7 @@ export function PauloMestreDeObrasPage() {
   const logo = useManagedValue("logoUrl", LOGO);
   const capa = useManagedValue("heroImageUrl", HERO);
   return (
-    <div className="min-h-dvh overflow-hidden bg-[#f7f5ef] text-[#14243e]">
+    <div data-portfolio-slug="paulo-mestre-de-obras" className="min-h-dvh overflow-hidden bg-[#f7f5ef] text-[#14243e]">
       <header className="sticky top-0 z-30 border-b border-white/15 bg-[#101d35]/95 px-5 py-3 text-white backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-3">
@@ -160,7 +160,7 @@ export function PauloMestreDeObrasPage() {
               width={640}
               height={640}
               className="h-11 w-11 rounded-xl object-cover ring-1 ring-[#f5b51b]/50"
-            managedField="heroImageUrl"
+            managedField="logoUrl"
           />
             <span className="font-display text-lg font-bold leading-tight">
               Paulo <span className="text-[#f5b51b]">Mestre de Obras</span>

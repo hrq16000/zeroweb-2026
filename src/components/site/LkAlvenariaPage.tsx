@@ -42,7 +42,7 @@ export function LkAlvenariaPage() {
   return (
 
     <MotionScope intensity="BALANCED">
-    <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
+    <div data-portfolio-slug="lk-alvenaria" className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
       <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><PortfolioImage src="/images/lk-alvenaria/perfil.png" alt="LK Alvenaria" width={40} height={40} className="h-7 w-7 rounded-full object-cover" managedField="logoUrl" />LK <span className="text-[#ff7900]">Alvenaria</span></a>

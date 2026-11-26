@@ -114,10 +114,10 @@ const FREEZE_CSS = `
 }
 /* Imagens administradas podem divergir entre Production e Preview sem service-role.
    Elas mantêm o espaço visual, enquanto o teste de fixtures valida seu contrato de renderização. */
-.portfolio-standard-shell[data-portfolio-slug="studio-de-cilios"] img[data-portfolio-managed-field],
-.portfolio-standard-shell[data-portfolio-slug="refrigeracao-maresia"] img[data-portfolio-managed-field],
-.portfolio-standard-shell[data-portfolio-slug="paulo-mestre-de-obras"] img[data-portfolio-managed-field],
-.portfolio-standard-shell[data-portfolio-slug="lk-alvenaria"] img[data-portfolio-managed-field] {
+[data-portfolio-slug="studio-de-cilios"] img[data-portfolio-managed-field],
+[data-portfolio-slug="refrigeracao-maresia"] img[data-portfolio-managed-field],
+[data-portfolio-slug="paulo-mestre-de-obras"] img[data-portfolio-managed-field],
+[data-portfolio-slug="lk-alvenaria"] img[data-portfolio-managed-field] {
   visibility: hidden !important;
 }
 
@@ -132,6 +132,13 @@ const FREEZE_CSS = `
   visibility: hidden !important;
 }
 `;
+
+const MANAGED_IMAGE_VALIDATION_ROUTES = new Set([
+  "studio-de-cilios",
+  "refrigeracao-maresia",
+  "lk-alvenaria",
+  "paulo-mestre-de-obras",
+]);
 
 /** Camadas fixas (chatbot, cookies, CTAs flutuantes) são removidas do paint. */
 const HIDE_FIXED_LAYERS = `
@@ -297,6 +304,23 @@ async function capture(context, route, viewport) {
       }));
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     }).catch(() => {});
+    if (process.env.VISUAL_READ_ONLY === "1" && MANAGED_IMAGE_VALIDATION_ROUTES.has(route.name)) {
+      const selector = '[data-portfolio-slug="' + route.name + '"] img[data-portfolio-managed-field]';
+      const managedImages = await page.locator(selector).evaluateAll((images) =>
+        images
+          .filter((image) => {
+            const rect = image.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight * 1.25 && rect.bottom > 0;
+          })
+          .map((image) => ({
+            src: image.getAttribute("src"),
+            loaded: image.complete && image.naturalWidth > 0,
+          })),
+      );
+      if (!managedImages.length || managedImages.some((image) => !image.src || !image.loaded)) {
+        throw new Error("imagem administrada ausente na Production: " + route.name);
+      }
+    }
     await page.waitForTimeout(settleMs);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
     let buffer = await page.screenshot({ timeout: routeTimeout, animations: "disabled" });

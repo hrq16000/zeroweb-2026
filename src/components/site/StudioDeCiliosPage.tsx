@@ -29,7 +29,7 @@ const looks = [
 ];
 
 export function StudioDeCiliosPage() {
-  return <div className="min-h-dvh bg-[#fff9f7] text-[#3a2630]">
+  return <div data-portfolio-slug="studio-de-cilios" className="min-h-dvh bg-[#fff9f7] text-[#3a2630]">
     <header className="sticky top-0 z-20 border-b border-[#f0dfe0] bg-[#fff9f7]/90 px-5 py-4 backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold"><span className="grid h-10 w-10 place-items-center rounded-full bg-[#7e3f4e] text-[#f7d5ce]"><Eye className="h-5 w-5" /></span><span>Studio <span className="text-[#a45d68]">de Cílios</span></span></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#estilos" className="hover:text-[#a45d68]">Estilos</a><a href="#galeria" className="hover:text-[#a45d68]">Inspirações</a><a href="#cuidado" className="hover:text-[#a45d68]">Cuidado</a></nav><CTA>Agendar horário <ArrowRight className="h-4 w-4" /></CTA></div></header>
     <main>
       <section id="inicio" className="relative overflow-hidden px-5 py-14 lg:px-8 lg:py-24"><div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#f3c8c1]/35 blur-3xl" /><div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[.95fr_1.05fr]"><div className="relative"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#a45d68]">Extensão de cílios · olhar personalizado</p><h1 className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl">
