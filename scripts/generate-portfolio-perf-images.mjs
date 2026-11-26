@@ -125,6 +125,25 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // PapeLemi: LCP em WebP responsivo; o PNG original permanece intacto.
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 1680,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero.webp",
+  },
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero-960.webp",
+  },
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero-480.webp",
+  },
   // Foto editorial real do Angel Mix: mobile/tablet proporcionais ao viewport.
   {
     source: "public/images/angel-mix-brecho/capa.png",
