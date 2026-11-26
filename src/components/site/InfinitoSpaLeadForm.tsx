@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowUpRight, CheckCircle2, MessageCircle } from "lucide-react";
-import { getInfinitoSpaWhatsAppAvailability, submitPublicLead } from "@/lib/lead-intake.functions";
+import { getInfinitoSpaWhatsAppAvailability, submitInfinitoSpaPublicLead } from "@/lib/lead-intake.functions";
 import { getAttributionPayload } from "@/lib/site-config";
 import { sanitizeInfinitoSpaMessage } from "@/lib/infinito-spa-whatsapp";
 
@@ -10,7 +10,7 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
 type InfinitoSpaLeadFormProps = { clientKey: "infinito-spa" };
 
 export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
-  const submitLead = useServerFn(submitPublicLead);
+  const submitLead = useServerFn(submitInfinitoSpaPublicLead);
   const checkWhatsApp = useServerFn(getInfinitoSpaWhatsAppAvailability);
   const funnelActive = useRef(false);
   const submitting = useRef(false);
