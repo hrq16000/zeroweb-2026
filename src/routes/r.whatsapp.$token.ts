@@ -17,6 +17,32 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
     handlers: {
       GET: async ({ params, request }) => {
         const token = String(params.token ?? "").trim();
+        if (token === "portfolio-infinito-spa") {
+          try {
+            const { resolveVersionedPortfolioWhatsApp } = await import("@/lib/portfolio-whatsapp-registry.server");
+            const phone = resolveVersionedPortfolioWhatsApp("infinito-spa");
+            if (!phone || !/^\\d{8,15}$/.test(phone)) {
+              return new Response("El contacto de Infinito Spa no está disponible temporalmente.", {
+                status: 503,
+                headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+              });
+            }
+            const rawMessage = new URL(request.url).searchParams.get("message")
+              ?? "Hola, Roze. Quisiera consultar sobre los servicios de Infinito Spa y conocer la disponibilidad.";
+            const message = rawMessage.replace(/[\\u0000-\\u001F\\u007F]/g, " ").replace(/\\s+/g, " ").trim().slice(0, 700);
+            const target = new URL(`https://wa.me/${phone}`);
+            target.searchParams.set("text", message);
+            return new Response(null, {
+              status: 302,
+              headers: { Location: target.toString(), "Cache-Control": "no-store, max-age=0" },
+            });
+          } catch {
+            return new Response("El contacto de Infinito Spa no está disponible temporalmente.", {
+              status: 503,
+              headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+            });
+          }
+        }
         if (!/^[a-f0-9]{16,64}$/.test(token)) {
           return new Response("Invalid token", { status: 400 });
         }
