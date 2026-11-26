@@ -1,20 +1,64 @@
-{
-  "truncated": true,
-  "truncation": {
-    "arrays": 0,
-    "omittedArrayItems": 0,
-    "objects": 0,
-    "omittedObjectKeys": 0,
-    "strings": 1,
-    "omittedStringChars": 856,
-    "depth": 0,
-    "budget": 0
-  },
-  "warning": "This response is incomplete; some data was omitted to bound its size. Do not conclude that something is missing because it is absent here. 1 string shortened, omitting 856 characters.",
-  "result": {
-    "data": "aW1wb3J0IGFzc2VydCBmcm9tICJub2RlOmFzc2VydC9zdHJpY3QiOwppbXBvcnQgeyBzcGF3blN5bmMgfSBmcm9tICJub2RlOmNoaWxkX3Byb2Nlc3MiOwppbXBvcnQgeyB0ZXN0IH0gZnJvbSAibm9kZTp0ZXN0IjsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gIm5vZGU6dXJsIjsKCmNvbnN0IHJvb3QgPSBmaWxlVVJMVG9QYXRoKG5ldyBVUkwoIi4uLy4uIiwgaW1wb3J0Lm1ldGEudXJsKSk7CmNvbnN0IGRyYWZ0U2x1ZyA9ICJwYW5pZmljYWRvcmEtZG9jZS1jb3JhY2FvLXNhbnRvLWFudG9uaW8iOwpjb25zdCBwdWJsaXNoZWRTbHVnID0gInNvcy1wcmVzZW50ZXMtY29zbWV0aWNvcyI7CgpmdW5jdGlvbiBsaWdodGhvdXNlQ29uZmlnKHNjb3BlLCBzbHVnKSB7CiAgY29uc3Qgc2NyaXB0ID0gWwogICAgJ2NvbnN0IGNvbmZpZyA9IHJlcXVpcmUoIi4vLmxpZ2h0aG91c2VyYy5janMiKTsnLAogICAgJ3Byb2Nlc3Muc3Rkb3V0LndyaXRlKEpTT04uc3RyaW5naWZ5KHsgdXJsczogY29uZmlnLmNpLmNvbGxlY3QudXJsLCBhc3NlcnRpb25zOiBjb25maWcuY2kuYXNzZXJ0LmFzc2VydGlvbnMgfSkpOycsCiAgXS5qb2luKCIgIik7CiAgY29uc3QgcmVzdWx0ID0gc3Bhd25TeW5jKHByb2Nlc3MuZXhlY1BhdGgsIFsiLWUiLCBzY3JpcHRdLCB7CiAgICBjd2Q6IHJvb3QsCiAgICBlbmNvZGluZzogInV0ZjgiLAogICAgZW52OiB7CiAgICAgIC4uLnByb2Nlc3MuZW52LAogICAgICBHSVRIVUJfRVZFTlRfTkFNRTogInRlc3QiLAogICAgICBMSENJX0lTX1BVTExfUkVRVUVTVDogIjAiLAogICAgICBMSENJX1VTRV9MT0NBTDogIjAiLAogICAgICBMSENJX1NDT1BFOiBzY29wZSwKICAgICAgTEhDSV9PTkxZOiBzbHVnLAogICAgICBMSENJX1RBUkdFVF9VUkw6ICJodHRwczovL2V4YW1wbGUudGVzdCIsCiAgICB9LAogIH0pOwoKICBhc3NlcnQuZXF1YWwocmVzdWx0LnN0YXR1cywgMCwgcmVzdWx0LnN0ZGVyciB8fCByZXN1bHQuc3Rkb3V0KTsKICByZXR1cm4gSlNPTi5wYXJzZShyZXN1bHQuc3Rkb3V0KTsKfQoKdGVzdCgibm9pbmRleCBkcmFmdCBkZW1vIGtlZXBzIFNFTyBhZ2dyZWdhdGUgbm9uLWJsb2NraW5nIHdpdGhvdXQgd2Vha2VuaW5nIG90aGVyIGdhdGVzIiwgKCkgPT4gewogIGNvbnN0IGNvbmZpZyA9IGxpZ2h0aG91c2VDb25maWcoInBvcnRmb2xpbyIsIGRyYWZ0U2x1Zyk7CgogIGFzc2VydC5kZWVwRXF1YWwoY29uZmlnLnVybHMsIFsKICAgIGBodHRwczovL2V4YW1wbGUudGVzdC9wb3J0Zm9saW8vJHtkcmFmdFNsdWd9YCwKICBdKTsKICBhc3NlcnQuZXF1YWwoY29uZmlnLmFzc2VydGlvbnNbImNhdGVnb3JpZXM6c2VvIl1bMF0sICJ3YXJuIik7CiAgYXNzZXJ0LmVxdWFsKGNvbmZpZy5hc3NlcnRpb25zWyJjYXRlZ29yaWVzOnBlcmZvcm1hbmNlIl1bMF0sICJlcnJvciIpOwogIGFzc2VydC5lcXVhbChjb25maWcuYXNzZXJ0aW9uc1siY2F0ZWdvcmllczphY2Nlc3NpYmlsaXR5Il1bMF0sICJlcnJvciIpOwogIGZvciAoY29u...[truncated]",
-    "encoding": "base64",
-    "contentType": "application/octet-stream",
-    "size": 2141
-  }
+import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { test } from "node:test";
+import { fileURLToPath } from "node:url";
+
+const root = fileURLToPath(new URL("../..", import.meta.url));
+const draftSlug = "panificadora-doce-coracao-santo-antonio";
+const publishedSlug = "sos-presentes-cosmeticos";
+
+function lighthouseConfig(scope, slug) {
+  const script = [
+    'const config = require("./.lighthouserc.cjs");',
+    'process.stdout.write(JSON.stringify({ urls: config.ci.collect.url, assertions: config.ci.assert.assertions }));',
+  ].join(" ");
+  const result = spawnSync(process.execPath, ["-e", script], {
+    cwd: root,
+    encoding: "utf8",
+    env: {
+      ...process.env,
+      GITHUB_EVENT_NAME: "test",
+      LHCI_IS_PULL_REQUEST: "0",
+      LHCI_USE_LOCAL: "0",
+      LHCI_SCOPE: scope,
+      LHCI_ONLY: slug,
+      LHCI_TARGET_URL: "https://example.test",
+    },
+  });
+
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  return JSON.parse(result.stdout);
 }
+
+test("noindex draft demo keeps SEO aggregate non-blocking without weakening other gates", () => {
+  const config = lighthouseConfig("portfolio", draftSlug);
+
+  assert.deepEqual(config.urls, [
+    `https://example.test/portfolio/${draftSlug}`,
+  ]);
+  assert.equal(config.assertions["categories:seo"][0], "warn");
+  assert.equal(config.assertions["categories:performance"][0], "error");
+  assert.equal(config.assertions["categories:accessibility"][0], "error");
+  for (const rule of [
+    "meta-description",
+    "document-title",
+    "html-has-lang",
+    "canonical",
+    "robots-txt",
+    "image-alt",
+    "http-status-code",
+  ]) {
+    assert.equal(config.assertions[rule], "error", rule);
+  }
+});
+
+test("published portfolio keeps the SEO aggregate blocking", () => {
+  const config = lighthouseConfig("portfolio", publishedSlug);
+
+  assert.deepEqual(config.urls, [
+    `https://example.test/portfolio/${publishedSlug}`,
+  ]);
+  assert.equal(config.assertions["categories:seo"][0], "error");
+  assert.equal(config.assertions["categories:performance"][0], "error");
+  assert.equal(config.assertions["categories:accessibility"][0], "error");
+});
