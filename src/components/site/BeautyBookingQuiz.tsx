@@ -26,6 +26,7 @@ type Theme = "pink" | "gold" | "navy" | "steel";
 type Answers = PortfolioQuizAnswers;
 
 export type PortfolioQuizConfig = {
+  locale?: "es-CL";
   services?: string[];
   experienceOptions?: string[];
   periodOptions?: string[];
@@ -195,6 +196,7 @@ export function BeautyBookingQuiz({
     () => mergePortfolioFunnelConfig(clientKey, localQuizConfig),
     [clientKey, localQuizConfig],
   );
+  const spanish = quizConfig?.locale === "es-CL";
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
   // Coerência semântica: o contrato do projeto define a intenção comercial e,
@@ -207,8 +209,9 @@ export function BeautyBookingQuiz({
     [clientKey, funnelIntent, recipientName],
   );
   const semanticCopy = applyPortfolioFunnelIntentCopy(
-    getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName),
+    getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName, quizConfig?.locale),
     intentContext,
+    quizConfig?.locale,
   );
   const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
   const experienceOptions = quizConfig?.experienceOptions ?? (isServiceProposal ? EXPERIENCE : isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
@@ -294,6 +297,7 @@ export function BeautyBookingQuiz({
         mode: mode ?? "booking",
         proposalKind: quizConfig?.proposalKind ?? "service",
         funnelIntent: intentContext.intent,
+        locale: quizConfig?.locale,
         answers,
         pageUrl: window.location.href,
         // A entrega server-side reutiliza exatamente a localização exibida na
@@ -358,10 +362,10 @@ export function BeautyBookingQuiz({
                 </span>
                 <div>
                   <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>{semanticCopy.eyebrow}</p>
-                  <p className="text-sm text-gray-300">Leva menos de um minuto</p>
+                  <p className="text-sm text-gray-300">{spanish ? "Menos de un minuto" : "Leva menos de um minuto"}</p>
                 </div>
               </div>
-              <button type="button" onClick={() => setOpen(false)} className="rounded-full p-2 text-gray-400 transition hover:bg-white/10 hover:text-white" aria-label="Fechar mini questionário">
+              <button type="button" onClick={() => setOpen(false)} className="rounded-full p-2 text-gray-400 transition hover:bg-white/10 hover:text-white" aria-label={spanish ? "Cerrar cuestionario" : "Fechar mini questionário"}>
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
@@ -391,14 +395,14 @@ export function BeautyBookingQuiz({
                   </div>
                   <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? semanticCopy.notePlaceholder} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
                   <button type="button" onClick={showMessage} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
-                    Ver minha mensagem pronta <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    {spanish ? "Ver mi mensaje listo" : "Ver minha mensagem pronta"} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
               ) : step === 6 ? (
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
-                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Solicitação registrada</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{spanish ? "Consulta registrada" : "Solicitação registrada"}</h2>
                     <p className="text-sm leading-relaxed text-gray-400">
                       {recoveryContact
                         ? `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`
@@ -425,16 +429,16 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
-                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Prontinho — sua mensagem está personalizada</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{spanish ? "Listo — tu mensaje está personalizado" : "Prontinho — sua mensagem está personalizada"}</h2>
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
+                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, locale: quizConfig?.locale, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
                   </div>
                   {needsRecoveryContact && (
                     <div className="space-y-2 rounded-2xl border border-white/15 bg-white/5 p-4">
                       <label htmlFor="portfolio-quiz-recovery" className="block text-sm font-semibold text-white">
-                        Em qual WhatsApp podemos retornar?
+                        {spanish ? "¿A qué WhatsApp podemos responderte?" : "Em qual WhatsApp podemos retornar?"}
                       </label>
                       <input
                         id="portfolio-quiz-recovery"
@@ -444,11 +448,11 @@ export function BeautyBookingQuiz({
                         maxLength={40}
                         value={recoveryContact}
                         onChange={(event) => { setRecoveryContact(event.target.value); setRecoveryError(null); }}
-                        placeholder="(41) 90000-0000"
+                        placeholder={spanish ? "+56 9 1234 5678" : "(41) 90000-0000"}
                         className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40"
                       />
                       <p className="text-xs leading-relaxed text-gray-400">
-                        Usamos esse número apenas para responder a esta solicitação.
+                        {spanish ? "Usaremos este número únicamente para responder a tu consulta." : "Usamos esse número apenas para responder a esta solicitação."}
                       </p>
                       {recoveryError && <p className="text-xs text-red-300" role="alert">{recoveryError}</p>}
                     </div>
@@ -456,12 +460,12 @@ export function BeautyBookingQuiz({
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
 
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? `Continuar pedido para ${recipientName}` : "Continuar meu pedido"}
+                    {redirecting ? (spanish ? "Preparando tu consulta…" : "Preparando seu atendimento…") : mode === "proposal" ? (spanish ? `Continuar solicitud para ${recipientName}` : `Continuar pedido para ${recipientName}`) : (spanish ? "Continuar mi consulta" : "Continuar meu pedido")}
                   </button>
                   {submitError && <p className="text-center text-xs text-red-300" role="alert">{submitError}</p>}
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    Ajustar observação
+                    {spanish ? "Editar observación" : "Ajustar observação"}
                   </button>
                 </div>
               )}

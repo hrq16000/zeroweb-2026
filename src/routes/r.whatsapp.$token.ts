@@ -296,6 +296,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
                 note: String(quizAnswers.note ?? ""),
               },
               funnelContext: portfolioFunnel ?? undefined,
+              locale: meta.locale === "es-CL" ? "es-CL" : "pt-BR",
             });
           } else {
             finalMessage = buildWhatsAppLeadMessage({
