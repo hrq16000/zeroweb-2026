@@ -236,6 +236,9 @@ function digitsOnly(p: string): string { return p.replace(/\D/g, ""); }
 export const submitFunnel = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => submitSchema.parse(data))
   .handler(async ({ data }) => {
+    if (String(data.client_metadata?.client_key ?? "") === "infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const { data: form, error: fErr } = await supabaseAdmin
@@ -245,6 +248,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       .maybeSingle();
     if (fErr) throw new Error(fErr.message);
     if (!form || form.status !== "published") throw new Error("Funil não disponível");
+    if (form.slug === "portfolio-infinito-spa" || form.slug === "funnel-infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     if (form.slug === "funnel-dona-garimpeira-brecho" && !form.published_version_id) {
       throw new Error("Funil não disponível");
     }
@@ -611,6 +617,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   }).parse(data))
 
   .handler(async ({ data }) => {
+    // Clientes com formulário dedicado não podem cair no funil legado.
+    if (data.clientKey === "infinito-spa") {
+      throw new Error("Use o formulário próprio da Infinito Spa.");
+    }
     // A Dona Garimpeira só recebe leads pelo formulário próprio, com ciência de privacidade.
     if (data.clientKey === DONA_GARIMPEIRA_CLIENT_KEY) {
       throw new Error("Use o formulário próprio da Dona Garimpeira.");
