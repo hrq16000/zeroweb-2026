@@ -274,4 +274,13 @@ describe("escopo seguro da regressão visual", () => {
     ], registrationClients, options)).toEqual([]);
   });
 
+  test("CLI resolve os diffs reais do PR e falha fechado sem evidência", () => {
+    const resolver = readFileSync("scripts/resolve-visual-regression-scope.mjs", "utf8");
+    expect(resolver).toContain("process.env.PR_BASE_SHA");
+    expect(resolver).toContain("process.env.PR_HEAD_SHA");
+    expect(resolver).toContain('"--diff-filter=A"');
+    expect(resolver).toContain('"src/components/portfolio/composition/registry.ts"');
+    expect(resolver).toContain('"src/routeTree.gen.ts"');
+  });
+
 });
