@@ -18,7 +18,12 @@ describe("LCP shard 0: Thays Camilla e Brechó São Francisco", () => {
   });
   it("preserva o H1 na primeira pintura sem desativar motion global", () => {
     const page = read("src/components/site/BrechoSaoFranciscoPage.tsx");
-    const firstPaint = page.match(/<MotionFirstPaint>([\\s\\S]*?)<\\/MotionFirstPaint>/)?.[1] ?? "";
+    const firstPaintStart = page.indexOf("<MotionFirstPaint>");
+    const firstPaintEnd = page.indexOf("</MotionFirstPaint>", firstPaintStart);
+    const firstPaint =
+      firstPaintStart >= 0 && firstPaintEnd > firstPaintStart
+        ? page.slice(firstPaintStart, firstPaintEnd)
+        : "";
     const reveal = firstPaint.indexOf('<MotionReveal variant="up"');
     const heading = firstPaint.indexOf("<h1");
     const revealEnd = firstPaint.indexOf("</MotionReveal>", heading);
