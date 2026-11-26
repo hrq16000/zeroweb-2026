@@ -24,6 +24,16 @@ describe("Infinito Spa — funil chileno", () => {
     expect(intake).not.toContain("SUPABASE_SERVICE_ROLE_KEY");
   });
 
+  test("todos os CTAs legados bloqueiam persistência fora do formulário dedicado", () => {
+    const narrative = readFileSync("src/components/portfolio/PortfolioConversionNarrative.tsx", "utf8");
+    const legacy = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
+    expect(narrative).toContain('slug === "infinito-spa"');
+    expect(narrative).toContain('href="#consulta"');
+    expect(legacy).toContain('if (data.clientKey === "infinito-spa")');
+    expect(legacy).toContain('String(data.client_metadata?.client_key ?? "") === "infinito-spa"');
+    expect(legacy).toContain('form.slug === "portfolio-infinito-spa"');
+  });
+
   test("usa contexto e mensagem de agendamento em espanhol, com dados de retorno", () => {
     const context = resolvePortfolioFunnelContext("infinito-spa");
     expect(context.intent).toBe("agendamento");
