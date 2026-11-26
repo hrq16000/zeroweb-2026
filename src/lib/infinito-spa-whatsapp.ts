@@ -4,6 +4,7 @@ export function sanitizeInfinitoSpaMessage(raw: string): string {
     /^[\uD800-\uDFFF]$/.test(character) ? "\uFFFD" : character,
   )
     .join("")
+    // eslint-disable-next-line no-control-regex -- intentional: strip control characters from WhatsApp text
     .replace(/[\u0000-\u001F\u007F]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
