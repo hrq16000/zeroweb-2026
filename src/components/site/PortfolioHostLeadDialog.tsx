@@ -15,6 +15,7 @@ import { trackEvent, trackConversion } from "@/lib/analytics";
  */
 export function PortfolioHostLeadDialog({
   open,
+  locale,
   onClose,
   slug,
   businessName,
@@ -27,7 +28,9 @@ export function PortfolioHostLeadDialog({
   businessName?: string | null;
   sessionId?: string | null;
   visitorId?: string | null;
+  locale?: "es-CL";
 }) {
+  const spanish = locale === "es-CL";
   const submit = useServerFn(submitPortfolioHostLead);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -97,10 +100,10 @@ export function PortfolioHostLeadDialog({
           setStatus("error");
           setError(
             res.reason === "invalid_phone"
-              ? "Confira o WhatsApp informado com o DDD completo."
+              ? (spanish ? "Revisa el WhatsApp e incluye el código de país." : "Confira o WhatsApp informado com o DDD completo.")
               : res.reason === "rate_limited"
-                ? "Muitos envios seguidos. Tente novamente em alguns minutos."
-                : "Não foi possível enviar agora. Tente novamente.",
+                ? (spanish ? "Has enviado varias solicitudes. Inténtalo nuevamente en unos minutos." : "Muitos envios seguidos. Tente novamente em alguns minutos.")
+                : (spanish ? "No fue posible enviar ahora. Inténtalo nuevamente." : "Não foi possível enviar agora. Tente novamente."),
           );
           return;
         }
@@ -135,22 +138,22 @@ export function PortfolioHostLeadDialog({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Fechar formulário"
+          aria-label={spanish ? "Cerrar formulario" : "Fechar formulário"}
           className="absolute right-3 top-3 grid place-items-center w-10 h-10 rounded-full bg-muted text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none"
         >
           <X className="w-4 h-4" />
         </button>
 
         <h2 id="host-lead-title" className="pr-10 text-lg font-bold text-foreground">
-          Quer um site assim para o seu negócio?
+          {spanish ? "¿Te gustaría una presencia digital así para tu negocio?" : "Quer um site assim para o seu negócio?"}
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Deixe seu contato e a 0WEB continua a conversa no WhatsApp.
+          {spanish ? "Déjanos tus datos y 0WEB continuará la conversación por WhatsApp." : "Deixe seu contato e a 0WEB continua a conversa no WhatsApp."}
         </p>
 
         <form onSubmit={handleSubmit} className="mt-4 space-y-3" noValidate>
           <label className="block text-sm">
-            <span className="text-foreground font-medium">Nome</span>
+            <span className="text-foreground font-medium">{spanish ? "Nombre" : "Nome"}</span>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -169,13 +172,13 @@ export function PortfolioHostLeadDialog({
               required
               inputMode="tel"
               maxLength={40}
-              placeholder="41 99999-9999"
+              placeholder={spanish ? "+56 9 1234 5678" : "41 99999-9999"}
               autoComplete="tel"
               className="mt-1 w-full min-h-11 rounded-lg border border-input bg-background px-3 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
           </label>
           <label className="block text-sm">
-            <span className="text-foreground font-medium">Cidade</span>
+            <span className="text-foreground font-medium">{spanish ? "Ciudad" : "Cidade"}</span>
             <input
               value={city}
               onChange={(e) => setCity(e.target.value)}
@@ -208,10 +211,10 @@ export function PortfolioHostLeadDialog({
             className="inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lg outline-none transition hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.98] disabled:opacity-60"
           >
             {status === "sending" ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : null}
-            {status === "sending" ? "Enviando…" : "Falar com a 0WEB"}
+            {status === "sending" ? "Enviando…" : (spanish ? "Hablar con 0WEB" : "Falar com a 0WEB")}
           </button>
           <p className="text-[11px] leading-snug text-muted-foreground">
-            Ao enviar, você autoriza o contato da 0WEB por WhatsApp sobre este assunto.
+            {spanish ? "Al enviar, autorizas a 0WEB a contactarte por WhatsApp sobre este tema." : "Ao enviar, você autoriza o contato da 0WEB por WhatsApp sobre este assunto."}
           </p>
         </form>
       </div>

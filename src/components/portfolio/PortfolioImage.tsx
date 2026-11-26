@@ -40,6 +40,7 @@ export function PortfolioImage({
   sizes = "(min-width: 1024px) 960px, 100vw",
   managedField,
   loading,
+  decoding: requestedDecoding,
   ...rest
 }: Props) {
   const runtime = usePortfolioRuntime();
@@ -55,11 +56,12 @@ export function PortfolioImage({
     <img
       src={managedSrc}
       alt={alt}
+      data-portfolio-managed-field={managedField}
       srcSet={srcSet}
       sizes={srcSet ? sizes : undefined}
       loading={priority ? "eager" : loading ?? "lazy"}
       fetchPriority={priority ? "high" : "auto"}
-      decoding="async"
+      decoding={priority ? "sync" : requestedDecoding ?? "async"}
       {...rest}
     />
   );

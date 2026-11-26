@@ -1,0 +1,141 @@
+{
+  "doc": "Plano de mídia exclusivo; artes originais e sem alegação de fotografia real da padaria.",
+  "slug": "panificadora-doce-coracao-santo-antonio",
+  "status": "GRAPHIC_EDITORIAL_RESOLVED_REAL_MEDIA_PENDING_OWNER",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [
+      "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+      "/images/panificadora-doce-coracao-santo-antonio/capa.svg",
+      "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "/images/panificadora-doce-coracao-santo-antonio/social-og.png"
+    ],
+    "missingMedia": [
+      "foto própria da fachada validada",
+      "fotografias de produtos com uso autorizado",
+      "posts oficiais recentes"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OWNER_SUPPLIED",
+      "GOOGLE_PUBLIC_MEDIA",
+      "OFFICIAL_SOCIAL",
+      "OFFICIAL_WEBSITE",
+      "OFFICIAL_BRAND",
+      "LICENSED_MEDIA",
+      "GENERATED_CONTEXTUAL_MEDIA"
+    ],
+    "result": "Fotos visíveis em screenshot da busca, sem licença/arquivo original para publicar; estratégia editorial gráfica original."
+  },
+  "referenceOnlyAssets": [
+    {
+      "source": "capturas fornecidas pelo usuário",
+      "purpose": "EVIDENCE_ONLY",
+      "editorialAllowed": false,
+      "reason": "Material de pesquisa e não fotografias originais licenciadas."
+    }
+  ],
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "arte editorial principal",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+      "status": "complete"
+    },
+    {
+      "section": "momentos",
+      "requiredMediaRole": "ícones tipográficos",
+      "sourceType": "GRAPHIC_MEDIA",
+      "resolution": "Símbolos originais e cor contextual em cartões de ocasião",
+      "status": "complete"
+    },
+    {
+      "section": "sabores",
+      "requiredMediaRole": "pictogramas de categoria",
+      "sourceType": "GRAPHIC_MEDIA",
+      "resolution": "Ícones geométricos tipográficos e copy factual",
+      "status": "complete"
+    },
+    {
+      "section": "localizacao",
+      "requiredMediaRole": "direcionamento real",
+      "sourceType": "EXTERNAL_MAP",
+      "resolution": "Mapas externos por Place ID, sem screenshot gerado",
+      "status": "complete"
+    },
+    {
+      "section": "redes",
+      "requiredMediaRole": "referência ao Instagram e arte social autoral",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "resolution": "Publicações não são reproduzidas sem permalinks verificáveis; card original claramente identificado.",
+      "status": "complete"
+    },
+    {
+      "section": "faq",
+      "requiredMediaRole": "text-led + affordance",
+      "sourceType": "NO_MEDIA_NEEDED",
+      "resolution": "Acordeões sem mídia para priorizar leitura",
+      "status": "complete"
+    },
+    {
+      "section": "fechamento",
+      "requiredMediaRole": "identidade e chamada",
+      "sourceType": "BRAND_LED",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "status": "complete"
+    }
+  ],
+  "heroMedia": {
+    "asset": "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+    "sourceType": "GRAPHIC_MEDIA",
+    "quality": "SUITABLE",
+    "relevance": "Pães editoriais, não produtos reais",
+    "premiumFeel": "AUTHORED",
+    "legibilityUnderText": "PASS",
+    "composition": "SEPARATE_COLUMN",
+    "contrast": "PASS",
+    "brandCoherence": "PASS",
+    "notImprovised": true,
+    "notRawSnapshot": true
+  },
+  "performanceImages": [
+    {
+      "source": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "width": 1200,
+      "height": 750,
+      "format": "png",
+      "role": "content",
+      "approved": true
+    },
+    {
+      "source": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "width": 1200,
+      "height": 630,
+      "format": "png",
+      "role": "content",
+      "approved": true
+    }
+  ],
+  "cover": {
+    "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+    "strategy": "BRAND_LED / GENERATED_EDITORIAL",
+    "approved": true,
+    "checks": {
+      "ownArt": true,
+      "readsAtSmallSize": true,
+      "notMisleading": true,
+      "sourceHonesty": true,
+      "imageExists": true
+    }
+  },
+  "lastUpdatedAt": "2026-11-19"
+}

@@ -10,14 +10,18 @@
     "SEO": "PORTFOLIO_SEO_MISSING",
     "POPUP": "PORTFOLIO_POPUP_MISSING",
     "SHARE": "PORTFOLIO_SHARE_COPY_MISSING",
-    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING"
+    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING",
+    "TECHNICAL": "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+    "APPROVAL": "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
   },
   "blocking": [
+    "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
     "PORTFOLIO_COMPONENT_MISSING",
     "PORTFOLIO_CTA_MISSING",
     "PORTFOLIO_LOGO_MISSING",
     "PORTFOLIO_SEO_MISSING",
-    "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+    "PORTFOLIO_SOCIAL_IMAGE_MISSING",
+    "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
   ],
   "projects": [
     {
@@ -486,39 +490,6 @@
       ],
       "shareCopy": "🍛 Marmitas do Barreiro é uma amostra de cardápio digital para uma cozinha de bairro em Belo Horizonte.\n\nA página organiza opções de almoço, encomendas e contato para uma rotina mais prática.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/bh-barreiro-marmitas\n\n#BeloHorizonte #Barreiro #Marmitas #0WEB",
       "published": true,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
-    },
-    {
-      "slug": "bpl-locacoes-de-brinquedos",
-      "clientKey": "bpl-locacoes-de-brinquedos",
-      "title": "BPL Locações de Brinquedos",
-      "segment": "comercios",
-      "city": "São José dos Pinhais",
-      "state": "PR",
-      "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço.",
-      "subtitle": "Cama elástica e piscina de bolinhas para festas",
-      "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
-      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
-      "socialVersion": "a14ddea6",
-      "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
-      "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
-      "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
-      "ctaMode": "proposal",
-      "hasCta": true,
-      "hasOwnDescription": false,
-      "hasClientEntry": true,
-      "gallery": [
-        "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
-        "/images/bpl-locacoes-de-brinquedos/logo.svg",
-        "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
-        "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-        "/images/bpl-locacoes-de-brinquedos/trampoline.svg"
-      ],
-      "shareCopy": "🎉 A BPL Locações de Brinquedos anuncia cama elástica e piscina de bolinhas para comemorações em São José dos Pinhais e região.\n\nA 0WEB criou uma proposta demonstrativa de apresentação digital inspirada no panfleto da marca, com catálogo visual, perguntas frequentes e consulta de informações. A página não é o site oficial da empresa; valores e disponibilidade dependem de confirmação.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/bpl-locacoes-de-brinquedos\n\n#BPLLocacoes #CamaElastica #PiscinaDeBolinhas #SaoJoseDosPinhais #0WEB",
-      "published": false,
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
@@ -1046,9 +1017,13 @@
       ],
       "shareCopy": "♻️ Conheça a Dona Garimpeira! Um brechó de roupas e acessórios femininos, masculinos e infantis na Rua Loanda, 60, Boneca do Iguaçu, São José dos Pinhais — PR. Atendimento habitual de segunda a domingo, das 9h às 18h.\n\nQuer comprar uma peça, vender roupas em bom estado ou fazer uma doação? Acesse o portfólio, escolha sua intenção e preencha o atendimento que prepara uma mensagem para o WhatsApp da loja. Disponibilidade e avaliação são confirmadas pela equipe.\n\nhttps://0web.com.br/portfolio/dona-garimpeira-brecho\n\n#DonaGarimpeira #Brecho #SaoJoseDosPinhais #ModaCircular #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "dona-lucy-salgados",
@@ -1710,6 +1685,49 @@
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
+    },
+    {
+      "slug": "infinito-spa",
+      "clientKey": "infinito-spa",
+      "title": "Infinito Spa",
+      "segment": "beleza",
+      "city": "Santiago",
+      "state": "Chile",
+      "summary": "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta directamente con Roze las modalidades, duración y disponibilidad antes de coordinar tu sesión.",
+      "subtitle": "Masajes y masoterapia · Santiago, Chile",
+      "image": "/images/infinito-spa/capa-card.svg",
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "componentFile": "src/components/site/InfinitoSpaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/infinito-spa",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/infinito-spa/capa-card.jpg",
+        "/images/infinito-spa/capa-card.svg",
+        "/images/infinito-spa/capa.svg",
+        "/images/infinito-spa/detail.svg",
+        "/images/infinito-spa/hero-orbit.svg",
+        "/images/infinito-spa/logo.svg",
+        "/images/infinito-spa/mark.svg",
+        "/images/infinito-spa/social-og.jpg",
+        "/images/infinito-spa/social.svg"
+      ],
+      "shareCopy": "🌿 Infinito Spa ofrece masajes y masoterapia en Santiago, Chile.\n\nConsulta con Roze las modalidades, duración y disponibilidad para coordinar una sesión con atención previa.\n\n🌐 Conoce Infinito Spa:\nhttps://0web.com.br/portfolio/infinito-spa\n\n#InfinitoSpa #MasajesSantiago #Masoterapia #Bienestar #0WEB",
+      "published": false,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "jc-revestimentos",
@@ -3386,6 +3404,70 @@
       ],
       "shareCopy": "🍔 Your Brutus Burguer ganhou uma presença digital nova!\n\nBurgers artesanais, combos e porções agora estão organizados em uma rota direta para o cardápio oficial.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/your-brutus-burguer\n\n#YourBrutusBurguer #HamburgueriaArtesanal #SaoJoseDosPinhais #0WEB",
       "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "salgados-da-fran",
+      "clientKey": "salgados-da-fran",
+      "title": "Salgados da Fran",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial.",
+      "subtitle": "Salgados por encomenda em São José dos Pinhais",
+      "image": "/images/salgados-da-fran/social-og.svg",
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
+      "socialVersion": "386d1b3b",
+      "componentFile": "src/components/site/SalgadosDaFranPage.tsx",
+      "routeFile": "src/routes/portfolio.salgados-da-fran.tsx",
+      "assetsDir": "public/images/salgados-da-fran",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/salgados-da-fran/marca.svg",
+        "/images/salgados-da-fran/social-og-og.jpg",
+        "/images/salgados-da-fran/social-og.svg"
+      ],
+      "shareCopy": "🥟 Salgados da Fran, em São José dos Pinhais — PR: conheça a proposta demonstrativa de presença digital criada pela 0WEB a partir da identidade do cartão de encomendas da marca.\n\nSaiba como consultar opções de salgados, informar data, ocasião e quantidade e solicitar condições atuais. Cardápio, preços, entrega e disponibilidade não foram confirmados; esta não é uma página oficial do estabelecimento.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/salgados-da-fran\n\n#SalgadosDaFran #SalgadosPorEncomenda #SaoJoseDosPinhais #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "clientKey": "panificadora-doce-coracao-santo-antonio",
+      "title": "Panificadora Doce Coração",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado.",
+      "subtitle": "Uma padaria do Santo Antônio apresentada com identidade editorial e SEO local",
+      "image": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "socialVersion": "20261119",
+      "componentFile": "src/components/site/PanificadoraDoceCoracaoSantoAntonioPage.tsx",
+      "routeFile": "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx",
+      "assetsDir": "public/images/panificadora-doce-coracao-santo-antonio",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+        "/images/panificadora-doce-coracao-santo-antonio/capa.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/social-og.png"
+      ],
+      "shareCopy": "🥖 Uma padaria do Santo Antônio também merece uma presença digital feita com carinho.\n\nA 0WEB desenvolveu este portfólio demonstrativo da Panificadora Doce Coração com identidade gráfica original, categorias de pães, bolos, salgados e doces, informações públicas, localização em São José dos Pinhais e caminhos de consulta. O projeto é independente; não é o site oficial da padaria.\n\n🌐 Veja o conceito de criação de sites pela 0WEB/WebRealce:\nhttps://0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio\n\n#DoceCoracao #PadariaSantoAntonio #SaoJoseDosPinhais #CriacaoDeSites #WebRealce #0WEB",
+      "published": false,
       "status": "COMPLETE",
       "issues": [],
       "blocking": []

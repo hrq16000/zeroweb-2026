@@ -15,6 +15,18 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
   const jpgRel = src.endsWith(".jpg") ? src : src.replace(/\.[a-z0-9]+$/i, "-og.jpg");
   const srcPath = resolve("public", src.slice(1));
   const outPath = resolve("public", jpgRel.slice(1));
+  // JPEG pode ser um derivado de SVG próprio versionado, com origem explícita.
+  // Assim o arquivo binário não precisa ser editado a cada build.
+  const sourceSvg = typeof entry.sourceSvg === "string" && entry.sourceSvg.startsWith("/images/")
+    ? resolve("public", entry.sourceSvg.slice(1))
+    : null;
+  if (!existsSync(srcPath) && sourceSvg && existsSync(sourceSvg) && src.endsWith(".jpg")) {
+    await sharp(sourceSvg)
+      .resize(1200, 630, { fit: "cover", position: "centre" })
+      .flatten({ background: "white" })
+      .jpeg({ quality: 82, progressive: true })
+      .toFile(srcPath);
+  }
   if (!existsSync(outPath)) {
     if (!existsSync(srcPath)) { console.warn(`[social-jpg] fonte ausente: ${key} ${src}`); continue; }
     await sharp(srcPath)
@@ -24,14 +36,43 @@ for (const [key, entry] of Object.entries(cfg.clients)) {
       .toFile(outPath);
   }
   entry.socialImage = jpgRel;
-  // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
-  // SVGs autorais geram JPG em build: versão depende da fonte, não do encoder/fontes do runner.
-  // Mantém o mesmo gate de sincronia do seed entre Linux, Vercel e desenvolvimento.
+  // Imagens derivadas de SVG são versionadas pela origem canônica, não
+  // pelos bytes gerados por Sharp (que podem variar entre ambientes).
   entry.socialVersion = createHash("sha1")
-    .update(readFileSync(src.endsWith(".svg") ? srcPath : outPath))
+    .update(readFileSync(sourceSvg && existsSync(sourceSvg) ? sourceSvg : outPath))
     .digest("hex")
     .slice(0, 8);
   changed++;
 }
 writeFileSync(file, `${JSON.stringify(cfg, null, 2)}\n`);
+// A conversão social altera a fonte do seed derivado: sincronize SOMENTE os
+// campos afetados pela nova imagem, mantendo o --check estrito para todo o resto.
+// Nunca altere estado de publicação, conformidade, status ou outros clientes.
+const seedPath = resolve("src/config/portfolio-admin-seed.json");
+if (existsSync(seedPath)) {
+  const seed = JSON.parse(readFileSync(seedPath, "utf8"));
+  let updated = 0;
+  for (const [key, entry] of Object.entries(cfg.clients)) {
+    const item = seed.projects?.find((project) => project.clientKey === key);
+    const social = entry.socialImage;
+    if (!item || !social?.startsWith(`/images/${item.slug}/`)) continue;
+    if (!existsSync(resolve("public", social.slice(1)))) continue;
+    const imageName = social.split("/").pop();
+    const gallery = entry.excludeFromAdminGallery?.includes(imageName)
+      ? item.gallery
+      : [...new Set([...(item.gallery ?? []), social])].sort();
+    if (item.socialImage === social &&
+        item.socialVersion === entry.socialVersion &&
+        JSON.stringify(item.gallery) === JSON.stringify(gallery)) continue;
+    item.socialImage = social;
+    item.socialVersion = entry.socialVersion;
+    item.gallery = gallery;
+    updated++;
+  }
+  if (updated) {
+    writeFileSync(seedPath, `${JSON.stringify(seed, null, 2)}\n`);
+    console.log(`[social-jpg] ${updated} registro(s) de mídia sincronizados com o seed derivado; --check permanece obrigatório`);
+  }
+}
+
 console.log(`[social-jpg] OK — ${changed} imagem(ns) social(is) em JPEG`);

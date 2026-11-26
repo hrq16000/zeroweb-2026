@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { toWhatsAppPhoneDigits } from "@/lib/portfolio-host-leads";
 
 /**
  * Leads com telefone informado, agrupados por segmento do diagnóstico, com o
@@ -218,13 +219,6 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
 // registrado em `audit_logs`.
 // ============================================================================
 
-function toWhatsAppDigits(raw: string): string | null {
-  const digits = String(raw ?? "").replace(/\D/g, "");
-  if (digits.length < 10 || digits.length > 15) return null;
-  if (digits.length <= 11) return `55${digits}`;
-  return digits;
-}
-
 export const startLeadConversation = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: { leadId: string }) => {
@@ -261,7 +255,7 @@ export const startLeadConversation = createServerFn({ method: "POST" })
 
     if (!telefone) return { ok: false as const, reason: "sem_telefone" };
 
-    const digits = toWhatsAppDigits(telefone);
+    const digits = toWhatsAppPhoneDigits(telefone);
     if (!digits) return { ok: false as const, reason: "telefone_invalido" };
 
     const nome = nomeCompleto?.trim()?.split(/\s+/)[0] ?? "";

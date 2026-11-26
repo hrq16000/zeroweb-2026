@@ -26,6 +26,8 @@ type Theme = "pink" | "gold" | "navy" | "steel";
 type Answers = PortfolioQuizAnswers;
 
 export type PortfolioQuizConfig = {
+  locale?: "es-CL";
+  requireContactDetails?: boolean;
   services?: string[];
   experienceOptions?: string[];
   periodOptions?: string[];
@@ -48,8 +50,6 @@ type Props = {
   funnelIntent?: PortfolioFunnelIntent;
   className?: string;
   ariaLabel?: string;
-  /** Oculta do foco e da árvore de acessibilidade quando o CTA flutuante não pode cobrir a ação principal. */
-  "aria-hidden"?: boolean;
   onOpen?: () => void;
   orderContext?: {
     order_items?: string;
@@ -154,7 +154,6 @@ export function BeautyBookingQuiz({
   funnelIntent,
   className,
   ariaLabel,
-  "aria-hidden": ariaHidden = false,
   onOpen,
   orderContext,
   initialAnswers,
@@ -186,6 +185,8 @@ export function BeautyBookingQuiz({
   const [needsRecoveryContact, setNeedsRecoveryContact] = useState(false);
   const [recoveryContact, setRecoveryContact] = useState("");
   const [recoveryError, setRecoveryError] = useState<string | null>(null);
+  const [contactName, setContactName] = useState("");
+  const [contactNameError, setContactNameError] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const loadDelivery = useServerFn(getPortfolioFunnelDelivery);
 
@@ -198,6 +199,8 @@ export function BeautyBookingQuiz({
     () => mergePortfolioFunnelConfig(clientKey, localQuizConfig),
     [clientKey, localQuizConfig],
   );
+  const spanish = quizConfig?.locale === "es-CL";
+  const requireContactDetails = quizConfig?.requireContactDetails === true;
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
   // Coerência semântica: o contrato do projeto define a intenção comercial e,
@@ -210,8 +213,9 @@ export function BeautyBookingQuiz({
     [clientKey, funnelIntent, recipientName],
   );
   const semanticCopy = applyPortfolioFunnelIntentCopy(
-    getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName),
+    getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName, quizConfig?.locale),
     intentContext,
+    quizConfig?.locale,
   );
   const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
   const experienceOptions = quizConfig?.experienceOptions ?? (isServiceProposal ? EXPERIENCE : isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
@@ -238,6 +242,10 @@ export function BeautyBookingQuiz({
     setAnswers(seeded);
     setStep(skipPrefilledSteps ? firstIncompleteStep(seeded) : 0);
     setRecoveryError(null);
+    setContactName("");
+    setContactNameError(null);
+    setRecoveryContact("");
+    setNeedsRecoveryContact(false);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
     // Telemetria fora do caminho crítico: o modal abre no mesmo frame do clique.
@@ -265,6 +273,18 @@ export function BeautyBookingQuiz({
   };
 
   const showMessage = () => {
+    if (requireContactDetails) {
+      if (!contactName.trim()) {
+        setContactNameError("Escribe tu nombre para que Roze pueda responderte.");
+        return;
+      }
+      setContactNameError(null);
+      if (!normalizeRecoveryPhone(recoveryContact, quizConfig?.locale)) {
+        setRecoveryError("Ingresa un WhatsApp chileno válido, por ejemplo +56 9 1234 5678.");
+        return;
+      }
+      setRecoveryError(null);
+    }
     const nextStep = 5;
     trackEvent("wa_funnel_step", { ...funnelContext, step_id: "note", step_index: nextStep });
     void persistWaFunnelStep(nextStep, answers);
@@ -276,11 +296,19 @@ export function BeautyBookingQuiz({
     if (redirecting) return;
     // Sem atendimento direto configurado, um meio de retorno é obrigatório:
     // é o que impede o pedido de terminar concluído e perdido.
-    const normalized = normalizeRecoveryPhone(recoveryContact);
-    if (needsRecoveryContact && !normalized) {
-      setRecoveryError("Informe um WhatsApp válido com DDD para podermos retornar.");
+    const normalized = normalizeRecoveryPhone(recoveryContact, quizConfig?.locale);
+    if ((needsRecoveryContact || requireContactDetails) && !normalized) {
+      setRecoveryError(spanish
+        ? "Ingresa un WhatsApp chileno válido, por ejemplo +56 9 1234 5678."
+        : "Informe um WhatsApp válido com DDD para podermos retornar.");
       return;
     }
+    if (requireContactDetails && !contactName.trim()) {
+      setContactNameError("Escribe tu nombre para que Roze pueda responderte.");
+      setStep(4);
+      return;
+    }
+    setContactNameError(null);
     const conversion = { ...funnelContext, steps: 5, service: answers.service || "orientacao" };
     trackConversion("wa_funnel_complete", conversion);
     trackEvent("funnel_completed", conversion);
@@ -297,13 +325,15 @@ export function BeautyBookingQuiz({
         mode: mode ?? "booking",
         proposalKind: quizConfig?.proposalKind ?? "service",
         funnelIntent: intentContext.intent,
+        locale: quizConfig?.locale,
         answers,
         pageUrl: window.location.href,
         // A entrega server-side reutiliza exatamente a localização exibida na
         // prévia, evitando drift causado por uma segunda resolução geográfica.
         ...(previewLocation ? { previewLocation } : {}),
         orderContext,
-        ...(normalized ? { recoveryContact } : {}),
+        ...(requireContactDetails ? { contactName: contactName.trim() } : {}),
+        ...(normalized ? { recoveryContact: normalized } : {}),
         // Identificadores técnicos anônimos (mesmos de analytics_events):
         // permitem ligar o lead à sessão/origem. Nenhum dado pessoal.
         sessionId: getSessionId(),
@@ -322,7 +352,9 @@ export function BeautyBookingQuiz({
         // Servidor recusou a conclusão final: falta meio de retorno.
         trackEvent("lead_unrecoverable", funnelContext);
         setNeedsRecoveryContact(true);
-        setRecoveryError("Informe um WhatsApp para retorno: o atendimento direto deste site ainda não está disponível.");
+        setRecoveryError(spanish
+          ? "Deja un WhatsApp de contacto para que podamos responder a tu consulta."
+          : "Informe um WhatsApp para retorno: o atendimento direto deste site ainda não está disponível.");
         return;
       }
       // Pedido salvo e recuperável mesmo sem atendimento direto.
@@ -331,7 +363,9 @@ export function BeautyBookingQuiz({
       setStep(6);
     } catch {
       setRedirecting(false);
-      setSubmitError("Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
+      setSubmitError(spanish
+        ? "No fue posible abrir la atención ahora. Inténtalo nuevamente en unos instantes."
+        : "Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
     }
   };
 
@@ -347,29 +381,29 @@ export function BeautyBookingQuiz({
           : null;
   return (
     <>
-      <button type="button" onClick={start} className={className} aria-label={ariaLabel} aria-hidden={ariaHidden} tabIndex={ariaHidden ? -1 : undefined} disabled={ariaHidden} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
+      <button type="button" onClick={start} className={className} aria-label={ariaLabel} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
         {children}
       </button>
 
       {open && typeof document !== "undefined" ? createPortal((
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-6" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
-          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none " + panel}>
-            <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"flex max-h-[calc(100dvh-1.5rem)] w-full max-w-xl flex-col overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none sm:max-h-[calc(100dvh-3rem)] " + panel}>
+            <div className="shrink-0 flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ backgroundColor: accent + "22", color: accent }}>
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
                   <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>{semanticCopy.eyebrow}</p>
-                  <p className="text-sm text-gray-300">Leva menos de um minuto</p>
+                  <p className="text-sm text-gray-300">{spanish ? "Menos de un minuto" : "Leva menos de um minuto"}</p>
                 </div>
               </div>
-              <button type="button" onClick={() => setOpen(false)} className="rounded-full p-2 text-gray-400 transition hover:bg-white/10 hover:text-white" aria-label="Fechar mini questionário">
+              <button type="button" onClick={() => setOpen(false)} className="rounded-full p-2 text-gray-400 transition hover:bg-white/10 hover:text-white" aria-label={spanish ? "Cerrar cuestionario" : "Fechar mini questionário"}>
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            <div className="px-5 py-6 sm:px-7 sm:py-8">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-7 sm:py-8">
               {step < 4 && question ? (
                 <div className="space-y-5">
                   <div className="space-y-2">
@@ -393,51 +427,70 @@ export function BeautyBookingQuiz({
                     <p className="text-sm leading-relaxed text-gray-400">{quizConfig?.stepSubtitles?.note ?? semanticCopy.subtitles.note}</p>
                   </div>
                   <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? semanticCopy.notePlaceholder} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
+                  {requireContactDetails && (
+                    <div className="space-y-3 rounded-2xl border border-white/15 bg-white/5 p-4">
+                      <div className="space-y-2">
+                        <label htmlFor="portfolio-quiz-contact-name" className="block text-sm font-semibold text-white">Tu nombre</label>
+                        <input id="portfolio-quiz-contact-name" type="text" autoComplete="name" maxLength={120} required value={contactName} onChange={(event) => { setContactName(event.target.value); setContactNameError(null); }} aria-invalid={Boolean(contactNameError)} className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
+                        {contactNameError && <p className="text-xs text-red-300" role="alert">{contactNameError}</p>}
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="portfolio-quiz-recovery" className="block text-sm font-semibold text-white">Tu WhatsApp de contacto</label>
+                        <input id="portfolio-quiz-recovery" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required value={recoveryContact} onChange={(event) => { setRecoveryContact(event.target.value); setRecoveryError(null); }} placeholder="+56 9 1234 5678" aria-invalid={Boolean(recoveryError)} className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
+                        <p className="text-xs leading-relaxed text-gray-400">Usaremos estos datos únicamente para responder a esta consulta.</p>
+                        {recoveryError && <p className="text-xs text-red-300" role="alert">{recoveryError}</p>}
+                      </div>
+                    </div>
+                  )}
                   <button type="button" onClick={showMessage} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
-                    Ver minha mensagem pronta <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    {spanish ? "Ver mi mensaje listo" : "Ver minha mensagem pronta"} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
               ) : step === 6 ? (
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
-                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Solicitação registrada</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{spanish ? "Consulta registrada" : "Solicitação registrada"}</h2>
                     <p className="text-sm leading-relaxed text-gray-400">
                       {recoveryContact
-                        ? `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`
-                        : `Seus dados foram registrados para ${recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.`}
+                        ? (spanish
+                          ? `Tus datos quedaron registrados para ${recipientName}; podrá responderte por WhatsApp al número que indicaste.`
+                          : `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`)
+                        : (spanish
+                          ? `Tus datos quedaron registrados para ${recipientName}. La atención directa por WhatsApp todavía no está disponible.`
+                          : `Seus dados foram registrados para ${recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.`)}
                     </p>
-                    {!recoveryContact && (
+                    {(clientKey === "infinito-spa" || !recoveryContact) && (
                       <p className="text-sm leading-relaxed text-gray-400">
-                        Este site é uma <strong className="text-white">amostra de demonstração</strong>:
-                        ele mostra como a presença digital desta marca pode funcionar. Sua solicitação
-                        fica registrada com o protocolo abaixo.
+                        {spanish
+                          ? <>Esta página es una <strong className="text-white">propuesta demostrativa</strong> de 0WEB. Las modalidades, valores y disponibilidad se confirman directamente con Roze.</>
+                          : <>Este site é uma <strong className="text-white">amostra de demonstração</strong> de 0WEB.</>}
                       </p>
                     )}
                   </div>
                   {savedProtocol && (
                     <p className="rounded-2xl border border-dashed border-white/20 bg-black/20 px-4 py-3 text-center text-sm text-gray-300">
-                      Protocolo <strong className="text-white">{savedProtocol}</strong>
+                      {spanish ? "Código de consulta" : "Protocolo"} <strong className="text-white">{savedProtocol}</strong>
                     </p>
                   )}
                   <button type="button" onClick={() => setOpen(false)} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
-                    Fechar
+                    {spanish ? "Cerrar" : "Fechar"}
                   </button>
                 </div>
               ) : (
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
-                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Prontinho — sua mensagem está personalizada</h2>
-                    <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{spanish ? "Listo — tu mensaje está personalizado" : "Prontinho — sua mensagem está personalizada"}</h2>
+                    <p className="text-sm leading-relaxed text-gray-400">{spanish ? `${recipientName} recibirá tus datos organizados para preparar el siguiente paso.` : `${recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.`}</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
+                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, locale: quizConfig?.locale, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, contactName: requireContactDetails ? contactName.trim() : undefined, contactPhone: requireContactDetails ? normalizeRecoveryPhone(recoveryContact, quizConfig?.locale) ?? undefined : undefined, funnelContext: intentContext })}
                   </div>
-                  {needsRecoveryContact && (
+                  {needsRecoveryContact && !requireContactDetails && (
                     <div className="space-y-2 rounded-2xl border border-white/15 bg-white/5 p-4">
                       <label htmlFor="portfolio-quiz-recovery" className="block text-sm font-semibold text-white">
-                        Em qual WhatsApp podemos retornar?
+                        {spanish ? "¿A qué WhatsApp podemos responderte?" : "Em qual WhatsApp podemos retornar?"}
                       </label>
                       <input
                         id="portfolio-quiz-recovery"
@@ -447,11 +500,11 @@ export function BeautyBookingQuiz({
                         maxLength={40}
                         value={recoveryContact}
                         onChange={(event) => { setRecoveryContact(event.target.value); setRecoveryError(null); }}
-                        placeholder="(41) 90000-0000"
+                        placeholder={spanish ? "+56 9 1234 5678" : "(41) 90000-0000"}
                         className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40"
                       />
                       <p className="text-xs leading-relaxed text-gray-400">
-                        Usamos esse número apenas para responder a esta solicitação.
+                        {spanish ? "Usaremos este número únicamente para responder a tu consulta." : "Usamos esse número apenas para responder a esta solicitação."}
                       </p>
                       {recoveryError && <p className="text-xs text-red-300" role="alert">{recoveryError}</p>}
                     </div>
@@ -459,12 +512,12 @@ export function BeautyBookingQuiz({
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
 
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? `Continuar pedido para ${recipientName}` : "Continuar meu pedido"}
+                    {redirecting ? (spanish ? "Preparando tu consulta…" : "Preparando seu atendimento…") : mode === "proposal" ? (spanish ? `Continuar solicitud para ${recipientName}` : `Continuar pedido para ${recipientName}`) : (spanish ? "Continuar mi consulta" : "Continuar meu pedido")}
                   </button>
                   {submitError && <p className="text-center text-xs text-red-300" role="alert">{submitError}</p>}
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                    Ajustar observação
+                    {spanish ? "Editar observación" : "Ajustar observação"}
                   </button>
                 </div>
               )}

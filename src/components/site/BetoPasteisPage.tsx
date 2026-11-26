@@ -4,7 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Beto Pastéis (/portfolio/beto-pasteis).
@@ -45,14 +45,14 @@ export function BetoPasteisPage() {
       </div>
 
       <main className="mx-auto max-w-6xl px-5 pb-16">
-        <header className="border-b-4 border-dashed border-[var(--bp-ink)]/25 py-10 md:py-14">
+        <MotionFirstPaint><header className="border-b-4 border-dashed border-[var(--bp-ink)]/25 py-10 md:py-14">
           <MotionReveal as="h1" variant="mask" className="font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight md:text-[5.5rem]">
             <ManagedText
               field="heroHeadline"
               fallback={"O pastel que combina com a pausa, o almo\u00e7o e a vontade do bairro."}
             />
           </MotionReveal>
-        </header>
+        </header></MotionFirstPaint>
 
         <div className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:gap-14">
           <figure className="md:w-[38%] md:shrink-0">

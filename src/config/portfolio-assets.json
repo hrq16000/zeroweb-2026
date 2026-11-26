@@ -1224,6 +1224,56 @@
       },
       "socialVersion": "9ea8c269"
     },
+    "salgados-da-fran": {
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Salgados da Fran · São José dos Pinhais",
+        "title": "Sua ocasião merece uma encomenda bem combinada.",
+        "description": "Consulte o cardápio, a quantidade, os valores e os próximos passos pelo formulário da demonstração.",
+        "ctaLabel": "Consultar uma encomenda",
+        "ctaHref": "#encomendas"
+      },
+      "sourceSvg": "/images/salgados-da-fran/social-og.svg",
+      "socialVersion": "386d1b3b"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "proof": {
+        "eyebrow": "Panificadora Doce Coração · Santo Antônio, SJP",
+        "title": "Uma padaria de bairro merece ser encontrada.",
+        "description": "Criação editorial demonstrativa da 0WEB com endereço público, categorias de pães, bolos, doces e salgados e rota para o estabelecimento. Não é um site oficial da padaria.",
+        "ctaLabel": "Encontrar a padaria",
+        "ctaHref": "#localizacao"
+      },
+      "socialVersion": "20261119"
+    },
+    "infinito-spa": {
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "proof": {
+        "enabled": false,
+        "eyebrow": "Información inicial",
+        "title": "Información basada en el diagnóstico inicial",
+        "description": "No se muestran reseñas, valoraciones ni resultados porque todavía no fueron aportados o verificados.",
+        "ctaLabel": "Consultar disponibilidad",
+        "ctaHref": "#consulta"
+      }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "icon": "/images/espaco-marli-nails-guaratuba/logo.svg",
+      "socialImage": "/images/espaco-marli-nails-guaratuba/social-source-og.jpg",
+      "socialVersion": "7db1cdb8",
+      "proof": {
+        "eyebrow": "Demonstração 0WEB · Guaratuba",
+        "title": "Espaço Marli Nails Designer no Coroados.",
+        "description": "Localização pública e consulta de informações. Agenda, valores e serviços detalhados dependem de confirmação.",
+        "ctaLabel": "Consultar atendimento",
+        "ctaHref": "#consulta"
+      }
+    },
     "bpl-locacoes-de-brinquedos": {
       "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
       "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",

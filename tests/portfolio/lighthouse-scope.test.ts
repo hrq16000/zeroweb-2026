@@ -22,6 +22,14 @@ describe("Lighthouse escopado por portfolios alterados", () => {
     expect(config).toContain("LIGHTHOUSE_ONLY.length === 0");
   });
 
+  test("demos catalogadas só recebem aviso de SEO quando todo o escopo é não indexável", () => {
+    expect(config).toContain('src/config/portfolio-catalog.json');
+    expect(config).toContain("draftPortfolioSlugs");
+    expect(config).toContain("selectedPortfolioSlugs");
+    expect(config).toContain("DEMO_ONLY");
+    expect(config).toContain('"categories:performance": ["error", { minScore: 0.9 }]');
+  });
+
   test("token portfolio-index mede apenas o hub /portfolio", () => {
     expect(config).toContain('LIGHTHOUSE_ONLY.includes("portfolio-index")');
     expect(config).toContain('slug !== "portfolio-index"');

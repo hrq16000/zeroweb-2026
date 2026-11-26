@@ -20,6 +20,7 @@ import {
   isHostLeadStatus,
   maskPhoneForDisplay,
   normalizeBrazilPhone,
+  normalizeChilePhone,
   sanitizeField,
   type Attribution,
   type HostLeadStatus,
@@ -79,7 +80,9 @@ export const submitPortfolioHostLead = createServerFn({ method: "POST" })
 
     const name = sanitizeField(data.name, 120);
     const city = sanitizeField(data.city, 120);
-    const phone = normalizeBrazilPhone(data.phone);
+    const phone = data.attribution?.portfolioSlug === "infinito-spa"
+      ? normalizeChilePhone(data.phone)
+      : normalizeBrazilPhone(data.phone);
     if (!name || !city) return { ok: false, reason: "spam" };
     if (!phone.ok) return { ok: false, reason: "invalid_phone" };
 

@@ -164,7 +164,7 @@ for (const client of clients) {
   }
 
   const hasClientCta =
-    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|submitPortfolioQuiz|data-funnel-provider|data-portfolio-external-cta)/.test(
+    /(PortfolioCTAQuiz|FunnelCTAButton|BeautyBookingQuiz|ProductActionGate|FunnelModalWrapper|InfinitoSpaLeadForm|submitPublicLead|submitPortfolioQuiz|data-funnel-provider|data-portfolio-external-cta)/.test(
       componentSource,
     );
   if (!hasClientCta) {

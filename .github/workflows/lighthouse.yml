@@ -233,6 +233,7 @@ jobs:
           LHCI_SHARD_COUNT: 4
           LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
           LHCI_ONLY: ${{ needs.scope.outputs.only }}
+          VERCEL: "1"
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Emitir diagnostico LHCI (nao bloqueante)

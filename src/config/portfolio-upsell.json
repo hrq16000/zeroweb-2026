@@ -19,5 +19,31 @@
       "oncePerSession": true
     }
   },
-  "bySlug": {}
+  "bySlug": {
+    "infinito-spa": {
+      "locale": "es-CL",
+      "enabled": true,
+      "kicker": "Una propuesta para tu negocio",
+      "title": "¿Te gustaría una presencia digital propia para tu marca?",
+      "highlight": "presencia digital",
+      "description": "La 0WEB puede ayudarte a presentar tus servicios con claridad y facilitar las consultas de nuevos clientes.",
+      "bullets": [
+        "Un sitio pensado para explicar tus servicios y recibir consultas.",
+        "Un canal de contacto claro, conectado a tu propio flujo."
+      ],
+      "ctaLabel": "Quiero conversar con 0WEB",
+      "dismissLabel": "Ahora no",
+      "funnelSlug": "diagnostico-0web",
+      "display": {
+        "timerMs": 18000,
+        "fallbackMs": 30000,
+        "scrollPct": 0.9,
+        "oncePerSession": true
+      }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "hostedFormUrl": "https://form.jotform.com/263258162910052",
+      "description": "Gostou da apresentação? A 0WEB pode criar uma identidade digital própria para o seu negócio. Registre o interesse pelo formulário da 0WEB."
+    }
+  }
 }

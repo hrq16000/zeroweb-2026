@@ -48,7 +48,6 @@ export function PortfolioContactFloating({
   slug,
 }: Props) {
   const [nearFooter, setNearFooter] = useState(false);
-  const [nearPrimary, setNearPrimary] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector("[data-portfolio-canonical-footer]") ?? document.querySelector("footer");
@@ -57,14 +56,6 @@ export function PortfolioContactFloating({
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    const primary = document.querySelector(`[data-hide-portfolio-floating="${clientKey}"]`);
-    if (!primary || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(([entry]) => setNearPrimary(entry.isIntersecting), { threshold: 0.05 });
-    observer.observe(primary);
-    return () => observer.disconnect();
-  }, [clientKey]);
 
   return (
     <PortfolioCTAQuiz
@@ -83,12 +74,12 @@ export function PortfolioContactFloating({
           page_type: "portfolio_client",
         })
       }
-      className={`fixed ${FLOATING_Z.fab} inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${hideNearFooter(nearFooter || nearPrimary)}`}
-      aria-hidden={nearFooter || nearPrimary}
+      className={`fixed ${FLOATING_Z.fab} inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${hideNearFooter(nearFooter)}`}
+      aria-hidden={nearFooter}
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />
       <span className="hidden sm:inline">{label}</span>
-      <span className="sm:hidden">Contato</span>
+      <span className="sm:hidden">{label}</span>
     </PortfolioCTAQuiz>
   );
 }

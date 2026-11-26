@@ -12,6 +12,24 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
+  // Brechó São Francisco: base WebP lossless; originais continuam disponíveis no admin.
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    output: "public/images/_generated/brecho-sao-francisco/capa.webp",
+  },
+  // Your Brutus Burguer: imagens autorais preservadas em WebP lossless.
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    output: "public/images/_generated/your-brutus-burguer/hero-og.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept.webp",
+  },
   // Angel Mix: imagem LCP autêntica preservada pixel a pixel em WebP lossless.
   {
     source: "public/images/angel-mix-brecho/capa.png",
@@ -125,6 +143,178 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // Thays Camilla: LHCI shard 0 comprovou desperdício no PNG do hero e logo.
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 192,
+    output: "public/images/_generated/thays-camilla/logo.webp",
+  },
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 96,
+    output: "public/images/_generated/thays-camilla/logo-96.webp",
+  },
+  {
+    source: "public/images/thays-camilla/logo.png",
+    width: 192,
+    output: "public/images/_generated/thays-camilla/logo-192.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-480.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 720,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-720.webp",
+  },
+  {
+    source: "public/images/thays-camilla/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/thays-camilla/hero-960.webp",
+  },
+  // Embalar: assets locais originais preservados; dimensões naturais confirmadas pelo LHCI #552.
+  // Logo reduzido para o tamanho de exibição; fotos recebem variantes responsivas em WebP.
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 160,
+    output: "public/images/_generated/embalar-embalagens/logo.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 80,
+    output: "public/images/_generated/embalar-embalagens/logo-80.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 160,
+    output: "public/images/_generated/embalar-embalagens/logo-160.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01-680.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 598,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 320,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02-320.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 598,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02-598.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 320,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-320.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-680.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04-680.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 537,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 537,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05-537.webp",
+  },
+  // PapeLemi: LCP em WebP responsivo; o PNG original permanece intacto.
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 1672,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero.webp",
+  },
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero-960.webp",
+  },
+  {
+    source: "public/images/papelemi-personalizados/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/papelemi-personalizados/hero-480.webp",
+  },
   // Foto editorial real do Angel Mix: mobile/tablet proporcionais ao viewport.
   {
     source: "public/images/angel-mix-brecho/capa.png",
@@ -141,6 +331,7 @@ const responsiveTargets = [
   {
     source: "public/images/angel-mix-brecho/capa.png",
     width: 1536,
+    quality: 88,
     output: "public/images/_generated/angel-mix-brecho/capa-1536.webp",
   },
   // SOS Presentes: formatos 480/960px permitem downloads proporcionais ao viewport.
@@ -250,6 +441,68 @@ const responsiveTargets = [
     quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp",
   },
+  // Brechó São Francisco: LCP responsivo em 480/960/1440px.
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-480.webp",
+  },
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-960.webp",
+  },
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 1440,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-1440.webp",
+  },
+  // Your Brutus Burguer: hero e mídia de apoio com downloads proporcionais.
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-960.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 1440,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-1440.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept-960.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept-960.webp",
+  },
 ];
 
 for (const target of responsiveTargets) {
@@ -285,6 +538,15 @@ for (const target of responsiveTargets) {
   console.log(
     `[portfolio-perf-images] ${target.source} → ${target.output} (${before} → ${after} bytes, -${saved}%)`,
   );
+}
+
+// Thays Camilla: downloads proporcionais, sem trocar a identidade ou os originais.
+for (const [name, widths] of [["hero", [480, 720, 960]], ["logo", [96, 192]]]) {
+  const sizes = await Promise.all(widths.map(async width =>
+    (await stat(resolve(`public/images/_generated/thays-camilla/${name}-${width}.webp`))).size));
+  if (sizes.some((size, i) => i > 0 && size <= sizes[i - 1])) {
+    throw new Error(`[portfolio-perf-images] Thays responsive sizes out of order: ${name}`);
+  }
 }
 
 // SOS Presentes: a variante móvel deve pesar menos que a desktop.

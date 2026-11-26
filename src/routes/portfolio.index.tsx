@@ -36,6 +36,7 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
+import { isPublicPortfolioCatalogItem } from "@/lib/portfolio-public-catalog";
 import { parseCatalogSort, sortCatalog } from "@/lib/portfolio-catalog-sort";
 import { trackEvent } from "@/lib/analytics";
 import { MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
@@ -85,9 +86,10 @@ const SEGMENT_LABELS: Record<string, string> = {
 
 // A navegação nasce exclusivamente dos segmentos efetivamente cadastrados no
 // catálogo canônico; nenhum ramo aparece apenas como hipótese editorial.
+const PUBLIC_CATALOG_SOURCE = portfolioCatalog.filter(isPublicPortfolioCatalogItem);
 const CATEGORIES = [
   { id: "todos", label: "Todos os Projetos" },
-  ...Array.from(new Set(portfolioCatalog.map((item) => item.segment)))
+  ...Array.from(new Set(PUBLIC_CATALOG_SOURCE.map((item) => item.segment)))
     .sort((a, b) => (SEGMENT_LABELS[a] ?? a).localeCompare(SEGMENT_LABELS[b] ?? b, "pt-BR"))
     .map((id) => ({ id, label: SEGMENT_LABELS[id] ?? id.replace(/-/g, " ") })),
 ];
@@ -311,6 +313,9 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
   } as PortfolioItem;
 });
 
+// Rotas de revisão continuam acessíveis diretamente, mas não entram na vitrine pública.
+const PUBLIC_PORTFOLIO_ITEMS = PORTFOLIO_ITEMS.filter(isPublicPortfolioCatalogItem);
+
 // Projetos com rota própria publicada que ainda não constam no catálogo
 // canônico. Entram na vitrine e na busca sem alterar o registro canônico.
 const STANDALONE_ITEMS = (portfolioCatalogStandalone as unknown as CatalogItem[])
@@ -319,6 +324,8 @@ const STANDALONE_ITEMS = (portfolioCatalogStandalone as unknown as CatalogItem[]
     (item) =>
       ({ ...item, id: item.slug, slug: `/portfolio/${item.slug}`, category: item.segment }) as PortfolioItem,
   );
+const PUBLIC_STANDALONE_ITEMS = STANDALONE_ITEMS.filter(isPublicPortfolioCatalogItem);
+
 
 type PortfolioSearch = {
   segment?: string;
@@ -394,7 +401,7 @@ export const Route = createFileRoute("/portfolio/")({
           itemListNode(
             `${URL}#projetos`,
             "Projetos publicados pela 0WEB",
-            PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
+            PUBLIC_PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
           ),
           breadcrumbNode([
             { name: "Início", path: "/" },
@@ -416,8 +423,8 @@ function PortfolioPage() {
   const { managed } = Route.useLoaderData();
   const catalogItems = useMemo<PortfolioItem[]>(
     () => [
-      ...PORTFOLIO_ITEMS,
-      ...STANDALONE_ITEMS,
+      ...PUBLIC_PORTFOLIO_ITEMS,
+      ...PUBLIC_STANDALONE_ITEMS,
       ...managed.map((project) => ({
         slug: `/portfolio/${project.slug}`,
         clientKey: project.clientKey,
@@ -474,9 +481,8 @@ function PortfolioPage() {
       (projectType === "todos" || item.projectType === projectType) &&
       (region === "todas" || item.location === region);
 
-    // Busca por intenção ("lanche", "pedreiro"...) e global: roda sobre todos
-    // os projetos — publicados, rascunhos e fora da listagem padrão. O que
-    // casa com a busca mas está fora dos filtros ativos aparece ao final.
+    // Busca por intenção ("lanche", "pedreiro"...) percorre somente itens
+    // explicitamente publicados; projetos em revisão não entram em resultados.
     const found = searchItems(query, catalogItems);
     const inside = found.filter(matchesFilters);
     const outside = query ? found.filter((item) => !matchesFilters(item)) : [];
