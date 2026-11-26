@@ -1,5 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest, getRequestHeader } from "@tanstack/react-start/server";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 import { z } from "zod";
 
 const leadInput = z.object({
@@ -36,24 +38,57 @@ async function requestFingerprint() {
   return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-/** Grava na fonte canônica pelo servidor; nunca devolve PII ao navegador. */
+// Best-effort por instância; a RLS do Supabase continua sendo a barreira de escrita.
+const leadRateBuckets = new Map<string, number[]>();
+function allowPublicLeadIntake(fingerprint: string) {
+  const now = Date.now();
+  const windowMs = 5 * 60 * 1000;
+  const recent = (leadRateBuckets.get(fingerprint) ?? []).filter((stamp) => now - stamp < windowMs);
+  if (recent.length >= 12) {
+    leadRateBuckets.set(fingerprint, recent);
+    return false;
+  }
+  recent.push(now);
+  leadRateBuckets.set(fingerprint, recent);
+  if (leadRateBuckets.size > 5000) {
+    for (const [key, stamps] of leadRateBuckets) {
+      if (!stamps.some((stamp) => now - stamp < windowMs)) leadRateBuckets.delete(key);
+    }
+  }
+  return true;
+}
+
+/** Grava leads públicos usando a chave publishable e a política INSERT do RLS. */
 export const submitPublicLead = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => leadInput.parse(input))
   .handler(async ({ data }) => {
     if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: allowed } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
-      p_scope: "public_lead_intake",
-      p_ip_hash: await requestFingerprint(),
-      p_window_seconds: 300,
-      p_max_hits: 12,
-    });
-    if (allowed === false) return { ok: false as const, reason: "rate_limited" as const };
-    const { data: row, error } = await (supabaseAdmin as any)
-      .from("lead_submissions")
-      .insert(data)
-      .select("id")
-      .single();
-    if (error || !row?.id) return { ok: false as const, reason: "db_error" as const };
-    return { ok: true as const, leadId: row.id as string };
+    if (!allowPublicLeadIntake(await requestFingerprint())) {
+      return { ok: false as const, reason: "rate_limited" as const };
+    }
+
+    const supabaseUrl = process.env.SUPABASE_URL
+      ?? process.env.VITE_SUPABASE_URL
+      ?? import.meta.env.VITE_SUPABASE_URL;
+    const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY
+      ?? process.env.VITE_SUPABASE_PUBLISHABLE_KEY
+      ?? import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    if (!supabaseUrl || !publishableKey) {
+      return { ok: false as const, reason: "config_error" as const };
+    }
+
+    try {
+      const publicClient = createClient<Database>(supabaseUrl, publishableKey, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+      const leadId = crypto.randomUUID();
+      const { error } = await publicClient.from("lead_submissions").insert({
+        id: leadId,
+        ...data,
+      } as any);
+      if (error) return { ok: false as const, reason: "db_error" as const };
+      return { ok: true as const, leadId };
+    } catch {
+      return { ok: false as const, reason: "db_error" as const };
+    }
   });
