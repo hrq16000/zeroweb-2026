@@ -91,11 +91,46 @@ const categories: Array<{
 ];
 
 const gallery = [
-  ["/images/embalar-embalagens/loja-01.png", "Prateleiras com embalagens e descartáveis"],
-  ["/images/embalar-embalagens/loja-02.png", "Variedade de itens para limpeza e utilidades"],
-  ["/images/embalar-embalagens/loja-03.png", "Corredor de produtos de higiene e organização"],
-  ["/images/embalar-embalagens/loja-04.png", "Seleção de produtos e embalagens"],
-  ["/images/embalar-embalagens/loja-05.png", "Estoque de papéis, sacos e materiais"],
+  {
+    src: "/images/_generated/embalar-embalagens/loja-01.webp",
+    alt: "Prateleiras com embalagens e descartáveis",
+    widths: [480, 960],
+    width: 960,
+    height: 720,
+    sizes: "(min-width: 1024px) 595px, 100vw",
+  },
+  {
+    src: "/images/_generated/embalar-embalagens/loja-02.webp",
+    alt: "Variedade de itens para limpeza e utilidades",
+    widths: [320, 598],
+    width: 598,
+    height: 510,
+    sizes: "(min-width: 1024px) 320px, 100vw",
+  },
+  {
+    src: "/images/_generated/embalar-embalagens/loja-03.webp",
+    alt: "Corredor de produtos de higiene e organização",
+    widths: [320, 480, 680],
+    width: 680,
+    height: 483,
+    sizes: "(min-width: 1024px) 480px, 100vw",
+  },
+  {
+    src: "/images/_generated/embalar-embalagens/loja-04.webp",
+    alt: "Seleção de produtos e embalagens",
+    widths: [480, 680],
+    width: 680,
+    height: 483,
+    sizes: "(min-width: 1024px) 480px, 100vw",
+  },
+  {
+    src: "/images/_generated/embalar-embalagens/loja-05.webp",
+    alt: "Estoque de papéis, sacos e materiais",
+    widths: [480, 537],
+    width: 537,
+    height: 510,
+    sizes: "(min-width: 1024px) 337px, 100vw",
+  },
 ] as const;
 
 export function EmbalarEmbalagensPage() {
@@ -106,10 +141,12 @@ export function EmbalarEmbalagensPage() {
           <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
             <a href="#inicio" aria-label="Embalar Embalagens" className="flex items-center gap-3">
               <PortfolioImage
-                src="/images/embalar-embalagens/logo.png"
+                src="/images/_generated/embalar-embalagens/logo.webp"
                 alt="Símbolo editorial de embalagens e utilidades"
                 width={160}
                 height={160}
+                widths={[80, 160]}
+                sizes="40px"
                 priority
                 managedField="logoUrl"
                 className="h-10 w-10 rounded-lg object-cover"
@@ -175,10 +212,12 @@ export function EmbalarEmbalagensPage() {
               <div className="mt-6 grid gap-3 lg:grid-cols-[1.3fr_.7fr_.7fr]">
                 <MotionReveal variant="up" className="overflow-hidden bg-[#eee2d7]">
                   <PortfolioImage
-                    src="/images/embalar-embalagens/loja-01.png"
+                    src="/images/_generated/embalar-embalagens/loja-01.webp"
                     alt="Prateleiras da Embalar com embalagens e descartáveis"
                     managedField="heroImageUrl"
                     priority
+                    widths={[480, 960]}
+                    sizes="(min-width: 1024px) 595px, 100vw"
                     width={960}
                     height={720}
                     className="h-[430px] w-full object-cover lg:h-[560px]"
@@ -187,19 +226,23 @@ export function EmbalarEmbalagensPage() {
                 <div className="grid gap-3">
                   <MotionReveal variant="up" delay={60} className="overflow-hidden bg-[#eee2d7]">
                     <PortfolioImage
-                      src="/images/embalar-embalagens/loja-02.png"
+                      src="/images/_generated/embalar-embalagens/loja-02.webp"
                       alt="Itens de limpeza e utilidades na Embalar"
-                      width={960}
-                      height={720}
+                      widths={[320, 598]}
+                      sizes="(min-width: 1024px) 320px, 100vw"
+                      width={598}
+                      height={510}
                       className="h-[210px] w-full object-cover lg:h-[274px]"
                     />
                   </MotionReveal>
                   <MotionReveal variant="up" delay={110} className="overflow-hidden bg-[#eee2d7]">
                     <PortfolioImage
-                      src="/images/embalar-embalagens/loja-03.png"
+                      src="/images/_generated/embalar-embalagens/loja-03.webp"
                       alt="Corredor de produtos da loja Embalar"
-                      width={960}
-                      height={720}
+                      widths={[320, 480, 680]}
+                      sizes="(min-width: 1024px) 320px, 100vw"
+                      width={680}
+                      height={483}
                       className="h-[210px] w-full object-cover lg:h-[274px]"
                     />
                   </MotionReveal>
@@ -307,7 +350,7 @@ export function EmbalarEmbalagensPage() {
               </div>
 
               <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_.75fr]">
-                {gallery.slice(2).map(([src, alt], index) => (
+                {gallery.slice(2).map(({ src, alt, widths, width, height, sizes }, index) => (
                   <MotionReveal
                     as="figure"
                     variant="up"
@@ -318,8 +361,10 @@ export function EmbalarEmbalagensPage() {
                     <PortfolioImage
                       src={src}
                       alt={alt}
-                      width={960}
-                      height={720}
+                      widths={[...widths]}
+                      sizes={sizes}
+                      width={width}
+                      height={height}
                       className="h-72 w-full object-cover lg:h-80"
                     />
                     <figcaption className="mt-2 text-[10px] uppercase tracking-[.14em] text-white/40">

@@ -220,6 +220,8 @@ async function capture(context, route, viewport) {
   const key = `${route.name}-${viewport.name}.png`;
   const page = await context.newPage();
   page.setDefaultTimeout(routeTimeout);
+  // Reduced motion prevents JS-driven reveals from being captured mid-transition.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   try {
     if (process.env.VISUAL_READ_ONLY === "1") {
       await page.addInitScript(() => {
@@ -272,6 +274,19 @@ async function capture(context, route, viewport) {
       })
       .catch(() => {});
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
+    // complete=true means the bytes arrived, not necessarily that the image was decoded/painted.
+    await page.evaluate(async () => {
+      const images = Array.from(document.images).filter((img) => img.complete && img.naturalWidth > 0);
+      await Promise.all(images.map(async (img) => {
+        if (typeof img.decode !== "function") return;
+        try {
+          await img.decode();
+        } catch {
+          // A broken optional/third-party image remains visible to the normal QA gates.
+        }
+      }));
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }).catch(() => {});
     await page.waitForTimeout(600);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
     let buffer = await page.screenshot({ timeout: routeTimeout });

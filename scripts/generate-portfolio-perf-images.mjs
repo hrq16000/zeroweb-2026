@@ -125,6 +125,119 @@ await mkdir(dirname(dyzLogoAlias), { recursive: true });
 await copyFile(resolve("public/images/dyzpromo/logo-dyz-promo.webp"), dyzLogoAlias);
 
 const responsiveTargets = [
+  // Embalar: assets locais originais preservados; dimensões naturais confirmadas pelo LHCI #552.
+  // Logo reduzido para o tamanho de exibição; fotos recebem variantes responsivas em WebP.
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 160,
+    output: "public/images/_generated/embalar-embalagens/logo.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 80,
+    output: "public/images/_generated/embalar-embalagens/logo-80.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/logo.png",
+    width: 160,
+    output: "public/images/_generated/embalar-embalagens/logo-160.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-01.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-01-960.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 598,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 320,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02-320.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-02.png",
+    width: 598,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-02-598.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 320,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-320.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-03.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-03-680.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-04.png",
+    width: 680,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-04-680.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 537,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05-480.webp",
+  },
+  {
+    source: "public/images/embalar-embalagens/loja-05.png",
+    width: 537,
+    quality: 96,
+    output: "public/images/_generated/embalar-embalagens/loja-05-537.webp",
+  },
   // PapeLemi: LCP em WebP responsivo; o PNG original permanece intacto.
   {
     source: "public/images/papelemi-personalizados/hero.png",
