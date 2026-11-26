@@ -307,6 +307,9 @@
     },
     "infinito-spa": {
       "whatsapp": "env:PORTFOLIO_WHATSAPP_INFINITO_SPA"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "whatsapp": null
     }
   }
 }

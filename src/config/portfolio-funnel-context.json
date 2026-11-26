@@ -749,5 +749,12 @@
     "whatsappPrompt": "¿Podrías contarme qué tipos de masaje ofreces y qué horarios tienes disponibles?",
     "successTitle": "Consulta registrada",
     "successBody": "Tu consulta quedó organizada para continuar la conversación con Infinito Spa."
+  },
+  "espaco-marli-nails-guaratuba": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu cuidado começa com uma consulta de disponibilidade.",
+    "nextStepBody": "Indique o atendimento desejado e seu período de preferência. A solicitação não confirma horário.",
+    "primaryCtaLabel": "Consultar atendimento",
+    "theme": "pink"
   }
 }

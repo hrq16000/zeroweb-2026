@@ -2414,5 +2414,32 @@
     "country": "CL",
     "locale": "es-CL",
     "indexable": false
+  },
+  {
+    "slug": "espaco-marli-nails-guaratuba",
+    "clientKey": "espaco-marli-nails-guaratuba",
+    "title": "Espaço Marli Nails Designer",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "manicure",
+      "pedicure",
+      "Coroados",
+      "Guaratuba",
+      "unhas"
+    ],
+    "subtitle": "Manicure e pedicure em Coroados · proposta independente",
+    "location": "Av. Alvorada do Sul, 786 · Coroados · Guaratuba — PR",
+    "badge": "Demonstração 0WEB · parametrização posterior",
+    "image": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+    "fallbackImage": "/images/espaco-marli-nails-guaratuba/hero.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta sem reserva automática",
+    "summary": "Proposta demonstrativa independente da 0WEB para o Espaço Marli Nails Designer, em Coroados, Guaratuba. Apresentação de localização e consulta sobre manicure e pedicure, sem inventar preços, técnicas, horários ou fotos. Proposta demonstrativa independente da 0WEB; não é o canal oficial do estabelecimento.",
+    "indexable": false
   }
 ]

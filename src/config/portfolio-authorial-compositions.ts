@@ -19,6 +19,7 @@ export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "autoescola-aptos",
   "adhonep-curitiba",
   "infinito-spa",
+  "espaco-marli-nails-guaratuba",
 ] as const;
 
 const AUTHORIAL_SET = new Set<string>(PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS);

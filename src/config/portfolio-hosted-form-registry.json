@@ -44,6 +44,20 @@
       "deliveryMode": "PROVIDER_INBOX",
       "notes": "Formulário demonstrativo da 0WEB com aceite; submissão sintética QA gravada e relida no Jotform em 23/11/2026. Não encaminha automaticamente à padaria; não exige SQL.",
       "noSupabaseServiceRole": true
+    },
+    "espaco-marli-nails-guaratuba": {
+      "provider": "jotform",
+      "url": "https://form.jotform.com/263257363729062",
+      "status": "verified",
+      "dataHost": "Jotform",
+      "publicIntake": true,
+      "confirmedPersistedAt": "2026-11-22",
+      "testSubmissionVerified": true,
+      "consentRequired": true,
+      "clientKey": "espaco-marli-nails-guaratuba",
+      "deliveryMode": "PROVIDER_INBOX",
+      "noSupabaseServiceRole": true,
+      "notes": "Conta Jotform da 0WEB: formulário ENABLED e build completed; submissão totalmente sintética registrada, contagem confirmada 0→1, sem encaminhamento ao estabelecimento. Consulta demonstrativa independente; não é agendamento nem canal oficial. Telefone do estabelecimento/WhatsApp não configurado."
     }
   }
 }

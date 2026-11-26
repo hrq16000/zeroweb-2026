@@ -1343,6 +1343,19 @@
       "cardValid": true,
       "businessName": "Infinito Spa",
       "segment": "beleza"
+    },
+    {
+      "slug": "espaco-marli-nails-guaratuba",
+      "asset": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "catalogImage": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Espaço Marli Nails Designer",
+      "segment": "beleza"
     }
   ]
 }
