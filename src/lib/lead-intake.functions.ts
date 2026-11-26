@@ -66,9 +66,12 @@ export const getInfinitoSpaWhatsAppAvailability = createServerFn({ method: "GET"
   });
 
 /** Grava leads públicos usando a chave publishable e a política INSERT do RLS. */
-export const submitPublicLead = createServerFn({ method: "POST" })
+export const submitInfinitoSpaPublicLead = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => leadInput.parse(input))
   .handler(async ({ data }) => {
+    if (data.source !== "portfolio:infinito-spa") {
+      return { ok: false as const, reason: "invalid_source" as const };
+    }
     if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
     if (!allowPublicLeadIntake(await requestFingerprint())) {
       return { ok: false as const, reason: "rate_limited" as const };
@@ -87,18 +90,18 @@ export const submitPublicLead = createServerFn({ method: "POST" })
     try {
       // The previous Vercel configuration is explicitly excluded for this client.
       // Fail closed rather than writing private inquiries to that project.
-      if (data.source === "portfolio:infinito-spa" &&
-          new URL(supabaseUrl).hostname === "lxajhxocyqzwwbcfahya.supabase.co") {
+      if (new URL(supabaseUrl).hostname === "lxajhxocyqzwwbcfahya.supabase.co") {
         return { ok: false as const, reason: "config_error" as const };
       }
       const publicClient = createClient<Database>(supabaseUrl, publishableKey, {
         auth: { persistSession: false, autoRefreshToken: false },
       });
       const leadId = crypto.randomUUID();
-      const { error } = await publicClient.from("lead_submissions").insert({
+      const insert = {
         id: leadId,
         ...data,
-      } as any);
+      } as Database["public"]["Tables"]["lead_submissions"]["Insert"];
+      const { error } = await publicClient.from("lead_submissions").insert(insert);
       if (error) return { ok: false as const, reason: "db_error" as const };
       return { ok: true as const, leadId };
     } catch {
