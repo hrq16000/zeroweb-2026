@@ -21,7 +21,7 @@ const products = [
 export function PapelemiPersonalizadosPage() {
   return (
     <MotionScope intensity="BALANCED">
-      <div className="min-h-dvh overflow-hidden bg-[#f7f3ef] text-[#34465d]">
+      <div data-portfolio-slug="papelemi-personalizados" className="min-h-dvh overflow-hidden bg-[#f7f3ef] text-[#34465d]">
         <header className="sticky top-0 z-30 border-b border-[#dce1e7] bg-[#f7f3ef]/95 px-5 py-4 backdrop-blur lg:px-10">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-5">
             <a href="#inicio" aria-label="PapeLemi Papelaria Personalizada" className="shrink-0">
@@ -47,7 +47,7 @@ export function PapelemiPersonalizadosPage() {
                 <div className="mt-8 flex flex-wrap gap-3"><a href={storeUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#cf557d] px-7 py-3.5 font-bold text-white shadow-lg shadow-[#cf557d]/20 transition hover:-translate-y-1 hover:bg-[#b94369]">Conhecer a loja <ArrowUpRight className="h-4 w-4" /></a><a href="#colecao" className="inline-flex min-h-12 items-center rounded-full border border-[#b8c4d1] px-6 py-3.5 font-bold text-[#34465d] transition hover:border-[#cf557d] hover:text-[#cf557d]">Ver inspirações</a></div>
                 <div className="mt-9 flex flex-wrap gap-5 border-t border-[#dce1e7] pt-5 text-xs font-bold text-[#728095]"><span className="inline-flex items-center gap-2"><Heart className="h-4 w-4 text-[#cf557d]" /> Feito à mão</span><span className="inline-flex items-center gap-2"><Sparkles className="h-4 w-4 text-[#cf557d]" /> Personalizado</span><span className="inline-flex items-center gap-2"><NotebookPen className="h-4 w-4 text-[#cf557d]" /> Sob encomenda</span></div>
               </div>
-              <div className="relative"><PortfolioImage src="/images/papelemi-personalizados/hero.png" alt="Mesa editorial com cadernos, bloco personalizado e detalhes de papelaria artesanal" priority width={1680} height={945} className="aspect-video w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#d8cfd0]" managedField="heroImageUrl" /><p className="mt-3 text-right text-[10px] uppercase tracking-[.16em] text-[#8b98a7]">Imagem editorial · composição inspirada no catálogo PapeLemi</p></div>
+              <div className="relative"><PortfolioImage src="/images/_generated/papelemi-personalizados/hero.webp" alt="Mesa editorial com cadernos, bloco personalizado e detalhes de papelaria artesanal" priority widths={[480, 960]} width={1672} height={945} className="aspect-video w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#d8cfd0]" managedField="heroImageUrl" /><p className="mt-3 text-right text-[10px] uppercase tracking-[.16em] text-[#8b98a7]">Imagem editorial · composição inspirada no catálogo PapeLemi</p></div>
             </div>
           </section>
 

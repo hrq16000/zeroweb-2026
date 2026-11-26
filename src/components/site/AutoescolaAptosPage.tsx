@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowRight, BookOpen, CarFront, Check, Clock3, MapPin, ShieldCheck } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { MotionImageReveal, MotionReveal, MotionStagger, MotionTextReveal } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal, MotionStagger, MotionTextReveal } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
@@ -97,7 +97,7 @@ export function AutoescolaAptosPage() {
           {composition.renderCta({ children: "Montar proposta", placement: "header", className: "aptos-cta inline-flex min-h-11 items-center gap-2 rounded-md px-4 py-2 text-sm font-bold" })}
         </header>
 
-        <section id="inicio" className="aptos-hero relative flex items-center pt-28 md:pt-32">
+        <MotionFirstPaint><section id="inicio" className="aptos-hero relative flex items-center pt-28 md:pt-32">
           <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-5 py-12 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:px-8 md:py-16 lg:gap-20">
             <MotionReveal variant="left" className="relative z-10">
               <p className="mb-5 inline-flex items-center gap-2 text-sm font-bold uppercase text-muted-foreground"><MapPin className="h-4 w-4" /> São José dos Pinhais</p>
@@ -117,7 +117,7 @@ export function AutoescolaAptosPage() {
               <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="async" fetchPriority="high" />
             </MotionImageReveal>
           </div>
-        </section>
+        </section></MotionFirstPaint>
 
         <div className="aptos-route-line" aria-hidden="true" />
 

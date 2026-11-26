@@ -1,6 +1,85 @@
-import {useEffect,useState} from 'react';
-import {useNavigate} from '@tanstack/react-router';
-import {supabase} from '@/integrations/supabase/client';
-import {Button} from '@/components/ui/button';
-import {Input} from '@/components/ui/input';
-export function AgentPassword({invite=false}:{invite?:boolean}){const navigate=useNavigate();const [valid,setValid]=useState(false);const [password,setPassword]=useState('');const [confirm,setConfirm]=useState('');const [error,setError]=useState('');const [busy,setBusy]=useState(false);useEffect(()=>{const params=new URLSearchParams(window.location.hash.slice(1));const type=params.get('type');setValid(type==='recovery'||(invite&&type==='invite'));},[invite]);return <main className="min-h-screen bg-background text-foreground p-6 py-16"><form className="max-w-md mx-auto space-y-5" onSubmit={async e=>{e.preventDefault();if(!valid)return;if(password!==confirm){setError('As senhas devem ser iguais.');return;}setBusy(true);setError('');const {error:err}=await supabase.auth.updateUser({password});if(err){setError('Não foi possível definir a senha. Solicite um novo link.');setBusy(false);return;}await navigate({to:'/agent-login'});}}><h1 className="font-display text-3xl font-bold">{invite?'Ativar conta de agente':'Redefinir senha'}</h1>{!valid&&<p role="alert" className="text-destructive">Abra o link de convite ou recuperação recebido por e-mail.</p>}<label className="block text-sm space-y-2">Nova senha<Input type="password" autoComplete="new-password" minLength={12} required disabled={!valid} value={password} onChange={e=>setPassword(e.target.value)} className="min-h-11"/></label><label className="block text-sm space-y-2">Confirmar senha<Input type="password" autoComplete="new-password" required disabled={!valid} value={confirm} onChange={e=>setConfirm(e.target.value)} className="min-h-11"/></label>{error&&<p role="alert" className="text-destructive text-sm">{error}</p>}<Button disabled={!valid||busy} className="min-h-11">{busy?'Salvando…':'Salvar senha'}</Button></form></main>;}
+import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export function AgentPassword({ invite = false }: { invite?: boolean }) {
+  const navigate = useNavigate();
+  const [valid, setValid] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    const type = params.get("type");
+    setValid(type === "recovery" || (invite && type === "invite"));
+  }, [invite]);
+
+  const savePassword = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!valid) return;
+    if (password !== confirm) {
+      setError("As senhas devem ser iguais.");
+      return;
+    }
+
+    setBusy(true);
+    setError("");
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { error: updateError } = await supabase.auth.updateUser({ password });
+      if (updateError) throw updateError;
+      await navigate({ to: "/agent-login" });
+    } catch {
+      setError("Não foi possível definir a senha. Solicite um novo link.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-background text-foreground p-6 py-16">
+      <form className="max-w-md mx-auto space-y-5" onSubmit={savePassword}>
+        <h1 className="font-display text-3xl font-bold">
+          {invite ? "Ativar conta de agente" : "Redefinir senha"}
+        </h1>
+        {!valid && (
+          <p role="alert" className="text-destructive">
+            Abra o link de convite ou recuperação recebido por e-mail.
+          </p>
+        )}
+        <label className="block text-sm space-y-2">
+          Nova senha
+          <Input
+            type="password"
+            autoComplete="new-password"
+            minLength={12}
+            required
+            disabled={!valid}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            className="min-h-11"
+          />
+        </label>
+        <label className="block text-sm space-y-2">
+          Confirmar senha
+          <Input
+            type="password"
+            autoComplete="new-password"
+            required
+            disabled={!valid}
+            value={confirm}
+            onChange={(event) => setConfirm(event.target.value)}
+            className="min-h-11"
+          />
+        </label>
+        {error && <p role="alert" className="text-destructive text-sm">{error}</p>}
+        <Button disabled={!valid || busy} className="min-h-11">
+          {busy ? "Salvando…" : "Salvar senha"}
+        </Button>
+      </form>
+    </main>
+  );
+}

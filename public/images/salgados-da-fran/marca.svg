@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-label="Três salgadinhos ilustrados da marca Salgados da Fran">
+<rect width="240" height="240" rx="60" fill="#20252b"/>
+<g stroke="#ffd9a1" stroke-width="2.5" stroke-linejoin="round">
+<path d="M45 158 Q24 147 40 116 L68 72 Q74 62 80 72 L109 116 Q126 152 93 162 Z" fill="#e9a05d"/>
+<path d="M85 171 Q56 159 77 112 L116 48 Q121 39 128 50 L164 114 Q184 164 146 171 Z" fill="#f5b271"/>
+<path d="M139 159 Q118 146 137 115 L165 74 Q171 66 177 76 L202 121 Q217 151 195 159 Z" fill="#e49a55"/>
+</g>
+<g stroke="#67402e" stroke-width="3" stroke-linecap="round" fill="none"><path d="M61 121v4m22-4v4m72-2v4m21-3v4m-68-15v5m25-5v5"/><path d="M64 141q11 9 21 0m72-1q10 8 20 0" /><path d="M105 141q13 19 27 0"/></g>
+<g fill="#e77683"><circle cx="51" cy="134" r="5"/><circle cx="91" cy="134" r="5"/><circle cx="95" cy="135" r="5"/><circle cx="145" cy="135" r="5"/><circle cx="148" cy="135" r="4"/><circle cx="186" cy="135" r="4"/></g>
+<path d="M39 181 Q120 193 202 181" fill="none" stroke="#f6e52b" stroke-width="7" stroke-linecap="round"/>
+</svg>

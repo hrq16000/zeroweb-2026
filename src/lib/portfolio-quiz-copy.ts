@@ -7,6 +7,7 @@ import {
 export type PortfolioQuizMode = "booking" | "proposal";
 
 export type PortfolioProposalKind = "campaign" | "service";
+export type PortfolioQuizLocale = "pt-BR" | "es-CL";
 
 export type PortfolioQuizAnswers = {
   service: string;
@@ -37,7 +38,13 @@ export function getPortfolioQuizSemanticCopy(
   mode: PortfolioQuizMode = "booking",
   proposalKind: PortfolioProposalKind = "service",
   recipientName = "a equipe",
+  locale: PortfolioQuizLocale = "pt-BR",
 ): PortfolioQuizSemanticCopy {
+  if (locale === "es-CL") {
+    if (mode === "proposal" && proposalKind === "campaign") return { requestKind: "campaign", eyebrow: "Consulta de campaña", messageTitle: "*CONSULTA DE CAMPAÑA*", subject: "una campaña", intro: "Te comparto los detalles para orientar la propuesta:", sectionTitle: "*DETALLES DE LA CAMPAÑA*", labels: { service: "Tipo de acción", experience: "Objetivo", period: "Período", timing: "Plazo" }, fallbacks: { service: "Quiero orientación", experience: "Quiero conversar sobre el objetivo", period: "Aún por definir", timing: "Estoy planificando" }, titles: { service: "¿Qué acción quieres planificar?", experience: "¿Cuál es el objetivo principal?", period: "¿Cuándo debería realizarse?", timing: "¿Cuál es el plazo?", note: "¿Quieres agregar algún detalle?" }, subtitles: { service: "Así podremos entender el formato que buscas.", experience: "Esto ayuda a orientar la propuesta.", period: "La fecha se confirma al conversar.", timing: "Una referencia ayuda a organizar el trabajo.", note: "Puedes compartir región, cantidad o una necesidad especial." }, notePlaceholder: "Cuéntanos algún detalle adicional.", nextStep: "¿Podrías orientarme sobre disponibilidad y próximos pasos?" };
+    if (mode === "proposal") return { requestKind: "service", eyebrow: "Consulta de servicio", messageTitle: "*CONSULTA DE SERVICIO*", subject: "un servicio", intro: "Te comparto mis preferencias para facilitar la orientación:", sectionTitle: "*DETALLES DE LA CONSULTA*", labels: { service: "Servicio", experience: "Contexto", period: "Preferencia", timing: "Plazo" }, fallbacks: { service: "Quiero orientación para elegir", experience: "Quiero conversar antes de decidir", period: "Tengo flexibilidad", timing: "Quiero coordinar" }, titles: { service: "¿Qué servicio te interesa?", experience: "¿Cuál es tu contexto?", period: "¿Qué horario prefieres?", timing: "¿Cuándo te gustaría coordinar?", note: "¿Quieres agregar algún detalle?" }, subtitles: { service: "Cuéntanos qué estás buscando.", experience: "Esto ayuda a orientar la conversación.", period: "La disponibilidad se confirma directamente.", timing: "Es una preferencia, no una reserva confirmada.", note: "Puedes dejar una pregunta para Roze." }, notePlaceholder: "Comparte una pregunta o preferencia.", nextStep: "¿Podrías contarme las opciones y disponibilidad?" };
+    return { requestKind: "booking", eyebrow: "Consulta de masoterapia", messageTitle: "*CONSULTA DE MASOTERAPIA*", subject: "una sesión de masoterapia", intro: "Te comparto mis preferencias para orientar la consulta:", sectionTitle: "*PREFERENCIAS DE ATENCIÓN*", labels: { service: "Lo que busco", experience: "Experiencia previa", period: "Horario preferido", timing: "Cuándo" }, fallbacks: { service: "Quiero orientación para elegir", experience: "Prefiero conversar antes de decidir", period: "Tengo flexibilidad", timing: "Quiero coordinar" }, titles: { service: "¿Qué te gustaría consultar?", experience: "¿Ya has recibido masajes antes?", period: "¿Qué horario prefieres?", timing: "¿Cuándo te gustaría coordinar?", note: "¿Quieres agregar algún detalle?" }, subtitles: { service: "Cuéntanos qué atención estás buscando.", experience: "Esto ayuda a orientar mejor la conversación.", period: "La disponibilidad se confirma directamente.", timing: "Es una preferencia, no una reserva confirmada.", note: "Comparte cualquier pregunta o preferencia para Roze." }, notePlaceholder: "Qué buscas, alguna preferencia o una pregunta para Roze.", nextStep: "¿Podrías contarme qué tipos de masaje ofreces y qué horarios tienes disponibles?" };
+  }
   if (mode === "proposal" && proposalKind === "campaign") {
     return {
       requestKind: "campaign",
@@ -125,11 +132,12 @@ const INTENT_MESSAGE_TITLE: Record<PortfolioFunnelIntent, string> = {
 export function applyPortfolioFunnelIntentCopy(
   copy: PortfolioQuizSemanticCopy,
   context?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">,
+  locale: PortfolioQuizLocale = "pt-BR",
 ): PortfolioQuizSemanticCopy {
   if (!context) return copy;
   return {
     ...copy,
-    messageTitle: INTENT_MESSAGE_TITLE[context.intent],
+    messageTitle: locale === "es-CL" ? ({ orcamento: "*CONSULTA DE PRESUPUESTO*", agendamento: "*CONSULTA DE MASOTERAPIA*", pedido: "*SOLICITUD*", avaliacao: "*SOLICITUD DE EVALUACIÓN*", visita: "*SOLICITUD DE VISITA*", contato: "*CONTACTO DESDE LA PÁGINA*", reserva: "*SOLICITUD DE RESERVA*", diagnostico: "*SOLICITUD DE DIAGNÓSTICO*", solicitacao: "*SOLICITUD*" } as Record<PortfolioFunnelIntent, string>)[context.intent] : INTENT_MESSAGE_TITLE[context.intent],
     subject: context.whatsappSubject,
     nextStep: context.whatsappPrompt,
   };
@@ -141,10 +149,11 @@ export function getPortfolioQuizCopyForClient(
   recipientName: string,
   mode?: PortfolioQuizMode,
   proposalKind?: PortfolioProposalKind,
+  locale?: PortfolioQuizLocale,
 ): PortfolioQuizSemanticCopy {
   const context = resolvePortfolioFunnelContext(slugOrKey);
-  const base = getPortfolioQuizSemanticCopy(mode ?? context.quizMode, proposalKind ?? context.proposalKind, recipientName);
-  return applyPortfolioFunnelIntentCopy(base, context);
+  const base = getPortfolioQuizSemanticCopy(mode ?? context.quizMode, proposalKind ?? context.proposalKind, recipientName, locale);
+  return applyPortfolioFunnelIntentCopy(base, context, locale);
 }
 
 export type PortfolioQuizMessageInput = {
@@ -155,7 +164,10 @@ export type PortfolioQuizMessageInput = {
   proposalKind?: PortfolioProposalKind;
   pageUrl?: string;
   location?: string;
+  contactName?: string;
+  contactPhone?: string;
   funnelContext?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">;
+  locale?: PortfolioQuizLocale;
 };
 
 /**
@@ -172,12 +184,25 @@ export function buildPortfolioQuizMessage({
   proposalKind = "service",
   pageUrl = "",
   location = "",
+  contactName,
+  contactPhone,
   funnelContext,
+  locale = "pt-BR",
 }: PortfolioQuizMessageInput): string {
   const copy = applyPortfolioFunnelIntentCopy(
-    getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName),
+    getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName, locale),
     funnelContext,
+    locale,
   );
+
+  if (locale === "es-CL") {
+    const lines = [copy.messageTitle, "", `Hola, ${recipientName}. ¿Cómo estás?`, "", `Te escribo desde la página de *${studioName}* para consultar por ${copy.subject}.`, ...(pageUrl ? [`🔗 Enlace: ${pageUrl}`] : []), ...(location ? [`📍 Mi ubicación: ${location}.`] : []), copy.intro, "", copy.sectionTitle, `• *${copy.labels.service}:* ${answers.service || copy.fallbacks.service}`, `• *${copy.labels.experience}:* ${answers.experience || copy.fallbacks.experience}`, `• *${copy.labels.period}:* ${answers.period || copy.fallbacks.period}`, `• *${copy.labels.timing}:* ${answers.timing || copy.fallbacks.timing}`];
+    if (contactName?.trim()) lines.push(`• *Nombre:* ${contactName.trim()}`);
+    if (contactPhone?.trim()) lines.push(`• *WhatsApp de contacto:* ${contactPhone.trim()}`);
+    if (answers.note.trim()) lines.push("", "*COMENTARIO*", answers.note.trim());
+    lines.push("", "*SIGUIENTE PASO*", copy.nextStep, "", "Quedo atento/a a tu respuesta.");
+    return lines.join("\n");
+  }
 
   const lines = [
     copy.messageTitle,
@@ -197,6 +222,8 @@ export function buildPortfolioQuizMessage({
     `• *${copy.labels.timing}:* ${answers.timing || copy.fallbacks.timing}`,
   ];
 
+  if (contactName?.trim()) lines.push(`• *Nome:* ${contactName.trim()}`);
+  if (contactPhone?.trim()) lines.push(`• *WhatsApp para retorno:* ${contactPhone.trim()}`);
   if (answers.note.trim()) lines.push("", "*OBSERVAÇÃO*", answers.note.trim());
   lines.push("", "*PRÓXIMO PASSO*", copy.nextStep, "", "Aguardo seu retorno.");
   return lines.join("\n");

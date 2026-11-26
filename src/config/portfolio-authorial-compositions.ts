@@ -10,13 +10,18 @@
  * aqui NO MESMO PR que registra a página no registry de composições.
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
+  "salgados-da-fran",
+  "panificadora-doce-coracao-santo-antonio",
   "cantinho-da-tia-mari",
   "agropet-filt",
-  "toop-assados",
   "arildo-madeiras",
   "dona-garimpeira-brecho",
   "autoescola-aptos",
   "adhonep-curitiba",
+  "infinito-spa",
+  "espaco-marli-nails-guaratuba",
+  "bpl-locacoes-de-brinquedos",
+  "toop-assados",
 ] as const;
 
 const AUTHORIAL_SET = new Set<string>(PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS);

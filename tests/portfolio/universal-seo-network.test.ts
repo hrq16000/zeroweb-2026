@@ -163,6 +163,6 @@ describe("SEO universal dos portfolios", () => {
     expect(shell).toContain("seoContextOverride");
     expect(route).toContain("portfolioUniversalKeywords");
     expect(route).toContain('property: "og:locale"');
-    expect(route).toContain('hrefLang: "pt-BR"');
+    expect(route).toContain('hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR"');
   });
 });

@@ -718,6 +718,192 @@
         "leva e busca escola CMEI Jardim Itália"
       ]
     },
+    "salgados-da-fran": {
+      "aliases": [
+        "Salgados da Fran",
+        "Salgados da Fran SJP",
+        "Fran Salgados"
+      ],
+      "categories": [
+        "salgados",
+        "alimentação por encomenda"
+      ],
+      "services": [
+        "encomendas de salgados"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar cardápio",
+        "perguntar quantidade para encomenda",
+        "saber preço de salgados",
+        "consultar disponibilidade"
+      ],
+      "locality": [
+        "Águas Belas",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Salgados da Fran São José dos Pinhais",
+        "salgados por encomenda Águas Belas",
+        "Salgados da Fran SJP"
+      ]
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "aliases": [
+        "Panificadora Doce Coração",
+        "Doce Coração Santo Antônio",
+        "Padaria Doce Coração São José dos Pinhais"
+      ],
+      "categories": [
+        "padaria",
+        "panificadora",
+        "confeitaria",
+        "alimentação"
+      ],
+      "services": [],
+      "equipment": [],
+      "products": [
+        "pães",
+        "salgados",
+        "bolos",
+        "doces"
+      ],
+      "problems": [],
+      "useCases": [
+        "encontrar padaria no Santo Antônio",
+        "localizar a Panificadora Doce Coração",
+        "consultar endereço e horário da padaria",
+        "conhecer categorias de pães, bolos e salgados"
+      ],
+      "locality": [
+        "Rua Desembargador James Portugal Macedo",
+        "Santo Antônio",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Panificadora Doce Coração Santo Antônio",
+        "padaria doce coração São José dos Pinhais",
+        "padaria no Santo Antônio SJP",
+        "pães e salgados Santo Antônio",
+        "0WEB portfólio panificadora",
+        "site de padaria feito pela 0WEB",
+        "WebRealce criação de sites"
+      ]
+    },
+    "infinito-spa": {
+      "aliases": [
+        "Infinito Spa",
+        "Infinito Spa Santiago",
+        "Roze masoterapeuta Santiago"
+      ],
+      "categories": [
+        "masajes",
+        "masoterapia",
+        "bienestar",
+        "spa"
+      ],
+      "services": [
+        "masajes",
+        "masoterapia",
+        "consulta de modalidades",
+        "coordinación de sesiones"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar modalidades de masaje",
+        "consultar disponibilidad",
+        "coordinar una sesión"
+      ],
+      "locality": [
+        "Santiago",
+        "Región Metropolitana",
+        "Chile"
+      ],
+      "keywords": [
+        "Infinito Spa Santiago",
+        "masajes Santiago de Chile",
+        "masoterapia Santiago",
+        "sesiones de masaje Santiago",
+        "bienestar Santiago"
+      ]
+    },
+    "espaco-marli-nails-guaratuba": {
+      "aliases": [
+        "Espaço Marli Nails Designer",
+        "Espaço Marli Nails Guaratuba",
+        "Marli Nails Coroados"
+      ],
+      "categories": [
+        "beleza",
+        "manicure",
+        "unhas"
+      ],
+      "services": [
+        "manicure",
+        "pedicure"
+      ],
+      "equipment": [],
+      "problems": [
+        "procurar manicure em Guaratuba",
+        "consultar manicure no Coroados",
+        "buscar pedicure em Guaratuba"
+      ],
+      "useCases": [
+        "encontrar o Espaço Marli Nails no Coroados",
+        "consultar um horário de manicure em Guaratuba"
+      ],
+      "keywords": [
+        "Espaço Marli Nails Designer Guaratuba",
+        "manicure Coroados Guaratuba PR",
+        "pedicure Coroados Guaratuba"
+      ],
+      "locality": [
+        "Avenida Alvorada do Sul 786",
+        "Coroados",
+        "Guaratuba",
+        "PR"
+      ],
+      "notes": "Categorias de diretórios não comprovam tabela oficial de serviços, técnicas ou horários."
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "aliases": [
+        "BPL Locações",
+        "BPL Locações de Brinquedos",
+        "BPL brinquedos SJP"
+      ],
+      "categories": [
+        "locação de brinquedos",
+        "brinquedos para festas"
+      ],
+      "services": [
+        "locação de cama elástica",
+        "locação de piscina de bolinhas"
+      ],
+      "equipment": [
+        "cama elástica",
+        "piscina de bolinhas"
+      ],
+      "products": [
+        "cama elástica",
+        "piscina de bolinhas"
+      ],
+      "problems": [],
+      "useCases": [
+        "festa infantil",
+        "aniversário infantil"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "aluguel de cama elástica São José dos Pinhais",
+        "locação de piscina de bolinhas São José dos Pinhais",
+        "BPL brinquedos SJP"
+      ]
+    },
     "toop-assados": {
       "aliases": [
         "Toop Assados",

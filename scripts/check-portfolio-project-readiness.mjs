@@ -285,7 +285,7 @@ function evaluate(slug, manifest) {
     componentSource.includes(hostedForm.url) &&
     componentSource.includes('data-funnel-provider="jotform"') &&
     componentSource.includes(`data-client-key="${client?.clientKey ?? slug}"`);
-  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource) || hostedProof;
+  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta|InfinitoSpaLeadForm|submitPublicLead/.test(componentSource) || hostedProof;
   if (!checks.funnelValid) blockers.push("funil próprio não encontrado ou formulário hospedado sem comprovação de persistência/consentimento");
 
   // --- contactMode / funnelType (canal comercial é sempre o funil individual)

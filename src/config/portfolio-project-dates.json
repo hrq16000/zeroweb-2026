@@ -202,6 +202,10 @@
       "createdAt": "2026-09-03T18:40:04.000Z",
       "updatedAt": "2026-09-12T02:56:07.000Z"
     },
+    "infinito-spa": {
+      "createdAt": "2026-11-26T00:50:37.000Z",
+      "updatedAt": "2026-11-26T03:12:53.000Z"
+    },
     "jc-revestimentos": {
       "createdAt": "2026-09-02T01:03:47.000Z",
       "updatedAt": "2026-09-10T03:49:09.000Z"
@@ -382,10 +386,6 @@
       "createdAt": "2026-09-01T20:02:57.000Z",
       "updatedAt": "2026-09-12T22:15:10.000Z"
     },
-    "toop-assados": {
-      "createdAt": "2026-11-07T22:08:50.000Z",
-      "updatedAt": "2026-11-26T15:36:32.000Z"
-    },
     "toquinho-de-gente-brecho": {
       "createdAt": "2026-09-01T05:46:41.000Z",
       "updatedAt": "2026-10-02T22:28:00.000Z"
@@ -405,6 +405,26 @@
     "your-brutus-burguer": {
       "createdAt": "2026-09-08T04:01:39.000Z",
       "updatedAt": "2026-11-24T07:23:14.000Z"
+    },
+    "salgados-da-fran": {
+      "createdAt": "2026-11-23T06:47:34.000Z",
+      "updatedAt": "2026-11-23T15:05:22.000Z"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "createdAt": "2026-11-19T16:57:58.000Z",
+      "updatedAt": "2026-11-26T05:08:50.000Z"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "createdAt": "2026-11-22T21:01:46.000Z",
+      "updatedAt": "2026-11-23T04:19:36.000Z"
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "createdAt": "2026-11-23T06:48:14.000Z",
+      "updatedAt": "2026-11-25T06:29:12.000Z"
+    },
+    "toop-assados": {
+      "createdAt": "2026-11-07T22:08:50.000Z",
+      "updatedAt": "2026-11-26T15:36:32.000Z"
     }
   }
 }

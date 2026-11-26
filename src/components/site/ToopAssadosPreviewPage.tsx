@@ -239,3 +239,8 @@ export function ToopAssadosPreviewPage({ mode = "preview" }: { mode?: "preview" 
     </div>
   );
 }
+
+
+export function ToopAssadosLivePage() {
+  return <ToopAssadosPreviewPage mode="live" />;
+}

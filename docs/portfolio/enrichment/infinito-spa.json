@@ -1,0 +1,255 @@
+{
+  "slug": "infinito-spa",
+  "identity": {
+    "brand": {
+      "value": "Infinito Spa",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "owner": {
+      "value": "Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "segment": {
+      "value": "Masajes / masoterapia",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "locality": {
+      "value": "Santiago, Chile",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "sourceType": "OWNER_SUPPLIED",
+    "confidence": "HIGH",
+    "note": "Marca y datos confirmados por intake 0WEB; no equivale a razón social."
+  },
+  "researchLedger": {
+    "publicWeb": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "Resultados homónimos no vinculados.",
+      "accessible": true,
+      "ingestable": false
+    },
+    "googleMaps": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "La profesional indicó que no tiene sitio.",
+      "accessible": true,
+      "ingestable": false
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "No se obtuvo handle inequívoco.",
+      "accessible": true,
+      "ingestable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
+    },
+    "publicDirectories": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "Homónimos descartados por falta de convergencia.",
+      "accessible": true,
+      "ingestable": false
+    },
+    "reviews": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "No public review source could be linked confidently to the correct Infinito Spa in Santiago; no ratings or testimonials are used."
+    },
+    "media": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "No se verificaron fotos oficiales del negocio ni activos sociales; solo se utiliza arte original de marca creado por 0WEB."
+    }
+  },
+  "sources": [
+    {
+      "value": "Infinito Spa / masajes / Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atención en un espacio privado de Santiago; la ubicación exacta no se publica.",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "allowedClaims": [
+    {
+      "value": "Masajes y masoterapia en Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Consultar modalidades y disponibilidad con Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "unverified": [
+    "modalidades específicas",
+    "precios y duración",
+    "horarios",
+    "comuna",
+    "dirección exacta",
+    "certificaciones",
+    "logo",
+    "redes oficiales",
+    "fotos",
+    "testimonios"
+  ],
+  "rejectedMatches": [
+    "Negocios homónimos sin dos señales convergentes."
+  ],
+  "lastResearchAt": "2026-11-25T21:10:00-03:00",
+  "google": {
+    "status": "UNRESOLVED",
+    "placeId": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null
+  },
+  "services": [
+    {
+      "value": "Masajes y masoterapia",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "location": {
+    "city": {
+      "value": "Santiago, Chile",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "address": null,
+    "privateSpace": {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  },
+  "reviews": [],
+  "media": [],
+  "facts": [
+    {
+      "value": "Masajes y masoterapia en Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Consultar modalidades y disponibilidad con Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "conflicts": [
+    "Negocios homónimos sin dos señales convergentes."
+  ],
+  "generatedAssets": [
+    {
+      "path": "public/images/infinito-spa/mark.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/hero-orbit.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/capa-card.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/social.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    }
+  ]
+}

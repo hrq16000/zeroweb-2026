@@ -26,9 +26,13 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build (development)
+        env:
+          VERCEL: "1"
         run: node scripts/build-with-recovery.mjs --mode development
 
       - name: Build (production)
+        env:
+          VERCEL: "1"
         run: node scripts/build-with-recovery.mjs
 
       # Gate canônico de PR: valida o HTML realmente gerado pelo head da PR.

@@ -5,25 +5,27 @@
  *
  *  1. FUNNEL_OPERATIONAL — variante reconhecida e sem CTA direto que burle o funil.
  *  2. DESTINATION_ISOLATION — cada clientKey possui entrada canônica em
- *     `portfolio-whatsapp.json`; número ou null são estados válidos.
+ *     `portfolio-whatsapp.json`; número, null ou referência a segredo próprio são válidos.
  *  3. TERMINAL_CONTRACT — lead é salvo antes do redirect; com número abre o
  *     WhatsApp do mesmo clientKey; sem número conclui em modo LEAD_ONLY.
- *  4. NO_VAULT — clientes legados não podem depender de env/secret ou da
- *     tabela privada; projetos Managed podem resolver apenas sua própria linha
- *     server-only, por clientKey exato, sem fallback cross-client.
+ *  4. NO_VAULT — clientes legados mantêm dados versionados; novos projetos
+ *     podem resolver segredo Vercel server-only pelo clientKey exato, sem fallback cross-client.
  *
  * Uso: node scripts/check-portfolio-funnel-operational.mjs [--json]
  */
 import { readFileSync, existsSync } from "node:fs";
+import { isSecretDestinationReference } from "./lib/funnel-destination-gate.mjs";
 
 const json = process.argv.includes("--json");
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
 const contactConfig = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
 const contacts = contactConfig?.contacts ?? {};
+const ledger = JSON.parse(readFileSync("src/config/portfolio-funnel-destinations.json", "utf8")).entries ?? {};
 
 const VARIANTS = [
   ["portfolio_quiz", /BeautyBookingQuiz|PortfolioCTAQuiz|submitPortfolioQuiz/],
   ["dynamic_funnel", /FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA/],
+  ["direct_lead_form", /InfinitoSpaLeadForm|submitInfinitoSpaPublicLead/],
   ["hosted_form", /data-funnel-provider="jotform"/],
 ];
 const DIRECT_CONTACT = /wa\.me|api\.whatsapp\.com|href=["'`]tel:/;
@@ -58,6 +60,9 @@ for (const c of clients) {
   const contactEntry = Object.prototype.hasOwnProperty.call(contacts, c.clientKey);
   const whatsapp = contactEntry ? contacts[c.clientKey]?.whatsapp : undefined;
   const configured = validWhatsApp(whatsapp);
+  const provenance = ledger[c.clientKey] ?? ledger[c.slug] ?? null;
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${String(c.clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+  const secretConfigured = isSecretDestinationReference(whatsapp, provenance, expectedEnvKey);
   const explicitNull = contactEntry && whatsapp === null;
 
   const delivery =
@@ -65,7 +70,9 @@ for (const c of clients) {
       ? "EXTERNAL_STORE"
       : configured
         ? "WHATSAPP"
-        : explicitNull
+        : secretConfigured
+          ? "WHATSAPP_SECRET"
+          : explicitNull
           ? "LEAD_ONLY"
           : "INVALID_CONTACT_DATA";
 
@@ -81,11 +88,15 @@ for (const c of clients) {
       variant !== "MISSING_COMPONENT" &&
       !directContact &&
       contactEntry &&
-      (configured || explicitNull || variant === "external_store"),
+      (configured || secretConfigured || explicitNull || variant === "external_store"),
   });
 }
 
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
+const portfolioQuizUi = readFileSync("src/components/site/BeautyBookingQuiz.tsx", "utf8");
+const infinitoPage = readFileSync("src/components/site/InfinitoSpaPage.tsx", "utf8");
+const infinitoLeadForm = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
+const whatsappRoute = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
 const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
 const destinationConfirm = readFileSync("src/lib/portfolio-destination-confirm.server.ts", "utf8");
 const registry = readFileSync("src/lib/portfolio-whatsapp-registry.server.ts", "utf8");
@@ -112,13 +123,16 @@ const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destin
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
+  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitInfinitoSpaPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('return handleInfinitoSpaWhatsAppRedirect(request)') &&
+    readFileSync("src/lib/infinito-spa-whatsapp.server.ts", "utf8").includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],
   ["resolvedor legado não lê tabela privada", !legacyResolverReadsPrivateTable],
   ["resolvedor managed consulta somente clientKey exato publicado", managedResolverIsExact],
   ["admin de destino não lê/grava tabela privada", !adminReadsOrWritesLegacyPrivateTable],
-  ["resolvedor de portfolio não lê secret PORTFOLIO_WHATSAPP", !redirectServer.includes("PORTFOLIO_WHATSAPP_")],
+  ["segredo Vercel é resolvido pelo registry server-only", registry.includes("process.env[expectedEnvKey]") && registry.includes("PORTFOLIO_WHATSAPP_")],
+  ["resolvedor de redirect não lê secret diretamente", !redirectServer.includes("PORTFOLIO_WHATSAPP_")],
   ["resolvedor usa apenas clientKey canônico", redirectServer.includes("resolveVersionedPortfolioWhatsApp(clientKey)")],
   ["admin valida apenas dado versionado", destinationConfirm.includes("current.digits !== parsed.digits") && destinationConfirm.includes("CHANGE_PENDING") && !destinationConfirm.includes("funnel_recipient")],
   ["sem fallback institucional para portfolio", !/resolvePortfolioWhatsAppContact[\s\S]{0,1200}resolveOperationalWhatsAppContact/.test(redirectServer)],

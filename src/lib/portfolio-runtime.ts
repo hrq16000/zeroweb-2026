@@ -12,7 +12,7 @@
  * Este módulo é puro (sem I/O) para poder ser usado no SSR, no cliente,
  * nos testes e no gate `check:portfolio-runtime-overrides`.
  */
-import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
+import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-public-safety";
 import { isValidPortfolioShareMessage, normalizePortfolioShareMessage } from "@/lib/portfolio-share";
 
 export type PortfolioLifecycle = "imported" | "draft" | "published" | "archived";
@@ -95,6 +95,9 @@ export type PortfolioRuntimeBase = {
   logoUrl?: string;
   heroImageUrl?: string;
   shareCopy?: string;
+  lifecycle?: PortfolioLifecycle;
+  published?: boolean;
+  indexable?: boolean;
 };
 
 export type PortfolioRuntimeEffective = PortfolioRuntimeBase & {
@@ -275,10 +278,10 @@ export function applyPortfolioRuntime(
     return value;
   };
 
-  const lifecycle = overrides?.lifecycle ?? "published";
-  const published = overrides ? overrides.published : true;
-  // Sem linha no banco o projeto segue exatamente como hoje (indexável).
-  const indexable = !overrides ? true : lifecycle === "published" && published;
+  const lifecycle = overrides?.lifecycle ?? base.lifecycle ?? "published";
+  const published = overrides ? overrides.published : (base.published ?? true);
+  // Sem linha no banco, respeita o estado de publicação definido pelo registry/rota.
+  const indexable = base.indexable !== false && lifecycle === "published" && published;
 
   const socialVersion = overrides?.socialVersion;
   let socialImage = take("socialImage", overrides?.socialImageUrl, base.socialImage);

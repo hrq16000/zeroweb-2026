@@ -1,9 +1,9 @@
 /**
  * Dados canônicos de WhatsApp dos portfolios.
  *
- * WhatsApp é dado do próprio projeto, não credencial. A fonte é o arquivo
- * versionado `src/config/portfolio-whatsapp.json`, por clientKey exato.
- * Nunca existe fallback entre clientes e ausência de número é válida.
+ * Clientes legados usam o registro versionado. Projetos novos podem apontar
+ * para um segredo Vercel PORTFOLIO_WHATSAPP_<CLIENT_KEY>, sempre server-only.
+ * A referência deve corresponder exatamente ao clientKey; sem fallback entre clientes.
  */
 if (typeof window !== "undefined") {
   throw new Error("portfolio-whatsapp-registry.server.ts imported from client code");
@@ -39,9 +39,19 @@ export function resolveVersionedPortfolioWhatsApp(
 ): string | null {
   if (!clientKey) return null;
   const raw = CONTACTS[clientKey]?.whatsapp;
-  const digits = typeof raw === "string" ? raw.replace(/\D/g, "") : "";
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+  const candidate = typeof raw === "string" && raw.startsWith("env:")
+    ? raw === `env:${expectedEnvKey}` ? process.env[expectedEnvKey] ?? null : null
+    : raw;
+  const digits = typeof candidate === "string" ? candidate.replace(/\D/g, "") : "";
   if (digits.length < 10 || digits.length > 15) return null;
   return digits;
+}
+
+export function isPortfolioWhatsAppEnvironmentConfigured(clientKey?: string | null): boolean {
+  if (!clientKey) return false;
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+  return CONTACTS[clientKey]?.whatsapp === `env:${expectedEnvKey}` && Boolean(resolveVersionedPortfolioWhatsApp(clientKey));
 }
 
 export function isPortfolioWhatsAppNotApplicable(

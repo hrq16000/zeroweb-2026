@@ -1,11 +1,21 @@
 import assert from "node:assert/strict";
 import { generateKeyPairSync, sign } from "node:crypto";
 import { test } from "node:test";
+import { isVercelBuild } from "../../scripts/lib/vercel-runtime-env.mjs";
 import { auth, defineMcp, defineTool } from "@lovable.dev/mcp-js";
 import {
   createTanStackMcpHandler,
   createTanStackOAuthProtectedResourceMetadataHandler,
 } from "@lovable.dev/mcp-js/stacks/tanstack";
+
+test("detects Vercel builds from all supported platform markers", () => {
+  assert.equal(isVercelBuild({ VERCEL: "1" }), true);
+  assert.equal(isVercelBuild({ VERCEL: "true" }), true);
+  assert.equal(isVercelBuild({ VERCEL_ENV: "production" }), true);
+  assert.equal(isVercelBuild({ VERCEL_ENV: "preview" }), true);
+  assert.equal(isVercelBuild({ VERCEL_URL: "zeroweb-preview.vercel.app" }), true);
+  assert.equal(isVercelBuild({ NODE_ENV: "production" }), false);
+});
 
 const origin = "https://0web-ci.example.test";
 const issuer = "https://issuer.example.test/auth/v1";

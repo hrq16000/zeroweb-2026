@@ -9,9 +9,12 @@ import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 import { PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS } from "@/config/portfolio-authorial-compositions";
 
 export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {
+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage").then((m) => ({ default: m.SalgadosDaFranPage }))),
+  "panificadora-doce-coracao-santo-antonio": lazy(() =>
+    import("@/components/site/PanificadoraDoceCoracaoSantoAntonioPage").then((m) => ({ default: m.PanificadoraDoceCoracaoSantoAntonioPage })),
+  ),
   "cantinho-da-tia-mari": lazy(() => import("@/components/site/CantinhoTiaMariPage").then((m) => ({default:m.CantinhoTiaMariPage}))),
   "agropet-filt": lazy(() => import("@/components/site/AgropetFiltPreviewPage").then((m) => ({ default: m.AgropetFiltPage }))),
-  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage").then((m) => ({ default: m.ToopAssadosPreviewPage }))),
   "arildo-madeiras": lazy(() =>
     import("@/components/site/ArildoMadeirasPage").then((m) => ({ default: m.ArildoMadeirasPage })),
   ),
@@ -26,7 +29,11 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
   "adhonep-curitiba": lazy(() =>
     import("@/components/site/AdhonepCuritibaPage").then((m) => ({ default: m.AdhonepCuritibaPage })),
   ),
+  "espaco-marli-nails-guaratuba": lazy(() => import("@/components/site/EspacoMarliNailsGuaratubaPage").then((m) => ({ default: m.EspacoMarliNailsGuaratubaPage }))),
+  "bpl-locacoes-de-brinquedos": lazy(() => import("@/components/site/BplLocacoesBrinquedosPage").then((m) => ({ default: m.BplLocacoesBrinquedosPage }))),
+  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage").then((m) => ({ default: m.ToopAssadosLivePage }))),
   // "<slug>": lazy(() => import("@/components/site/<Componente>").then((m) => ({ default: m.<Componente> }))),
+  "infinito-spa": lazy(() => import("@/components/site/InfinitoSpaPage").then((m) => ({ default: m.InfinitoSpaPage }))),
 };
 
 export const compositionSlugs = Object.keys(compositionPages);

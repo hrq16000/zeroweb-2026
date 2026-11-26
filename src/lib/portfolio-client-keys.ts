@@ -1,8 +1,9 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
+  "salgados-da-fran",
+  "panificadora-doce-coracao-santo-antonio",
   "cantinho-da-tia-mari",
   "agropet-filt",
-  "toop-assados",
   
   
   
@@ -99,6 +100,10 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "pinturas-nunes",
   "estrutura-nacional",
   "carecas-infotec",
+  "infinito-spa",
+  "espaco-marli-nails-guaratuba",
+  "bpl-locacoes-de-brinquedos",
+  "toop-assados",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 

@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Brechó São Francisco (/portfolio/brecho-sao-francisco).
@@ -60,7 +60,8 @@ export function BrechoSaoFranciscoPage() {
       <main className="mx-auto w-[min(94%,72rem)] py-10 md:py-16">
         <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
           {/* coluna fixa: assinatura do projeto */}
-          <div className="md:sticky md:top-10 md:self-start">
+          <MotionFirstPaint>
+            <div className="md:sticky md:top-10 md:self-start">
             <MotionReveal variant="fade">
               <p className="text-[0.68rem] uppercase tracking-[0.42em] text-[var(--sf-terra)]">
                 Brechó São Francisco · Curitiba
@@ -102,15 +103,20 @@ export function BrechoSaoFranciscoPage() {
               Conte o tipo de peça, o tamanho e o estilo que procura para receber
               o que está disponível na vitrine.
             </p>
-          </div>
+            </div>
+          </MotionFirstPaint>
 
           {/* coluna de leitura: retrato + araras numeradas */}
           <div className="min-w-0">
             <figure className="max-w-md">
               <PortfolioImage
-                src="/images/brecho-sao-francisco/capa.png"
+                src="/images/_generated/brecho-sao-francisco/capa.webp"
+                widths={[480, 960, 1440]}
+                sizes="(min-width: 1024px) 448px, 100vw"
                 alt="Brechó São Francisco"
-                priority
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 width={1200}
                 height={1500}
                 className="w-full rounded-sm object-cover"

@@ -1,5 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest, getRequestHeader } from "@tanstack/react-start/server";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 import { z } from "zod";
 
 const leadInput = z.object({
@@ -36,24 +38,96 @@ async function requestFingerprint() {
   return Array.from(new Uint8Array(digest)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-/** Grava na fonte canônica pelo servidor; nunca devolve PII ao navegador. */
+// Best-effort por instância; a RLS do Supabase continua sendo a barreira de escrita.
+const leadRateBuckets = new Map<string, number[]>();
+function allowPublicLeadIntake(fingerprint: string) {
+  const now = Date.now();
+  const windowMs = 5 * 60 * 1000;
+  const recent = (leadRateBuckets.get(fingerprint) ?? []).filter((stamp) => now - stamp < windowMs);
+  if (recent.length >= 12) {
+    leadRateBuckets.set(fingerprint, recent);
+    return false;
+  }
+  recent.push(now);
+  leadRateBuckets.set(fingerprint, recent);
+  if (leadRateBuckets.size > 5000) {
+    for (const [key, stamps] of leadRateBuckets) {
+      if (!stamps.some((stamp) => now - stamp < windowMs)) leadRateBuckets.delete(key);
+    }
+  }
+  return true;
+}
+
+/** Generic legacy intake for existing portfolio funnels; behavior preserved for other clients. */
 export const submitPublicLead = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => leadInput.parse(input))
   .handler(async ({ data }) => {
     if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: allowed } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
+    const { data: allowed } = await supabaseAdmin.rpc("check_and_record_rate_limit", {
       p_scope: "public_lead_intake",
       p_ip_hash: await requestFingerprint(),
       p_window_seconds: 300,
       p_max_hits: 12,
     });
     if (allowed === false) return { ok: false as const, reason: "rate_limited" as const };
-    const { data: row, error } = await (supabaseAdmin as any)
+    const insert = data as Database["public"]["Tables"]["lead_submissions"]["Insert"];
+    const { data: row, error } = await supabaseAdmin
       .from("lead_submissions")
-      .insert(data)
+      .insert(insert)
       .select("id")
       .single();
     if (error || !row?.id) return { ok: false as const, reason: "db_error" as const };
     return { ok: true as const, leadId: row.id as string };
+  });
+
+/** Only exposes availability, never the operational destination. */
+export const getInfinitoSpaWhatsAppAvailability = createServerFn({ method: "GET" })
+  .handler(async () => {
+    const { isPortfolioWhatsAppEnvironmentConfigured } = await import("@/lib/portfolio-whatsapp-registry.server");
+    return { available: isPortfolioWhatsAppEnvironmentConfigured("infinito-spa") };
+  });
+
+/** Grava leads públicos usando a chave publishable e a política INSERT do RLS. */
+export const submitInfinitoSpaPublicLead = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) => leadInput.parse(input))
+  .handler(async ({ data }) => {
+    if (data.source !== "portfolio:infinito-spa") {
+      return { ok: false as const, reason: "invalid_source" as const };
+    }
+    if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
+    if (!allowPublicLeadIntake(await requestFingerprint())) {
+      return { ok: false as const, reason: "rate_limited" as const };
+    }
+
+    const supabaseUrl = process.env.SUPABASE_URL
+      ?? process.env.VITE_SUPABASE_URL
+      ?? import.meta.env.VITE_SUPABASE_URL;
+    const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY
+      ?? process.env.VITE_SUPABASE_PUBLISHABLE_KEY
+      ?? import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    if (!supabaseUrl || !publishableKey) {
+      return { ok: false as const, reason: "config_error" as const };
+    }
+
+    try {
+      // The previous Vercel configuration is explicitly excluded for this client.
+      // Fail closed rather than writing private inquiries to that project.
+      if (new URL(supabaseUrl).hostname === "lxajhxocyqzwwbcfahya.supabase.co") {
+        return { ok: false as const, reason: "config_error" as const };
+      }
+      const publicClient = createClient<Database>(supabaseUrl, publishableKey, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+      const leadId = crypto.randomUUID();
+      const insert = {
+        id: leadId,
+        ...data,
+      } as Database["public"]["Tables"]["lead_submissions"]["Insert"];
+      const { error } = await publicClient.from("lead_submissions").insert(insert);
+      if (error) return { ok: false as const, reason: "db_error" as const };
+      return { ok: true as const, leadId };
+    } catch {
+      return { ok: false as const, reason: "db_error" as const };
+    }
   });

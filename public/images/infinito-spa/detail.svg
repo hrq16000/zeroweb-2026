@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1000" fill="none">
+<rect width="900" height="1000" fill="#dfe2d5"/>
+<circle cx="450" cy="490" r="360" stroke="#687b69" stroke-opacity=".18" stroke-width="2"/>
+<circle cx="450" cy="490" r="295" stroke="#687b69" stroke-opacity=".28" stroke-width="2"/>
+<circle cx="450" cy="490" r="230" stroke="#687b69" stroke-opacity=".34" stroke-width="2"/>
+<path d="M120 500c82-190 220-275 330-45 110 230 248 145 330-45M120 500c82 190 220 275 330 45 110-230 248-145 330 45" stroke="#bd8669" stroke-width="16" stroke-linecap="round"/>
+<path d="M450 130c-180 0-326 146-326 326M450 850c180 0 326-146 326-326" stroke="#1e3028" stroke-opacity=".22" stroke-width="1.5" stroke-dasharray="4 12"/>
+<circle cx="450" cy="500" r="11" fill="#1e3028"/><circle cx="450" cy="500" r="28" stroke="#bd8669" stroke-opacity=".75"/>
+<text x="450" y="930" fill="#1e3028" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" letter-spacing="7">UN MOMENTO PARA TI</text>
+</svg>

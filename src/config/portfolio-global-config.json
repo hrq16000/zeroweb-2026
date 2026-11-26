@@ -1461,6 +1461,127 @@
         "variant": "light"
       }
     },
+    "panificadora-doce-coracao-santo-antonio": {
+      "contactFloating": {
+        "enabled": false
+      }
+    },
+    "infinito-spa": {
+      "shareButton": {
+        "position": "top-right",
+        "variant": "dark",
+        "label": "Compartir"
+      },
+      "contactFloating": {
+        "enabled": false,
+        "position": "bottom-right",
+        "theme": "gold",
+        "label": "Consultar disponibilidad",
+        "recipientName": "Roze",
+        "studioName": "Infinito Spa",
+        "mode": "booking",
+        "quizConfig": {
+          "locale": "es-CL",
+          "services": [
+            "Consulta sobre masajes y masoterapia",
+            "Quiero orientación antes de elegir",
+            "Consultar disponibilidad"
+          ],
+          "experienceOptions": [
+            "Es mi primera consulta",
+            "Ya he recibido masoterapia",
+            "Prefiero conversar antes"
+          ],
+          "periodOptions": [
+            "Mañana",
+            "Tarde",
+            "Horario flexible",
+            "A convenir"
+          ],
+          "timingOptions": [
+            "Esta semana",
+            "Próximos días",
+            "Más adelante",
+            "A convenir"
+          ],
+          "stepTitles": {
+            "service": "¿Qué te gustaría consultar?",
+            "experience": "¿Has recibido masoterapia antes?",
+            "period": "¿Qué horario te acomoda?",
+            "timing": "¿Cuándo te gustaría coordinar?",
+            "note": "Cuéntanos un poco más"
+          },
+          "stepSubtitles": {
+            "service": "Elige el motivo principal de tu consulta.",
+            "experience": "Así podremos orientar mejor la conversación.",
+            "period": "La disponibilidad se confirma directamente con Roze.",
+            "timing": "Indica cuándo te gustaría conversar.",
+            "note": "Deja cualquier detalle o preferencia que debamos conocer."
+          },
+          "notePlaceholder": "Cuéntanos qué necesitas. Las modalidades y la disponibilidad se confirman directamente con Roze.",
+          "requireContactDetails": true
+        }
+      },
+      "footer": {
+        "enabled": true,
+        "hostCredit": true,
+        "showYear": true,
+        "variant": "dark"
+      }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consulta 0WEB",
+        "recipientName": "0WEB",
+        "studioName": "Espaço Marli Nails Designer"
+      }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a BPL",
+        "label": "Consultar locação",
+        "mode": "proposal",
+        "quizConfig": {
+          "services": [
+            "Cama elástica",
+            "Piscina de bolinhas",
+            "Ambos os brinquedos",
+            "Tenho uma dúvida"
+          ],
+          "experienceOptions": [
+            "Aniversário infantil",
+            "Festa em família",
+            "Evento escolar",
+            "Outra comemoração"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Noite",
+            "Horário a definir"
+          ],
+          "timingOptions": [
+            "Nos próximos 7 dias",
+            "Neste mês",
+            "No mês que vem",
+            "Ainda estou planejando"
+          ],
+          "stepTitles": {
+            "service": "Qual brinquedo procura?",
+            "experience": "Qual será a ocasião?",
+            "period": "Em qual período?",
+            "timing": "Para quando precisa?"
+          },
+          "notePlaceholder": "Ex.: data do evento, cidade, espaço disponível e idade das crianças."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
+    },
     "toop-assados": {
       "contactFloating": {
         "enabled": false

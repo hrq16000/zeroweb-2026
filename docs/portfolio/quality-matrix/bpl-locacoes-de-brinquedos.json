@@ -1,0 +1,153 @@
+{
+  "doc": "Matriz parcial baseada em código e QA existente; não autoriza publicação.",
+  "slug": "bpl-locacoes-de-brinquedos",
+  "matrixVersion": 2,
+  "contractVersion": 4,
+  "evaluatedAt": "2026-11-24",
+  "technicalPass": false,
+  "editorialPass": false,
+  "score": {
+    "total": null,
+    "byDimension": {}
+  },
+  "dimensions": {
+    "ENTITY": {
+      "status": "FAIL",
+      "notes": "Fonte única; pesquisa específica restante registrada no ledger."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Categorias e localidade atribuídas ao panfleto, sem preços ou reserva inventados."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Ilustrações autorais; fotos oficiais e licença não confirmadas."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "WARNING",
+      "notes": "QA de layout passou; revisão editorial independente da nova captura pendente."
+    },
+    "ORIGINALITY": {
+      "status": "WARNING",
+      "notes": "NO-BRAND anterior registrado; novo artifact disponível para revisão independente."
+    },
+    "DISCOVERY": {
+      "status": "WARNING",
+      "notes": "Registro de discovery existe; catálogo público não homologado."
+    },
+    "SEO": {
+      "status": "FAIL",
+      "notes": "Draft noindex, indexabilidade final e sitemap pendentes."
+    },
+    "CONVERSION": {
+      "status": "FAIL",
+      "notes": "Modal abre; persistência e entrega de consulta sintética não comprovadas."
+    },
+    "PROOF": {
+      "status": "WARNING",
+      "notes": "Alegações atribuídas ao panfleto, sem prova comercial independente."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Job 138586849775: 390/768/1440 sem overflow acima do limite."
+    },
+    "PERFORMANCE": {
+      "status": "FAIL",
+      "notes": "Lighthouse atual ainda não concluído; não declarar piso aprovado."
+    },
+    "ACCESSIBILITY": {
+      "status": "WARNING",
+      "notes": "Reduced motion e modal verificados; axe global pendente."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "QA automatizado draft run 45434035986, artifact 14940177606."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Duas categorias, localização, checklist e FAQ com limites explícitos."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "WARNING",
+      "notes": "Topologia autoral descrita no brief; revisão visual final pendente."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "SVGs editoriais identificados como ilustração."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Hero, atrações, compromissos, checklist e FAQ."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "WARNING",
+      "notes": "Palco azul, cartões ilustrados e checklist; revisão visual final pendente."
+    },
+    "PROOF_DENSITY": {
+      "status": "WARNING",
+      "notes": "Prova limitada à fonte fornecida."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "FAIL",
+      "notes": "Sem persistência/entrega comprovada."
+    },
+    "MOTION_DESIGN": {
+      "status": "WARNING",
+      "notes": "Reduced motion comprovado no QA; revisão de perfil completa pendente."
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "status": "WARNING",
+      "mediaDecision": "GRAPHIC_MEDIA",
+      "asset": "/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+      "notes": "Arte editorial existente."
+    },
+    {
+      "section": "brinquedos",
+      "status": "WARNING",
+      "mediaDecision": "GRAPHIC_MEDIA",
+      "asset": "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
+      "notes": "Cama elástica e piscina de bolinhas ilustradas, sem alegar fotos de estoque."
+    },
+    {
+      "section": "compromissos",
+      "status": "WARNING",
+      "mediaDecision": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "notes": "Ícones e claims atribuídas ao panfleto."
+    },
+    {
+      "section": "regiao e checklist",
+      "status": "WARNING",
+      "mediaDecision": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "notes": "Mapa simbólico, lista textual; nenhum endereço fictício."
+    },
+    {
+      "section": "duvidas",
+      "status": "WARNING",
+      "mediaDecision": "NO_MEDIA_NEEDED",
+      "asset": null,
+      "notes": "FAQ textual."
+    },
+    {
+      "section": "fechamento",
+      "status": "WARNING",
+      "mediaDecision": "EDITORIAL_TYPOGRAPHY",
+      "asset": null,
+      "notes": "CTA demonstrativo; não promete reserva."
+    }
+  ],
+  "p0": [
+    "Pesquisa específica incompleta",
+    "Entrega do funil não comprovada",
+    "Indexabilidade e capa final pendentes",
+    "Lighthouse e revisão perceptual final pendentes"
+  ],
+  "evidence": [
+    "https://github.com/hrq16000/zeroweb-2026/actions/runs/45434035986/artifacts/14940177606",
+    "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md"
+  ]
+}

@@ -49,7 +49,10 @@ describe("abstrações de performance", () => {
   test("PortfolioImage é lazy por padrão e eager apenas com priority", () => {
     expect(image).toContain('loading={priority ? "eager" : loading ?? "lazy"}');
     expect(image).toContain('fetchPriority={priority ? "high" : "auto"}');
-    expect(image).toContain('decoding="async"');
+    // Priority/LCP images use synchronous decoding; ordinary images retain
+    // async by default, with explicit caller override outside the priority path.
+    expect(image).toContain('decoding: requestedDecoding,');
+    expect(image).toContain('decoding={priority ? "sync" : requestedDecoding ?? "async"}');
   });
 
   test("PortfolioImage só emite srcset quando há variantes declaradas", () => {
@@ -159,5 +162,46 @@ describe("SOS Presentes: variantes responsivas sem regressão de escopo", () => 
     expect(page).toContain('managedField="heroImageUrl"');
     expect(page).toContain('clientKey="sos-presentes-cosmeticos"');
     expect(page).toContain('recipientName="SOS Presentes & Cosméticos"');
+  });
+});
+
+describe("Embalar: mídia responsiva e preservação do funil", () => {
+  const generator = read("scripts/generate-portfolio-perf-images.mjs");
+  const page = read("src/components/site/EmbalarEmbalagensPage.tsx");
+  const assets = {
+    logo: [80, 160],
+    "loja-01": [480, 680],
+    "loja-02": [320, 598],
+    "loja-03": [320, 480, 680],
+    "loja-04": [480, 680],
+    "loja-05": [480, 537],
+  };
+
+  test("preserva os PNGs originais e gera WebP local nas larguras realmente usadas", () => {
+    for (const [name, widths] of Object.entries(assets)) {
+      expect(existsSync(resolve(root, `public/images/embalar-embalagens/${name}.png`))).toBe(true);
+      expect(generator).toContain(`public/images/_generated/embalar-embalagens/${name}.webp`);
+      expect(page).toContain(`/images/_generated/embalar-embalagens/${name}.webp`);
+      for (const width of widths) {
+        expect(generator).toContain(`public/images/_generated/embalar-embalagens/${name}-${width}.webp`);
+      }
+    }
+  });
+
+  test("mantém o LCP prioritário, o override administrável e o funil individual", () => {
+    expect(page).toContain('managedField="heroImageUrl"');
+    expect(page).toContain('clientKey="embalar-embalagens"');
+    expect(page).toContain("widths={[480, 680]}");
+    expect(page).toContain("priority");
+  });
+});
+
+describe("captura visual: aguardar imagem realmente decodificada", () => {
+  const visual = read("scripts/playwright-visual-regression.mjs");
+
+  test("fixa reduced-motion e aguarda decode + paint antes do snapshot", () => {
+    expect(visual).toContain('page.emulateMedia({ reducedMotion: "reduce" })');
+    expect(visual).toContain("await img.decode()");
+    expect(visual).toContain("requestAnimationFrame");
   });
 });

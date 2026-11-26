@@ -200,9 +200,9 @@ function dedicatedNewClientFiles(clients, addedFiles = new Set()) {
       .map((client) => [client.slug, normalize(client.componentFile)]),
   );
   const candidates = [...addedFiles]
-    .map((file) => normalize(file).match(/^src\/routes\/(portfolio(?:-preview)?)\.([a-z0-9-]+)\.tsx$/))
+    .map((file) => normalize(file).match(/^src\/routes\/portfolio\.([a-z0-9-]+)\.tsx$/))
     .filter(Boolean)
-    .map((match) => ({ slug: match[2], routeFile: "src/routes/" + match[1] + "." + match[2] + ".tsx" }));
+    .map((match) => ({ slug: match[1], routeFile: "src/routes/portfolio." + match[1] + ".tsx" }));
 
   const discovered = [];
   const byComponent = new Map();
@@ -234,18 +234,14 @@ function dedicatedNewClientFiles(clients, addedFiles = new Set()) {
     }
 
     discovered.push({ routeFile, component, stylesheet, slug });
-    if (!byComponent.has(component)) byComponent.set(component, new Set());
-    byComponent.get(component).add(slug);
-    if (stylesheet) {
-      if (!byStylesheet.has(stylesheet)) byStylesheet.set(stylesheet, new Set());
-      byStylesheet.get(stylesheet).add(slug);
-    }
+    byComponent.set(component, (byComponent.get(component) ?? 0) + 1);
+    if (stylesheet) byStylesheet.set(stylesheet, (byStylesheet.get(stylesheet) ?? 0) + 1);
   }
 
   const owned = new Map();
   for (const item of discovered) {
-    if (byComponent.get(item.component)?.size !== 1) continue;
-    if (item.stylesheet && byStylesheet.get(item.stylesheet)?.size !== 1) continue;
+    if (byComponent.get(item.component) !== 1) continue;
+    if (item.stylesheet && byStylesheet.get(item.stylesheet) !== 1) continue;
     owned.set(item.routeFile, item.slug);
     owned.set(item.component, item.slug);
     if (item.stylesheet) owned.set(item.stylesheet, item.slug);
@@ -258,7 +254,7 @@ function safeCompositionRegistryDiff(diff, owned) {
   if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
 
   const additions = changes.filter((line) => line.startsWith("+"));
-  const components = [...owned.entries()].filter(([file]) => file.startsWith("src/components/site/"));
+  const components = [...owned.entries()].filter(([file]) => file.startsWith("src/components/site/") && file.endsWith(".tsx"));
   if (!components.length || additions.length !== components.length) return false;
 
   return additions.every((line) =>
@@ -273,16 +269,10 @@ function safeRouteTreeDiff(diff, owned) {
   const changes = diffChangeLines(diff);
   if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
 
-  const routes = [...owned.entries()].filter(([file]) =>
-    /^src\/routes\/portfolio(?:-preview)?\.[a-z0-9-]+\.tsx$/.test(file),
-  );
+  const routes = [...owned.entries()].filter(([file]) => /^src\/routes\/portfolio\.[a-z0-9-]+\.tsx$/.test(file));
   return routes.length > 0 && routes.every(([file]) => {
-    const match = file.match(/^src\/routes\/(portfolio(?:-preview)?)\.([a-z0-9-]+)\.tsx$/);
-    if (!match) return false;
-    const routePath = match[1] === "portfolio-preview"
-      ? "/portfolio-preview/" + match[2]
-      : "/portfolio/" + match[2];
-    return changes.some((line) => line.includes(routePath));
+    const slug = file.match(/^src\/routes\/portfolio\.([a-z0-9-]+)\.tsx$/)?.[1];
+    return slug && changes.some((line) => line.includes("/portfolio/" + slug));
   });
 }
 
@@ -295,29 +285,21 @@ export function resolveVisualRegressionScope(files, clients, options = {}) {
   const localDirectoryScope = localDirectoryRepresentativeScope(files);
   if (localDirectoryScope) return localDirectoryScope;
 
-  const componentOwners = new Map();
+  const byComponent = new Map();
   const stylesheetOwners = new Map();
   for (const client of clients.filter((item) => item?.componentFile && item?.slug)) {
     const componentFile = normalize(client.componentFile);
-    const owners = componentOwners.get(componentFile) ?? new Set();
-    owners.add(client.slug);
-    componentOwners.set(componentFile, owners);
-  }
-  const byComponent = new Map();
-  for (const [componentFile, owners] of componentOwners) {
-    if (owners.size !== 1) continue;
-    const [slug] = owners;
-    byComponent.set(componentFile, slug);
+    byComponent.set(componentFile, client.slug);
     try {
       const componentSource = readFileSync(resolve(process.cwd(), componentFile), "utf8");
-      for (const match of componentSource.matchAll(/import\s+["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)) {
+      for (const match of componentSource.matchAll(/import ["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)) {
         const stylesheet = componentFile.replace(/[^/]+$/, match[1]);
-        const stylesheetSlugs = stylesheetOwners.get(stylesheet) ?? new Set();
-        stylesheetSlugs.add(slug);
-        stylesheetOwners.set(stylesheet, stylesheetSlugs);
+        const owners = stylesheetOwners.get(stylesheet) ?? new Set();
+        owners.add(client.slug);
+        stylesheetOwners.set(stylesheet, owners);
       }
     } catch {
-      // Component ausente ou dinâmico não recebe escopo individual por inferência.
+      // Component ausente ou dinâmico não ganha escopo individual por inferência.
     }
   }
   for (const [stylesheet, owners] of stylesheetOwners) {
@@ -338,7 +320,7 @@ export function resolveVisualRegressionScope(files, clients, options = {}) {
     // Generated routeTree changes are scoped ONLY in presence of a
     // verified dedicated route and its exclusive component and CSS.
     const changedOwnedRoute = files.some((candidate) =>
-      /^src\/routes\/portfolio(?:-preview)?\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
+      /^src\/routes\/portfolio\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
       newRoutesOwned.has(normalize(candidate)),
     );
     if (file === "src/routeTree.gen.ts") {
@@ -421,8 +403,8 @@ if (invokedAsScript) {
     .map((line) => line.trim())
     .filter(Boolean);
   const options = {};
-  const base = process.env.PR_BASE_SHA || "";
-  const head = process.env.PR_HEAD_SHA || "";
+  const base = process.env.PR_BASE_SHA;
+  const head = process.env.PR_HEAD_SHA;
   if (base && head) {
     try {
       const gitDiff = (...args) => execFileSync("git", args, {
@@ -431,7 +413,7 @@ if (invokedAsScript) {
       });
       options.addedFiles = new Set(
         gitDiff("diff", "--diff-filter=A", "--name-only", base, head)
-          .split(/\r?\n/)
+          .split("\n")
           .map(normalize)
           .filter(Boolean),
       );
@@ -443,7 +425,7 @@ if (invokedAsScript) {
         "diff", "--unified=0", base, head, "--", "src/routeTree.gen.ts",
       );
     } catch {
-      // Falha fechada: sem evidência Git completa, o gate permanece global.
+      // Falha fechada: sem evidência Git completa, o resolvedor mantém o gate global.
     }
   }
   process.stdout.write(resolveVisualRegressionScope(input, mergedClients, options).join(","));
