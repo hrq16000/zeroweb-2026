@@ -25,7 +25,7 @@ const ledger = JSON.parse(readFileSync("src/config/portfolio-funnel-destinations
 const VARIANTS = [
   ["portfolio_quiz", /BeautyBookingQuiz|PortfolioCTAQuiz|submitPortfolioQuiz/],
   ["dynamic_funnel", /FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA/],
-  ["direct_lead_form", /InfinitoSpaLeadForm|submitPublicLead/],
+  ["direct_lead_form", /InfinitoSpaLeadForm|submitInfinitoSpaPublicLead/],
   ["hosted_form", /data-funnel-provider="jotform"/],
 ];
 const DIRECT_CONTACT = /wa\.me|api\.whatsapp\.com|href=["'`]tel:/;
@@ -123,7 +123,7 @@ const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destin
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
-  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('return handleInfinitoSpaWhatsAppRedirect(request)') &&
+  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitInfinitoSpaPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('return handleInfinitoSpaWhatsAppRedirect(request)') &&
     readFileSync("src/lib/infinito-spa-whatsapp.server.ts", "utf8").includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
