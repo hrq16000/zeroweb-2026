@@ -16,7 +16,11 @@ import { getPortfolioRuntimeOverrides } from "@/lib/portfolio-runtime.functions"
 import { PortfolioRuntimeProvider } from "@/components/portfolio/PortfolioRuntimeContext";
 import { getManagedProject } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
-import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
+const PortfolioManagedView = lazy(() =>
+  import("@/components/portfolio/PortfolioManagedView").then((module) => ({
+    default: module.PortfolioManagedView,
+  })),
+);
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
@@ -1497,7 +1501,9 @@ function PortfolioPrototypePage() {
           image: managed.heroImageUrl,
         }}
       >
-        <PortfolioManagedView project={managed} />
+        <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+          <PortfolioManagedView project={managed} />
+        </Suspense>
       </PortfolioStandardShell>
     );
   }
