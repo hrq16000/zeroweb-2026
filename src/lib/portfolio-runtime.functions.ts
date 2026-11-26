@@ -9,25 +9,35 @@ import {
 
 /**
  * Leitura pública (sem sessão) dos overrides administráveis de um projeto.
- *
- * Só devolve campos já sanitizados por `sanitizePortfolioRuntimeRow`: nada de
- * destinatário de funil, telefone, e-mail ou coluna interna. Qualquer falha
- * devolve `null` para o SSR nunca quebrar a página do cliente.
+ * O sinal de fixture só é verdadeiro quando o servidor autorizou e aplicou
+ * uma fixture sintética; nenhuma variável server-only é lida no loader cliente.
  */
+type PortfolioRuntimeOverridesResult = {
+  overrides: PortfolioRuntimeOverrides | null;
+  visualFixtureApplied: boolean;
+};
+
 export const getPortfolioRuntimeOverrides = createServerFn({ method: "GET" })
   .inputValidator((data) =>
     z
       .object({ slug: z.string().trim().min(1).max(120).regex(/^[a-z0-9][a-z0-9-]*$/), visualFixture: z.boolean().optional() })
       .parse(data),
   )
-  .handler(async ({ data }): Promise<PortfolioRuntimeOverrides | null> => {
+  .handler(async ({ data }): Promise<PortfolioRuntimeOverridesResult> => {
     if (data.visualFixture && process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1") {
       const fixture = PORTFOLIO_RUNTIME_VISUAL_FIXTURES[data.slug];
-      return fixture ? sanitizePortfolioRuntimeRow(data.slug, fixture) : null;
+      return {
+        overrides: fixture ? sanitizePortfolioRuntimeRow(data.slug, fixture) : null,
+        visualFixtureApplied: Boolean(fixture),
+      };
     }
+
     // O runtime versionado continua válido sem credencial administrativa.
     // Preview/CI não deve tentar abrir cliente service-role inexistente.
-    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null;
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      return { overrides: null, visualFixtureApplied: false };
+    }
+
     try {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
       const { data: row, error } = await supabaseAdmin
@@ -61,9 +71,13 @@ export const getPortfolioRuntimeOverrides = createServerFn({ method: "GET" })
         )
         .eq("slug", data.slug)
         .maybeSingle();
-      if (error || !row) return null;
-      return sanitizePortfolioRuntimeRow(data.slug, row as unknown as PortfolioRuntimeRow);
+
+      if (error || !row) return { overrides: null, visualFixtureApplied: false };
+      return {
+        overrides: sanitizePortfolioRuntimeRow(data.slug, row as unknown as PortfolioRuntimeRow),
+        visualFixtureApplied: false,
+      };
     } catch {
-      return null;
+      return { overrides: null, visualFixtureApplied: false };
     }
   });

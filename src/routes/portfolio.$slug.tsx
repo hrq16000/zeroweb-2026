@@ -500,15 +500,19 @@ export const Route = createFileRoute("/portfolio/$slug")({
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
     const visualFixtureRequested =
-      process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1" &&
       new URLSearchParams(location.searchStr ?? "").get("0web_visual_fixture") === "v1";
     let overrides: PortfolioRuntimeOverrides | null = null;
+    let visualFixture = false;
     try {
-      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug, visualFixture: visualFixtureRequested } });
+      const runtime = await getPortfolioRuntimeOverrides({
+        data: { slug: params.slug, visualFixture: visualFixtureRequested },
+      });
+      overrides = runtime.overrides;
+      visualFixture = runtime.visualFixtureApplied;
     } catch {
       overrides = null;
     }
-    return { vertical, slug: params.slug, overrides, managed: null, visualFixture: visualFixtureRequested && Boolean(overrides) };
+    return { vertical, slug: params.slug, overrides, managed: null, visualFixture };
   },
   head: ({ loaderData }) => {
     // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.

@@ -41,6 +41,27 @@ describe("indexability diff policy", () => {
     expect(classifyIndexabilityDelta(absent, { ...draft, noindex: false, problems: ["ausente do sitemap"] }, options).hard).toBe(true);
   });
 
+  it("mantém rascunhos existentes noindex e fora do sitemap após o primeiro 200", () => {
+    const existingDraft = {
+      ...base,
+      route: "/portfolio/x",
+      noindex: true,
+      nofollow: true,
+      problems: ["noindex", "nofollow"],
+    };
+    expect(
+      classifyIndexabilityDelta(existingDraft, { ...existingDraft, noindex: false, problems: [] }, {
+        expectedUnpublishedDraft: true,
+      }).hard,
+    ).toBe(true);
+    expect(
+      classifyIndexabilityDelta(existingDraft, existingDraft, {
+        expectedUnpublishedDraft: true,
+        afterInSitemap: true,
+      }).hard,
+    ).toBe(true);
+  });
+
   it("bloqueia rota removida", () => {
     expect(classifyIndexabilityDelta(base, undefined).hard).toBe(true);
   });
