@@ -109,7 +109,7 @@ export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
 
             <label className="grid gap-2 text-sm font-semibold" htmlFor="infinito-email">
               Correo electrónico <span className="font-normal text-[#718077]">(opcional)</span>
-              <input id="infinito-email" name="email" type="email" autoComplete="email" maxLength={200} value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-12 rounded-xl border border-[#C8BEAC] bg-white px-4 text-sm font-normal outline-none transition focus:border-[#947443] focus:ring-2 focus:ring-[#D9BD8D]/35" placeholder="tu@correo.cl" />
+              <input id="infinito-email" name="email" type="email" autoComplete="email" maxLength={200} value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-12 rounded-xl border border-[#C8BEAC] bg-white px-4 text-sm font-normal outline-none transition focus:border-[#947443] focus:ring-2 focus:ring-[#D9BD8D]/35" placeholder="Tu correo electrónico" />
             </label>
 
             <div className="grid gap-5 sm:grid-cols-2">
