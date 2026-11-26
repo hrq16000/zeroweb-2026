@@ -2,10 +2,14 @@
 /** QA real; NO-BRAND gera evidência para revisão humana, não PASS automático. */
 import assert from "node:assert/strict";
 import { chromium } from "playwright";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 const base = (process.env.E2E_BASE_URL || "http://127.0.0.1:8080").replace(/\/$/, "");
 const slug = "panificadora-doce-coracao-santo-antonio";
 const dest = "seo-reports/doce-coracao-visual";
+const entry = JSON.parse(readFileSync("src/config/portfolio-catalog.json", "utf8")).find(c => c.slug === slug);
+assert.ok(entry, "projeto no catálogo");
+const demo = entry.status === "draft" && entry.live === false;
+assert.ok(demo || (entry.status === "published" && entry.live === true), "estado comercial coerente");
 mkdirSync(dest, { recursive: true });
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 const report = { checks: [], noBrand: { status: "REVIEW_REQUIRED", captures: [] } };
@@ -36,7 +40,20 @@ try {
       assert.equal(response?.status(), 200, "HTTP 200 preview");
       await page.locator('[data-portfolio-composition="' + slug + '"]').waitFor({ timeout: 20000 });
       assert.match(await page.locator("h1").first().innerText(), /pão.*pausa.*coração/is);
-      assert.match((await page.locator('meta[name="robots"]').getAttribute("content")) || "", /index,follow/, "candidate published deve ser indexável");
+      const robots = ((await page.locator('meta[name="robots"]').getAttribute("content")) || "")
+        .toLowerCase().split(",").map(x => x.trim());
+      if (demo) {
+        assert.ok(robots.includes("noindex") && robots.includes("nofollow") && !robots.includes("index"),
+          "demonstração draft deve preservar noindex,nofollow");
+      } else {
+        assert.ok(robots.includes("index") && robots.includes("follow") && !robots.includes("noindex") && !robots.includes("nofollow"),
+          "candidate publicado deve ser indexável");
+      }
+      const sitemap = await context.request.get(base + "/sitemap-portfolio.xml");
+      assert.equal(sitemap.status(), 200, "sitemap de portfólios disponível");
+      const ownUrl = "https://0web.com.br/portfolio/" + slug;
+      assert.equal((await sitemap.text()).includes("<loc>" + ownUrl + "</loc>"), !demo,
+        "sitemap deve refletir exatamente o estado comercial");
       assert.equal(await page.locator('link[rel="canonical"]').first().getAttribute("href"),
         "https://0web.com.br/portfolio/" + slug);
       assert.ok((await page.locator('meta[property="og:image"]').first().getAttribute("content") || "").includes(slug));
