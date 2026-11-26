@@ -3370,7 +3370,7 @@
       "image": "/images/infinito-spa/capa-card.svg",
       "icon": "/images/infinito-spa/mark.svg",
       "socialImage": "/images/infinito-spa/social-og.jpg",
-      "socialVersion": "76dc05f9",
+      "socialVersion": "0e570453",
       "componentFile": "src/components/site/InfinitoSpaPage.tsx",
       "routeFile": "src/routes/portfolio.infinito-spa.tsx",
       "assetsDir": "public/images/infinito-spa",

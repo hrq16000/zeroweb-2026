@@ -1226,8 +1226,8 @@
     },
     "infinito-spa": {
       "icon": "/images/infinito-spa/mark.svg",
-      "socialImage": "/images/infinito-spa/social-og.jpg",
-      "socialVersion": "76dc05f9",
+      "socialImage": "/images/infinito-spa/social.svg",
+      "socialVersion": "0e570453",
       "proof": {
         "enabled": false,
         "eyebrow": "Propuesta demostrativa",

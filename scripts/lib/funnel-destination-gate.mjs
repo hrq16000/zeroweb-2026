@@ -8,7 +8,8 @@
  *
  * O livro-razão de proveniência continua útil como evidência histórica, mas
  * não substitui nem bloqueia o registro operacional versionado.
- * Nenhum secret/env/tabela privada participa desta decisão.
+ * Segredos Vercel são referenciados por nome no registro e validados por
+ * proveniência explícita; o valor nunca entra no repositório.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -87,6 +88,8 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = 
   const whatsapp = registry[clientKey]?.whatsapp;
   const provenance = entries[clientKey] ?? entries[slug] ?? null;
   const provenanceStatus = provenance?.status ?? null;
+  const expectedEnvKey = `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+  const secretReference = whatsapp === `env:${expectedEnvKey}` && provenanceStatus === "CONFIGURED_UNVERIFIED" && provenance?.source === "CLIENT_SUPPLIED" && Array.isArray(provenance?.evidence) && provenance.evidence.some((line) => String(line).includes(expectedEnvKey));
 
   if (whatsapp === null) {
     // Estado deliberado: o projeto salva lead/protocolo e não redireciona.
@@ -97,6 +100,11 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = 
       warnings,
       provenanceStatus,
     };
+  }
+
+  if (secretReference) {
+    warnings.push("FUNNEL_DESTINATION_GATE: destino resolvido por segredo Vercel server-only; valor não é versionado nem validado no CI.");
+    return { status: "PASS", mode: "WHATSAPP", blockers, warnings, provenanceStatus };
   }
 
   if (!validWhatsApp(whatsapp)) {

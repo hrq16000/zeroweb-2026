@@ -1764,3 +1764,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Preservado:** bolos personalizados, kit festa, salgados, Copo da Felicidade, faixa de kits 6–100 pessoas, crédito/débito, retirada no Rio Bonito, Uber a combinar e funil.
 - **Operação:** a micro pode ser validada em PR, mas o merge fica condicionado à normalização do build-rate-limit do Vercel para evitar ampliar divergência entre main e produção.
 
+
+## 2026-11-25 — Infinito Spa (Chile)
+- Task: mini-site demostrativo y funil de consulta en español chileno.
+- Skills: 0web-skill-router, 0web-skill-discovery, 0web-experience-design-max, 0web-portfolio-art-direction, 0web-design-system y 0web-ui-quality-gates; contratos de SEO, entidad, privacidad, motion y originalidad aplicados.
+- Discovery: LobeHub frontend-design revisado como referencia, no instalado; AwesomeSkill Search sin skill pertinente verificable.
+- QA: Playwright 390/768/1440 y aprobación de Roze pendientes; página noindex mientras sea propuesta.
