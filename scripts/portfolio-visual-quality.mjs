@@ -331,8 +331,11 @@ export async function buildVisualQuality(root, opts = {}) {
     // capa curada (portfolio-cover-plan.json) → catalog.image → social → logo → default.
     const planned = coverPlan[slug] ?? null;
     const plannedSource = typeof planned?.source === "string" ? planned.source.trim() : "";
-    const plannedCover = plannedSource
-      ? `/${plannedSource.replace(/^\\/+/, "").replace(/^public\\//, "")}`
+    const sourceWithoutPublic = plannedSource.startsWith("public/")
+      ? plannedSource.slice("public/".length)
+      : plannedSource;
+    const plannedCover = sourceWithoutPublic
+      ? `/${sourceWithoutPublic.startsWith("/") ? sourceWithoutPublic.slice(1) : sourceWithoutPublic}`
       : null;
     const dedicatedCover =
       plannedCover ?? (typeof cat.image === "string" && cat.image ? cat.image : null);
