@@ -1365,6 +1365,7 @@
       "date": "2026-11-25"
     },
     "contactMode": "funnelOnly",
-    "creativeBriefFile": "docs/portfolio/briefs/infinito-spa.md"
+    "creativeBriefFile": "docs/portfolio/briefs/infinito-spa.md",
+    "funnelVariant": "direct_lead_form"
   }
 ]
