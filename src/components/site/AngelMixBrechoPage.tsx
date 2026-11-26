@@ -49,7 +49,7 @@ export function AngelMixBrechoPage() {
             priority
             decoding="sync"
             widths={[480, 960, 1536]}
-            sizes="100vw"
+            sizes="(min-width: 1024px) 960px, 100vw"
             width={1536}
             height={1024}
             className="h-[78vh] w-full object-cover md:h-[88vh]"
@@ -66,11 +66,10 @@ export function AngelMixBrechoPage() {
                 Angel Mix · Novo Mundo, Curitiba
               </p>
             </MotionReveal>
-            <MotionReveal variant="mask" delay={180}>
+            {/* H1 da primeira dobra precisa estar visível no SSR/LCP. */}
               <h1 className="mt-4 max-w-[16ch] font-display text-[2.6rem] font-black leading-[0.92] tracking-tight text-[var(--am-cream)] md:text-[5rem]">
                 <ManagedText field="heroHeadline" fallback={"Garimpo de moda no Novo Mundo."} />
               </h1>
-            </MotionReveal>
             <p className="mt-4 max-w-[44ch] text-base leading-relaxed text-[var(--am-cream)]/85 md:text-lg">
               <ManagedText
                 field="heroSubheadline"
