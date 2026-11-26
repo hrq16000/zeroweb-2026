@@ -1776,3 +1776,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Corrigidos os artefatos derivados de capa, datas reais do histórico Git e galeria administrativa após a inclusão do novo cliente.
 - Restaurado o crédito institucional 0WEB obrigatório no override do cliente.
 - Preservados os 99 projetos anteriores; a capa Infinito permanece `UNCERTAIN_ORIGIN` até revisão visual humana, sem aprovação fabricada.
+
+
+## 2026-11-26 — Infinito Spa · privacidad y SEO internacional
+- Retiradas referencias a vivienda/apartamento de la página y de los archivos versionados; no se publica dirección residencial ni contacto privado.
+- Copy público de marca actualizado sin etiquetas de demostración; la identidad conceptual sigue pendiente de confirmación de Roze.
+- Schema.org y el idioma del documento ahora respetan `CL` y `es-CL`; no se inventa una dirección postal.
+- La indexación y el funnel permanecen retenidos hasta E2E real, credencial administrativa Supabase y aprobación de identidad.

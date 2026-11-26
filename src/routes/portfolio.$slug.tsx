@@ -41,7 +41,7 @@ function managedHead(project: ManagedProject) {
     meta: [
       { title: project.seoTitle },
       { name: "description", content: project.seoDescription },
-      { name: "robots", content: isInfinitoSpa ? "noindex,follow" : project.robots },
+      { name: "robots", content: project.robots },
       ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
       { property: "og:title", content: project.seoTitle },
       { property: "og:description", content: project.seoDescription },
@@ -51,8 +51,8 @@ function managedHead(project: ManagedProject) {
       { property: "og:site_name", content: project.displayName },
       { property: "og:image", content: social },
       { property: "og:image:secure_url", content: social },
-      { property: "og:image:width", content: isInfinitoSpa ? "600" : "1200" },
-      { property: "og:image:height", content: isInfinitoSpa ? "315" : "630" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: project.displayName },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: project.seoTitle },
@@ -605,7 +605,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
     const description = isInfinitoSpa
-      ? "Propuesta visual demostrativa de Infinito Spa en Santiago, Chile. Consulta modalidades de masajes y coordina disponibilidad directamente con Roze."
+      ? "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta modalidades, duración y disponibilidad directamente con Roze antes de coordinar tu sesión."
       : isArildoMadeiras
       ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
@@ -957,8 +957,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
-        { property: "og:image:width", content: isInfinitoSpa ? "600" : "1200" },
-        { property: "og:image:height", content: isInfinitoSpa ? "315" : "630" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: eff.title },

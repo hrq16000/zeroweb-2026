@@ -8,6 +8,8 @@ export type PortfolioSeoDescriptor = {
   segment: string;
   city: string;
   state: string;
+  country?: string;
+  locale?: string;
   location?: string;
   neighborhood?: string;
   tags: string[];
@@ -88,6 +90,8 @@ function descriptorFromCatalog(item: CatalogItem): PortfolioSeoDescriptor {
     segment: clean(item.segment),
     city,
     state: clean(item.state),
+    country: clean(item.country) || undefined,
+    locale: clean(item.locale) || undefined,
     location: location || undefined,
     neighborhood: extractNeighborhood(location || undefined, city),
     tags: normalizeTags(item.tags),
@@ -108,7 +112,7 @@ export function resolvePortfolioSeoDescriptor(
   slug: string,
   override?: PortfolioSeoContextOverride,
 ): PortfolioSeoDescriptor | null {
-  const base = PUBLIC_ITEMS.find((item) => item.slug === slug);
+  const base = (portfolioCatalog as CatalogItem[]).find((item) => item.slug === slug);
   const fallback = base ? descriptorFromCatalog(base) : null;
 
   const title = clean(override?.title) || fallback?.title || "";
@@ -120,6 +124,8 @@ export function resolvePortfolioSeoDescriptor(
     segment: clean(override?.segment) || fallback?.segment || "",
     city: clean(override?.city) || fallback?.city || "",
     state: clean(override?.state) || fallback?.state || "",
+    country: clean(override?.country) || fallback?.country,
+    locale: clean(override?.locale) || fallback?.locale,
     location: clean(override?.location) || fallback?.location,
     neighborhood:
       clean(override?.neighborhood) ||
@@ -410,8 +416,8 @@ export function portfolioEntityGraphSchema(
             ? {
                 "@type": "PostalAddress",
                 addressLocality: item.city,
-                addressRegion: item.state,
-                addressCountry: "BR",
+                ...(item.state && !(item.country === "CL" && normalize(item.state) === "chile") ? { addressRegion: item.state } : {}),
+                addressCountry: item.country || "BR",
               }
             : undefined,
         }
@@ -453,7 +459,7 @@ export function portfolioEntityGraphSchema(
     url: pageUrl,
     name: portfolioUniversalSeoTitle(slug, override) ?? item.title,
     description: item.summary || undefined,
-    inLanguage: "pt-BR",
+    inLanguage: item.locale || "pt-BR",
     mainEntity: { "@id": entityId },
     breadcrumb: { "@id": breadcrumbId },
     isPartOf: {
