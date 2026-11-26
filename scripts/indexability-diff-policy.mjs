@@ -15,6 +15,7 @@ export function classifyIndexabilityDelta(before, after, {
     if (before?.status === 200 && before.status !== after.status) {
       reasons.push(`status ${before.status}→${after.status}`);
     }
+    if (beforeInSitemap) reasons.push("rota já publicada no sitemap");
     if (before?.status === 200 && !before.noindex) reasons.push("noindex introduzido em rota pública");
     if (afterInSitemap) reasons.push("rascunho presente no sitemap");
 
