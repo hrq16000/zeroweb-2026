@@ -21,7 +21,7 @@ export function PortfolioBackToTop({ locale }: { locale?: "es-CL" } = {}) {
     <button
       type="button"
       aria-label={spanish ? "Volver arriba" : "Voltar ao topo"}
-      onClick={() => window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" })
+      onClick={() => window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" })}
       className={`fixed ${FLOATING_SLOT.rightTwo} right-4 sm:right-6 ${FLOATING_Z.fab} grid min-h-11 min-w-11 place-items-center rounded-full border border-white/20 bg-slate-950/90 text-white shadow-lg backdrop-blur ${reducedMotion ? "" : "transition hover:-translate-y-0.5"} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
     >
       <ArrowUp className="h-4 w-4" aria-hidden="true" />
