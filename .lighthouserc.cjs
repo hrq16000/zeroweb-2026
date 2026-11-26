@@ -18,6 +18,7 @@ const TARGET_URL = USE_LOCAL_SERVER
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
+const catalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
 const LIGHTHOUSE_SCOPE = process.env.LHCI_SCOPE || "full";
@@ -36,7 +37,9 @@ const DEMO_ONLY =
   LIGHTHOUSE_SCOPE === "portfolio" &&
   LIGHTHOUSE_ONLY.length > 0 &&
   LIGHTHOUSE_ONLY.every((slug) => {
-    if (!/^[a-z0-9-]+$/.test(slug) || clients.some((item) => item.slug === slug)) return false;
+    if (!/^[a-z0-9-]+$/.test(slug)) return false;
+    const project = catalog.find((item) => item.slug === slug);
+    if (project?.status !== "draft" || project?.live !== false) return false;
     const routePath = `src/routes/portfolio.${slug}.tsx`;
     if (!fs.existsSync(routePath)) return false;
     const route = fs.readFileSync(routePath, "utf8");

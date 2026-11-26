@@ -2029,6 +2029,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: comprimento do cabelo, região da depilação e preferência de horário."
   },
+  "salgados-da-fran": {
+    "proposalKind": "service",
+    "services": [
+      "Quero conhecer os salgados disponíveis",
+      "Quero fazer uma encomenda",
+      "Quero consultar quantidade e valores"
+    ],
+    "experienceOptions": [
+      "Para casa ou família",
+      "Aniversário ou comemoração",
+      "Reunião ou encontro",
+      "Outra ocasião"
+    ],
+    "periodOptions": [
+      "Gostaria de combinar retirada",
+      "Gostaria de consultar entrega",
+      "Preciso saber as opções"
+    ],
+    "timingOptions": [
+      "Nesta semana",
+      "Nas próximas semanas",
+      "Ainda estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Como podemos ajudar?",
+      "experience": "Qual é a ocasião?",
+      "period": "Como imagina receber?",
+      "timing": "Quando será?"
+    },
+    "stepSubtitles": {
+      "service": "Selecione o motivo da consulta; o cardápio será confirmado pelo atendimento.",
+      "period": "Entrega e retirada dependem de confirmação."
+    },
+    "notePlaceholder": "Informe data, quantidade aproximada, preferências e suas dúvidas sobre o cardápio."
+  },
   "santos-montador-de-moveis": {
     "services": [
       "Montagem ou desmontagem de móveis",
