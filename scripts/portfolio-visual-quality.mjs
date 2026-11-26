@@ -330,7 +330,10 @@ export async function buildVisualQuality(root, opts = {}) {
     // Precedência real do card em /portfolio:
     // capa curada (portfolio-cover-plan.json) → catalog.image → social → logo → default.
     const planned = coverPlan[slug] ?? null;
-    const plannedCover = planned ? `/images/${slug}/capa-card.jpg` : null;
+    const plannedSource = typeof planned?.source === "string" ? planned.source.trim() : "";
+    const plannedCover = plannedSource
+      ? `/${plannedSource.replace(/^\\/+/, "").replace(/^public\\//, "")}`
+      : null;
     const dedicatedCover =
       plannedCover ?? (typeof cat.image === "string" && cat.image ? cat.image : null);
     const coverPath = dedicatedCover ?? rec.socialImage ?? rec.icon ?? "";
