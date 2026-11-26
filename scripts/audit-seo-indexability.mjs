@@ -177,9 +177,13 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
   const byRoute = (snap) => Object.fromEntries(snap.routes.map((r) => [r.route, r]));
   const b = byRoute(before);
   const a = byRoute(after);
-  const catalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
+  const catalog = [
+    ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8")),
+    ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog-standalone.json", "utf8")),
+  ];
+  const manifests = JSON.parse(fs.readFileSync("src/config/portfolio-project-manifests.json", "utf8")).projects;
   const draftRoutes = new Set(catalog
-    .filter(isUnpublishedDraftPortfolio)
+    .filter((item) => isUnpublishedDraftPortfolio(item) || (item.status === "draft" && ["draft", "design"].includes(manifests[item.slug]?.stage)))
     .map((item) => `/portfolio/${item.slug}`));
   const inventoryPaths = (snapshot) => new Set(snapshot.sitemap.urls.map((url) => {
     try { return new URL(url).pathname.replace(/\/$/, "") || "/"; } catch { return url; }
@@ -204,7 +208,12 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
     const chg = (from, to) => (String(from ?? "—") === String(to ?? "—") ? String(to ?? "—") : `${from ?? "—"} → **${to ?? "—"}**`);
     const expectedUnpublishedDraft = draftRoutes.has(route)
       && !beforeInventory.has(route) && !afterInventory.has(route);
-    const delta = classifyIndexabilityDelta(x, y, { expectedUnpublishedDraft });
+    const delta = classifyIndexabilityDelta(x, y, {
+      expectedUnpublishedDraft,
+      newDraft: expectedUnpublishedDraft,
+      beforeInSitemap: beforeInventory.has(route),
+      afterInSitemap: afterInventory.has(route),
+    });
     if (delta.hard) regressions++;
     const observation =
       delta.schemaDelta < 0

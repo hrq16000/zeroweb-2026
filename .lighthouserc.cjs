@@ -18,7 +18,10 @@ const TARGET_URL = USE_LOCAL_SERVER
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
-const portfolioCatalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
+const portfolioCatalog = [
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8")),
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog-standalone.json", "utf8")),
+];
 const { isUnpublishedDraftPortfolio } = require("./scripts/lib/portfolio-draft-policy.cjs");
 const draftPortfolioSlugs = new Set(portfolioCatalog.filter(isUnpublishedDraftPortfolio).map(({ slug }) => slug));
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));

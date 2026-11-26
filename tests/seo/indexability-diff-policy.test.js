@@ -45,3 +45,24 @@ describe("indexability diff policy", () => {
     expect(classifyIndexabilityDelta(base, undefined).hard).toBe(true);
   });
 });
+
+
+describe("nova demonstração protegida", () => {
+  const missing = { status: 404, canonical: null, noindex: false, nofollow: false, schemas: [], problems: ["status 404"] };
+  const draft = { ...base, route: "/portfolio/x", noindex: true, nofollow: true, problems: ["noindex"] };
+  const config = { newDraft: true, beforeInSitemap: false, afterInSitemap: false };
+  it("aceita somente a rota nova, declarada draft e fora do sitemap", () => {
+    expect(classifyIndexabilityDelta(missing, draft, config).hard).toBe(false);
+    expect(classifyIndexabilityDelta(missing, draft).hard).toBe(true);
+    expect(classifyIndexabilityDelta(base, draft, config).hard).toBe(true);
+  });
+  it("bloqueia indexação, sitemap, canonical incorreta, redirecionamento e JSON-LD inválido", () => {
+    expect(classifyIndexabilityDelta(missing, { ...draft, noindex: false }, config).hard).toBe(true);
+    expect(classifyIndexabilityDelta(missing, draft, { ...config, beforeInSitemap: true }).hard).toBe(true);
+    expect(classifyIndexabilityDelta(missing, draft, { ...config, afterInSitemap: true }).hard).toBe(true);
+    expect(classifyIndexabilityDelta(missing, { ...draft, canonical: "https://0web.com.br/portfolio/y" }, config).hard).toBe(true);
+    expect(classifyIndexabilityDelta(missing, { ...draft, redirectedTo: "/portfolio/y" }, config).hard).toBe(true);
+    expect(classifyIndexabilityDelta(missing, { ...draft, problems: ["noindex", "JSON-LD inválido"] }, config).hard).toBe(true);
+    expect(classifyIndexabilityDelta(base, { ...base, nofollow: true }, config).hard).toBe(true);
+  });
+});
