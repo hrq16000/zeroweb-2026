@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "sao-francisco-pet-center",
+    "clientKey": "sao-francisco-pet-center",
+    "title": "São Francisco Pet Center",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["hotel para pets", "creche pet", "banho e tosa", "pet center"],
+    "subtitle": "Hotel, creche e banho e tosa para pets",
+    "location": "Bom Jesus · São José dos Pinhais — PR",
+    "badge": "Demonstração 0WEB",
+    "image": "https://images.unsplash.com/photo-1657318216069-399acfda68d1?auto=format&fit=crop&w=800&q=80",
+    "fallbackImage": "/og-default.jpg",
+    "metrics": "Projeto demonstrativo",
+    "summary": "Projeto demonstrativo de site para o São Francisco Pet Center no Bom Jesus, São José dos Pinhais. Não é o site oficial do estabelecimento; a foto do card é ilustrativa."
+  }
+]

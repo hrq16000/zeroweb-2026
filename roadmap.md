@@ -1,5 +1,13 @@
 # Roadmap
 
+## Catálogo, busca e pendências do arquivo de execução — 26/11/2026
+- [x] Busca global do catálogo: São Francisco Pet Center, rascunhos, identificadores e status localizáveis; resultados fora dos filtros aparecem ao final.
+- [x] Ordenação por datas reais (criação/atualização, do histórico Git) e ordem aleatória.
+- [ ] Branch de transferência no GitHub — bloqueio: o dono da organização `hrq16000` precisa aprovar o aplicativo OAuth do conector GitHub da Lovable (ou autorizar outro método oficial).
+- [ ] Dona Garimpeira: central de leads no painel — não iniciada nesta rodada (aguarda pedido).
+- [ ] Dona Garimpeira: "Você também pode gostar" com produtos reais — não iniciada nesta rodada.
+- [ ] Checagem de segurança do site publicado — não iniciada nesta rodada.
+
 ## Inspeção final e transferência para Codex — 24/11/2026 às 14:54 UTC
 - [x] Reconciliar HEAD eecb2829 local/remoto: 3019 arquivos idênticos/zero exclusivos; 47 PRs/566 branches preservadas, Vercel READY 58032d30 e ERROR 873a1938. Sem merge/publicação/SQL/testes repetidos.
 - [x] Inventário nominal: 99 cards/99 sitemap leafs, 100 entidades 200 + alias JKL; sete novas rotas 404 e uma reativação draft. Ordenação por array/geo/relevância e busca truncada comprovadas, sem editar aplicação.
