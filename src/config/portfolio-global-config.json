@@ -1515,6 +1515,12 @@
           },
           "notePlaceholder": "Qué buscas, alguna preferencia o una pregunta para Roze."
         }
+      },
+      "footer": {
+        "enabled": true,
+        "hostCredit": false,
+        "showYear": true,
+        "variant": "minimal"
       }
     }
   }
