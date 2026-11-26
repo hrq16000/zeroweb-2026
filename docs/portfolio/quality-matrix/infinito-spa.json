@@ -158,6 +158,10 @@
       "microinteractionQuality": "CTA hover/focus",
       "reducedMotionCoverage": "motion-reduce",
       "motionPerformance": "CSS-only"
+    },
+    "narrativeRoles": {
+      "hero.orbit": "INTRODUCE",
+      "cta.hover": "REINFORCE_CTA"
     }
   },
   "autonomy": {

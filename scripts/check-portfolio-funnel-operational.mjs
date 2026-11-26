@@ -91,6 +91,7 @@ for (const c of clients) {
 }
 
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
+const portfolioQuizUi = readFileSync("src/components/site/BeautyBookingQuiz.tsx", "utf8");
 const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
 const destinationConfirm = readFileSync("src/lib/portfolio-destination-confirm.server.ts", "utf8");
 const registry = readFileSync("src/lib/portfolio-whatsapp-registry.server.ts", "utf8");
@@ -117,6 +118,7 @@ const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destin
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
+  ["Infinito Spa exige nome e WhatsApp e persiste o contato", portfolioQuizUi.includes("requireContactDetails") && funnelFns.includes('data.clientKey === "infinito-spa"') && funnelFns.includes("contact_name: contactName")],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],

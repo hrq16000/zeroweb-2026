@@ -16,14 +16,18 @@
       "resolved": false,
       "verified": false,
       "usable": false,
-      "notes": "Resultados homónimos no vinculados."
+      "notes": "Resultados homónimos no vinculados.",
+      "accessible": true,
+      "ingestable": false
     },
     "googleMaps": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "usable": false
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
     },
     "officialWebsite": {
       "searched": true,
@@ -31,7 +35,9 @@
       "resolved": false,
       "verified": false,
       "usable": false,
-      "notes": "La profesional indicó que no tiene sitio."
+      "notes": "La profesional indicó que no tiene sitio.",
+      "accessible": true,
+      "ingestable": false
     },
     "instagram": {
       "searched": true,
@@ -39,14 +45,18 @@
       "resolved": false,
       "verified": false,
       "usable": false,
-      "notes": "No se obtuvo handle inequívoco."
+      "notes": "No se obtuvo handle inequívoco.",
+      "accessible": true,
+      "ingestable": false
     },
     "facebook": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "usable": false
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
     },
     "publicDirectories": {
       "searched": true,
@@ -54,7 +64,29 @@
       "resolved": false,
       "verified": false,
       "usable": false,
-      "notes": "Homónimos descartados por falta de convergencia."
+      "notes": "Homónimos descartados por falta de convergencia.",
+      "accessible": true,
+      "ingestable": false
+    },
+    "reviews": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "No public review source could be linked confidently to the correct Infinito Spa in Santiago; no ratings or testimonials are used."
+    },
+    "media": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "No official business photos or social media assets were verified; only original 0WEB demo artwork is used."
     }
   },
   "sources": [
@@ -62,13 +94,15 @@
       "value": "Infinito Spa / masajes / Santiago",
       "source": "Formulario de diagnóstico 0WEB",
       "sourceType": "OWNER_SUPPLIED",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
     },
     {
       "value": "Atiende en su apartamento, en una sala preparada para clientes",
       "source": "Conversación WhatsApp compartida por el operador",
       "sourceType": "OWNER_SUPPLIED",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
     }
   ],
   "allowedClaims": [

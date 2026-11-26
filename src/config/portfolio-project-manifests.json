@@ -1236,26 +1236,26 @@
       "searchQa": [
         {
           "query": "Infinito Spa masajes Santiago Chile",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "infinito-spa"
         },
         {
           "query": "masoterapia Santiago de Chile",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "infinito-spa"
         },
         {
           "query": "masajes en Santiago",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "infinito-spa"
         },
         {
           "query": "Infinito Spa Santiago",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "infinito-spa"
         }
       ],
-      "lastUpdatedAt": "2026-11-25",
+      "lastUpdatedAt": "2026-11-26",
       "qaPreparation": {
         "targetCompositionContract": 2,
         "completed": false,

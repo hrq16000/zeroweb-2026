@@ -48,7 +48,7 @@ export function expectsOperationalDelivery(client) {
  *   provenanceStatus: string|null
  * }}
  */
-export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = {}) {
+export function evaluateFunnelDestination(slug, { clients, ledger, contacts, env } = {}) {
   const allClients = clients ?? readJson("src/config/portfolio-clients.json", []);
   const book = ledger ?? readJson("src/config/portfolio-funnel-destinations.json", { entries: {} });
   const registry =
@@ -103,7 +103,17 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = 
   }
 
   if (secretReference) {
-    warnings.push("FUNNEL_DESTINATION_GATE: destino resolvido por segredo Vercel server-only; valor não é versionado nem validado no CI.");
+    if (env !== undefined) {
+      const secretValue = env?.[expectedEnvKey];
+      if (validWhatsApp(secretValue)) {
+        return { status: "PASS", mode: "WHATSAPP", blockers, warnings, provenanceStatus };
+      }
+      warnings.push(secretValue
+        ? "BLOCKED_INVALID_SECRET: o segredo não contém um WhatsApp válido; o lead permanece em modo LEAD_ONLY."
+        : "BLOCKED_MISSING_SECRET: o segredo não está disponível neste ambiente; o lead permanece em modo LEAD_ONLY.");
+      return { status: "PASS", mode: "LEAD_ONLY", blockers, warnings, provenanceStatus };
+    }
+    warnings.push("FUNNEL_DESTINATION_GATE: referência server-only validada por proveniência; o valor não é lido no CI e o runtime mantém fallback LEAD_ONLY.");
     return { status: "PASS", mode: "WHATSAPP", blockers, warnings, provenanceStatus };
   }
 

@@ -1478,49 +1478,50 @@
         "quizConfig": {
           "locale": "es-CL",
           "services": [
-            "Quiero consultar las opciones de masaje disponibles",
-            "Busco un momento de relajación y bienestar",
-            "Tengo una consulta antes de reservar"
+            "Consulta sobre masajes y masoterapia",
+            "Quiero orientación antes de elegir",
+            "Consultar disponibilidad"
           ],
           "experienceOptions": [
-            "Es mi primera sesión de masoterapia",
-            "Ya he recibido masajes antes",
-            "Prefiero conversar antes de decidir"
+            "Es mi primera consulta",
+            "Ya he recibido masoterapia",
+            "Prefiero conversar antes"
           ],
           "periodOptions": [
             "Mañana",
             "Tarde",
-            "Noche",
-            "Tengo flexibilidad"
+            "Horario flexible",
+            "A convenir"
           ],
           "timingOptions": [
-            "Lo antes posible",
-            "Durante esta semana",
-            "La próxima semana",
-            "Solo estoy consultando"
+            "Esta semana",
+            "Próximos días",
+            "Más adelante",
+            "A convenir"
           ],
           "stepTitles": {
             "service": "¿Qué te gustaría consultar?",
-            "experience": "¿Ya has recibido masajes antes?",
-            "period": "¿Qué horario prefieres?",
+            "experience": "¿Has recibido masoterapia antes?",
+            "period": "¿Qué horario te acomoda?",
             "timing": "¿Cuándo te gustaría coordinar?",
-            "note": "¿Quieres agregar algún detalle?"
+            "note": "Cuéntanos un poco más"
           },
           "stepSubtitles": {
-            "service": "Cuéntanos qué atención estás buscando.",
-            "experience": "Esto ayuda a orientar la conversación.",
-            "period": "La disponibilidad se confirma directamente.",
-            "timing": "Es una preferencia, no una reserva confirmada.",
-            "note": "Comparte una pregunta para Roze."
+            "service": "Elige el motivo principal de tu consulta.",
+            "experience": "Así podremos orientar mejor la conversación.",
+            "period": "La disponibilidad se confirma directamente con Roze.",
+            "timing": "Indica cuándo te gustaría conversar.",
+            "note": "Deja cualquier detalle o preferencia que debamos conocer."
           },
-          "notePlaceholder": "Qué buscas, alguna preferencia o una pregunta para Roze."
+          "notePlaceholder": "Cuéntanos qué necesitas. Las modalidades y la disponibilidad se confirman directamente con Roze.",
+          "requireContactDetails": true
         }
       },
       "footer": {
         "enabled": true,
         "hostCredit": false,
         "showYear": true,
-        "variant": "minimal"
+        "variant": "dark"
       }
     }
   }
