@@ -199,4 +199,79 @@ describe("escopo seguro da regressão visual", () => {
     const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
     expect(size).toBeLessThan(40_000);
   });
+
+  test("nova página autoral com rota e registry estritamente aditivos usa o próprio slug", () => {
+    const slug = "salgados-da-fran";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const component = "src/components/site/SalgadosDaFranPage.tsx";
+    const registrationFiles = [
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/config/portfolio-clients.json",
+      "src/config/portfolio-catalog.json",
+      "public/images/salgados-da-fran/marca.svg",
+      "tests/portfolio/visual-regression-scope.test.ts",
+      "scripts/resolve-visual-regression-scope.mjs",
+    ];
+    const registrationClients = [
+      ...clients,
+      { slug, componentFile: component },
+    ];
+    const options = {
+      addedFiles: new Set([route, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage").then((m) => ({ default: m.SalgadosDaFranPage }))),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "+  '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope(registrationFiles, registrationClients, options)).toEqual([slug]);
+  });
+
+  test("registro não aditivo ou alteração de componente compartilhado mantém gate global", () => {
+    const slug = "salgados-da-fran";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const component = "src/components/site/SalgadosDaFranPage.tsx";
+    const registrationClients = [...clients, { slug, componentFile: component }];
+    const options = {
+      addedFiles: new Set([route, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '-  "cliente-existente": lazy(() => import("@/components/site/ExistingPage")),',
+        '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage")),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "+  '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope([
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+    ], registrationClients, options)).toEqual([]);
+    options.compositionRegistryDiff = [
+      "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+      '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage")),',
+      "",
+    ].join("\n");
+    expect(resolveVisualRegressionScope([
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/components/portfolio/PortfolioStandardShell.tsx",
+    ], registrationClients, options)).toEqual([]);
+  });
+
 });
