@@ -113,7 +113,7 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(loader).toContain("approvedWithoutSocialImage: true");
     expect(loader).not.toContain('if (!available) throw notFound()');
     expect(loader).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
-    expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }');
+    expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null }');
     const clients = JSON.parse(read("src/config/portfolio-clients.json"));
     expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
     const catalog = JSON.parse(read("src/config/portfolio-catalog.json"));

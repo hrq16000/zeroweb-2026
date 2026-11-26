@@ -128,7 +128,7 @@ const responsiveTargets = [
   // PapeLemi: LCP em WebP responsivo; o PNG original permanece intacto.
   {
     source: "public/images/papelemi-personalizados/hero.png",
-    width: 1680,
+    width: 1672,
     quality: 92,
     output: "public/images/_generated/papelemi-personalizados/hero.webp",
   },
