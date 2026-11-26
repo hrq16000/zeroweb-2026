@@ -28,7 +28,7 @@ export function InfinitoSpaPage() {
     <section className="relative isolate min-h-[88svh] overflow-hidden bg-[#14392F] text-[#F6F1E7]">
       <div className="absolute inset-0 opacity-25" aria-hidden="true"><div className="absolute -right-40 top-10 h-[34rem] w-[34rem] rounded-full border border-[#D9BD8D]/50"/><div className="absolute -right-24 top-26 h-[27rem] w-[27rem] rounded-full border border-[#D9BD8D]/35"/></div>
       <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-12">
-        <a href="#inicio" className="inline-flex items-center gap-3" aria-label="Infinito Spa, inicio"><img src="/images/infinito-spa/mark.svg" alt="" width="54" height="34"/><span className="text-xs font-semibold tracking-[.28em] text-[#E9D9B7]">INFINITO SPA</span></a>
+        <a href="#inicio" className="inline-flex items-center gap-3" aria-label="Infinito Spa, inicio"><img src="/images/infinito-spa/mark.svg" alt="" width="54" height="34" loading="eager" decoding="async"/><span className="text-xs font-semibold tracking-[.28em] text-[#E9D9B7]">INFINITO SPA</span></a>
         <a href="#experiencia" className="hidden text-xs font-semibold uppercase tracking-[.18em] text-[#E9D9B7] transition hover:text-white sm:inline-flex">La experiencia <ArrowUpRight className="ml-1 h-3.5 w-3.5" aria-hidden="true"/></a>
       </header>
       <div className="relative z-10 mx-auto grid min-h-[72svh] max-w-7xl items-center gap-10 px-6 pb-16 pt-8 lg:grid-cols-[1.05fr_.95fr] lg:px-12 lg:pb-24">
