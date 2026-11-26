@@ -387,8 +387,8 @@ export function BeautyBookingQuiz({
 
       {open && typeof document !== "undefined" ? createPortal((
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-6" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
-          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none " + panel}>
-            <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"flex max-h-[calc(100dvh-1.5rem)] w-full max-w-xl flex-col overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none sm:max-h-[calc(100dvh-3rem)] " + panel}>
+            <div className="shrink-0 flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ backgroundColor: accent + "22", color: accent }}>
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
@@ -403,7 +403,7 @@ export function BeautyBookingQuiz({
               </button>
             </div>
 
-            <div className="px-5 py-6 sm:px-7 sm:py-8">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-7 sm:py-8">
               {step < 4 && question ? (
                 <div className="space-y-5">
                   <div className="space-y-2">
