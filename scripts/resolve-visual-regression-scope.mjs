@@ -254,7 +254,7 @@ function safeCompositionRegistryDiff(diff, owned) {
   if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
 
   const additions = changes.filter((line) => line.startsWith("+"));
-  const components = [...owned.entries()].filter(([file]) => file.startsWith("src/components/site/"));
+  const components = [...owned.entries()].filter(([file]) => /^src\\/components\\/site\\/[^/]+\\.tsx$/.test(file));
   if (!components.length || additions.length !== components.length) return false;
 
   return additions.every((line) =>
@@ -387,5 +387,31 @@ if (invokedAsScript) {
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
-  process.stdout.write(resolveVisualRegressionScope(input, mergedClients).join(","));
+  const options = {};
+  const base = process.env.PR_BASE_SHA;
+  const head = process.env.PR_HEAD_SHA;
+  if (base && head) {
+    try {
+      const gitDiff = (...args) => execFileSync("git", args, {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      });
+      options.addedFiles = new Set(
+        gitDiff("diff", "--diff-filter=A", "--name-only", base, head)
+          .split(/\\r?\\n/)
+          .map(normalize)
+          .filter(Boolean),
+      );
+      options.compositionRegistryDiff = gitDiff(
+        "diff", "--unified=0", base, head, "--",
+        "src/components/portfolio/composition/registry.ts",
+      );
+      options.routeTreeDiff = gitDiff(
+        "diff", "--unified=0", base, head, "--", "src/routeTree.gen.ts",
+      );
+    } catch {
+      // Falha fechada: sem evidência Git completa, o resolvedor mantém o gate global.
+    }
+  }
+  process.stdout.write(resolveVisualRegressionScope(input, mergedClients, options).join(","));
 }
