@@ -170,7 +170,7 @@ describe("Embalar: mídia responsiva e preservação do funil", () => {
   const page = read("src/components/site/EmbalarEmbalagensPage.tsx");
   const assets = {
     logo: [80, 160],
-    "loja-01": [480, 960],
+    "loja-01": [480, 680],
     "loja-02": [320, 598],
     "loja-03": [320, 480, 680],
     "loja-04": [480, 680],

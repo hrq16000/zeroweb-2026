@@ -144,7 +144,7 @@ const responsiveTargets = [
   },
   {
     source: "public/images/embalar-embalagens/loja-01.png",
-    width: 960,
+    width: 680,
     quality: 96,
     output: "public/images/_generated/embalar-embalagens/loja-01.webp",
   },
@@ -156,9 +156,9 @@ const responsiveTargets = [
   },
   {
     source: "public/images/embalar-embalagens/loja-01.png",
-    width: 960,
+    width: 680,
     quality: 96,
-    output: "public/images/_generated/embalar-embalagens/loja-01-960.webp",
+    output: "public/images/_generated/embalar-embalagens/loja-01-680.webp",
   },
   {
     source: "public/images/embalar-embalagens/loja-02.png",

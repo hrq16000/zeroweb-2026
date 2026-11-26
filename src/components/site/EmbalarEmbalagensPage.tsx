@@ -94,9 +94,9 @@ const gallery = [
   {
     src: "/images/_generated/embalar-embalagens/loja-01.webp",
     alt: "Prateleiras com embalagens e descartáveis",
-    widths: [480, 960],
-    width: 960,
-    height: 720,
+    widths: [480, 680],
+    width: 680,
+    height: 510,
     sizes: "(min-width: 1024px) 595px, 100vw",
   },
   {
@@ -216,10 +216,10 @@ export function EmbalarEmbalagensPage() {
                     alt="Prateleiras da Embalar com embalagens e descartáveis"
                     managedField="heroImageUrl"
                     priority
-                    widths={[480, 960]}
+                    widths={[480, 680]}
                     sizes="(min-width: 1024px) 595px, 100vw"
-                    width={960}
-                    height={720}
+                    width={680}
+                    height={510}
                     className="h-[430px] w-full object-cover lg:h-[560px]"
                   />
                 </MotionReveal>
