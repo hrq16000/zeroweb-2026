@@ -1519,7 +1519,7 @@
       },
       "footer": {
         "enabled": true,
-        "hostCredit": false,
+        "hostCredit": true,
         "showYear": true,
         "variant": "dark"
       }

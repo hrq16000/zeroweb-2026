@@ -1770,3 +1770,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Skills: 0web-skill-router, 0web-skill-discovery, 0web-experience-design-max, 0web-portfolio-art-direction, 0web-design-system y 0web-ui-quality-gates; contratos de SEO, entidad, privacidad, motion y originalidad aplicados.
 - Discovery: LobeHub frontend-design revisado como referencia, no instalado; AwesomeSkill Search sin skill pertinente verificable.
 - QA: Playwright 390/768/1440 y aprobación de Roze pendientes; página noindex mientras sea propuesta.
+
+
+## 2026-11-26 — Infinito Spa · reconciliação dos gates derivados
+- Corrigidos os artefatos derivados de capa, datas reais do histórico Git e galeria administrativa após a inclusão do novo cliente.
+- Restaurado o crédito institucional 0WEB obrigatório no override do cliente.
+- Preservados os 99 projetos anteriores; a capa Infinito permanece `UNCERTAIN_ORIGIN` até revisão visual humana, sem aprovação fabricada.
