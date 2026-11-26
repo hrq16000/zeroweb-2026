@@ -58,6 +58,28 @@ function allowPublicLeadIntake(fingerprint: string) {
   return true;
 }
 
+/** Generic legacy intake for existing portfolio funnels; behavior preserved for other clients. */
+export const submitPublicLead = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) => leadInput.parse(input))
+  .handler(async ({ data }) => {
+    if (!data.phone && !data.email) return { ok: false as const, reason: "missing_contact" as const };
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: allowed } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
+      p_scope: "public_lead_intake",
+      p_ip_hash: await requestFingerprint(),
+      p_window_seconds: 300,
+      p_max_hits: 12,
+    });
+    if (allowed === false) return { ok: false as const, reason: "rate_limited" as const };
+    const { data: row, error } = await (supabaseAdmin as any)
+      .from("lead_submissions")
+      .insert(data)
+      .select("id")
+      .single();
+    if (error || !row?.id) return { ok: false as const, reason: "db_error" as const };
+    return { ok: true as const, leadId: row.id as string };
+  });
+
 /** Only exposes availability, never the operational destination. */
 export const getInfinitoSpaWhatsAppAvailability = createServerFn({ method: "GET" })
   .handler(async () => {
