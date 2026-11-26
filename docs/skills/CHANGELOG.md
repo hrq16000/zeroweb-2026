@@ -1765,21 +1765,20 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Operação:** a micro pode ser validada em PR, mas o merge fica condicionado à normalização do build-rate-limit do Vercel para evitar ampliar divergência entre main e produção.
 
 
-## 2026-11-25 — Infinito Spa (Chile)
-- Task: mini-site demostrativo y funil de consulta en español chileno.
-- Skills: 0web-skill-router, 0web-skill-discovery, 0web-experience-design-max, 0web-portfolio-art-direction, 0web-design-system y 0web-ui-quality-gates; contratos de SEO, entidad, privacidad, motion y originalidad aplicados.
-- Discovery: LobeHub frontend-design revisado como referencia, no instalado; AwesomeSkill Search sin skill pertinente verificable.
-- QA: Playwright 390/768/1440 y aprobación de Roze pendientes; página noindex mientras sea propuesta.
+
+# 2026-11-24 — 0WEB shared performance correction
+
+- **Scope:** PR #552, initial route loading and 404-only module graph.
+- **Skill:** `react-best-practices` (`APPROVED_GLOBAL`, Vercel Labs/agent-skills); applied `bundle-dynamic-imports`, `bundle-conditional`, and `rendering-hydration-no-flicker`.
+- **Evidence:** existing Lighthouse artifacts showed only 6.7 kB mean script-transfer reduction from the first FunnelRunner split, while the global RouteLoader eagerly fetched the 149.7 kB institutional logo and root statically imported 404-only Header/Footer.
+- **Change:** suppress initial full-screen loader/logo while preserving client-navigation progress/overlay; defer 404-only Header/Footer modules.
+- **Safety:** no BrandLogo/header/footer source, logo pixels, CSS, client page, funnel persistence, CRM, database or production data changed; no dependency added.
+- **QA:** focused unit/source-contract tests plus existing build, hydration, visual, funnel and Lighthouse gates on the updated PR HEAD.
 
 
-## 2026-11-26 — Infinito Spa · reconciliação dos gates derivados
-- Corrigidos os artefatos derivados de capa, datas reais do histórico Git e galeria administrativa após a inclusão do novo cliente.
-- Restaurado o crédito institucional 0WEB obrigatório no override do cliente.
-- Preservados os 99 projetos anteriores; a capa Infinito permanece `UNCERTAIN_ORIGIN` até revisão visual humana, sem aprovação fabricada.
+# 2026-11-24 — 0WEB shared entry chunk follow-up
 
-
-## 2026-11-26 — Infinito Spa · privacidad y SEO internacional
-- Retiradas referencias a vivienda/apartamento de la página y de los archivos versionados; no se publica dirección residencial ni contacto privado.
-- Copy público de marca actualizado sin etiquetas de demostración; la identidad conceptual sigue pendiente de confirmación de Roze.
-- Schema.org y el idioma del documento ahora respetan `CL` y `es-CL`; no se inventa una dirección postal.
-- La indexación y el funnel permanecen retenidos hasta E2E real, credencial administrativa Supabase y aprobación de identidad.
+- **Evidence:** Lighthouse run 45447892645 found 213–224 kB unused JavaScript in the same 548 kB root entry asset; CSS/font blocking was left untouched.
+- **Change:** defer contact dialog shell, cart drawer, auth guard, debug overlay, 404 UI and slow-navigation logo until their actual trigger.
+- **Behavior preservation:** first cart-open event is replayed after lazy drawer listeners mount; contact wrapper remains mounted after first open; auth guard stays active on /app* and /painel*; 404 and debug behavior remain available.
+- **Scope:** no CSS, fonts, image pixels, funnel persistence, CRM, catalog, database or production data changes; no new dependencies.

@@ -1,120 +1,52 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-import { ArrowRight, Globe, Megaphone, Search, Bot } from "lucide-react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import faviconAsset from "../assets/favicon-0web.png.asset.json";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { WaFunnelProvider } from "../components/site/WaFunnelModal";
 import { AnalyticsBootstrap } from "../components/site/AnalyticsBootstrap";
 import { TelemetryPageView } from "../components/site/TelemetryPageView";
-import { ErrorState } from "../components/site/ErrorState";
 import { RouteLoader } from "../components/site/RouteLoader";
-import { CartDrawer } from "../components/site/CartDrawer";
-import { AuthErrorGuard } from "../components/site/AuthErrorGuard";
-import { Header } from "../components/site/Header";
-import { Footer } from "../components/site/Footer";
+import { CartDrawerGate } from "../components/site/CartDrawerGate";
+
+
 import { Toaster } from "../components/ui/sonner";
-import { SpacingDebugOverlay } from "../components/site/SpacingDebugOverlay";
-import { logNotFound } from "../lib/route-404.functions";
 import { HYDRATION_GUARD_SCRIPT } from "@/lib/hydration-guard";
 import { FUNNEL_EARLY_CLICK_SCRIPT } from "@/lib/funnel-early-click";
 
-const NOT_FOUND_SERVICES: Array<{ slug: string; name: string; desc: string; Icon: typeof Globe }> = [
-  { slug: "criacao-de-sites", name: "Criação de Sites", desc: "Sites profissionais, rápidos e prontos para converter.", Icon: Globe },
-  { slug: "seo", name: "SEO", desc: "Primeiras posições no Google com tráfego orgânico recorrente.", Icon: Search },
-  { slug: "trafego-pago", name: "Tráfego Pago", desc: "Campanhas Google e Meta Ads com CPA otimizado.", Icon: Megaphone },
-  { slug: "automacao-com-ia", name: "Automação com IA", desc: "Atendimento e qualificação de leads no WhatsApp.", Icon: Bot },
-];
+// Heavy and route-exclusive UI stays out of the public entry chunk.
+const NotFoundComponent = lazy(() =>
+  import("../components/site/NotFoundPage").then(({ NotFoundPage }) => ({ default: NotFoundPage })),
+);
+const ErrorState = lazy(() =>
+  import("../components/site/ErrorState").then(({ ErrorState }) => ({ default: ErrorState })),
+);
+const AuthErrorGuard = lazy(() =>
+  import("../components/site/AuthErrorGuard").then(({ AuthErrorGuard }) => ({ default: AuthErrorGuard })),
+);
+const SpacingDebugOverlay = lazy(() =>
+  import("../components/site/SpacingDebugOverlay").then(({ SpacingDebugOverlay }) => ({ default: SpacingDebugOverlay })),
+);
 
-function NotFoundComponent() {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const path = window.location.pathname + window.location.search;
-      const key = `404-logged:${path}`;
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, "1");
-      void logNotFound({
-        data: {
-          path: window.location.pathname,
-          referrer: document.referrer || null,
-          userAgent: navigator.userAgent || null,
-        },
-      }).catch(() => {});
-    } catch {
-      /* noop */
-    }
-  }, []);
-
-  return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Header />
-      <main className="flex-1 pt-32 lg:pt-40 pb-20">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Erro 404</p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold font-display">
-            Página não encontrada
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Mas você pode encontrar o que precisa aqui:
-          </p>
-
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            {NOT_FOUND_SERVICES.map((s) => (
-              <Link
-                key={s.slug}
-                to="/servicos/$slug"
-                params={{ slug: s.slug }}
-                className="group rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-elegant transition"
-              >
-                <span className="grid place-items-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
-                  <s.Icon className="w-5 h-5" />
-                </span>
-                <h2 className="mt-4 font-semibold">{s.name}</h2>
-                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{s.desc}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                  Ver serviço <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3 shadow-glow-primary"
-            >
-              Ir para o início
-            </Link>
-            <Link
-              to="/servicos"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-semibold hover:bg-muted transition"
-            >
-              Ver Serviços
-            </Link>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
-}
+// 404 chrome is not needed on successful routes; keep its modules out of the shared entry chunk.
+const Header = lazy(() => import("../components/site/Header").then(({ Header }) => ({ default: Header })));
+const Footer = lazy(() => import("../components/site/Footer").then(({ Footer }) => ({ default: Footer })));
 
 function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    void import("../lib/lovable-error-reporting")
+      .then(({ reportLovableError }) => reportLovableError(error, { boundary: "tanstack_root_error_component" }))
+      .catch(() => {});
   }, [error]);
 
   const isDev = import.meta.env.DEV;
@@ -141,14 +73,16 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   ) : null;
 
   return (
-    <ErrorState
-      kind="500"
-      onRetry={() => {
-        router.invalidate();
-        reset();
-      }}
-      diagnostics={diagnostics}
-    />
+    <Suspense fallback={<div role="status" className="min-h-screen grid place-items-center bg-background text-muted-foreground">Carregando a tela de erro…</div>}>
+      <ErrorState
+        kind="500"
+        onRetry={() => {
+          router.invalidate();
+          reset();
+        }}
+        diagnostics={diagnostics}
+      />
+    </Suspense>
   );
 }
 
@@ -277,6 +211,10 @@ function ScrollToTop() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const searchStr = useRouterState({ select: (s) => s.location.searchStr });
+  const needsAuthGuard = pathname.startsWith("/app") || pathname.startsWith("/painel");
+  const showSpacingDebug = new URLSearchParams(searchStr ?? "").get("debug") === "spacing";
 
   // A estimativa de localidade por IP passou a ser resolvida sob demanda
   // (no início do funil), evitando uma chamada de terceiros no carregamento
@@ -290,14 +228,14 @@ function RootComponent() {
       <WaFunnelProvider>
         <AnalyticsBootstrap />
         <TelemetryPageView />
-        <AuthErrorGuard />
+        {needsAuthGuard ? <Suspense fallback={null}><AuthErrorGuard /></Suspense> : null}
         <ScrollToTop />
         <RouteLoader />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
-        <CartDrawer />
+        <CartDrawerGate />
         <Toaster position="top-center" richColors />
-        <SpacingDebugOverlay />
+        {showSpacingDebug ? <Suspense fallback={null}><SpacingDebugOverlay /></Suspense> : null}
       </WaFunnelProvider>
     </QueryClientProvider>
   );

@@ -35,7 +35,6 @@ import {
   Inbox,
   MapPin,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { getMyProfile, listMyNotifications } from "@/lib/clientarea.functions";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -188,6 +187,7 @@ function AppShell() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      const { supabase } = await import("@/integrations/supabase/client");
       const { data } = await supabase.auth.getSession();
       if (cancelled || !data.session) return;
       try {
@@ -222,6 +222,7 @@ function AppShell() {
   );
 
   const signOut = async () => {
+    const { supabase } = await import("@/integrations/supabase/client");
     await supabase.auth.signOut();
     navigate({ to: "/auth", replace: true });
   };

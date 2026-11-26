@@ -1224,6 +1224,31 @@
       },
       "socialVersion": "9ea8c269"
     },
+    "salgados-da-fran": {
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Salgados da Fran · São José dos Pinhais",
+        "title": "Sua ocasião merece uma encomenda bem combinada.",
+        "description": "Consulte o cardápio, a quantidade, os valores e os próximos passos pelo formulário da demonstração.",
+        "ctaLabel": "Consultar uma encomenda",
+        "ctaHref": "#encomendas"
+      },
+      "sourceSvg": "/images/salgados-da-fran/social-og.svg",
+      "socialVersion": "386d1b3b"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "proof": {
+        "eyebrow": "Panificadora Doce Coração · Santo Antônio, SJP",
+        "title": "Uma padaria de bairro merece ser encontrada.",
+        "description": "Criação editorial demonstrativa da 0WEB com endereço público, categorias de pães, bolos, doces e salgados e rota para o estabelecimento. Não é um site oficial da padaria.",
+        "ctaLabel": "Encontrar a padaria",
+        "ctaHref": "#localizacao"
+      },
+      "socialVersion": "20261119"
+    },
     "infinito-spa": {
       "icon": "/images/infinito-spa/logo.svg",
       "socialImage": "/images/infinito-spa/social-og.jpg",

@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 import type { CSSProperties } from "react";
 import { ArrowRight, BrickWall, Building2, Droplets, PaintRoller } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -129,7 +129,7 @@ export function JcRevestimentosPage() {
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO de imagem plena com sobreposição e logo dentro da composição. */}
-        <section aria-label="Apresentação principal" className="relative isolate min-h-[78svh] overflow-hidden">
+        <MotionFirstPaint><section aria-label="Apresentação principal" className="relative isolate min-h-[78svh] overflow-hidden">
           <PortfolioImage
             src="/images/jc-revestimentos/hero-v2.png"
             alt="Amostras de revestimento e texturas para pintura com rolos e baldes de material"
@@ -178,7 +178,7 @@ export function JcRevestimentosPage() {
               </a>
             </MotionReveal>
           </div>
-        </section>
+        </section></MotionFirstPaint>
 
         {/* Assinatura: tabela de especificação do material. */}
         <section id="servicos" className="px-5 py-16 md:py-24">

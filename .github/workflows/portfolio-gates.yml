@@ -301,11 +301,35 @@ jobs:
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 
-      - name: Regressão visual (home + portfólios, 3 viewports)
+      - name: Capturar baseline visual Production (somente leitura)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 552 && steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          E2E_BASE_URL: https://www.0web.com.br
+          # Mídias administradas são validadas em Production antes da máscara visual; a lista também é coberta por teste estático.
+          VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_BASELINE_DIR: seo-reports/visual-production-baseline
+          VISUAL_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+          VISUAL_READ_ONLY: "1"
+        run: bun run test:visual:update
+
+      - name: Regressão visual (Production + baselines históricas)
         if: steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
         env:
           VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
-        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+          VISUAL_PRODUCTION_COMPARE: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 552 }}
+          VISUAL_PRODUCTION_ROUTES: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_PRODUCTION_BASELINE_DIR: seo-reports/visual-production-baseline
+          PORTFOLIO_RUNTIME_VISUAL_FIXTURES: "1"
+          VISUAL_PRODUCTION_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+        run: |
+          if [ "$VISUAL_PRODUCTION_COMPARE" = "true" ]; then
+            node scripts/ci-with-prod-preview.mjs -- bash -c '
+              VISUAL_ONLY="$VISUAL_PRODUCTION_ROUTES" VISUAL_BASELINE_DIR="$VISUAL_PRODUCTION_BASELINE_DIR" VISUAL_VIEWPORTS="$VISUAL_PRODUCTION_VIEWPORTS" bun run test:visual &&
+              VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual && node scripts/playwright-portfolio-runtime-visual-fixtures.mjs
+            '
+          else
+            node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+          fi
 
       - name: Regressão visual (prévia isolada com noindex e disclosure)
         if: steps.visual-scope.outputs.run == 'true' && startsWith(steps.visual-scope.outputs.only, 'preview-')
@@ -331,6 +355,8 @@ jobs:
             seo-reports/a11y-report.json
             seo-reports/link-preview-report.json
             seo-reports/visual
+            seo-reports/visual-production-baseline
+            seo-reports/visual-fixtures
             seo-reports/popup-shots
             seo-reports/source-privacy-report.md
             seo-reports/head-icons-report.json

@@ -1,0 +1,11 @@
+# PR #552 — Rodada 2.5A | checkpoint
+
+Base remota confirmada: 14ad924f0522cf6b1557e8381b5af47b1ce0cf07. Branch perf/shared-funnel-deferred-20261124. Sem publicação, merge, SQL, alterações de DNS ou baselines.
+
+- Versões declaradas: Router 1.170.41, Start 1.168.60, router-plugin 1.168.42, Vite ^7.3.1. Uso de lazyRouteComponent nativo, sem alterar routeTree.gen.ts nem defaults de SSR.
+- Componentes de painel, CRM e checkout deslocados integralmente para src/components/route-pages. Proteção PainelGate, validação da query e APIs de pagamento permanecem. Home2/3 passam a importação dinâmica explícita. R_Beauty: texto crítico visível no SSR, animação de imagem sem opacidade inicial e com reduced motion; imagens e copy intactas.
+- Contrato de contexto comercial testado através de wrapper e conteúdo lazy; testes de checkout preservados e apontados para o local real do código.
+- Evidência anterior: Lighthouse 45464487962 (FAIL), shard 1 job 138695976966, 50 medições; treemap DYZ index-Cv0PoJuU.js: 1.827.031 bytes brutos, 534.015 transferidos, 764.984 não utilizados nessa amostra. Build 45464487709 PASS, SSR 45464487753 PASS, publicação individual 45464487683 PASS, portfolio-gates 45464487646 FAIL (teste de contexto em arquivo antigo); 37 diffs visuais históricos no run 45454176228, não modificados.
+- Skill stack: refactor React, performance, QA, preservação do contrato de funil e motion crítico; leitura AGENTS.md, skill router, contrato Git-first e documentação TanStack. Sem adoção de dependências.
+- Plugin de evidência apenas leitura do grafo Rollup: bytes iniciais estáticos, gzip estimado, módulos maiores e chunks das cinco rotas. Não equivale a bytes transferidos reais; confrontar com LHR. Não presume que imports de rota por si só provem presença no entry.
+- Próximo passo: consultar os checks automáticos do commit (não reenfileirar); verificar primeiro logs do build [route-bundle-evidence] e amostras LH anteriores reprovadas (R_Beauty, Paulo, Angel Mix, JC, Moreira). Comparar treemap e LCP/TBT/CLS com mesmo preset e URL; consultar gates completos já disparados pelo push único. Contratos de autenticação, funis, checkout e SSR precisam de resultado real; não marcar PASS por inspeção. Não publicar.

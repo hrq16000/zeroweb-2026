@@ -1129,6 +1129,387 @@
         "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
     },
+    "salgados-da-fran": {
+      "slug": "salgados-da-fran",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "complete",
+        "publish": "not_started"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.salgados-da-fran.tsx",
+            "src/components/site/SalgadosDaFranPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Google Maps listing name/phone, Águas Belas"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/salgados-da-fran/social-og.svg",
+            "docs/portfolio/media-plans/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "robots noindex until readiness and real QA"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "salgados",
+        "layoutFamily": "central-editorial-poster",
+        "heroFamily": "mascot-poster-centered",
+        "sectionRhythm": "bold-poster-to-process",
+        "proofStyle": "public-card-with-disclosure",
+        "mediaNarrative": "brand-vector-no-product-photos",
+        "ctaStyle": "persisted-client-quiz",
+        "motionProfile": "editorial-subtle"
+      },
+      "structuralOriginalityReview": {
+        "approved": false,
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB preliminary source review",
+        "notes": "Requires real Chromium screenshots and perceptual review against similar food portfolios."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "stacked vertical centered poster with three mascots",
+        "headerTreatment": "compact dark logo",
+        "sectionGraph": "charcoal-poster→cream-process→charcoal-faq→white-location→yellow-cta",
+        "contentOrder": [
+          "brand",
+          "order process",
+          "FAQ",
+          "location",
+          "conversion"
+        ],
+        "gridTopology": "vertical hero, three ticket cards, two-col FAQ, no hero split",
+        "mediaDistribution": "vector mascot / vector OG",
+        "backgroundRhythm": "charcoal-cream-charcoal-white-yellow",
+        "proofPlacement": "demo disclosure above header and FAQ",
+        "ctaDistribution": "header/hero/process/final",
+        "navigationPattern": "anchors and client quiz",
+        "motionSignature": "motion-safe lift",
+        "closingStructure": "yellow stamp",
+        "roleGraph": [
+          "identity",
+          "guide",
+          "faq",
+          "local",
+          "conversion"
+        ],
+        "mediaCadence": [
+          "vector",
+          "icons",
+          "map"
+        ],
+        "interactionLoci": [
+          "quiz",
+          "details",
+          "maps"
+        ],
+        "decisionAidPlacement": [
+          "process",
+          "faq"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "air",
+          "compact",
+          "quiet",
+          "bold"
+        ],
+        "mobileCompositionStrategy": "single column 390px"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Salgados da Fran: encomendas publicadas no cartão do negócio",
+          "WhatsApp confirmado no cartão do negócio; SJP no cartão",
+          "Google Maps resolved matching name/phone in Águas Belas"
+        ],
+        "sources": [
+          "Imagem original enviada em conversa 2026-11-23",
+          "docs/portfolio/enrichment/salgados-da-fran.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "PASS",
+        "reviewedAt": "2026-11-25",
+        "reviewer": "0WEB visual QA",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "mimo-salgados-doces",
+          "manu-pasteis"
+        ],
+        "screenshots": {
+          "390": "run:45673988778/artifact:15051042418/salgados-da-fran-390.png",
+          "768": "run:45673988778/artifact:15051042418/salgados-da-fran-768.png",
+          "1440": "run:45673988778/artifact:15051042418/salgados-da-fran-1440.png"
+        },
+        "notes": "Revisão manual do Chromium: 9 capturas reais, 390/768/1440, zero overflow horizontal e zero erros de browser. NO-BRAND mantém silhueta vertical central com pôster/mascote, cartões de encomenda, FAQ em duas colunas e encerramento próprio; distinta das composições de Mimo Salgados Doces e Manu Pastéis. Identidade amarelo/grafite preservada. Evidência: run 45673988778, artifact 15051042418."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-25",
+        "evidence": "Chromium 390/768/1440 + NO-BRAND: run 45673988778, artifact 15051042418; 9 screenshots, 0 failures, 0 overflow, 0 browser errors."
+      },
+      "blockers": [
+        "Visual QA Chromium 390/768/1440 pendente",
+        "Readiness gate do projeto não executado",
+        "Não publicado, não indexável até revisão"
+      ],
+      "warnings": [
+        "Amostra demonstrativa sem representação oficial da empresa",
+        "Cardápio, preço, entrega, disponibilidade, horários e mídias reais não comprovados"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo com empresa para remover aviso demonstrativo",
+        "Confirmar cardápio e fotografias oficiais"
+      ],
+      "searchQa": [
+        {
+          "query": "Salgados da Fran",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        },
+        {
+          "query": "salgados por encomenda Águas Belas",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-23"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx: canonical, OG, HTML metadata, local schema"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json: Google Place ID e homônimo desambiguado"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Endereço e bairro na página, schema Bakery e discovery; src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "Hero SVG, capa PNG/OG PNG, logo autoral e fotografia não atribuída; assets no media-plan, imagens carregadas em Chromium 390/768/1440: https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json: aliases, categorias, produtos, localização completa; rota contém Google Maps Place ID, Instagram e Bakery schema."
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Estado deliberado de demonstração: catálogo draft/live=false, robots noindex,nofollow e fora do sitemap até aprovação comercial explícita e confirmação dos canais oficiais. Canonical próprio preservado; indexação Google não afirmada."
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "alimentacao-padaria",
+        "layoutFamily": "editorial-premium",
+        "heroFamily": "proof-first",
+        "sectionRhythm": "airy-editorial",
+        "proofStyle": "why-they-search",
+        "mediaNarrative": "media-timeline",
+        "ctaStyle": "next-step-block",
+        "motionProfile": "warm-stamp-subtle"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-23",
+        "notes": "Estrutura real da página e comparativos NO-BRAND Agropet/Cantinho nas capturas de https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501; sem skeleton compartilhado perceptível."
+      },
+      "compositionContract": 2,
+      "compositionFingerprint": {
+        "heroGeometry": "oversized editorial masthead illustration seal offset right",
+        "headerTreatment": "tiny neighborhood newspaper masthead",
+        "sectionGraph": "paper cover→bread ticker→moment selector→food typology→burgundy address ticket→social source card→FAQ→editorial close",
+        "contentOrder": [
+          "orientação",
+          "ritmo",
+          "ocasião",
+          "categorias",
+          "localização",
+          "redes",
+          "dúvidas",
+          "contato"
+        ],
+        "gridTopology": "asymmetric cover, horizontal moments, typographic categories, full-width locator",
+        "mediaDistribution": "custom SVG cover, graphic category icons, map directions, own social poster",
+        "backgroundRhythm": "cream→burgundy ticker→mustard→paper→burgundy→cream social→rose→cream",
+        "proofPlacement": "address adjacent to map with research date",
+        "ctaDistribution": "hero route plus inquiry, locator directions, Instagram reference, closing business inquiry",
+        "navigationPattern": "local sticky anchors and maps, no institutional header",
+        "motionSignature": "short stamp plus icon micro lift and reduced motion static",
+        "closingStructure": "typographic note with demonstrative disclosure",
+        "roleGraph": [
+          "entity orientation",
+          "occasion guidance",
+          "category discovery",
+          "wayfinding",
+          "FAQ",
+          "consultation"
+        ],
+        "mediaCadence": [
+          "editorial illustration",
+          "kinetic ticker",
+          "graphic menu",
+          "map direction",
+          "social art",
+          "text FAQ"
+        ],
+        "interactionLoci": [
+          "moment anchors",
+          "map",
+          "Instagram",
+          "FAQ",
+          "funnel"
+        ],
+        "decisionAidPlacement": [
+          "occasion strip",
+          "hours caveat near address"
+        ],
+        "densityRhythm": [
+          "airy",
+          "compact",
+          "medium",
+          "high contrast",
+          "quiet"
+        ],
+        "mobileCompositionStrategy": "text precedes art, moment controls wrap, map ticket full width"
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB / revisão visual ChatGPT de screenshots Chromium reais",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#390.png",
+          "768": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#768.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#1440.png"
+        },
+        "notes": "Capturas NO-BRAND 390 e 1440 avaliadas lado a lado: Doce Coração usa abertura editorial tipográfica, faixa horizontal de pães, três cartões de ocasião, tipologia em quatro categorias, endereço em ticket bordô e pôster social inclinado. Cantinho usa hero fotográfico, cartões infantis e outra hierarquia; Agropet usa pôster pet, mosaico 2x3 e fluxo próprio. Diferenciação comprovada sem nomes, cores ou imagens."
+      },
+      "contentFacts": {
+        "ownSourcedContent": true
+      },
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "pending"
+      },
+      "blockers": [
+        "Aprovação comercial explícita, identidade oficial e destino de atendimento da padaria não comprovados. O Jotform atual recebe dados na 0WEB e não os encaminha automaticamente à padaria; manter draft/noindex até confirmação."
+      ],
+      "warnings": [
+        "Fotografias reais e postagens oficiais permanecem indisponíveis sem licença; a mídia usada é original e declaradamente editorial.",
+        "Jotform recebe dados na 0WEB e não os encaminha automaticamente à padaria.",
+        "Indexação pelo Google não verificada. Publicação e sitemap dependem do merge e do domínio Production READY."
+      ],
+      "ownerRequired": [
+        "Validar a identidade e fotografias de uso autorizado se desejar tornar o site oficial.",
+        "Confirmar perfil social e canais de atendimento oficiais."
+      ],
+      "searchQa": [
+        {
+          "query": "Panificadora Doce Coração Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "padaria no Santo Antônio São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "pães e salgados Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "Rua Desembargador James Portugal Macedo",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "bolos e doces São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        }
+      ],
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-23",
+        "evidence": "GitHub Actions https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501: Chromium real HTTP 200 preview, SEO draft, sem overflow ou erro JS, 390/768/1440 PASS, 4 CTAs Radix, Escape/fechar, iframe Jotform renderizado com form visível e NO-BRAND revisado."
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json",
+        "mediaPlan": "docs/portfolio/media-plans/panificadora-doce-coracao-santo-antonio.json"
+      },
+      "lastUpdatedAt": "2026-11-26"
+    },
     "infinito-spa": {
       "slug": "infinito-spa",
       "lifecycleContract": 1,

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "@/styles/portfolio-lcp-overrides.css";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioContactFloating } from "@/components/portfolio/PortfolioContactFloating";
@@ -74,7 +75,7 @@ export function PortfolioStandardShell({
 
   return (
     // overflow-x-clip: reveals horizontais em curso não podem gerar scroll lateral no mobile.
-    <div className="portfolio-standard-shell overflow-x-clip">
+    <div className="portfolio-standard-shell overflow-x-clip" data-portfolio-slug={slug}>
       <PortfolioVitals slug={slug} />
       <PortfolioView slug={slug} />
       {standards.shareButton.enabled ? (

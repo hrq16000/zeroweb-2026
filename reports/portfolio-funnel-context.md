@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-11-03T17:22:22.634Z
+Gerado em 2026-11-19T17:43:48.533Z
 
-- Projetos auditados: **97**
-- PASS: **97** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (26) · orcamento (33) · solicitacao (1) · agendamento (17) · contato (9) · reserva (4) · diagnostico (7)
+- Projetos auditados: **100**
+- PASS: **100** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (26) · orcamento (34) · solicitacao (2) · agendamento (17) · contato (10) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -105,3 +105,6 @@ Gerado em 2026-11-03T17:22:22.634Z
 | autoescola-aptos | servicos | agendamento | Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo. | Montar minha proposta | PROJECT_CONTRACT | PASS | — |
 | arildo-madeiras | comercios | orcamento | Escolha a linha, conte onde a madeira será aplicada e acrescente medidas ou quantidade quando já souber. A Arildo confirma preço, disponibilidade e próximo passo. | Montar meu orçamento | PROJECT_CONTRACT | PASS | — |
 | dona-garimpeira-brecho | comercios | contato | Conte se quer encontrar roupas e acessórios, vender peças usadas em excelente estado ou levar doações. Reservas dependem da confirmação da loja e a compra acontece presencialmente. | Conversar sobre comprar, vender ou doar | PROJECT_CONTRACT | PASS | — |
+| agropet-filt | comercios | orcamento | Escolha a categoria e descreva o que procura. Preço, estoque e agenda são confirmados separadamente. | Consultar produtos | PROJECT_CONTRACT | PASS | — |
+| panificadora-doce-coracao-santo-antonio | comercios | contato | Conte se procura pães, bolos, salgados ou doces. A padaria confirma preço, disponibilidade, horário e condições de retirada diretamente pelo WhatsApp. | Consultar a padaria | PROJECT_CONTRACT | PASS | — |
+| cantinho-da-tia-mari | comercios | solicitacao | Escolha o tipo de serviço anunciado, o período e informe seus dados de contato apenas se desejar receber resposta sobre esta demonstração. Não faz matrícula ou reserva de vaga. | Consultar informações | PROJECT_CONTRACT | PASS | — |

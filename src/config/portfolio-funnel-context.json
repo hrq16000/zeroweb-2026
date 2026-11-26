@@ -717,6 +717,26 @@
     "whatsappSubject": "consulta demonstrativa do Cantinho da Tia Mari",
     "proposalKind": "service"
   },
+  "salgados-da-fran": {
+    "intent": "pedido",
+    "nextStepTitle": "Vamos combinar sua encomenda?",
+    "nextStepBody": "Informe a data, a ocasião e a quantidade. Opções, valores e disponibilidade serão confirmados pelo atendimento.",
+    "primaryCtaLabel": "Consultar encomenda",
+    "theme": "gold",
+    "whatsappPrompt": "Olá, Fran. Gostaria de saber as opções de salgados para uma encomenda.",
+    "whatsappSubject": "uma encomenda de salgados",
+    "proposalKind": "service"
+  },
+  "panificadora-doce-coracao-santo-antonio": {
+    "intent": "contato",
+    "nextStepTitle": "Um sabor para seu momento no Santo Antônio.",
+    "nextStepBody": "Conte se procura pães, bolos, salgados ou doces. A padaria confirma preço, disponibilidade, horário e condições de retirada diretamente pelo WhatsApp.",
+    "primaryCtaLabel": "Consultar a padaria",
+    "theme": "gold",
+    "whatsappPrompt": "Olá, Panificadora Doce Coração! Vi uma apresentação dos seus produtos e gostaria de consultar disponibilidade e condições.",
+    "whatsappSubject": "produtos da padaria",
+    "proposalKind": "service"
+  },
   "infinito-spa": {
     "intent": "agendamento",
     "proposalKind": "service",
