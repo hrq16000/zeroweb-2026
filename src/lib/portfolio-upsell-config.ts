@@ -16,6 +16,7 @@ export type PortfolioUpsellDisplay = {
 
 export type PortfolioUpsellConfig = {
   enabled: boolean;
+  locale?: "es-CL";
   kicker: string;
   title: string;
   highlight?: string;

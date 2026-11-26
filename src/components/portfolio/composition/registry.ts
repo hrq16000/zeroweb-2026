@@ -26,6 +26,7 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
     import("@/components/site/AdhonepCuritibaPage").then((m) => ({ default: m.AdhonepCuritibaPage })),
   ),
   // "<slug>": lazy(() => import("@/components/site/<Componente>").then((m) => ({ default: m.<Componente> }))),
+  "infinito-spa": lazy(() => import("@/components/site/InfinitoSpaPage").then((m) => ({ default: m.InfinitoSpaPage }))),
 };
 
 export const compositionSlugs = Object.keys(compositionPages);
