@@ -630,6 +630,18 @@ function PortfolioPage() {
           </div>
         </section></MotionChoreo>
 
+        {/* Laboratório editorial: fora do catálogo de clientes, indicadores e sitemap. */}
+        <section aria-labelledby="portfolio-lab-title" className="border-b border-border bg-[#11261c] px-4 py-8 text-[#e7f5e9]">
+          <div className="mx-auto grid max-w-[1500px] items-center gap-6 md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[.18em] text-[#c6f3a1]">Laboratório 0WEB · Conceito demonstrativo</p>
+              <h2 id="portfolio-lab-title" className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">Como seria um CRM visual feito para cada jornada comercial?</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#b9cbbf]">Conheça um protótipo de pipeline e qualificação B2B com dados fictícios. Referências: DeskcommCRM, padrões comerciais MEGAX e pesquisa de agentes especializados. Sem CRM instalado.</p>
+            </div>
+            <a href="/lab/portfolio-comercial" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#c6f3a1] px-6 py-3 text-sm font-extrabold text-[#183120] hover:bg-[#d8fac5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6f3a1]">Explorar conceito visual <ArrowRight className="h-4 w-4" aria-hidden="true"/></a>
+          </div>
+        </section>
+
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="bg-background px-4 py-8 sm:py-10">
           <div className="mx-auto max-w-[1500px] space-y-8">
