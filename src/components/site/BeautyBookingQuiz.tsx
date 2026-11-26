@@ -49,6 +49,10 @@ type Props = {
   className?: string;
   ariaLabel?: string;
   onOpen?: () => void;
+  /** Incremented by a deferred launcher to open the quiz after its chunk loads. */
+  openRequest?: number;
+  /** The parent launcher renders the lightweight trigger button. */
+  hideTrigger?: boolean;
   orderContext?: {
     order_items?: string;
     order_total?: string;
@@ -64,6 +68,8 @@ type Props = {
   skipPrefilledSteps?: boolean;
   children: ReactNode;
 };
+
+export type PortfolioCTAQuizProps = Props;
 
 const SERVICES = [
   "Cílios — Volume Egípcio ou Brasileiro",
@@ -153,6 +159,8 @@ export function BeautyBookingQuiz({
   className,
   ariaLabel,
   onOpen,
+  openRequest = 0,
+  hideTrigger = false,
   orderContext,
   initialAnswers,
   skipPrefilledSteps = false,
@@ -187,6 +195,8 @@ export function BeautyBookingQuiz({
   const loadDelivery = useServerFn(getPortfolioFunnelDelivery);
 
   const dialogRef = useRef<HTMLDivElement>(null);
+  const lastOpenRequest = useRef(0);
+  const startRef = useRef<() => void>(() => {});
   // Tema desconhecido (config inválida) não pode derrubar o SSR do projeto.
   const look = THEMES[theme] ?? THEMES.navy;
   const { accent, accentText, optionClass, primaryClass, panel, titleClass } = look;
@@ -248,7 +258,13 @@ export function BeautyBookingQuiz({
         .catch(() => setNeedsRecoveryContact(true));
     });
   };
+  startRef.current = start;
 
+  useEffect(() => {
+    if (!openRequest || openRequest === lastOpenRequest.current) return;
+    lastOpenRequest.current = openRequest;
+    startRef.current();
+  }, [openRequest]);
 
   const choose = (field: keyof Omit<Answers, "note">, value: string) => {
     const next = { ...answers, [field]: value };
@@ -344,9 +360,11 @@ export function BeautyBookingQuiz({
           : null;
   return (
     <>
-      <button type="button" onClick={start} className={className} aria-label={ariaLabel} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
-        {children}
-      </button>
+      {!hideTrigger ? (
+        <button type="button" onClick={start} className={className} aria-label={ariaLabel} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
+          {children}
+        </button>
+      ) : null}
 
       {open && typeof document !== "undefined" ? createPortal((
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-6" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
