@@ -1468,7 +1468,7 @@
         "label": "Compartir"
       },
       "contactFloating": {
-        "enabled": true,
+        "enabled": false,
         "position": "bottom-right",
         "theme": "gold",
         "label": "Consultar disponibilidad",
