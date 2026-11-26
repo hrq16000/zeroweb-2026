@@ -13,7 +13,10 @@ describe("Infinito Spa — funil chileno", () => {
     const intake = readFileSync("src/lib/lead-intake.functions.ts", "utf8");
     const form = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
     expect(form).toContain("submitInfinitoSpaPublicLead");
+    expect(intake).toContain("export const submitPublicLead");
     expect(intake).toContain('data.source !== "portfolio:infinito-spa"');
+    const infinitoAction = intake.slice(intake.indexOf("export const submitInfinitoSpaPublicLead"));
+    expect(infinitoAction).not.toContain("supabaseAdmin");
     expect(intake).toContain('Database["public"]["Tables"]["lead_submissions"]["Insert"]');
     expect(intake).not.toContain("as any");
     expect(intake).not.toContain("SUPABASE_SERVICE_ROLE_KEY");
