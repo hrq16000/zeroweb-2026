@@ -34,7 +34,10 @@ describe("indexability diff policy", () => {
     expect(classifyIndexabilityDelta(absent, draft).hard).toBe(true);
     expect(classifyIndexabilityDelta(base, draft, options).hard).toBe(true);
     expect(classifyIndexabilityDelta(absent, { ...draft, canonical: null }, options).hard).toBe(true);
-    expect(classifyIndexabilityDelta(absent, { ...draft, nofollow: true }, options).hard).toBe(true);
+    const nofollowDraft = { ...draft, nofollow: true, problems: ["noindex", "nofollow"] };
+    expect(classifyIndexabilityDelta(absent, nofollowDraft, options).hard).toBe(false);
+    expect(classifyIndexabilityDelta(absent, nofollowDraft).hard).toBe(true);
+    expect(classifyIndexabilityDelta(base, nofollowDraft, options).hard).toBe(true);
     expect(classifyIndexabilityDelta(absent, { ...draft, noindex: false, problems: ["ausente do sitemap"] }, options).hard).toBe(true);
   });
 

@@ -151,6 +151,18 @@ describe("escopo seguro da regressão visual", () => {
     )).toEqual([]);
   });
 
+  test("rotas sem mídia gerenciada em Production continuam cobertas por baselines históricas", () => {
+    const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
+    const capture = workflow.split("Capturar baseline visual Production")[1]?.split("Regressão visual (Production")[0] ?? "";
+    const routesLine = workflow.match(/VISUAL_PRODUCTION_ROUTES: ([^\\n]+)/)?.[1] ?? "";
+    const productionRoutes = routesLine.split(",").map((slug) => slug.trim());
+    for (const slug of ["refrigeracao-maresia", "studio-de-cilios", "lk-alvenaria", "paulo-mestre-de-obras"]) {
+      expect(capture).not.toContain(slug);
+      expect(productionRoutes).not.toContain(slug);
+    }
+    expect(workflow).toContain('VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual');
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(

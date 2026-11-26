@@ -16,6 +16,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { classifyIndexabilityDelta } from "./indexability-diff-policy.mjs";
+import draftPolicy from "./lib/portfolio-draft-policy.cjs";
+const { isUnpublishedDraftPortfolio } = draftPolicy;
 import { classifySitemapInventoryDelta } from "./sitemap-inventory-diff-policy.mjs";
 import { resolveSitemapChildFetchUrl } from "./sitemap-audit-origin.mjs";
 
@@ -177,7 +179,7 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
   const a = byRoute(after);
   const catalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
   const draftRoutes = new Set(catalog
-    .filter((item) => item.status === "draft" && item.live === false)
+    .filter(isUnpublishedDraftPortfolio)
     .map((item) => `/portfolio/${item.slug}`));
   const inventoryPaths = (snapshot) => new Set(snapshot.sitemap.urls.map((url) => {
     try { return new URL(url).pathname.replace(/\/$/, "") || "/"; } catch { return url; }

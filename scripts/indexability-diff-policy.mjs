@@ -16,11 +16,10 @@ export function classifyIndexabilityDelta(before, after, { expectedUnpublishedDr
     !before.redirectedTo &&
     !after.redirectedTo &&
     after.noindex === true &&
-    !after.nofollow &&
     after.canonical === `https://0web.com.br${after.route}` &&
-    !after.problems?.some((problem) => problem !== "noindex");
+    !after.problems?.some((problem) => !["noindex", "nofollow"].includes(problem));
   if (!before.noindex && after.noindex && !newDraft) reasons.push("noindex introduzido");
-  if (!before.nofollow && after.nofollow) reasons.push("nofollow introduzido");
+  if (!before.nofollow && after.nofollow && !newDraft) reasons.push("nofollow introduzido");
 
   const beforeProblems = new Set(before.problems ?? []);
   const afterProblems = new Set(after.problems ?? []);
