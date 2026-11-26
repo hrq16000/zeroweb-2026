@@ -163,7 +163,7 @@ export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
         </div>
       ) : (
         <>
-          <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#947443]">
+          <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#76572C]">
             Consulta directa
           </p>
           <h3 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">
@@ -224,7 +224,7 @@ export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
               </div>
 
               <label className="grid gap-2 text-sm font-semibold" htmlFor="infinito-email">
-                Correo electrónico <span className="font-normal text-[#718077]">(opcional)</span>
+                Correo electrónico <span className="font-normal text-[#53665C]">(opcional)</span>
                 <input
                   id="infinito-email"
                   name="email"
@@ -272,7 +272,7 @@ export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
 
               <label className="grid gap-2 text-sm font-semibold" htmlFor="infinito-notes">
                 ¿Hay algo más que quieras contarle a Roze?{" "}
-                <span className="font-normal text-[#718077]">(opcional)</span>
+                <span className="font-normal text-[#53665C]">(opcional)</span>
                 <textarea
                   id="infinito-notes"
                   name="notes"
@@ -317,7 +317,7 @@ export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
                 </a>
               ) : null}
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="max-w-xs text-[11px] leading-5 text-[#718077]">
+                <p className="max-w-xs text-[11px] leading-5 text-[#53665C]">
                   Los valores, modalidades y disponibilidad se confirman directamente con Roze.
                 </p>
                 <button
