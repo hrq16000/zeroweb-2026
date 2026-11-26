@@ -1,4 +1,22 @@
-export function classifyIndexabilityDelta(before, after) {
+export function classifyIndexabilityDelta(before, after, { newDraft = false, beforeInSitemap = false, afterInSitemap = false } = {}) {
+  // A rota nova de demonstração nunca esteve indexável. Sua proteção é uma
+  // exigência, não uma regressão. Não dispensar páginas anteriormente públicas.
+  if (newDraft && before?.status === 404 && after?.status === 200) {
+    const reasons = [];
+    if (beforeInSitemap || afterInSitemap) reasons.push("rascunho presente no sitemap");
+    if (!after.noindex) reasons.push("rascunho sem noindex");
+    if (!after.route?.startsWith("/portfolio/") ||
+        after.canonical !== `https://0web.com.br${after.route}`) reasons.push("canonical inválida no rascunho");
+    if (after.redirectedTo) reasons.push("rascunho redirecionado");
+    for (const problem of after.problems ?? []) {
+      if (problem !== "noindex") reasons.push(problem);
+    }
+    return {
+      hard: reasons.length > 0,
+      reason: reasons.join("; ") || "nova demonstração protegida, fora do sitemap",
+      schemaDelta: (after.schemas?.length ?? 0) - (before.schemas?.length ?? 0),
+    };
+  }
   if (before && !after) return { hard: true, reason: "rota removida", schemaDelta: 0 };
   if (!before || !after) return { hard: false, reason: "", schemaDelta: 0 };
 
@@ -6,15 +24,12 @@ export function classifyIndexabilityDelta(before, after) {
   if (before.status === 200 && after.status !== 200) reasons.push(`status ${before.status}→${after.status}`);
   if (before.canonical && !after.canonical) reasons.push("canonical removida");
   if (before.canonical && after.canonical && before.canonical !== after.canonical) reasons.push("canonical alterada");
-  // Rotas ainda inexistentes (404) não perdem indexabilidade ao ganhar um
-  // 200 temporariamente noindex para revisão. Páginas já existentes (200)
-  // continuam protegidas integralmente pelos mesmos limites estritos.
-  if (before.status === 200 && !before.noindex && after.noindex) reasons.push("noindex introduzido");
-  if (before.status === 200 && !before.nofollow && after.nofollow) reasons.push("nofollow introduzido");
+  if (!before.noindex && after.noindex) reasons.push("noindex introduzido");
+  if (!before.nofollow && after.nofollow) reasons.push("nofollow introduzido");
 
   const beforeProblems = new Set(before.problems ?? []);
   const afterProblems = new Set(after.problems ?? []);
-  if (before.status === 200 && !beforeProblems.has("ausente do sitemap") && afterProblems.has("ausente do sitemap")) {
+  if (!beforeProblems.has("ausente do sitemap") && afterProblems.has("ausente do sitemap")) {
     reasons.push("removida do sitemap");
   }
 
