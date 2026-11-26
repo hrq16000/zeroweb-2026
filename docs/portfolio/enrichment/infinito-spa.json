@@ -1,65 +1,129 @@
 {
-  "doc": "Entity enrichment basado en intake y b煤squeda p煤blica; hom贸nimos excluidos.",
   "slug": "infinito-spa",
-  "lastResearchAt": "2026-11-25",
+  "identity": {
+    "brand": "Infinito Spa",
+    "owner": "Roze",
+    "segment": "Masajes / masoterapia",
+    "locality": "Santiago, Chile",
+    "sourceType": "OWNER_SUPPLIED",
+    "confidence": "HIGH",
+    "note": "Marca y datos confirmados por intake 0WEB; no equivale a raz贸n social."
+  },
   "researchLedger": {
-    "googleEntity": {
+    "publicWeb": {
       "searched": true,
-      "found": false,
+      "found": true,
       "resolved": false,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "usable": false,
+      "notes": "Resultados hom贸nimos no vinculados.",
+      "accessible": true,
+      "ingestable": false
     },
-    "website": {
+    "googleMaps": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "notes": "La profesional indic贸 que no tiene sitio.",
+      "accessible": true,
+      "ingestable": false
     },
     "instagram": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "usable": false,
+      "notes": "No se obtuvo handle inequ铆voco.",
+      "accessible": true,
+      "ingestable": false
     },
     "facebook": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "usable": false,
+      "accessible": true,
+      "ingestable": false
     },
-    "otherSocial": {
-      "searched": false,
-      "found": false,
+    "publicDirectories": {
+      "searched": true,
+      "found": true,
       "resolved": false,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "usable": false,
+      "notes": "Hom贸nimos descartados por falta de convergencia.",
+      "accessible": true,
+      "ingestable": false
     },
-    "directories": {
+    "reviews": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "accessible": false,
+      "accessible": true,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "notes": "No public review source could be linked confidently to the correct Infinito Spa in Santiago; no ratings or testimonials are used."
     },
-    "phone": {
+    "media": {
       "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
-      "accessible": f痘玘
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "notes": "No se verificaron fotos oficiales del negocio ni activos sociales; solo se utiliza arte original de marca creado por 0WEB."
+    }
+  },
+  "sources": [
+    {
+      "value": "Infinito Spa / masajes / Santiago",
+      "source": "Formulario de diagn贸stico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atenci贸n en un espacio privado de Santiago; la ubicaci贸n exacta no se publica.",
+      "source": "Conversaci贸n WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "allowedClaims": [
+    "Masajes y masoterapia en Santiago",
+    "Atenci贸n en espacio privado con coordinaci贸n previa",
+    "Consultar modalidades y disponibilidad con Roze"
+  ],
+  "unverified": [
+    "modalidades espec铆ficas",
+    "precios y duraci贸n",
+    "horarios",
+    "comuna",
+    "direcci贸n exacta",
+    "certificaciones",
+    "logo",
+    "redes oficiales",
+    "fotos",
+    "testimonios"
+  ],
+  "rejectedMatches": [
+    "Negocios hom贸nimos sin dos se帽ales convergentes."
+  ],
+  "lastResearchAt": "2026-11-25T21:10:00-03:00"
+}

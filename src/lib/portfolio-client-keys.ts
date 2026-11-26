@@ -1,12 +1,11 @@
 /** Chaves pÃºblicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-
-  "infinito-spa","cantinho-da-tia-mari",
+  "cantinho-da-tia-mari",
   "agropet-filt",
-
-
-
-
+  
+  
+  
+  
   "arildo-madeiras","dona-garimpeira-brecho","autoescola-aptos","catharine-lima-studio",
   "cris-presentes-colonia-rio-grande",
   "adhonep-curitiba","jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
@@ -56,4 +55,53 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "lucas-arruma-maquina-lavar",
   "lk-alvenaria",
   "vila-da-capivara",
-  "ag-electrical-service¶»§q«^
+  "ag-electrical-services",
+  "refrigeracao-maresia",
+  "studio-de-cilios",
+  "mp-festas-eventos",
+  "confeitaria-chyrley",
+  "dyzpromo",
+  "renata-beauty",
+  "r-beauty",
+  "marido-de-aluguel",
+  "emporio-lelecute",
+  "paraiso-do-hot-dog",
+  "rm-fretes",
+  "rj-servicos-drywall",
+  "lolipa-arte-em-festas",
+  "confeitaria-sabor-da-realeza",
+  "liz-moraes-nail-designer",
+  "assistencia-microondas-santos",
+  "artesanatos-darleia-oliveira",
+  "thays-camilla",
+  "almeida-torres",
+  "bh-barreiro-marmitas",
+  "casa-nativa",
+  "clinica-integrada",
+  "guaratuba-atelie-presentes",
+  "guaratuba-oficina-nautica",
+  "guaratuba-reparos-residenciais",
+  "guaratuba-sabores-da-baia",
+  "mirassol-conserta-celular",
+  "mirassol-delicias-caseiras",
+  "uberlandia-eletrica-residencial",
+  "sscons",
+  "mimo-salgados-doces",
+  "popys-conservacao-limpeza",
+  "bruna-diarista",
+  "js-eletrica-manutencao",
+  "papelemi-personalizados",
+  "maximos-cabeleireiros",
+  "kitutes-na-mesa",
+  "your_brutus_burguer",
+  "auto-socorro-dentinho",
+  "pinturas-nunes",
+  "estrutura-nacional",
+  "carecas-infotec",
+  "infinito-spa",
+] as const;
+export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
+
+export function isPortfolioClientKey(value: unknown): value is PortfolioClientKey {
+  return typeof value === "string" && (PORTFOLIO_CLIENT_KEYS as readonly string[]).includes(value);
+}

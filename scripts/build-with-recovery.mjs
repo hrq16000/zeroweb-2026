@@ -30,7 +30,16 @@ function build() {
   return r;
 }
 
+function logBuildFailure(result) {
+  if (result.status !== 0) {
+    console.error(
+      `[build-with-recovery] status=${result.status ?? "null"} signal=${result.signal ?? "none"} error=${result.error?.message ?? "none"}`,
+    );
+  }
+}
+
 let result = build();
+logBuildFailure(result);
 const firstBuildOutput = `${result.stdout}${result.stderr}`;
 if (result.status !== 0 && (ENTITIES_ERROR.test(firstBuildOutput) || ROUTE_CRAWLER_ERROR.test(firstBuildOutput))) {
   const dependencyFailure = ENTITIES_ERROR.test(firstBuildOutput);
@@ -62,6 +71,7 @@ if (result.status !== 0 && (ENTITIES_ERROR.test(firstBuildOutput) || ROUTE_CRAWL
     console.log("[auto-recovery] caches de rotas removidos — repetindo o build.");
   }
   result = build();
+  logBuildFailure(result);
 }
 
 process.exit(result.status ?? 1);

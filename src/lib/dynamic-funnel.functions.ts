@@ -587,6 +587,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
     funnelIntent: z.enum(PORTFOLIO_FUNNEL_INTENTS).optional(),
+    locale: z.enum(["pt-BR", "es-CL"]).optional(),
     pageUrl: z.string().url().max(500).optional(),
     sessionId: z.string().min(4).max(120).optional(),
     visitorId: z.string().min(4).max(120).optional(),
@@ -596,7 +597,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       fulfillment: softText(120).optional(),
       customer_note: softText(2000).optional(),
     }).optional(),
-    // Campo opcional mantido por compatibilidade; portfolio sem número não o exige.
+    // Campos opcionais para clientes legados; Infinito Spa exige ambos server-side.
+    contactName: softText(120).optional(),
     recoveryContact: z.string().max(40).optional(),
     previewLocation: softText(120).optional(),
     answers: z.object({
@@ -690,7 +692,14 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const geo = await lookupGeo(ip);
     const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
       await import("@/lib/lead-recoverability");
-    const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
+    const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null, data.locale ?? "pt-BR");
+    const contactName = data.contactName?.trim() || null;
+    if (data.clientKey === "infinito-spa" && !contactName) {
+      throw new Error("Ingresa tu nombre para registrar la consulta.");
+    }
+    if (data.clientKey === "infinito-spa" && !recoveryPhone) {
+      throw new Error("Ingresa un WhatsApp chileno válido para registrar la consulta.");
+    }
 
     const quizMetadata: Record<string, unknown> = {
       source: "portfolio_client",
@@ -701,6 +710,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       mode: data.mode,
       proposal_kind: data.proposalKind,
       ...(data.funnelIntent ? { funnel_intent: data.funnelIntent } : {}),
+      ...(data.locale ? { locale: data.locale } : {}),
       ...(hasOrderContext ? { order_context: orderContext } : {}),
       completed_at: new Date().toISOString(),
       page_url: data.pageUrl ?? pageUrl,
@@ -727,7 +737,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         form_id: form.id,
         answers_json: data.answers,
         metadata_json: quizMetadata,
-        contact_name: null,
+        contact_name: contactName,
         contact_email: null,
         contact_phone: recoveryPhone,
         whatsapp_user_url: null,

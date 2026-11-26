@@ -22,4 +22,1694 @@ import { getCompositionPage } from "@/components/portfolio/composition/registry"
 import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import { createDonaGarimpeiraSeo } from "@/lib/dona-garimpeira-seo";
 import {
-  por���q�^
+  portfolioUniversalKeywords,
+  portfolioUniversalSeoTitle,
+  resolvePortfolioSeoDescriptor,
+} from "@/lib/portfolio-seo-network";
+
+/** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
+function managedHead(project: ManagedProject) {
+  const isInfinitoSpa = project.slug === "infinito-spa";
+  const url = project.canonicalUrl;
+  const social = project.socialImage
+    ? project.socialImage.startsWith("http")
+      ? project.socialImage
+      : absUrl(project.socialImage)
+    : absUrl("/og-default.jpg");
+  const icon = project.logoUrl ? absUrl(project.logoUrl) : social;
+  return {
+    meta: [
+      { title: project.seoTitle },
+      { name: "description", content: project.seoDescription },
+      { name: "robots", content: project.robots },
+      ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
+      { property: "og:title", content: project.seoTitle },
+      { property: "og:description", content: project.seoDescription },
+      { property: "og:url", content: url },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: isInfinitoSpa ? "es_CL" : "pt_BR" },
+      { property: "og:site_name", content: project.displayName },
+      { property: "og:image", content: social },
+      { property: "og:image:secure_url", content: social },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: project.displayName },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: project.seoTitle },
+      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:image", content: social },
+      { name: "twitter:image:alt", content: project.displayName },
+    ],
+    links: [
+      { rel: "canonical", href: url },
+      { rel: "alternate", hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR", href: url },
+      { rel: "alternate", hrefLang: "x-default", href: url },
+      { rel: "icon", href: icon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: graph([
+          organizationNode(),
+          {
+            "@type": "LocalBusiness",
+            "@id": `${url}#localbusiness`,
+            name: project.displayName,
+            description: project.seoDescription,
+            url,
+            image: social,
+            ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
+            ...(project.city
+              ? {
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: project.city,
+                    addressRegion: project.state || "BR",
+                    addressCountry: "BR",
+                  },
+                }
+              : {}),
+            ...(project.services.length
+              ? {
+                  makesOffer: project.services.map((service) => ({
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: service.title },
+                  })),
+                }
+              : {}),
+          },
+          ...(project.content.faq.length
+            ? [
+                {
+                  "@type": "FAQPage",
+                  "@id": `${url}#faq`,
+                  mainEntity: project.content.faq.map((faq) => ({
+                    "@type": "Question",
+                    name: faq.q,
+                    acceptedAnswer: { "@type": "Answer", text: faq.a },
+                  })),
+                },
+              ]
+            : []),
+          breadcrumbNode([
+            { name: "Início", path: "/" },
+            { name: "Portfólio", path: "/portfolio" },
+            { name: project.displayName, path: `/portfolio/${project.slug}` },
+          ]),
+        ]),
+      },
+    ],
+  };
+}
+
+
+// Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
+// próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
+// renderizando o conteúdo (React resolve o lazy no stream), preservando SEO.
+const AlmeidaTorresAdvocaciaPage = lazy(() =>
+  import("@/components/site/AlmeidaTorresAdvocaciaPage").then((m) => ({ default: m.AlmeidaTorresAdvocaciaPage })),
+);
+const BarreiroMarmitasPage = lazy(() =>
+  import("@/components/site/BarreiroMarmitasPage").then((m) => ({ default: m.BarreiroMarmitasPage })),
+);
+const CasaNativaBistroPage = lazy(() =>
+  import("@/components/site/CasaNativaBistroPage").then((m) => ({ default: m.CasaNativaBistroPage })),
+);
+const ClinicaIntegradaSaudePage = lazy(() =>
+  import("@/components/site/ClinicaIntegradaSaudePage").then((m) => ({ default: m.ClinicaIntegradaSaudePage })),
+);
+const AtelieEncantoDaBaiaPage = lazy(() =>
+  import("@/components/site/AtelieEncantoDaBaiaPage").then((m) => ({ default: m.AtelieEncantoDaBaiaPage })),
+);
+const OficinaNauticaGuaratubaPage = lazy(() =>
+  import("@/components/site/OficinaNauticaGuaratubaPage").then((m) => ({ default: m.OficinaNauticaGuaratubaPage })),
+);
+const ReparosDoLitoralPage = lazy(() =>
+  import("@/components/site/ReparosDoLitoralPage").then((m) => ({ default: m.ReparosDoLitoralPage })),
+);
+const SaboresDaBaiaPage = lazy(() =>
+  import("@/components/site/SaboresDaBaiaPage").then((m) => ({ default: m.SaboresDaBaiaPage })),
+);
+const ConsertaMirassolPage = lazy(() =>
+  import("@/components/site/ConsertaMirassolPage").then((m) => ({ default: m.ConsertaMirassolPage })),
+);
+const DeliciasCaseirasMirassolPage = lazy(() =>
+  import("@/components/site/DeliciasCaseirasMirassolPage").then((m) => ({ default: m.DeliciasCaseirasMirassolPage })),
+);
+const UberlandiaEletricaResidencialPage = lazy(() =>
+  import("@/components/site/UberlandiaEletricaResidencialPage").then((m) => ({ default: m.UberlandiaEletricaResidencialPage })),
+);
+const MaridoDeAluguelPage = lazy(() =>
+  import("@/components/site/MaridoDeAluguelPage").then((m) => ({ default: m.MaridoDeAluguelPage })),
+);
+const EmporioLelecutePage = lazy(() =>
+  import("@/components/site/EmporioLelecutePage").then((m) => ({ default: m.EmporioLelecutePage })),
+);
+const ParaisoHotDogPage = lazy(() =>
+  import("@/components/site/ParaisoHotDogPage").then((m) => ({ default: m.ParaisoHotDogPage })),
+);
+const RMFretesPage = lazy(() =>
+  import("@/components/site/RMFretesPage").then((m) => ({ default: m.RMFretesPage })),
+);
+const RjServicosDrywallPage = lazy(() =>
+  import("@/components/site/RjServicosDrywallPage").then((m) => ({
+    default: m.RjServicosDrywallPage,
+  })),
+);
+const ConfeitariaChyrleyPage = lazy(() =>
+  import("@/components/site/ConfeitariaChyrleyPage").then((m) => ({
+    default: m.ConfeitariaChyrleyPage,
+  })),
+);
+const MpFestasEventosPage = lazy(() =>
+  import("@/components/site/MpFestasEventosPage").then((m) => ({ default: m.MpFestasEventosPage })),
+);
+const StudioDeCiliosPage = lazy(() =>
+  import("@/components/site/StudioDeCiliosPage").then((m) => ({ default: m.StudioDeCiliosPage })),
+);
+const RefrigeracaoMaresiaPage = lazy(() =>
+  import("@/components/site/RefrigeracaoMaresiaPage").then((m) => ({
+    default: m.RefrigeracaoMaresiaPage,
+  })),
+);
+const AgElectricalServicesPage = lazy(() =>
+  import("@/components/site/AgElectricalServicesPage").then((m) => ({
+    default: m.AgElectricalServicesPage,
+  })),
+);
+const VilaDaCapivaraPage = lazy(() =>
+  import("@/components/site/VilaDaCapivaraPage").then((m) => ({ default: m.VilaDaCapivaraPage })),
+);
+const LkAlvenariaPage = lazy(() =>
+  import("@/components/site/LkAlvenariaPage").then((m) => ({ default: m.LkAlvenariaPage })),
+);
+const LucasArrumaMaquinaLavarPage = lazy(() =>
+  import("@/components/site/LucasArrumaMaquinaLavarPage").then((m) => ({
+    default: m.LucasArrumaMaquinaLavarPage,
+  })),
+);
+const PauloMestreDeObrasPage = lazy(() =>
+  import("@/components/site/PauloMestreDeObrasPage").then((m) => ({
+    default: m.PauloMestreDeObrasPage,
+  })),
+);
+// Migração autêntica (issue #60) — S&S Construções, chunk isolado por slug.
+const SsConsPage = lazy(() =>
+  import("@/components/site/SsConsPage").then((m) => ({ default: m.SsConsPage })),
+);
+const MimoSalgadosDocesPage = lazy(() =>
+  import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
+);
+const PopysConservacaoLimpezaPage = lazy(() =>
+  import("@/components/site/PopysConservacaoLimpezaPage").then((m) => ({ default: m.PopysConservacaoLimpezaPage })),
+);
+const BrunaDiaristaPage = lazy(() =>
+  import("@/components/site/BrunaDiaristaPage").then((m) => ({ default: m.BrunaDiaristaPage })),
+);
+const BtbConstrucaoPage = lazy(() =>
+  import("@/components/site/BtbConstrucaoPage").then((m) => ({ default: m.BtbConstrucaoPage })),
+);
+const EasyCleanPage = lazy(() =>
+  import("@/components/site/EasyCleanPage").then((m) => ({ default: m.EasyCleanPage })),
+);
+const JsEletricaManutencaoPage = lazy(() =>
+  import("@/components/site/JsEletricaManutencaoPage").then((m) => ({
+    default: m.JsEletricaManutencaoPage,
+  })),
+);
+const PapelemiPersonalizadosPage = lazy(() =>
+  import("@/components/site/PapelemiPersonalizadosPage").then((m) => ({
+    default: m.PapelemiPersonalizadosPage,
+  })),
+);
+const MaximosCabeleireirosPage = lazy(() =>
+  import("@/components/site/MaximosCabeleireirosPage").then((m) => ({
+    default: m.MaximosCabeleireirosPage,
+  })),
+);
+const EmbalarEmbalagensPage = lazy(() =>
+  import("@/components/site/EmbalarEmbalagensPage").then((m) => ({
+    default: m.EmbalarEmbalagensPage,
+  })),
+);
+const SimoneLacerdaVazPage = lazy(() =>
+  import("@/components/site/SimoneLacerdaVazPage").then((m) => ({
+    default: m.SimoneLacerdaVazPage,
+  })),
+);
+const KitutesNaMesaPage = lazy(() =>
+  import("@/components/site/KitutesNaMesaPage").then((m) => ({
+    default: m.KitutesNaMesaPage,
+  })),
+);
+const EnoelPortasPage = lazy(() =>
+  import("@/components/site/EnoelPortasPage").then((m) => ({
+    default: m.EnoelPortasPage,
+  })),
+);
+const ManiaDeLimpezaPage = lazy(() =>
+  import("@/components/site/ManiaDeLimpezaPage").then((m) => ({
+    default: m.ManiaDeLimpezaPage,
+  })),
+);
+const DonaLucySalgadosPage = lazy(() =>
+  import("@/components/site/DonaLucySalgadosPage").then((m) => ({
+    default: m.DonaLucySalgadosPage,
+  })),
+);
+const CentroMegaPage = lazy(() =>
+  import("@/components/site/CentroMegaPage").then((m) => ({ default: m.CentroMegaPage })),
+);
+const EcommerceOnPage = lazy(() =>
+  import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
+);
+const NoBrilhoHigienizacaoPage = lazy(() =>
+  import("@/components/site/NoBrilhoHigienizacaoPage").then((m) => ({
+    default: m.NoBrilhoHigienizacaoPage,
+  })),
+);
+const SalaoDaMarciaPage = lazy(() =>
+  import("@/components/site/SalaoDaMarciaPage").then((m) => ({ default: m.SalaoDaMarciaPage })),
+);
+const EspacoCihLuhPage = lazy(() =>
+  import("@/components/site/EspacoCihLuhPage").then((m) => ({ default: m.EspacoCihLuhPage })),
+);
+const DiegoMontadorMoveisPage = lazy(() =>
+  import("@/components/site/DiegoMontadorMoveisPage").then((m) => ({
+    default: m.DiegoMontadorMoveisPage,
+  })),
+);
+const AguiaSulSinalizacaoPage = lazy(() =>
+  import("@/components/site/AguiaSulSinalizacaoPage").then((m) => ({
+    default: m.AguiaSulSinalizacaoPage,
+  })),
+);
+const EletrovaleEletromecanicaPage = lazy(() =>
+  import("@/components/site/EletrovaleEletromecanicaPage").then((m) => ({
+    default: m.EletrovaleEletromecanicaPage,
+  })),
+);
+const EletroSolucoesEficazesPage = lazy(() =>
+  import("@/components/site/EletroSolucoesEficazesPage").then((m) => ({
+    default: m.EletroSolucoesEficazesPage,
+  })),
+);
+const EisenferTubosAcosPage = lazy(() =>
+  import("@/components/site/EisenferTubosAcosPage").then((m) => ({
+    default: m.EisenferTubosAcosPage,
+  })),
+);
+const MaryDiaristaPage = lazy(() =>
+  import("@/components/site/MaryDiaristaPage").then((m) => ({ default: m.MaryDiaristaPage })),
+);
+const AcaiTotalAraucariaPage = lazy(() =>
+  import("@/components/site/AcaiTotalAraucariaPage").then((m) => ({
+    default: m.AcaiTotalAraucariaPage,
+  })),
+);
+const JklMarcenariaPage = lazy(() =>
+  import("@/components/site/JklMarcenariaPage").then((m) => ({ default: m.JklMarcenariaPage })),
+);
+const SantosMontadorDeMoveisPage = lazy(() =>
+  import("@/components/site/SantosMontadorDeMoveisPage").then((m) => ({
+    default: m.SantosMontadorDeMoveisPage,
+  })),
+);
+const CatharineLimaStudioPage = lazy(() =>
+  import("@/components/site/CatharineLimaStudioPage").then((m) => ({ default: m.CatharineLimaStudioPage })),
+);
+const CrisPresentesColoniaRioGrandePage = lazy(() =>
+  import("@/components/site/CrisPresentesColoniaRioGrandePage").then((m) => ({ default: m.CrisPresentesColoniaRioGrandePage })),
+);
+const SosPresentesCosmeticosPage = lazy(() =>
+  import("@/components/site/SosPresentesCosmeticosPage").then((m) => ({
+    default: m.SosPresentesCosmeticosPage,
+  })),
+);
+const MarmitariaDomDiegoPage = lazy(() =>
+  import("@/components/site/MarmitariaDomDiegoPage").then((m) => ({
+    default: m.MarmitariaDomDiegoPage,
+  })),
+);
+const BetoPasteisPage = lazy(() =>
+  import("@/components/site/BetoPasteisPage").then((m) => ({ default: m.BetoPasteisPage })),
+);
+const WoodhouseHamburgueresPage = lazy(() =>
+  import("@/components/site/WoodhouseHamburgueresPage").then((m) => ({
+    default: m.WoodhouseHamburgueresPage,
+  })),
+);
+const DlaraPizzariaPage = lazy(() =>
+  import("@/components/site/DlaraPizzariaPage").then((m) => ({ default: m.DlaraPizzariaPage })),
+);
+const ToquinhoDeGenteBrechoPage = lazy(() =>
+  import("@/components/site/ToquinhoDeGenteBrechoPage").then((m) => ({
+    default: m.ToquinhoDeGenteBrechoPage,
+  })),
+);
+const ReuseHouseBrechoPage = lazy(() =>
+  import("@/components/site/ReuseHouseBrechoPage").then((m) => ({
+    default: m.ReuseHouseBrechoPage,
+  })),
+);
+const BrechoSaoFranciscoPage = lazy(() =>
+  import("@/components/site/BrechoSaoFranciscoPage").then((m) => ({
+    default: m.BrechoSaoFranciscoPage,
+  })),
+);
+const AngelMixBrechoPage = lazy(() =>
+  import("@/components/site/AngelMixBrechoPage").then((m) => ({ default: m.AngelMixBrechoPage })),
+);
+const LolipaArteEmFestasPage = lazy(() =>
+  import("@/components/site/LolipaArteEmFestasPage").then((m) => ({
+    default: m.LolipaArteEmFestasPage,
+  })),
+);
+const ConfeitariaSaborDaRealezaPage = lazy(() =>
+  import("@/components/site/ConfeitariaSaborDaRealezaPage").then((m) => ({
+    default: m.ConfeitariaSaborDaRealezaPage,
+  })),
+);
+const PremiumEnvelopamentosPage = lazy(() =>
+  import("@/components/site/PremiumEnvelopamentosPage").then((m) => ({
+    default: m.PremiumEnvelopamentosPage,
+  })),
+);
+const MiroTechPage = lazy(() =>
+  import("@/components/site/MiroTechPage").then((m) => ({ default: m.MiroTechPage })),
+);
+const GalileuLocacaoBrinquedosPage = lazy(() =>
+  import("@/components/site/GalileuLocacaoBrinquedosPage").then((m) => ({
+    default: m.GalileuLocacaoBrinquedosPage,
+  })),
+);
+const LjCleaningPage = lazy(() =>
+  import("@/components/site/LjCleaningPage").then((m) => ({ default: m.LjCleaningPage })),
+);
+const ManuPasteisPage = lazy(() =>
+  import("@/components/site/ManuPasteisPage").then((m) => ({ default: m.ManuPasteisPage })),
+);
+const LizMoraesNailDesignerPage = lazy(() =>
+  import("@/components/site/LizMoraesNailDesignerPage").then((m) => ({
+    default: m.LizMoraesNailDesignerPage,
+  })),
+);
+const AssistenciaMicroondasSantosPage = lazy(() =>
+  import("@/components/site/AssistenciaMicroondasSantosPage").then((m) => ({
+    default: m.AssistenciaMicroondasSantosPage,
+  })),
+);
+const ArtesanatosDarLeiaOliveiraPage = lazy(() =>
+  import("@/components/site/ArtesanatosDarLeiaOliveiraPage").then((m) => ({
+    default: m.ArtesanatosDarLeiaOliveiraPage,
+  })),
+);
+const ThaysCamillaPage = lazy(() =>
+  import("@/components/site/ThaysCamillaPage").then((m) => ({ default: m.ThaysCamillaPage })),
+);
+const FernandaAmaralDrywallPage = lazy(() =>
+  import("@/components/site/FernandaAmaralDrywallPage").then((m) => ({
+    default: m.FernandaAmaralDrywallPage,
+  })),
+);
+const DeniseGomesPsicologaPage = lazy(() =>
+  import("@/components/site/DeniseGomesPsicologaPage").then((m) => ({
+    default: m.DeniseGomesPsicologaPage,
+  })),
+);
+const TonECorPage = lazy(() =>
+  import("@/components/site/TonECorPage").then((m) => ({ default: m.TonECorPage })),
+);
+const RaphaelConstrucoesPage = lazy(() =>
+  import("@/components/site/RaphaelConstrucoesPage").then((m) => ({
+    default: m.RaphaelConstrucoesPage,
+  })),
+);
+const JcRevestimentosPage = lazy(() =>
+  import("@/components/site/JcRevestimentosPage").then((m) => ({ default: m.JcRevestimentosPage })),
+);
+const HbkIluminacaoLedPage = lazy(() =>
+  import("@/components/site/HbkIluminacaoLedPage").then((m) => ({ default: m.HbkIluminacaoLedPage })),
+);
+const HeloaGasPage = lazy(() =>
+  import("@/components/site/HeloaGasPage").then((m) => ({ default: m.HeloaGasPage })),
+);
+const PastelariaRoute66Page = lazy(() =>
+  import("@/components/site/PastelariaRoute66Page").then((m) => ({ default: m.PastelariaRoute66Page })),
+);
+const YourBrutusBurguerPage = lazy(() =>
+  import("@/components/site/YourBrutusBurguerPage").then((m) => ({ default: m.YourBrutusBurguerPage })),
+);
+const AutoSocorroDentinhoPage = lazy(() =>
+  import("@/components/site/AutoSocorroDentinhoPage").then((m) => ({ default: m.AutoSocorroDentinhoPage })),
+);
+const PinturasNunesPage = lazy(() =>
+  import("@/components/site/PinturasNunesPage").then((m) => ({ default: m.PinturasNunesPage })),
+);
+const EstruturaNacionalPage = lazy(() =>
+  import("@/components/site/EstruturaNacionalPage").then((m) => ({ default: m.EstruturaNacionalPage })),
+);
+const CarecasInfotecPage = lazy(() =>
+  import("@/components/site/CarecasInfotecPage").then((m) => ({ default: m.CarecasInfotecPage })),
+);
+
+export const Route = createFileRoute("/portfolio/$slug")({
+  loader: async ({ params }) => {
+    const site = findPortfolioPrototype(params.slug);
+    // Dona Garimpeira tem atendimento client-side independente do banco.
+    // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
+    if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound();
+    const verticalSlug = site?.vertical;
+    const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
+    if (!vertical) {
+      // Projeto criado pelo painel (Managed): não existe arquivo React nem
+      // entrada no registry. Só é público quando está PUBLISHED.
+      let managed: ManagedProject | null = null;
+      try {
+        managed = await getManagedProject({ data: { slug: params.slug } });
+      } catch {
+        managed = null;
+      }
+      if (!managed) throw notFound();
+      return { vertical: undefined, slug: params.slug, overrides: null, managed };
+    }
+    // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
+    if (params.slug === "dona-garimpeira-brecho") {
+      return { vertical, slug: params.slug, overrides: null, managed: null };
+    }
+    // Overrides administráveis (admin → banco → runtime). Falha vira null:
+    // a página do cliente nunca depende do banco para renderizar.
+    let overrides: PortfolioRuntimeOverrides | null = null;
+    try {
+      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug } });
+    } catch {
+      overrides = null;
+    }
+    return { vertical, slug: params.slug, overrides, managed: null };
+  },
+  head: ({ loaderData }) => {
+    // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
+    if (loaderData?.slug === "dona-garimpeira-brecho") {
+      return createDonaGarimpeiraSeo({
+        published: true,
+        funnelVerified: true,
+        ownerApproved: true,
+        mediaApproved: false,
+        approvedWithoutSocialImage: true,
+        approvedSocialImage: null,
+      });
+    }
+    const managedProject = loaderData?.managed ?? null;
+    if (managedProject) return managedHead(managedProject);
+    const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
+    const catalogSeo = loaderData?.slug
+      ? resolvePortfolioSeoDescriptor(loaderData.slug)
+      : null;
+    const isInfinitoSpa = loaderData?.slug === "infinito-spa";
+    const title = isInfinitoSpa
+      ? "Infinito Spa | Masajes y masoterapia en Santiago, Chile"
+      : (loaderData?.slug ? portfolioUniversalSeoTitle(loaderData.slug) : null) ??
+      prototype?.siteName ??
+      loaderData?.vertical?.name ??
+      "Projeto de presença digital";
+
+    const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
+    const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
+    const isChyrley = loaderData?.slug === "confeitaria-chyrley";
+    const isMpFestas = loaderData?.slug === "mp-festas-eventos";
+    const isStudioCilios = loaderData?.slug === "studio-de-cilios";
+    const isMaresia = loaderData?.slug === "refrigeracao-maresia";
+    const isAgElectrical = loaderData?.slug === "ag-electrical-services";
+    const isVilaCapivara = loaderData?.slug === "vila-da-capivara";
+    const isLkAlvenaria = loaderData?.slug === "lk-alvenaria";
+    const isLucasArruma = loaderData?.slug === "lucas-arruma-maquina-lavar";
+    const isPauloMestre = loaderData?.slug === "paulo-mestre-de-obras";
+    const isEcommerceOn = loaderData?.slug === "ecommerce-on";
+    const isNoBrilho = loaderData?.slug === "no-brilho-higienizacao";
+    const isSalaoMarcia = loaderData?.slug === "salao-da-marcia";
+    const isCihLuh = loaderData?.slug === "espaco-cih-luh";
+    const isDiego = loaderData?.slug === "diego-montador-moveis";
+    const isAguia = loaderData?.slug === "aguia-sul-sinalizacao";
+    const isEletrovale = loaderData?.slug === "eletrovale-eletromecanica";
+    const isEletroSolucoes = loaderData?.slug === "eletro-solucoes-eficazes";
+    const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
+    const isMary = loaderData?.slug === "mary-diarista";
+    const isAcai = loaderData?.slug === "acai-total-araucaria";
+    const isJkl = loaderData?.slug === "jkl-marcenaria";
+    const isSantos = loaderData?.slug === "santos-montador-de-moveis";
+    const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
+    const isCrisPresentesColoniaRioGrande = loaderData?.slug === "cris-presentes-colonia-rio-grande";
+    const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
+    const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
+    const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
+    const isPremium = loaderData?.slug === "premium-envelopamentos";
+    const isMiro = loaderData?.slug === "miro-tech";
+    const isGalileu = loaderData?.slug === "galileu-locacao-brinquedos";
+    const isLjCleaning = loaderData?.slug === "lj-cleaning";
+    const isManuPasteis = loaderData?.slug === "manu-pasteis";
+    const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
+    const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
+    const isArtesanatosDarleia = loaderData?.slug === "artesanatos-darleia-oliveira";
+    const isThaysCamilla = loaderData?.slug === "thays-camilla";
+    const isFernandaAmaral = loaderData?.slug === "fernanda-amaral-drywall";
+    const isDeniseGomes = loaderData?.slug === "denise-gomes-psicologa";
+    const isTonECor = loaderData?.slug === "ton-e-cor";
+    const isRaphaelConstrucoes = loaderData?.slug === "raphael-construcoes";
+    const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
+    const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
+    const isHeloaGas = loaderData?.slug === "heloa-gas";
+    const isPastelariaRoute66 = loaderData?.slug === "pastelaria-route-66";
+    const isSscons = loaderData?.slug === "sscons";
+    const isMimo = loaderData?.slug === "mimo-salgados-doces";
+    const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
+    const isBruna = loaderData?.slug === "bruna-diarista";
+    const isBtb = loaderData?.slug === "btb-construcao";
+    const isEasyClean = loaderData?.slug === "easy-clean";
+    const isJsEletrica = loaderData?.slug === "js-eletrica-manutencao";
+    const isPapelemi = loaderData?.slug === "papelemi-personalizados";
+    const isMaximos = loaderData?.slug === "maximos-cabeleireiros";
+    const isEmbalar = loaderData?.slug === "embalar-embalagens";
+    const isSimoneLacerdaVaz = loaderData?.slug === "simone-lacerda-vaz";
+    const isKitutesNaMesa = loaderData?.slug === "kitutes-na-mesa";
+    const isEnoelPortas = loaderData?.slug === "enoel-portas";
+    const isManiaDeLimpeza = loaderData?.slug === "mania-de-limpeza";
+    const isDonaLucySalgados = loaderData?.slug === "dona-lucy-salgados";
+    const isCentroMega = loaderData?.slug === "centro-mega";
+    const isAutoSocorroDentinho = loaderData?.slug === "auto-socorro-dentinho";
+    const isPinturasNunes = loaderData?.slug === "pinturas-nunes";
+    const isEstruturaNacional = loaderData?.slug === "estrutura-nacional";
+    const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
+    const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
+    const isJklDecor = loaderData?.slug === "jkl-decor";
+    const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
+    const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
+    const description = isInfinitoSpa
+      ? "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta modalidades, duración y disponibilidad directamente con Roze antes de coordinar tu sesión."
+      : isArildoMadeiras
+      ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
+      : isAutoescolaAptos
+      ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
+      : isCrisPresentesColoniaRioGrande
+      ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
+      : isCatharineLima
+      ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
+      : isJklDecor
+      ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
+      : isMoreiraAutoMecanica
+      ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
+      : isCarecasInfotec
+      ? "Careca's Infotec no Santo Antônio, São José dos Pinhais — PR: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame, com recarga de cartucho e toner e avaliação antes do reparo."
+      : isEstruturaNacional
+      ? "EN — Estrutura Nacional em São José dos Pinhais: fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos e arames para solda."
+      : isPinturasNunes
+      ? "Pinturas Nunes: pintura residencial e predial, texturas, grafiato, acabamentos, telhados, grades e portões."
+      : isSscons
+      ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
+      : isMimo
+      ? "Mimo Salgados e Doces na Costeira, em São José dos Pinhais: salgados artesanais, doces e copo da felicidade por R$ 22,00."
+      : isPopys
+      ? "POPYS Conservação e Limpeza em Curitiba e Região: limpeza corporativa, escritórios, pós-obra, vidros, pisos e fachadas."
+      : isBruna
+      ? "Bruna Diarista em Curitiba e Região: diárias de 4, 6 ou 8 horas, limpeza pós-obra e organização de ambientes."
+      : isBtb
+      ? "BTB Construção em Curitiba e região: reformas internas, pintura, elétrica, hidráulica, drywall, revestimentos e iluminação LED."
+      : isEasyClean
+      ? "Easy Clean Higienização a Seco em Curitiba e região: lavagem a seco, higienização e impermeabilização de estofados, colchões e interiores de carro."
+      : isJsEletrica
+      ? "JS Elétrica e Manutenção em Curitiba e região: elétrica residencial, comercial, predial e industrial, padrão Copel, energia solar, ar-condicionado, motores, bombas e iluminação."
+      : isPapelemi
+      ? "PapeLemi Papelaria Personalizada: papelaria criativa, encadernação pessoal e brindes corporativos feitos com afeto."
+      : isMaximos
+      ? "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e beleza pensada para a sua rotina."
+      : isEmbalar
+      ? "Embalar Embalagens em São José dos Pinhais: embalagens, descartáveis, produtos de limpeza, higiene e utilidades no Jardim Itália."
+      : isSimoneLacerdaVaz
+      ? "Simone Lacerda Vaz: atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação."
+      : isKitutesNaMesa
+      ? "Kitutes na Mesa: porções, salgados, mini lanches, doces e bolos caseiros para eventos, coffee breaks e comemorações sob encomenda."
+      : isEnoelPortas
+      ? "Enoel Portas: colocação de portas de madeira, regulagem, vistas e caxilhos em Curitiba e região."
+      : isManiaDeLimpeza
+      ? "Mania de Limpeza Higienização: combo família para sofás, colchões, tapetes e estofados em Curitiba e região."
+      : isDonaLucySalgados
+      ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
+      : isCentroMega
+      ? "Centro Mega em São José dos Pinhais: loja virtual de celulares, acessórios, moda e outlet, com produtos com mídia real, conteúdo social oficial, seleção de itens e pedido pelo funil da loja."
+      : isAutoSocorroDentinho
+      ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
+      : isHeloaGas
+      ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
+      : isPastelariaRoute66
+      ? "Pastelaria e Lanchonete Route 66 no Prado Velho, Curitiba: café da manhã, salgados e almoço com atendimento no local, retirada e entrega, de segunda a sábado das 7h às 20h."
+      : isHbkIluminacaoLed
+      ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
+      : isJcRevestimentos
+      ? "JC Revestimentos em Uberaba, Curitiba: textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora."
+      : isRaphaelConstrucoes
+      ? "Raphael Construções: construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos em Curitiba, região e litoral."
+      : isTonECor
+      ? "Ton & Cor: pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral na região do Paraná."
+      : isDeniseGomes
+        ? "Denise Gomes, psicóloga CRP 08/22352 em São José dos Pinhais: atendimento e avaliação psicológica para adultos, ansiedade, burnout e relacionamentos."
+        : isManuPasteis
+          ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
+          : isLizMoraes
+            ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
+            : isAssistenciaMicroondas
+              ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
+              : isArtesanatosDarleia
+                ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
+                : isThaysCamilla
+                  ? "Thays Camilla: canecas e azulejos personalizados para presentear com carinho, incluindo kit promocional com azulejo 15x15 cm."
+                  : isFernandaAmaral
+                    ? "Fernanda & Amaral Serviços: instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama e pequenos fretes na região do Paraná."
+                    : isLjCleaning
+                      ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
+                      : isGalileu
+                        ? "Galileu Locação de Brinquedos em São José dos Pinhais: tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos."
+                        : isMiro
+                          ? "MIRO TECH em São José dos Pinhais: manutenção especializada de TVs, computadores, micro-ondas e recuperação de dados de HD."
+                          : isPremium
+                            ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
+                            : isRealeza
+                              ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
+                              : isLolipa
+                                ? "Lolipa Arte em Festas Decor em Curitiba: decorações personalizadas para aniversários, batizados, chás e comemorações especiais, com criação sob medida e opção pegue e monte."
+                                : isSosPresentes
+                                  ? "SOS Presentes & Cosméticos em São José dos Pinhais: cestas à pronta entrega, cosméticos, acessórios e canecas personalizadas para presentear."
+                                  : isRjDrywall
+                                    ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
+                                    : isHotDog
+                                      ? "Cardápio online do Paraíso do Hot Dog em São José dos Pinhais, com lanches, adicionais, retirada, entrega e pedido direto pelo atendimento."
+                                      : loaderData?.slug === "emporio-lelecute"
+                                        ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
+                                        : isChyrley
+                                          ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
+                                          : isMpFestas
+                                            ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
+                                            : isStudioCilios
+                                              ? "Extensão de cílios com efeito personalizado: Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio com agendamento online."
+                                              : isMaresia
+                                                ? "Manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana. Recarga de gás, motor, sensor e manutenção preventiva ou corretiva."
+                                                : isAgElectrical
+                                                  ? "Elétrica geral, infraestrutura para redes, cabeamento UTP, CFTV e organização de racks em Curitiba e Região Metropolitana."
+                                                  : isVilaCapivara
+                                                    ? "Bolos personalizados, brigadeiros gourmet, salgados e kits festa completos para aniversários e eventos em Campo Comprido, Curitiba."
+                                                    : isLkAlvenaria
+                                                      ? "Construção, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas com contrato e garantia."
+                                                      : isLucasArruma
+                                                        ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
+                                                        : isPauloMestre
+                                                          ? "Paulo Mestre de Obras em Curitiba e região: pedreiro e azulejista para fundação, alvenaria, reboco, pisos, revestimentos, reformas e reparos."
+                                                          : isEcommerceOn
+                                                            ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
+                                                            : isNoBrilho
+                                                              ? "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes e bancos automotivos em São José dos Pinhais."
+                                                              : isSalaoMarcia
+                                                                ? "Salão da Marcia em Cidade Jardim, São José dos Pinhais: depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
+                                                                : isCihLuh
+                                                                  ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
+                                                                  : isDiego
+                                                                    ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
+                                                                    : isAguia
+                                                                      ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
+                                                                      : isEletrovale
+                                                                        ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
+                                                                        : isEletroSolucoes
+                                                                          ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
+                                                                          : isEisenfer
+                                                                            ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
+                                                                            : isMary
+                                                                              ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
+                                                                              : isAcai
+                                                                                ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
+                                                                                : isJkl
+                                                                                  ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
+                                                                                  : isSantos
+                                                                                    ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
+                                                                                    : (catalogSeo?.summary ??
+                                                                                      loaderData?.vertical?.subheadline ??
+                                                                                      "Projeto de presença digital criado pela 0WEB.");
+    const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
+    const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
+    const socialImage = withSocialVersion(
+      absUrl(
+        assetConfig?.socialImage
+          ? assetConfig.socialImage
+          : loaderData?.slug === "rm-fretes"
+            ? "/images/rm-fretes/anuncio-oficial.png"
+            : isRjDrywall
+              ? "/images/rj-servicos-drywall/acabamento-sala.webp"
+              : loaderData?.slug === "emporio-lelecute"
+                ? "/images/emporio-lelecute-og.webp"
+                : loaderData?.slug === "paraiso-do-hot-dog"
+                  ? "/images/paraiso-hot-dog-cover.webp"
+                  : isChyrley
+                    ? "/images/confeitaria-chyrley/capa.webp"
+                    : isMpFestas
+                      ? "/images/mp-festas-eventos/capa.webp"
+                      : isStudioCilios
+                        ? "/images/studio-de-cilios/portfolio-1.webp"
+                        : isMaresia
+                          ? "/images/refrigeracao-maresia/capa.webp"
+                          : isAgElectrical
+                            ? "/images/ag-electrical-services/intro.webp"
+                            : isVilaCapivara
+                              ? "/images/vila-da-capivara/capa.webp"
+                              : isLkAlvenaria
+                                ? "/images/lk-alvenaria/portfolio.webp"
+                                : isLucasArruma
+                                  ? "/images/lucas-arruma-maquina-lavar/capa.webp"
+                                  : isPauloMestre
+                                    ? "/images/paulo-mestre-de-obras/capa.webp"
+                                    : isEcommerceOn
+                                      ? "/images/ecommerce-on/servicos.webp"
+                                      : isNoBrilho
+                                        ? "/images/no-brilho-higienizacao/capa.webp"
+                                        : isSalaoMarcia
+                                          ? "/images/salao-da-marcia/depilacao.webp"
+                                          : isCihLuh
+                                            ? "/images/espaco-cih-luh/promocao.webp"
+                                            : isDiego
+                                              ? "/images/diego-montador-moveis/capa.webp"
+                                              : isAguia
+                                                ? "/images/aguia-sul-sinalizacao/logo.webp"
+                                                : isEletrovale
+                                                  ? "/images/eletrovale-eletromecanica/equipamentos.webp"
+                                                  : isEletroSolucoes
+                                                    ? "/images/eletro-solucoes-eficazes/servicos.webp"
+                                                    : isEisenfer
+                                                      ? "/images/eisenfer-tubos-acos/capa-card.jpg"
+                                                      : isMary
+                                                        ? "/images/mary-diarista/servicos.webp"
+                                                        : isAcai
+                                                          ? "/images/acai-total-araucaria/acai.webp"
+                                                          : isJkl
+                                                            ? "/images/jkl-marcenaria/cozinha.webp"
+                                                            : isSantos
+                                                              ? "/images/santos-montador-de-moveis/hero.webp"
+                                                              : "/images/mestre-dos-servicos-logo.jpg",
+      ),
+      loaderData?.slug,
+    );
+    const socialImageType = socialImage.includes(".svg") ? "image/svg+xml" : socialImage.includes(".png") ? "image/png" : "image/jpeg";
+    const icon = absUrl(
+      assetConfig?.icon ??
+        (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage),
+    );
+    const vertical = loaderData?.vertical;
+    const isMarido = loaderData?.slug === "marido-de-aluguel";
+    // Resolver único: BANCO (admin) > REGISTRY/rota. Sem linha no banco, nada muda.
+    const eff = applyPortfolioRuntime(
+      {
+        slug: loaderData?.slug ?? "",
+        title,
+        description,
+        canonicalUrl: url,
+        socialImage,
+        logoUrl: icon,
+        lifecycle: prototype?.indexable === false ? "draft" : "published",
+        published: prototype?.indexable !== false,
+        indexable: prototype?.indexable !== false,
+      },
+      loaderData?.overrides ?? null,
+    );
+    const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
+    const effIcon = eff.logoUrl
+      ? eff.logoUrl.startsWith("http")
+        ? eff.logoUrl
+        : absUrl(eff.logoUrl)
+      : icon;
+    return {
+      meta: [
+        { title: eff.title },
+        { name: "description", content: eff.description },
+        { name: "robots", content: eff.robots },
+        {
+          name: "keywords",
+          content: eff.keywords ?? (isInfinitoSpa
+            ? "Infinito Spa Santiago, masajes Santiago de Chile, masoterapia Santiago, consulta de masajes, bienestar y sesiones con coordinación previa"
+            : isArildoMadeiras
+            ? "Arildo Madeiras, madeireira Pinhais, madeiras em Pinhais, madeira para construção, madeiras brutas, madeiras beneficiadas, portas, janelas, forros, Madeira de Cambará, móveis rústicos, Weissópolis"
+            : isCentroMega
+            ? "Centro Mega, celulares São José dos Pinhais, smartphones SJP, acessórios para celular, Centro Mega Outlet, tênis outlet, bonés, calçados, loja virtual, Instagram Centro Mega, Facebook Centro Mega"
+            : isJklDecor
+            ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
+            : isAutoescolaAptos
+            ? "Autoescola APTOS, autoescola São José dos Pinhais, primeira habilitação, carro automático autoescola, moto automática, categoria A, categoria B, categoria AB, reteste, renovação CNH, reciclagem, curso online"
+            : isMoreiraAutoMecanica
+            ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
+            : isCarecasInfotec
+            ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
+            : isBtb
+            ? "BTB Construção Curitiba, reforma interna Curitiba, orçamento de reforma, pintura, elétrica, hidráulica, pisos e revestimentos, drywall, forro, acabamentos, iluminação LED"
+            : isSscons
+            ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
+            : isEstruturaNacional
+            ? "Estrutura Nacional, estruturas metálicas São José dos Pinhais, fabricação de estruturas metálicas, montagem de estruturas metálicas, perfis estruturais, abrasivos, arames para solda, soluções em aço, Região Metropolitana de Curitiba"
+            : isRjDrywall
+            ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
+            : isMarido
+              ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+              : isManuPasteis
+                ? "Manu Pastéis, pastel recheado, pastel quentinho, cardápio online, delivery, São José dos Pinhais"
+                : isLizMoraes
+                  ? "Liz Moraes Nail Designer, manicure, pedicure, esmaltação em gel, alongamento molde F1, Centro, São José dos Pinhais"
+                  : isAssistenciaMicroondas
+                    ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, micro-ondas revisado, conserto a domicílio, São José dos Pinhais"
+                    : isArtesanatosDarleia
+                      ? "Artesanatos Darléia Oliveira, coador de café 100% algodão, filtro reutilizável, artesanato feito à mão, café artesanal"
+                      : isThaysCamilla
+                        ? "Thays Camilla, caneca personalizada, azulejo personalizado 15x15, presentes artesanais, kit caneca e azulejo"
+                        : isFernandaAmaral
+                          ? "Fernanda e Amaral, instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama, pequenos fretes, serviços residenciais, Paraná"
+                          : isLjCleaning
+                            ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
+                            : isGalileu
+                              ? "Galileu Locação de Brinquedos São José dos Pinhais, tobogã inflável, cama elástica, piscina de bolinhas, festas e eventos"
+                              : isMiro
+                                ? "MIRO TECH São José dos Pinhais, assistência técnica TV, computador, micro-ondas, recuperação de dados de HD"
+                                : isPremium
+                                  ? "Premium Envelopamentos Curitiba, plotagem de móveis, envelopamento de geladeiras, adesivos, banners e comunicação visual"
+                                  : isRealeza
+                                    ? "Confeitaria Sabor da Realeza Uberaba, bolos, doces, salgados, encomendas para festas e eventos"
+                                    : isLolipa
+                                      ? "Lolipa Arte em Festas Decor Curitiba, decoração de festas, decoração personalizada, aniversários, batizados, chás, pegue e monte, mimos para festas"
+                                      : isHotDog
+                                        ? "hot dog São José dos Pinhais, cachorro-quente, lanche, cardápio online, entrega de hot dog, Paraíso do Hot Dog"
+                                        : isChyrley
+                                          ? "confeitaria Rio Bonito, bolo personalizado, kit festa, salgados para festa, Copo da Felicidade, doces artesanais"
+                                          : isMpFestas
+                                            ? "decoração de festas Araucária, Festa na Mesa, decoração clássica, decoração premium, festas infantis, eventos"
+                                            : isStudioCilios
+                                              ? "extensão de cílios, fio a fio, Mega Brasileiro, Mega Egípcio, Fox Eyes, agendamento de cílios"
+                                              : isMaresia
+                                                ? "refrigeração Curitiba, conserto de geladeira, manutenção de freezer, recarga de gás, troca de motor, troca de sensor"
+                                                : isAgElectrical
+                                                  ? "elétrica Curitiba, infraestrutura de redes, cabeamento UTP, CFTV, organização de rack, Laserway"
+                                                  : isVilaCapivara
+                                                    ? "Vila da Capivara Curitiba, kit festa, bolo personalizado, brigadeiro gourmet, salgados, Campo Comprido"
+                                                    : isLkAlvenaria
+                                                      ? "alvenaria Curitiba, fundação, baldrame, muro de arrimo, concretagem, reformas, drywall, forro PVC"
+                                                      : isLucasArruma
+                                                        ? "conserto máquina de lavar, manutenção máquina de lavar, assistência máquina de lavar, lavadora não liga, máquina não centrifuga"
+                                                        : isPauloMestre
+                                                          ? "pedreiro Curitiba, mestre de obras, azulejista, alvenaria, pisos e revestimentos, reformas residenciais"
+                                                          : isEcommerceOn
+                                                            ? "agência digital Curitiba, SEO, e-commerce, tráfego pago, gestão de redes sociais, marketing digital, automação"
+                                                            : isNoBrilho
+                                                              ? "higienização de estofados São José dos Pinhais, limpeza de sofá, higienização de colchão, limpeza a domicílio"
+                                                              : isSalaoMarcia
+                                                                ? "Salão da Marcia São José dos Pinhais, depilação com cera, progressiva, corte, hidratação, mechas, pé e mão"
+                                                                : isCihLuh
+                                                                  ? "Espaço CIH LUH Manaus, alongamento em gel, unhas, pedicure, podologia, reconstrução de unhas"
+                                                                  : isDiego
+                                                                    ? "montador de móveis Curitiba, montagem de móveis Sítio Cercado, marido de aluguel Curitiba, conserto de móveis, instalação de TV, instalação de persianas"
+                                                                    : isAguia
+                                                                      ? "sinalização horizontal Curitiba, pintura de estacionamento, demarcação de vagas, faixas de pedestres, pintura industrial, Águia Sul"
+                                                                      : isEletrovale
+                                                                        ? "Eletrovale Eletromecânica Curitiba, rebobinamento de motores, manutenção de bombas, motoredutores, motofreios, manutenção industrial"
+                                                                        : isEletroSolucoes
+                                                                          ? "Eletro Soluções Eficazes Pinhais, instalações elétricas, iluminação, automação residencial, predial e industrial, manutenção elétrica"
+                                                                          : isEisenfer
+                                                                            ? "Eisenfer Tubos e Aços São José dos Pinhais, tubos de aço, perfis, chapas, telhas metálicas, telha sanduíche"
+                                                                            : isMary
+                                                                              ? "Mary Diarista Curitiba, limpeza residencial, diária, pós-obra, pós-mudança, personal organizer, diarista quinta-feira"
+                                                                              : isAcai
+                                                                                ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
+                                                                                : isJkl
+                                                                                  ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                                                                                  : isSantos
+                                                                                    ? "montador de móveis Curitiba, montagem de móveis Colombo, desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água, instalação de cortinas, Alphaville Curitiba"
+                                                                                    : isAssistenciaMicroondas
+                                                                                      ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, venda de micro-ondas revisados, atendimento a domicílio, São José dos Pinhais"
+                                                                                      : (loaderData?.slug
+                                                                                        ? portfolioUniversalKeywords(loaderData.slug) ??
+                                                                                          vertical?.keywords ??
+                                                                                          "site profissional, criação de sites, SEO local"
+                                                                                        : vertical?.keywords ??
+                                                                                          "site profissional, criação de sites, SEO local")),
+        },
+        { property: "og:title", content: eff.title },
+        { property: "og:description", content: eff.description },
+        { property: "og:url", content: eff.canonicalUrl },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: isInfinitoSpa ? "es_CL" : "pt_BR" },
+        { property: "og:site_name", content: isInfinitoSpa ? "Infinito Spa" : eff.title },
+        { property: "og:image", content: effSocial },
+        { property: "og:image:secure_url", content: effSocial },
+        { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: eff.title },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: eff.title },
+        { name: "twitter:description", content: eff.description },
+        { name: "twitter:image", content: effSocial },
+        { name: "twitter:image:alt", content: eff.title },
+      ],
+      links: [
+        { rel: "canonical", href: eff.canonicalUrl },
+        { rel: "alternate", hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR", href: eff.canonicalUrl },
+        { rel: "alternate", hrefLang: "x-default", href: eff.canonicalUrl },
+        { rel: "icon", href: effIcon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+        ...(isArildoMadeiras
+          ? [
+              { rel: "preconnect", href: "https://arildomadeiras.guiapinhais.com.br" },
+              {
+                rel: "preload",
+                as: "image",
+                href: "https://arildomadeiras.guiapinhais.com.br/medias/article/big/177/468999658-563203459664004-5563351431374802730-n.jpg",
+              },
+            ]
+          : []),
+      ],
+      scripts: vertical
+        ? [
+            {
+              type: "application/ld+json",
+              children: graph([
+                organizationNode(),
+                ...(isInfinitoSpa ? [{ "@type": "Service", "@id": `${url}#infinito-spa-service`, name: "Masajes y masoterapia", serviceType: "Masoterapia", provider: { "@type": "Organization", name: "Infinito Spa" }, areaServed: { "@type": "City", name: "Santiago", containedInPlace: { "@type": "Country", name: "Chile" } }, description: "Consulta de modalidades y coordinación de sesiones; detalles sujetos a confirmación directa." }] : []),
+                ...(isBtb
+                  ? [
+                      {
+                        "@type": "GeneralContractor",
+                        "@id": `${url}#business`,
+                        name: "BTB Construção",
+                        description,
+                        url,
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+                        ],
+                        makesOffer: [
+                          "Pintura",
+                          "Elétrica",
+                          "Hidráulica",
+                          "Pisos e revestimentos",
+                          "Drywall e forro",
+                          "Acabamentos",
+                          "Iluminação LED",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : isCentroMega
+                    ? [
+                        {
+                          "@type": "Store",
+                          additionalType: "https://schema.org/ElectronicsStore",
+                          "@id": `${url}#store`,
+                          name: "Centro Mega",
+                          description,
+                          url,
+                          image: socialImage,
+                          logo: absUrl("/images/centro-mega/logo.png"),
+                          sameAs: [
+                            "https://linktr.ee/centro.mega",
+                            "https://www.instagram.com/centro.mega/",
+                            "https://www.facebook.com/CentroMega.com.br/",
+                          ],
+                          areaServed: [
+                            { "@type": "City", name: "São José dos Pinhais" },
+                            { "@type": "City", name: "Curitiba" },
+                          ],
+                          knowsAbout: [
+                            "Celulares e smartphones",
+                            "Acessórios para tecnologia",
+                            "Outlet",
+                            "Tênis",
+                            "Bonés",
+                            "Calçados",
+                          ],
+                        },
+                      ]
+                    : [
+                      {
+                        ...serviceNode({
+                          slug: vertical.slug,
+                          name: vertical.name,
+                          keyword: vertical.keywords,
+                          intent: vertical.hero,
+                          services: vertical.services.map((service) => service.to),
+                          hubs: [],
+                          showcases: [],
+                          deliverables: vertical.services.map((service) => service.title),
+                        }),
+                        "@id": `${url}#service`,
+                        url,
+                      },
+                    ]),
+                ...(isMarido
+                  ? [
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: MARIDO_ALUGUEL_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isAutoescolaAptos
+                  ? [
+                      {
+                        "@type": ["DrivingSchool", "LocalBusiness"],
+                        "@id": `${url}#localbusiness`,
+                        name: "Autoescola APTOS",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/autoescola-aptos/logo.webp"),
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Passos de Oliveira, 810",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: { "@type": "City", name: "São José dos Pinhais" },
+                        makesOffer: [
+                          "Primeira habilitação",
+                          "Categoria A",
+                          "Categoria B",
+                          "Categoria AB",
+                          "Reteste",
+                          "Renovação de CNH",
+                          "Reciclagem",
+                          "Curso online",
+                        ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+                      },
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: [
+                          ["A APTOS oferece aulas em carro automático?", "Sim. A opção de carro automático é divulgada oficialmente pela APTOS."],
+                          ["Também existe opção de moto automática?", "Sim. A moto automática foi informada pelo responsável como novidade da APTOS."],
+                          ["Quais processos posso solicitar?", "Primeira habilitação A, B ou AB, reteste, renovação e reciclagem."],
+                          ["O curso teórico pode ser feito online?", "A APTOS divulga curso online e confirma as condições no atendimento."],
+                        ].map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })),
+                      },
+                    ]
+                  : []),
+                /**
+                 * Careca's Infotec: dados verificados na ficha pública do
+                 * Google (Place ID confirmado). Sem aggregateRating/Review no
+                 * schema — a prova social é exibida com atribuição na página.
+                 */
+                ...(isCarecasInfotec
+                  ? [
+                      {
+                        "@type": "ComputerStore",
+                        "@id": `${url}#localbusiness`,
+                        name: "Careca's Infotec",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/carecas-infotec/logo.png"),
+                        telephone: "+55 41 99507-2700",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Margarida Petrelli Fogiatto, 118",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83020-600",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.5620651,
+                          longitude: -49.2024137,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "Neighborhood", name: "Santo Antônio" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=Careca%27s%20Infotec&query_place_id=ChIJjxhi67_73JQRgGgv4G2-G18",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:00",
+                          },
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Saturday"],
+                            opens: "09:00",
+                            closes: "18:00",
+                          },
+                        ],
+                        makesOffer: [
+                          "Assistência técnica de celular",
+                          "Assistência técnica de computador e notebook",
+                          "Assistência técnica de impressora",
+                          "Assistência técnica de monitor",
+                          "Assistência técnica de tablet",
+                          "Assistência técnica de videogame",
+                          "Recarga de cartucho e toner",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
+                /**
+                 * Moreira Auto Mecânica: dados da ficha pública do Google
+                 * (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk). Sem
+                 * aggregateRating/Review no schema — a prova social aparece na
+                 * página, com autoria e link para a origem.
+                 */
+                ...(isMoreiraAutoMecanica
+                  ? [
+                      {
+                        "@type": "AutoRepair",
+                        "@id": `${url}#localbusiness`,
+                        name: "Moreira Auto Mecânica",
+                        description,
+                        url,
+                        image: socialImage,
+                        telephone: "+55 41 99794-0764",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "R. Padre Alberto Müler, 279",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83035-070",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.5276571,
+                          longitude: -49.2128353,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "Neighborhood", name: "Cidade Jardim" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=Moreira%20Auto%20Mec%C3%A2nica&query_place_id=ChIJgYYezAz63JQRk2SRKP5Usqk",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:30",
+                          },
+                        ],
+                        paymentAccepted: "Cartão de crédito, cartão de débito, pagamento por aproximação (NFC)",
+                        makesOffer: [
+                          "Mecânica para carros",
+                          "Avaliação presencial do veículo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
+                /**
+                 * JKL Decor: dados da ficha pública do Google
+                 * (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY). Sem
+                 * aggregateRating/Review no schema — a prova social aparece na
+                 * página, com autoria e link para a origem.
+                 */
+                ...(isJklDecor
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        additionalType: "https://schema.org/FurnitureStore",
+                        "@id": `${url}#localbusiness`,
+                        name: "JKL Decor",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/jkl-decor/logo.png"),
+                        telephone: "+55 41 99142-5088",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "R. Durval Moletta",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83149-899",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.6551465,
+                          longitude: -49.2302301,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "City", name: "Curitiba" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=JKL%20Decor%20m%C3%B3veis%20planejados&query_place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:00",
+                          },
+                        ],
+                        makesOffer: [
+                          "Cozinha planejada em MDF",
+                          "Guarda-roupa e closet sob medida",
+                          "Painel de TV e estante planejada",
+                          "Home office planejado",
+                          "Gabinete de banheiro sob medida",
+                          "Cozinha infantil, nichos e porta-tempero em MDF",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isHeloaGas
+                  ? [
+                      {
+                        "@type": "LocalBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "Heloá Gás",
+                        description,
+                        url,
+                        image: socialImage,
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Belo Horizonte, 340 — Vila Vicente Macedo",
+                          addressLocality: "Piraquara",
+                          addressRegion: "PR",
+                          postalCode: "83303-130",
+                          addressCountry: "BR",
+                        },
+                        geo: { "@type": "GeoCoordinates", latitude: -25.4422, longitude: -49.0633 },
+                        areaServed: [
+                          { "@type": "City", name: "Piraquara" },
+                          { "@type": "Neighborhood", name: "Vila Vicente Macedo" },
+                        ],
+                        openingHoursSpecification: {
+                          "@type": "OpeningHoursSpecification",
+                          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                          opens: "08:00",
+                          closes: "19:00",
+                        },
+                        makesOffer: [
+                          {
+                            "@type": "Offer",
+                            itemOffered: { "@type": "Product", name: "Botijão de gás 13kg" },
+                          },
+                          {
+                            "@type": "Offer",
+                            itemOffered: { "@type": "Product", name: "Água mineral 20 litros" },
+                          },
+                        ],
+                      },
+                    ]
+                  : []),
+                ...(isSscons
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "S&S Construções",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/sscons/logo.png"),
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          {
+                            "@type": "AdministrativeArea",
+                            name: "Região Metropolitana de Curitiba",
+                          },
+                        ],
+                        knowsAbout: [
+                          "Carpintaria",
+                          "Obras e construção civil",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reformas",
+                          "Assentamento de azulejos",
+                        ],
+                        makesOffer: [
+                          "Carpintaria",
+                          "Obras",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reforma",
+                          "Azulejo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isPauloMestre
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "Paulo Mestre de Obras",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/paulo-mestre-de-obras/logo.webp"),
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "City", name: "Colombo" },
+                          { "@type": "City", name: "Pinhais" },
+                        ],
+                        knowsAbout: [
+                          "Fundação e baldrame",
+                          "Alvenaria estrutural e de vedação",
+                          "Reboco e revestimentos",
+                          "Assentamento de pisos e azulejos",
+                          "Reformas residenciais e reparos",
+                        ],
+                        makesOffer: [
+                          "Fundação, colunas, vigas e lajes",
+                          "Alvenaria, muros e paredes",
+                          "Reboco, chapisco e emboço",
+                          "Pisos, cerâmica e porcelanato",
+                          "Reformas e pequenos reparos",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: PAULO_MESTRE_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                breadcrumbNode([
+                  { name: "Início", path: "/" },
+                  { name: "Portfólio", path: "/portfolio" },
+                  { name: title, path: `/portfolio/${loaderData?.slug ?? ""}` },
+                ]),
+              ]),
+            },
+            ...(eff.seoSchema
+              ? [{ type: "application/ld+json", children: eff.seoSchema }]
+              : []),
+          ]
+        : eff.seoSchema
+          ? [{ type: "application/ld+json", children: eff.seoSchema }]
+          : undefined,
+
+    };
+  },
+  component: PortfolioPrototypePage,
+});
+
+function PortfolioPrototypePage() {
+  const { vertical, slug, overrides, managed } = Route.useLoaderData();
+  const effective = applyPortfolioRuntime(
+    { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
+    overrides,
+  );
+  // Composição autoral (padrão para projetos novos) ou Blueprint legado dos
+  // três pilotos. A plataforma resolve o slug; a composição é do cliente.
+  const BlueprintPage = getCompositionPage(slug) ?? getBlueprintPage(slug);
+  if (BlueprintPage) {
+    return (
+      <PortfolioRuntimeProvider value={effective}>
+        <PortfolioStandardShell slug={slug} includePlatformFooter={false} {...(slug === "infinito-spa" ? { siteNameOverride: "Infinito Spa", contactModeOverride: "booking", contactLabelOverride: "Consultar disponibilidad", localeOverride: "es-CL" as const, seoNetworkEnabled: false } : {})}>
+          <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+            <BlueprintPage />
+          </Suspense>
+        </PortfolioStandardShell>
+      </PortfolioRuntimeProvider>
+    );
+  }
+  // Projeto criado pelo painel: mesma casca comercial, conteúdo 100% do cliente.
+  if (managed) {
+    return (
+      <PortfolioStandardShell
+        slug={slug}
+        includePlatformFooter={false}
+        clientKeyOverride={managed.clientKey}
+        siteNameOverride={managed.displayName}
+        contactModeOverride={bookingIntent(managed.funnelIntent) ? "booking" : "proposal"}
+        contactLabelOverride={managed.ctaLabel}
+        funnelIntentOverride={managed.funnelIntent}
+        quizConfigOverride={{
+          services: managed.services.map((service) => service.title),
+          proposalKind: "service",
+        }}
+        seoContextOverride={{
+          title: managed.displayName,
+          segment: managed.segment,
+          city: managed.city,
+          state: managed.state,
+          tags: managed.services.map((service) => service.title),
+          services: managed.services.map((service) => service.title),
+          summary: managed.summary || managed.seoDescription,
+          projectType: "managed",
+          image: managed.heroImageUrl,
+        }}
+      >
+        <PortfolioManagedView project={managed} />
+      </PortfolioStandardShell>
+    );
+  }
+  return (
+    <PortfolioRuntimeProvider value={effective}>
+    <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
+      <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+
+        {slug === "cris-presentes-colonia-rio-grande" ? (
+          <CrisPresentesColoniaRioGrandePage />
+        ) : slug === "catharine-lima-studio" ? (
+          <CatharineLimaStudioPage />
+        ) : slug === "sos-presentes-cosmeticos" ? (
+          <SosPresentesCosmeticosPage />
+        ) : slug === "lolipa-arte-em-festas" ? (
+          <LolipaArteEmFestasPage />
+        ) : slug === "confeitaria-sabor-da-realeza" ? (
+          <ConfeitariaSaborDaRealezaPage />
+        ) : slug === "premium-envelopamentos" ? (
+          <PremiumEnvelopamentosPage />
+        ) : slug === "miro-tech" ? (
+          <MiroTechPage />
+        ) : slug === "galileu-locacao-brinquedos" ? (
+          <GalileuLocacaoBrinquedosPage />
+        ) : slug === "lj-cleaning" ? (
+          <LjCleaningPage />
+        ) : slug === "manu-pasteis" ? (
+          <ManuPasteisPage />
+        ) : slug === "liz-moraes-nail-designer" ? (
+          <LizMoraesNailDesignerPage />
+        ) : slug === "assistencia-microondas-santos" ? (
+          <AssistenciaMicroondasSantosPage />
+        ) : slug === "artesanatos-darleia-oliveira" ? (
+          <ArtesanatosDarLeiaOliveiraPage />
+        ) : slug === "thays-camilla" ? (
+          <ThaysCamillaPage />
+        ) : slug === "fernanda-amaral-drywall" ? (
+          <FernandaAmaralDrywallPage />
+        ) : slug === "denise-gomes-psicologa" ? (
+          <DeniseGomesPsicologaPage />
+        ) : slug === "ton-e-cor" ? (
+          <TonECorPage />
+        ) : slug === "raphael-construcoes" ? (
+          <RaphaelConstrucoesPage />
+        ) : slug === "jc-revestimentos" ? (
+          <JcRevestimentosPage />
+        ) : slug === "hbk-iluminacao-led" ? (
+          <HbkIluminacaoLedPage />
+        ) : slug === "heloa-gas" ? (
+          <HeloaGasPage />
+        ) : slug === "pastelaria-route-66" ? (
+          <PastelariaRoute66Page />
+        ) : slug === "your-brutus-burguer" ? (
+          <YourBrutusBurguerPage />
+        ) : slug === "auto-socorro-dentinho" ? (
+          <AutoSocorroDentinhoPage />
+        ) : slug === "pinturas-nunes" ? (
+          <PinturasNunesPage />
+        ) : slug === "estrutura-nacional" ? (
+          <EstruturaNacionalPage />
+        ) : slug === "carecas-infotec" ? (
+          <CarecasInfotecPage />
+        ) : slug === "marmitaria-dom-diego" ? (
+          <MarmitariaDomDiegoPage />
+        ) : slug === "beto-pasteis" ? (
+          <BetoPasteisPage />
+        ) : slug === "woodhouse-hamburgueres" ? (
+          <WoodhouseHamburgueresPage />
+        ) : slug === "dlara-pizzaria" ? (
+          <DlaraPizzariaPage />
+        ) : slug === "toquinho-de-gente-brecho" ? (
+          <ToquinhoDeGenteBrechoPage />
+        ) : slug === "reuse-house-brecho" ? (
+          <ReuseHouseBrechoPage />
+        ) : slug === "brecho-sao-francisco" ? (
+          <BrechoSaoFranciscoPage />
+        ) : slug === "angel-mix-brecho" ? (
+          <AngelMixBrechoPage />
+        ) : slug === "marido-de-aluguel" ? (
+          <MaridoDeAluguelPage />
+        ) : slug === "emporio-lelecute" ? (
+          <EmporioLelecutePage />
+        ) : slug === "paraiso-do-hot-dog" ? (
+          <ParaisoHotDogPage />
+        ) : slug === "rm-fretes" ? (
+          <RMFretesPage />
+        ) : slug === "rj-servicos-drywall" ? (
+          <RjServicosDrywallPage />
+        ) : slug === "confeitaria-chyrley" ? (
+          <ConfeitariaChyrleyPage />
+        ) : slug === "mp-festas-eventos" ? (
+          <MpFestasEventosPage />
+        ) : slug === "studio-de-cilios" ? (
+          <StudioDeCiliosPage />
+        ) : slug === "refrigeracao-maresia" ? (
+          <RefrigeracaoMaresiaPage />
+        ) : slug === "ag-electrical-services" ? (
+          <AgElectricalServicesPage />
+        ) : slug === "vila-da-capivara" ? (
+          <VilaDaCapivaraPage />
+        ) : slug === "lk-alvenaria" ? (
+          <LkAlvenariaPage />
+        ) : slug === "lucas-arruma-maquina-lavar" ? (
+          <LucasArrumaMaquinaLavarPage />
+        ) : slug === "paulo-mestre-de-obras" ? (
+          <PauloMestreDeObrasPage />
+        ) : slug === "sscons" ? (
+          <SsConsPage />
+
+        ) : slug === "mimo-salgados-doces" ? (
+          <MimoSalgadosDocesPage />
+
+        ) : slug === "popys-conservacao-limpeza" ? (
+          <PopysConservacaoLimpezaPage />
+
+        ) : slug === "bruna-diarista" ? (
+          <BrunaDiaristaPage />
+
+        ) : slug === "btb-construcao" ? (
+          <BtbConstrucaoPage />
+
+        ) : slug === "easy-clean" ? (
+          <EasyCleanPage />
+        ) : slug === "js-eletrica-manutencao" ? (
+          <JsEletricaManutencaoPage />
+        ) : slug === "papelemi-personalizados" ? (
+          <PapelemiPersonalizadosPage />
+
+        ) : slug === "maximos-cabeleireiros" ? (
+          <MaximosCabeleireirosPage />
+
+        ) : slug === "embalar-embalagens" ? (
+          <EmbalarEmbalagensPage />
+
+        ) : slug === "simone-lacerda-vaz" ? (
+          <SimoneLacerdaVazPage />
+
+        ) : slug === "kitutes-na-mesa" ? (
+          <KitutesNaMesaPage />
+
+        ) : slug === "enoel-portas" ? (
+          <EnoelPortasPage />
+        ) : slug === "mania-de-limpeza" ? (
+          <ManiaDeLimpezaPage />
+        ) : slug === "dona-lucy-salgados" ? (
+          <DonaLucySalgadosPage />
+        ) : slug === "centro-mega" ? (
+          <CentroMegaPage />
+
+        ) : slug === "ecommerce-on" ? (
+          <EcommerceOnPage />
+        ) : slug === "no-brilho-higienizacao" ? (
+          <NoBrilhoHigienizacaoPage />
+        ) : slug === "salao-da-marcia" ? (
+          <SalaoDaMarciaPage />
+        ) : slug === "espaco-cih-luh" ? (
+          <EspacoCihLuhPage />
+        ) : slug === "diego-montador-moveis" ? (
+          <DiegoMontadorMoveisPage />
+        ) : slug === "aguia-sul-sinalizacao" ? (
+          <AguiaSulSinalizacaoPage />
+        ) : slug === "eletrovale-eletromecanica" ? (
+          <EletrovaleEletromecanicaPage />
+        ) : slug === "eletro-solucoes-eficazes" ? (
+          <EletroSolucoesEficazesPage />
+        ) : slug === "eisenfer-tubos-acos" ? (
+          <EisenferTubosAcosPage />
+        ) : slug === "mary-diarista" ? (
+          <MaryDiaristaPage />
+        ) : slug === "acai-total-araucaria" ? (
+          <AcaiTotalAraucariaPage />
+        ) : slug === "jkl-marcenaria" ? (
+          <JklMarcenariaPage />
+        ) : slug === "santos-montador-de-moveis" ? (
+          <SantosMontadorDeMoveisPage />
+        ) : slug === "almeida-torres" ? (
+          <AlmeidaTorresAdvocaciaPage />
+        ) : slug === "bh-barreiro-marmitas" ? (
+          <BarreiroMarmitasPage />
+        ) : slug === "casa-nativa" ? (
+          <CasaNativaBistroPage />
+        ) : slug === "clinica-integrada" ? (
+          <ClinicaIntegradaSaudePage />
+        ) : slug === "guaratuba-atelie-presentes" ? (
+          <AtelieEncantoDaBaiaPage />
+        ) : slug === "guaratuba-oficina-nautica" ? (
+          <OficinaNauticaGuaratubaPage />
+        ) : slug === "guaratuba-reparos-residenciais" ? (
+          <ReparosDoLitoralPage />
+        ) : slug === "guaratuba-sabores-da-baia" ? (
+          <SaboresDaBaiaPage />
+        ) : slug === "mirassol-conserta-celular" ? (
+          <ConsertaMirassolPage />
+        ) : slug === "mirassol-delicias-caseiras" ? (
+          <DeliciasCaseirasMirassolPage />
+        ) : slug === "uberlandia-eletrica-residencial" ? (
+          <UberlandiaEletricaResidencialPage />
+        ) : vertical ? (
+          <PrototypeSite vertical={vertical} />
+        ) : null}
+
+
+      </Suspense>
+    </PortfolioStandardShell>
+    </PortfolioRuntimeProvider>
+  );
+}

@@ -42,4 +42,718 @@
         "carro puxando para o lado",
         "luz do painel acesa"
       ],
-      "use���q�^
+      "useCases": [
+        "revisão antes de viagem",
+        "segunda opinião de orçamento",
+        "manutenção periódica",
+        "carro que precisa de reparo em São José dos Pinhais"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "Cidade Jardim",
+        "região metropolitana de Curitiba",
+        "Paraná",
+        "SJP"
+      ],
+      "keywords": [
+        "oficina mecânica são josé dos pinhais",
+        "mecânica de confiança sjp",
+        "auto mecânica cidade jardim",
+        "agendar revisão do carro sjp",
+        "mecânico perto de mim são josé dos pinhais"
+      ]
+    },
+    "carecas-infotec": {
+      "aliases": [
+        "Careca's Infotec",
+        "Carecas Infotec",
+        "Careca Infotec",
+        "Careca's",
+        "Infotec"
+      ],
+      "categories": [
+        "assistência técnica",
+        "informática",
+        "tecnologia",
+        "eletrônicos"
+      ],
+      "services": [
+        "assistência técnica",
+        "conserto",
+        "manutenção",
+        "reparo de equipamentos",
+        "avaliação técnica",
+        "orçamento antes do reparo",
+        "recarga de cartucho",
+        "recarga de toner"
+      ],
+      "equipment": [
+        "celular",
+        "smartphone",
+        "computador",
+        "pc",
+        "desktop",
+        "notebook",
+        "laptop",
+        "impressora",
+        "monitor",
+        "tela",
+        "tablet",
+        "videogame",
+        "console",
+        "controle",
+        "cartucho",
+        "toner"
+      ],
+      "problems": [
+        "não liga",
+        "computador não liga",
+        "notebook não liga",
+        "celular não liga",
+        "lentidão",
+        "travamento",
+        "reinicia sozinho",
+        "superaquecimento",
+        "tela quebrada",
+        "tela sem imagem",
+        "não carrega",
+        "bateria viciada",
+        "não imprime",
+        "impressão falhada",
+        "não lê o jogo",
+        "controle com falha"
+      ],
+      "useCases": [
+        "consertar notebook",
+        "consertar computador",
+        "consertar celular",
+        "consertar impressora",
+        "recarregar cartucho",
+        "recarregar toner",
+        "assistência para videogame"
+      ],
+      "keywords": [
+        "informática",
+        "eletrônica",
+        "manutenção de computadores",
+        "assistência de celular",
+        "assistência técnica em São José dos Pinhais",
+        "conserto de celular em São José dos Pinhais",
+        "assistência técnica Santo Antônio"
+      ],
+      "locality": [
+        "Santo Antônio",
+        "bairro Santo Antônio",
+        "São José dos Pinhais",
+        "SJP",
+        "Região Metropolitana de Curitiba",
+        "Rua Margarida Petrelli Fogiatto"
+      ]
+    },
+    "jkl-decor": {
+      "aliases": [
+        "JKL Decor",
+        "JKL Decor móveis planejados",
+        "JKL Decor marcenaria",
+        "JKL móveis sob medida",
+        "jkl decor sjp"
+      ],
+      "categories": [
+        "marcenaria",
+        "marceneiro",
+        "móveis planejados",
+        "móveis sob medida",
+        "móveis em MDF"
+      ],
+      "services": [
+        "cozinha planejada",
+        "guarda-roupa planejado",
+        "closet sob medida",
+        "painel de TV",
+        "rack e estante",
+        "home office planejado",
+        "gabinete de banheiro",
+        "armário de lavanderia",
+        "projeto de móvel sob medida",
+        "instalação de móveis planejados"
+      ],
+      "equipment": [],
+      "products": [
+        "cozinha infantil em MDF",
+        "porta-tempero",
+        "nichos para quarto",
+        "nichos para banheiro",
+        "balcão sob medida",
+        "bancada em MDF"
+      ],
+      "problems": [
+        "não acho móvel do tamanho do meu ambiente",
+        "cozinha pequena mal aproveitada",
+        "quarto sem espaço de armário",
+        "canto vazio da sala",
+        "banheiro sem gabinete",
+        "móvel pronto não encaixa na parede"
+      ],
+      "useCases": [
+        "mobiliar apartamento novo",
+        "reformar a cozinha",
+        "planejar o quarto do bebê",
+        "montar home office em casa",
+        "aproveitar espaço apertado"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "Agaraú",
+        "Curitiba",
+        "região metropolitana de Curitiba",
+        "Paraná",
+        "SJP"
+      ],
+      "keywords": [
+        "móveis planejados são josé dos pinhais",
+        "marcenaria curitiba e região",
+        "cozinha planejada em mdf sjp",
+        "móveis sob medida curitiba",
+        "orçamento de móveis planejados",
+        "marceneiro perto de mim são josé dos pinhais"
+      ]
+    },
+    "adhonep-curitiba": {
+      "services": [
+        "reunião semanal aberta",
+        "palestra para empreendedores",
+        "networking de empresários"
+      ],
+      "categories": [
+        "associação",
+        "evento empresarial",
+        "encontro de networking"
+      ],
+      "keywords": [
+        "adhonep curitiba",
+        "capítulo nikkey 0714",
+        "reunião semanal adhonep",
+        "palestra vencendo o medo",
+        "networking empresarial curitiba"
+      ],
+      "city": "Curitiba",
+      "state": "PR"
+    },
+    "catharine-lima-studio": {
+      "aliases": [
+        "Catharine Lima Studio",
+        "Catharine Lima",
+        "Caah Lima Studio"
+      ],
+      "categories": [
+        "beleza",
+        "nail designer",
+        "unhas",
+        "cílios",
+        "cabelo"
+      ],
+      "services": [
+        "alongamento",
+        "alongamento molde F1",
+        "banho em gel",
+        "pé em gel",
+        "volume brasileiro",
+        "progressiva"
+      ],
+      "equipment": [
+        "molde F1",
+        "gel"
+      ],
+      "problems": [
+        "quero alongar as unhas",
+        "quero banho em gel",
+        "quero pé em gel",
+        "quero extensão de cílios",
+        "quero progressiva"
+      ],
+      "useCases": [
+        "agendar nail designer",
+        "agendar alongamento",
+        "agendar cílios",
+        "agendar progressiva"
+      ],
+      "keywords": [
+        "Catharine Lima Studio",
+        "nail designer São José dos Pinhais",
+        "alongamento de unhas São José dos Pinhais",
+        "banho em gel São José dos Pinhais",
+        "volume brasileiro cílios",
+        "progressiva São José dos Pinhais"
+      ],
+      "locality": [
+        "Rua Victor Alves Ferreira, 211",
+        "São José dos Pinhais",
+        "SJP",
+        "PR"
+      ]
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "aliases": [
+        "Cris Presentes",
+        "Cris Presentes Filial 2",
+        "Cris Presentes Colônia Rio Grande",
+        "Cris Presentes Jacomar"
+      ],
+      "categories": [
+        "loja de presentes",
+        "brinquedos",
+        "papelaria",
+        "armarinho",
+        "doces",
+        "joalheria",
+        "relojoaria"
+      ],
+      "services": [
+        "brinquedos e artigos recreativos",
+        "artigos de papelaria",
+        "artigos de armarinho",
+        "doces balas e bombons",
+        "artigos de joalheria",
+        "artigos de relojoaria"
+      ],
+      "products": [
+        "brinquedos",
+        "presentes",
+        "papelaria",
+        "armarinho",
+        "doces",
+        "acessórios"
+      ],
+      "useCases": [
+        "comprar presente",
+        "procurar brinquedo",
+        "comprar material de papelaria",
+        "encontrar lembrança",
+        "consultar disponibilidade"
+      ],
+      "keywords": [
+        "Cris Presentes São José dos Pinhais",
+        "Cris Presentes Colônia Rio Grande",
+        "Cris Presentes Jacomar",
+        "brinquedos Colônia Rio Grande",
+        "papelaria Colônia Rio Grande",
+        "loja de presentes São José dos Pinhais"
+      ],
+      "locality": [
+        "Rua Pedro Trevisan 58",
+        "Colônia Rio Grande",
+        "Jacomar Colônia Rio Grande",
+        "São José dos Pinhais",
+        "SJP",
+        "PR"
+      ]
+    },
+    "btb-construcao": {
+      "aliases": [
+        "BTB Construção",
+        "BTB Construcao",
+        "BTB reformas Curitiba"
+      ],
+      "categories": [
+        "reformas internas",
+        "reforma residencial",
+        "reforma comercial",
+        "acabamentos",
+        "construção civil"
+      ],
+      "services": [
+        "pintura",
+        "elétrica",
+        "hidráulica",
+        "pisos e revestimentos",
+        "drywall",
+        "forro",
+        "acabamentos",
+        "iluminação LED"
+      ],
+      "equipment": [],
+      "products": [],
+      "problems": [
+        "preciso reformar vários ambientes",
+        "preciso combinar pintura e elétrica",
+        "preciso combinar hidráulica e revestimento",
+        "quero organizar uma reforma interna",
+        "quero pedir orçamento de reforma"
+      ],
+      "useCases": [
+        "reforma de casa ou apartamento",
+        "reforma de comércio ou escritório",
+        "manutenção com várias frentes",
+        "organizar escopo de reforma",
+        "pedir orçamento de reforma em Curitiba"
+      ],
+      "locality": [
+        "Curitiba",
+        "Região Metropolitana de Curitiba",
+        "Paraná"
+      ],
+      "keywords": [
+        "reforma interna Curitiba",
+        "orçamento reforma Curitiba",
+        "pintura elétrica hidráulica Curitiba",
+        "drywall e revestimentos Curitiba",
+        "BTB Construção Curitiba"
+      ]
+    },
+    "autoescola-aptos": {
+      "aliases": [
+        "Autoescola APTOS",
+        "APTOS São José dos Pinhais"
+      ],
+      "categories": [
+        "autoescola",
+        "centro de formação de condutores",
+        "habilitação"
+      ],
+      "services": [
+        "primeira habilitação",
+        "categoria A",
+        "categoria B",
+        "categoria AB",
+        "carro automático",
+        "moto automática",
+        "reteste",
+        "renovação de CNH",
+        "reciclagem",
+        "curso online"
+      ],
+      "equipment": [
+        "carro manual",
+        "carro automático",
+        "moto automática"
+      ],
+      "products": [],
+      "problems": [
+        "quero tirar a primeira CNH",
+        "quero aprender em carro automático",
+        "quero habilitação de moto automática",
+        "preciso fazer reteste",
+        "preciso renovar a CNH",
+        "preciso de reciclagem"
+      ],
+      "useCases": [
+        "começar primeira habilitação",
+        "escolher entre manual e automático",
+        "organizar reteste",
+        "renovar habilitação",
+        "fazer curso online"
+      ],
+      "locality": [
+        "Centro",
+        "São José dos Pinhais",
+        "SJP",
+        "próximo ao DETRAN",
+        "Paraná"
+      ],
+      "keywords": [
+        "Autoescola APTOS",
+        "autoescola São José dos Pinhais",
+        "carro automático autoescola",
+        "moto automática autoescola",
+        "primeira habilitação SJP",
+        "categoria A B AB",
+        "curso online autoescola"
+      ]
+    },
+    "centro-mega": {
+      "aliases": [
+        "Centro Mega",
+        "Centro Mega Store",
+        "Centro Mega Outlet",
+        "centro.mega"
+      ],
+      "categories": [
+        "loja de celulares",
+        "loja de smartphones",
+        "outlet",
+        "acessórios",
+        "calçados",
+        "tênis",
+        "bonés",
+        "loja virtual"
+      ],
+      "services": [
+        "consulta de produtos",
+        "consulta de estoque",
+        "consulta de preço",
+        "retirada em loja",
+        "entrega e envio"
+      ],
+      "equipment": [
+        "smartphone",
+        "celular",
+        "acessórios para celular"
+      ],
+      "products": [
+        "Poco X5 Pro 8GB 256GB",
+        "Tênis Dunk Low Pro",
+        "bonés de outlet",
+        "calçados de outlet",
+        "acessórios para tecnologia",
+        "Xiaomi Mi Box S",
+        "Controle PlayStation 4 Original Sony",
+        "Suporte de celular para Moto & Bike Renux 5203"
+      ],
+      "problems": [
+        "quero confirmar estoque de celular",
+        "quero saber o preço atual",
+        "quero confirmar numeração do tênis",
+        "quero encontrar oferta de outlet",
+        "vi um produto nas redes e quero comprar"
+      ],
+      "useCases": [
+        "comprar celular em São José dos Pinhais",
+        "consultar produto visto no Instagram",
+        "consultar produto visto no Facebook",
+        "ver ofertas de outlet",
+        "montar seleção de produtos antes do atendimento",
+        "consultar item do seller Centro Mega",
+        "comparar produto visto nas redes com catálogo público"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "SJP",
+        "Curitiba",
+        "Região Metropolitana de Curitiba",
+        "Galeria Di Brunno",
+        "Shopping Cidade",
+        "Pinheirinho"
+      ],
+      "keywords": [
+        "Centro Mega São José dos Pinhais",
+        "Centro Mega Outlet",
+        "celulares São José dos Pinhais",
+        "smartphones SJP",
+        "outlet São José dos Pinhais",
+        "tênis outlet SJP",
+        "Centro Mega Instagram",
+        "Centro Mega Facebook",
+        "Poco X5 Pro 8GB 256GB",
+        "Tênis Dunk Low Pro",
+        "bonés de outlet",
+        "calçados de outlet",
+        "acessórios para tecnologia",
+        "Xiaomi Mi Box S",
+        "Controle PlayStation 4 Original Sony",
+        "Suporte de celular para Moto & Bike Renux 5203"
+      ]
+    },
+    "arildo-madeiras": {
+      "aliases": [
+        "Arildo Madeiras",
+        "Arildo Madeiras Pinhais"
+      ],
+      "categories": [
+        "madeireira",
+        "loja de madeiras",
+        "madeiras brutas",
+        "madeiras beneficiadas",
+        "materiais para construção e reforma"
+      ],
+      "services": [
+        "atacado de madeiras",
+        "varejo de madeiras",
+        "orientação para escolha de materiais"
+      ],
+      "equipment": [],
+      "products": [
+        "madeiras em geral",
+        "portas",
+        "janelas",
+        "forros",
+        "Madeira de Cambará",
+        "móveis rústicos",
+        "banquetas"
+      ],
+      "problems": [
+        "preciso de madeira para construção",
+        "preciso de madeira para reforma",
+        "quero portas ou janelas",
+        "quero forro de madeira",
+        "procuro Madeira de Cambará",
+        "quero material para assoalho, caixilho ou coluna"
+      ],
+      "useCases": [
+        "obra residencial",
+        "obra comercial",
+        "reforma",
+        "acabamento",
+        "móvel rústico",
+        "orçamento de madeiras em Pinhais"
+      ],
+      "locality": [
+        "Weissópolis",
+        "Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Arildo Madeiras",
+        "madeireira Pinhais",
+        "madeiras Pinhais",
+        "madeira para construção Pinhais",
+        "portas janelas forros Pinhais",
+        "Madeira de Cambará Pinhais",
+        "móveis rústicos Pinhais"
+      ]
+    },
+    "dona-garimpeira-brecho": {
+      "aliases": [
+        "Dona Garimpeira",
+        "Dona Garimpeira SJP",
+        "Dona Garimpeira Brechó"
+      ],
+      "categories": [
+        "brechó",
+        "loja de roupas usadas",
+        "moda circular"
+      ],
+      "services": [
+        "compra de roupas usadas",
+        "recebimento de doações de roupas"
+      ],
+      "products": [
+        "roupas femininas de segunda mão",
+        "roupas masculinas de segunda mão",
+        "roupas infantis de segunda mão",
+        "acessórios de segunda mão"
+      ],
+      "useCases": [
+        "comprar roupas presencialmente",
+        "avaliar roupas usadas para vender",
+        "entregar doações de roupas",
+        "consultar peças pelo WhatsApp"
+      ],
+      "locality": [
+        "Boneca do Iguaçu",
+        "São José dos Pinhais",
+        "Paraná"
+      ],
+      "keywords": [
+        "Dona Garimpeira brechó",
+        "brechó São José dos Pinhais",
+        "brechó Boneca do Iguaçu",
+        "comprar roupas usadas em São José dos Pinhais"
+      ]
+    },
+    "agropet-filt": {
+      "aliases": [
+        "Agropet Filt",
+        "Aviário Agropet Filt",
+        "Agropet Filt Pinhais"
+      ],
+      "categories": [
+        "pet shop",
+        "aviário",
+        "loja de rações",
+        "loja de acessórios para pets"
+      ],
+      "services": [
+        "banho e tosa"
+      ],
+      "products": [
+        "rações",
+        "artigos para pássaros",
+        "acessórios",
+        "petiscos",
+        "pesca",
+        "jardinagem"
+      ],
+      "useCases": [
+        "procurar ração perto de casa",
+        "consultar banho e tosa em Pinhais",
+        "artigos para aves e pássaros",
+        "consultar jardinagem"
+      ],
+      "locality": [
+        "Vargem Grande",
+        "Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Agropet Filt Pinhais",
+        "aviário em Pinhais",
+        "pet shop Vargem Grande",
+        "rações Pinhais",
+        "artigos para pássaros Pinhais"
+      ]
+    },
+    "cantinho-da-tia-mari": {
+      "aliases": [
+        "Cantinho da Tia Mari",
+        "Cantinho Tia Mari",
+        "Tia Mari São José dos Pinhais"
+      ],
+      "categories": [
+        "cuidados infantis",
+        "berçário",
+        "recreação infantil"
+      ],
+      "services": [
+        "berçário",
+        "leva e busca",
+        "horários"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar informações do berçário",
+        "ver horário de atendimento",
+        "conhecer o espaço e endereço",
+        "consultar leva e busca"
+      ],
+      "locality": [
+        "Rua Pedro Alves da Rocha",
+        "Jardim Itália",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Cantinho da Tia Mari São José dos Pinhais",
+        "berçário Jardim Itália",
+        "cuidados infantis Jardim Itália",
+        "leva e busca escola CMEI Jardim Itália"
+      ]
+    },
+    "infinito-spa": {
+      "aliases": [
+        "Infinito Spa",
+        "Infinito Spa Santiago",
+        "Roze masoterapeuta Santiago"
+      ],
+      "categories": [
+        "masajes",
+        "masoterapia",
+        "bienestar",
+        "spa"
+      ],
+      "services": [
+        "masajes",
+        "masoterapia",
+        "consulta de modalidades",
+        "coordinación de sesiones"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar modalidades de masaje",
+        "consultar disponibilidad",
+        "coordinar una sesión"
+      ],
+      "locality": [
+        "Santiago",
+        "Región Metropolitana",
+        "Chile"
+      ],
+      "keywords": [
+        "Infinito Spa Santiago",
+        "masajes Santiago de Chile",
+        "masoterapia Santiago",
+        "sesiones de masaje Santiago",
+        "bienestar Santiago"
+      ]
+    }
+  }
+}

@@ -98,14 +98,25 @@ export function decideLeadRecoverability(input: RecoverabilityInput): Recoverabi
 }
 
 /**
- * Normaliza um WhatsApp/telefone brasileiro informado pelo visitante.
- * Devolve apenas dígitos com DDI 55, ou null quando o dado é insuficiente.
- * Nunca lança: dado ruim não pode derrubar a submissão.
+ * Normaliza WhatsApp de retorno sem misturar códigos de país.
+ * Devolve somente dígitos com DDI; nunca lança.
  */
-export function normalizeRecoveryPhone(raw: string | null | undefined): string | null {
+export type RecoveryPhoneLocale = "pt-BR" | "es-CL";
+
+export function normalizeRecoveryPhone(
+  raw: string | null | undefined,
+  locale: RecoveryPhoneLocale = "pt-BR",
+): string | null {
   if (typeof raw !== "string") return null;
   let digits = raw.replace(/\D/g, "");
   if (!digits) return null;
+
+  if (locale === "es-CL") {
+    if (digits.startsWith("00")) digits = digits.slice(2);
+    if (digits.length === 9 && digits.startsWith("9")) digits = `56${digits}`;
+    return digits.length === 11 && digits.startsWith("569") ? digits : null;
+  }
+
   if (digits.length === 10 || digits.length === 11) digits = `55${digits}`;
   if (digits.length === 12 || digits.length === 13) {
     if (!digits.startsWith("55")) return null;

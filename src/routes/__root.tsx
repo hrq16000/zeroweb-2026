@@ -240,8 +240,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const documentLanguage = pathname === "/portfolio/infinito-spa" || pathname.startsWith("/portfolio/infinito-spa/") ? "es-CL" : "pt-BR";
   return (
-    <html lang="pt-BR">
+    <html lang={documentLanguage}>
       <head>
         <HeadContent />
       </head>

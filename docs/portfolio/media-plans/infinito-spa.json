@@ -1,50 +1,57 @@
 {
-  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md ¬ß7). Preencher antes de fechar o Blueprint.",
   "slug": "infinito-spa",
-  "status": "MEDIA_ENRICHMENT_IN_PROGRESS",
-  "inventory": {
-    "realBusinessPhotos": [],
-    "officialBrandAssets": [],
-    "externalMedia": [],
-    "licensedMedia": [],
-    "generatedMedia": [
-      "/images/infinito-spa/hero.svg",
-      "/images/infinito-spa/detail.svg",
-      "/images/infinito-spa/capa.svg",
-      "/images/infinito-spa/social.svg",
-      "/images/infinito-spa/capa-card.svg"
-    ],
-    "graphicMedia": [
-      "/images/infinito-spa/logo.svg"
-    ],
-    "missingMedia": []
+  "status": "BRAND_LED_CONCEPT_PENDING_CLIENT_APPROVAL",
+  "cover": {
+    "asset": "public/images/infinito-spa/capa-card.svg",
+    "strategy": "BRAND_COMPOSITION",
+    "approved": true,
+    "approvalScope": "0WEB_OWNER_APPROVED"
   },
-  "discovery": {
-    "searched": true,
-    "sources": [
-      "OWNER_SUPPLIED",
-      "GOOGLE_PUBLIC_MEDIA",
-      "OFFICIAL_SOCIAL",
-      "OFFICIAL_WEBSITE",
-      "OFFICIAL_BRAND",
-      "LICENSED_MEDIA",
-      "GENERATED_CONTEXTUAL_MEDIA"
-    ],
-    "result": "No se verificaron fotos, logo ni redes oficiales; hom√≥nimos excluidos. Arte vectorial original para identidad, hero, portada y OG."
+  "hero": {
+    "asset": "public/images/infinito-spa/hero-orbit.svg",
+    "kind": "GENERATED_BRAND_ASSET"
   },
-  "referenceOnlyAssets": [],
+  "social": {
+    "asset": "public/images/infinito-spa/social-og.jpg",
+    "dimensions": "1200x630",
+    "purpose": "Open Graph 1200x630 generado desde arte original de marca; no utiliza fotograf√≠as de terceros ni material de hom√≥nimos."
+  },
   "sections": [
     {
-      "section": "hero",
-      "mediaRole": "BRAND_REFERENCE",
-      "source": "PROJECT_AUTHORED_VECTOR",
-      "asset": "/images/infinito-spa/hero.svg",
-      "provenance": "Arte vectorial original",
-      "status": "READY",
-      "mediaNarrative": "CREATE_EMOTION"
+      "id": "hero",
+      "status": "complete",
+      "asset": "public/images/infinito-spa/hero-orbit.svg"
     },
     {
-      "section": "attention",
-      "mediaRole": "GENERATED_CONTEXTUAL_MEDIA",
-      "source": "PROJECT_AUTHORED_VECTOR",
-      "ass∂ªßq´^
+      "id": "consultation",
+      "status": "complete",
+      "resolution": "Narrativa tipogr√°fica"
+    },
+    {
+      "id": "private-space",
+      "status": "pending-client-media",
+      "resolution": "No se recibieron fotos reales; no usar stock como si fuera el establecimiento."
+    },
+    {
+      "id": "faq",
+      "status": "complete",
+      "resolution": "Contenido factual del intake"
+    },
+    {
+      "id": "closing",
+      "status": "complete",
+      "resolution": "CTA de funil individual"
+    }
+  ],
+  "realBusinessMedia": {
+    "searched": true,
+    "found": false,
+    "usable": false
+  },
+  "pending": [
+    "fotos reales",
+    "logo oficial",
+    "comuna",
+    "aprobaci√≥n de Roze"
+  ]
+}

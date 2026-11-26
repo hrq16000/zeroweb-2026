@@ -10,6 +10,7 @@ type Props = {
   hostCredit: boolean;
   /** Slug do projeto: liga a página aos hubs regionais da plataforma. */
   slug?: string;
+  locale?: "es-CL";
 };
 
 /**
@@ -17,7 +18,8 @@ type Props = {
  * É neutro de identidade: nome do cliente + crédito discreto da 0WEB.
  * O shell garante que ele seja a última seção de conteúdo da página.
  */
-export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredit, slug }: Props) {
+export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredit, slug, locale }: Props) {
+  const spanish = locale === "es-CL";
   const places = slug ? portfolioPlaceHubsForProject(slug) : [];
 
   const dark = variant === "dark";
@@ -36,6 +38,7 @@ export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredi
         </p>
         {hostCredit ? (
           <PortfolioHostCredit
+            locale={locale}
             className={dark ? "text-slate-400" : "text-slate-500"}
             linkClassName={
               "font-semibold underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 " +
@@ -46,13 +49,13 @@ export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredi
       </div>
       {places.length > 0 ? (
         <nav
-          aria-label="Projetos na mesma região"
+          aria-label={spanish ? "Proyectos en la misma región" : "Projetos na mesma região"}
           className={
             "mx-auto mt-3 flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] sm:justify-start " +
             (dark ? "text-slate-400" : "text-slate-500")
           }
         >
-          <span>Também na região:</span>
+          <span>{spanish ? "También en la región:" : "Também na região:"}</span>
           {places.map((hub) => (
             <Link
               key={hub.slug}
