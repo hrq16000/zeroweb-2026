@@ -1225,7 +1225,7 @@
       "socialVersion": "9ea8c269"
     },
     "infinito-spa": {
-      "icon": "/images/infinito-spa/mark.svg",
+      "icon": "/images/infinito-spa/logo.svg",
       "socialImage": "/images/infinito-spa/social.svg",
       "socialVersion": "ae4c0a7a",
       "proof": {
@@ -1234,7 +1234,7 @@
         "title": "Información basada en el diagnóstico inicial",
         "description": "No se muestran reseñas, valoraciones ni resultados porque todavía no fueron aportados o verificados.",
         "ctaLabel": "Consultar disponibilidad",
-        "ctaHref": "#contacto"
+        "ctaHref": "#consulta"
       }
     }
   }
