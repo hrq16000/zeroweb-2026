@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
@@ -26,7 +26,7 @@ export function PremiumEnvelopamentosPage() {
             <PortfolioImage
               managedField="logoUrl"
               priority
-              src="/images/premium-envelopamentos/logo.png"
+              src="/images/_generated/premium-envelopamentos/logo.webp"
               alt="Premium Envelopamentos"
               width={768}
               height={256}
@@ -68,9 +68,11 @@ export function PremiumEnvelopamentosPage() {
         </div>
         <MotionImageReveal direction="left">
         <PortfolioImage
-          src="/images/premium-envelopamentos/hero.png"
+          src="/images/_generated/premium-envelopamentos/hero.webp"
           alt="Aplicação de envelopamento em geladeira pela Premium Envelopamentos"
           priority
+          widths={[480, 960]}
+          sizes="(min-width: 1200px) 1152px, 100vw"
           width={1024}
           height={1024}
           className="h-56 w-full object-cover object-center sm:h-80 lg:h-[26rem]"
@@ -78,6 +80,7 @@ export function PremiumEnvelopamentosPage() {
         />
         </MotionImageReveal>
       </section>
+      </MotionFirstPaint>
 
       <main>
         {/* Catálogo em linhas técnicas com coluna de índice. */}
@@ -106,10 +109,12 @@ export function PremiumEnvelopamentosPage() {
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.35fr_.65fr] md:items-center">
             <MotionImageReveal direction="up">
             <PortfolioImage
-              src="/images/premium-envelopamentos/galeria-oficina.png"
+              src="/images/_generated/premium-envelopamentos/galeria-oficina.webp"
               alt="Plotagem de móveis em oficina limpa e moderna"
-              width={1536}
-              height={1024}
+              widths={[480]}
+              sizes="(min-width: 768px) 65vw, 100vw"
+              width={960}
+              height={640}
               className="aspect-[16/9] w-full rounded-none object-cover"
             />
             </MotionImageReveal>
