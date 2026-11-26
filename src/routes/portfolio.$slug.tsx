@@ -1049,7 +1049,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           ],
                         },
                       ]
-                    : [
+                    : isInfinitoSpa ? [] : [
                       {
                         ...serviceNode({
                           slug: vertical.slug,

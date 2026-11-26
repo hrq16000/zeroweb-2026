@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Valida isolamento, recursos obrigatórios e privacidade dos sites de clientes. */
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
@@ -78,7 +78,7 @@ function hasImportedDirectLeadFormContract(component, componentPath, clientKey) 
       ...[".tsx", ".ts", ".jsx", ".js"].map((extension) => importBase + extension),
       resolve(importBase, "index.tsx"),
     ];
-    const formPath = candidates.find((candidate) => existsSync(candidate));
+    const formPath = candidates.find((candidate) => existsSync(candidate) && statSync(candidate).isFile());
     if (!formPath) continue;
 
     const formSource = readFileSync(formPath, "utf8");

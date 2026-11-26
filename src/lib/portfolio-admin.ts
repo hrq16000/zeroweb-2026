@@ -21,7 +21,9 @@ export type ConformanceCode =
   | "PORTFOLIO_SEO_MISSING"
   | "PORTFOLIO_POPUP_MISSING"
   | "PORTFOLIO_SHARE_COPY_MISSING"
-  | "PORTFOLIO_COMPONENT_MISSING";
+  | "PORTFOLIO_COMPONENT_MISSING"
+  | "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+  | "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED";
 
 export type ConformanceStatus = "COMPLETE" | "PARTIAL" | "LEGACY";
 
@@ -206,6 +208,12 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
       ? (db.brand_colors as Record<string, string>)
       : {};
 
+  // These readiness blockers come exclusively from the generated versioned seed.
+  // Administrative overrides cannot bypass the matrix or the explicit review hold.
+  const releaseBlockers = seed.blocking.filter(
+    (code) => code === "PORTFOLIO_TECHNICAL_PASS_REQUIRED" || code === "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+  );
+  const releaseBlocked = releaseBlockers.length > 0;
   const base = {
     slug: seed.slug,
     clientKey: seed.clientKey,
@@ -238,15 +246,22 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
     shareCopy: pick(db?.share_copy, seed.shareCopy),
     gallery,
     brandColors,
-    lifecycleStatus: (db?.lifecycle_status ?? (seed.published ? "published" : "imported")) as LifecycleStatus,
-    published: db ? Boolean(db.published) : seed.published,
+    lifecycleStatus: (releaseBlocked && db?.lifecycle_status === "published"
+      ? "draft" : db?.lifecycle_status ?? (seed.published ? "published" : "imported")) as LifecycleStatus,
+    published: !releaseBlocked && (db ? Boolean(db.published) : seed.published),
     contentVersion: Number(db?.content_version ?? 0),
     updatedAt: db?.updated_at ?? null,
     archivedAt: db?.archived_at ?? null,
     imported: Boolean(db),
   };
 
-  return { ...base, conformance: evaluateConformance(base) };
+  const conformance = evaluateConformance(base);
+  if (releaseBlocked) {
+    conformance.issues.push(...releaseBlockers);
+    conformance.blocking.push(...releaseBlockers);
+    conformance.status = "LEGACY";
+  }
+  return { ...base, conformance };
 }
 
 /** Diferenças entre o seed dos registries e o que está gravado no banco. */

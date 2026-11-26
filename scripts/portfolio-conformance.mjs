@@ -20,6 +20,8 @@ export const CODES = {
   POPUP: "PORTFOLIO_POPUP_MISSING",
   SHARE: "PORTFOLIO_SHARE_COPY_MISSING",
   COMPONENT: "PORTFOLIO_COMPONENT_MISSING",
+  TECHNICAL: "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+  APPROVAL: "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
 };
 
 /** Falhas bloqueantes (build/CI). As demais são avisos de governança. */
@@ -29,6 +31,8 @@ export const BLOCKING = new Set([
   CODES.SEO,
   CODES.CTA,
   CODES.COMPONENT,
+  CODES.TECHNICAL,
+  CODES.APPROVAL,
 ]);
 
 export function buildRecords(root) {
@@ -144,8 +148,19 @@ export function buildRecords(root) {
 
     if (!shareCopy[slug]) issues.push(CODES.SHARE);
 
+    const matrixPath = `docs/portfolio/quality-matrix/${slug}.json`;
+    const matrix = fs.existsSync(path.join(root, matrixPath)) ? readJson(matrixPath) : null;
+    if (matrix?.technicalPass === false) issues.push(CODES.TECHNICAL);
+    // An explicit draft with live=true is a review URL, not commercial approval.
+    if (item.status === "draft" && item.live === true && item.indexable === false) {
+      issues.push(CODES.APPROVAL);
+    }
     const blocking = issues.filter((i) => BLOCKING.has(i));
-    const published = item.status === "published" || item.live === true;
+    const published =
+      item.status !== "draft" &&
+      (item.status === "published" || item.live === true) &&
+      !blocking.includes(CODES.TECHNICAL) &&
+      !blocking.includes(CODES.APPROVAL);
     const status =
       issues.length === 0 ? "COMPLETE" : blocking.length > 0 ? "LEGACY" : "PARTIAL";
 

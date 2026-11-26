@@ -33,6 +33,15 @@ function validWhatsApp(raw) {
   return digits.length >= 10 && digits.length <= 15;
 }
 
+export function isSecretDestinationReference(whatsapp, provenance, expectedEnvKey) {
+  const allowedProvenance =
+    (provenance?.status === "CONFIGURED_UNVERIFIED" && provenance?.source === "CLIENT_SUPPLIED") ||
+    (provenance?.status === "VERIFIED" && provenance?.source === "OPERATIONAL_SECRET+GOOGLE_ENTITY");
+  return whatsapp === `env:${expectedEnvKey}` && allowedProvenance &&
+    Array.isArray(provenance?.evidence) &&
+    provenance.evidence.some((line) => String(line).split(/[^A-Z0-9_]+/).includes(expectedEnvKey));
+}
+
 /** Cliente sem canal comercial não participa do gate. */
 export function expectsOperationalDelivery(client) {
   if (!client) return true;
@@ -89,7 +98,7 @@ export function evaluateFunnelDestination(slug, { clients, ledger, contacts, env
   const provenance = entries[clientKey] ?? entries[slug] ?? null;
   const provenanceStatus = provenance?.status ?? null;
   const expectedEnvKey = `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
-  const secretReference = whatsapp === `env:${expectedEnvKey}` && provenanceStatus === "CONFIGURED_UNVERIFIED" && provenance?.source === "CLIENT_SUPPLIED" && Array.isArray(provenance?.evidence) && provenance.evidence.some((line) => String(line).includes(expectedEnvKey));
+  const secretReference = isSecretDestinationReference(whatsapp, provenance, expectedEnvKey);
 
   if (whatsapp === null) {
     // Estado deliberado: o projeto salva lead/protocolo e não redireciona.

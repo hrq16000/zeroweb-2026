@@ -1226,8 +1226,8 @@
     },
     "infinito-spa": {
       "icon": "/images/infinito-spa/logo.svg",
-      "socialImage": "/images/infinito-spa/social.svg",
-      "socialVersion": "ae4c0a7a",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
       "proof": {
         "enabled": false,
         "eyebrow": "Información inicial",

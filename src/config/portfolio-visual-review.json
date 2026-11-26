@@ -740,5 +740,27 @@
     },
     "notes": "Capa ilustrada original com mensagem editorial, sem foto de equipe/loja falsa, telefone, endereço exato, campanha ou preço. Usuário deu autorização à 0WEB para execução criativa autônoma; agente inspecionou SVG e screenshot renderizada (action 41868845709). A aprovação aplica-se apenas à composição editorial, não a dados comerciais ou alegação de marca oficial.",
     "originalityReview": "UNIQUE_VECTOR_PET_AND_BIRD"
+  },
+  "arildo-madeiras": {
+    "coverReview": "APPROVED",
+    "coverSource": "/images/arildo-madeiras/capa-card.svg",
+    "coverOrigin": "0WEB_AUTHORED",
+    "reviewedAt": "2026-09-24",
+    "notes": "Aprovação já registrada no inventário versionado portfolio-cover-status.json; preservada na fonte de revisão."
+  },
+  "cantinho-da-tia-mari": {
+    "coverReview": "APPROVED",
+    "coverSource": "public/images/cantinho-da-tia-mari/fachada.webp",
+    "coverOrigin": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+    "reviewedAt": "2026-11-06",
+    "notes": "Aprovação já registrada no inventário versionado portfolio-cover-status.json; preservada na fonte de revisão."
+  },
+  "infinito-spa": {
+    "coverReview": "APPROVED",
+    "coverSource": "/images/infinito-spa/capa-card.jpg",
+    "coverOrigin": "0WEB_GENERATED",
+    "reviewedAt": "2026-11-26T03:18:31.010Z",
+    "notes": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento. Capa JPG gerada a partir do SVG e conferida em 26/11.",
+    "coverApprovedReason": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento."
   }
 }

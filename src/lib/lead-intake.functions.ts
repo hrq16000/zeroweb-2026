@@ -58,6 +58,13 @@ function allowPublicLeadIntake(fingerprint: string) {
   return true;
 }
 
+/** Only exposes availability, never the operational destination. */
+export const getInfinitoSpaWhatsAppAvailability = createServerFn({ method: "GET" })
+  .handler(async () => {
+    const { isPortfolioWhatsAppEnvironmentConfigured } = await import("@/lib/portfolio-whatsapp-registry.server");
+    return { available: isPortfolioWhatsAppEnvironmentConfigured("infinito-spa") };
+  });
+
 /** Grava leads públicos usando a chave publishable e a política INSERT do RLS. */
 export const submitPublicLead = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => leadInput.parse(input))
@@ -78,6 +85,12 @@ export const submitPublicLead = createServerFn({ method: "POST" })
     }
 
     try {
+      // The previous Vercel configuration is explicitly excluded for this client.
+      // Fail closed rather than writing private inquiries to that project.
+      if (data.source === "portfolio:infinito-spa" &&
+          new URL(supabaseUrl).hostname === "lxajhxocyqzwwbcfahya.supabase.co") {
+        return { ok: false as const, reason: "config_error" as const };
+      }
       const publicClient = createClient<Database>(supabaseUrl, publishableKey, {
         auth: { persistSession: false, autoRefreshToken: false },
       });

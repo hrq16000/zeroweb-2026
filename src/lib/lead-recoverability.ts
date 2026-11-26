@@ -113,8 +113,8 @@ export function normalizeRecoveryPhone(
 
   if (locale === "es-CL") {
     if (digits.startsWith("00")) digits = digits.slice(2);
-    if (digits.length === 9 && digits.startsWith("9")) digits = `56${digits}`;
-    return digits.length === 11 && digits.startsWith("569") ? digits : null;
+    if (digits.length === 9) digits = `56${digits}`;
+    return /^56[2-9]\d{8}$/.test(digits) ? digits : null;
   }
 
   if (digits.length === 10 || digits.length === 11) digits = `55${digits}`;

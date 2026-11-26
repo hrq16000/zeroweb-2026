@@ -208,7 +208,7 @@
     "closing": "CTA"
   },
   "p0": [
-    "Vercel no tiene SUPABASE_SERVICE_ROLE_KEY; la persistencia real de leads no puede ejecutarse ni verificarse."
+    "La conexión operativa nativa de 0WEB debe confirmarse y la política INSERT anónima homologarse con el trigger de lead_submissions; no se necesita service role."
   ],
   "warnings": [
     "Noindex retenido hasta verificar persistencia real, redirección WhatsApp y aprobación de identidad visual por Roze.",

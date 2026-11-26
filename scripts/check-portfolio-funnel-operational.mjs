@@ -14,6 +14,7 @@
  * Uso: node scripts/check-portfolio-funnel-operational.mjs [--json]
  */
 import { readFileSync, existsSync } from "node:fs";
+import { isSecretDestinationReference } from "./lib/funnel-destination-gate.mjs";
 
 const json = process.argv.includes("--json");
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
@@ -61,7 +62,7 @@ for (const c of clients) {
   const configured = validWhatsApp(whatsapp);
   const provenance = ledger[c.clientKey] ?? ledger[c.slug] ?? null;
   const expectedEnvKey = `PORTFOLIO_WHATSAPP_${String(c.clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
-  const secretConfigured = whatsapp === `env:${expectedEnvKey}` && provenance?.status === "CONFIGURED_UNVERIFIED" && provenance?.source === "CLIENT_SUPPLIED" && Array.isArray(provenance?.evidence) && provenance.evidence.some((line) => String(line).includes(expectedEnvKey));
+  const secretConfigured = isSecretDestinationReference(whatsapp, provenance, expectedEnvKey);
   const explicitNull = contactEntry && whatsapp === null;
 
   const delivery =
@@ -122,7 +123,8 @@ const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destin
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
-  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
+  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('return handleInfinitoSpaWhatsAppRedirect(request)') &&
+    readFileSync("src/lib/infinito-spa-whatsapp.server.ts", "utf8").includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],

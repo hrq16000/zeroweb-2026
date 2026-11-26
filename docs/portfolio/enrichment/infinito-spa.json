@@ -1,10 +1,34 @@
 {
   "slug": "infinito-spa",
   "identity": {
-    "brand": "Infinito Spa",
-    "owner": "Roze",
-    "segment": "Masajes / masoterapia",
-    "locality": "Santiago, Chile",
+    "brand": {
+      "value": "Infinito Spa",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "owner": {
+      "value": "Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "segment": {
+      "value": "Masajes / masoterapia",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "locality": {
+      "value": "Santiago, Chile",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
     "sourceType": "OWNER_SUPPLIED",
     "confidence": "HIGH",
     "note": "Marca y datos confirmados por intake 0WEB; no equivale a razón social."
@@ -106,9 +130,27 @@
     }
   ],
   "allowedClaims": [
-    "Masajes y masoterapia en Santiago",
-    "Atención en espacio privado con coordinación previa",
-    "Consultar modalidades y disponibilidad con Roze"
+    {
+      "value": "Masajes y masoterapia en Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Consultar modalidades y disponibilidad con Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
   ],
   "unverified": [
     "modalidades específicas",
@@ -125,5 +167,89 @@
   "rejectedMatches": [
     "Negocios homónimos sin dos señales convergentes."
   ],
-  "lastResearchAt": "2026-11-25T21:10:00-03:00"
+  "lastResearchAt": "2026-11-25T21:10:00-03:00",
+  "google": {
+    "status": "UNRESOLVED",
+    "placeId": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null
+  },
+  "services": [
+    {
+      "value": "Masajes y masoterapia",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "location": {
+    "city": {
+      "value": "Santiago, Chile",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    "address": null,
+    "privateSpace": {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  },
+  "reviews": [],
+  "media": [],
+  "facts": [
+    {
+      "value": "Masajes y masoterapia en Santiago",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Atención en espacio privado con coordinación previa",
+      "source": "Conversación WhatsApp compartida por el operador",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    },
+    {
+      "value": "Consultar modalidades y disponibilidad con Roze",
+      "source": "Formulario de diagnóstico 0WEB",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-11-25"
+    }
+  ],
+  "conflicts": [
+    "Negocios homónimos sin dos señales convergentes."
+  ],
+  "generatedAssets": [
+    {
+      "path": "public/images/infinito-spa/mark.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/hero-orbit.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/capa-card.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    },
+    {
+      "path": "public/images/infinito-spa/social.svg",
+      "source": "0WEB_GENERATED",
+      "kind": "GENERATED_BRAND_ASSET"
+    }
+  ]
 }
