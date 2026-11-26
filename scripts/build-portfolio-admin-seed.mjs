@@ -80,7 +80,17 @@ if (check) {
           const fields = [...new Set([...Object.keys(currentProject), ...Object.keys(nextProject)])]
             .filter((field) => JSON.stringify(currentProject[field]) !== JSON.stringify(nextProject[field]))
             .sort();
-          return fields.length ? [{ slug, fields }] : [];
+          return fields.length
+            ? [{
+                slug,
+                fields: fields.map((field) => ({
+                  field,
+                  current: currentProject[field] ?? null,
+                  expected: nextProject[field] ?? null,
+                  expectedPresent: Object.prototype.hasOwnProperty.call(nextProject, field),
+                })),
+              }]
+            : [];
         });
       console.error(
         `[portfolio-admin-seed] divergências: ${JSON.stringify({ missing, extra, changed })}`,
