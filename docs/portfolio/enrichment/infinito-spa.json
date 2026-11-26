@@ -86,7 +86,7 @@
       "accessible": true,
       "ingestable": false,
       "usable": false,
-      "notes": "No official business photos or social media assets were verified; only original 0WEB demo artwork is used."
+      "notes": "No se verificaron fotos oficiales del negocio ni activos sociales; solo se utiliza arte original de marca creado por 0WEB."
     }
   },
   "sources": [
@@ -98,7 +98,7 @@
       "verifiedAt": "2026-11-25"
     },
     {
-      "value": "Atiende en su apartamento, en una sala preparada para clientes",
+      "value": "Atención en un espacio privado de Santiago; la ubicación exacta no se publica.",
       "source": "Conversación WhatsApp compartida por el operador",
       "sourceType": "OWNER_SUPPLIED",
       "confidence": "HIGH",

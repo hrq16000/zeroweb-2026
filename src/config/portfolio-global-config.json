@@ -1465,7 +1465,7 @@
       "shareButton": {
         "position": "top-right",
         "variant": "dark",
-        "label": "Compartir propuesta"
+        "label": "Compartir"
       },
       "contactFloating": {
         "enabled": true,

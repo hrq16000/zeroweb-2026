@@ -2,8 +2,8 @@
   "version": 2,
   "slug": "infinito-spa",
   "contractVersion": 4,
-  "checkedAt": "2026-11-25",
-  "technicalPass": true,
+  "checkedAt": "2026-11-26",
+  "technicalPass": false,
   "editorialPass": true,
   "dimensions": {
     "ENTITY": {
@@ -14,10 +14,11 @@
     },
     "MEDIA": {
       "status": "WARNING",
-      "notes": "Fotos y logo oficial pendientes."
+      "notes": "Fotos reales y logotipo oficial pendientes; se conserva arte original 0WEB sin presentarlo como fotografía."
     },
     "VISUAL_COMPOSITION": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "Capturas reales 390/768/1440 y revisión perceptual pendientes."
     },
     "ORIGINALITY": {
       "status": "PASS"
@@ -26,27 +27,31 @@
       "status": "PASS"
     },
     "SEO": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "Metadatos es-CL y Schema.org localizados; indexación permanece retenida hasta aprobación y E2E real."
     },
     "CONVERSION": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "El contrato del funil pasa pruebas unitarias; falta grabación real de lead en Supabase."
     },
     "PROOF": {
       "status": "NOT_APPLICABLE"
     },
     "RESPONSIVENESS": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "Playwright 390/768/1440 pendiente."
     },
     "PERFORMANCE": {
       "status": "WARNING",
       "notes": "Lighthouse runtime pendiente."
     },
     "ACCESSIBILITY": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "Validación automatizada E2E pendiente."
     },
     "QA": {
       "status": "WARNING",
-      "notes": "Playwright y capturas pendientes."
+      "notes": "Playwright y capturas pendientes; no marcar PASS sin evidencia."
     },
     "CONTENT_DEPTH": {
       "status": "PASS"
@@ -67,7 +72,8 @@
       "status": "NOT_APPLICABLE"
     },
     "CONVERSION_CONTINUITY": {
-      "status": "PASS"
+      "status": "WARNING",
+      "notes": "Redirección WhatsApp después de persistir el lead pendiente de prueba real."
     },
     "MOTION_DESIGN": {
       "status": "PASS"
@@ -77,7 +83,7 @@
     "status": "PASS"
   },
   "cover": {
-    "status": "PASS"
+    "status": "WARNING"
   },
   "motion": {
     "profile": {
@@ -201,9 +207,11 @@
     "faq": "preguntas",
     "closing": "CTA"
   },
-  "p0": [],
+  "p0": [
+    "Vercel no tiene SUPABASE_SERVICE_ROLE_KEY; la persistencia real de leads no puede ejecutarse ni verificarse."
+  ],
   "warnings": [
-    "Demo noindex hasta aprobación y QA visual.",
-    "Fotos reales y datos comerciales pendientes."
+    "Noindex retenido hasta verificar persistencia real, redirección WhatsApp y aprobación de identidad visual por Roze.",
+    "Fotos reales y datos comerciales (modalidades, precios, horarios y comuna) pendientes."
   ]
 }

@@ -1205,7 +1205,7 @@
         "facts": [
           "Infinito Spa es la marca informada por la profesional.",
           "Roze ofrece masajes/masoterapia en Santiago.",
-          "Atiende en su apartamento, en una sala preparada para clientes.",
+          "La atención se coordina en un espacio privado de Santiago; la dirección exacta no se publica.",
           "El objetivo declarado es atraer nuevos clientes."
         ],
         "sources": [
@@ -1220,15 +1220,16 @@
       },
       "blockers": [
         "QA visual y revisión perceptual pendientes.",
-        "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación."
+        "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación.",
+        "SUPABASE_SERVICE_ROLE_KEY ausente en Vercel; grabación real de leads y redirección posterior no verificadas."
       ],
       "warnings": [
         "Homónimos públicos no asociados.",
         "No se suministraron logo, fotos, comuna, modalidades específicas, precios, horarios ni credenciales.",
-        "No se muestran reseñas ni resultados no verificados."
+        "No se muestran reseñas ni resultados no verificados.",
+        "No se publica teléfono, correo ni dirección residencial; el WhatsApp comercial permanece solo en configuración server-side."
       ],
       "ownerRequired": [
-        "Confirmar logo, perfiles sociales y comuna.",
         "Confirmar modalidades, duración, precios y disponibilidad.",
         "Enviar fotos reales y aprobar identidad conceptual.",
         "Aprobar publicación oficial e indexable."

@@ -1,6 +1,6 @@
 # Infinito Spa — Creative Composition Brief v2
 
-Propuesta demostrativa; no es el sitio oficial ni está autorizada para indexación.
+Sitio en español chileno para Infinito Spa. La publicación indexable permanece retenida hasta validar el funil real y recibir la aprobación de Roze.
 Origen: diagnóstico 0WEB de Roze, 25/11/2026. Idioma: español chileno.
 Intención: atraer consultas y coordinar sesiones de masoterapia en Santiago.
 
@@ -23,7 +23,7 @@ Intención: atraer consultas y coordinar sesiones de masoterapia en Santiago.
 - Self-segmentation: intención, experiencia previa, franja y momento deseado.
 - Commitment ladder: consulta breve, orientación de Roze, coordinación.
 - Proof: solo datos del intake; no reseñas, certificaciones, precios ni resultados inventados.
-- Privacy: no publicar la dirección del apartamento; compartir ubicación después de coordinar.
+- Privacy: no publicar dirección residencial; compartir la ubicación privada después de coordinar.
 - No prometer tiempo de respuesta ni disponibilidad en tiempo real.
 
 ## Creative DNA
@@ -45,7 +45,7 @@ Motion: sutil, CSS, reduced-motion elimina desplazamiento.
 
 ## Decisiones anti-template
 1. No reutilizar la grilla de portfolios brasileños ni recolorear un template.
-2. No usar stock como si fuera el apartamento.
+2. No usar stock como si fuera el establecimiento.
 3. No listar modalidades, precios, horarios o credenciales no confirmadas.
 4. No publicar dirección residencial.
 5. No inventar reseñas o resultados.

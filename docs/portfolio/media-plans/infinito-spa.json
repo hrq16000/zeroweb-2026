@@ -1,11 +1,11 @@
 {
   "slug": "infinito-spa",
-  "status": "BRAND_LED_DEMONSTRATION",
+  "status": "BRAND_LED_CONCEPT_PENDING_CLIENT_APPROVAL",
   "cover": {
     "asset": "public/images/infinito-spa/capa-card.svg",
     "strategy": "BRAND_COMPOSITION",
     "approved": true,
-    "approvalScope": "0WEB DEMO ONLY"
+    "approvalScope": "0WEB_OWNER_APPROVED"
   },
   "hero": {
     "asset": "public/images/infinito-spa/hero-orbit.svg",
@@ -13,8 +13,8 @@
   },
   "social": {
     "asset": "public/images/infinito-spa/social-og.jpg",
-    "dimensions": "600x315",
-    "purpose": "Propuesta social; reemplazar por 1200x630 antes de la publicación comercial definitiva."
+    "dimensions": "1200x630",
+    "purpose": "Open Graph 1200x630 generado desde arte original de marca; no utiliza fotografías de terceros ni material de homónimos."
   },
   "sections": [
     {
