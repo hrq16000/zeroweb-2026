@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { PORTFOLIO_RUNTIME_VISUAL_FIXTURES } from "@/lib/portfolio-runtime-visual-fixtures";
 import {
   sanitizePortfolioRuntimeRow,
   type PortfolioRuntimeOverrides,
@@ -16,10 +17,14 @@ import {
 export const getPortfolioRuntimeOverrides = createServerFn({ method: "GET" })
   .inputValidator((data) =>
     z
-      .object({ slug: z.string().trim().min(1).max(120).regex(/^[a-z0-9][a-z0-9-]*$/) })
+      .object({ slug: z.string().trim().min(1).max(120).regex(/^[a-z0-9][a-z0-9-]*$/), visualFixture: z.boolean().optional() })
       .parse(data),
   )
   .handler(async ({ data }): Promise<PortfolioRuntimeOverrides | null> => {
+    if (data.visualFixture && process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1") {
+      const fixture = PORTFOLIO_RUNTIME_VISUAL_FIXTURES[data.slug];
+      return fixture ? sanitizePortfolioRuntimeRow(data.slug, fixture) : null;
+    }
     // O runtime versionado continua válido sem credencial administrativa.
     // Preview/CI não deve tentar abrir cliente service-role inexistente.
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null;

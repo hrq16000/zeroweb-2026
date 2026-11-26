@@ -1,0 +1,49 @@
+{
+  "slug": "salgados-da-fran",
+  "heroMedia": {
+    "kind": "BRAND_COMPOSITION",
+    "asset": "public/images/salgados-da-fran/marca.svg",
+    "quality": "VECTOR_EDITORIAL",
+    "notDocumentary": true
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "BRAND_IDENTITY",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "public/images/salgados-da-fran/marca.svg",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "process",
+      "requiredMediaRole": "VISUAL_HIERARCHY",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "lucide + numbered tickets",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "local",
+      "requiredMediaRole": "LOCAL_LINK",
+      "sourceType": "GOOGLE_MAPS",
+      "asset": "Place-name Google Maps search (no invented street)",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "social",
+      "requiredMediaRole": "OG_BRAND_COMPOSITION",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "public/images/salgados-da-fran/social-og.svg",
+      "status": "COMPLETE"
+    }
+  ],
+  "missingMedia": [
+    "Real photos of products or business not verified; do not depict generated products as factual"
+  ],
+  "cover": {
+    "approved": false,
+    "strategy": "BRAND_COMPOSITION",
+    "asset": "public/images/salgados-da-fran/social-og.svg",
+    "evidence": "Derived brand graphic; awaits visual QA"
+  },
+  "notes": "No public verified product media identified. No fake photos, ratings, inventory, pricing."
+}

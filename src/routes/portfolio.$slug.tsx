@@ -474,7 +474,7 @@ const CarecasInfotecPage = lazy(() =>
 );
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: async ({ params }) => {
+  loader: async ({ params, location }) => {
     const site = findPortfolioPrototype(params.slug);
     // Dona Garimpeira tem atendimento client-side independente do banco.
     // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
@@ -491,21 +491,24 @@ export const Route = createFileRoute("/portfolio/$slug")({
         managed = null;
       }
       if (!managed) throw notFound();
-      return { vertical: undefined, slug: params.slug, overrides: null, managed };
+      return { vertical: undefined, slug: params.slug, overrides: null, managed, visualFixture: false };
     }
     // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
     if (params.slug === "dona-garimpeira-brecho") {
-      return { vertical, slug: params.slug, overrides: null, managed: null };
+      return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false };
     }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
+    const visualFixtureRequested =
+      process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1" &&
+      new URLSearchParams(location.searchStr ?? "").get("0web_visual_fixture") === "v1";
     let overrides: PortfolioRuntimeOverrides | null = null;
     try {
-      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug } });
+      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug, visualFixture: visualFixtureRequested } });
     } catch {
       overrides = null;
     }
-    return { vertical, slug: params.slug, overrides, managed: null };
+    return { vertical, slug: params.slug, overrides, managed: null, visualFixture: visualFixtureRequested && Boolean(overrides) };
   },
   head: ({ loaderData }) => {
     // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.

@@ -12,7 +12,7 @@
  * Este módulo é puro (sem I/O) para poder ser usado no SSR, no cliente,
  * nos testes e no gate `check:portfolio-runtime-overrides`.
  */
-import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
+import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-public-safety";
 import { isValidPortfolioShareMessage, normalizePortfolioShareMessage } from "@/lib/portfolio-share";
 
 export type PortfolioLifecycle = "imported" | "draft" | "published" | "archived";

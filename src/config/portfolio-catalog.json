@@ -2335,6 +2335,30 @@
     "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
   },
   {
+    "slug": "salgados-da-fran",
+    "clientKey": "salgados-da-fran",
+    "title": "Salgados da Fran",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "salgados",
+      "encomendas",
+      "águas belas",
+      "são josé dos pinhais"
+    ],
+    "subtitle": "Salgados por encomenda em São José dos Pinhais",
+    "location": "Águas Belas · São José dos Pinhais — PR",
+    "badge": "Portfólio demonstrativo em revisão",
+    "image": "/images/salgados-da-fran/social-og.svg",
+    "fallbackImage": "/images/salgados-da-fran/marca.svg",
+    "metrics": "Consulta de encomenda pelo funil",
+    "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial."
+  },
+  {
     "slug": "espaco-marli-nails-guaratuba",
     "clientKey": "espaco-marli-nails-guaratuba",
     "title": "Espaço Marli Nails Designer",

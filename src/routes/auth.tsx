@@ -1,6 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { stitchVisitorIdentity } from "@/lib/identity-stitching.functions";
 import { oauthReturnPath } from "@/lib/oauth-return-path";
@@ -49,19 +48,36 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
-      if ((event === "SIGNED_IN" || event === "USER_UPDATED") && session) {
-        fireAndForgetStitch();
-        void navigate({ href: next, replace: true });
-      }
-    });
-    void supabase.auth.getUser().then(({ data }) => {
-      if (data.user) {
-        fireAndForgetStitch();
-        void navigate({ href: next, replace: true });
-      }
-    });
-    return () => sub.subscription.unsubscribe();
+    let cancelled = false;
+    let unsubscribe: (() => void) | undefined;
+
+    void import("@/integrations/supabase/client")
+      .then(({ supabase }) => {
+        if (cancelled) return;
+
+        const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+          if (!cancelled && (event === "SIGNED_IN" || event === "USER_UPDATED") && session) {
+            fireAndForgetStitch();
+            void navigate({ href: next, replace: true });
+          }
+        });
+        unsubscribe = () => sub.subscription.unsubscribe();
+
+        void supabase.auth.getUser().then(({ data }) => {
+          if (!cancelled && data.user) {
+            fireAndForgetStitch();
+            void navigate({ href: next, replace: true });
+          }
+        });
+      })
+      .catch(() => {
+        if (!cancelled) setErr("Não foi possível verificar sua sessão. Tente novamente.");
+      });
+
+    return () => {
+      cancelled = true;
+      unsubscribe?.();
+    };
   }, [navigate, next]);
 
   const google = async () => {

@@ -4,7 +4,8 @@ import { readFileSync } from "node:fs";
 const add = readFileSync("src/components/site/AddToCartButton.tsx", "utf8");
 const panel = readFileSync("src/components/site/ServicePurchasePanel.tsx", "utf8");
 const drawer = readFileSync("src/components/site/CartDrawer.tsx", "utf8");
-const checkout = readFileSync("src/routes/checkout.tsx", "utf8");
+const checkoutRoute = readFileSync("src/routes/checkout.tsx", "utf8");
+const checkout = readFileSync("src/components/route-pages/CheckoutPage.tsx", "utf8");
 const stripeFn = readFileSync("src/lib/stripe-checkout.functions.ts", "utf8");
 const stripeHook = readFileSync("src/routes/api/public/hooks/stripe.ts", "utf8");
 const leads = readFileSync("src/routes/_authenticated/app.leads.index.tsx", "utf8");
@@ -29,7 +30,7 @@ describe("commercial telemetry contract", () => {
   });
 
   test("saída e cancelamento são sinais explícitos, sem abandono por relógio", () => {
-    expect(checkout).toContain('payment?: "cancelled"');
+    expect(checkoutRoute).toContain('payment?: "cancelled"');
     expect(checkout).toContain('cancelUrl: `${window.location.origin}/checkout?payment=cancelled`');
     expect(checkout).toMatch(/step:\s*"payment_cancelled"/);
     expect(checkout).toMatch(/trackEvent\("checkout_stripe_cancelled"/);

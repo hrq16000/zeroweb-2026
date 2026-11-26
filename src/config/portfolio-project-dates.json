@@ -166,10 +166,6 @@
       "createdAt": "2026-08-28T08:00:25.000Z",
       "updatedAt": "2026-09-13T19:53:00.000Z"
     },
-    "espaco-marli-nails-guaratuba": {
-      "createdAt": "2026-11-22T21:01:46.000Z",
-      "updatedAt": "2026-11-23T04:19:36.000Z"
-    },
     "estrutura-nacional": {
       "createdAt": "2026-09-09T05:26:40.000Z",
       "updatedAt": "2026-09-12T02:56:07.000Z"
@@ -405,6 +401,14 @@
     "your-brutus-burguer": {
       "createdAt": "2026-09-08T04:01:39.000Z",
       "updatedAt": "2026-11-24T07:23:14.000Z"
+    },
+    "salgados-da-fran": {
+      "createdAt": "2026-11-23T06:47:34.000Z",
+      "updatedAt": "2026-11-23T15:05:22.000Z"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "createdAt": "2026-11-22T21:01:46.000Z",
+      "updatedAt": "2026-11-23T04:19:36.000Z"
     }
   }
 }

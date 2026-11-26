@@ -65,7 +65,7 @@ function reportStep(
  * Pagamento online pode exigir login; atendimento assistido não exige conta.
  * Serviços são unitários no carrinho: não há multiplicador de quantidade.
  */
-export function CartDrawer() {
+export function CartDrawer({ onReady }: { onReady?: () => void }) {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<CartItem[]>([]);
   const lastSnapshot = useRef<string>("");
@@ -90,12 +90,13 @@ export function CartDrawer() {
     window.addEventListener("0web:cart-open", onOpen);
     window.addEventListener("0web:cart-changed", sync);
     window.addEventListener("storage", sync);
+    onReady?.();
     return () => {
       window.removeEventListener("0web:cart-open", onOpen);
       window.removeEventListener("0web:cart-changed", sync);
       window.removeEventListener("storage", sync);
     };
-  }, []);
+  }, [onReady]);
 
   const total = cartTotal(items);
   const hasUnpriced = items.some((i) => !i.price || i.price === 0);
