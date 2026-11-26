@@ -503,6 +503,81 @@ const responsiveTargets = [
     quality: 96,
     output: "public/images/_generated/your-brutus-burguer/flyer-concept-960.webp",
   },
+  // Galileu Locação de Brinquedos: WebP responsivo para logo e imagem LCP.
+  {
+    source: "public/images/galileu-locacao-brinquedos/cena.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/galileu-locacao-brinquedos/cena-480.webp",
+  },
+  {
+    source: "public/images/galileu-locacao-brinquedos/cena.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/galileu-locacao-brinquedos/cena-960.webp",
+  },
+  {
+    source: "public/images/galileu-locacao-brinquedos/cena.png",
+    width: 1200,
+    quality: 92,
+    output: "public/images/_generated/galileu-locacao-brinquedos/cena.webp",
+  },
+  {
+    source: "public/images/galileu-locacao-brinquedos/logo.png",
+    width: 768,
+    quality: 92,
+    output: "public/images/_generated/galileu-locacao-brinquedos/logo.webp",
+  },
+  // Premium Envelopamentos: hero prioritário e fotografia de aplicação.
+  {
+    source: "public/images/premium-envelopamentos/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/hero-480.webp",
+  },
+  {
+    source: "public/images/premium-envelopamentos/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/hero-960.webp",
+  },
+  {
+    source: "public/images/premium-envelopamentos/hero.png",
+    width: 1024,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/hero.webp",
+  },
+  {
+    source: "public/images/premium-envelopamentos/logo.png",
+    width: 768,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/logo.webp",
+  },
+  {
+    source: "public/images/premium-envelopamentos/galeria-oficina.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/galeria-oficina-480.webp",
+  },
+  {
+    source: "public/images/premium-envelopamentos/galeria-oficina.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/premium-envelopamentos/galeria-oficina.webp",
+  },
+  // Refrigeração Maresia: variantes móveis e desktop para o hero existente.
+  {
+    source: "public/images/refrigeracao-maresia/hero.png",
+    width: 480,
+    quality: 92,
+    output: "public/images/_generated/refrigeracao-maresia/hero-480.webp",
+  },
+  {
+    source: "public/images/refrigeracao-maresia/hero.png",
+    width: 960,
+    quality: 92,
+    output: "public/images/_generated/refrigeracao-maresia/hero-960.webp",
+  },
 ];
 
 for (const target of responsiveTargets) {
