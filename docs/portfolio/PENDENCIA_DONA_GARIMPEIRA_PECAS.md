@@ -28,9 +28,28 @@ qualquer outra tarefa na Dona Garimpeira. Só depois de receber o material:
 1. ingerir as fotos conforme `docs/PORTFOLIO_PUBLIC_MEDIA_INGESTION_STANDARD.md`;
 2. preencher a galeria;
 3. criar "Você também pode gostar" apenas com peças reais;
-4. reavaliar a saída de `draft` pelo readiness gate.
+4. fechar os bloqueios abaixo e só então marcar `published` no catálogo.
 
 ## Fora do escopo
 
 Central de leads/painel administrativo da Dona Garimpeira (decisão do
 responsável em 2026-11-26: focar só no portfólio).
+
+## Tentativa de sair de rascunho em 2026-11-26 — BLOQUEADA pelos gates
+
+O responsável pediu marcar o projeto como `published` no catálogo mesmo com a
+galeria vazia. A troca foi testada e **revertida**, porque reprova gates de
+qualidade que não devem ser afrouxados:
+
+- `tests/portfolio/originality.test.ts`: logo classificada como placeholder
+  (27 > baseline 26) e 1 fallback de vertical;
+- `tests/portfolio/asset-fingerprint.test.ts`: `sharedFallback` = 1 (esperado 0);
+- capa do catálogo: `UNCERTAIN_ORIGIN`, sem imagem de capa nem julgamento humano;
+- `dona-garimpeira-funnel-onboarding`, `-draft-contract` e `-seo-prepublish`
+  fixam `draft` até o manifesto v4 sair de `stage: draft`.
+
+Para liberar: logo oficial do cliente, capa real aprovada (das peças), revisão
+da baseline de originalidade e fechamento dos bloqueios do manifesto v4.
+
+A página `/portfolio/dona-garimpeira-brecho` continua no ar e acessível; o
+rascunho afeta só o selo/estado no catálogo.
