@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import { MessageCircle } from "lucide-react";
-import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
+import type { PortfolioCTAQuizProps, PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import { trackEvent } from "@/lib/analytics";
 import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import type { ContactMode, ContactTheme, FloatingPosition } from "@/lib/portfolio-global-config";
@@ -48,6 +48,19 @@ export function PortfolioContactFloating({
   slug,
 }: Props) {
   const [nearFooter, setNearFooter] = useState(false);
+  const [QuizComponent, setQuizComponent] = useState<ComponentType<PortfolioCTAQuizProps> | null>(null);
+  const [openRequest, setOpenRequest] = useState(0);
+
+  const loadQuiz = async () => {
+    if (QuizComponent) return;
+    const module = await import("@/components/site/BeautyBookingQuiz");
+    setQuizComponent(() => module.PortfolioCTAQuiz);
+  };
+
+  const openQuiz = () => {
+    setOpenRequest((current) => current + 1);
+    void loadQuiz();
+  };
 
   useEffect(() => {
     const footer = document.querySelector("[data-portfolio-canonical-footer]") ?? document.querySelector("footer");
@@ -58,28 +71,44 @@ export function PortfolioContactFloating({
   }, []);
 
   return (
-    <PortfolioCTAQuiz
-      clientKey={clientKey}
-      studioName={studioName}
-      recipientName={recipientName}
-      theme={theme}
-      mode={mode}
-      quizConfig={quizConfig}
-      funnelIntent={funnelIntent}
-      ariaLabel={label}
-      onOpen={() =>
-        trackEvent("portfolio_contact_floating_click", {
-          portfolio_slug: slug ?? clientKey,
-          client_key: clientKey,
-          page_type: "portfolio_client",
-        })
-      }
-      className={`fixed ${FLOATING_Z.fab} inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${hideNearFooter(nearFooter)}`}
-      aria-hidden={nearFooter}
-    >
-      <MessageCircle className="h-4 w-4" aria-hidden="true" />
-      <span className="hidden sm:inline">{label}</span>
-      <span className="sm:hidden">Contato</span>
-    </PortfolioCTAQuiz>
+    <>
+      <button
+        type="button"
+        onClick={openQuiz}
+        onPointerEnter={() => void loadQuiz()}
+        onFocus={() => void loadQuiz()}
+        aria-label={label}
+        aria-haspopup="dialog"
+        aria-hidden={nearFooter}
+        data-funnel-cta="portfolio"
+        data-funnel-client={clientKey}
+        className={`fixed ${FLOATING_Z.fab} inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${hideNearFooter(nearFooter)}`}
+      >
+        <MessageCircle className="h-4 w-4" aria-hidden="true" />
+        <span className="hidden sm:inline">{label}</span>
+        <span className="sm:hidden">Contato</span>
+      </button>
+      {QuizComponent ? (
+        <QuizComponent
+          clientKey={clientKey}
+          studioName={studioName}
+          recipientName={recipientName}
+          theme={theme}
+          mode={mode}
+          quizConfig={quizConfig}
+          funnelIntent={funnelIntent}
+          onOpen={() =>
+            trackEvent("portfolio_contact_floating_click", {
+              portfolio_slug: slug ?? clientKey,
+              client_key: clientKey,
+              page_type: "portfolio_client",
+            })
+          }
+          openRequest={openRequest}
+          hideTrigger
+          children={null}
+        />
+      ) : null}
+    </>
   );
 }
