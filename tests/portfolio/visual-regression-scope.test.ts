@@ -154,7 +154,7 @@ describe("escopo seguro da regressão visual", () => {
   test("mídias administradas usam baseline Production com validação de carregamento", () => {
     const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
     const capture = workflow.split("Capturar baseline visual Production")[1]?.split("Regressão visual (Production")[0] ?? "";
-    const routesLine = workflow.match(/VISUAL_PRODUCTION_ROUTES: ([^\\n]+)/)?.[1] ?? "";
+    const routesLine = workflow.match(/VISUAL_PRODUCTION_ROUTES: ([^\r\n]+)/)?.[1] ?? "";
     const productionRoutes = routesLine.split(",").map((slug) => slug.trim());
     for (const slug of ["refrigeracao-maresia", "studio-de-cilios", "lk-alvenaria", "paulo-mestre-de-obras"]) {
       expect(capture).toContain(slug);
