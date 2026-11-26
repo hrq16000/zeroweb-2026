@@ -151,6 +151,19 @@ describe("escopo seguro da regressão visual", () => {
     )).toEqual([]);
   });
 
+  test("mídias administradas usam baseline Production com validação de carregamento", () => {
+    const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
+    const capture = workflow.split("Capturar baseline visual Production")[1]?.split("Regressão visual (Production")[0] ?? "";
+    const routesLine = workflow.match(/VISUAL_PRODUCTION_ROUTES: ([^\r\n]+)/)?.[1] ?? "";
+    const productionRoutes = routesLine.split(",").map((slug) => slug.trim());
+    for (const slug of ["refrigeracao-maresia", "studio-de-cilios", "lk-alvenaria", "paulo-mestre-de-obras"]) {
+      expect(capture).toContain(slug);
+      expect(productionRoutes).toContain(slug);
+    }
+    expect(capture).toContain('VISUAL_READ_ONLY: "1"');
+    expect(workflow).toContain('VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual');
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
@@ -181,7 +194,9 @@ describe("escopo seguro da regressão visual", () => {
     }
     expect(generator).toContain("for (const width of [480, upperWidth])");
     expect(generator).toContain('["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800');
-    expect(page).toContain("const upperWidth = imageName");
+    expect(page).toContain("const upperWidth =");
+    expect(page).toContain('imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName)');
+    expect(page).toContain("${imageName}-${upperWidth}.webp ${upperWidth}w");
     expect(generator).toContain("converted[0] >= converted[1]");
     expect(page).toContain("srcSet={srcSet}");
     expect(page).toContain("detail: { src, alt }");

@@ -4,8 +4,9 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isVercelBuild } from "./lib/vercel-runtime-env.mjs";
 
-if (process.env.VERCEL === "1") {
+if (isVercelBuild()) {
   const root = fileURLToPath(new URL("../", import.meta.url));
   const sdk = resolve(root, "node_modules/@lovable.dev/mcp-js");
   const pkg = JSON.parse(readFileSync(resolve(sdk, "package.json"), "utf8"));
@@ -34,4 +35,6 @@ if (process.env.VERCEL === "1") {
   }
   for (const [path, updated] of pending) writeFileSync(path, updated);
   console.log("[vercel-mcp] Node environment adapter verified; SDK transport and OAuth preserved.");
+} else {
+  console.log("[vercel-mcp] Node adapter skipped outside Vercel.");
 }

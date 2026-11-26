@@ -29,12 +29,21 @@ const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const update = process.argv.includes("--update");
 const threshold = Number(process.env.VISUAL_THRESHOLD ?? 0.02); // 2% dos pixels
 const routeTimeout = Number(process.env.VISUAL_ROUTE_TIMEOUT_MS ?? 20000);
+const settleMs = Math.max(600, Number(process.env.VISUAL_SETTLE_MS ?? 1200) || 1200);
 const concurrency = Math.max(1, Number(process.env.VISUAL_CONCURRENCY ?? 3));
+const viewportSpec = process.env.VISUAL_VIEWPORTS ?? "";
 const only = (process.env.VISUAL_ONLY ?? "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-const baselineDir = resolve(process.cwd(), "tests/visual/baseline");
+const skip = (process.env.VISUAL_SKIP ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const baselineDir = resolve(
+  process.cwd(),
+  process.env.VISUAL_BASELINE_DIR ?? "tests/visual/baseline",
+);
 const outDir = resolve(process.cwd(), "seo-reports/visual");
 const approvedHashesPath = resolve(process.cwd(), "tests/visual/approved-hashes.json");
 const approvedHashes = existsSync(approvedHashesPath)
@@ -69,14 +78,24 @@ const dedicatedOnly = only
   .filter((slug) => !allRoutes.some((route) => route.name === slug))
   .filter((slug) => existsSync(resolve(process.cwd(), `src/routes/portfolio.${slug}.tsx`)))
   .map((slug) => ({ path: `/portfolio/${slug}`, name: slug }));
-const routes = only.length
+const selectedRoutes = only.length
   ? [...allRoutes.filter((r) => only.includes(r.name)), ...dedicatedOnly]
   : allRoutes;
-const viewports = [
-  { name: "desktop", width: 1280, height: 900 },
-  { name: "tablet", width: 834, height: 1112 },
-  { name: "mobile", width: 393, height: 852 },
-];
+const routes = selectedRoutes.filter((route) => !skip.includes(route.name));
+const viewports = viewportSpec
+  ? viewportSpec.split(",").map((entry) => {
+      const [name, dimensions] = entry.trim().split(":");
+      const [width, height] = (dimensions ?? "").split("x").map(Number);
+      if (!name || !Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+        throw new Error(`[visual] viewport inválido: ${entry}`);
+      }
+      return { name, width, height };
+    })
+  : [
+      { name: "desktop", width: 1280, height: 900 },
+      { name: "tablet", width: 834, height: 1112 },
+      { name: "mobile", width: 393, height: 852 },
+    ];
 
 /**
  * CSS injetado antes do primeiro paint.
@@ -93,6 +112,15 @@ const FREEZE_CSS = `
   scroll-behavior: auto !important;
   caret-color: transparent !important;
 }
+/* Imagens administradas podem divergir entre Production e Preview sem service-role.
+   Elas mantêm o espaço visual, enquanto o teste de fixtures valida seu contrato de renderização. */
+[data-portfolio-slug="studio-de-cilios"] img[data-portfolio-managed-field],
+[data-portfolio-slug="refrigeracao-maresia"] img[data-portfolio-managed-field],
+[data-portfolio-slug="paulo-mestre-de-obras"] img[data-portfolio-managed-field],
+[data-portfolio-slug="lk-alvenaria"] img[data-portfolio-managed-field] {
+  visibility: hidden !important;
+}
+
 /* O cue Framer da D.Y.Z escreve transform inline mesmo quando CSS animations=none.
    Congelar só nos screenshots torna a comparação determinística, sem tocar no produto. */
 [data-visual-freeze-dyz-arrow="true"] {
@@ -104,6 +132,13 @@ const FREEZE_CSS = `
   visibility: hidden !important;
 }
 `;
+
+const MANAGED_IMAGE_VALIDATION_ROUTES = new Set([
+  "studio-de-cilios",
+  "refrigeracao-maresia",
+  "lk-alvenaria",
+  "paulo-mestre-de-obras",
+]);
 
 /** Camadas fixas (chatbot, cookies, CTAs flutuantes) são removidas do paint. */
 const HIDE_FIXED_LAYERS = `
@@ -202,7 +237,30 @@ async function capture(context, route, viewport) {
   const key = `${route.name}-${viewport.name}.png`;
   const page = await context.newPage();
   page.setDefaultTimeout(routeTimeout);
+  // Reduced motion prevents JS-driven reveals from being captured mid-transition.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   try {
+    if (process.env.VISUAL_READ_ONLY === "1") {
+      await page.addInitScript(() => {
+        try {
+          Object.defineProperty(navigator, "sendBeacon", {
+            configurable: true,
+            value: () => true,
+          });
+        } catch {
+          /* navegador pode expor sendBeacon como propriedade não configurável */
+        }
+      });
+      await page.route("**/*", async (route) => {
+        const method = route.request().method();
+        if (!["GET", "HEAD", "OPTIONS"].includes(method)) {
+          await route.abort();
+          return;
+        }
+        await route.continue();
+      });
+    }
+
     await page.addInitScript(
       (ab) => {
         try {
@@ -233,9 +291,39 @@ async function capture(context, route, viewport) {
       })
       .catch(() => {});
     await page.evaluate(() => document.fonts?.ready).catch(() => {});
-    await page.waitForTimeout(600);
+    // complete=true means the bytes arrived, not necessarily that the image was decoded/painted.
+    await page.evaluate(async () => {
+      const images = Array.from(document.images).filter((img) => img.complete && img.naturalWidth > 0);
+      await Promise.all(images.map(async (img) => {
+        if (typeof img.decode !== "function") return;
+        try {
+          await img.decode();
+        } catch {
+          // A broken optional/third-party image remains visible to the normal QA gates.
+        }
+      }));
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }).catch(() => {});
+    if (process.env.VISUAL_READ_ONLY === "1" && MANAGED_IMAGE_VALIDATION_ROUTES.has(route.name)) {
+      const selector = '[data-portfolio-slug="' + route.name + '"] img[data-portfolio-managed-field]';
+      const managedImages = await page.locator(selector).evaluateAll((images) =>
+        images
+          .filter((image) => {
+            const rect = image.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight * 1.25 && rect.bottom > 0;
+          })
+          .map((image) => ({
+            src: image.getAttribute("src"),
+            loaded: image.complete && image.naturalWidth > 0,
+          })),
+      );
+      if (!managedImages.length || managedImages.some((image) => !image.src || !image.loaded)) {
+        throw new Error("imagem administrada ausente na Production: " + route.name);
+      }
+    }
+    await page.waitForTimeout(settleMs);
     await page.evaluate(HIDE_FIXED_LAYERS).catch(() => {});
-    let buffer = await page.screenshot({ timeout: routeTimeout });
+    let buffer = await page.screenshot({ timeout: routeTimeout, animations: "disabled" });
     let currentPng = PNG.sync.read(buffer);
     const longPage = await page
       .evaluate(() => document.documentElement.scrollHeight > window.innerHeight * 1.25)

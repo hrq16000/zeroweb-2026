@@ -18,7 +18,12 @@ const TARGET_URL = USE_LOCAL_SERVER
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
-const catalog = JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8"));
+const portfolioCatalog = [
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8")),
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog-standalone.json", "utf8")),
+];
+const { isUnpublishedDraftPortfolio } = require("./scripts/lib/portfolio-draft-policy.cjs");
+const draftPortfolioSlugs = new Set(portfolioCatalog.filter(isUnpublishedDraftPortfolio).map(({ slug }) => slug));
 const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
 const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
 const LIGHTHOUSE_SCOPE = process.env.LHCI_SCOPE || "full";
@@ -27,26 +32,17 @@ const LIGHTHOUSE_ONLY = (process.env.LHCI_ONLY || "")
   .split(",")
   .map((slug) => slug.trim())
   .filter(Boolean);
-// Noindex commercial demonstrations are intentionally not Google-indexable.
-// The *aggregate* SEO score includes the crawlability penalty. Individual SEO
-// requirements (title, description, lang, canonical, valid response and alt)
-// remain errors, as do performance, accessibility and Core Web Vitals.
-// This exception is narrowly limited to dedicated unlisted demo routes whose
-// actual source explicitly declares noindex and non-official status.
+// Draft portfolios can be reachable for review while intentionally remaining noindex.
+// The indexability gate separately requires HTTP 200, a self-canonical and noindex.
+// SEO is downgraded to a warning only when the entire selected scope is draft;
+// mixed scopes exclude draft slugs rather than weakening published-page SEO.
 const DEMO_ONLY =
   LIGHTHOUSE_SCOPE === "portfolio" &&
   LIGHTHOUSE_ONLY.length > 0 &&
-  LIGHTHOUSE_ONLY.every((slug) => {
-    if (!/^[a-z0-9-]+$/.test(slug)) return false;
-    const project = catalog.find((item) => item.slug === slug);
-    if (project?.status !== "draft" || project?.live !== false) return false;
-    const routePath = `src/routes/portfolio.${slug}.tsx`;
-    if (!fs.existsSync(routePath)) return false;
-    const route = fs.readFileSync(routePath, "utf8");
-    return route.includes('content: "noindex,follow') &&
-      route.includes("Portfólio demonstrativo") &&
-      route.includes('rel: "canonical"');
-  });
+  LIGHTHOUSE_ONLY.every((slug) => /^[a-z0-9-]+$/.test(slug) && draftPortfolioSlugs.has(slug));
+const selectedPortfolioSlugs = LIGHTHOUSE_ONLY.filter(
+  (slug) => DEMO_ONLY || !draftPortfolioSlugs.has(slug),
+);
 
 const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
@@ -71,7 +67,7 @@ const previewUrls = PREVIEW_ONLY && shardIndex === 0
       .map((name) => `${TARGET_URL}/portfolio-preview/${name.slice(8)}`)
   : [];
 const portfolioIndexOnly = LIGHTHOUSE_ONLY.includes("portfolio-index");
-const individualPortfolioOnly = LIGHTHOUSE_ONLY.filter((slug) => slug !== "portfolio-index");
+const individualPortfolioOnly = selectedPortfolioSlugs.filter((slug) => slug !== "portfolio-index");
 const portfolioUrls = LIGHTHOUSE_SCOPE === "services" || PREVIEW_ONLY ? [] : individualPortfolioOnly.length
   ? individualPortfolioOnly.map((slug) => `${TARGET_URL}/portfolio/${slug}`)
   : LIGHTHOUSE_ONLY.length
@@ -79,7 +75,7 @@ const portfolioUrls = LIGHTHOUSE_SCOPE === "services" || PREVIEW_ONLY ? [] : ind
     : LIGHTHOUSE_SCOPE === "regional"
       ? []
       : clients
-          .filter((_, index) => index % shardCount === shardIndex)
+          .filter(({ slug }, index) => !draftPortfolioSlugs.has(slug) && index % shardCount === shardIndex)
           .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 const commonUrls =
   LIGHTHOUSE_SCOPE === "services" || PREVIEW_ONLY ? [] :

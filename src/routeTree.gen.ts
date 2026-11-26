@@ -136,6 +136,7 @@ import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
+import { Route as PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport } from './routes/portfolio.panificadora-doce-coracao-santo-antonio'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
@@ -926,6 +927,12 @@ const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
   path: '/portfolio/dyzpromo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioPanificadoraDoceCoracaoSantoAntonioRoute =
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport.update({
+    id: '/portfolio/panificadora-doce-coracao-santo-antonio',
+    path: '/portfolio/panificadora-doce-coracao-santo-antonio',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioR_beautyRoute = PortfolioR_beautyRouteImport.update({
   id: '/portfolio/r_beauty',
   path: '/portfolio/r_beauty',
@@ -1834,6 +1841,7 @@ export interface FileRoutesByFullPath {
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2098,6 +2106,7 @@ export interface FileRoutesByTo {
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2366,6 +2375,7 @@ export interface FileRoutesById {
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2635,6 +2645,7 @@ export interface FileRouteTypes {
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -2899,6 +2910,7 @@ export interface FileRouteTypes {
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -3166,6 +3178,7 @@ export interface FileRouteTypes {
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -3431,6 +3444,7 @@ export interface RootRouteChildren {
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
@@ -4368,6 +4382,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/dyzpromo'
       fullPath: '/portfolio/dyzpromo'
       preLoaderRoute: typeof PortfolioDyzpromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/panificadora-doce-coracao-santo-antonio': {
+      id: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      path: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      fullPath: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      preLoaderRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/r_beauty': {
@@ -5822,6 +5843,8 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRoute:
+    PortfolioPanificadoraDoceCoracaoSantoAntonioRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,

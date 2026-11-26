@@ -187,7 +187,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "asymmetric",
       order: 10,
       id: "inicio-oficina",
-      motion: { intensity: "BALANCED", reveal: "up", stagger: 80, parallax: 26 },
+      motion: { intensity: "BALANCED", reveal: "up", stagger: 80, parallax: 26, firstPaint: true },
       content: {
         eyebrow: "Mecânica para carros · São José dos Pinhais — PR",
         headline: "A oficina do bairro que o cliente indica para o vizinho.",
@@ -558,6 +558,15 @@ export function MoreiraAutoMecanicaPage() {
           Lighthouse confirmou render delay no elemento de LCP da Moreira.
           Escopo deliberadamente local, sem alterar motion de outros portfólios. */}
       <style>{`
+        [data-blueprint="moreira-auto-mecanica"] main {
+          animation: none !important;
+        }
+        [data-blueprint="moreira-auto-mecanica"] #inicio-oficina [data-motion="reveal"] {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          will-change: auto !important;
+        }
         [data-blueprint="moreira-auto-mecanica"] #inicio-oficina h1[data-motion="reveal"],
         [data-blueprint="moreira-auto-mecanica"] #inicio-oficina p[data-motion="reveal"] {
           opacity: 1 !important;

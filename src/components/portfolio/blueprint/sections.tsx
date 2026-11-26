@@ -8,6 +8,7 @@
 import type { ReactNode } from "react";
 import {
   MotionCounter,
+  MotionFirstPaint,
   MotionParallax,
   MotionReveal,
   useScrollProgress,
@@ -216,7 +217,7 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
    * em caixa mista e serifa técnica; nada de faixa central de banner.
    */
   if (section.variant === "asymmetric") {
-    return (
+    const hero = (
       <section id={section.id} className="relative overflow-hidden pb-0 pt-24 md:pt-28">
         <div className="mx-auto grid max-w-[1500px] items-end gap-10 px-6 md:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-0 lg:px-12">
           <div className="relative z-10 lg:pb-24 lg:pr-10">
@@ -330,6 +331,7 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
         ) : null}
       </section>
     );
+    return ctx.motion?.firstPaint ? <MotionFirstPaint>{hero}</MotionFirstPaint> : hero;
   }
 
   if (section.variant === "editorial") {

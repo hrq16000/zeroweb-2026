@@ -11,9 +11,10 @@
  *   node scripts/build-portfolio-admin-seed.mjs
  *   node scripts/build-portfolio-admin-seed.mjs --check   # falha localmente se estiver desatualizado
  *
- * Em builds da Vercel, um seed derivado desatualizado é regenerado automaticamente
- * para que mudanças válidas nos registries não derrubem o deploy apenas por falta
- * de commit do artefato derivado. Fora da Vercel, --check continua estrito.
+ * Em builds da Vercel e do CI, um seed derivado desatualizado é regenerado
+ * automaticamente para que mudanças válidas nos registries não derrubem o build
+ * apenas por falta de commit do artefato derivado. Fora desses ambientes, --check
+ * continua estrito.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -23,7 +24,7 @@ import { buildRecords, CODES, BLOCKING } from "./portfolio-conformance.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const target = path.join(root, "src/config/portfolio-admin-seed.json");
 const check = process.argv.includes("--check");
-const autoRegenerateDerivedSeed = process.env.VERCEL === "1";
+const autoRegenerateDerivedSeed = process.env.VERCEL === "1" || process.env.CI === "true";
 
 function normalizePayload(value) {
   if (!value || typeof value !== "object") return value;

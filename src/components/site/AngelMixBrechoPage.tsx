@@ -28,7 +28,7 @@ const arara = [
 export function AngelMixBrechoPage() {
   return (
     <div
-      className="min-h-dvh bg-[var(--am-cream)] text-[var(--am-ink)]"
+      className="portfolio-theme-angel-mix min-h-dvh bg-[var(--am-cream)] text-[var(--am-ink)]"
       style={
         {
           "--am-cream": "oklch(0.97 0.02 350)",
@@ -39,21 +39,22 @@ export function AngelMixBrechoPage() {
       }
     >
       <MotionScope intensity="EXPRESSIVE">
-      <main>
+      <main style={{ animation: "none" }}>
         {/* capa de revista: fotografia em tela cheia com o título sobreposto */}
         <MotionFirstPaint><section className="relative isolate">
           <MotionImageReveal direction="up">
-            <PortfolioImage
-              src="/images/_generated/angel-mix-brecho/capa.webp"
-              alt="Angel Mix Brechó"
-              priority
-              widths={[480, 960, 1536]}
-              sizes="100vw"
-              width={1536}
-              height={1024}
-              className="h-[78vh] w-full object-cover md:h-[88vh]"
-              managedField="heroImageUrl"
-            />
+          <PortfolioImage
+            src="/images/_generated/angel-mix-brecho/capa.webp"
+            alt="Angel Mix Brechó"
+            priority
+            decoding="sync"
+            widths={[480, 960, 1536]}
+            sizes="100vw"
+            width={1536}
+            height={1024}
+            className="h-[78vh] w-full object-cover md:h-[88vh]"
+            managedField="heroImageUrl"
+          />
           </MotionImageReveal>
           <div
             className="absolute inset-0 bg-gradient-to-t from-[var(--am-ink)]/85 via-[var(--am-ink)]/25 to-transparent"

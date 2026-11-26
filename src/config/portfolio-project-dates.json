@@ -350,10 +350,6 @@
       "createdAt": "2026-08-28T07:47:43.000Z",
       "updatedAt": "2026-10-05T15:01:50.000Z"
     },
-    "salgados-da-fran": {
-      "createdAt": "2026-11-23T06:47:34.000Z",
-      "updatedAt": "2026-11-23T15:05:22.000Z"
-    },
     "santos-montador-de-moveis": {
       "createdAt": "2026-09-01T03:26:52.000Z",
       "updatedAt": "2026-10-07T04:32:50.000Z"
@@ -405,6 +401,14 @@
     "your-brutus-burguer": {
       "createdAt": "2026-09-08T04:01:39.000Z",
       "updatedAt": "2026-11-24T07:23:14.000Z"
+    },
+    "salgados-da-fran": {
+      "createdAt": "2026-11-23T06:47:34.000Z",
+      "updatedAt": "2026-11-23T15:05:22.000Z"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "createdAt": "2026-11-19T16:57:58.000Z",
+      "updatedAt": "2026-11-26T05:08:50.000Z"
     }
   }
 }

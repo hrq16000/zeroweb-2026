@@ -1,0 +1,58 @@
+name: Doce Coracao - QA 390/768/1440 e NO-BRAND
+on:
+  pull_request:
+    paths:
+      - 'src/components/site/PanificadoraDoceCoracaoSantoAntonioPage.tsx'
+      - 'src/components/site/panificadora-doce-coracao.css'
+      - 'src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx'
+      - 'src/config/portfolio-project-manifests.json'
+      - 'scripts/verify-doce-coracao.mjs'
+      - '.github/workflows/doce-coracao-visual-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  visual-qa:
+    name: Doce Coracao - Chromium 390/768/1440
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - name: Dependencias
+        run: bun install --frozen-lockfile
+      - name: Chromium
+        run: bunx playwright install --with-deps chromium
+      - name: Build isolado do preview
+        run: VERCEL_ENV=preview bunx vite build --mode development
+      - name: QA real, modais e capturas NO-BRAND
+        run: VERCEL_ENV=preview node scripts/ci-with-prod-preview.mjs -- node scripts/verify-doce-coracao.mjs
+      - name: Comparar as tres baselines ja versionadas sem substitui-las
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          slug="panificadora-doce-coracao-santo-antonio"
+          for viewport in desktop tablet mobile; do
+            path="tests/visual/baseline/$slug-$viewport.png"
+            if [ ! -s "$path" ]; then
+              echo "Baseline ausente ou vazia: $path"
+              exit 1
+            fi
+          done
+          VISUAL_ONLY="$slug" VISUAL_CONCURRENCY=1 VERCEL_ENV=preview \
+            node scripts/ci-with-prod-preview.mjs -- node scripts/playwright-visual-regression.mjs
+          git diff --exit-code -- tests/visual/baseline/panificadora-doce-coracao-santo-antonio-*.png
+      - name: Evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: doce-coracao-real-qa-390-768-1440-nobrand
+          path: |
+            seo-reports/doce-coracao-visual/*
+            tests/visual/baseline/panificadora-doce-coracao-santo-antonio-*.png
+          if-no-files-found: warn
+          retention-days: 30

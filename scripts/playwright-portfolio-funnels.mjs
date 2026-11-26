@@ -11,9 +11,9 @@
  *  - com WhatsApp versionado: gera redirect tokenizado para WhatsApp;
  *  - com whatsapp:null: salva/encerra em modo lead-only, sem redirect e sem erro.
  *
- * Em CI sem SUPABASE_SERVICE_ROLE_KEY, E2E_DRY_RUN=1 valida todo o fluxo visual
- * até a etapa final sem executar escrita externa. O gate completo de escrita é
- * exercitado automaticamente quando a credencial de integração está disponível.
+ * Em CI, E2E_DRY_RUN=1 valida o fluxo visual sem executar escrita externa.
+ * A persistência real é um gate separado e só pode usar o banco operacional
+ * nativo autorizado para o cliente; este E2E nunca grava leads em banco externo.
  *
  * Nenhum número/telefone é impresso: apenas o host de destino é validado.
  *
@@ -43,6 +43,7 @@ const TARGETS = clients
     slug: client.slug,
     clientKey: client.clientKey,
     siteName: client.siteName,
+    funnelVariant: client.funnelVariant ?? null,
     // A fonte canônica é o cadastro versionado por clientKey. Metadados legados
     // em portfolio-clients.json não decidem mais o destino operacional.
     recipientConfigured: Boolean(whatsappRegistry.contacts?.[client.clientKey]?.whatsapp),
@@ -153,6 +154,38 @@ async function runTarget(target, viewport) {
       }
     };
     await dismissOverlays();
+
+    if (target.funnelVariant === "direct_lead_form") {
+      if (!DRY_RUN) {
+        failures.push(`${id}: formulário direto exige E2E_DRY_RUN; envio real bloqueado neste gate`);
+        return;
+      }
+      const form = page.locator(`form[data-client-key="${target.clientKey}"]`);
+      const nameInput = form.locator('input[name="name"]');
+      const phoneInput = form.locator('input[name="phone"]');
+      const consent = form.locator('input[type="checkbox"][required]');
+      const submit = form.locator('button[type="submit"]');
+      if (
+        !(await form.isVisible().catch(() => false)) ||
+        !(await nameInput.count()) ||
+        !(await phoneInput.count()) ||
+        !(await consent.count()) ||
+        !(await submit.count())
+      ) {
+        failures.push(`${id}: formulário próprio não apresentou campos obrigatórios e clientKey`);
+        return;
+      }
+      await nameInput.fill("Prueba automatizada");
+      await phoneInput.fill("+56900000000");
+      await consent.check();
+      if (!(await submit.isEnabled())) {
+        failures.push(`${id}: formulário próprio não habilitou o envio após consentimento`);
+        return;
+      }
+      dryRunOk.push(id);
+      console.log(`✓ ${id} → formulário próprio, campos e clientKey validados (dry-run)`);
+      return;
+    }
 
     const ctas = page.locator('[data-funnel-cta="portfolio"]');
     const ctaCount = await ctas.count();

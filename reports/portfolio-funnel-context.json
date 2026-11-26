@@ -1,16 +1,16 @@
 {
   "summary": {
-    "generatedAt": "2026-11-03T17:22:22.634Z",
-    "audited": 97,
-    "pass": 97,
+    "generatedAt": "2026-11-19T17:43:48.533Z",
+    "audited": 100,
+    "pass": 100,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 26,
-      "orcamento": 33,
-      "solicitacao": 1,
+      "orcamento": 34,
+      "solicitacao": 2,
       "agendamento": 17,
-      "contato": 9,
+      "contato": 10,
       "reserva": 4,
       "diagnostico": 7
     }
@@ -1274,6 +1274,45 @@
       "nextStepBody": "Conte se quer encontrar roupas e acessórios, vender peças usadas em excelente estado ou levar doações. Reservas dependem da confirmação da loja e a compra acontece presencialmente.",
       "primaryCtaLabel": "Conversar sobre comprar, vender ou doar",
       "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "agropet-filt",
+      "businessName": "Agropet Filt",
+      "segment": "comercios",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Qual produto ou cuidado seu pet precisa?",
+      "nextStepBody": "Escolha a categoria e descreva o que procura. Preço, estoque e agenda são confirmados separadamente.",
+      "primaryCtaLabel": "Consultar produtos",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "businessName": "Panificadora Doce Coração",
+      "segment": "comercios",
+      "intent": "contato",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Um sabor para seu momento no Santo Antônio.",
+      "nextStepBody": "Conte se procura pães, bolos, salgados ou doces. A padaria confirma preço, disponibilidade, horário e condições de retirada diretamente pelo WhatsApp.",
+      "primaryCtaLabel": "Consultar a padaria",
+      "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "cantinho-da-tia-mari",
+      "businessName": "Cantinho da Tia Mari",
+      "segment": "comercios",
+      "intent": "solicitacao",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "O que você gostaria de saber sobre o Cantinho da Tia Mari?",
+      "nextStepBody": "Escolha o tipo de serviço anunciado, o período e informe seus dados de contato apenas se desejar receber resposta sobre esta demonstração. Não faz matrícula ou reserva de vaga.",
+      "primaryCtaLabel": "Consultar informações",
+      "whatsappIntent": "solicitacao",
       "status": "PASS",
       "issues": []
     }

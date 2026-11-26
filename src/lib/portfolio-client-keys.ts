@@ -1,6 +1,7 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
   "salgados-da-fran",
+  "panificadora-doce-coracao-santo-antonio",
   "cantinho-da-tia-mari",
   "agropet-filt",
   
