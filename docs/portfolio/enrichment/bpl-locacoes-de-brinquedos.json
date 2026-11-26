@@ -1,0 +1,204 @@
+{
+  "slug": "bpl-locacoes-de-brinquedos",
+  "updatedAt": "2026-11-23",
+  "classification": "DEMONSTRATION_FROM_PUBLIC_FLYER",
+  "entity": {
+    "name": "BPL Locações de Brinquedos",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "region": "São José dos Pinhais e região",
+    "services": [
+      "Cama elástica",
+      "Piscina de bolinhas"
+    ],
+    "streetAddress": null,
+    "reviewRating": null,
+    "hours": null,
+    "pricing": null,
+    "stock": null,
+    "socialHandleAnnounced": "@bpllocacoes.sjp",
+    "resolutionStatus": "UNRESOLVED",
+    "unresolvedJustification": "Nome e identificador pesquisados em 23/11; ausência de confirmação independente. Não confundir com inexistência de empresa."
+  },
+  "evidence": [
+    {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "reference": "Fotografia de panfleto fornecida na conversa 2026-11-23",
+      "supports": [
+        "name",
+        "city",
+        "region",
+        "two_equipment_categories",
+        "socialHandleAnnounced",
+        "supplierClaims"
+      ]
+    }
+  ],
+  "verification": {
+    "webSearch": "Pesquisa textual pelo nome e identificador em 2026-11-23 sem confirmação independente adequada",
+    "businessOwnership": "unverified",
+    "instagramAccount": "unverified",
+    "googleBusinessProfile": "unverified",
+    "sourceClaims": "announced_by_business_not_independently_verified"
+  },
+  "unsupportedClaims": [
+    "endereço exato",
+    "preço",
+    "disponibilidade",
+    "faixa etária",
+    "dimensões",
+    "avaliações públicas",
+    "fotos reais do estoque"
+  ],
+  "businessCommunicationDisclosure": "Projeto demonstrativo 0WEB, não página oficial.",
+  "researchLedger": {
+    "googleEntity": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Pesquisa textual registrada em 23/11; ficha não confirmada, sem Place ID."
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Identificador anunciado no panfleto; perfil oficial não confirmado."
+    },
+    "website": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Não há evidência de busca específica por domínio."
+    },
+    "facebook": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Busca específica não documentada."
+    },
+    "otherSocial": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Busca específica não documentada."
+    },
+    "directories": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Busca específica não documentada."
+    },
+    "phone": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Anunciado no panfleto; destino e propriedade não validados; não divulgar."
+    },
+    "address": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Cidade/região anunciada; endereço de rua não confirmado."
+    },
+    "hours": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Não consta na fonte; pesquisa específica não documentada."
+    },
+    "services": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": true,
+      "blocker": "Categorias anunciadas na fonte; não confirmação operacional."
+    },
+    "products": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": true,
+      "blocker": "Tipos de brinquedo anunciados, não inventário."
+    },
+    "media": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": true,
+      "blocker": "Panfleto fornecido como referência; ilustrações próprias, não fotos reais."
+    },
+    "reviews": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Pesquisa específica não documentada."
+    },
+    "identity": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": true,
+      "blocker": "Identidade anunciada no panfleto; sem vínculo oficial comprovado."
+    }
+  },
+  "identity": {
+    "name": "BPL Locações de Brinquedos",
+    "city": "São José dos Pinhais",
+    "region": "PR",
+    "kind": "locação de brinquedos",
+    "status": "OWNER_SUPPLIED_FLYER_UNVERIFIED_INDEPENDENTLY",
+    "brandUse": "Marca editorial demonstrativa, não logotipo oficial."
+  }
+}

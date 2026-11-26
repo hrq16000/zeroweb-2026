@@ -631,6 +631,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   },
   { slug: "infinito-spa", vertical: "beleza", siteName: "Infinito Spa — Masajes y masoterapia en Santiago, Chile", kind: "prototype", indexable: false },
   { slug: "espaco-marli-nails-guaratuba", vertical: "beleza", siteName: "Espaço Marli Nails Designer · Guaratuba (demonstração)", kind: "prototype", indexable: false },
+  { slug: "bpl-locacoes-de-brinquedos", vertical: "comercios", siteName: "BPL Locações de Brinquedos · São José dos Pinhais — PR", kind: "prototype", indexable: false },
 ];
 
 export function findPortfolioPrototype(slug: string) {

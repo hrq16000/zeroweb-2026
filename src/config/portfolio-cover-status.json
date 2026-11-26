@@ -1356,6 +1356,19 @@
       "cardValid": false,
       "businessName": "Espaço Marli Nails Designer",
       "segment": "beleza"
+    },
+    {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "asset": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "BPL Locações de Brinquedos",
+      "segment": "comercios"
     }
   ]
 }

@@ -30,6 +30,7 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
     import("@/components/site/AdhonepCuritibaPage").then((m) => ({ default: m.AdhonepCuritibaPage })),
   ),
   "espaco-marli-nails-guaratuba": lazy(() => import("@/components/site/EspacoMarliNailsGuaratubaPage").then((m) => ({ default: m.EspacoMarliNailsGuaratubaPage }))),
+  "bpl-locacoes-de-brinquedos": lazy(() => import("@/components/site/BplLocacoesBrinquedosPage").then((m) => ({ default: m.BplLocacoesBrinquedosPage }))),
   // "<slug>": lazy(() => import("@/components/site/<Componente>").then((m) => ({ default: m.<Componente> }))),
   "infinito-spa": lazy(() => import("@/components/site/InfinitoSpaPage").then((m) => ({ default: m.InfinitoSpaPage }))),
 };

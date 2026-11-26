@@ -1273,6 +1273,18 @@
         "ctaLabel": "Consultar atendimento",
         "ctaHref": "#consulta"
       }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "socialVersion": "20261123",
+      "proof": {
+        "eyebrow": "BPL · São José dos Pinhais e região",
+        "title": "Mais brincadeira para os momentos da sua festa.",
+        "description": "Conceito demonstrativo para cama elástica e piscina de bolinhas anunciadas no panfleto da BPL; sem reserva ou atendimento oficial pelo portal.",
+        "ctaLabel": "Consultar opções",
+        "ctaHref": "#consulta"
+      }
     }
   }
 }

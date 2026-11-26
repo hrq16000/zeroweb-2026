@@ -1769,6 +1769,212 @@
         "indexable": false,
         "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
       }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "compositionContract": 2,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "in_progress",
+        "evidence": "complete",
+        "media": "in_progress",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "in_progress",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "in_progress",
+        "publish": "not_started"
+      },
+      "blockers": [
+        "CI_AND_READINESS_NOT_YET_VERIFIED",
+        "FUNNEL_DELIVERY_NOT_VERIFIED",
+        "PRODUCTION_BUILD_FIX_541_PENDING",
+        "NEW_NO_BRAND_ARTIFACT_INDEPENDENT_REVIEW_PENDING",
+        "ENTITY_RESEARCH_TARGETS_PENDING",
+        "COVER_CATALOG_REVIEW_PENDING"
+      ],
+      "warnings": [
+        "Fonte única: panfleto fotografado; presença web/Google não confirmada independentemente.",
+        "SVG editorial ilustrativo não é fotografia dos brinquedos reais.",
+        "Não há vínculo oficial com a empresa comprovado e o contato permanece demonstrativo."
+      ],
+      "ownerRequired": [
+        "Confirmar interesse em usar a demonstração e autorização de fotos/logo originais",
+        "Confirmar destino e operação do funil de atendimento"
+      ],
+      "searchQa": [
+        {
+          "query": "BPL Locações de Brinquedos",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "cama elástica São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "piscina de bolinhas São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        }
+      ],
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "São José dos Pinhais e região constam no panfleto; sem endereço inventado"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Pendente validação antes de promover catálogo/robots/sitemap"
+          ]
+        }
+      },
+      "notes": {
+        "brief": "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md",
+        "enrichment": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
+        "mediaPlan": "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+      },
+      "lastUpdatedAt": "2026-11-24",
+      "visualQa": {
+        "status": "PASS",
+        "notes": "QA automatizado do draft: run 45434035986 / job 138586849775 / artifact 14940177606, 390/768/1440 SSR, assets, abertura/fechamento de modal, reduced motion e overflow. Não comprova entrega real do lead nem revisão perceptual independente do novo artifact."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "left huge joyful headline on royal-blue parade stage beside yellow rotated graphic card",
+        "headerTreatment": "compact white parade identity with three text anchors and bright yellow bottom edge",
+        "sectionGraph": "parade-stage→dual-attraction-display→night-blue-promises→sunshine-planning-checklist→ice-blue-faq→yellow-finale",
+        "contentOrder": [
+          "proposta de diversão",
+          "equipamentos anunciados",
+          "diferenciais",
+          "preparação da consulta",
+          "perguntas",
+          "demonstração"
+        ],
+        "gridTopology": "asymmetric hero split, twin attraction halves, triple promise band, planning split card, FAQ split, centered closing",
+        "mediaDistribution": "editorial trampoline SVG hero, individual SVG attraction cards, graphic shapes throughout",
+        "backgroundRhythm": "royal-blue→cream→midnight-navy→warm-white→ice-blue→saturated-yellow",
+        "proofPlacement": "attributed promises in dark stage, caveat under descriptions, source label in final section",
+        "ctaDistribution": "hero, each attraction card, final invitation and floating isolated funnel",
+        "navigationPattern": "logo anchor and three simple content anchors, no copied client nav",
+        "motionSignature": "gentle transform lift on action and static layered graphics with reduced motion support",
+        "closingStructure": "yellow-wide festival poster with transparent demo disclosure and funnel entry",
+        "roleGraph": [
+          "orientation:party-stage",
+          "selection:two-equipment-panels",
+          "trust:source-attributed-promises",
+          "decision:party-checklist",
+          "objections:faq",
+          "conversion:demo-close"
+        ],
+        "mediaCadence": [
+          "trampoline editorial graphic",
+          "two illustration cards",
+          "icon-led promises",
+          "text checklist",
+          "typographic finish"
+        ],
+        "interactionLoci": [
+          "inquiry modal",
+          "section navigation",
+          "native faq accordion"
+        ],
+        "decisionAidPlacement": [
+          "equipment distinction",
+          "date location age checklist before inquiry"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "visual",
+          "compact",
+          "airy",
+          "informative",
+          "high-energy"
+        ],
+        "mobileCompositionStrategy": "stack hero and two cards with 44px targets; no horizontal scroll or aggressive motion"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "sources": [
+          "OWNER_SUPPLIED_PUBLIC_EVIDENCE"
+        ],
+        "claimsAttribution": "Somente tipos de brinquedo e localidade do panfleto, com alegações comerciais atribuídas; sem afirmações de preço, disponibilidade ou empresa oficial.",
+        "evidence": [
+          "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
+          "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md"
+        ]
+      },
+      "perceptualReview": {
+        "screenshots": {
+          "390": "seo-reports/bpl-visual/390.png · run 45132954644 / artifact 14798228779",
+          "768": "seo-reports/bpl-visual/768.png · run 45132954644 / artifact 14798228779",
+          "1440": "seo-reports/bpl-visual/1440.png · run 45132954644 / artifact 14798228779"
+        },
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "Revisão das capturas reais NO-BRAND de 390/1440 da execução 45132954644: composição distinta de Cantinho e Agropet na hierarquia, grades, topologia, narrativa e encerramento. Sobreposição de FAB mobile constatada nas capturas; corrigida nesta alteração, exigindo QA nova antes de READY."
+      },
+      "publicationException": {
+        "date": "2026-11-26",
+        "mode": "public-demonstrative-landing",
+        "ownerDirective": true,
+        "indexable": false,
+        "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+      }
     }
   }
 }

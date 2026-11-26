@@ -2441,5 +2441,30 @@
     "metrics": "Consulta sem reserva automática",
     "summary": "Proposta demonstrativa independente da 0WEB para o Espaço Marli Nails Designer, em Coroados, Guaratuba. Apresentação de localização e consulta sobre manicure e pedicure, sem inventar preços, técnicas, horários ou fotos. Proposta demonstrativa independente da 0WEB; não é o canal oficial do estabelecimento.",
     "indexable": false
+  },
+  {
+    "slug": "bpl-locacoes-de-brinquedos",
+    "clientKey": "bpl-locacoes-de-brinquedos",
+    "title": "BPL Locações de Brinquedos",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "locação de brinquedos",
+      "cama elástica",
+      "piscina de bolinhas",
+      "festas infantis"
+    ],
+    "subtitle": "Cama elástica e piscina de bolinhas para festas",
+    "location": "São José dos Pinhais e região — PR",
+    "badge": "Demonstração 0WEB · parametrização posterior",
+    "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+    "fallbackImage": "/images/bpl-locacoes-de-brinquedos/trampoline.svg",
+    "metrics": "Consulte informações e condições",
+    "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço. Proposta demonstrativa independente da 0WEB; não é o canal oficial da empresa.",
+    "indexable": false
   }
 ]

@@ -102,6 +102,7 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "carecas-infotec",
   "infinito-spa",
   "espaco-marli-nails-guaratuba",
+  "bpl-locacoes-de-brinquedos",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 
