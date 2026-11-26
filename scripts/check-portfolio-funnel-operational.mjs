@@ -93,6 +93,7 @@ for (const c of clients) {
 
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
 const portfolioQuizUi = readFileSync("src/components/site/BeautyBookingQuiz.tsx", "utf8");
+const infinitoPage = readFileSync("src/components/site/InfinitoSpaPage.tsx", "utf8");
 const infinitoLeadForm = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
 const whatsappRoute = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
 const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
@@ -121,7 +122,7 @@ const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destin
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
-  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoLeadForm.includes('clientKey: "infinito-spa"') && infinitoLeadForm.includes('source: "portfolio:infinito-spa"') && infinitoLeadForm.includes("submitPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
+  ["Infinito Spa captures contact details and stores the correct client/source", infinitoLeadForm.includes("name: name.trim()") && infinitoLeadForm.includes("phone: phone.trim()") && infinitoPage.includes('clientKey="infinito-spa"') && infinitoLeadForm.includes("clientKey,") && infinitoLeadForm.includes('source: `portfolio:${clientKey}`') && infinitoLeadForm.includes("submitPublicLead") && whatsappRoute.includes('token === "portfolio-infinito-spa"') && whatsappRoute.includes('resolveVersionedPortfolioWhatsApp("infinito-spa")')],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],

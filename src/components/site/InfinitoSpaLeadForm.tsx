@@ -5,7 +5,9 @@ import { submitPublicLead } from "@/lib/lead-intake.functions";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-export function InfinitoSpaLeadForm() {
+type InfinitoSpaLeadFormProps = { clientKey: "infinito-spa" };
+
+export function InfinitoSpaLeadForm({ clientKey }: InfinitoSpaLeadFormProps) {
   const submitLead = useServerFn(submitPublicLead);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -30,7 +32,7 @@ export function InfinitoSpaLeadForm() {
       `Horario preferido: ${period}.`,
       notes.trim() ? `Detalle: ${notes.trim()}` : "",
     ].filter(Boolean).join(" ").slice(0, 700);
-    const redirect = `/r/whatsapp/portfolio-infinito-spa?message=${encodeURIComponent(message)}`;
+    const redirect = `/r/whatsapp/portfolio-${clientKey}?message=${encodeURIComponent(message)}`;
     setWhatsappHref(redirect);
 
     try {
@@ -40,14 +42,14 @@ export function InfinitoSpaLeadForm() {
           phone: phone.trim(),
           email: email.trim() || null,
           company: "Infinito Spa",
-          source: "portfolio:infinito-spa",
+          source: `portfolio:${clientKey}`,
           landing_page: "/portfolio/infinito-spa",
           hero_variant: "infinito-spa-editorial",
           cta_variant: "infinito-spa-consulta",
           offer_slug: "infinito-spa",
           audience_tag: "infinito-spa",
           payload_json: {
-            clientKey: "infinito-spa",
+            clientKey,
             clientName: "Infinito Spa",
             locale: "es-CL",
             serviceInterest: interest,
@@ -93,7 +95,7 @@ export function InfinitoSpaLeadForm() {
             Deja tus datos y preferencias. Tu consulta se enviará de forma privada para que puedan continuar la conversación.
           </p>
 
-          <form className="mt-7 grid gap-5" onSubmit={handleSubmit}>
+          <form data-client-key={clientKey} className="mt-7 grid gap-5" onSubmit={handleSubmit}>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2 text-sm font-semibold" htmlFor="infinito-name">
                 Nombre
