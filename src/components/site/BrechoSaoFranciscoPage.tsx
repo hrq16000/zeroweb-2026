@@ -60,20 +60,21 @@ export function BrechoSaoFranciscoPage() {
       <main className="mx-auto w-[min(94%,72rem)] py-10 md:py-16">
         <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
           {/* coluna fixa: assinatura do projeto */}
-          <div className="md:sticky md:top-10 md:self-start">
+          <MotionFirstPaint>
+            <div className="md:sticky md:top-10 md:self-start">
             <MotionReveal variant="fade">
               <p className="text-[0.68rem] uppercase tracking-[0.42em] text-[var(--sf-terra)]">
                 Brechó São Francisco · Curitiba
               </p>
             </MotionReveal>
-            <MotionFirstPaint><MotionReveal variant="up" delay={100}>
+            <MotionReveal variant="up" delay={100}>
               <h1 className="mt-5 font-display text-[2.2rem] font-semibold leading-[1.05] md:text-[3.2rem]">
                 <ManagedText
                   field="heroHeadline"
                   fallback={"Pe\u00e7as com hist\u00f3ria em uma vitrine acolhedora."}
                 />
               </h1>
-            </MotionReveal></MotionFirstPaint>
+            </MotionReveal>
             <MotionReveal variant="left" delay={200}>
               <div className="mt-6 h-px w-24 bg-[var(--sf-gold)]" />
             </MotionReveal>
@@ -102,7 +103,8 @@ export function BrechoSaoFranciscoPage() {
               Conte o tipo de peça, o tamanho e o estilo que procura para receber
               o que está disponível na vitrine.
             </p>
-          </div>
+            </div>
+          </MotionFirstPaint>
 
           {/* coluna de leitura: retrato + araras numeradas */}
           <div className="min-w-0">
@@ -112,7 +114,9 @@ export function BrechoSaoFranciscoPage() {
                 widths={[480, 960, 1440]}
                 sizes="(min-width: 1024px) 448px, 100vw"
                 alt="Brechó São Francisco"
-                priority
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 width={1200}
                 height={1500}
                 className="w-full rounded-sm object-cover"
