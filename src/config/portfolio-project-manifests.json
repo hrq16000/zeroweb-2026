@@ -1161,8 +1161,7 @@
             "src/config/portfolio-discovery.json: aliases, categorias, produtos, localização completa; rota contém Google Maps Place ID, Instagram e Bakery schema."
           ],
           "PORTFOLIO_INDEXABILITY_GATE": [
-            "Configuração de release proposta: catálogo published/live, registry indexable, canonical próprio e robots index,follow. Regra do sitemap da PR #534; verificar inclusão e HTTP 200 APÓS Production READY, sem afirmar indexação Google.",
-            "Apto para sitemap via catálogo e registry, com canonical próprio e robots index; HTTP e sitemap serão confirmados após deployment READY."
+            "Estado deliberado de demonstração: catálogo draft/live=false, robots noindex,nofollow e fora do sitemap até aprovação comercial explícita e confirmação dos canais oficiais. Canonical próprio preservado; indexação Google não afirmada."
           ]
         }
       },
@@ -1260,7 +1259,7 @@
       "contentFacts": {
         "ownSourcedContent": true
       },
-      "stage": "published",
+      "stage": "design",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -1276,9 +1275,11 @@
         "funnel": "complete",
         "cover": "complete",
         "qa": "complete",
-        "publish": "complete"
+        "publish": "pending"
       },
-      "blockers": [],
+      "blockers": [
+        "Aprovação comercial explícita, identidade oficial e destino de atendimento da padaria não comprovados. O Jotform atual recebe dados na 0WEB e não os encaminha automaticamente à padaria; manter draft/noindex até confirmação."
+      ],
       "warnings": [
         "Fotografias reais e postagens oficiais permanecem indisponíveis sem licença; a mídia usada é original e declaradamente editorial.",
         "Jotform recebe dados na 0WEB e não os encaminha automaticamente à padaria.",
@@ -1324,7 +1325,7 @@
         "enrichment": "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json",
         "mediaPlan": "docs/portfolio/media-plans/panificadora-doce-coracao-santo-antonio.json"
       },
-      "lastUpdatedAt": "2026-11-23"
+      "lastUpdatedAt": "2026-11-26"
     }
   }
 }
