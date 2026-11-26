@@ -311,7 +311,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 552 && steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
         env:
           E2E_BASE_URL: https://www.0web.com.br
-          VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on
+          VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,refrigeracao-maresia,studio-de-cilios,lk-alvenaria,acai-total-araucaria,paulo-mestre-de-obras
           VISUAL_BASELINE_DIR: seo-reports/visual-production-baseline
           VISUAL_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
           VISUAL_READ_ONLY: "1"
@@ -322,7 +322,7 @@ jobs:
         env:
           VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
           VISUAL_PRODUCTION_COMPARE: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 552 }}
-          VISUAL_PRODUCTION_ROUTES: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on
+          VISUAL_PRODUCTION_ROUTES: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,refrigeracao-maresia,studio-de-cilios,lk-alvenaria,acai-total-araucaria,paulo-mestre-de-obras
           VISUAL_PRODUCTION_BASELINE_DIR: seo-reports/visual-production-baseline
           PORTFOLIO_RUNTIME_VISUAL_FIXTURES: "1"
           VISUAL_PRODUCTION_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
