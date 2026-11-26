@@ -36,7 +36,6 @@ const shardIndex = Math.max(0, Number(process.env.E2E_SHARD_INDEX || 0));
 
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
 const whatsappRegistry = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
-const hostedFormRegistry = JSON.parse(readFileSync("src/config/portfolio-hosted-form-registry.json", "utf8"));
 const DRY_RUN = process.env.E2E_DRY_RUN === "1";
 const TARGETS = clients
   .filter((client, index) => (onlySlugs.length === 0 || onlySlugs.includes(client.slug)) && index % shardCount === shardIndex)
@@ -48,7 +47,6 @@ const TARGETS = clients
     // A fonte canônica é o cadastro versionado por clientKey. Metadados legados
     // em portfolio-clients.json não decidem mais o destino operacional.
     recipientConfigured: Boolean(whatsappRegistry.contacts?.[client.clientKey]?.whatsapp),
-    hostedForm: hostedFormRegistry.forms?.[client.clientKey] ?? null,
   }));
 
 
@@ -79,7 +77,6 @@ const browser = await chromium.launch({
 const failures = [];
 const leadOnly = [];
 const dryRunOk = [];
-const hostedOk = [];
 const ok = [];
 
 const VALID_DESTINATION = /^https:\/\/(api\.whatsapp\.com|wa\.me|web\.whatsapp\.com)\//;
@@ -112,10 +109,7 @@ function extractClientKey(body) {
 
 async function runTarget(target, viewport) {
   const id = `${target.slug} [${viewport.name}]`;
-  const context = await browser.newContext({
-    viewport: { width: viewport.width, height: viewport.height },
-    reducedMotion: viewport.reducedMotion ?? "no-preference",
-  });
+  const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height } });
   const page = await context.newPage();
   const serverErrors = [];
   const submittedKeys = [];
@@ -133,13 +127,6 @@ async function runTarget(target, viewport) {
     const key = extractClientKey(body);
     if (key) submittedKeys.push(key);
 
-  });
-
-  // Em QA o iframe não faz chamadas à Jotform: a persistência real é verificada
-  // separadamente pelo provedor. Este gate valida integração e isolamento no DOM.
-  await page.route("https://form.jotform.com/**", async (route) => {
-    await route.fulfill({ status: 200, contentType: "text/html; charset=utf-8",
-      body: "<!doctype html><html lang=pt-BR><title>Jotform QA isolado</title><body>Fixture local sem envio de dados</body></html>" });
   });
 
   // O destino final é resolvido no servidor; interceptamos para não sair do host.
@@ -197,87 +184,6 @@ async function runTarget(target, viewport) {
       }
       dryRunOk.push(id);
       console.log(`✓ ${id} → formulário próprio, campos e clientKey validados (dry-run)`);
-      return;
-    }
-
-    const marliQa = target.slug === "espaco-marli-nails-guaratuba" && [390, 768, 1440].includes(viewport.width);
-    if (marliQa) {
-      const { mkdirSync } = await import("node:fs");
-      mkdirSync("seo-reports/portfolio-funnels-marli", { recursive: true });
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 2);
-      if (overflow) {
-        failures.push(`${id}: rolagem horizontal em ${viewport.width}px`);
-        return;
-      }
-      await page.screenshot({ path: `seo-reports/portfolio-funnels-marli/page-${viewport.width}.png` });
-    }
-
-    // Formulários hospedados já verificados possuem fluxo próprio: não inventar
-    // 5 etapas de quiz ou forçar escrita no backend Supabase em CI.
-    // Ainda exigimos CTA do cliente, abertura real, owner único e src exato.
-    if (target.hostedForm?.status === "verified" && target.hostedForm.provider === "jotform") {
-      const formUrl = target.hostedForm.url;
-      if (!/^https:\/\/form\.jotform\.com\/\d+$/.test(formUrl) ||
-          !target.hostedForm.testSubmissionVerified ||
-          target.hostedForm.clientKey !== target.clientKey) {
-        failures.push(`${id}: registro Jotform inválido ou sem evidência de persistência`);
-        return;
-      }
-      const clientCtas = page.locator(
-        `[data-funnel-cta="portfolio"][data-funnel-client="${target.clientKey}"]:visible`,
-      );
-      if (!(await clientCtas.count())) {
-        failures.push(`${id}: nenhum CTA de funil hospedado do cliente encontrado`);
-        return;
-      }
-      const foreignCtas = await page.locator('[data-funnel-cta="portfolio"]').evaluateAll(
-        (nodes, expected) => nodes
-          .map((node) => node.getAttribute("data-funnel-client"))
-          .filter((key) => key !== expected),
-        target.clientKey,
-      );
-      if (foreignCtas.length) {
-        failures.push(`${id}: CTA com chave estrangeira ou ausente`);
-        return;
-      }
-      await clientCtas.first().scrollIntoViewIfNeeded();
-      await clientCtas.first().click({ timeout: 8000 });
-      const provider = page.locator(
-        `[data-funnel-provider="jotform"][data-client-key="${target.clientKey}"]`,
-      );
-      await provider.waitFor({ state: "visible", timeout: 8000 });
-      const ownerCount = await provider.count();
-      const foreignProviders = await page.locator(
-        '[data-funnel-provider="jotform"][data-client-key]',
-      ).evaluateAll((nodes, expected) => nodes
-        .map((node) => node.getAttribute("data-client-key"))
-        .filter((key) => key !== expected), target.clientKey);
-      if (ownerCount !== 1 || foreignProviders.length) {
-        failures.push(`${id}: formulário Jotform não é único/isolado por clientKey`);
-        return;
-      }
-      // Agropet identifica o contêiner; Marli/Cantinho identificam o iframe.
-      const iframe = page.locator(
-        `iframe[data-funnel-provider="jotform"][data-client-key="${target.clientKey}"], [data-funnel-provider="jotform"][data-client-key="${target.clientKey}"] iframe`,
-      );
-      if (await iframe.count() !== 1 || !await iframe.first().isVisible()) {
-        failures.push(`${id}: iframe Jotform ausente ou não visível`);
-        return;
-      }
-      const actualUrl = await iframe.first().getAttribute("src");
-      if (actualUrl !== formUrl) {
-        failures.push(`${id}: URL do iframe diverge do registro verificado`);
-        return;
-      }
-      if (serverErrors.length || redirect || submittedKeys.length) {
-        failures.push(`${id}: erro HTTP, redirect ou POST legado indevido no fluxo hospedado`);
-        return;
-      }
-      if (marliQa) {
-        await page.screenshot({ path: `seo-reports/portfolio-funnels-marli/modal-${viewport.width}.png` });
-      }
-      hostedOk.push(id);
-      console.log(`✓ ${id} → Jotform verificado, único, visível e sem escrita externa (QA isolado)`);
       return;
     }
 
@@ -403,18 +309,7 @@ async function runTarget(target, viewport) {
 }
 
 const queue = [];
-// Preserva literalmente o contrato de cobertura global, auditado por unit test.
 for (const target of TARGETS) for (const viewport of VIEWPORTS) queue.push([target, viewport]);
-
-// Os três cenários adicionais são exclusivos da Marli, sem substituir a matriz global.
-const marliTarget = TARGETS.find((target) => target.slug === "espaco-marli-nails-guaratuba");
-if (marliTarget) {
-  for (const viewport of [
-    { name: "mobile-390-reduced", width: 390, height: 844, reducedMotion: "reduce" },
-    { name: "tablet-768", width: 768, height: 1024 },
-    { name: "desktop-1440", width: 1440, height: 900 },
-  ]) queue.push([marliTarget, viewport]);
-}
 
 const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 1);
 let cursor = 0;
@@ -440,9 +335,8 @@ const report = {
   ok: ok.length,
   leadOnly: leadOnly.length,
   dryRunOk: dryRunOk.length,
-  hostedOk: hostedOk.length,
   failed: failures.length,
-  details: { ok, leadOnly, dryRunOk, hostedOk, failures },
+  details: { ok, leadOnly, dryRunOk, failures },
 };
 try {
   const { mkdirSync, writeFileSync } = await import("node:fs");
@@ -454,11 +348,10 @@ try {
     `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
       `<h1>E2E funis de portfólio</h1>` +
       `<p>${report.generatedAt} · base ${baseUrl}</p>` +
-      `<p><strong>${report.scenarios}</strong> cenários · modo ${report.mode} · ${report.ok} redirects OK · ${report.leadOnly} lead-only · ${report.dryRunOk} dry-run OK · ${report.hostedOk} Jotform verificados · ${report.failed} falhas</p>` +
+      `<p><strong>${report.scenarios}</strong> cenários · modo ${report.mode} · ${report.ok} redirects OK · ${report.leadOnly} lead-only · ${report.dryRunOk} dry-run OK · ${report.failed} falhas</p>` +
       `<h2>Redirects OK</h2><ul>${li(ok)}</ul>` +
       `<h2>Lead-only</h2><ul>${li(leadOnly)}</ul>` +
       `<h2>Dry-run OK</h2><ul>${li(dryRunOk)}</ul>` +
-      `<h2>Jotform QA isolado</h2><ul>${li(hostedOk)}</ul>` +
       `<h2>Falhas</h2><ul>${li(failures)}</ul>`,
   );
 } catch (error) {
@@ -466,7 +359,7 @@ try {
 }
 
 console.log(
-  `\nResumo: ${ok.length} redirects OK · ${leadOnly.length} lead-only · ${dryRunOk.length} dry-run OK · ${hostedOk.length} Jotform verificados · ${queue.length} executados.`,
+  `\nResumo: ${ok.length} redirects OK · ${leadOnly.length} lead-only · ${dryRunOk.length} dry-run OK · ${queue.length} executados.`,
 );
 if (failures.length) {
   console.error("\n✗ Falhas nos funis de portfólio:");
@@ -475,6 +368,6 @@ if (failures.length) {
 }
 console.log(
   DRY_RUN
-    ? "✓ Funis legados chegaram ao final em dry-run; formulários Jotform validados por URL, clientKey e modal sem escrita."
+    ? "✓ Todos os funis de portfólio chegaram à etapa final no gate sem escrita."
     : "✓ Todos os funis de portfólio respeitaram o contrato de redirect/lead-only.",
 );

@@ -314,24 +314,13 @@
       "logo": "/images/arildo-madeiras/logo.svg",
       "notes": "A landing usa o logo oficial remoto do site da Arildo. O SVG local é fallback técnico para ownership do diretório e não é tratado como reprodução oficial."
     },
-    "espaco-marli-nails-guaratuba": {
-      "brandOrigin": "0WEB_EDITORIAL_PROPOSAL",
-      "brandReview": "PENDING_OWNER_REVIEW",
-      "classification": "CONCEPTUAL_BRAND_NOT_OFFICIAL",
+    "infinito-spa": {
+      "brandOrigin": "GENERATED_BRAND_ASSET",
+      "brandReview": "APPROVED",
+      "classification": "BRAND_CONCEPT_PENDING_CLIENT_CONFIRMATION",
       "authored": true,
-      "logo": "/images/espaco-marli-nails-guaratuba/logo.svg",
-      "direction": {
-        "concept": "Monograma M e curvas abstratas de esmalte, sem fotografias falsas",
-        "personality": "delicado, local e objetivo",
-        "shapeLanguage": "curvas contínuas",
-        "typography": "serif editorial com sans funcional",
-        "colors": [
-          "#542638",
-          "#fffaf4",
-          "#d6abb9"
-        ]
-      },
-      "notes": "Identidade criada pela 0WEB para a demonstração; não representa a marca oficial do estúdio."
+      "logo": "/images/infinito-spa/mark.svg",
+      "notes": "Identidad conceptual original creada por 0WEB; no debe presentarse como logotipo oficial hasta la confirmación de Roze."
     }
   }
 }

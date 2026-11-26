@@ -16,6 +16,7 @@ export type PortfolioUpsellDisplay = {
 
 export type PortfolioUpsellConfig = {
   enabled: boolean;
+  locale?: "es-CL";
   kicker: string;
   title: string;
   highlight?: string;
@@ -24,8 +25,6 @@ export type PortfolioUpsellConfig = {
   ctaLabel: string;
   dismissLabel: string;
   funnelSlug: string;
-  /** Formulário externo verificado da própria 0WEB (opt-in por portfólio). */
-  hostedFormUrl?: string;
   display: PortfolioUpsellDisplay;
 };
 

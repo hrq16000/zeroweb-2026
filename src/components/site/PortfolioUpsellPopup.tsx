@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, Sparkles, CheckCircle2 } from "lucide-react";
 import { PortfolioHostLeadDialog } from "@/components/site/PortfolioHostLeadDialog";
-import { PortfolioHostedHostFormDialog } from "@/components/site/PortfolioHostedHostFormDialog";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { isPortfolioPopupQaMode, shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
@@ -286,15 +285,9 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
   // Captação estruturada da 0WEB: nome + WhatsApp + cidade gravados como lead
   // com atribuição de origem, e só então o redirect opaco para o WhatsApp.
-  const funnelModal = cfg.hostedFormUrl ? (
-    <PortfolioHostedHostFormDialog
-      open={funnelOpen}
-      onClose={() => setFunnelOpen(false)}
-      sourceSlug={slug}
-      formUrl={cfg.hostedFormUrl}
-    />
-  ) : (
+  const funnelModal = (
     <PortfolioHostLeadDialog
+      locale={cfg.locale ?? (slug === "infinito-spa" ? "es-CL" : undefined)}
       open={funnelOpen}
       onClose={() => setFunnelOpen(false)}
       slug={slug}
@@ -320,7 +313,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
           <button
             type="button"
             onClick={() => close("dismiss")}
-            aria-label="Fechar aviso"
+            aria-label={cfg.locale === "es-CL" ? "Cerrar aviso" : "Fechar aviso"}
             className="absolute right-3 top-3 grid place-items-center w-11 h-11 sm:w-9 sm:h-9 rounded-full bg-muted text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none transition"
           >
             <X className="w-4 h-4" />

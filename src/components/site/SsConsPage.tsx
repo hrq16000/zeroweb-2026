@@ -47,6 +47,7 @@ import {
   MotionReveal,
   MotionScope,
   MotionStagger,
+  MotionTextReveal,
   usePrefersReducedMotion,
 } from "@/components/motion";
 
@@ -545,10 +546,10 @@ export function SsConsPage() {
                   className="mb-6 text-4xl font-bold leading-[1.05] tracking-tight [font-family:var(--ss-display)] sm:text-5xl lg:text-7xl"
                 >
                   <ManagedRich field="heroHeadline">
-                    <span className="block">Construindo sonhos com</span>{" "}
-                    <span className="inline-block">
+                    <MotionTextReveal text="Construindo sonhos com" as="span" className="block" />{" "}
+                    <MotionReveal as="span" variant="up" delay={260} className="inline-block">
                       <GoldWord>excelência</GoldWord> em Curitiba.
-                    </span>
+                    </MotionReveal>
                   </ManagedRich>
                 </h1>
 

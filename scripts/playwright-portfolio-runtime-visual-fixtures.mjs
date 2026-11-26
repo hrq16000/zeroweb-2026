@@ -2,7 +2,7 @@
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 
-const baseUrl = (process.env.E2E_BASE_URL || process.env.BASE_URL || "http://127.0.0.1:4173").replace(/\/$/, "");
+const baseUrl = (process.env.E2E_BASE_URL || process.env.BASE_URL || "http://127.0.0.1:4173").replace(/\\/$/, "");
 const slugs = ["studio-de-cilios", "refrigeracao-maresia", "lk-alvenaria", "paulo-mestre-de-obras"];
 const viewports = [
   { name: "390", width: 390, height: 844 },

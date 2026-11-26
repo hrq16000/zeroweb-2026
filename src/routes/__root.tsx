@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { Component, lazy, Suspense, useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import faviconAsset from "../assets/favicon-0web.png.asset.json";
@@ -39,39 +39,6 @@ const SpacingDebugOverlay = lazy(() =>
 // 404 chrome is not needed on successful routes; keep its modules out of the shared entry chunk.
 const Header = lazy(() => import("../components/site/Header").then(({ Header }) => ({ default: Header })));
 const Footer = lazy(() => import("../components/site/Footer").then(({ Footer }) => ({ default: Footer })));
-
-class ErrorStateChunkBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-
-  render() {
-    if (this.state.failed) {
-      return (
-        <div role="alert" className="min-h-screen grid place-items-center bg-background p-6 text-foreground">
-          <div className="max-w-md space-y-3 text-center">
-            <p>Não foi possível carregar a tela de erro.</p>
-            <div className="flex justify-center gap-3">
-              <button
-                type="button"
-                onClick={() => window.location.reload()}
-                className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
-              >
-                Recarregar
-              </button>
-              <a href="/" className="rounded-lg border border-border px-4 py-2 text-sm font-semibold">
-                Início
-              </a>
-            </div>
-          </div>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
 
 function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
@@ -106,18 +73,16 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   ) : null;
 
   return (
-    <ErrorStateChunkBoundary>
-      <Suspense fallback={<div role="status" className="min-h-screen grid place-items-center bg-background text-muted-foreground">Carregando a tela de erro…</div>}>
-        <ErrorState
-          kind="500"
-          onRetry={() => {
-            router.invalidate();
-            reset();
-          }}
-          diagnostics={diagnostics}
-        />
-      </Suspense>
-    </ErrorStateChunkBoundary>
+    <Suspense fallback={<div role="status" className="min-h-screen grid place-items-center bg-background text-muted-foreground">Carregando a tela de erro…</div>}>
+      <ErrorState
+        kind="500"
+        onRetry={() => {
+          router.invalidate();
+          reset();
+        }}
+        diagnostics={diagnostics}
+      />
+    </Suspense>
   );
 }
 
@@ -209,8 +174,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const documentLanguage = pathname === "/portfolio/infinito-spa" || pathname.startsWith("/portfolio/infinito-spa/") ? "es-CL" : "pt-BR";
   return (
-    <html lang="pt-BR">
+    <html lang={documentLanguage}>
       <head>
         <HeadContent />
       </head>

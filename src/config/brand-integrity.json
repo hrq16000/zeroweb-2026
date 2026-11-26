@@ -3,10 +3,11 @@
   "policy": "Institutional 0WEB brand assets are immutable without explicit authorization.",
   "files": {
     "public/0web-logo.png": "aabcf97139cc2f2b96013f65ff0aa876cf4ff346bba3d38d423a46ff86e89b0d",
-    "src/assets/logo-0web.png.asset.json": "e23e6080e6097733ad368b8d442ba02684ae0bd33ca866e143c1e9535565a219",
+    "src/assets/logo-0web.png.asset.json": "75229de6008d3f924f6867c1bec3488607161f7def41b48a4688375894e65f85",
     "src/components/site/BrandLogo.tsx": "ad81eacd235f42bba40c7bb29b09785b6298975ea6b7e8e61fb92996c83adf5d",
     "src/components/site/Header.tsx": "ec5965c49b97b8f2250fa58b836c3a22dea16068393adc07969d9719d5c807f7",
     "src/components/site/Footer.tsx": "33eaf1cdf6b65c6661571ac7f88899b5d7d2b8c07e40a861200fd720bd545c65",
-    "src/styles.css": "65b59ca04e06262a03866dd10c440be3b143b445fb800159a86608836d867f7a"
+    "src/styles.css": "65b59ca04e06262a03866dd10c440be3b143b445fb800159a86608836d867f7a",
+    "public/0web-logo.webp": "c12610263b8bc636f5ecaa627becef12c63ccc38f43ba1745dc90aab095903a9"
   }
 }

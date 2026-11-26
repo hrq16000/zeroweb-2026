@@ -46,6 +46,7 @@ export function PortfolioShareButton({
   siteName,
   placement = "floating",
   className = "",
+  locale,
 }: {
   position?: SharePosition;
   variant?: SurfaceVariant;
@@ -54,8 +55,10 @@ export function PortfolioShareButton({
   siteName?: string;
   placement?: Placement;
   className?: string;
+  locale?: "es-CL";
 } = {}) {
   const [copied, setCopied] = useState(false);
+  const spanish = locale === "es-CL";
   const runtime = usePortfolioRuntime();
   const copyPromotion = async () => {
     // Isolamento por projeto: o override só vale quando é do MESMO slug.
@@ -75,12 +78,7 @@ export function PortfolioShareButton({
       // Clipboard pode estar indisponível em contextos não seguros.
     }
   };
-  // A Marli tem CTA próprio no cabeçalho em tablet/desktop: manter a ação
-  // compartilhar visível sem cobrir "Consultar horário" (QA visual 390/768/1440).
-  const positionClass = slug === "espaco-marli-nails-guaratuba" && position === "top-right"
-    ? "right-4 top-20 md:top-36"
-    : POSITION[position];
-  const placementClass = placement === "floating" ? `fixed z-40 ${positionClass}` : "";
+  const placementClass = placement === "floating" ? `fixed z-40 ${POSITION[position]}` : "";
   const baseClass = placement === "floating"
     ? "min-h-11 rounded-full border px-4 py-2 text-xs font-bold shadow-lg backdrop-blur transition hover:-translate-y-0.5"
     : "min-h-10 rounded-xl px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
@@ -88,11 +86,11 @@ export function PortfolioShareButton({
     <button
       type="button"
       onClick={copyPromotion}
-      aria-label={`Copiar divulgação de ${siteName ?? "este projeto"}`}
+      aria-label={spanish ? `Compartir ${siteName ?? "este proyecto"}` : `Copiar divulgação de ${siteName ?? "este projeto"}`}
       className={`inline-flex items-center justify-center gap-2 ${baseClass} ${placementClass} ${VARIANT[variant]} ${className}`}
     >
       {copied ? <Check className="h-4 w-4 text-emerald-600" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-      {copied ? "Divulgação copiada" : label}
+      {copied ? (spanish ? "Propuesta copiada" : "Divulgação copiada") : label}
     </button>
   );
 }

@@ -1,4 +1,6 @@
 import { describe, expect, it } from "bun:test";
+import { existsSync, readFileSync } from "node:fs";
+import catalog from "@/config/portfolio-catalog.json";
 import {
   SEED_PROJECTS,
   containsPublicContact,
@@ -18,11 +20,24 @@ describe("seed do admin do portfólio", () => {
     }
   });
 
-  it("mantém 100% de conformidade COMPLETE sem overrides", () => {
-    const notComplete = SEED_PROJECTS.filter(
-      (p) => mergeProject(p, null).conformance.status !== "COMPLETE",
-    ).map((p) => p.slug);
-    expect(notComplete).toEqual([]);
+  it("mantém conformidade COMPLETE para projetos aptos e bloqueia matrizes não aprovadas", () => {
+    for (const seed of SEED_PROJECTS) {
+      const item = catalog.find((entry) => entry.slug === seed.slug);
+      const matrixPath = `docs/portfolio/quality-matrix/${seed.slug}.json`;
+      const technicalBlocked = existsSync(matrixPath) &&
+        JSON.parse(readFileSync(matrixPath, "utf8")).technicalPass === false;
+      const commercialBlocked = item?.status === "draft" && item.live === true &&
+        "indexable" in item && item.indexable === false;
+      const merged = mergeProject(seed, null);
+      if (technicalBlocked || commercialBlocked) {
+        expect(merged.published).toBe(false);
+        expect(merged.conformance.status).not.toBe("COMPLETE");
+        if (technicalBlocked) expect(merged.conformance.blocking).toContain("PORTFOLIO_TECHNICAL_PASS_REQUIRED");
+        if (commercialBlocked) expect(merged.conformance.blocking).toContain("PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED");
+      } else {
+        expect(merged.conformance.status).toBe("COMPLETE");
+      }
+    }
   });
 });
 

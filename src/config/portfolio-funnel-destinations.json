@@ -304,6 +304,27 @@
         "Canal registrado como null (LEAD_ONLY), sem redirecionamento cruzado ou fallback de outro cliente."
       ]
     },
+    "panificadora-doce-coracao-santo-antonio": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "USER_SCREENSHOT+PUBLIC_BUSINESS_DIRECTORY",
+      "verifiedAt": "2026-11-19",
+      "evidence": [
+        "Captura de busca fornecida pelo operador cita @docecoracao.mina e indica (41) 99136-3912 como contato WhatsApp.",
+        "O diretório público Restaurant Guru apresenta o mesmo número (41) 99136-3912 para a Panificadora Doce Coração do Santo Antônio, na Rua Desembargador James Portugal Macedo, 290.",
+        "O telefone cruzado é forte evidência de correspondência de entidade, mas não substitui autorização do responsável nem teste de entrega no aplicativo.",
+        "Destino exclusivo do clientKey panificadora-doce-coracao-santo-antonio, sem fallback institucional ou entre clientes."
+      ]
+    },
+    "infinito-spa": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "verifiedAt": null,
+      "evidence": [
+        "WhatsApp fornecido pela profissional no formulário 0WEB em 2026-11-25.",
+        "Destino armazenado como referência ao segredo Vercel PORTFOLIO_WHATSAPP_INFINITO_SPA; nenhum número é versionado no repositório.",
+        "Número ainda não foi confirmado por chamada ou mensagem de teste."
+      ]
+    },
     "espaco-marli-nails-guaratuba": {
       "status": "UNRESOLVED",
       "source": "GOOGLE_BUSINESS_PUBLIC_PHONE_NOT_VERIFIED_AS_WHATSAPP",

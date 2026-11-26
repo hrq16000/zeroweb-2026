@@ -5,9 +5,9 @@ const CartDrawer = lazy(() =>
 );
 
 /**
- * Carrega a interface do carrinho somente após intenção comercial.
- * O primeiro cart-changed também monta o drawer fechado para que o snapshot
- * cart_update seja persistido mesmo quando o visitante não abre o carrinho.
+ * Loads the cart UI only when a visitor asks to open it. The first open event
+ * is replayed after the lazy drawer has installed its listeners, so no click
+ * is lost while the chunk downloads.
  */
 export function CartDrawerGate() {
   const [mounted, setMounted] = useState(false);
@@ -17,20 +17,11 @@ export function CartDrawerGate() {
     setPendingOpen(true);
     setMounted(true);
   }, []);
-  const onCartIntent = useCallback(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     window.addEventListener("0web:cart-open", onOpen);
-    window.addEventListener("0web:cart-changed", onCartIntent);
-    window.addEventListener("storage", onCartIntent);
-    return () => {
-      window.removeEventListener("0web:cart-open", onOpen);
-      window.removeEventListener("0web:cart-changed", onCartIntent);
-      window.removeEventListener("storage", onCartIntent);
-    };
-  }, [onOpen, onCartIntent]);
+    return () => window.removeEventListener("0web:cart-open", onOpen);
+  }, [onOpen]);
 
   const onReady = useCallback(() => {
     if (!pendingOpen) return;

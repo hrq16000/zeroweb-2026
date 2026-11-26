@@ -11,12 +11,14 @@
  */
 export const PORTFOLIO_AUTHORIAL_COMPOSITION_SLUGS = [
   "salgados-da-fran",
+  "panificadora-doce-coracao-santo-antonio",
   "cantinho-da-tia-mari",
   "agropet-filt",
   "arildo-madeiras",
   "dona-garimpeira-brecho",
   "autoescola-aptos",
   "adhonep-curitiba",
+  "infinito-spa",
   "espaco-marli-nails-guaratuba",
 ] as const;
 

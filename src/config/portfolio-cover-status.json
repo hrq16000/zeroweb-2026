@@ -5,11 +5,11 @@
   "generatedAt": "2026-11-04",
   "summary": {
     "total": 101,
-    "valid": 50,
-    "pending": 51,
+    "valid": 48,
+    "pending": 53,
     "byStatus": {
-      "VALID": 50,
-      "UNCERTAIN_ORIGIN": 18,
+      "VALID": 48,
+      "UNCERTAIN_ORIGIN": 20,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
       "CONTACT_OR_PII": 7,
@@ -114,11 +114,11 @@
       "asset": "/images/arildo-madeiras/capa-card.svg",
       "catalogImage": "/images/arildo-madeiras/capa-card.svg",
       "catalogImageRole": "EDITORIAL",
-      "origin": "0WEB_AUTHORED",
-      "reviewedAt": "2026-09-24",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
       "businessName": "Arildo Madeiras",
       "segment": "comercios"
     },
@@ -241,14 +241,14 @@
     },
     {
       "slug": "cantinho-da-tia-mari",
-      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
+      "asset": "/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImage": "/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImageRole": "EDITORIAL",
-      "origin": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
-      "reviewedAt": "2026-11-06",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
       "businessName": "Cantinho da Tia Mari",
       "segment": "comercios"
     },
@@ -302,7 +302,7 @@
       "reason": "Sem julgamento humano registrado para a capa.",
       "cardValid": false,
       "businessName": "Centro Mega",
-      "segment": "prestadores-de-servicos"
+      "segment": "comercios"
     },
     {
       "slug": "clinica-integrada",
@@ -1317,6 +1317,32 @@
       "cardValid": false,
       "businessName": "Salgados da Fran",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Panificadora Doce Coração",
+      "segment": "comercios"
+    },
+    {
+      "slug": "infinito-spa",
+      "asset": "/images/infinito-spa/capa-card.jpg",
+      "catalogImage": "/images/infinito-spa/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "0WEB_GENERATED",
+      "reviewedAt": "2026-11-26T03:18:31.010Z",
+      "status": "VALID",
+      "reason": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento.",
+      "cardValid": true,
+      "businessName": "Infinito Spa",
+      "segment": "beleza"
     },
     {
       "slug": "espaco-marli-nails-guaratuba",

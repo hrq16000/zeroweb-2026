@@ -137,16 +137,11 @@ export async function persistLead(input: {
 
 let waSessionRowId: string | null = null;
 
-export async function persistWaFunnelOpen(
-  totalSteps: number,
-  context?: { path?: string | null; utms?: Record<string, string> },
-) {
+export async function persistWaFunnelOpen(totalSteps: number) {
   if (typeof window === "undefined") return;
   try {
     const c = ctx();
     const ab = abState();
-    const landingPage = context?.path ?? c.path;
-    const utms = context?.utms ?? c.utms;
     // O id é gerado no cliente: anon pode inserir, mas não pode ler a tabela
     // (nenhuma policy de SELECT pública), então `.select()` retornaria erro.
     const newId = crypto.randomUUID();
@@ -159,12 +154,12 @@ export async function persistWaFunnelOpen(
         current_step: 0,
         total_steps: totalSteps,
         completed: false,
-        landing_page: landingPage,
+        landing_page: c.path,
         hero_variant: ab.hero,
         cta_variant: ab.cta,
-        utm_source: utms.utm_source ?? null,
-        utm_medium: utms.utm_medium ?? null,
-        utm_campaign: utms.utm_campaign ?? null,
+        utm_source: c.utms.utm_source ?? null,
+        utm_medium: c.utms.utm_medium ?? null,
+        utm_campaign: c.utms.utm_campaign ?? null,
         answers_json: {},
       });
     if (!error) waSessionRowId = newId;

@@ -120,7 +120,7 @@ export function CantinhoTiaMariPage() {
             <h1 className="mt-7 text-[clamp(3rem,6vw,5.8rem)] font-black leading-[1.03] tracking-[-.055em] text-[#654080]">Um cantinho de <span className="text-[#c768a2]">carinho</span> para cada descoberta.</h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#69566e]">Conheça os serviços anunciados pelo Cantinho da Tia Mari: berçário, atendimento em horário estendido e leva e busca em escolas e CMEIs, no Jardim Itália.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <button onClick={show} data-funnel-cta="portfolio" data-funnel-client="cantinho-da-tia-mari" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#6b408d] px-7 py-4 font-bold text-white shadow-xl shadow-purple-900/10 transition hover:translate-y-[-2px]" type="button">Consultar disponibilidade <ArrowRight className="h-4 w-4"/></button>
+              <button onClick={show} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#6b408d] px-7 py-4 font-bold text-white shadow-xl shadow-purple-900/10 transition hover:translate-y-[-2px]" type="button">Consultar disponibilidade <ArrowRight className="h-4 w-4"/></button>
               <a href="#ambientes" className="inline-flex min-h-12 items-center rounded-full border border-[#d9bfdc] bg-white px-7 py-4 font-bold text-[#604078]">Conhecer o espaço</a>
             </div>
             <p className="mt-7 flex items-start gap-2 text-xs font-medium text-[#806b87]"><Check className="mt-0.5 h-4 w-4 shrink-0"/> Informações e horários extraídos de panfleto público, sujeitos a confirmação. Não realizamos matrículas.</p>

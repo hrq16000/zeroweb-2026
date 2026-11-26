@@ -39,6 +39,7 @@ import { Route as InfraestruturaRouteImport } from './routes/infraestrutura'
 import { Route as LandingPagesRouteImport } from './routes/landing-pages'
 import { Route as LgpdRouteImport } from './routes/lgpd'
 import { Route as MapaDoSiteRouteImport } from './routes/mapa-do-site'
+import { Route as MarketingJuridicoRouteImport } from './routes/marketing-juridico'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
@@ -134,8 +135,8 @@ import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
 import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
-import { Route as PortfolioEspacoMarliNailsGuaratubaRouteImport } from './routes/portfolio.espaco-marli-nails-guaratuba'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
+import { Route as PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport } from './routes/portfolio.panificadora-doce-coracao-santo-antonio'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
@@ -424,6 +425,11 @@ const LgpdRoute = LgpdRouteImport.update({
 const MapaDoSiteRoute = MapaDoSiteRouteImport.update({
   id: '/mapa-do-site',
   path: '/mapa-do-site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingJuridicoRoute = MarketingJuridicoRouteImport.update({
+  id: '/marketing-juridico',
+  path: '/marketing-juridico',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketplaceRoute = MarketplaceRouteImport.update({
@@ -916,16 +922,17 @@ const PortfolioCantinhoDaTiaMariRoute =
     path: '/portfolio/cantinho-da-tia-mari',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioEspacoMarliNailsGuaratubaRoute = PortfolioEspacoMarliNailsGuaratubaRouteImport.update({
-  id: '/portfolio/espaco-marli-nails-guaratuba',
-  path: '/portfolio/espaco-marli-nails-guaratuba',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
   id: '/portfolio/dyzpromo',
   path: '/portfolio/dyzpromo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioPanificadoraDoceCoracaoSantoAntonioRoute =
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport.update({
+    id: '/portfolio/panificadora-doce-coracao-santo-antonio',
+    path: '/portfolio/panificadora-doce-coracao-santo-antonio',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioR_beautyRoute = PortfolioR_beautyRouteImport.update({
   id: '/portfolio/r_beauty',
   path: '/portfolio/r_beauty',
@@ -1745,6 +1752,7 @@ export interface FileRoutesByFullPath {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -1832,8 +1840,8 @@ export interface FileRoutesByFullPath {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
-  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2011,6 +2019,7 @@ export interface FileRoutesByTo {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -2096,8 +2105,8 @@ export interface FileRoutesByTo {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
-  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2277,6 +2286,7 @@ export interface FileRoutesById {
   '/landing-pages': typeof LandingPagesRoute
   '/lgpd': typeof LgpdRoute
   '/mapa-do-site': typeof MapaDoSiteRoute
+  '/marketing-juridico': typeof MarketingJuridicoRoute
   '/marketplace': typeof MarketplaceRoute
   '/mcp': typeof McpRoute
   '/obrigado': typeof ObrigadoRoute
@@ -2364,8 +2374,8 @@ export interface FileRoutesById {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
-  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
@@ -2546,6 +2556,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -2633,8 +2644,8 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
-    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -2812,6 +2823,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -2897,8 +2909,8 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
-    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -3077,6 +3089,7 @@ export interface FileRouteTypes {
     | '/landing-pages'
     | '/lgpd'
     | '/mapa-do-site'
+    | '/marketing-juridico'
     | '/marketplace'
     | '/mcp'
     | '/obrigado'
@@ -3164,8 +3177,8 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
     | '/portfolio/cantinho-da-tia-mari'
-    | '/portfolio/espaco-marli-nails-guaratuba'
     | '/portfolio/dyzpromo'
+    | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
@@ -3346,6 +3359,7 @@ export interface RootRouteChildren {
   LandingPagesRoute: typeof LandingPagesRoute
   LgpdRoute: typeof LgpdRoute
   MapaDoSiteRoute: typeof MapaDoSiteRoute
+  MarketingJuridicoRoute: typeof MarketingJuridicoRoute
   MarketplaceRoute: typeof MarketplaceRoute
   McpRoute: typeof McpRoute
   ObrigadoRoute: typeof ObrigadoRoute
@@ -3429,8 +3443,8 @@ export interface RootRouteChildren {
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
-  PortfolioEspacoMarliNailsGuaratubaRoute: typeof PortfolioEspacoMarliNailsGuaratubaRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
@@ -3689,6 +3703,13 @@ declare module '@tanstack/react-router' {
       path: '/mapa-do-site'
       fullPath: '/mapa-do-site'
       preLoaderRoute: typeof MapaDoSiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-juridico': {
+      id: '/marketing-juridico'
+      path: '/marketing-juridico'
+      fullPath: '/marketing-juridico'
+      preLoaderRoute: typeof MarketingJuridicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/marketplace': {
@@ -4356,18 +4377,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioCantinhoDaTiaMariRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio/espaco-marli-nails-guaratuba': {
-      id: '/portfolio/espaco-marli-nails-guaratuba'
-      path: '/portfolio/espaco-marli-nails-guaratuba'
-      fullPath: '/portfolio/espaco-marli-nails-guaratuba'
-      preLoaderRoute: typeof PortfolioEspacoMarliNailsGuaratubaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/portfolio/dyzpromo': {
       id: '/portfolio/dyzpromo'
       path: '/portfolio/dyzpromo'
       fullPath: '/portfolio/dyzpromo'
       preLoaderRoute: typeof PortfolioDyzpromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/panificadora-doce-coracao-santo-antonio': {
+      id: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      path: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      fullPath: '/portfolio/panificadora-doce-coracao-santo-antonio'
+      preLoaderRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/r_beauty': {
@@ -5734,6 +5755,7 @@ const rootRouteChildren: RootRouteChildren = {
   LandingPagesRoute: LandingPagesRoute,
   LgpdRoute: LgpdRoute,
   MapaDoSiteRoute: MapaDoSiteRoute,
+  MarketingJuridicoRoute: MarketingJuridicoRoute,
   MarketplaceRoute: MarketplaceRoute,
   McpRoute: McpRoute,
   ObrigadoRoute: ObrigadoRoute,
@@ -5820,8 +5842,9 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
-  PortfolioEspacoMarliNailsGuaratubaRoute: PortfolioEspacoMarliNailsGuaratubaRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
+  PortfolioPanificadoraDoceCoracaoSantoAntonioRoute:
+    PortfolioPanificadoraDoceCoracaoSantoAntonioRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,

@@ -36,7 +36,7 @@ export function RouteLoader() {
       <div
         aria-hidden
         className={`fixed top-0 left-0 right-0 z-[100] h-[3px] bg-transparent pointer-events-none transition-opacity duration-200 ${
-          isLoading ? "opacity-100" : "opacity-0"
+          shouldShowOverlay ? "opacity-100" : "opacity-0"
         }`}
       >
         <div

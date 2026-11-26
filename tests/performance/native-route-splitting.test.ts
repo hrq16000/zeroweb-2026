@@ -40,8 +40,10 @@ test("admin authorization and checkout search contract remain at their respectiv
 
 test("R_Beauty critical hero is visible in SSR and on first paint", () => {
   const src = read("src/components/site/RBeautyEditorialView.tsx");
-  expect(src).toContain("initial={false}");
-  expect(src).not.toContain("initial={{ opacity: 0");
+  const hero = src.split("{/* H1 da primeira dobra")[1]?.split("{/* Hero Visual Card */}")[0] ?? "";
+  expect(hero).toContain('<div className="lg:col-span-7 space-y-6">');
+  expect(hero).not.toContain("<motion.div");
+  expect(hero).not.toContain("initial={{ opacity: 0");
   expect(src).toContain("useReducedMotion()");
   expect(src).toContain("duration: reduceMotion ? 0 : 0.35");
 });
