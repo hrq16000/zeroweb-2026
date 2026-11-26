@@ -106,7 +106,7 @@ describe("Lolipa: imagem LCP autêntica em variante WebP lossless", () => {
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-branca.webp"');
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-colorida.webp"');
     expect(page).toContain('"/images/_generated/lolipa-arte-em-festas/decoracao-infantil.webp"');
-    expect(page).toContain("widths={[480, 680]}");
+    expect(page).toContain("widths={[480, 960]}");
     expect(page).toContain('(min-width: 640px) 25vw, 50vw');
     expect(page).toContain('managedField: "heroImageUrl"');
     expect(page).toContain('formSlug="funnel-lolipa-arte-em-festas"');
@@ -191,7 +191,7 @@ describe("Embalar: mídia responsiva e preservação do funil", () => {
   test("mantém o LCP prioritário, o override administrável e o funil individual", () => {
     expect(page).toContain('managedField="heroImageUrl"');
     expect(page).toContain('clientKey="embalar-embalagens"');
-    expect(page).toContain("widths={[480, 960]}");
+    expect(page).toContain("widths={[480, 680]}");
     expect(page).toContain("priority");
   });
 });
