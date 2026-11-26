@@ -26,6 +26,14 @@ const DIR = "seo-reports";
 const OUT = path.join(DIR, `indexability-${label}.json`);
 
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
+const catalog = [
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog.json", "utf8")),
+  ...JSON.parse(fs.readFileSync("src/config/portfolio-catalog-standalone.json", "utf8")),
+];
+const manifests = JSON.parse(fs.readFileSync("src/config/portfolio-project-manifests.json", "utf8")).projects;
+const draftRoutes = new Set(catalog.filter(c =>
+  c.status === "draft" && ["draft", "design"].includes(manifests[c.slug]?.stage)
+).map(c => `/portfolio/${c.slug}`));
 const routes = ["/", "/portfolio", "/servicos", "/blog", ...clients.map((c) => `/portfolio/${c.slug}`)];
 
 const meta = (html, attr, value) => {
@@ -186,12 +194,21 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
     "| Rota | Status | Canonical | robots | Schemas | Regressão dura | Observação |",
     "| --- | --- | --- | --- | --- | --- | --- |",
   ];
+  const sitemapRouteSet = (snapshot) => new Set(snapshot.sitemap.urls.map(url => {
+    try { return new URL(url).pathname.replace(/\/$/, "") || "/"; } catch { return url; }
+  }));
+  const beforePaths = sitemapRouteSet(before);
+  const afterPaths = sitemapRouteSet(after);
   let regressions = 0;
   for (const route of [...new Set([...Object.keys(b), ...Object.keys(a)])].sort()) {
     const x = b[route];
     const y = a[route];
     const chg = (from, to) => (String(from ?? "—") === String(to ?? "—") ? String(to ?? "—") : `${from ?? "—"} → **${to ?? "—"}**`);
-    const delta = classifyIndexabilityDelta(x, y);
+    const delta = classifyIndexabilityDelta(x, y, {
+      newDraft: draftRoutes.has(route),
+      beforeInSitemap: beforePaths.has(route),
+      afterInSitemap: afterPaths.has(route),
+    });
     if (delta.hard) regressions++;
     const observation =
       delta.schemaDelta < 0
