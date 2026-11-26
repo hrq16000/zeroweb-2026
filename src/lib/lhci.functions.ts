@@ -3,6 +3,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
 import { getSettingValue } from "@/lib/settings.functions";
+import { LIGHTHOUSE_MONITORED_SLUGS } from "@/lib/lhci-receipt-tracking";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyClient = any;
@@ -12,17 +13,16 @@ async function getAdmin() {
   return supabaseAdmin as unknown as AnyClient;
 }
 
-async function getRoles(userId: string): Promise<string[]> {
-  const sb = await getAdmin();
+async function getRoles(sb: AnyClient, userId: string): Promise<string[]> {
   const { data } = await sb.from("user_roles").select("role").eq("user_id", userId);
   return ((data ?? []) as { role: string }[]).map((r) => r.role);
 }
 
 function canView(roles: string[]) {
-  return roles.some((r) => ["admin", "admin_integrations", "dev"].includes(r));
+  return roles.some((r) => ["super_admin", "admin", "admin_integrations", "dev"].includes(r));
 }
 function canDecide(roles: string[]) {
-  return roles.includes("admin");
+  return roles.includes("admin") || roles.includes("super_admin");
 }
 
 export const listLhciRuns = createServerFn({ method: "GET" })
@@ -32,31 +32,32 @@ export const listLhciRuns = createServerFn({ method: "GET" })
       .object({
         environment: z.string().optional(),
         limit: z.number().int().min(1).max(200).optional(),
+        offset: z.number().int().min(0).max(100000).default(0),
       })
       .parse(i ?? {}),
   )
   .handler(async ({ context, data }) => {
-    const roles = await getRoles(context.userId);
+    const roles = await getRoles(context.supabase, context.userId);
     if (!canView(roles)) throw new Error("Acesso negado");
     const sb = await getAdmin();
     let q = sb
       .from("lhci_runs")
       .select(
-        "id,environment,url,commit_sha,branch,performance,seo,accessibility,best_practices,lcp_ms,cls,tbt_ms,fcp_ms,status,decision,decision_reason,decided_at,created_at",
+        "id,environment,url,commit_sha,branch,performance,seo,accessibility,best_practices,lcp_ms,cls,tbt_ms,fcp_ms,status,decision,decision_reason,decided_at,created_at,measured_at,logs", { count: "exact" },
       )
       .order("created_at", { ascending: false })
-      .limit(data.limit ?? 30);
+      .range(data.offset, data.offset + (data.limit ?? 30) - 1);
     if (data.environment) q = q.eq("environment", data.environment);
-    const { data: rows, error } = await q;
+    const { data: rows, error, count } = await q;
     if (error) throw new Error(error.message);
-    return { rows: rows ?? [], canDecide: canDecide(roles) };
+    return { rows: rows ?? [], total: count ?? 0, canDecide: canDecide(roles), receivingConfigured: !!process.env['LHCI_HMAC_SECRET'] };
   });
 
 export const getLhciRun = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator((i) => z.object({ id: z.string().uuid() }).parse(i))
   .handler(async ({ context, data }) => {
-    const roles = await getRoles(context.userId);
+    const roles = await getRoles(context.supabase, context.userId);
     if (!canView(roles)) throw new Error("Acesso negado");
     const sb = await getAdmin();
     const { data: row, error } = await sb
@@ -66,6 +67,21 @@ export const getLhciRun = createServerFn({ method: "GET" })
       .maybeSingle();
     if (error) throw new Error(error.message);
     return { row };
+  });
+
+export const getLhciCoverage = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const roles = await getRoles(context.supabase, context.userId);
+    if (!canView(roles)) throw new Error("Acesso negado");
+    const sb = await getAdmin();
+    const { data, error, count } = await sb.from("lhci_runs")
+      .select("id,environment,url,performance,seo,accessibility,best_practices,lcp_ms,cls,tbt_ms,fcp_ms,status,decision,decision_reason,created_at,measured_at,logs", { count: "exact" })
+      .eq("environment", "prod")
+      .in("url", LIGHTHOUSE_MONITORED_SLUGS.map(slug => `https://0web.com.br/portfolio/${slug}`))
+      .order("created_at", { ascending: false }).limit(2000);
+    if (error) throw new Error("Não foi possível conferir os recebimentos.");
+    return { rows: data ?? [], complete: count !== null && (data?.length ?? 0) >= count };
   });
 
 async function notifyDecision(run: any, decision: string, reason: string | null, actor: string) {
@@ -125,7 +141,7 @@ export const decideLhciRun = createServerFn({ method: "POST" })
       .parse(i),
   )
   .handler(async ({ context, data }) => {
-    const roles = await getRoles(context.userId);
+    const roles = await getRoles(context.supabase, context.userId);
     if (!canDecide(roles)) throw new Error("Apenas admin pode aprovar/reprovar builds");
     const sb = await getAdmin();
     const { data: run, error: re } = await sb
@@ -156,7 +172,7 @@ export const lhciTrends = createServerFn({ method: "GET" })
       .parse(i ?? {}),
   )
   .handler(async ({ context, data }) => {
-    const roles = await getRoles(context.userId);
+    const roles = await getRoles(context.supabase, context.userId);
     if (!canView(roles)) throw new Error("Acesso negado");
     const sb = await getAdmin();
     let q = sb

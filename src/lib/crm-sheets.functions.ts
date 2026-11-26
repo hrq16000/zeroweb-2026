@@ -13,6 +13,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { CRM_STATUSES } from "@/lib/crm.functions";
+import { importSheetChanges } from "@/lib/crm-sheet-sync";
 
 const GATEWAY = "https://connector-gateway.lovable.dev/google_sheets/v4";
 const SHEET_TAB = "Leads";
@@ -143,6 +144,7 @@ type LeadRow = {
   assignee: string | null;
   notes: string | null;
   updated_at?: string | null;
+  portal_id: string | null;
 };
 
 function toRow(lead: LeadRow): string[] {
@@ -186,57 +188,64 @@ export const syncCrmSheet = createServerFn({ method: "POST" })
       values?: string[][];
     };
     const sheetRows = current.values ?? [];
-    let updatedFromSheet = 0;
-
-    const { data: dbRows } = await supabaseAdmin
+    const { data: dbRows, error: readError } = await supabaseAdmin
       .from("lead_submissions")
-      .select("id, created_at, name, phone, email, source, offer_slug, company, status, assignee, notes")
+      .select("id, created_at, name, phone, email, source, offer_slug, company, status, assignee, notes, updated_at, portal_id")
       .gte("created_at", since)
       .order("created_at", { ascending: false })
-      .limit(5000);
+      .limit(5001);
+    if (readError) throw new Error("Não foi possível ler os leads. A planilha não foi reescrita.");
     const leads = (dbRows ?? []) as unknown as LeadRow[];
-    const byId = new Map(leads.map((l) => [l.id, l]));
-
-    for (const row of sheetRows) {
-      const id = row[0];
-      if (!id) continue;
-      const lead = byId.get(id);
-      if (!lead) continue;
-      const status = (row[8] ?? "").trim();
-      const assignee = (row[9] ?? "").trim();
-      const notes = (row[10] ?? "").trim();
-
-      const patch: { status?: string; assignee?: string | null; notes?: string | null } = {};
-      if (status && (CRM_STATUSES as readonly string[]).includes(status) && status !== (lead.status ?? "novo")) {
-        patch.status = status;
+    if (leads.length > 5000) throw new Error("O período excede 5.000 leads. Nenhuma alteração foi importada e a planilha foi preservada.");
+    const imported = await importSheetChanges(sheetRows, leads, CRM_STATUSES, async (lead, patch) => {
+      let update = supabaseAdmin.from("lead_submissions").update(patch).eq("id", lead.id);
+      // Compare-and-set: a concurrent close, reassignment or portal move cannot
+      // be overwritten after the read. All conditions run in the same UPDATE.
+      for (const column of ["status", "assignee", "notes", "updated_at", "portal_id"] as const) {
+        const expected = lead[column];
+        update = expected == null ? update.is(column, null) : update.eq(column, expected);
       }
-      if (assignee !== (lead.assignee ?? "")) patch.assignee = assignee || null;
-      if (notes !== (lead.notes ?? "")) patch.notes = notes || null;
-      if (Object.keys(patch).length === 0) continue;
+      const { data: changed, error } = await update.select("id").maybeSingle();
+      if (error) return "failed";
+      return changed ? "updated" : "conflict";
+    });
+    if (!imported.ok) return {
+      ok: false, sheetId, sheetUrl: `https://docs.google.com/spreadsheets/d/${sheetId}/edit`,
+      leadsEnviados: 0, atualizadosPelaPlanilha: imported.updated,
+      encerradosPreservados: imported.protectedTerminal, falhas: imported.failures,
+      sincronizadoEm: null,
+    };
 
-      const { error } = await supabaseAdmin.from("lead_submissions").update(patch).eq("id", id);
-      if (error) {
-        console.error(`[crm-sheets] não foi possível atualizar o lead ${id}: ${error.message}`);
-        continue;
-      }
-      Object.assign(lead, patch);
-      updatedFromSheet += 1;
+    // Re-read the committed state (including triggers), never export the stale
+    // pre-import snapshot or clear the sheet after an unsuccessful read.
+    const { data: finalRows, error: finalError } = await supabaseAdmin.from("lead_submissions")
+      .select("id, created_at, name, phone, email, source, offer_slug, company, status, assignee, notes, updated_at, portal_id")
+      .gte("created_at", since).order("created_at", { ascending: false }).limit(5001);
+    if (finalError || !finalRows || finalRows.length > 5000) {
+      throw new Error(`${imported.updated} alteração(ões) importada(s), mas a leitura final falhou ou excedeu o limite. A planilha foi preservada.`);
     }
 
     // ---------- 2. Portal → Planilha ----------
-    const values = leads.map(toRow);
-    await sheetsFetch(`/spreadsheets/${sheetId}/values/${SHEET_TAB}!A1:L100000:clear`, { method: "POST", body: "{}" });
-    await sheetsFetch(`/spreadsheets/${sheetId}/values/${SHEET_TAB}!A1?valueInputOption=USER_ENTERED`, {
+    const values = (finalRows as unknown as LeadRow[]).map(toRow);
+    // Never clear the only copy before the replacement has been accepted.
+    await sheetsFetch(`/spreadsheets/${sheetId}/values/${SHEET_TAB}!A1?valueInputOption=RAW`, {
       method: "PUT",
       body: JSON.stringify({ values: [HEADERS as unknown as string[], ...values] }),
     });
+    if (sheetRows.length > values.length) {
+      await sheetsFetch(`/spreadsheets/${sheetId}/values/${SHEET_TAB}!A${values.length + 2}:L${sheetRows.length + 1}:clear`, {
+        method: "POST", body: "{}",
+      });
+    }
 
     return {
       ok: true,
       sheetId,
       sheetUrl: `https://docs.google.com/spreadsheets/d/${sheetId}/edit`,
       leadsEnviados: values.length,
-      atualizadosPelaPlanilha: updatedFromSheet,
+      atualizadosPelaPlanilha: imported.updated,
+      encerradosPreservados: imported.protectedTerminal,
+      falhas: imported.failures,
       sincronizadoEm: new Date().toISOString(),
     };
   });

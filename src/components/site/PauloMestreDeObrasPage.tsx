@@ -205,7 +205,7 @@ export function PauloMestreDeObrasPage() {
                 Pedreiro · azulejista · reformas e reparos
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 18 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 }}
                 className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl"
@@ -244,7 +244,7 @@ export function PauloMestreDeObrasPage() {
               </div>
             </div>
             <motion.div
-              initial={{ opacity: 0, x: 24, scale: 0.97 }}
+              initial={false}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.7 }}
             >

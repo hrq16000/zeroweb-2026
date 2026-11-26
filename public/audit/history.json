@@ -1,5 +1,30 @@
 [
   {
+    "generatedAt": "2026-11-24T07:50:52.501Z",
+    "commit": null,
+    "runUrl": null,
+    "totals": {
+      "routes": 12,
+      "routesWithProblems": 11,
+      "problems": 13,
+      "lighthouseRuns": 24,
+      "sitemapUrls": null
+    },
+    "lighthouseAverage": {
+      "performance": 0.8645833333333331,
+      "seo": 1,
+      "accessibility": 0.9633333333333338,
+      "bestPractices": 0.9983333333333334
+    },
+    "provenance": {
+      "requestedCandidate": "4949e96bb5f51b4539d07248f1fb6da8a03981a3",
+      "publishedShaVerified": false,
+      "measurement": "public desktop Lighthouse, 2 runs per route",
+      "scope": "12 explicitly requested routes; no global PASS",
+      "previousSnapshot": "/audit/archive/2026-08-28.json"
+    }
+  },
+  {
     "generatedAt": "2026-08-28T17:07:45.506Z",
     "commit": null,
     "runUrl": null,

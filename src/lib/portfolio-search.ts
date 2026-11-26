@@ -27,7 +27,25 @@ export type SearchableItem = {
   category?: string;
   metrics?: string;
   summary?: string;
+  /** "published" | "draft" | "archived" — rascunhos também são localizáveis. */
+  status?: string;
+  projectType?: string;
+  domain?: string;
   tags: string[];
+};
+
+/** Rótulos pesquisáveis de status: quem digita "rascunho" encontra os drafts. */
+const STATUS_TERMS: Record<string, string> = {
+  published: "publicado published",
+  draft: "rascunho draft desenvolvimento",
+  ready: "pronto desenvolvimento",
+  archived: "arquivado archived",
+};
+
+const STATE_NAMES: Record<string, string> = {
+  PR: "Paraná", SP: "São Paulo", MG: "Minas Gerais", RJ: "Rio de Janeiro", SC: "Santa Catarina",
+  RS: "Rio Grande do Sul", BA: "Bahia", GO: "Goiás", DF: "Distrito Federal", ES: "Espírito Santo",
+  PE: "Pernambuco", CE: "Ceará", MT: "Mato Grosso", MS: "Mato Grosso do Sul", PA: "Pará", AM: "Amazonas",
 };
 
 export function normalizeText(value: string): string {
@@ -226,7 +244,10 @@ function buildLayers(item: SearchableItem): Layer[] {
     layer(0.85, item.tags.join(" "), doc?.tags),
     layer(0.8, item.segment, item.category, doc?.categories),
     layer(0.75, doc?.problems),
-    layer(0.6, item.location, item.city, item.state, doc?.locality),
+    layer(0.6, item.location, item.city, item.state, STATE_NAMES[item.state ?? ""], doc?.locality),
+    // Identificadores, domínio e status: nome interno ≠ nome comercial também acha.
+    layer(0.7, item.slug?.replace(/^\/portfolio\//, ""), item.clientKey, item.domain),
+    layer(0.7, STATUS_TERMS[item.status ?? ""]),
     layer(0.5, item.subtitle, item.summary, item.metrics, doc?.keywords),
   ].filter((l) => l.terms.length > 0);
 }
