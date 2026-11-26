@@ -766,5 +766,15 @@
     "whatsappPrompt": "Gostaria de consultar cama elástica ou piscina de bolinhas para uma festa. Podem informar disponibilidade e valores?",
     "whatsappSubject": "a locação de brinquedos",
     "proposalKind": "service"
+  },
+  "toop-assados": {
+    "intent": "pedido",
+    "nextStepTitle": "Que assado você gostaria de consultar na demonstração Toop Assados?",
+    "nextStepBody": "Selecione frango recheado ou costela e teste como seria um pedido. Esta é apenas uma demonstração independente, sem encomendas reais ou atendimento do estabelecimento.",
+    "primaryCtaLabel": "Simular interesse em um assado",
+    "theme": "gold",
+    "whatsappPrompt": "Quero simular interesse em costela ou frango recheado, sem enviar um pedido real.",
+    "whatsappSubject": "uma simulação de encomenda da Toop Assados",
+    "proposalKind": "service"
   }
 }

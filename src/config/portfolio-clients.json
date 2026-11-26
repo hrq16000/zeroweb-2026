@@ -1446,5 +1446,25 @@
       "source": "Panfleto fotografado fornecido pelo operador em 23/11/2026; apenas demonstração editorial, sem vínculo oficial",
       "reference": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json"
     }
+  },
+  {
+    "clientKey": "toop-assados",
+    "slug": "toop-assados",
+    "siteName": "Toop Assados",
+    "routeFile": "src/routes/portfolio.toop-assados.tsx",
+    "componentFile": "src/components/site/ToopAssadosPreviewPage.tsx",
+    "assetsDir": "public/images/toop-assados",
+    "ctaMode": "proposal",
+    "contactMode": "funnelOnly",
+    "funnelType": "pedido",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/toop-assados.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Panfleto comercial fotografado pelo usuário em 07/11/2026; titularidade, preços e canais não confirmados"
+    }
   }
 ]

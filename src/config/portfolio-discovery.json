@@ -903,6 +903,44 @@
         "locação de piscina de bolinhas São José dos Pinhais",
         "BPL brinquedos SJP"
       ]
+    },
+    "toop-assados": {
+      "aliases": [
+        "Toop Assados",
+        "Toop Assados Curitiba",
+        "Toop Assados Xaxim"
+      ],
+      "categories": [
+        "assados",
+        "rotisseria",
+        "comida pronta"
+      ],
+      "services": [
+        "consulta de assados",
+        "simulação de encomenda"
+      ],
+      "products": [
+        "costela assada na brasa",
+        "frango recheado com aipim",
+        "batatas assadas",
+        "maionese",
+        "refrigerante"
+      ],
+      "useCases": [
+        "consultar costela para almoço",
+        "ver opções de frango recheado no Xaxim"
+      ],
+      "locality": [
+        "Xaxim",
+        "Curitiba",
+        "PR"
+      ],
+      "keywords": [
+        "Toop Assados Curitiba",
+        "Toop Assados Xaxim",
+        "costela assada Xaxim",
+        "frango recheado Curitiba"
+      ]
     }
   }
 }

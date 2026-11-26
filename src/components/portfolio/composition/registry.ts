@@ -31,6 +31,7 @@ export const compositionPages: Record<string, LazyExoticComponent<ComponentType>
   ),
   "espaco-marli-nails-guaratuba": lazy(() => import("@/components/site/EspacoMarliNailsGuaratubaPage").then((m) => ({ default: m.EspacoMarliNailsGuaratubaPage }))),
   "bpl-locacoes-de-brinquedos": lazy(() => import("@/components/site/BplLocacoesBrinquedosPage").then((m) => ({ default: m.BplLocacoesBrinquedosPage }))),
+  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage").then((m) => ({ default: m.ToopAssadosLivePage }))),
   // "<slug>": lazy(() => import("@/components/site/<Componente>").then((m) => ({ default: m.<Componente> }))),
   "infinito-spa": lazy(() => import("@/components/site/InfinitoSpaPage").then((m) => ({ default: m.InfinitoSpaPage }))),
 };

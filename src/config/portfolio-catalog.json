@@ -2466,5 +2466,33 @@
     "metrics": "Consulte informações e condições",
     "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço. Proposta demonstrativa independente da 0WEB; não é o canal oficial da empresa.",
     "indexable": false
+  },
+  {
+    "slug": "toop-assados",
+    "clientKey": "toop-assados",
+    "title": "Toop Assados",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "assados",
+      "costela",
+      "frango recheado",
+      "xaxim",
+      "curitiba",
+      "almoço"
+    ],
+    "live": true,
+    "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
+    "location": "Xaxim · Curitiba — PR",
+    "badge": "Demonstração 0WEB · parametrização posterior",
+    "image": "/images/toop-assados/capa-card.svg",
+    "fallbackImage": "/images/toop-assados/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Pratos anunciados em panfleto; preços sujeitos a confirmação",
+    "summary": "Estudo de presença digital para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba. Proposta independente da 0WEB, sem encomendas oficiais. Proposta demonstrativa independente da 0WEB; não é o canal oficial do restaurante.",
+    "indexable": false
   }
 ]

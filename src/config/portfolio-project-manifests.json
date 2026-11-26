@@ -1975,6 +1975,216 @@
         "indexable": false,
         "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
       }
+    },
+    "toop-assados": {
+      "slug": "toop-assados",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "compositionContract": 2,
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "in_progress",
+        "funnel": "complete",
+        "cover": "in_progress",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {}
+      },
+      "blockers": [
+        "Homologação visual real em 390/768/1440 e 3 baselines versionadas pendentes",
+        "Gates de publicação e Lighthouse específicos pendentes",
+        "Fotos oficiais, preços atuais, horário e canal oficial dependem de confirmação; versão só pode ser demonstração não oficial"
+      ],
+      "warnings": [
+        "Formulário Jotform isolado é de simulação, com uma submissão sintética persistida; não atende clientes reais",
+        "Redes sociais e ficha Google da Toop no Xaxim não resolvidas com segurança"
+      ],
+      "ownerRequired": [
+        "Confirmar propriedade/nome, endereço, valores e condições vigentes",
+        "Autorizar fotografias reais, se disponíveis",
+        "Confirmar destino operacional do restaurante se desejar receber pedidos reais"
+      ],
+      "searchQa": [
+        {
+          "query": "Toop Assados Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "costela assada Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "frango recheado Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "assados para almoço Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        }
+      ],
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "assados locais",
+        "layoutFamily": "editorial-cardapio",
+        "heroFamily": "tipografico-com-prato-ilustrado",
+        "sectionRhythm": "faixas-de-menu",
+        "proofStyle": "transparencia-de-fonte",
+        "mediaNarrative": "desenho-de-prato",
+        "ctaStyle": "simulador-de-interesse",
+        "motionProfile": "quiet-grill-editorial"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "notes": "Comparação perceptual NO-BRAND aprovada em 390 e 1440 contra Your Brutus Burguer. A composição de menu editorial ilustrado, ledgers de pratos, simulador e fechamento local mantém estrutura própria; não é skin swap."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "large type-left and semicircle editorial plate-right",
+        "headerTreatment": "compact restaurant wordmark and three semantic anchors",
+        "sectionGraph": "grill-poster→two-dish-specification-ledger→interactive-order-demo→neighborhood-reference→nonofficial-close",
+        "contentOrder": [
+          "decisão rápida",
+          "pratos anunciados",
+          "simulação",
+          "contexto local",
+          "limites"
+        ],
+        "gridTopology": "split asymmetrical hero + paired dish ledgers + summary utility",
+        "mediaDistribution": "handmade SVG food illustration and own SVG brand marks",
+        "backgroundRhythm": "warm kraft→cream→charcoal→warm paper",
+        "proofPlacement": "historic pricing and disclaimer beside every dish",
+        "ctaDistribution": "hero anchor, dish selection, hosted demonstration form",
+        "navigationPattern": "three anchors with wordmark",
+        "motionSignature": "short menu card elevation, reduced-motion static",
+        "closingStructure": "restrained location evidence and no-official-affiliation notice",
+        "roleGraph": [
+          "brand discovery",
+          "dish selection",
+          "non-transactional order simulation",
+          "local evidence"
+        ],
+        "mediaCadence": [
+          "illustrated plate",
+          "typographic food ledgers",
+          "interactive summary",
+          "local note"
+        ],
+        "interactionLoci": [
+          "two dish toggles",
+          "quantity selection",
+          "single hosted form"
+        ],
+        "decisionAidPlacement": [
+          "dish comparison in first scroll",
+          "quantity simulator before hosted form"
+        ],
+        "densityRhythm": [
+          "hero monumental",
+          "editorial ledgers",
+          "utility card",
+          "calm close"
+        ],
+        "mobileCompositionStrategy": "stacked hero and tactile dish controls for 390px, no overflow"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "sources": [
+          "USER_SUPPLIED_FLYER_PHOTOS_2026-11-07"
+        ],
+        "claimsAttribution": "Toda menção a valores e itens é histórica e explicitamente sujeita a confirmação."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "notes": "Capturas reais 390/768/1440 e revisão perceptual NO-BRAND 390/1440 aprovadas; evidências preservadas no artefato GitHub Actions run 45133834586. QA funcional e overflow sem falhas; sem regravar baselines.",
+        "evaluatedAt": "2026-11-25"
+      },
+      "notes": {
+        "brief": "docs/portfolio/briefs/toop-assados.md",
+        "enrichment": "docs/portfolio/enrichment/toop-assados.json",
+        "mediaPlan": "docs/portfolio/media-plans/toop-assados.json",
+        "funnel": "Formulário Jotform demonstrativo com teste sintético único em 23/11/2026; não é encomenda oficial."
+      },
+      "lastUpdatedAt": "2026-11-23",
+      "perceptualReview": {
+        "screenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-1440.png"
+        },
+        "noBrandScreenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-1440.png"
+        },
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "your-brutus-burguer"
+        ],
+        "reviewedAt": "2026-11-25",
+        "reviewer": "Codex visual review",
+        "notes": "Revisão real das capturas 390/768/1440 e das duas capturas NO-BRAND. Toop mantém painel editorial claro, prato ilustrado, dois ledgers de escolha, simulador escuro e encerramento local; Your Brutus permanece com hero escuro, bloco de mídia próprio, seção de catálogo e grade de cards. Removidos nome, texto, imagens e saturação, as silhuetas, a geometria e o ritmo continuam claramente distintos. Nenhuma baseline foi alterada."
+      },
+      "publicationException": {
+        "date": "2026-11-26",
+        "mode": "public-demonstrative-landing",
+        "ownerDirective": true,
+        "indexable": false,
+        "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+      }
     }
   }
 }

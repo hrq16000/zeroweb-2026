@@ -1581,6 +1581,14 @@
       "footer": {
         "variant": "dark"
       }
+    },
+    "toop-assados": {
+      "contactFloating": {
+        "enabled": false
+      },
+      "footer": {
+        "variant": "dark"
+      }
     }
   }
 }

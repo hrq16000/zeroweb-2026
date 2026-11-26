@@ -1517,6 +1517,23 @@
       "desktopBehavior": "Capa tipográfica com arte abstrata, seletor de cuidados e endereço",
       "tabletBehavior": "Hero empilhado, consulta por CTA destacado e escolhas responsivas",
       "mobileBehavior": "Uma coluna, CTA em âncora, sem parallax nem rolagem horizontal"
+    },
+    "toop-assados": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "static",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "tipografia monumental junto a ilustração vetorial, pratos com movimento breve apenas em hover",
+      "tabletBehavior": "hero empilhado, pratos em duas colunas se couber",
+      "mobileBehavior": "uma coluna, CTA de escolha grande e animação desligada com redução de movimento"
     }
   },
   "decisions": {
