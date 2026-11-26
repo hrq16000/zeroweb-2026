@@ -13,12 +13,23 @@ describe("Infinito Spa — funil chileno", () => {
     const intake = readFileSync("src/lib/lead-intake.functions.ts", "utf8");
     const form = readFileSync("src/components/site/InfinitoSpaLeadForm.tsx", "utf8");
     const operationalGate = readFileSync("scripts/check-portfolio-funnel-operational.mjs", "utf8");
+    const hostLead = readFileSync("src/lib/portfolio-host-leads.functions.ts", "utf8");
+    const phoneLeads = readFileSync("src/lib/phone-leads.functions.ts", "utf8");
     expect(form).toContain("submitInfinitoSpaPublicLead");
     expect(operationalGate).toContain("submitInfinitoSpaPublicLead");
     expect(intake).toContain("export const submitPublicLead");
     expect(intake).toContain('data.source !== "portfolio:infinito-spa"');
+    const legacyAction = intake.slice(
+      intake.indexOf("export const submitPublicLead"),
+      intake.indexOf("export const submitInfinitoSpaPublicLead"),
+    );
     const infinitoAction = intake.slice(intake.indexOf("export const submitInfinitoSpaPublicLead"));
+    expect(legacyAction).toContain("supabaseAdmin");
+    expect(infinitoAction).toContain("publicClient");
     expect(infinitoAction).not.toContain("supabaseAdmin");
+    expect(hostLead).toContain('data.attribution?.portfolioSlug === "infinito-spa"');
+    expect(hostLead).toContain("normalizeChilePhone(data.phone)");
+    expect(phoneLeads).toContain("toWhatsAppPhoneDigits(telefone)");
     expect(intake).toContain('Database["public"]["Tables"]["lead_submissions"]["Insert"]');
     expect(intake).not.toContain("as any");
     expect(intake).not.toContain("SUPABASE_SERVICE_ROLE_KEY");
