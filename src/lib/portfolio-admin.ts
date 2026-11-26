@@ -11,6 +11,8 @@
  *    histórico auditável.
  */
 import seedFile from "@/config/portfolio-admin-seed.json";
+import { containsPublicContact, isSafeAssetPath, UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-public-safety";
+export { containsPublicContact, isSafeAssetPath, UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-public-safety";
 
 export type ConformanceCode =
   | "PORTFOLIO_BRAND_MISSING"
@@ -264,17 +266,4 @@ export function diffAgainstSeed(seed: SeedProject, merged: MergedProject): strin
   return diffs;
 }
 
-export const UPLOAD_PUBLIC_PREFIX = "/api/public/portfolio-asset";
 
-const SAFE_ASSET = /^\/(images|api\/public\/portfolio-asset)\/[A-Za-z0-9/_.-]+$/;
-
-/** Aceita apenas caminhos internos de asset — bloqueia URL externa e javascript:. */
-export function isSafeAssetPath(value: string): boolean {
-  if (!value) return true;
-  return SAFE_ASSET.test(value);
-}
-
-/** Contatos operacionais nunca podem ser gravados por telas administrativas. */
-export function containsPublicContact(value: string): boolean {
-  return /(wa\.me|api\.whatsapp\.com|whatsapp\.com\/send|tel:\+?\d|mailto:)/i.test(value);
-}

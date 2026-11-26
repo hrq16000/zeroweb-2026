@@ -140,6 +140,7 @@ export function MarmitariaDomDiegoPage() {
 
 
         {/* cardápio em linhas com pontilhado */}
+        <MotionFirstPaint>
         <section aria-labelledby="dd-cardapio" className="mx-auto max-w-5xl px-5 py-12 md:py-16">
           <div className="flex flex-wrap items-baseline justify-between gap-4 border-b-2 border-[var(--dd-ink)]/20 pb-4">
             <h2
@@ -209,6 +210,7 @@ export function MarmitariaDomDiegoPage() {
             </div>
           </MotionReveal>
         </section>
+        </MotionFirstPaint>
       </main>
       </MotionScope>
 

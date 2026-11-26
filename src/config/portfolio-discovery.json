@@ -718,6 +718,37 @@
         "leva e busca escola CMEI Jardim Itália"
       ]
     },
+    "salgados-da-fran": {
+      "aliases": [
+        "Salgados da Fran",
+        "Salgados da Fran SJP",
+        "Fran Salgados"
+      ],
+      "categories": [
+        "salgados",
+        "alimentação por encomenda"
+      ],
+      "services": [
+        "encomendas de salgados"
+      ],
+      "products": [],
+      "useCases": [
+        "consultar cardápio",
+        "perguntar quantidade para encomenda",
+        "saber preço de salgados",
+        "consultar disponibilidade"
+      ],
+      "locality": [
+        "Águas Belas",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Salgados da Fran São José dos Pinhais",
+        "salgados por encomenda Águas Belas",
+        "Salgados da Fran SJP"
+      ]
+    },
     "panificadora-doce-coracao-santo-antonio": {
       "aliases": [
         "Panificadora Doce Coração",
@@ -732,11 +763,34 @@
       ],
       "services": [],
       "equipment": [],
-      "products": ["pães", "salgados", "bolos", "doces"],
+      "products": [
+        "pães",
+        "salgados",
+        "bolos",
+        "doces"
+      ],
       "problems": [],
-      "useCases": ["encontrar padaria no Santo Antônio", "localizar a Panificadora Doce Coração", "consultar endereço e horário da padaria", "conhecer categorias de pães, bolos e salgados"],
-      "locality": ["Rua Desembargador James Portugal Macedo", "Santo Antônio", "São José dos Pinhais", "PR"],
-      "keywords": ["Panificadora Doce Coração Santo Antônio", "padaria doce coração São José dos Pinhais", "padaria no Santo Antônio SJP", "pães e salgados Santo Antônio", "0WEB portfólio panificadora", "site de padaria feito pela 0WEB", "WebRealce criação de sites"]
+      "useCases": [
+        "encontrar padaria no Santo Antônio",
+        "localizar a Panificadora Doce Coração",
+        "consultar endereço e horário da padaria",
+        "conhecer categorias de pães, bolos e salgados"
+      ],
+      "locality": [
+        "Rua Desembargador James Portugal Macedo",
+        "Santo Antônio",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "Panificadora Doce Coração Santo Antônio",
+        "padaria doce coração São José dos Pinhais",
+        "padaria no Santo Antônio SJP",
+        "pães e salgados Santo Antônio",
+        "0WEB portfólio panificadora",
+        "site de padaria feito pela 0WEB",
+        "WebRealce criação de sites"
+      ]
     }
   }
 }

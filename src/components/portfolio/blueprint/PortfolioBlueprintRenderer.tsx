@@ -6,7 +6,7 @@
  * projeto específico vive aqui, e nenhuma ordem de seções é fixa.
  */
 import { Fragment } from "react";
-import { MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionScope } from "@/components/motion";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { BlueprintFloatingCta } from "./BlueprintFloatingCta";
 import { renderBlueprintSection, type SectionContext } from "./sections";
@@ -51,6 +51,7 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
     .slice()
     .sort((a, b) => a.order - b.order)
     .map((section) => (tuning ? { ...section, motion: tune(section.motion) } : section));
+  const firstHeroIndex = ordered.findIndex((section) => section.type === "hero");
 
   return (
     <MotionScope intensity={intensity}>
@@ -101,15 +102,22 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
         </header>
 
         <main id="inicio">
-          {ordered.map((section) => (
-            <Fragment key={`${section.type}-${section.order}`}>
-              {section.theme ? (
-                <div style={section.theme}>{renderBlueprintSection(section, ctx)}</div>
-              ) : (
-                renderBlueprintSection(section, ctx)
-              )}
-            </Fragment>
-          ))}
+          {ordered.map((section, index) => {
+            const rendered = section.theme ? (
+              <div style={section.theme}>{renderBlueprintSection(section, ctx)}</div>
+            ) : (
+              renderBlueprintSection(section, ctx)
+            );
+            return (
+              <Fragment key={`${section.type}-${section.order}`}>
+                {index === firstHeroIndex ? (
+                  <MotionFirstPaint>{rendered}</MotionFirstPaint>
+                ) : (
+                  rendered
+                )}
+              </Fragment>
+            );
+          })}
         </main>
 
         {layout.floatingConversion?.mode === "enabled" ? (

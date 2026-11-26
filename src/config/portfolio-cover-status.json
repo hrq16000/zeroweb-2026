@@ -2,19 +2,18 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-11-19",
+  "generatedAt": "2026-11-04",
   "summary": {
-    "total": 100,
+    "total": 101,
     "valid": 48,
-    "pending": 52,
+    "pending": 53,
     "byStatus": {
       "VALID": 48,
-      "NEEDS_CROP": 0,
-      "CONTACT_OR_PII": 7,
-      "PROMOTIONAL_MATERIAL": 2,
+      "UNCERTAIN_ORIGIN": 20,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 19
+      "CONTACT_OR_PII": 7,
+      "PROMOTIONAL_MATERIAL": 2
     },
     "balanced": true
   },
@@ -956,19 +955,6 @@
       "segment": "servicos"
     },
     {
-      "slug": "panificadora-doce-coracao-santo-antonio",
-      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
-      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
-      "businessName": "Panificadora Doce Coração",
-      "segment": "comercios"
-    },
-    {
       "slug": "papelemi-personalizados",
       "asset": "public/images/papelemi-personalizados/hero.png",
       "catalogImage": "/images/papelemi-personalizados/hero.png",
@@ -1318,6 +1304,32 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "salgados-da-fran",
+      "asset": "/images/salgados-da-fran/social-og.svg",
+      "catalogImage": "/images/salgados-da-fran/social-og.svg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Salgados da Fran",
+      "segment": "restaurantes"
+    },
+    {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Panificadora Doce Coração",
+      "segment": "comercios"
     }
   ]
 }

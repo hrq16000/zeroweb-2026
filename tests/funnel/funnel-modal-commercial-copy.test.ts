@@ -7,14 +7,23 @@ const wrapperSrc = readFileSync(
   "utf8",
 );
 
+const contentSrc = readFileSync(
+  resolve(process.cwd(), "src/components/funnel/FunnelModalContent.tsx"),
+  "utf8",
+);
+
 describe("FunnelModalWrapper commercial copy", () => {
   test("não injeta preço ou prazo global sobre ofertas diferentes", () => {
     expect(wrapperSrc).not.toContain("A partir de R$ 99,99/mês");
     expect(wrapperSrc).not.toContain("Entrega do site em até 72 horas");
+    expect(contentSrc).not.toContain("A partir de R$ 99,99/mês");
+    expect(contentSrc).not.toContain("Entrega do site em até 72 horas");
   });
 
   test("continua repassando contexto factual da origem ao FunnelRunner", () => {
-    expect(wrapperSrc).toContain("context={context}");
-    expect(wrapperSrc).toContain("prefill={prefill}");
+    expect(wrapperSrc).toContain("<FunnelModalContent {...props} />");
+    expect(contentSrc).toContain("context={context}");
+    expect(contentSrc).toContain("prefill={prefill}");
+    expect(contentSrc).toContain("clientKey={intent?.companySlug}");
   });
 });

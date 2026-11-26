@@ -290,10 +290,6 @@
       "createdAt": "2026-08-28T07:40:48.000Z",
       "updatedAt": "2026-10-05T04:17:33.000Z"
     },
-    "panificadora-doce-coracao-santo-antonio": {
-      "createdAt": "2026-11-19T16:57:58.000Z",
-      "updatedAt": "2026-11-26T05:08:50.000Z"
-    },
     "papelemi-personalizados": {
       "createdAt": "2026-09-06T09:03:57.000Z",
       "updatedAt": "2026-09-30T02:47:48.000Z"
@@ -405,6 +401,14 @@
     "your-brutus-burguer": {
       "createdAt": "2026-09-08T04:01:39.000Z",
       "updatedAt": "2026-11-24T07:23:14.000Z"
+    },
+    "salgados-da-fran": {
+      "createdAt": "2026-11-23T06:47:34.000Z",
+      "updatedAt": "2026-11-23T15:05:22.000Z"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "createdAt": "2026-11-19T16:57:58.000Z",
+      "updatedAt": "2026-11-26T05:08:50.000Z"
     }
   }
 }

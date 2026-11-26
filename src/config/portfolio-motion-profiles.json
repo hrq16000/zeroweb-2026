@@ -1433,23 +1433,6 @@
       "tabletBehavior": "hero em coluna e mosaico reduzido",
       "mobileBehavior": "conteúdo empilhado, CTA de consulta e sem movimento em reduced-motion"
     },
-    "panificadora-doce-coracao-santo-antonio": {
-      "intensity": "BALANCED",
-      "preset": "EDITORIAL",
-      "heroMotion": "softFloat",
-      "sectionReveal": "fade",
-      "imageReveal": "none",
-      "textReveal": "none",
-      "iconMotion": "subtle",
-      "hoverBehavior": "lift",
-      "depthBehavior": "flat",
-      "scrollBehavior": "native",
-      "staggerPattern": "none",
-      "reducedMotionFallback": "opacityOnly",
-      "desktopBehavior": "hero ilustrado em composição editorial, carimbo discreto e cartões de momentos com hover",
-      "tabletBehavior": "capa empilhada com ilustração à direita e produtos em grade",
-      "mobileBehavior": "leitura vertical, botões de toque amplo, sem paralaxe; movimento reduzido respeitado"
-    },
     "cantinho-da-tia-mari": {
       "intensity": "SUBTLE",
       "preset": "EDITORIAL",
@@ -1466,6 +1449,40 @@
       "desktopBehavior": "fachada fotografada em composição inclinada estática com hover apenas em CTA",
       "tabletBehavior": "hero empilhado, galeria mantida em mosaico de dois lados",
       "mobileBehavior": "coluna única e botão flutuante de consulta; reduce motion suprime transforms de hover"
+    },
+    "salgados-da-fran": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "none",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "cartaz central escuro, selo vetorial e tickets de consulta",
+      "tabletBehavior": "processo em três cartões responsivos, sem hero split",
+      "mobileBehavior": "coluna única sem overflow e CTA por quiz; motion-safe nos cartões"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "softFloat",
+      "sectionReveal": "fade",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "subtle",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "native",
+      "staggerPattern": "none",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero ilustrado em composição editorial, carimbo discreto e cartões de momentos com hover",
+      "tabletBehavior": "capa empilhada com ilustração à direita e produtos em grade",
+      "mobileBehavior": "leitura vertical, botões de toque amplo, sem paralaxe; movimento reduzido respeitado"
     }
   },
   "decisions": {

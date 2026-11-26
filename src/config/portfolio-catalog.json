@@ -2309,6 +2309,56 @@
     "summary": "Aviário Agropet Filt em Vargem Grande, Pinhais: rações, acessórios, artigos para pássaros, pesca, jardinagem e referência pública a banho e tosa. Solicite informações por um formulário com protocolo."
   },
   {
+    "slug": "cantinho-da-tia-mari",
+    "clientKey": "cantinho-da-tia-mari",
+    "title": "Cantinho da Tia Mari",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "berçário",
+      "cuidados infantis",
+      "jardim itália",
+      "horário estendido",
+      "leva e busca escolar"
+    ],
+    "subtitle": "Berçário e cuidados infantis anunciados no Jardim Itália",
+    "location": "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Novo portfólio demonstrativo",
+    "image": "/images/cantinho-da-tia-mari/fachada.webp",
+    "fallbackImage": "/images/cantinho-da-tia-mari/social-og.svg",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta de informações via formulário",
+    "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
+  },
+  {
+    "slug": "salgados-da-fran",
+    "clientKey": "salgados-da-fran",
+    "title": "Salgados da Fran",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "salgados",
+      "encomendas",
+      "águas belas",
+      "são josé dos pinhais"
+    ],
+    "subtitle": "Salgados por encomenda em São José dos Pinhais",
+    "location": "Águas Belas · São José dos Pinhais — PR",
+    "badge": "Portfólio demonstrativo em revisão",
+    "image": "/images/salgados-da-fran/social-og.svg",
+    "fallbackImage": "/images/salgados-da-fran/marca.svg",
+    "metrics": "Consulta de encomenda pelo funil",
+    "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial."
+  },
+  {
     "slug": "panificadora-doce-coracao-santo-antonio",
     "clientKey": "panificadora-doce-coracao-santo-antonio",
     "title": "Panificadora Doce Coração",
@@ -2336,31 +2386,5 @@
     "imageFocalPoint": "center",
     "metrics": "Endereço confirmado, rotas e página autoral otimizada",
     "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado."
-  },
-  {
-    "slug": "cantinho-da-tia-mari",
-    "clientKey": "cantinho-da-tia-mari",
-    "title": "Cantinho da Tia Mari",
-    "segment": "comercios",
-    "projectType": "landing",
-    "status": "published",
-    "live": true,
-    "city": "São José dos Pinhais",
-    "state": "PR",
-    "tags": [
-      "berçário",
-      "cuidados infantis",
-      "jardim itália",
-      "horário estendido",
-      "leva e busca escolar"
-    ],
-    "subtitle": "Berçário e cuidados infantis anunciados no Jardim Itália",
-    "location": "Rua Pedro Alves da Rocha, 200 · Jardim Itália · São José dos Pinhais — PR",
-    "badge": "Novo portfólio demonstrativo",
-    "image": "/images/cantinho-da-tia-mari/fachada.webp",
-    "fallbackImage": "/images/cantinho-da-tia-mari/social-og.svg",
-    "imageFocalPoint": "center",
-    "metrics": "Consulta de informações via formulário",
-    "summary": "Proposta demonstrativa 0WEB para Cantinho da Tia Mari em São José dos Pinhais: berçário, horários e leva e busca anunciados no panfleto, com fotos reais do material e formulário para consulta não oficial."
   }
 ]

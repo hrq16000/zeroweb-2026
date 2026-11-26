@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 
-const checkout = readFileSync("src/routes/checkout.tsx", "utf8");
+const checkout = readFileSync("src/components/route-pages/CheckoutPage.tsx", "utf8");
 const funnel = readFileSync("src/lib/cart-funnel.functions.ts", "utf8");
 const orders = readFileSync("src/lib/orders.functions.ts", "utf8");
 const stripe = readFileSync("src/lib/stripe-checkout.functions.ts", "utf8");

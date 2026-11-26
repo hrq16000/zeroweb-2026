@@ -1129,6 +1129,189 @@
         "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
       }
     },
+    "salgados-da-fran": {
+      "slug": "salgados-da-fran",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "complete",
+        "publish": "not_started"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.salgados-da-fran.tsx",
+            "src/components/site/SalgadosDaFranPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Google Maps listing name/phone, Águas Belas"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/salgados-da-fran/social-og.svg",
+            "docs/portfolio/media-plans/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "robots noindex until readiness and real QA"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "salgados",
+        "layoutFamily": "central-editorial-poster",
+        "heroFamily": "mascot-poster-centered",
+        "sectionRhythm": "bold-poster-to-process",
+        "proofStyle": "public-card-with-disclosure",
+        "mediaNarrative": "brand-vector-no-product-photos",
+        "ctaStyle": "persisted-client-quiz",
+        "motionProfile": "editorial-subtle"
+      },
+      "structuralOriginalityReview": {
+        "approved": false,
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB preliminary source review",
+        "notes": "Requires real Chromium screenshots and perceptual review against similar food portfolios."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "stacked vertical centered poster with three mascots",
+        "headerTreatment": "compact dark logo",
+        "sectionGraph": "charcoal-poster→cream-process→charcoal-faq→white-location→yellow-cta",
+        "contentOrder": [
+          "brand",
+          "order process",
+          "FAQ",
+          "location",
+          "conversion"
+        ],
+        "gridTopology": "vertical hero, three ticket cards, two-col FAQ, no hero split",
+        "mediaDistribution": "vector mascot / vector OG",
+        "backgroundRhythm": "charcoal-cream-charcoal-white-yellow",
+        "proofPlacement": "demo disclosure above header and FAQ",
+        "ctaDistribution": "header/hero/process/final",
+        "navigationPattern": "anchors and client quiz",
+        "motionSignature": "motion-safe lift",
+        "closingStructure": "yellow stamp",
+        "roleGraph": [
+          "identity",
+          "guide",
+          "faq",
+          "local",
+          "conversion"
+        ],
+        "mediaCadence": [
+          "vector",
+          "icons",
+          "map"
+        ],
+        "interactionLoci": [
+          "quiz",
+          "details",
+          "maps"
+        ],
+        "decisionAidPlacement": [
+          "process",
+          "faq"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "air",
+          "compact",
+          "quiet",
+          "bold"
+        ],
+        "mobileCompositionStrategy": "single column 390px"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Salgados da Fran: encomendas publicadas no cartão do negócio",
+          "WhatsApp confirmado no cartão do negócio; SJP no cartão",
+          "Google Maps resolved matching name/phone in Águas Belas"
+        ],
+        "sources": [
+          "Imagem original enviada em conversa 2026-11-23",
+          "docs/portfolio/enrichment/salgados-da-fran.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "PASS",
+        "reviewedAt": "2026-11-25",
+        "reviewer": "0WEB visual QA",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "mimo-salgados-doces",
+          "manu-pasteis"
+        ],
+        "screenshots": {
+          "390": "run:45673988778/artifact:15051042418/salgados-da-fran-390.png",
+          "768": "run:45673988778/artifact:15051042418/salgados-da-fran-768.png",
+          "1440": "run:45673988778/artifact:15051042418/salgados-da-fran-1440.png"
+        },
+        "notes": "Revisão manual do Chromium: 9 capturas reais, 390/768/1440, zero overflow horizontal e zero erros de browser. NO-BRAND mantém silhueta vertical central com pôster/mascote, cartões de encomenda, FAQ em duas colunas e encerramento próprio; distinta das composições de Mimo Salgados Doces e Manu Pastéis. Identidade amarelo/grafite preservada. Evidência: run 45673988778, artifact 15051042418."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-25",
+        "evidence": "Chromium 390/768/1440 + NO-BRAND: run 45673988778, artifact 15051042418; 9 screenshots, 0 failures, 0 overflow, 0 browser errors."
+      },
+      "blockers": [
+        "Visual QA Chromium 390/768/1440 pendente",
+        "Readiness gate do projeto não executado",
+        "Não publicado, não indexável até revisão"
+      ],
+      "warnings": [
+        "Amostra demonstrativa sem representação oficial da empresa",
+        "Cardápio, preço, entrega, disponibilidade, horários e mídias reais não comprovados"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo com empresa para remover aviso demonstrativo",
+        "Confirmar cardápio e fotografias oficiais"
+      ],
+      "searchQa": [
+        {
+          "query": "Salgados da Fran",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        },
+        {
+          "query": "salgados por encomenda Águas Belas",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-23"
+    },
     "panificadora-doce-coracao-santo-antonio": {
       "slug": "panificadora-doce-coracao-santo-antonio",
       "lifecycleContract": 1,
