@@ -199,4 +199,83 @@ describe("escopo seguro da regressão visual", () => {
     const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
     expect(size).toBeLessThan(40_000);
   });
+
+  test("portfólio com rota pública e prévia dedicadas compartilha componente sem abrir o gate global", () => {
+    const slug = "toop-assados";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const previewRoute = "src/routes/portfolio-preview." + slug + ".tsx";
+    const component = "src/components/site/ToopAssadosPreviewPage.tsx";
+    const files = [
+      route,
+      previewRoute,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/config/portfolio-clients.json",
+      "src/config/portfolio-catalog.json",
+      "public/images/toop-assados/social-og.svg",
+      "tests/portfolio/visual-regression-scope.test.ts",
+      "scripts/resolve-visual-regression-scope.mjs",
+    ];
+    const registrationClients = [...clients, { slug, componentFile: component }];
+    const options = {
+      addedFiles: new Set([route, previewRoute, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '+  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage").then((m) => ({ default: m.ToopAssadosPreviewPage }))),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute",
+        "+  '/portfolio-preview/toop-assados': typeof PortfolioPreviewToopAssadosRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope(files, registrationClients, options)).toEqual([slug]);
+  });
+
+  test("alteração compartilhada ou remoção de rota mantém o gate global no Toop", () => {
+    const slug = "toop-assados";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const previewRoute = "src/routes/portfolio-preview." + slug + ".tsx";
+    const component = "src/components/site/ToopAssadosPreviewPage.tsx";
+    const registrationClients = [...clients, { slug, componentFile: component }];
+    const options = {
+      addedFiles: new Set([route, previewRoute, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '+  "toop-assados": lazy(() => import("@/components/site/ToopAssadosPreviewPage")),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "-  '/portfolio-preview/toop-assados': typeof PortfolioPreviewToopAssadosRoute",
+        "+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope([
+      route,
+      previewRoute,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+    ], registrationClients, options)).toEqual([]);
+    options.routeTreeDiff = [
+      "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+      "+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute",
+      "+  '/portfolio-preview/toop-assados': typeof PortfolioPreviewToopAssadosRoute",
+      "",
+    ].join("\n");
+    expect(resolveVisualRegressionScope([
+      route,
+      previewRoute,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/components/portfolio/PortfolioStandardShell.tsx",
+    ], registrationClients, options)).toEqual([]);
+  });
+
 });

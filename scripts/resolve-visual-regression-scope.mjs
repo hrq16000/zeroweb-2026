@@ -7,7 +7,8 @@
  * componente compartilhado, rota, CSS global, ativo não resolvido ou qualquer
  * outra superfície visual ampla, retorna string vazia => gate global.
  */
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -181,51 +182,111 @@ export function previewOnlyScope(files) {
  * historical clients, but only when an exact local route → component → CSS
  * triplet is present. Any shared UI diff remains global.
  */
-function dedicatedNewClientFiles(files, clients) {
-  const knownSlugs = new Set(clients.map((item) => item?.slug).filter(Boolean));
-  const registeredComponents = new Set(clients.map((item) => normalize(item?.componentFile)).filter(Boolean));
-  const routesDir = resolve(process.cwd(), "src/routes");
-  const owned = new Map();
+function diffChangeLines(diff) {
+  return String(diff ?? "")
+    .split(/\r?\n/)
+    .filter((line) => /^[+-]/.test(line) && !/^(---|\+\+\+)/.test(line));
+}
 
-  // A rota independente pode existir há meses: atualizar apenas seu JSX/CSS
-  // deve continuar testando ESSE site, em vez de ~100 portfólios não alterados.
-  const candidates = readdirSync(routesDir)
-    .map((name) => name.match(/^portfolio\.([a-z0-9-]+)\.tsx$/))
+/**
+ * A new standalone portfolio can be tested by its own route when the PR adds
+ * the route and its exclusive component. Tailwind-only pages need no CSS file.
+ * The check fails closed if the component or stylesheet is shared.
+ */
+function dedicatedNewClientFiles(clients, addedFiles = new Set()) {
+  const registered = new Map(
+    clients
+      .filter((client) => client?.slug && client?.componentFile)
+      .map((client) => [client.slug, normalize(client.componentFile)]),
+  );
+  const candidates = [...addedFiles]
+    .map((file) => normalize(file).match(/^src\/routes\/(portfolio(?:-preview)?)\.([a-z0-9-]+)\.tsx$/))
     .filter(Boolean)
-    .map((match) => match[1])
-    .filter((slug) => !knownSlugs.has(slug));
+    .map((match) => ({ slug: match[2], routeFile: "src/routes/" + match[1] + "." + match[2] + ".tsx" }));
 
   const discovered = [];
   const byComponent = new Map();
-  const byCss = new Map();
-  for (const slug of candidates) {
-    const routeFile = `src/routes/portfolio.${slug}.tsx`;
-    const routeSource = readFileSync(resolve(process.cwd(), routeFile), "utf8");
+  const byStylesheet = new Map();
+
+  for (const { slug, routeFile } of candidates) {
+    let routeSource;
+    try {
+      routeSource = readFileSync(resolve(process.cwd(), routeFile), "utf8");
+    } catch {
+      continue;
+    }
+
     const refs = [...routeSource.matchAll(/from ["']@\/components\/site\/([A-Za-z0-9_-]+)["']/g)];
     if (refs.length !== 1) continue;
-    const component = `src/components/site/${refs[0][1]}.tsx`;
-    if (registeredComponents.has(component) || !existsSync(resolve(process.cwd(), component))) continue;
-    const jsxSource = readFileSync(resolve(process.cwd(), component), "utf8");
-    const cssRefs = [...jsxSource.matchAll(/import ["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)];
-    if (cssRefs.length !== 1) continue;
-    const stylesheet = `src/components/site/${cssRefs[0][1]}`;
-    if (!existsSync(resolve(process.cwd(), stylesheet))) continue;
+
+    const component = "src/components/site/" + refs[0][1] + ".tsx";
+    if (!addedFiles.has(component) || registered.get(slug) !== component) continue;
+    if (!existsSync(resolve(process.cwd(), component))) continue;
+
+    const componentSource = readFileSync(resolve(process.cwd(), component), "utf8");
+    const cssRefs = [...componentSource.matchAll(/import ["']\.\/([a-zA-Z0-9_-]+\.css)["']/g)];
+    if (cssRefs.length > 1) continue;
+
+    let stylesheet = null;
+    if (cssRefs.length === 1) {
+      stylesheet = "src/components/site/" + cssRefs[0][1];
+      if (!addedFiles.has(stylesheet) || !existsSync(resolve(process.cwd(), stylesheet))) continue;
+    }
+
     discovered.push({ routeFile, component, stylesheet, slug });
-    byComponent.set(component, (byComponent.get(component) ?? 0) + 1);
-    byCss.set(stylesheet, (byCss.get(stylesheet) ?? 0) + 1);
+    if (!byComponent.has(component)) byComponent.set(component, new Set());
+    byComponent.get(component).add(slug);
+    if (stylesheet) {
+      if (!byStylesheet.has(stylesheet)) byStylesheet.set(stylesheet, new Set());
+      byStylesheet.get(stylesheet).add(slug);
+    }
   }
 
+  const owned = new Map();
   for (const item of discovered) {
-    // Uma composição reaproveitada deixa de ser exclusiva: fail closed.
-    if (byComponent.get(item.component) !== 1 || byCss.get(item.stylesheet) !== 1) continue;
+    if (byComponent.get(item.component)?.size !== 1) continue;
+    if (item.stylesheet && byStylesheet.get(item.stylesheet)?.size !== 1) continue;
     owned.set(item.routeFile, item.slug);
     owned.set(item.component, item.slug);
-    owned.set(item.stylesheet, item.slug);
+    if (item.stylesheet) owned.set(item.stylesheet, item.slug);
   }
   return owned;
 }
 
-export function resolveVisualRegressionScope(files, clients) {
+function safeCompositionRegistryDiff(diff, owned) {
+  const changes = diffChangeLines(diff);
+  if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
+
+  const additions = changes.filter((line) => line.startsWith("+"));
+  const components = [...owned.entries()].filter(([file]) => file.startsWith("src/components/site/"));
+  if (!components.length || additions.length !== components.length) return false;
+
+  return additions.every((line) =>
+    components.some(([file, slug]) => {
+      const importPath = file.replace(/^src\//, "@/").replace(/\.tsx$/, "");
+      return line.includes('"' + slug + '": lazy(') && line.includes('import("' + importPath + '")');
+    }),
+  );
+}
+
+function safeRouteTreeDiff(diff, owned) {
+  const changes = diffChangeLines(diff);
+  if (!changes.length || changes.some((line) => line.startsWith("-"))) return false;
+
+  const routes = [...owned.entries()].filter(([file]) =>
+    /^src\/routes\/portfolio(?:-preview)?\.[a-z0-9-]+\.tsx$/.test(file),
+  );
+  return routes.length > 0 && routes.every(([file]) => {
+    const match = file.match(/^src\/routes\/(portfolio(?:-preview)?)\.([a-z0-9-]+)\.tsx$/);
+    if (!match) return false;
+    const routePath = match[1] === "portfolio-preview"
+      ? "/portfolio-preview/" + match[2]
+      : "/portfolio/" + match[2];
+    return changes.some((line) => line.includes(routePath));
+  });
+}
+
+export function resolveVisualRegressionScope(files, clients, options = {}) {
   const previewScope = previewOnlyScope(files);
   if (previewScope) return previewScope;
   const indexScope = portfolioIndexScope(files);
@@ -240,7 +301,10 @@ export function resolveVisualRegressionScope(files, clients) {
       .map((client) => [normalize(client.componentFile), client.slug]),
   );
   const knownSlugs = new Set(clients.map((client) => client?.slug).filter(Boolean));
-  const newRoutesOwned = dedicatedNewClientFiles(files, clients);
+  const addedFiles = options.addedFiles instanceof Set ? options.addedFiles : new Set(options.addedFiles ?? []);
+  const newRoutesOwned = dedicatedNewClientFiles(clients, addedFiles);
+  const registryIsSafe = safeCompositionRegistryDiff(options.compositionRegistryDiff, newRoutesOwned);
+  const routeTreeIsSafe = safeRouteTreeDiff(options.routeTreeDiff, newRoutesOwned);
   const scoped = new Set();
   let sawVisualFile = false;
 
@@ -251,12 +315,16 @@ export function resolveVisualRegressionScope(files, clients) {
     // Generated routeTree changes are scoped ONLY in presence of a
     // verified dedicated route and its exclusive component and CSS.
     const changedOwnedRoute = files.some((candidate) =>
-      /^src\/routes\/portfolio\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
+      /^src\/routes\/portfolio(?:-preview)?\.[a-z0-9-]+\.tsx$/.test(normalize(candidate)) &&
       newRoutesOwned.has(normalize(candidate)),
     );
     if (file === "src/routeTree.gen.ts") {
-      if (changedOwnedRoute) continue;
-      return []; // Rotas geradas sem sua rota exclusiva alterada: gate global.
+      if (changedOwnedRoute && routeTreeIsSafe) continue;
+      return []; // Rotas geradas sem uma nova rota exclusiva e aditiva: gate global.
+    }
+
+    if (file === "src/components/portfolio/composition/registry.ts" && registryIsSafe) {
+      continue;
     }
 
     const newClientSlug = newRoutesOwned.get(file);
