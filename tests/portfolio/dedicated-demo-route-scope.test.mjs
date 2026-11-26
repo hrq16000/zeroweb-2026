@@ -50,7 +50,7 @@ test("edição isolada de JSX e CSS de rota dedicada existente não exige QA glo
     resolveVisualRegressionScope([
       "src/components/site/SaoFranciscoPetCenterPage.tsx",
       "src/components/site/sao-francisco-pet-center.css",
-    ], []),
+    ], clients),
     ["sao-francisco-pet-center"],
   );
 });
