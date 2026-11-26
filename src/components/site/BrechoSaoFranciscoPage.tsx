@@ -108,7 +108,9 @@ export function BrechoSaoFranciscoPage() {
           <div className="min-w-0">
             <figure className="max-w-md">
               <PortfolioImage
-                src="/images/brecho-sao-francisco/capa.png"
+                src="/images/_generated/brecho-sao-francisco/capa.webp"
+                widths={[480, 960, 1440]}
+                sizes="(min-width: 1024px) 448px, 100vw"
                 alt="Brechó São Francisco"
                 priority
                 width={1200}

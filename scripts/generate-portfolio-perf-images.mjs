@@ -12,6 +12,24 @@ import sharp from "sharp";
 import { planNewPortfolioResponsiveMedia } from "./lib/portfolio-responsive-media.mjs";
 
 const targets = [
+  // Brechó São Francisco: base WebP lossless; originais continuam disponíveis no admin.
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    output: "public/images/_generated/brecho-sao-francisco/capa.webp",
+  },
+  // Your Brutus Burguer: imagens autorais preservadas em WebP lossless.
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    output: "public/images/_generated/your-brutus-burguer/hero-og.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept.webp",
+  },
   // Angel Mix: imagem LCP autêntica preservada pixel a pixel em WebP lossless.
   {
     source: "public/images/angel-mix-brecho/capa.png",
@@ -382,6 +400,68 @@ const responsiveTargets = [
     width: 960,
     quality: 92, // larger responsive photo: avoid lossless re-encoding larger than original
     output: "public/images/_generated/lolipa-arte-em-festas/decoracao-infantil-960.webp",
+  },
+  // Brechó São Francisco: LCP responsivo em 480/960/1440px.
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-480.webp",
+  },
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-960.webp",
+  },
+  {
+    source: "public/images/brecho-sao-francisco/capa.png",
+    width: 1440,
+    quality: 96,
+    output: "public/images/_generated/brecho-sao-francisco/capa-1440.webp",
+  },
+  // Your Brutus Burguer: hero e mídia de apoio com downloads proporcionais.
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-960.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/hero-og.png",
+    width: 1440,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/hero-og-1440.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/business-card-concept.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/business-card-concept-960.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    width: 480,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept-480.webp",
+  },
+  {
+    source: "public/images/your-brutus-burguer/flyer-concept.png",
+    width: 960,
+    quality: 96,
+    output: "public/images/_generated/your-brutus-burguer/flyer-concept-960.webp",
   },
 ];
 
