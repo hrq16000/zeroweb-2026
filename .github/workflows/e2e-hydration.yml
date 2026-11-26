@@ -35,6 +35,8 @@ jobs:
         run: bunx playwright install --with-deps chromium
 
       - name: Build de produção
+        env:
+          VERCEL: "1"
         run: bun run build
 
       # O preset do Nitro é `cloudflare-module`: `vite preview` procura

@@ -76,6 +76,8 @@ jobs:
         run: bunx playwright install --with-deps chromium
 
       - name: Build
+        env:
+          VERCEL: "1"
         run: bun run build
 
       - name: Sitemaps XML sem service-role key (HTTP real)

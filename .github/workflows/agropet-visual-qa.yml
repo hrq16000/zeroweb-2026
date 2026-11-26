@@ -32,7 +32,7 @@ jobs:
       - name: Install Chromium
         run: bunx playwright install chromium
       - name: Build draft (noindex)
-        run: VERCEL_ENV=preview bun run build
+        run: VERCEL=1 VERCEL_ENV=preview bun run build
       - name: Capture and verify responsive screen
         run: VERCEL_ENV=preview node scripts/ci-with-prod-preview.mjs -- node scripts/verify-agropet-portfolio.mjs
       - name: Upload real screenshot evidence
