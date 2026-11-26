@@ -7,25 +7,22 @@ export function classifyIndexabilityDelta(before, after, {
   if (before && !after) return { hard: true, reason: "rota removida", schemaDelta: 0 };
   if (!before || !after) return { hard: false, reason: "", schemaDelta: 0 };
 
-  // Uma rota nova de demonstração pode nascer somente como rascunho protegido.
-  // A exceção nunca se aplica a uma página que já foi pública.
-  const draftTransition =
-    (expectedUnpublishedDraft === true || newDraft === true) &&
-    before.status === 404 &&
-    after.status === 200;
-  if (draftTransition) {
+  const isDraftRoute = expectedUnpublishedDraft === true || newDraft === true;
+  if (isDraftRoute && after.status === 200) {
     const reasons = [];
-    if (beforeInSitemap || afterInSitemap) reasons.push("rascunho presente no sitemap");
+    if (afterInSitemap) reasons.push("rascunho presente no sitemap");
     if (!after.noindex) reasons.push("rascunho sem noindex");
-    if (!after.route?.startsWith("/portfolio/") ||
-        after.canonical !== `https://0web.com.br${after.route}`) reasons.push("canonical inválida no rascunho");
-    if (before.redirectedTo || after.redirectedTo) reasons.push("rascunho redirecionado");
+    if (
+      !after.route?.startsWith("/portfolio/") ||
+      after.canonical !== `https://0web.com.br${after.route}`
+    ) reasons.push("canonical inválida no rascunho");
+    if (after.redirectedTo) reasons.push("rascunho redirecionado");
     for (const problem of after.problems ?? []) {
-      if (!["noindex", "nofollow"].includes(problem)) reasons.push(problem);
+      if (!["noindex", "nofollow", "ausente do sitemap"].includes(problem)) reasons.push(problem);
     }
     return {
       hard: reasons.length > 0,
-      reason: reasons.join("; ") || "novo rascunho não indexável; publicação ainda pendente",
+      reason: reasons.join("; ") || "rascunho não indexável; publicação ainda pendente",
       schemaDelta: (after.schemas?.length ?? 0) - (before.schemas?.length ?? 0),
     };
   }

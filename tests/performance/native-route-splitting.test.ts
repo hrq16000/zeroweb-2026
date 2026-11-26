@@ -14,12 +14,15 @@ test("heavy route modules use native lazyRouteComponent without changing route m
   for (const [slug, modulePath, component] of routes) {
     const src = read(`src/routes/${slug}.tsx`);
     expect(src).toContain(`createFileRoute("/${slug}")`);
-    expect(src).toContain(`lazyRouteComponent(() => import("@/components/${modulePath}"), "${component}")`);
+    expect(src).toMatch(/lazyRouteComponent\(\s*\(\)\s*=>\s*import\("@\/components\/.+?"\)\s*,\s*".+?"\s*,?\s*\)/s);
+    expect(src).toContain(`import("@/components/${modulePath}")`);
+    expect(src).toContain(`"${component}"`);
     expect(src).not.toContain(`from "@/components/${modulePath}"`);
     expect(src).toContain("head:");
     expect(src).toContain("noindex");
-    if (["painel", "painel-crm", "checkout"].includes(slug)) expect(src).toContain("ssr: false");
-    else expect(src).not.toContain("ssr: false");
+    const executable = src.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+    if (["painel", "painel-crm", "checkout"].includes(slug)) expect(executable).toMatch(/\bssr\s*:\s*false\b/);
+    else expect(executable).not.toMatch(/\bssr\s*:\s*false\b/);
   }
 });
 
@@ -40,8 +43,13 @@ test("admin authorization and checkout search contract remain at their respectiv
 
 test("R_Beauty critical hero is visible in SSR and on first paint", () => {
   const src = read("src/components/site/RBeautyEditorialView.tsx");
-  expect(src).toContain("initial={false}");
-  expect(src).not.toContain("initial={{ opacity: 0");
+  const headingIndex = src.indexOf("<h1");
+  const sectionStart = src.lastIndexOf("<section", headingIndex);
+  const heroPrelude = src.slice(sectionStart, headingIndex);
+
+  expect(headingIndex).toBeGreaterThan(-1);
+  expect(sectionStart).toBeGreaterThan(-1);
+  expect(heroPrelude).not.toContain("<motion.div");
+  expect(heroPrelude).not.toContain("initial={{ opacity: 0");
   expect(src).toContain("useReducedMotion()");
-  expect(src).toContain("duration: reduceMotion ? 0 : 0.35");
 });

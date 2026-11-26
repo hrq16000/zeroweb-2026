@@ -503,9 +503,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
-    const visualFixtureRequested =
-      process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1" &&
-      new URLSearchParams(location.searchStr ?? "").get("0web_visual_fixture") === "v1";
+    const visualFixtureRequested = new URLSearchParams(location.searchStr ?? "").get("0web_visual_fixture") === "v1";
     let overrides: PortfolioRuntimeOverrides | null = null;
     try {
       overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug, visualFixture: visualFixtureRequested } });
@@ -518,11 +516,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
     // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
     if (loaderData?.slug === "dona-garimpeira-brecho") {
       return createDonaGarimpeiraSeo({
-        published: true,
-        funnelVerified: true,
-        ownerApproved: true,
+        published: false,
+        funnelVerified: false,
+        ownerApproved: false,
         mediaApproved: false,
-        approvedWithoutSocialImage: true,
+        approvedWithoutSocialImage: false,
         approvedSocialImage: null,
       });
     }

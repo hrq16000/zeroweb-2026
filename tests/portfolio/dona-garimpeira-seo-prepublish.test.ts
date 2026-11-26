@@ -110,10 +110,15 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain("return createDonaGarimpeiraSeo({");
-    expect(loader).toContain("approvedWithoutSocialImage: true");
+    expect(loader).toContain("published: false");
+    expect(loader).toContain("funnelVerified: false");
+    expect(loader).toContain("ownerApproved: false");
+    expect(loader).toContain("approvedWithoutSocialImage: false");
     expect(loader).not.toContain('if (!available) throw notFound()');
     expect(loader).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
-    expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }');
+    expect(loader).toContain(
+      'return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }',
+    );
     const clients = JSON.parse(read("src/config/portfolio-clients.json"));
     expect(clients.find((p: { slug: string }) => p.slug === "dona-garimpeira-brecho")).toBeUndefined();
     const catalog = JSON.parse(read("src/config/portfolio-catalog.json"));

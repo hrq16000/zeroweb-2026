@@ -574,9 +574,9 @@ const responsiveTargets = [
   },
   {
     source: "public/images/refrigeracao-maresia/hero.png",
-    width: 960,
+    width: 720,
     quality: 92,
-    output: "public/images/_generated/refrigeracao-maresia/hero-960.webp",
+    output: "public/images/_generated/refrigeracao-maresia/hero-720.webp",
   },
 ];
 

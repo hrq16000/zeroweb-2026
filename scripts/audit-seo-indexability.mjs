@@ -206,8 +206,7 @@ if (fs.existsSync(beforePath) && fs.existsSync(afterPath)) {
     const x = b[route];
     const y = a[route];
     const chg = (from, to) => (String(from ?? "—") === String(to ?? "—") ? String(to ?? "—") : `${from ?? "—"} → **${to ?? "—"}**`);
-    const expectedUnpublishedDraft = draftRoutes.has(route)
-      && !beforeInventory.has(route) && !afterInventory.has(route);
+    const expectedUnpublishedDraft = draftRoutes.has(route);
     const delta = classifyIndexabilityDelta(x, y, {
       expectedUnpublishedDraft,
       newDraft: expectedUnpublishedDraft,

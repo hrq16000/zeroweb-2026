@@ -194,8 +194,21 @@ if (/^Disallow:\s*\/(?:checkout|obrigado|pedido\/)/m.test(robots)) {
   errors.push(`${robotsPath}: robots.txt voltou a bloquear rota transacional antes do crawler ler o noindex`);
 }
 
-requirePattern(checkoutRoutePath, checkoutRoute, /component:\s*lazyRouteComponent\(\(\)\s*=>\s*import\("@\/components\/route-pages\/CheckoutPage"\),\s*"CheckoutPage"\)/, "rota de checkout não aponta para o componente protegido");
-requirePattern(checkoutRoutePath, checkoutRoute, /ssr:\s*false/, "rota de checkout perdeu o limite de SSR");
+const checkoutExecutable = checkoutRoute
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/^\s*\/\/.*$/gm, "");
+requirePattern(
+  checkoutRoutePath,
+  checkoutExecutable,
+  /component:\s*lazyRouteComponent\(\s*\(\)\s*=>\s*import\("@\/components\/route-pages\/CheckoutPage"\)\s*,\s*"CheckoutPage"\s*,?\s*\)/,
+  "rota de checkout não aponta para o componente protegido",
+);
+requirePattern(
+  checkoutRoutePath,
+  checkoutExecutable,
+  /ssr:\s*false\s*[,}]/,
+  "rota de checkout perdeu o limite de SSR",
+);
 if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkoutRoute)) {
   errors.push(`${checkoutRoutePath}: rota voltou a expor contato direto`);
 }

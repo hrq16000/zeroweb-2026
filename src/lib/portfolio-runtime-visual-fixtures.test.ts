@@ -6,9 +6,11 @@ describe("fixtures sintéticas de overrides visuais", () => {
   it("cobre as rotas com conteúdo administrado sem incorporar dados de clientes", () => {
     expect(PORTFOLIO_RUNTIME_VISUAL_FIXTURE_SLUGS).toHaveLength(4);
     const serialized = JSON.stringify(PORTFOLIO_RUNTIME_VISUAL_FIXTURES);
-    expect(serialized).not.toMatch(/\\+?55\\s*\\d{2}\\s*\\d{4,5}[- ]?\\d{4}/);
-    expect(serialized).not.toMatch(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/i);
+    expect(serialized).not.toMatch(/\+?55\s*\d{2}\s*\d{4,5}[- ]?\d{4}/);
+    expect(serialized).not.toMatch(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
     expect(serialized).toContain("visual-fixture-");
+    expect("+55 41 2345-6789").toMatch(/\+?55\s*\d{2}\s*\d{4,5}[- ]?\d{4}/);
+    expect("qa@example.test").toMatch(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
   });
 
   it.each(PORTFOLIO_RUNTIME_VISUAL_FIXTURE_SLUGS)("sanitiza e aplica overrides determinísticos em %s", (slug) => {

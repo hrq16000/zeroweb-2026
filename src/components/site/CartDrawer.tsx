@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Trash2, ShoppingBag, Sparkles } from "lucide-react";
 import {
@@ -68,17 +68,10 @@ function reportStep(
 export function CartDrawer({ onReady }: { onReady?: () => void }) {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<CartItem[]>([]);
-  const lastSnapshot = useRef<string>("");
-
   useEffect(() => {
     const sync = () => {
       const next = readCart();
       setItems(next);
-      const sig = JSON.stringify(next.map((i) => [cartItemKey(i), i.price ?? null, i.pricePeriod ?? null]));
-      if (sig !== lastSnapshot.current) {
-        lastSnapshot.current = sig;
-        if (next.length > 0) reportStep("cart_update", next);
-      }
     };
     const onOpen = () => {
       sync();

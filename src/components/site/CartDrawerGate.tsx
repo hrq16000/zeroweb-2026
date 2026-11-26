@@ -1,37 +1,70 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { cartItemKey, cartTotal, getCartSessionKey, readCart, type CartItem } from "@/lib/cart";
+import { saveCartFunnelStep } from "@/lib/cart-funnel.functions";
+import { getVisitorId } from "@/lib/visitor";
 
 const CartDrawer = lazy(() =>
-  import("@/components/site/CartDrawer").then(({ CartDrawer }) => ({ default: CartDrawer })),
+  import("./CartDrawer").then(({ CartDrawer }) => ({ default: CartDrawer })),
 );
 
-/**
- * Loads the cart UI only when a visitor asks to open it. The first open event
- * is replayed after the lazy drawer has installed its listeners, so no click
- * is lost while the chunk downloads.
- */
+function persistCartUpdate(items: CartItem[]) {
+  if (!items.length) return;
+  try {
+    const total = cartTotal(items);
+    void saveCartFunnelStep({
+      data: {
+        sessionKey: getCartSessionKey(),
+        visitorId: getVisitorId(),
+        step: "cart_update" as any,
+        cart: items.map((i) => ({
+          slug: i.slug,
+          name: i.name,
+          variantId: i.variantId ?? null,
+          variantLabel: i.variantLabel ?? null,
+          qty: 1,
+          price: i.price ?? null,
+          pricePeriod: i.pricePeriod ?? null,
+          category: i.category ?? null,
+        })),
+        totalAmount: total || null,
+      },
+    } as any).catch(() => {});
+  } catch {
+    /* noop */
+  }
+}
+
 export function CartDrawerGate() {
   const [mounted, setMounted] = useState(false);
-  const [pendingOpen, setPendingOpen] = useState(false);
-
-  const onOpen = useCallback(() => {
-    setPendingOpen(true);
-    setMounted(true);
+  const lastSnapshot = useRef("");
+  const syncCart = useCallback(() => {
+    const items = readCart();
+    const signature = JSON.stringify(items.map((i) => [cartItemKey(i), i.price ?? null, i.pricePeriod ?? null]));
+    if (signature === lastSnapshot.current) return;
+    lastSnapshot.current = signature;
+    persistCartUpdate(items);
   }, []);
 
   useEffect(() => {
-    window.addEventListener("0web:cart-open", onOpen);
-    return () => window.removeEventListener("0web:cart-open", onOpen);
-  }, [onOpen]);
+    syncCart();
+    window.addEventListener("0web:cart-changed", syncCart);
+    window.addEventListener("storage", syncCart);
+    return () => {
+      window.removeEventListener("0web:cart-changed", syncCart);
+      window.removeEventListener("storage", syncCart);
+    };
+  }, [syncCart]);
 
-  const onReady = useCallback(() => {
-    if (!pendingOpen) return;
-    setPendingOpen(false);
-    window.dispatchEvent(new Event("0web:cart-open"));
-  }, [pendingOpen]);
+  useEffect(() => {
+    const open = () => setMounted(true);
+    window.addEventListener("0web:cart-open", open);
+    return () => window.removeEventListener("0web:cart-open", open);
+  }, []);
 
-  return mounted ? (
+  if (!mounted) return null;
+  return (
     <Suspense fallback={null}>
-      <CartDrawer onReady={onReady} />
+      <CartDrawer />
     </Suspense>
-  ) : null;
+  );
 }

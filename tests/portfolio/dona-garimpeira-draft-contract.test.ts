@@ -42,7 +42,9 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const route = read("src/routes/portfolio.$slug.tsx");
     expect(route).toContain('if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound()');
     expect(route).toContain('if (params.slug === "dona-garimpeira-brecho") {');
-    expect(route).toContain("return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }");
+    expect(route).toContain(
+      "return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }",
+    );
     expect(route).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
     expect(route).not.toContain("if (!available) throw notFound()");
     const clients = parse("src/config/portfolio-clients.json");

@@ -112,15 +112,6 @@ const FREEZE_CSS = `
   scroll-behavior: auto !important;
   caret-color: transparent !important;
 }
-/* Imagens administradas podem divergir entre Production e Preview sem service-role.
-   Elas mantêm o espaço visual, enquanto o teste de fixtures valida seu contrato de renderização. */
-[data-portfolio-slug="studio-de-cilios"] img[data-portfolio-managed-field],
-[data-portfolio-slug="refrigeracao-maresia"] img[data-portfolio-managed-field],
-[data-portfolio-slug="paulo-mestre-de-obras"] img[data-portfolio-managed-field],
-[data-portfolio-slug="lk-alvenaria"] img[data-portfolio-managed-field] {
-  visibility: hidden !important;
-}
-
 /* O cue Framer da D.Y.Z escreve transform inline mesmo quando CSS animations=none.
    Congelar só nos screenshots torna a comparação determinística, sem tocar no produto. */
 [data-visual-freeze-dyz-arrow="true"] {

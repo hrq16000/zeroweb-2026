@@ -20,6 +20,8 @@ export function PremiumEnvelopamentosPage() {
     <MotionScope intensity="EXPRESSIVE">
     <div className="min-h-dvh bg-[#f5f8fb] text-[#071d41]">
       {/* HERO: faixa escura de largura total + tira fotográfica panorâmica abaixo. */}
+      <MotionFirstPaint>
+
       <section id="inicio" className="bg-[#071d41] text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 lg:px-8">
           <a href="#inicio" aria-label="Premium Envelopamentos" className="shrink-0">
@@ -111,8 +113,6 @@ export function PremiumEnvelopamentosPage() {
             <PortfolioImage
               src="/images/_generated/premium-envelopamentos/galeria-oficina.webp"
               alt="Plotagem de móveis em oficina limpa e moderna"
-              widths={[480]}
-              sizes="(min-width: 768px) 65vw, 100vw"
               width={960}
               height={640}
               className="aspect-[16/9] w-full rounded-none object-cover"
