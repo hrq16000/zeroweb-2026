@@ -1,9 +1,9 @@
 # Design engineering premium — análise e adoção Emil Kowalski
 
-**Estado:** R0 — diagnóstico estático e diretriz documental; implementação NÃO iniciada.
+**Estado:** R0 + R1.1 — diagnóstico estático e baseline visual da Home; implementação NÃO iniciada.
 **Data:** 27/11/2026 • **Repositório:** hrq16000/zeroweb-2026 • **Checkpoint analisado da main:** `fa26ec28808babca950832cbcaa20ec6c8ccdb80`.
 
-Este documento é incremental. As regras locais de AGENTS.md, DESIGN.md, segurança, SEO, arquitetura, publicação, dados e funis prevalecem. Não autoriza alterações de runtime, instalações, custos, merge ou deploy. Não substitui a homologação visual da versão efetivamente publicada. O navegador ao vivo teve timeout nesta rodada; nenhuma inspeção de screenshots, teste visual, medição de performance ou aprovação de produção é reivindicada.
+Este documento é incremental. As regras locais de AGENTS.md, DESIGN.md, segurança, SEO, arquitetura, publicação, dados e funis prevalecem. Não autoriza alterações de runtime, instalações, custos, merge ou deploy. Não substitui a homologação visual da versão efetivamente publicada. R0 teve timeout do navegador; R1.1 registra abaixo a captura pública da Home. Nenhuma medição de performance, QA integral ou aprovação de produção é reivindicada.
 
 ## 1. Diagnóstico por projeto (evidência de leitura)
 
@@ -74,3 +74,17 @@ Se não existirem tokens equivalentes, avaliar curva de entrada/saída `cubic-be
 GO para implementação somente com baseline visual, brief próprio da marca, propósito de cada movimento, seleção dos módulos pertinentes e uma micro-superfície definida. GO para release somente com gates locais, comparação real nos viewports, interação funcional, reduced-motion, zero regressão crítica de performance/conversão, sem novos riscos de acessibilidade, SSR/SEO e privacidade. NO-GO se movimento interferir na ação, se houver conteúdo invisível, template copiado, alteração comercial incidental, bloqueio de dados, dependência sem justificativa ou validação inconclusiva.
 
 **Registro desta rodada:** leitura de referências e arquivos; documentação proposta/registrada em branch isolada. Nenhum código de aplicação, dependência, banco, DNS ou configuração de hospedagem foi alterado por esta diretriz.
+
+## 7. R1.1 — baseline visual real: Home 0WEB (27/11/2026)
+
+**Escopo:** https://0web.com.br/; visita pública sem enviar formulário, escolher consentimento ou alterar dados. Capturas após carregamento, desktop 1440 CSS px (documento 1427 px) e mobile 390 CSS px (documento 377 px); nenhuma largura excedeu o viewport nesta Home. A diferença inclui scrollbar. Não equivale a QA de todas as rotas/portfólios, acessibilidade completa, medição de Core Web Vitals ou vínculo comprovado com um SHA de Production.
+
+| Passo e evidência | Observação | Prioridade |
+|---|---|---|
+| 01 — Home desktop, logo e hero carregados | Benefício e CTA claros, grade de duas colunas, painel de jornada com 3 etapas; composição tipográfica/gradiente e card informativo ainda pouco demonstrativos da capacidade autoral da agência. | P1 |
+| 02 — Home mobile | CTA primário e portfólio aparecem cedo e em largura integral. Banner de privacidade semitransparente sobrepõe conteúdo da jornada; botão flutuante invade a região do banner. | P0 — reduzir sobreposição sem alterar consentimento |
+| 03 — Estrutura pública (snapshot DOM da Home) | Seções loja, projetos publicados, metodologia e funil existem. Ações de detalhe e conteúdo comercial preservados; análise de cada portfolio individual e fluxo completo de contratação permanece pendente. | P1 |
+
+**Próxima intervenção cirúrgica proposta:** primeiro arbitrar camadas flutuantes (privacidade, contato, navegação) sem remover ou manipular opções de consentimento. Depois testar uma assinatura visual autoral no hero: amostra de projetos reais e sequência legível (sem autoplay contínuo, sem mídia pesada acima da dobra, sem atrasar CTA). Usar MotionScope/MotionChoreo/tokens existentes e referência Emil para apresentação rara, não reanimar toda lista. Preservar conteúdo, rotas, funil, SEO e identidades individuais dos portfólios.
+
+**Evidência capturada nesta sessão** (arquivos locais exatos, não integram o Git): `01-0web-1440.png` SHA256 `9bc3db0e7a9c7487a061a6b858c2adc1a321e5d49050ee4aee41f8d12fca4ee4`; `02-0web-390.png` SHA256 `6c48bdb80f8377aa38cf0d13be1c281ee7972ed0a2c1d9d39962b14602b74e8b`.
