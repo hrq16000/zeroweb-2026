@@ -1407,6 +1407,7 @@
   },
   {
     "clientKey": "espaco-marli-nails-guaratuba",
+    "funnelVariant": "hosted_form",
     "slug": "espaco-marli-nails-guaratuba",
     "siteName": "Espaço Marli Nails Designer",
     "routeFile": "src/routes/portfolio.espaco-marli-nails-guaratuba.tsx",
