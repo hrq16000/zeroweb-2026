@@ -941,6 +941,37 @@
         "costela assada Xaxim",
         "frango recheado Curitiba"
       ]
+    },
+    "garagem-girassol": {
+      "aliases": [
+        "Garagem & Girassol"
+      ],
+      "categories": [
+        "lanchonete"
+      ],
+      "services": [
+        "espetinhos",
+        "crepe suíço"
+      ],
+      "products": [
+        "morango com nata",
+        "uva com nata"
+      ],
+      "equipment": [],
+      "problems": [],
+      "useCases": [
+        "consultar o cardápio"
+      ],
+      "locality": [
+        "Rua Quirino Zagonel",
+        "São José dos Pinhais",
+        "PR"
+      ],
+      "keywords": [
+        "espetinhos",
+        "crepe suíço",
+        "Garagem & Girassol"
+      ]
     }
   }
 }

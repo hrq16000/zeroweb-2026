@@ -141,6 +141,7 @@ import { Route as PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport } from
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
+import { Route as PortfolioGaragemGirassolRouteImport } from './routes/portfolio.garagem-girassol'
 import { Route as PortfolioSalgadosDaFranRouteImport } from './routes/portfolio.salgados-da-fran'
 import { Route as ProfissionalSlugRouteImport } from './routes/profissional.$slug'
 import { Route as RCodeRouteImport } from './routes/r.$code'
@@ -953,6 +954,12 @@ const PortfolioSaoFranciscoPetCenterRoute =
   PortfolioSaoFranciscoPetCenterRouteImport.update({
     id: '/portfolio/sao-francisco-pet-center',
     path: '/portfolio/sao-francisco-pet-center',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PortfolioGaragemGirassolRoute =
+  PortfolioGaragemGirassolRouteImport.update({
+    id: '/portfolio/garagem-girassol',
+    path: '/portfolio/garagem-girassol',
     getParentRoute: () => rootRouteImport,
   } as any)
 const PortfolioSalgadosDaFranRoute =
@@ -1852,6 +1859,7 @@ export interface FileRoutesByFullPath {
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
@@ -2118,6 +2126,7 @@ export interface FileRoutesByTo {
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
@@ -2388,6 +2397,7 @@ export interface FileRoutesById {
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
@@ -2659,6 +2669,7 @@ export interface FileRouteTypes {
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
     | '/profissional/$slug'
     | '/r/$code'
@@ -2925,6 +2936,7 @@ export interface FileRouteTypes {
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
     | '/profissional/$slug'
     | '/r/$code'
@@ -3194,6 +3206,7 @@ export interface FileRouteTypes {
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
     | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
     | '/profissional/$slug'
     | '/r/$code'
@@ -3461,6 +3474,7 @@ export interface RootRouteChildren {
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
+  PortfolioGaragemGirassolRoute: typeof PortfolioGaragemGirassolRoute
   PortfolioSalgadosDaFranRoute: typeof PortfolioSalgadosDaFranRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
   RCodeRoute: typeof RCodeRoute
@@ -4430,6 +4444,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/sao-francisco-pet-center'
       fullPath: '/portfolio/sao-francisco-pet-center'
       preLoaderRoute: typeof PortfolioSaoFranciscoPetCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/garagem-girassol': {
+      id: '/portfolio/garagem-girassol'
+      path: '/portfolio/garagem-girassol'
+      fullPath: '/portfolio/garagem-girassol'
+      preLoaderRoute: typeof PortfolioGaragemGirassolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/salgados-da-fran': {
@@ -5869,6 +5890,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
+  PortfolioGaragemGirassolRoute: PortfolioGaragemGirassolRoute,
   PortfolioSalgadosDaFranRoute: PortfolioSalgadosDaFranRoute,
   ProfissionalSlugRoute: ProfissionalSlugRoute,
   RCodeRoute: RCodeRoute,

@@ -335,6 +335,14 @@
         "Registro operacional whatsapp:null: LEAD_ONLY, sem fallback entre clientes."
       ],
       "humanDecision": "Confirmar WhatsApp comercial com a profissional antes de habilitar encaminhamento."
+    },
+    "garagem-girassol": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "evidence": [
+        "PORTFOLIO_WHATSAPP_GARAGEM_GIRASSOL — número comercial visível no material fotográfico, configuração Vercel confirmada; não enviado teste real."
+      ],
+      "updatedAt": "2026-11-26"
     }
   }
 }

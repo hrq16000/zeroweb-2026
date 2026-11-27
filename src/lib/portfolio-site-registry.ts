@@ -11,6 +11,7 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  { slug: "garagem-girassol", vertical: "restaurantes", siteName: "Garagem & Girassol · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "salgados-da-fran", vertical: "restaurantes", siteName: "Salgados da Fran · Águas Belas, São José dos Pinhais", kind: "prototype", indexable: false },
   { slug: "panificadora-doce-coracao-santo-antonio", vertical: "comercios", siteName: "Panificadora Doce Coração · Santo Antônio, São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "cantinho-da-tia-mari", vertical: "comercios", siteName: "Cantinho da Tia Mari · Jardim Itália, São José dos Pinhais", kind: "prototype", indexable: true },
