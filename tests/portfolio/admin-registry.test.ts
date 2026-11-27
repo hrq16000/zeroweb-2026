@@ -112,3 +112,20 @@ describe("guardas de privacidade e assets", () => {
     expect(isSafeAssetPath("javascript:alert(1)")).toBe(false);
   });
 });
+
+describe("hold versionado prevalece sem afetar projetos aptos", () => {
+  it("mantém arquivamento e bloqueia override de publicação para um hold", () => {
+    const seed = seedBySlug("infinito-spa")!;
+    const merged = mergeProject(seed, { published: true, lifecycle_status: "archived" });
+    expect(merged.published).toBe(false);
+    expect(merged.lifecycleStatus).toBe("archived");
+    expect(merged.conformance.blocking).toContain("PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED");
+  });
+  it("preserva publicação e override editorial de um projeto apto", () => {
+    const seed = seedBySlug("paulo-mestre-de-obras")!;
+    const merged = mergeProject(seed, { published: true, lifecycle_status: "published", display_name: "Paulo Obras" });
+    expect(merged.published).toBe(true);
+    expect(merged.lifecycleStatus).toBe("published");
+    expect(merged.displayName).toBe("Paulo Obras");
+  });
+});

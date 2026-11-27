@@ -49,7 +49,7 @@ export function AngelMixBrechoPage() {
             priority
             decoding="sync"
             widths={[480, 960, 1536]}
-            sizes="(min-width: 1024px) 960px, 100vw"
+            sizes="100vw"
             width={1536}
             height={1024}
             className="h-[78vh] w-full object-cover md:h-[88vh]"

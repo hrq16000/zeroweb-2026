@@ -226,6 +226,9 @@ máquina: `src/config/experience-capabilities.json`, `src/config/skill-marketpla
 
 Antes de adotar recursos externos de motion, React, QA mobile, acessibilidade ou SQL de auditoria, consultar `.agents/skills/shared-reference-intelligence/SKILL.md`. Aplicar somente competências pertinentes, sem instalar/executar código de terceiros; contratos e gates locais têm precedência. No 0WEB, aplicar a portfólios **novos**, sem retrabalhar os existentes por esta regra.
 
+## Padrão anti-site genérico — R8/10
+- Para qualquer trabalho visual autorizado, ler `docs/skills/ANTI_GENERIC_EXPERIENCE.md` antes do código. A diretriz operacional integra TasteSkill, Transitions.dev, React Bits e Emil Kowalski; não substitui as proteções existentes de marca/portfólio.
+
 ## Design engineering premium — Emil Kowalski (27/11/2026)
 
 - Para qualquer trabalho visual autorizado, ler `docs/skills/EMIL_DESIGN_ENGINEERING.md` antes de editar runtime. Aplicar diagnóstico, direção de arte autoral, decisão de motion por frequência/propósito, performance, reduced motion e QA 390/768/1440; reaproveitar tokens e bibliotecas existentes.
