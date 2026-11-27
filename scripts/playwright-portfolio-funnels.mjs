@@ -143,6 +143,7 @@ async function runTarget(target, viewport) {
 
   // O provedor hospedado é um contrato separado: nenhuma chamada real ou envio
   // é necessário para provar a ligação do CTA ao formulário cadastrado.
+  let hostedStage = null;
   let hostedRequestSeen = false;
   let hostedRequestInvalid = false;
   if (target.funnelVariant === "hosted_form") {
@@ -201,10 +202,13 @@ async function runTarget(target, viewport) {
         failures.push(`${id}: nenhum CTA hospedado visível`);
         return;
       }
+      hostedStage = "CTA";
       await trigger.scrollIntoViewIfNeeded();
       await trigger.click({ timeout: 8000 });
+      hostedStage = "abertura do modal";
       const dialog = page.getByRole("dialog").filter({ has: page.locator('iframe[data-funnel-provider="jotform"]') });
       await dialog.waitFor({ state: "visible", timeout: 8000 });
+      hostedStage = "contrato da iframe";
       const iframe = dialog.locator('iframe[data-funnel-provider="jotform"]');
       if ((await iframe.count()) !== 1 ||
           (await iframe.getAttribute("data-client-key")) !== target.clientKey ||
@@ -214,7 +218,9 @@ async function runTarget(target, viewport) {
         return;
       }
       // Verifica também que o navegador tentou carregar a URL exata (interceptada).
+      hostedStage = "carregamento da fixture interceptada";
       await iframe.contentFrame().getByText("Formulário simulado (sem envio)").waitFor({ state: "visible", timeout: 8000 });
+      hostedStage = "fallback e isolamento da submissão";
       const fallback = await dialog.locator('a[href]').evaluateAll((links, url) => links.some((link) =>
         link.getAttribute("href") === url && link.getAttribute("target") === "_blank" &&
         /(?:^|\s)noopener(?:\s|$)/.test(link.getAttribute("rel") ?? "")), form.url);
@@ -222,6 +228,7 @@ async function runTarget(target, viewport) {
         failures.push(`${id}: fallback/URL incorreto ou tentativa de envio/redirect`);
         return;
       }
+      hostedStage = "fechamento do modal";
       await dialog.getByRole("button", { name: "Fechar formulário" }).click({ timeout: 8000 });
       await dialog.waitFor({ state: "hidden", timeout: 8000 });
       dryRunOk.push(id);
@@ -377,7 +384,8 @@ async function runTarget(target, viewport) {
     console.log(`✓ ${id} → funil completo e redirect válido`);
 
   } catch (error) {
-    failures.push(`${id}: ${String(error).split("\n")[0].slice(0, 180)}`);
+    const phase = hostedStage ? ` [etapa: ${hostedStage}; GET interceptado: ${hostedRequestSeen ? "sim" : "não"}]` : "";
+    failures.push(`${id}${phase}: ${String(error).split("\n")[0].slice(0, 180)}`);
   } finally {
     await context.close();
   }
