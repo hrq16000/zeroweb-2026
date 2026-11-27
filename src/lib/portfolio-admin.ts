@@ -23,7 +23,9 @@ export type ConformanceCode =
   | "PORTFOLIO_SEO_MISSING"
   | "PORTFOLIO_POPUP_MISSING"
   | "PORTFOLIO_SHARE_COPY_MISSING"
-  | "PORTFOLIO_COMPONENT_MISSING";
+  | "PORTFOLIO_COMPONENT_MISSING"
+  | "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+  | "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED";
 
 export type ConformanceStatus = "COMPLETE" | "PARTIAL" | "LEGACY";
 
@@ -248,7 +250,27 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
     imported: Boolean(db),
   };
 
-  return { ...base, conformance: evaluateConformance(base) };
+  const conformance = evaluateConformance(base);
+  // Os dados editáveis podem resolver pendências de mídia/conteúdo, mas não
+  // podem substituir a avaliação técnica ou autorização comercial versionada.
+  // Uma linha anterior no banco jamais reativa um projeto em hold.
+  const holds = (seed.blocking ?? []).filter((code) =>
+    code === "PORTFOLIO_TECHNICAL_PASS_REQUIRED" ||
+    code === "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+  );
+  if (holds.length) {
+    return {
+      ...base,
+      published: false,
+      lifecycleStatus: base.lifecycleStatus === "archived" ? "archived" : "draft",
+      conformance: {
+        status: "LEGACY",
+        issues: [...new Set([...conformance.issues, ...holds])],
+        blocking: [...new Set([...conformance.blocking, ...holds])],
+      },
+    };
+  }
+  return { ...base, conformance };
 }
 
 /** Diferenças entre o seed dos registries e o que está gravado no banco. */

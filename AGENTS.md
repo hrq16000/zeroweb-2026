@@ -225,3 +225,6 @@ máquina: `src/config/experience-capabilities.json`, `src/config/skill-marketpla
 ## Inteligência compartilhada de skills (2026-11-20)
 
 Antes de adotar recursos externos de motion, React, QA mobile, acessibilidade ou SQL de auditoria, consultar `.agents/skills/shared-reference-intelligence/SKILL.md`. Aplicar somente competências pertinentes, sem instalar/executar código de terceiros; contratos e gates locais têm precedência. No 0WEB, aplicar a portfólios **novos**, sem retrabalhar os existentes por esta regra.
+
+## Padrão anti-site genérico — R8/10
+- Para qualquer trabalho visual autorizado, ler `docs/skills/ANTI_GENERIC_EXPERIENCE.md` antes do código. A diretriz operacional integra TasteSkill, Transitions.dev, React Bits e Emil Kowalski; não substitui as proteções existentes de marca/portfólio.
