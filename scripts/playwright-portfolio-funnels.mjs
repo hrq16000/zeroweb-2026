@@ -6,7 +6,8 @@
  *  - a página responde sem 5xx;
  *  - existe CTA de funil do próprio cliente ([data-funnel-cta="portfolio"]);
  *  - o clique (sem force) abre o modal do funil, sem "funil indisponível";
- *  - as 5 etapas avançam e chegam à mensagem pronta;
+ *  - as 5 etapas avançam e chegam à mensagem pronta; ou o formulário hospedado
+ *    verificado abre no diálogo próprio, com URL/clientKey e fallback corretos;
  *  - o envio usa o clientKey do próprio cliente (isolamento);
  *  - com WhatsApp versionado: gera redirect tokenizado para WhatsApp;
  *  - com whatsapp:null: salva/encerra em modo lead-only, sem redirect e sem erro.
@@ -36,6 +37,7 @@ const shardIndex = Math.max(0, Number(process.env.E2E_SHARD_INDEX || 0));
 
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
 const whatsappRegistry = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
+const hostedRegistry = JSON.parse(readFileSync("src/config/portfolio-hosted-form-registry.json", "utf8")).forms ?? {};
 const DRY_RUN = process.env.E2E_DRY_RUN === "1";
 const TARGETS = clients
   .filter((client, index) => (onlySlugs.length === 0 || onlySlugs.includes(client.slug)) && index % shardCount === shardIndex)
@@ -44,6 +46,9 @@ const TARGETS = clients
     clientKey: client.clientKey,
     siteName: client.siteName,
     funnelVariant: client.funnelVariant ?? null,
+    hostedForm: hostedRegistry[client.clientKey]?.status === "verified"
+      ? hostedRegistry[client.clientKey]
+      : null,
     // A fonte canônica é o cadastro versionado por clientKey. Metadados legados
     // em portfolio-clients.json não decidem mais o destino operacional.
     recipientConfigured: Boolean(whatsappRegistry.contacts?.[client.clientKey]?.whatsapp),
@@ -202,13 +207,19 @@ async function runTarget(target, viewport) {
     }
 
     // Prioriza o botão flutuante padrão da hospedagem; cai para o CTA principal.
-    const dialog = page.locator('[role=dialog][aria-labelledby="portfolio-cta-quiz-title"]').last();
+    const dialog = page.locator('[role=dialog][aria-labelledby="portfolio-cta-quiz-title"]:visible').last();
+    // Alguns clientes têm um diálogo autoral com formulário individual já
+    // verificado no registro canônico. Isto não dispensa o clique nem aceita
+    // um iframe arbitrário: o destino, isolamento e fechamento serão checados.
+    const hostedDialog = page.locator('[role=dialog][aria-modal="true"]:not([aria-labelledby="portfolio-cta-quiz-title"]):visible')
+      .filter({ has: page.locator('iframe[data-funnel-provider="jotform"]') });
+    const expectedDialog = target.hostedForm ? dialog.or(hostedDialog).first() : dialog;
     let opened = false;
     for (let attempt = 0; attempt < 3 && !opened; attempt += 1) {
       const trigger = ctas.nth(Math.max(ctaCount - 1 - attempt, 0));
       await trigger.scrollIntoViewIfNeeded().catch(() => {});
       await trigger.click({ timeout: 8000 }).catch(() => {});
-      opened = await dialog
+      opened = await expectedDialog
         .waitFor({ state: "visible", timeout: 5000 })
         .then(() => true)
         .catch(() => false);
@@ -219,6 +230,45 @@ async function runTarget(target, viewport) {
       return;
     }
 
+
+    if (target.hostedForm && (await hostedDialog.count())) {
+      if (!DRY_RUN) {
+        failures.push(`${id}: formulário hospedado exige E2E_DRY_RUN; envio externo bloqueado neste gate`);
+        return;
+      }
+      const provider = target.hostedForm;
+      const frame = hostedDialog.locator('iframe[data-funnel-provider="jotform"]');
+      const fallback = hostedDialog.getByRole("link").filter({ hasText: /abrir.*(?:consulta|formulário|nova aba)/i });
+      if (
+        (await hostedDialog.count()) !== 1 ||
+        (await dialog.count()) !== 0 ||
+        (await frame.count()) !== 1 ||
+        !(await frame.isVisible()) ||
+        provider.provider !== "jotform" ||
+        provider.clientKey !== target.clientKey ||
+        !provider.testSubmissionVerified ||
+        (await frame.getAttribute("data-client-key")) !== target.clientKey ||
+        (await frame.getAttribute("src")) !== provider.url ||
+        !(await frame.getAttribute("title")) ||
+        (await fallback.count()) !== 1 ||
+        (await fallback.getAttribute("href")) !== provider.url ||
+        !(/noopener/.test((await fallback.getAttribute("rel")) || ""))
+      ) {
+        failures.push(`${id}: formulário hospedado não corresponde ao registro isolado ou não tem fallback seguro`);
+        return;
+      }
+      // Não interagir com campos externos nem submeter. A persistência do
+      // provedor tem evidência separada no registro.
+      await page.keyboard.press("Escape");
+      await hostedDialog.waitFor({ state: "hidden", timeout: 5000 });
+      if (await page.locator('iframe[data-funnel-provider="jotform"][data-client-key="' + target.clientKey + '"]').count()) {
+        failures.push(`${id}: formulário hospedado permaneceu montado após fechar`);
+        return;
+      }
+      dryRunOk.push(id);
+      console.log(`✓ ${id} → diálogo hospedado, destino individual, fallback e fechamento validados (dry-run)`);
+      return;
+    }
 
     for (let step = 0; step < 6; step += 1) {
       const text = await dialog.innerText();

@@ -26,6 +26,8 @@ const STATUS_ALIAS: Record<string, CrmStatus> = {
   qualified: "qualificado",
   won: "fechado",
   lost: "perdido",
+  // Etapa usada pela central da Dona Garimpeira; no CRM geral segue em atendimento.
+  respondido: "em_atendimento",
 };
 function normStatus(s: string | null | undefined): CrmStatus {
   if (!s) return "novo";

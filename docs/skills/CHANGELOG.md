@@ -1782,3 +1782,13 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Change:** defer contact dialog shell, cart drawer, auth guard, debug overlay, 404 UI and slow-navigation logo until their actual trigger.
 - **Behavior preservation:** first cart-open event is replayed after lazy drawer listeners mount; contact wrapper remains mounted after first open; auth guard stays active on /app* and /painel*; 404 and debug behavior remain available.
 - **Scope:** no CSS, fonts, image pixels, funnel persistence, CRM, catalog, database or production data changes; no new dependencies.
+
+
+# 2026-11-27 — Painel Lighthouse (status) e central de leads Dona Garimpeira
+
+- **Tarefa:** arquivo "CONTINUAR — 0WEB GROWTH ENGINE": PR de transferência, painel Lighthouse, agentes, central de leads.
+- **Skills:** `0web-skill-router` (classes `dashboard`, `form`, `backend/RLS`, `docs`) → `0web-design-system` (densidade, estados) → `0web-ui-quality-gates` (rótulos, alvos de 44 px, vazio/carregando/erro).
+- **Mudança:** cinco status e colunas por categoria no painel Lighthouse com filtro no servidor; central de leads administrativa em `lead_submissions` isolada pela origem do brechó, reutilizando a gravação conjunta do CRM.
+- **Preservado:** página pública e funil da Dona Garimpeira, deduplicação, ledger, thresholds Lighthouse, zona institucional, demais portfólios. Sem migração e sem dependência nova.
+- **Validação:** testes de regra em `tests/leads/dona-garimpeira-leads.test.ts`; fluxo real com conta administradora (cadastro, interação, status, WhatsApp, histórico) e limpeza do cadastro de verificação; painel Lighthouse lido com 11.534 medições reais; celular 390 px sem overflow.
+- **Rejeitado:** ligar o formulário público ao banco sem autorização; corrigir os seis testes já tratados pela PR #561.

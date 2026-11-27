@@ -3,7 +3,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
 import { getSettingValue } from "@/lib/settings.functions";
-import { LIGHTHOUSE_MONITORED_SLUGS } from "@/lib/lhci-receipt-tracking";
+import { LIGHTHOUSE_MONITORED_SLUGS, MEASUREMENT_STATES } from "@/lib/lhci-receipt-tracking";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyClient = any;
@@ -31,6 +31,8 @@ export const listLhciRuns = createServerFn({ method: "GET" })
     z
       .object({
         environment: z.string().optional(),
+        state: z.enum(MEASUREMENT_STATES).optional(),
+        search: z.string().trim().max(120).optional(),
         limit: z.number().int().min(1).max(200).optional(),
         offset: z.number().int().min(0).max(100000).default(0),
       })
@@ -48,6 +50,15 @@ export const listLhciRuns = createServerFn({ method: "GET" })
       .order("created_at", { ascending: false })
       .range(data.offset, data.offset + (data.limit ?? 30) - 1);
     if (data.environment) q = q.eq("environment", data.environment);
+    // Mesmo critério de measurementState(): sem nenhuma nota é falha de coleta.
+    const noScores = "performance.is.null,seo.is.null,accessibility.is.null,best_practices.is.null";
+    const anyScore = "performance.not.is.null,seo.not.is.null,accessibility.not.is.null,best_practices.not.is.null";
+    if (data.state === "aprovado") q = q.eq("status", "passed").or(anyScore);
+    if (data.state === "reprovado") q = q.not("status", "in", "(passed,running,pending,queued,error)").or(anyScore);
+    if (data.state === "em_execucao") q = q.eq("status", "running");
+    if (data.state === "pendente") q = q.in("status", ["pending", "queued"]);
+    if (data.state === "falha_coleta") q = q.not("status", "in", "(running,pending,queued)").or(`status.eq.error,and(${noScores})`);
+    if (data.search) q = q.ilike("url", `%${data.search.replace(/[%_,()]/g, "")}%`);
     const { data: rows, error, count } = await q;
     if (error) throw new Error(error.message);
     return { rows: rows ?? [], total: count ?? 0, canDecide: canDecide(roles), receivingConfigured: !!process.env['LHCI_HMAC_SECRET'] };
@@ -81,7 +92,16 @@ export const getLhciCoverage = createServerFn({ method: "GET" })
       .in("url", LIGHTHOUSE_MONITORED_SLUGS.map(slug => `https://0web.com.br/portfolio/${slug}`))
       .order("created_at", { ascending: false }).limit(2000);
     if (error) throw new Error("Não foi possível conferir os recebimentos.");
-    return { rows: data ?? [], complete: count !== null && (data?.length ?? 0) >= count };
+    // Contagem real de tudo que entrou sozinho pelo GitHub, em qualquer ambiente.
+    const [auto, lastAuto] = await Promise.all([
+      sb.from("lhci_runs").select("id", { count: "exact", head: true }).eq("logs->>source", "github-actions"),
+      sb.from("lhci_runs").select("created_at").eq("logs->>source", "github-actions").order("created_at", { ascending: false }).limit(1),
+    ]);
+    return {
+      rows: data ?? [], complete: count !== null && (data?.length ?? 0) >= count,
+      automaticTotal: (auto.count as number | null) ?? null,
+      lastAutomaticAt: ((lastAuto.data ?? [])[0]?.created_at as string | undefined) ?? null,
+    };
   });
 
 async function notifyDecision(run: any, decision: string, reason: string | null, actor: string) {

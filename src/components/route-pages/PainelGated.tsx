@@ -96,6 +96,12 @@ function PainelPage() {
             <a href="/painel-crm" className="px-3 py-2 rounded-lg border border-border hover:bg-muted text-sm">
               → Abrir CRM
             </a>
+            <a href="/painel-dona-garimpeira-leads" className="px-3 py-2 rounded-lg border border-border hover:bg-muted text-sm">
+              → Leads Dona Garimpeira
+            </a>
+            <a href="/painel-lighthouse" className="px-3 py-2 rounded-lg border border-border hover:bg-muted text-sm">
+              → Medições Lighthouse
+            </a>
             <button
               onClick={() => {
                 resetFunnel();

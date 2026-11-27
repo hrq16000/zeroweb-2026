@@ -94,6 +94,7 @@ import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-loca
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as AuthenticatedPainelDonaGarimpeiraLeadsRouteImport } from './routes/_authenticated/painel-dona-garimpeira-leads'
 import { Route as AuthenticatedPainelLighthouseRouteImport } from './routes/_authenticated/painel-lighthouse'
 import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
@@ -715,6 +716,12 @@ const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   path: '/app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPainelDonaGarimpeiraLeadsRoute =
+  AuthenticatedPainelDonaGarimpeiraLeadsRouteImport.update({
+    id: '/painel-dona-garimpeira-leads',
+    path: '/painel-dona-garimpeira-leads',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedPainelLighthouseRoute =
   AuthenticatedPainelLighthouseRouteImport.update({
     id: '/painel-lighthouse',
@@ -1839,6 +1846,7 @@ export interface FileRoutesByFullPath {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/painel-dona-garimpeira-leads': typeof AuthenticatedPainelDonaGarimpeiraLeadsRoute
   '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
@@ -2109,6 +2117,7 @@ export interface FileRoutesByTo {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/painel-dona-garimpeira-leads': typeof AuthenticatedPainelDonaGarimpeiraLeadsRoute
   '/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
@@ -2383,6 +2392,7 @@ export interface FileRoutesById {
   '/$city/$service': typeof CityServiceRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/_authenticated/painel-dona-garimpeira-leads': typeof AuthenticatedPainelDonaGarimpeiraLeadsRoute
   '/_authenticated/painel-lighthouse': typeof AuthenticatedPainelLighthouseRoute
   '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
@@ -2658,6 +2668,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/app'
+    | '/painel-dona-garimpeira-leads'
     | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
@@ -2928,6 +2939,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
+    | '/painel-dona-garimpeira-leads'
     | '/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
@@ -3201,6 +3213,7 @@ export interface FileRouteTypes {
     | '/$city/$service'
     | '/.well-known/oauth-protected-resource'
     | '/_authenticated/app'
+    | '/_authenticated/painel-dona-garimpeira-leads'
     | '/_authenticated/painel-lighthouse'
     | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
@@ -4155,6 +4168,13 @@ declare module '@tanstack/react-router' {
       path: '/app'
       fullPath: '/app'
       preLoaderRoute: typeof AuthenticatedAppRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/painel-dona-garimpeira-leads': {
+      id: '/_authenticated/painel-dona-garimpeira-leads'
+      path: '/painel-dona-garimpeira-leads'
+      fullPath: '/painel-dona-garimpeira-leads'
+      preLoaderRoute: typeof AuthenticatedPainelDonaGarimpeiraLeadsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/painel-lighthouse': {
@@ -5751,11 +5771,14 @@ const AuthenticatedAppRouteWithChildren =
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAppRoute: typeof AuthenticatedAppRouteWithChildren
+  AuthenticatedPainelDonaGarimpeiraLeadsRoute: typeof AuthenticatedPainelDonaGarimpeiraLeadsRoute
   AuthenticatedPainelLighthouseRoute: typeof AuthenticatedPainelLighthouseRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAppRoute: AuthenticatedAppRouteWithChildren,
+  AuthenticatedPainelDonaGarimpeiraLeadsRoute:
+    AuthenticatedPainelDonaGarimpeiraLeadsRoute,
   AuthenticatedPainelLighthouseRoute: AuthenticatedPainelLighthouseRoute,
 }
 
