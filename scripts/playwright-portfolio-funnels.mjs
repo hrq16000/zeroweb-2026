@@ -162,7 +162,7 @@ async function runTarget(target, viewport) {
         return;
       }
       hostedRequestSeen = true;
-      await route.fulfill({ status: 200, contentType: "text/html", body: "<!doctype html><html lang='pt-BR'><title>Fixture de homologação</title><p>Formulário simulado (sem envio)</p></html>" });
+      await route.fulfill({ status: 200, contentType: "text/html; charset=utf-8", body: "<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><title>Fixture de homologação</title></head><body><p data-testid='hosted-form-fixture'>Formulário simulado (sem envio)</p></body></html>" });
     });
   }
 
@@ -219,7 +219,12 @@ async function runTarget(target, viewport) {
       }
       // Verifica também que o navegador tentou carregar a URL exata (interceptada).
       hostedStage = "carregamento da fixture interceptada";
-      await iframe.contentFrame().getByText("Formulário simulado (sem envio)").waitFor({ state: "visible", timeout: 8000 });
+      const fixture = iframe.contentFrame().getByTestId("hosted-form-fixture");
+      await fixture.waitFor({ state: "visible", timeout: 8000 });
+      if ((await fixture.innerText()) !== "Formulário simulado (sem envio)") {
+        failures.push(`${id}: conteúdo da fixture não corresponde ao formulário simulado UTF-8`);
+        return;
+      }
       hostedStage = "fallback e isolamento da submissão";
       const fallback = await dialog.locator('a[href]').evaluateAll((links, url) => links.some((link) =>
         link.getAttribute("href") === url && link.getAttribute("target") === "_blank" &&

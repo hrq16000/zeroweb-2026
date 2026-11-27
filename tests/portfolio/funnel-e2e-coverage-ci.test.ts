@@ -28,6 +28,9 @@ describe("CI de funis preserva a cobertura integral", () => {
     expect(e2e).toContain('request.url() !== form.url');
     expect(e2e).toContain('await route.abort()');
     expect(e2e).toContain('await route.fulfill(');
+    expect(e2e).toContain('text/html; charset=utf-8');
+    expect(e2e).toContain('getByTestId("hosted-form-fixture")');
+    expect(e2e).toContain('await fixture.innerText()');
     expect(e2e).toContain('hostedDryRunOk.push(id)');
     expect(e2e).toContain('portfolio-cta-quiz-title');
     expect(e2e).toContain('direct_lead_form');
