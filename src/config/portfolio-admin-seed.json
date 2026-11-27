@@ -505,8 +505,8 @@
       "subtitle": "Cama elástica e piscina de bolinhas para festas",
       "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
       "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
-      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "socialVersion": "20261123",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+      "socialVersion": "c55da662",
       "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
       "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
       "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
@@ -517,6 +517,7 @@
       "gallery": [
         "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
         "/images/bpl-locacoes-de-brinquedos/logo.svg",
+        "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
         "/images/bpl-locacoes-de-brinquedos/social-og.svg",
         "/images/bpl-locacoes-de-brinquedos/trampoline.svg"
       ],
@@ -1578,7 +1579,7 @@
       "image": "/images/garagem-girassol/capa.webp",
       "icon": "/images/garagem-girassol/logo.svg",
       "socialImage": "/images/garagem-girassol/social-og.jpg",
-      "socialVersion": "",
+      "socialVersion": "1726f91d",
       "componentFile": "src/components/site/GaragemGirassolPage.tsx",
       "routeFile": "src/routes/portfolio.garagem-girassol.tsx",
       "assetsDir": "public/images/garagem-girassol",
@@ -2565,8 +2566,8 @@
       "subtitle": "Uma padaria do Santo Antônio apresentada com identidade editorial e SEO local",
       "image": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
       "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
-      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
-      "socialVersion": "20261119",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
+      "socialVersion": "03daa28a",
       "componentFile": "src/components/site/PanificadoraDoceCoracaoSantoAntonioPage.tsx",
       "routeFile": "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx",
       "assetsDir": "public/images/panificadora-doce-coracao-santo-antonio",
@@ -2579,6 +2580,7 @@
         "/images/panificadora-doce-coracao-santo-antonio/capa.svg",
         "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
         "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
         "/images/panificadora-doce-coracao-santo-antonio/social-og.png"
       ],
       "shareCopy": "🥖 Uma padaria do Santo Antônio também merece uma presença digital feita com carinho.\n\nA 0WEB desenvolveu este portfólio demonstrativo da Panificadora Doce Coração com identidade gráfica original, categorias de pães, bolos, salgados e doces, informações públicas, localização em São José dos Pinhais e caminhos de consulta. O projeto é independente; não é o site oficial da padaria.\n\n🌐 Veja o conceito de criação de sites pela 0WEB/WebRealce:\nhttps://0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio\n\n#DoceCoracao #PadariaSantoAntonio #SaoJoseDosPinhais #CriacaoDeSites #WebRealce #0WEB",
@@ -3126,17 +3128,14 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/salgados-da-fran/marca.svg",
+        "/images/salgados-da-fran/social-og-og.jpg",
         "/images/salgados-da-fran/social-og.svg"
       ],
       "shareCopy": "🥟 Salgados da Fran, em São José dos Pinhais — PR: conheça a proposta demonstrativa de presença digital criada pela 0WEB a partir da identidade do cartão de encomendas da marca.\n\nSaiba como consultar opções de salgados, informar data, ocasião e quantidade e solicitar condições atuais. Cardápio, preços, entrega e disponibilidade não foram confirmados; esta não é uma página oficial do estabelecimento.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/salgados-da-fran\n\n#SalgadosDaFran #SalgadosPorEncomenda #SaoJoseDosPinhais #0WEB",
       "published": false,
-      "status": "LEGACY",
-      "issues": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ],
-      "blocking": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ]
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     },
     {
       "slug": "santos-montador-de-moveis",
@@ -3415,8 +3414,8 @@
       "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
       "image": "/images/toop-assados/capa-card.svg",
       "icon": "/images/toop-assados/icon.svg",
-      "socialImage": "/images/toop-assados/social-og.svg",
-      "socialVersion": "",
+      "socialImage": "/images/toop-assados/social-og-og.jpg",
+      "socialVersion": "6bb9a8f8",
       "componentFile": "src/components/site/ToopAssadosPreviewPage.tsx",
       "routeFile": "src/routes/portfolio.toop-assados.tsx",
       "assetsDir": "public/images/toop-assados",
@@ -3428,6 +3427,7 @@
         "/images/toop-assados/capa-card.svg",
         "/images/toop-assados/icon.svg",
         "/images/toop-assados/logo.svg",
+        "/images/toop-assados/social-og-og.jpg",
         "/images/toop-assados/social-og.svg"
       ],
       "shareCopy": "🍖 A 0WEB preparou uma demonstração independente para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba.\n\nO projeto mostra uma nova experiência digital, com apresentação dos pratos e formulário de simulação. Não é o site oficial do estabelecimento; preços e pedidos precisam de confirmação pela empresa.\n\nhttps://0web.com.br/portfolio/toop-assados\n\n#ToopAssados #AssadosCuritiba #PortfolioDemonstrativo #0WEB",

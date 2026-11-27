@@ -1239,7 +1239,7 @@
     },
     "panificadora-doce-coracao-santo-antonio": {
       "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
-      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
       "proof": {
         "eyebrow": "Panificadora Doce Coração · Santo Antônio, SJP",
         "title": "Uma padaria de bairro merece ser encontrada.",
@@ -1247,7 +1247,7 @@
         "ctaLabel": "Encontrar a padaria",
         "ctaHref": "#localizacao"
       },
-      "socialVersion": "20261119"
+      "socialVersion": "03daa28a"
     },
     "infinito-spa": {
       "icon": "/images/infinito-spa/logo.svg",
@@ -1276,8 +1276,8 @@
     },
     "bpl-locacoes-de-brinquedos": {
       "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
-      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "socialVersion": "20261123",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+      "socialVersion": "c55da662",
       "proof": {
         "eyebrow": "BPL · São José dos Pinhais e região",
         "title": "Mais brincadeira para os momentos da sua festa.",
@@ -1288,8 +1288,8 @@
     },
     "toop-assados": {
       "icon": "/images/toop-assados/icon.svg",
-      "socialImage": "/images/toop-assados/social-og.svg",
-      "socialVersion": "",
+      "socialImage": "/images/toop-assados/social-og-og.jpg",
+      "socialVersion": "6bb9a8f8",
       "proof": {
         "eyebrow": "Fonte: panfleto fornecido à 0WEB",
         "title": "Uma proposta de cardápio digital demonstrativo.",
@@ -1308,7 +1308,8 @@
         "description": "Explore as opções anunciadas na Garagem & Girassol e consulte o cardápio, sabores, valores e disponibilidade.",
         "ctaLabel": "Consultar cardápio",
         "ctaHref": "#sabores"
-      }
+      },
+      "socialVersion": "1726f91d"
     }
   }
 }
