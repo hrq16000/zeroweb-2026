@@ -2,18 +2,19 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-27",
   "summary": {
-    "total": 101,
-    "valid": 48,
-    "pending": 53,
+    "total": 106,
+    "valid": 51,
+    "pending": 55,
     "byStatus": {
-      "VALID": 48,
-      "UNCERTAIN_ORIGIN": 20,
+      "VALID": 51,
+      "NEEDS_CROP": 0,
+      "CONTACT_OR_PII": 7,
+      "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "CONTACT_OR_PII": 7,
-      "PROMOTIONAL_MATERIAL": 2
+      "UNCERTAIN_ORIGIN": 22
     },
     "balanced": true
   },
@@ -114,11 +115,11 @@
       "asset": "/images/arildo-madeiras/capa-card.svg",
       "catalogImage": "/images/arildo-madeiras/capa-card.svg",
       "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
+      "origin": "0WEB_AUTHORED",
+      "reviewedAt": "2026-09-24",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
       "businessName": "Arildo Madeiras",
       "segment": "comercios"
     },
@@ -201,6 +202,19 @@
       "segment": "restaurantes"
     },
     {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "asset": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "BPL Locações de Brinquedos",
+      "segment": "comercios"
+    },
+    {
       "slug": "brecho-sao-francisco",
       "asset": "public/images/brecho-sao-francisco/capa.png",
       "catalogImage": null,
@@ -241,14 +255,14 @@
     },
     {
       "slug": "cantinho-da-tia-mari",
-      "asset": "/images/cantinho-da-tia-mari/fachada.webp",
+      "asset": "public/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImage": "/images/cantinho-da-tia-mari/fachada.webp",
       "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
+      "origin": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "reviewedAt": "2026-11-06",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
       "businessName": "Cantinho da Tia Mari",
       "segment": "comercios"
     },
@@ -552,6 +566,19 @@
       "segment": "beleza"
     },
     {
+      "slug": "espaco-marli-nails-guaratuba",
+      "asset": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "catalogImage": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Espaço Marli Nails Designer",
+      "segment": "beleza"
+    },
+    {
       "slug": "estrutura-nacional",
       "asset": "public/images/estrutura-nacional/sede.webp",
       "catalogImage": "/images/estrutura-nacional/capa-card.jpg",
@@ -589,6 +616,19 @@
       "cardValid": true,
       "businessName": "Galileu Locação de Brinquedos",
       "segment": "comercios"
+    },
+    {
+      "slug": "garagem-girassol",
+      "asset": "/images/garagem-girassol/capa.webp",
+      "catalogImage": "/images/garagem-girassol/capa.webp",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Garagem & Girassol",
+      "segment": "restaurantes"
     },
     {
       "slug": "guaratuba-atelie-presentes",
@@ -667,6 +707,19 @@
       "cardValid": true,
       "businessName": "Heloá Gás",
       "segment": "comercios"
+    },
+    {
+      "slug": "infinito-spa",
+      "asset": "/images/infinito-spa/capa-card.jpg",
+      "catalogImage": "/images/infinito-spa/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "0WEB_GENERATED",
+      "reviewedAt": "2026-11-26T03:18:31.010Z",
+      "status": "VALID",
+      "reason": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento.",
+      "cardValid": true,
+      "businessName": "Infinito Spa",
+      "segment": "beleza"
     },
     {
       "slug": "jc-revestimentos",
@@ -955,6 +1008,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Panificadora Doce Coração",
+      "segment": "comercios"
+    },
+    {
       "slug": "papelemi-personalizados",
       "asset": "public/images/papelemi-personalizados/hero.png",
       "catalogImage": "/images/papelemi-personalizados/hero.png",
@@ -1150,6 +1216,19 @@
       "segment": "beleza"
     },
     {
+      "slug": "salgados-da-fran",
+      "asset": "/images/salgados-da-fran/social-og.svg",
+      "catalogImage": "/images/salgados-da-fran/social-og.svg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Salgados da Fran",
+      "segment": "restaurantes"
+    },
+    {
       "slug": "santos-montador-de-moveis",
       "asset": "public/images/santos-montador-de-moveis/hero.png",
       "catalogImage": "/images/santos-montador-de-moveis/hero.webp",
@@ -1241,6 +1320,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "toop-assados",
+      "asset": "/images/toop-assados/capa-card.svg",
+      "catalogImage": "/images/toop-assados/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Toop Assados",
+      "segment": "restaurantes"
+    },
+    {
       "slug": "toquinho-de-gente-brecho",
       "asset": "public/images/toquinho-de-gente-brecho/capa.png",
       "catalogImage": null,
@@ -1303,84 +1395,6 @@
       "reason": "Sem julgamento humano registrado para a capa.",
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
-      "segment": "restaurantes"
-    },
-    {
-      "slug": "salgados-da-fran",
-      "asset": "/images/salgados-da-fran/social-og.svg",
-      "catalogImage": "/images/salgados-da-fran/social-og.svg",
-      "catalogImageRole": "SOCIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
-      "businessName": "Salgados da Fran",
-      "segment": "restaurantes"
-    },
-    {
-      "slug": "panificadora-doce-coracao-santo-antonio",
-      "asset": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
-      "catalogImage": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
-      "businessName": "Panificadora Doce Coração",
-      "segment": "comercios"
-    },
-    {
-      "slug": "infinito-spa",
-      "asset": "/images/infinito-spa/capa-card.jpg",
-      "catalogImage": "/images/infinito-spa/capa-card.svg",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "0WEB_GENERATED",
-      "reviewedAt": "2026-11-26T03:18:31.010Z",
-      "status": "VALID",
-      "reason": "Arte tipográfico original creado por 0WEB y revisado visualmente; no representa logotipo oficial ni fotografía del establecimiento.",
-      "cardValid": true,
-      "businessName": "Infinito Spa",
-      "segment": "beleza"
-    },
-    {
-      "slug": "espaco-marli-nails-guaratuba",
-      "asset": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
-      "catalogImage": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
-      "businessName": "Espaço Marli Nails Designer",
-      "segment": "beleza"
-    },
-    {
-      "slug": "bpl-locacoes-de-brinquedos",
-      "asset": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "catalogImage": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
-      "catalogImageRole": "SOCIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Sem julgamento humano registrado para a capa.",
-      "cardValid": false,
-      "businessName": "BPL Locações de Brinquedos",
-      "segment": "comercios"
-    },
-    {
-      "slug": "toop-assados",
-      "asset": "/images/toop-assados/capa-card.svg",
-      "catalogImage": "/images/toop-assados/capa-card.svg",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "CATALOG",
-      "reviewedAt": null,
-      "status": "UNCERTAIN_ORIGIN",
-      "reason": "Capa editorial original sem revisão perceptual de publicação.",
-      "cardValid": false,
-      "businessName": "Toop Assados",
       "segment": "restaurantes"
     }
   ]
