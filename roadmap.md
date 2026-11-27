@@ -1,5 +1,14 @@
 # Roadmap
 
+## CONTINUAR — transferência, Lighthouse, agentes e central de leads — 27/11/2026
+- [x] Painel Lighthouse: colunas por categoria, projeto/domínio, origem e cinco status com filtro e busca no servidor; conferido com 11.534 medições reais (11.509 automáticas do GitHub). "Em execução"/"Pendente" ficam vazios porque o workflow só envia medições concluídas.
+- [x] Central de leads da Dona Garimpeira em /painel-dona-garimpeira-leads: cadastro manual, filtros, ficha, histórico, status, responsável, resposta preparada + WhatsApp. Fluxo real testado com conta admin; cadastro de verificação apagado.
+- [ ] Formulário público do brechó → central: aguardando resposta do proprietário (hoje o formulário não grava no banco, por decisão anterior).
+- [x] Agentes: #548 fechada sem merge em 24/11; conta administradora opera painel e CRM de verdade; cadastro support_agents segue vazio (nenhuma pessoa indicada).
+- [ ] Seis testes reprovados herdados da main (capas/inventário, data do Garagem & Girassol, Angel Mix, Infinito Spa, seed admin): a PR #561 declara corrigi-los; não mexer para não colidir.
+- [ ] Medição automática Lighthouse do ambiente de produção: só staging/dev chegam hoje.
+- [ ] COBRAR NO INÍCIO DA PRÓXIMA RODADA: peças reais + logo da Dona Garimpeira (docs/portfolio/PENDENCIA_DONA_GARIMPEIRA_PECAS.md).
+
 ## Catálogo, busca e pendências do arquivo de execução — 26/11/2026
 - [x] Busca global do catálogo: São Francisco Pet Center, rascunhos, identificadores e status localizáveis; resultados fora dos filtros aparecem ao final.
 - [x] Ordenação por datas reais (criação/atualização, do histórico Git) e ordem aleatória.

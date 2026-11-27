@@ -3,7 +3,7 @@ import { useServerFn } from '@tanstack/react-start';
 import { Link } from '@tanstack/react-router';
 import { Activity, CheckCircle2, ChevronLeft, ChevronRight, Download, FileText, RefreshCcw, XCircle } from 'lucide-react';
 import { decideLhciRun, getLhciCoverage, getLhciRun, listLhciRuns } from '@/lib/lhci.functions';
-import { buildReceiptCoverage, receiptEvaluation, receiptMetadata, type ReceiptRow } from '@/lib/lhci-receipt-tracking';
+import { buildReceiptCoverage, measurementState, MEASUREMENT_STATES, MEASUREMENT_STATE_LABEL, receiptMetadata, receiptOrigin, receiptProject, type MeasurementState, type ReceiptRow } from '@/lib/lhci-receipt-tracking';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -13,6 +13,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 const PAGE_SIZE = 50;
 const pct = (n: number | null) => n == null ? '—' : Math.round(n * 100);
 const date = (value: string | null) => value ? new Date(value).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : 'Não informada';
+const STATE_CLASS: Record<MeasurementState, string> = { aprovado: 'text-primary', reprovado: 'text-destructive', em_execucao: 'text-foreground', pendente: 'text-muted-foreground', falha_coleta: 'text-destructive' };
 const title = (slug: string) => slug.split('-').map(word => word[0]?.toUpperCase() + word.slice(1)).join(' ');
 function path(url: string) { try { return new URL(url).pathname; } catch { return url; } }
 function download(name: string, value: unknown) {
@@ -29,6 +30,10 @@ export function LhciAdmin() {
   const [environment, setEnvironment] = useState('all');
   const [offset, setOffset] = useState(0);
   const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('');
+  const [state, setState] = useState<'all' | MeasurementState>('all');
+  const [automaticTotal, setAutomaticTotal] = useState<number | null>(null);
+  const [lastAutomaticAt, setLastAutomaticAt] = useState<string | null>(null);
   const [rows, setRows] = useState<ReceiptRow[]>([]);
   const [coverageRows, setCoverageRows] = useState<ReceiptRow[]>([]);
   const [coverageComplete, setCoverageComplete] = useState(true);
@@ -47,15 +52,17 @@ export function LhciAdmin() {
     setLoading(true); setError('');
     try {
       const [result, coverage] = await Promise.all([
-        list({ data: { ...(environment === 'all' ? {} : { environment }), limit: PAGE_SIZE, offset } }), coverageRead(),
+        list({ data: { ...(environment === 'all' ? {} : { environment }), ...(state === 'all' ? {} : { state }), ...(query ? { search: query } : {}), limit: PAGE_SIZE, offset } }), coverageRead(),
       ]);
       setRows(result.rows as ReceiptRow[]); setTotal(result.total);
       setCanDecide(result.canDecide); setConfigured(result.receivingConfigured);
       setCoverageRows(coverage.rows as ReceiptRow[]); setCoverageComplete(coverage.complete);
+      setAutomaticTotal(coverage.automaticTotal); setLastAutomaticAt(coverage.lastAutomaticAt);
     } catch { setError('Não foi possível atualizar os recebimentos.'); }
     finally { setLoading(false); }
-  }, [list, coverageRead, environment, offset]);
+  }, [list, coverageRead, environment, state, query, offset]);
   useEffect(() => { void refresh(); }, [refresh]);
+  useEffect(() => { const timer = setTimeout(() => { setQuery(search.trim()); setOffset(0); }, 400); return () => clearTimeout(timer); }, [search]);
   useEffect(() => {
     const timer = setInterval(() => { if (document.visibilityState === 'visible') void refresh(); }, 60000);
     return () => clearInterval(timer);
@@ -64,7 +71,7 @@ export function LhciAdmin() {
   const coverage = useMemo(() => buildReceiptCoverage(coverageRows), [coverageRows]);
   const pending = coverage.filter(item => !item.latest).length;
   const automatic = coverageRows.filter(row => receiptMetadata(row).automatic).length;
-  const visible = rows.filter(row => row.url.toLowerCase().includes(search.trim().toLowerCase()));
+  const visible = rows;
   const chart = [...rows].reverse().map(row => ({ t: date(receiptMetadata(row).measuredAt ?? row.created_at), perf: pct(row.performance), seo: pct(row.seo) }));
 
   const open = async (id: string) => {
@@ -89,9 +96,9 @@ export function LhciAdmin() {
     <div className="grid gap-5 border-y border-border py-5 sm:grid-cols-3">
       <Metric label="Produção recebida" value={`${coverage.length - pending}/${coverage.length}`} />
       <Metric label="Sem medição recebida" value={String(pending)} />
-      <Metric label="Recebimentos automáticos em produção" value={String(automatic)} />
+      <Metric label="Recebidas sozinhas do GitHub (todos os ambientes)" value={automaticTotal == null ? '—' : automaticTotal.toLocaleString('pt-BR')} />
     </div>
-    <p role="status" className="text-sm text-muted-foreground">{configured ? (automatic ? 'Chave configurada · recebimento automático registrado.' : 'Chave configurada · aguardando primeiro recebimento automático de produção.') : 'Recebimento automático sem chave configurada.'}</p>
+    <p role="status" className="text-sm text-muted-foreground">{configured ? (automaticTotal ? `Recebimento automático ativo · última entrada em ${date(lastAutomaticAt)}.${automatic ? '' : ' Ainda sem medição automática do site em produção.'}` : 'Chave configurada · aguardando o primeiro recebimento automático.') : 'Recebimento automático sem chave configurada.'}</p>
     {!coverageComplete && <p className="text-sm text-destructive">Cobertura parcial: há mais registros do que o limite desta consulta.</p>}
     <div><h3 className="mb-3 font-semibold">Candidaturas acompanhadas · produção</h3>
       <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3">{coverage.map(item => <div key={item.slug} className="flex min-w-0 items-center justify-between gap-3 border-b border-border py-3 text-sm">
@@ -100,21 +107,23 @@ export function LhciAdmin() {
       </div>)}</div>
     </div>
     <div className="flex flex-wrap gap-3">
-      <Input aria-label="Filtrar URL nesta página" placeholder="Filtrar URL nesta página" value={search} onChange={e => setSearch(e.target.value)} className="min-h-11 sm:max-w-sm" />
+      <Input aria-label="Buscar projeto ou endereço" placeholder="Buscar projeto ou endereço" value={search} onChange={e => setSearch(e.target.value)} className="min-h-11 sm:max-w-sm" />
       <Select value={environment} onValueChange={value => { setEnvironment(value); setOffset(0); }}><SelectTrigger aria-label="Ambiente Lighthouse" className="min-h-11 w-44"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="all">Todos os ambientes</SelectItem><SelectItem value="prod">Produção</SelectItem><SelectItem value="staging">Prévia de revisão</SelectItem><SelectItem value="dev">Desenvolvimento</SelectItem></SelectContent></Select>
+      <Select value={state} onValueChange={value => { setState(value as 'all' | MeasurementState); setOffset(0); }}><SelectTrigger aria-label="Status da medição" className="min-h-11 w-48"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="all">Todos os status</SelectItem>{MEASUREMENT_STATES.map(item => <SelectItem key={item} value={item}>{MEASUREMENT_STATE_LABEL[item]}</SelectItem>)}</SelectContent></Select>
     </div>
     {rows.length > 1 && <div className="min-w-0" aria-label="Performance e SEO das medições"><h3 className="mb-2 text-sm font-medium">Performance e SEO · notas de 0 a 100</h3><ResponsiveContainer width="100%" height={180}><LineChart data={chart}><CartesianGrid stroke="var(--border)" strokeDasharray="3 3" /><XAxis dataKey="t" hide /><YAxis domain={[0,100]} /><Tooltip /><Line type="linear" dataKey="perf" name="Performance" stroke="var(--primary)" dot={false} isAnimationActive={false} /><Line type="linear" dataKey="seo" name="SEO" stroke="var(--accent)" dot={false} isAnimationActive={false} /></LineChart></ResponsiveContainer></div>}
     <div className="overflow-x-auto" role="region" aria-label="Histórico de medições" tabIndex={0}>
-      <table className="w-full min-w-[900px] text-sm"><thead><tr className="border-b border-border text-left text-xs text-muted-foreground"><th className="py-3 pr-4">Medição / recebimento</th><th className="pr-4">Página</th><th className="pr-4">Nota</th><th className="pr-4">SEO / A11y</th><th className="pr-4">LCP / TBT</th><th className="pr-4">Origem</th><th className="pr-4">Status / decisão</th><th>Ações</th></tr></thead><tbody>
-        {!visible.length && <tr><td colSpan={8} className="py-8 text-center text-muted-foreground">{loading ? 'Carregando medições…' : 'Nenhuma medição neste filtro.'}</td></tr>}
-        {visible.map(row => { const meta = receiptMetadata(row); const evaluation = receiptEvaluation(row); return <tr key={row.id} className="border-b border-border align-top">
+      <table className="w-full min-w-[1100px] text-sm"><thead><tr className="border-b border-border text-left text-xs text-muted-foreground"><th className="py-3 pr-4">Data da medição</th><th className="pr-4">Projeto e domínio</th><th className="pr-4">Desempenho</th><th className="pr-4">Acessibilidade</th><th className="pr-4">Boas práticas</th><th className="pr-4">SEO</th><th className="pr-4">Status</th><th className="pr-4">Origem</th><th>Ações</th></tr></thead><tbody>
+        {!visible.length && <tr><td colSpan={9} className="py-8 text-center text-muted-foreground">{loading ? 'Carregando medições…' : 'Nenhuma medição neste filtro.'}</td></tr>}
+        {visible.map(row => { const meta = receiptMetadata(row); const current = measurementState(row); const project = receiptProject(row.url); return <tr key={row.id} className="border-b border-border align-top">
           <td className="whitespace-nowrap py-4 pr-4 tabular-nums">{date(meta.measuredAt)}<span className="block text-xs text-muted-foreground">Recebida: {date(meta.receivedAt)}</span></td>
-          <td className="max-w-64 py-4 pr-4"><Button variant="link" onClick={() => void open(row.id)} className="h-auto min-h-11 whitespace-normal p-0 text-left break-all">{path(row.url)}</Button><span className="block text-xs text-muted-foreground">{row.environment}</span></td>
-          <td className="py-4 pr-4 font-semibold tabular-nums">{pct(row.performance)}</td>
-          <td className="py-4 pr-4 tabular-nums">{pct(row.seo)} / {pct(row.accessibility)}</td>
-          <td className="whitespace-nowrap py-4 pr-4 tabular-nums">{row.lcp_ms == null ? '—' : Math.round(row.lcp_ms)} / {row.tbt_ms == null ? '—' : Math.round(row.tbt_ms)} ms</td>
-          <td className="py-4 pr-4">{meta.automatic ? 'Automática' : meta.signed ? 'Envio assinado' : 'Manual / histórica'}</td>
-          <td className="py-4 pr-4"><span className={evaluation.status === 'failed' ? 'text-destructive' : 'text-primary'}>{evaluation.status === 'failed' ? 'Reprovada' : 'Aprovada nos limites'}</span><span className="block text-xs text-muted-foreground">{row.decision === 'approved' ? 'Liberada pelo admin' : row.decision === 'rejected' ? 'Recusada pelo admin' : 'Sem decisão administrativa'}</span></td>
+          <td className="max-w-64 py-4 pr-4"><Button variant="link" onClick={() => void open(row.id)} className="h-auto min-h-11 whitespace-normal p-0 text-left font-medium">{project.project}</Button><span className="block break-all text-xs text-muted-foreground">{project.domain}{project.path} · {row.environment}</span></td>
+          <td className="py-4 pr-4 font-semibold tabular-nums">{pct(row.performance)}<span className="block text-xs font-normal text-muted-foreground">LCP {row.lcp_ms == null ? '—' : `${Math.round(row.lcp_ms)} ms`}</span></td>
+          <td className="py-4 pr-4 tabular-nums">{pct(row.accessibility)}</td>
+          <td className="py-4 pr-4 tabular-nums">{pct(row.best_practices)}</td>
+          <td className="py-4 pr-4 tabular-nums">{pct(row.seo)}</td>
+          <td className="py-4 pr-4"><span className={`font-medium ${STATE_CLASS[current]}`}>{MEASUREMENT_STATE_LABEL[current]}</span><span className="block text-xs text-muted-foreground">{row.decision === 'approved' ? 'Liberada pelo admin' : row.decision === 'rejected' ? 'Recusada pelo admin' : 'Sem decisão administrativa'}</span></td>
+          <td className="py-4 pr-4">{receiptOrigin(row)}</td>
           <td className="py-3"><div className="flex gap-1"><Button variant="ghost" size="icon" className="size-11" title="Detalhes da medição" aria-label="Detalhes da medição" onClick={() => void open(row.id)}><FileText /></Button>{canDecide && <><Button variant="ghost" size="icon" className="size-11" title="Liberar administrativamente" aria-label="Liberar administrativamente" onClick={() => { setReason(''); setDecision({ id: row.id, action: 'approved' }); }}><CheckCircle2 /></Button><Button variant="ghost" size="icon" className="size-11 text-destructive" title="Recusar administrativamente" aria-label="Recusar administrativamente" onClick={() => { setReason(''); setDecision({ id: row.id, action: 'rejected' }); }}><XCircle /></Button></>}</div></td>
         </tr>; })}
       </tbody></table>
