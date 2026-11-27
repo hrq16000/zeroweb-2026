@@ -3,9 +3,10 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, RotateCw } from "lucide-react";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
-import { PortfolioCover } from "@/components/portfolio/PortfolioCover";
+import coverStatus from "@/config/portfolio-cover-status.json";
 import {
   HOME_SHOWCASE_SIZE,
+  approvedHomeCover,
   homeProjectPage,
   orderHomeProjects,
   type HomeProject,
@@ -13,6 +14,36 @@ import {
 
 const LIVE = orderHomeProjects(portfolioCatalog as HomeProject[]);
 const PAGE_COUNT = Math.ceil(LIVE.length / HOME_SHOWCASE_SIZE);
+
+function HomeShowcaseMedia({ item, lead }: { item: HomeProject; lead: boolean }) {
+  const cover = approvedHomeCover(item.slug, coverStatus.projects);
+  const [failed, setFailed] = useState(false);
+
+  if (cover && !failed) {
+    return (
+      <img
+        src={cover}
+        alt={`Capa editorial de ${item.title}`}
+        width={640}
+        height={360}
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+        className="h-full w-full object-contain"
+      />
+    );
+  }
+
+  return (
+    <div className="flex h-full w-full flex-col justify-between bg-slate-950 p-4 text-white sm:p-6" aria-hidden="true">
+      <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-300">Projeto no ar</span>
+      <span className={lead ? "max-w-[18ch] font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl" : "font-display text-xl font-bold leading-tight tracking-tight"}>
+        {item.title}
+      </span>
+      <span className="text-xs text-slate-300">Capa editorial em revisão</span>
+    </div>
+  );
+}
 
 export function ProjetosNoAr() {
   const [page, setPage] = useState(0);
@@ -74,15 +105,7 @@ export function ProjetosNoAr() {
                   className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-[160ms] hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   <div className="relative aspect-video w-full overflow-hidden border-b border-border bg-muted">
-                    <PortfolioCover
-                      clientKey={item.clientKey}
-                      slug={item.slug}
-                      title={item.title}
-                      image={item.image}
-                      fallbackImage={item.fallbackImage}
-                      sizes={lead ? "(min-width: 1024px) 600px, (min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"}
-                      className="h-full w-full object-contain"
-                    />
+                    <HomeShowcaseMedia item={item} lead={lead} />
                   </div>
                   <div className={lead ? "flex flex-1 flex-col gap-2 p-5 sm:p-6" : "flex flex-1 flex-col gap-2 p-4"}>
                     <p className="text-xs font-medium leading-normal text-muted-foreground">{location}</p>

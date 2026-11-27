@@ -49,3 +49,14 @@ export function homeProjectPage(items: readonly HomeProject[], page: number): Ho
   const start = page * HOME_SHOWCASE_SIZE;
   return items.slice(start, start + HOME_SHOWCASE_SIZE);
 }
+
+
+type CoverRecord = { slug: string; asset?: string | null; status: string; cardValid: boolean };
+
+/** Approved editorial cover only; never fall back to a social/promotional asset. */
+export function approvedHomeCover(slug: string, records: readonly CoverRecord[]): string | null {
+  const row = records.find((entry) => entry.slug === slug);
+  if (!row || row.status !== "VALID" || !row.cardValid || !row.asset) return null;
+  const path = row.asset.replace(/^public\//, "/");
+  return path.startsWith("/images/") ? path : null;
+}
