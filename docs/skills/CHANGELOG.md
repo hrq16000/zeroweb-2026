@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-11-26 — Inteligência de marketing: curadoria e piloto offline
+
+- Inspecionados dez upstreams por README, licença e SHA; Marketing Skills/Claude Ads/Paid Media Agent adotados como princípios, não executáveis. Playbook e limites registrados em `docs/skills/MARKETING_INTELLIGENCE_ADOPTION_2026-11-26.md`.
+- Piloto autoral de relatório pago em JSON agregado, janelas fechadas e dados ausentes explícitos; 7 testes Node locais PASS, demonstração sintética executada. Sem pacotes, credenciais, rede, alteração de campanhas, banco, UI, funil ou runtime.
+- Aplicação condicional dos demais serviços; nenhuma integração externa instalada, nenhuma conta publicitária conectada e nenhuma publicação Production exigida para este piloto local.
+
 ## 2026-11-24 — Lighthouse assinado, CRM atômico e painel de recebimentos
 
 - Competências locais: router/discovery, design-system e UI quality gates para painel administrativo; referências Experience Design lidas para avaliação, sem ativar Max mode. Runtime, server-functions, grants/roles e segurança de secrets revisados. Sem pacote, identidade global, portfólio ou integração externa nova; marketplace/art direction/mídia NOT_APPLICABLE ao histórico operacional.

@@ -33,6 +33,8 @@ Nenhuma skill local executa scripts externos, rede ou lê segredos.
 
 ## Externas avaliadas
 
+**Marketing intelligence (26/11/2026):** [matriz dos 10 repositórios, SHAs, licenças, limites e playbook](MARKETING_INTELLIGENCE_ADOPTION_2026-11-26.md). Marketing Skills, Claude Ads e Paid Media Agent: princípios adotados; piloto autoral offline validado localmente. Umami, Dub, Google Ads MCP e Meta Ads MCP: adoção condicional, sem instalação; Mautic, Meridian e Robyn: futuras/alternativas. Meta Ads MCP tem licença BSL 1.1; Dub, AGPLv3 + enterprise. Não há autorização para revenda/serviço embutido, acesso a dados, credenciais ou mutações somente por esta entrada.
+
 | Skill / repo | Status | Decisão |
 |---|---|---|
 | `morluto/rea` — REA (Reverse Engineer Anything) | REFERENCE_ONLY / SECURITY_REVIEW_REQUIRED para executar | MIT; CLI + MCP para análise local de sites, JavaScript e binários. Usar apenas como investigação complementar, mediante escopo autorizado, ambiente isolado e revisão integral de scripts/dependências antes de instalar. Não adicionar ao build/runtime/CI. Fonte: https://github.com/morluto/rea @ `99db80a13e369885e7de99417475c25380446081`; protocolo: `docs/skills/REA_RESEARCH_ADOPTION.md`. |

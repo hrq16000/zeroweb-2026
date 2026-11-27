@@ -30,6 +30,15 @@ classificar tarefa
 | Acessibilidade | `.design-rules/SKILL.md` + `references/hig/accessibility.md` |
 | SEO / conteúdo | regras de `head()` no `AGENTS.md` + validadores `seo:*` |
 
+## Marketing intelligence: aplicação por necessidade
+
+Para SEO, CRO, planejamento de mídia, criativos, atribuição, analytics e auditoria
+de anúncios, combinar os controles locais com o [playbook avaliado de marketing](MARKETING_INTELLIGENCE_ADOPTION_2026-11-26.md).
+Ele é uma camada de contexto, evidência, medição e priorização, não uma instalação
+automática nem substituição de skill, funil, tracking ou CRM. Para exportes de mídia
+agregados, usar o piloto local `node scripts/paid-media-report.mjs <arquivo.json>`;
+não misturar contas, conversões ou intervalos e manter arquivos privados fora do Git.
+
 ## Máximo de competências, mínimo de redundância
 
 Uma boa stack cobre competências diferentes: direção criativa, conversão,
