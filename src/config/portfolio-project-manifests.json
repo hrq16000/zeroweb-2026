@@ -2185,6 +2185,101 @@
         "indexable": false,
         "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
       }
+    },
+    "garagem-girassol": {
+      "slug": "garagem-girassol",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "in_progress",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.garagem-girassol.tsx",
+            "src/components/site/GaragemGirassolPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/garagem-girassol.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Endereço informado pelo operador e link Maps na página"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/garagem-girassol/fachada.webp",
+            "public/images/garagem-girassol/crepe-suico.webp",
+            "public/images/garagem-girassol/sobremesas.webp"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts",
+            "src/config/portfolio-catalog.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Rota com canonical, robots index,follow e catálogo indexável; verificação de produção pendente até deploy"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": "QA runtime pendente; publicação inicial explicitamente solicitada pelo operador.",
+        "evaluatedAt": null
+      },
+      "searchQa": [
+        {
+          "query": "Garagem & Girassol",
+          "expect": "must_find"
+        },
+        {
+          "query": "espetinhos",
+          "expect": "must_find"
+        },
+        {
+          "query": "crepe suíço",
+          "expect": "must_find"
+        },
+        {
+          "query": "São José dos Pinhais",
+          "expect": "must_find"
+        }
+      ],
+      "warnings": [
+        "Publicação inicial solicitada em uma única rodada; não declarar QA runtime ou entrega WhatsApp confirmada."
+      ],
+      "ownerRequired": [
+        "Mais fotos, cardápio, valores e horários quando disponíveis."
+      ],
+      "blockers": [],
+      "lastUpdatedAt": "2026-11-26",
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/garagem-girassol.json",
+        "mediaPlan": "docs/portfolio/media-plans/garagem-girassol.json"
+      }
     }
   }
 }

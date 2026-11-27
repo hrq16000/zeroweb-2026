@@ -316,6 +316,9 @@
     },
     "toop-assados": {
       "whatsapp": null
+    },
+    "garagem-girassol": {
+      "whatsapp": "env:PORTFOLIO_WHATSAPP_GARAGEM_GIRASSOL"
     }
   }
 }

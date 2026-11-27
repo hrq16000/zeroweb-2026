@@ -2494,5 +2494,34 @@
     "metrics": "Pratos anunciados em panfleto; preços sujeitos a confirmação",
     "summary": "Estudo de presença digital para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba. Proposta independente da 0WEB, sem encomendas oficiais. Proposta demonstrativa independente da 0WEB; não é o canal oficial do restaurante.",
     "indexable": false
+  },
+  {
+    "slug": "garagem-girassol",
+    "clientKey": "garagem-girassol",
+    "title": "Garagem & Girassol",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "espetinhos",
+      "crepe suíço",
+      "morango com nata",
+      "uva com nata",
+      "lanchonete",
+      "São José dos Pinhais",
+      "Rua Quirino Zagonel"
+    ],
+    "subtitle": "Espetinhos e crepe suíço em São José dos Pinhais",
+    "location": "Rua Quirino Zagonel, 988 · São José dos Pinhais — PR",
+    "badge": "Novo portfólio demonstrativo",
+    "image": "/images/garagem-girassol/capa.webp",
+    "fallbackImage": "/images/garagem-girassol/fachada.webp",
+    "imageFocalPoint": "center",
+    "metrics": "Consulta de cardápio",
+    "summary": "Garagem & Girassol em São José dos Pinhais — espetinhos, crepe suíço, morango com nata e uva com nata anunciados nas placas reais. Conheça as opções, consulte o cardápio e encontre a Rua Quirino Zagonel, 988. Apresentação demonstrativa 0WEB.",
+    "publishedAt": "2026-11-26"
   }
 ]

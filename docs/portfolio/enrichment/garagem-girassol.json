@@ -1,0 +1,90 @@
+{
+  "slug": "garagem-girassol",
+  "lastResearchAt": "2026-11-26",
+  "researchLedger": {
+    "googleEntity": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "website": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "instagram": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "facebook": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "otherSocial": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "directories": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "phone": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    },
+    "media": {
+      "searched": true,
+      "status": "NOT_RESOLVED",
+      "notes": "Busca nominal e por endereço sem perfil inequívoco; fonte primária são fotografias fornecidas."
+    }
+  },
+  "entity": {
+    "resolutionStatus": "VERIFIED",
+    "source": "Nome das fotos e endereço do operador; perfil externo não resolvido"
+  },
+  "identity": {
+    "businessName": {
+      "value": "Garagem & Girassol",
+      "source": "placa fotografada"
+    },
+    "location": {
+      "street": "Rua Quirino Zagonel",
+      "number": "988",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "source": "operador"
+    },
+    "products": {
+      "value": [
+        "espetinhos",
+        "crepe suíço",
+        "morango com nata",
+        "uva com nata"
+      ],
+      "source": "cartazes fotografados"
+    }
+  },
+  "providerCalls": [
+    "Busca pública nome + endereço; nenhum perfil atribuível."
+  ],
+  "unconfirmed": [
+    "cardápio detalhado",
+    "horários",
+    "preços",
+    "entrega",
+    "redes sociais"
+  ],
+  "photos": {
+    "status": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+    "items": [
+      "825756.jpg",
+      "825757.jpg",
+      "825758.jpg"
+    ]
+  }
+}

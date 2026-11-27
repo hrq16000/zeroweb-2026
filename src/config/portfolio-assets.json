@@ -1297,6 +1297,18 @@
         "ctaLabel": "Conhecer a simulação",
         "ctaHref": "#simulacao"
       }
+    },
+    "garagem-girassol": {
+      "icon": "/images/garagem-girassol/logo.svg",
+      "socialImage": "/images/garagem-girassol/social-og.jpg",
+      "heroImage": "/images/garagem-girassol/fachada.webp",
+      "proof": {
+        "eyebrow": "Garagem & Girassol · São José dos Pinhais",
+        "title": "Espetinhos, crepe suíço e sobremesas com nata",
+        "description": "Explore as opções anunciadas na Garagem & Girassol e consulte o cardápio, sabores, valores e disponibilidade.",
+        "ctaLabel": "Consultar cardápio",
+        "ctaHref": "#sabores"
+      }
     }
   }
 }

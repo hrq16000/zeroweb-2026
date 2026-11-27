@@ -1466,5 +1466,26 @@
       "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
       "source": "Panfleto comercial fotografado pelo usuário em 07/11/2026; titularidade, preços e canais não confirmados"
     }
+  },
+  {
+    "clientKey": "garagem-girassol",
+    "slug": "garagem-girassol",
+    "siteName": "Garagem & Girassol",
+    "routeFile": "src/routes/portfolio.garagem-girassol.tsx",
+    "componentFile": "src/components/site/GaragemGirassolPage.tsx",
+    "assetsDir": "public/images/garagem-girassol",
+    "ctaMode": "proposal",
+    "funnelType": "pedido",
+    "contactMode": "funnelOnly",
+    "hostCaptureRequired": true,
+    "socialProofRequired": false,
+    "funnelRecipientConfigured": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/garagem-girassol.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Três fotografias de sinalização comercial e endereço fornecidos pelo operador em 26/11/2026.",
+      "reference": "docs/portfolio/enrichment/garagem-girassol.json"
+    }
   }
 ]
