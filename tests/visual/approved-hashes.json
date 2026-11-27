@@ -190,7 +190,7 @@
     }
   },
   "rj-servicos-drywall": {
-    "reason": "Revisão visual do candidato R9: contraste de texto e sobreposição do hero melhorados; hierarquia, imagens e CTAs preservados. Aprovação exata de pixels; limite global permanece 2%.",
+    "reason": "Revisão visual do candidato R9: contraste de texto e sobreposição do hero melhorados; hierarquia, imagens e CTAs preservados. Aprovação exata de pixels; limite global permanece 2%. Tablet: baseline binária atualizada após confirmação em duas execuções CI; ver relatório Growth R1.",
     "reviewedAt": "2026-11-27",
     "evidence": {
       "runId": 46042280041,
@@ -199,11 +199,6 @@
       "headSha": "d7de76223605b8d19ea030b41d3dfb920c35bbb7"
     },
     "viewports": {
-      "tablet": {
-        "width": 834,
-        "height": 1112,
-        "pixelSha256": "761bfa5c19a4f2ecc60feb05fead4de054b8946ea15b723d62950594dd994829"
-      },
       "mobile": {
         "width": 393,
         "height": 852,
@@ -471,7 +466,7 @@
     }
   },
   "r_beauty": {
-    "reason": "Revisão visual do candidato R9: composição editorial desktop e conteúdo do hero agora visível em tablet/mobile, antes praticamente vazios. CTAs, texto e mídia conferidos. Aprovação exata de pixels; limite global permanece 2%.",
+    "reason": "Revisão visual do candidato R9: composição editorial desktop e conteúdo do hero agora visível em tablet/mobile, antes praticamente vazios. CTAs, texto e mídia conferidos. Aprovação exata de pixels; limite global permanece 2%. Tablet: baseline binária atualizada após confirmação em duas execuções CI; ver relatório Growth R1.",
     "reviewedAt": "2026-11-27",
     "evidence": {
       "runId": 46042280041,
@@ -484,11 +479,6 @@
         "width": 1280,
         "height": 900,
         "pixelSha256": "b07a6e27f84ba562e9e3c44980fcaf12d30edf8d3acced7a9392fd81413e199a"
-      },
-      "tablet": {
-        "width": 834,
-        "height": 1112,
-        "pixelSha256": "c515683158e4f28a9607fb598ff41b83582374d6e124704f76f9e424b18df889"
       },
       "mobile": {
         "width": 393,

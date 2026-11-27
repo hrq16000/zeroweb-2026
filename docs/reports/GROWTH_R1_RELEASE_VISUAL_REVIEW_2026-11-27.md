@@ -40,3 +40,13 @@ A aprovação mobile anterior de RJ Drywall (2026-10-02) continua recuperável n
   }
 }
 ```
+
+
+## Reexecução — run 46052882021
+- Artefato 15225044318, SHA-256 do ZIP conferido: `7efd8a5837bfc76b4b2a98deaa53f314a503b485c5844231bca78d978a227697`, candidato `1003c31ad4e98c2a533fb5a1f9303fa2b56a8871`.
+- Três aprovações exatas passaram: R Beauty desktop/mobile e RJ Drywall mobile. RJ desktop permaneceu 1,05%.
+- Nova inspeção lado a lado das duas capturas tablet confirma composição, texto, contraste e CTAs iguais em relação à primeira captura. Variação de qualquer canal RGB: R Beauty **0,003235%** dos pixels; RJ Drywall **0,023722%** dos pixels (diferenças de rasterização).
+- Versionadas **somente** as duas novas referências PNG do artefato oficial, substituindo as baselines históricas obsoletas; remoção das duas exceções exatas de hash, pois a comparação normal agora usa a referência revisada. Todas as outras referências permanecem intactas. Limite global permanece 2%, nenhuma alteração no algoritmo de comparação.
+- Novo hash RGBA tablet R Beauty: `4e88c01ff7e860fa13eb68b471e9051a97d70337226bf075439b069850fa31f3`.
+- Novo hash RGBA tablet RJ Drywall: `dd05e202c71c03231eb4666f41848a793914f41a01d8d3e8ffc204d760e132a8`.
+- Merge e deploy continuam condicionados à terceira execução verde.
