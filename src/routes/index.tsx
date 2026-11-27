@@ -3,7 +3,6 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { MotionChoreo, MotionScope } from "@/components/motion";
 import {
   HomeFinalCTAV2,
   HomeHeroV2,
@@ -30,7 +29,7 @@ const ScrollTracker = lazy(() =>
 );
 
 const Skel = ({ h = "h-64" }: { h?: string }) => (
-  <div className={`${h} w-full animate-pulse bg-muted/30`} aria-hidden="true" />
+  <div className={`${h} w-full bg-muted/30`} aria-hidden="true" />
 );
 
 const homeSectionsQuery = queryOptions({
@@ -206,53 +205,39 @@ function Index() {
       </Suspense>
       <Header />
 
-      <MotionScope intensity="BALANCED">
-        <main>
-          {on("hero") ? (
-            <MotionChoreo surface="root-editorial" role="hero">
-              <HomeHeroV2 />
-            </MotionChoreo>
-          ) : null}
+      <main>
+        {on("hero") ? (
+          <HomeHeroV2 />
+        ) : null}
 
-          {on("solutions") ? (
-            <MotionChoreo surface="root-editorial" role="answer">
-              <HomePositioningV2 />
-            </MotionChoreo>
-          ) : null}
+        {on("solutions") ? (
+          <HomePositioningV2 />
+        ) : null}
 
-          {on("featured_services") ? (
-            <MotionChoreo surface="root-editorial" role="offer">
-              <Suspense key="featured-services-v2" fallback={<Skel />}>
-                <FeaturedServices
-                  title="Serviços para contratar"
-                  subtitle="Uma seleção da loja 0WEB com produtos digitais de escopo claro. O catálogo completo fica em /servicos."
-                  limit={4}
-                />
-              </Suspense>
-            </MotionChoreo>
-          ) : null}
+        {on("featured_services") ? (
+          <Suspense key="featured-services-v2" fallback={<Skel />}>
+            <FeaturedServices
+              title="Serviços para contratar"
+              subtitle="Uma seleção da loja 0WEB com produtos digitais de escopo claro. O catálogo completo fica em /servicos."
+              limit={4}
+            />
+          </Suspense>
+        ) : null}
 
-          {on("projetos_no_ar") ? (
-            <MotionChoreo surface="root-editorial" role="showcase">
-              <Suspense key="projects-v2" fallback={<Skel />}>
-                <ProjetosNoAr />
-              </Suspense>
-            </MotionChoreo>
-          ) : null}
+        {on("projetos_no_ar") ? (
+          <Suspense key="projects-v2" fallback={<Skel />}>
+            <ProjetosNoAr />
+          </Suspense>
+        ) : null}
 
-          {on("process") ? (
-            <MotionChoreo surface="root-editorial" role="signal">
-              <HomeProcessV2 />
-            </MotionChoreo>
-          ) : null}
+        {on("process") ? (
+          <HomeProcessV2 />
+        ) : null}
 
-          {on("cta") ? (
-            <MotionChoreo surface="root-editorial" role="closing">
-              <HomeFinalCTAV2 />
-            </MotionChoreo>
-          ) : null}
-        </main>
-      </MotionScope>
+        {on("cta") ? (
+          <HomeFinalCTAV2 />
+        ) : null}
+      </main>
 
       <Footer />
       <Suspense fallback={null}>

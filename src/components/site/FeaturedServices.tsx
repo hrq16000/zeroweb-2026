@@ -46,7 +46,7 @@ export function FeaturedServices({
           </div>
           <Link
             to="/servicos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+            className="inline-flex items-center gap-2 min-h-11 text-sm font-semibold text-primary hover:underline"
           >
             Ver Serviços <ArrowRight className="w-4 h-4" />
           </Link>
@@ -58,7 +58,7 @@ export function FeaturedServices({
               key={s.slug}
               to="/servicos/$slug"
               params={{ slug: s.slug }}
-              className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary hover:-translate-y-1 hover:shadow-elegant transition-all duration-300"
+              className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-[160ms] hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               <div className="aspect-video overflow-hidden bg-muted">
                 <ServiceCoverImage
@@ -71,10 +71,10 @@ export function FeaturedServices({
                   height={720}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4">
+              <div className="flex flex-1 flex-col p-4">
                 <p className="text-[10px] uppercase tracking-wider text-primary font-bold">
                   {s.category}
                 </p>
@@ -95,8 +95,8 @@ export function FeaturedServices({
                     </span>
                   </p>
                 ) : null}
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
-                  Ver detalhes <ArrowRight className="w-3 h-3" />
+                <span className="mt-auto inline-flex items-center gap-1 pt-4 text-xs font-semibold text-primary">
+                  Ver detalhes <ArrowRight className="size-3 motion-safe:transition-transform motion-safe:duration-[160ms] motion-safe:group-hover:translate-x-0.5" aria-hidden="true" />
                 </span>
               </div>
             </Link>

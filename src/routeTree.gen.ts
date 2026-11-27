@@ -135,14 +135,17 @@ import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './rout
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
+import { Route as PortfolioBplLocacoesDeBrinquedosRouteImport } from './routes/portfolio.bpl-locacoes-de-brinquedos'
 import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfolio.cantinho-da-tia-mari'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
+import { Route as PortfolioEspacoMarliNailsGuaratubaRouteImport } from './routes/portfolio.espaco-marli-nails-guaratuba'
+import { Route as PortfolioGaragemGirassolRouteImport } from './routes/portfolio.garagem-girassol'
 import { Route as PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport } from './routes/portfolio.panificadora-doce-coracao-santo-antonio'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
-import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
-import { Route as PortfolioGaragemGirassolRouteImport } from './routes/portfolio.garagem-girassol'
 import { Route as PortfolioSalgadosDaFranRouteImport } from './routes/portfolio.salgados-da-fran'
+import { Route as PortfolioSaoFranciscoPetCenterRouteImport } from './routes/portfolio.sao-francisco-pet-center'
+import { Route as PortfolioToopAssadosRouteImport } from './routes/portfolio.toop-assados'
 import { Route as ProfissionalSlugRouteImport } from './routes/profissional.$slug'
 import { Route as RCodeRouteImport } from './routes/r.$code'
 import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
@@ -923,6 +926,12 @@ const PortfolioAgropetFiltRoute = PortfolioAgropetFiltRouteImport.update({
   path: '/portfolio/agropet-filt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioBplLocacoesDeBrinquedosRoute =
+  PortfolioBplLocacoesDeBrinquedosRouteImport.update({
+    id: '/portfolio/bpl-locacoes-de-brinquedos',
+    path: '/portfolio/bpl-locacoes-de-brinquedos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioCantinhoDaTiaMariRoute =
   PortfolioCantinhoDaTiaMariRouteImport.update({
     id: '/portfolio/cantinho-da-tia-mari',
@@ -934,6 +943,18 @@ const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
   path: '/portfolio/dyzpromo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioEspacoMarliNailsGuaratubaRoute =
+  PortfolioEspacoMarliNailsGuaratubaRouteImport.update({
+    id: '/portfolio/espaco-marli-nails-guaratuba',
+    path: '/portfolio/espaco-marli-nails-guaratuba',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PortfolioGaragemGirassolRoute =
+  PortfolioGaragemGirassolRouteImport.update({
+    id: '/portfolio/garagem-girassol',
+    path: '/portfolio/garagem-girassol',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioPanificadoraDoceCoracaoSantoAntonioRoute =
   PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport.update({
     id: '/portfolio/panificadora-doce-coracao-santo-antonio',
@@ -950,24 +971,22 @@ const PortfolioRenataBeautyRoute = PortfolioRenataBeautyRouteImport.update({
   path: '/portfolio/renata-beauty',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioSalgadosDaFranRoute = PortfolioSalgadosDaFranRouteImport.update({
+  id: '/portfolio/salgados-da-fran',
+  path: '/portfolio/salgados-da-fran',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioSaoFranciscoPetCenterRoute =
   PortfolioSaoFranciscoPetCenterRouteImport.update({
     id: '/portfolio/sao-francisco-pet-center',
     path: '/portfolio/sao-francisco-pet-center',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioGaragemGirassolRoute =
-  PortfolioGaragemGirassolRouteImport.update({
-    id: '/portfolio/garagem-girassol',
-    path: '/portfolio/garagem-girassol',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const PortfolioSalgadosDaFranRoute =
-  PortfolioSalgadosDaFranRouteImport.update({
-    id: '/portfolio/salgados-da-fran',
-    path: '/portfolio/salgados-da-fran',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const PortfolioToopAssadosRoute = PortfolioToopAssadosRouteImport.update({
+  id: '/portfolio/toop-assados',
+  path: '/portfolio/toop-assados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfissionalSlugRoute = ProfissionalSlugRouteImport.update({
   id: '/profissional/$slug',
   path: '/profissional/$slug',
@@ -1853,14 +1872,17 @@ export interface FileRoutesByFullPath {
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
-  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
-  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -2120,14 +2142,17 @@ export interface FileRoutesByTo {
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
-  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
-  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -2391,14 +2416,17 @@ export interface FileRoutesById {
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
+  '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
   '/portfolio/cantinho-da-tia-mari': typeof PortfolioCantinhoDaTiaMariRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
+  '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
+  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
-  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
-  '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
   '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute
+  '/portfolio/sao-francisco-pet-center': typeof PortfolioSaoFranciscoPetCenterRoute
+  '/portfolio/toop-assados': typeof PortfolioToopAssadosRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
   '/servicos/$slug': typeof ServicosSlugRoute
@@ -2663,14 +2691,17 @@ export interface FileRouteTypes {
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
+    | '/portfolio/bpl-locacoes-de-brinquedos'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/espaco-marli-nails-guaratuba'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
-    | '/portfolio/sao-francisco-pet-center'
-    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
+    | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/toop-assados'
     | '/profissional/$slug'
     | '/r/$code'
     | '/servicos/$slug'
@@ -2930,14 +2961,17 @@ export interface FileRouteTypes {
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
+    | '/portfolio/bpl-locacoes-de-brinquedos'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/espaco-marli-nails-guaratuba'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
-    | '/portfolio/sao-francisco-pet-center'
-    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
+    | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/toop-assados'
     | '/profissional/$slug'
     | '/r/$code'
     | '/servicos/$slug'
@@ -3200,14 +3234,17 @@ export interface FileRouteTypes {
     | '/portfolio-preview/dona-garimpeira-brecho'
     | '/portfolio/$slug'
     | '/portfolio/agropet-filt'
+    | '/portfolio/bpl-locacoes-de-brinquedos'
     | '/portfolio/cantinho-da-tia-mari'
     | '/portfolio/dyzpromo'
+    | '/portfolio/espaco-marli-nails-guaratuba'
+    | '/portfolio/garagem-girassol'
     | '/portfolio/panificadora-doce-coracao-santo-antonio'
     | '/portfolio/r_beauty'
     | '/portfolio/renata-beauty'
-    | '/portfolio/sao-francisco-pet-center'
-    | '/portfolio/garagem-girassol'
     | '/portfolio/salgados-da-fran'
+    | '/portfolio/sao-francisco-pet-center'
+    | '/portfolio/toop-assados'
     | '/profissional/$slug'
     | '/r/$code'
     | '/servicos/$slug'
@@ -3468,14 +3505,17 @@ export interface RootRouteChildren {
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
+  PortfolioBplLocacoesDeBrinquedosRoute: typeof PortfolioBplLocacoesDeBrinquedosRoute
   PortfolioCantinhoDaTiaMariRoute: typeof PortfolioCantinhoDaTiaMariRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
+  PortfolioEspacoMarliNailsGuaratubaRoute: typeof PortfolioEspacoMarliNailsGuaratubaRoute
+  PortfolioGaragemGirassolRoute: typeof PortfolioGaragemGirassolRoute
   PortfolioPanificadoraDoceCoracaoSantoAntonioRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
-  PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
-  PortfolioGaragemGirassolRoute: typeof PortfolioGaragemGirassolRoute
   PortfolioSalgadosDaFranRoute: typeof PortfolioSalgadosDaFranRoute
+  PortfolioSaoFranciscoPetCenterRoute: typeof PortfolioSaoFranciscoPetCenterRoute
+  PortfolioToopAssadosRoute: typeof PortfolioToopAssadosRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
   RCodeRoute: typeof RCodeRoute
   SitesRobustosSlugRoute: typeof SitesRobustosSlugRoute
@@ -4404,6 +4444,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioAgropetFiltRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/bpl-locacoes-de-brinquedos': {
+      id: '/portfolio/bpl-locacoes-de-brinquedos'
+      path: '/portfolio/bpl-locacoes-de-brinquedos'
+      fullPath: '/portfolio/bpl-locacoes-de-brinquedos'
+      preLoaderRoute: typeof PortfolioBplLocacoesDeBrinquedosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/cantinho-da-tia-mari': {
       id: '/portfolio/cantinho-da-tia-mari'
       path: '/portfolio/cantinho-da-tia-mari'
@@ -4416,6 +4463,20 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/dyzpromo'
       fullPath: '/portfolio/dyzpromo'
       preLoaderRoute: typeof PortfolioDyzpromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/espaco-marli-nails-guaratuba': {
+      id: '/portfolio/espaco-marli-nails-guaratuba'
+      path: '/portfolio/espaco-marli-nails-guaratuba'
+      fullPath: '/portfolio/espaco-marli-nails-guaratuba'
+      preLoaderRoute: typeof PortfolioEspacoMarliNailsGuaratubaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/garagem-girassol': {
+      id: '/portfolio/garagem-girassol'
+      path: '/portfolio/garagem-girassol'
+      fullPath: '/portfolio/garagem-girassol'
+      preLoaderRoute: typeof PortfolioGaragemGirassolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/panificadora-doce-coracao-santo-antonio': {
@@ -4439,6 +4500,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRenataBeautyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/salgados-da-fran': {
+      id: '/portfolio/salgados-da-fran'
+      path: '/portfolio/salgados-da-fran'
+      fullPath: '/portfolio/salgados-da-fran'
+      preLoaderRoute: typeof PortfolioSalgadosDaFranRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/sao-francisco-pet-center': {
       id: '/portfolio/sao-francisco-pet-center'
       path: '/portfolio/sao-francisco-pet-center'
@@ -4446,18 +4514,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioSaoFranciscoPetCenterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio/garagem-girassol': {
-      id: '/portfolio/garagem-girassol'
-      path: '/portfolio/garagem-girassol'
-      fullPath: '/portfolio/garagem-girassol'
-      preLoaderRoute: typeof PortfolioGaragemGirassolRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio/salgados-da-fran': {
-      id: '/portfolio/salgados-da-fran'
-      path: '/portfolio/salgados-da-fran'
-      fullPath: '/portfolio/salgados-da-fran'
-      preLoaderRoute: typeof PortfolioSalgadosDaFranRouteImport
+    '/portfolio/toop-assados': {
+      id: '/portfolio/toop-assados'
+      path: '/portfolio/toop-assados'
+      fullPath: '/portfolio/toop-assados'
+      preLoaderRoute: typeof PortfolioToopAssadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profissional/$slug': {
@@ -5883,15 +5944,19 @@ const rootRouteChildren: RootRouteChildren = {
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
+  PortfolioBplLocacoesDeBrinquedosRoute: PortfolioBplLocacoesDeBrinquedosRoute,
   PortfolioCantinhoDaTiaMariRoute: PortfolioCantinhoDaTiaMariRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
+  PortfolioEspacoMarliNailsGuaratubaRoute:
+    PortfolioEspacoMarliNailsGuaratubaRoute,
+  PortfolioGaragemGirassolRoute: PortfolioGaragemGirassolRoute,
   PortfolioPanificadoraDoceCoracaoSantoAntonioRoute:
     PortfolioPanificadoraDoceCoracaoSantoAntonioRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
-  PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
-  PortfolioGaragemGirassolRoute: PortfolioGaragemGirassolRoute,
   PortfolioSalgadosDaFranRoute: PortfolioSalgadosDaFranRoute,
+  PortfolioSaoFranciscoPetCenterRoute: PortfolioSaoFranciscoPetCenterRoute,
+  PortfolioToopAssadosRoute: PortfolioToopAssadosRoute,
   ProfissionalSlugRoute: ProfissionalSlugRoute,
   RCodeRoute: RCodeRoute,
   SitesRobustosSlugRoute: SitesRobustosSlugRoute,
