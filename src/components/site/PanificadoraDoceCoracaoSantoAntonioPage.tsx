@@ -73,7 +73,7 @@ function HostedConsultaButton({ children, className }: { children: ReactNode; cl
   return (
     <DialogPrimitive.Root>
       <DialogPrimitive.Trigger asChild>
-        <button type="button" data-testid="doce-coracao-consulta-trigger" className={className}>{children}</button>
+        <button type="button" data-testid="doce-coracao-consulta-trigger" data-funnel-provider-trigger="jotform" data-funnel-client="panificadora-doce-coracao-santo-antonio" className={className}>{children}</button>
       </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-[110] bg-[#341624]/80 backdrop-blur-sm" />

@@ -8,7 +8,7 @@ import { MotionReveal } from "@/components/motion";
 const FORM = "https://form.jotform.com/263257363729062";
 
 function CTA({children, onOpen}: {children: ReactNode; onOpen: () => void}) {
-  return <button type="button" data-funnel-cta="portfolio" data-funnel-client="espaco-marli-nails-guaratuba" onClick={onOpen}
+  return <button type="button" data-funnel-cta="portfolio" data-funnel-client="espaco-marli-nails-guaratuba" data-funnel-provider-trigger="jotform" onClick={onOpen}
     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
     {children}
   </button>;
@@ -218,7 +218,7 @@ export function EspacoMarliNailsGuaratubaPage() {
     </main>
     <footer className="sr-only"><PortfolioHostCredit/></footer>
 
-    {!nearFooter && <button type="button" onClick={show} aria-label="Abrir formulário de consulta demonstrativa da 0WEB"
+    {!nearFooter && <button type="button" data-funnel-provider-trigger="jotform" data-funnel-client="espaco-marli-nails-guaratuba" onClick={show} aria-label="Abrir formulário de consulta demonstrativa da 0WEB"
       className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#542638] px-5 py-3 text-sm font-bold text-white shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b4758c]">
       <CalendarDays size={18} aria-hidden="true"/> Consulta 0WEB
     </button>}
