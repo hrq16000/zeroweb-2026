@@ -190,20 +190,24 @@
     }
   },
   "rj-servicos-drywall": {
-    "reason": "Baseline mobile confirmada durante a migração de segurança TanStack. A PR diagnóstica #321 reproduziu no main o mesmo desvio histórico acima de 2%; #320 manteve pixels idênticos ao main em quatro canários e DyzPromo variou apenas 0,48% entre as execuções. Capturas revisadas; o limite global permanece 2%.",
-    "reviewedAt": "2026-10-02",
+    "reason": "Revisão visual do candidato R9: contraste de texto e sobreposição do hero melhorados; hierarquia, imagens e CTAs preservados. Aprovação exata de pixels; limite global permanece 2%.",
+    "reviewedAt": "2026-11-27",
     "evidence": {
-      "baselineRunId": 36947857468,
-      "baselineArtifactId": 11204245307,
-      "candidateRunId": 36953577456,
-      "candidateArtifactId": 11205495676,
-      "headSha": "ac39bc4073888b9f56cdaa1735f0c5724d453263"
+      "runId": 46042280041,
+      "artifactId": 15221611814,
+      "artifactDigest": "sha256:e94ebb04ae93e6621e95a66adff8ba2c42f53c80e536b5dfa5e59c3db3f636b0",
+      "headSha": "d7de76223605b8d19ea030b41d3dfb920c35bbb7"
     },
     "viewports": {
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "761bfa5c19a4f2ecc60feb05fead4de054b8946ea15b723d62950594dd994829"
+      },
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "0744a285f3e6caebdba57040f03e4db33b3a0b74882676107a64b93ecea4c030"
+        "pixelSha256": "33807c2758a8a64941859884fea1a18e0082b5271f0b992e1b10080224e79d65"
       }
     }
   },
@@ -463,6 +467,33 @@
         "width": 393,
         "height": 852,
         "pixelSha256": "6e1c16b098ab18be495805092adc545a8184c22946ec1c6849d9d41c19baf28a"
+      }
+    }
+  },
+  "r_beauty": {
+    "reason": "Revisão visual do candidato R9: composição editorial desktop e conteúdo do hero agora visível em tablet/mobile, antes praticamente vazios. CTAs, texto e mídia conferidos. Aprovação exata de pixels; limite global permanece 2%.",
+    "reviewedAt": "2026-11-27",
+    "evidence": {
+      "runId": 46042280041,
+      "artifactId": 15221611814,
+      "artifactDigest": "sha256:e94ebb04ae93e6621e95a66adff8ba2c42f53c80e536b5dfa5e59c3db3f636b0",
+      "headSha": "d7de76223605b8d19ea030b41d3dfb920c35bbb7"
+    },
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 900,
+        "pixelSha256": "b07a6e27f84ba562e9e3c44980fcaf12d30edf8d3acced7a9392fd81413e199a"
+      },
+      "tablet": {
+        "width": 834,
+        "height": 1112,
+        "pixelSha256": "c515683158e4f28a9607fb598ff41b83582374d6e124704f76f9e424b18df889"
+      },
+      "mobile": {
+        "width": 393,
+        "height": 852,
+        "pixelSha256": "3cf326a76754e12fc67c97dcda95f41fe84f597e0ce75c8130d6ea3d50fbc664"
       }
     }
   }
