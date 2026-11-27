@@ -19,6 +19,11 @@ describe("R9 — direção exclusiva e contratos individuais", () => {
     expect(source).toContain("<h1 className=");
     expect(source).not.toContain('as="h1"');
     expect(source).toContain('href="#dl-frentes"');
+    // The kitchen row is a possible desktop LCP. It must be within the
+    // first-paint provider and must never wait for staggered reveal.
+    expect(source.indexOf('<MotionFirstPaint>')).toBeLessThan(source.indexOf('aria-labelledby="dl-frentes"'));
+    expect(source.indexOf('</MotionFirstPaint>')).toBeGreaterThan(source.indexOf('context={{ categoria: escolha }}'));
+    expect(source).not.toContain('delay={i * 120}');
     expect(source).toContain('formSlug="funnel-dlara-pizzaria"');
     expect(source).toContain("context={{ categoria: escolha }}");
     expect(source).toContain('pageName="portfolio-dlara-pizzaria"');

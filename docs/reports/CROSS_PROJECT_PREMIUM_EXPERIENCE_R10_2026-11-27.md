@@ -21,3 +21,6 @@ Não incorporar silenciosamente o diff antigo de #561: CI anterior falhou com 41
 | PapeLemi | www.papelemi.com.br | 972ec096f293362789f573c24a92155e999f079b | dpl_D1Sq8hrRVuzoJvpHqq3jkghtkkRx |
 
 Técnico Curitiba 2026 #15 (CI Security/Internal links/ci PASS) integrado somente docs em 5657d9440f10c846ae948363ffc3d2a0b8bbfd9f. Não declarar alteração pública de UI por merge documental.
+
+## Remediação adicional do CI R10 — D’Lara
+O Lighthouse (run 46041335167) mediu 0,88 e 0,86 em D’Lara, com SEO, acessibilidade e boas práticas 1,00; as outras três rotas superaram 0,90 no melhor run. O LCP diagnosticado foi o parágrafo da seção das cozinhas: render delay de 1,89–2,02s (93%). A extensão de MotionFirstPaint para essa primeira linha e remoção do stagger preservam o conteúdo desde SSR e hidratação; não altera aparência em repouso, CTA, imagem ou thresholds. Revalidação remota necessária.

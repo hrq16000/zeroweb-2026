@@ -80,8 +80,8 @@ export function DlaraPizzariaPage() {
               <figcaption className="mt-4 flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[var(--dl-light)]/75"><span className="h-px w-9 bg-[var(--dl-ember)]" aria-hidden="true" /> Três cozinhas · uma casa <span className="h-px w-9 bg-[var(--dl-ember)]" aria-hidden="true" /></figcaption>
             </figure>
           </section>
-        </MotionFirstPaint>
 
+        {/* The first kitchen row can sit above the fold on desktop. Do not gate its text on IntersectionObserver. */}
         <section
           aria-labelledby="dl-frentes"
           className="border-y border-[var(--dl-ember)]/25 bg-[var(--dl-light)]/[0.03]"
@@ -91,7 +91,7 @@ export function DlaraPizzariaPage() {
           </h2>
           <div className="mx-auto grid max-w-5xl divide-y divide-[var(--dl-ember)]/20 px-5 md:grid-cols-3 md:divide-x md:divide-y-0">
             {frentes.map(({ icon: Icon, nome, texto, escolha }, i) => (
-              <MotionReveal key={nome} variant="up" intensity="BALANCED" delay={i * 120} className="group/frente px-0 py-8 text-left md:px-7">
+              <MotionReveal key={nome} variant="up" intensity="BALANCED" className="group/frente px-0 py-8 text-left md:px-7">
                 <div className="flex items-center justify-between"><span className="font-mono text-xs tracking-widest text-[var(--dl-ember)]">0{i + 1}</span><Icon className="h-7 w-7 text-[var(--dl-ember)]" aria-hidden /></div>
                 <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-[0.2em]">{nome}</h3>
                 <p className="mt-3 max-w-[35ch] text-sm leading-relaxed text-[var(--dl-light)]/75">{texto}</p>
@@ -101,6 +101,7 @@ export function DlaraPizzariaPage() {
             ))}
           </div>
         </section>
+        </MotionFirstPaint>
 
         <aside id="escolha-rapida" className="mx-auto max-w-5xl px-5 pt-14">
           <div className="border-y border-[var(--dl-ember)]/25 py-7">
