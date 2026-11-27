@@ -15,6 +15,24 @@ describe("CI de funis preserva a cobertura integral", () => {
     expect(step).not.toContain("E2E_SHARD_INDEX:");
   });
 
+  test("formulários hospedados usam registry e interceptação sem escrita; demais contratos continuam cobertos", () => {
+    const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
+    const forms = JSON.parse(readFileSync("src/config/portfolio-hosted-form-registry.json", "utf8")).forms;
+    for (const slug of ["espaco-marli-nails-guaratuba", "panificadora-doce-coracao-santo-antonio"]) {
+      const client = clients.find((entry: { slug: string }) => entry.slug === slug);
+      expect(client?.funnelVariant).toBe("hosted_form");
+      expect(forms[client.clientKey].clientKey).toBe(client.clientKey);
+      expect(readFileSync(client.componentFile, "utf8")).toContain('data-funnel-provider-trigger="jotform"');
+    }
+    expect(e2e).toContain('target.funnelVariant === "hosted_form"');
+    expect(e2e).toContain('request.url() !== form.url');
+    expect(e2e).toContain('await route.abort()');
+    expect(e2e).toContain('await route.fulfill(');
+    expect(e2e).toContain('hostedDryRunOk.push(id)');
+    expect(e2e).toContain('portfolio-cta-quiz-title');
+    expect(e2e).toContain('direct_lead_form');
+  });
+
   test("fila mantém cada portfolio nos dois viewports e respeita falhas", () => {
     expect(e2e).toContain('{ name: "desktop", width: 1280, height: 1400 }');
     expect(e2e).toContain('{ name: "mobile", width: 393, height: 851 }');
