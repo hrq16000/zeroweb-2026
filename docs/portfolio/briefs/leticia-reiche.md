@@ -99,3 +99,13 @@ Referência `R_Beauty` / `Renata Beauty` interna: **apenas infraestrutura de SEO
 - Identidade ainda não corroborada por perfil oficial; não criar LocalBusiness, reviews, endereço, redes sociais, disponibilidade nem preços. Banner da versão publicável declara explicitamente que é demonstração 0WEB, não site oficial.
 - `PortfolioStandardShell` aplica pop-up e rodapé institucional; botão flutuante do quiz Supabase fica desabilitado, evitando funil cruzado. Formulário Jotform é próprio, sujeito a consentimento e carregado sob demanda.
 - Próxima homologação: catálogo/manifesto novo v4, screenshot 390/768/1440, SEO/OG raster/sitemap e validação do domínio após gates. A PR não deve ser mesclada enquanto houver bloqueadores.
+
+
+## Public review mode — 27/11/2026
+
+- A rota `/portfolio/leticia-reiche` só pode ser publicada como demonstração 0WEB, nunca como site oficial da profissional.
+- Manter `noindex,nofollow,noarchive,noimageindex`, sem canonical, JSON-LD, discovery ou sitemap enquanto não houver autorização comercial explícita.
+- O formulário Jotform é demonstrativo, exige consentimento e recebe respostas na conta da 0WEB; não encaminha solicitações à profissional.
+- Não existe WhatsApp profissional confirmado. Não criar telefone, disponibilidade, reserva, cobrança ou confirmação de agendamento.
+- Catálogo permanece `status=draft` e `live=false`; manifesto registra aprovação, identidade, mídia e QA como pendências.
+- Só promover a site oficial/indexável após autorização explícita, confirmação da identidade e canais, fotos aprovadas e QA visual real em 390/768/1440.
