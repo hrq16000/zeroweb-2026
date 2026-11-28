@@ -82,19 +82,19 @@
     }
   },
   "portfolio-index": {
-    "reason": "Vitrine R9 revisada em desktop, tablet e mobile no artefato do head a88a11d. Aprovação exclusiva do índice, por hash exato dos pixels revisados; a revisão seguinte reduz o escopo ao índice e valida foco/teclado sem alterar a composição visual. Qualquer pixel diferente permanece sujeito ao limite de 2%.",
+    "reason": "Vitrine R9 revisada nos três viewports no artefato do head fa8c9bf, com digest conferido. Comparação desktop com a captura anteriormente aprovada (run 46116357689) apresentou 0% de pixels acima da tolerância cromática existente; diferença apenas no hash exato. Tablet e mobile mantiveram hashes idênticos. Aprovação exclusiva do índice, por hash exato dos pixels revisados; qualquer outra captura permanece sujeita ao limite de 2%.",
     "reviewedAt": "2026-11-28",
     "evidence": {
-      "runId": 46116357689,
-      "artifactId": 15253020131,
-      "artifactDigest": "sha256:03a01ebedac34963254e6d3cd42b22702393d63a2e53b8d8b8443b87c34efd22",
-      "headSha": "a88a11d2164b1ea6f0a231eaa38e36c1afc16a94"
+      "runId": 46169471881,
+      "artifactId": 15273690741,
+      "artifactDigest": "sha256:0583dd7ae84930142366e5c182ef47c3971ce99332e6d38ed5bde836b30ab65e",
+      "headSha": "fa8c9bf50314828421b44bfeb10cd71dfde1dd50"
     },
     "viewports": {
       "desktop": {
         "width": 1280,
         "height": 900,
-        "pixelSha256": "a9307392dc875c86754de35f8e97700ff95fbe40819dfda7a1f90925050ae36a"
+        "pixelSha256": "d55db10f037be9fe496f06c67bbb768dbe5efd98d37f23330c0460e8a5d8bfbf"
       },
       "tablet": {
         "width": 834,
