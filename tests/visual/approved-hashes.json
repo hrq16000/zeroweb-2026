@@ -82,29 +82,29 @@
     }
   },
   "portfolio-index": {
-    "reason": "Baseline atual do índice /portfolio revisada manualmente em desktop, tablet e mobile durante a rodada do diretório crawlable. A aprovação é por hash exato de pixels e não altera o limite global de 2%.",
-    "reviewedAt": "2026-09-30",
+    "reason": "Vitrine R9 revisada em desktop, tablet e mobile no artefato do head a88a11d. Aprovação exclusiva do índice, por hash exato dos pixels revisados; a revisão seguinte reduz o escopo ao índice e valida foco/teclado sem alterar a composição visual. Qualquer pixel diferente permanece sujeito ao limite de 2%.",
+    "reviewedAt": "2026-11-28",
     "evidence": {
-      "runId": 36662219703,
-      "artifactId": 11074887625,
-      "artifactDigest": "sha256:586ead47ab9d660274c5f120b1eea2f445ecfe20dfd84f1fee062952bac180d6",
-      "headSha": "b1708e3fa58e066c71e8a0f99560bbf061b16a64"
+      "runId": 46116357689,
+      "artifactId": 15253020131,
+      "artifactDigest": "sha256:03a01ebedac34963254e6d3cd42b22702393d63a2e53b8d8b8443b87c34efd22",
+      "headSha": "a88a11d2164b1ea6f0a231eaa38e36c1afc16a94"
     },
     "viewports": {
       "desktop": {
         "width": 1280,
         "height": 900,
-        "pixelSha256": "965843ebbb7f330462d8f0a5dc3c8136e304ed7a234df0d5de8cc07669d80e43"
+        "pixelSha256": "a9307392dc875c86754de35f8e97700ff95fbe40819dfda7a1f90925050ae36a"
       },
       "tablet": {
         "width": 834,
         "height": 1112,
-        "pixelSha256": "7b523ae2484889a7fa1ef7f6a9b8841b6d7f071c2b83462e663c97371e9899cb"
+        "pixelSha256": "444d63b0c344eab6f61bb6f41634fbaf4adaa23e61085d3b06cfd25b2db63d23"
       },
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "443922f9081b12d711e143f800c38350bb369b419f599299992b7191916adc6f"
+        "pixelSha256": "d1c5f79b0961f068fc8a61fa4cdb9c82c87c5104be56d8131a8279749d8c2538"
       }
     }
   },

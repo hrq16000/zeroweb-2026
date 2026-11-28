@@ -79,6 +79,8 @@ function PortfolioRegionFilter({
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const restoreFocus = useRef(false);
   const terms = normalizeText(query).split(" ").filter(Boolean);
   const normalized = normalizeText(query);
   const matches = useMemo(() => {
@@ -96,15 +98,22 @@ function PortfolioRegionFilter({
     setOpen(next);
     if (!next) setQuery("");
   };
+  const closeAndRestoreFocus = () => {
+    restoreFocus.current = true;
+    changeOpen(false);
+    // Escape must restore focus even while the closing animation is running.
+    requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true }));
+  };
   const select = (region: string) => {
     onChange(region);
-    changeOpen(false);
+    closeAndRestoreFocus();
   };
 
   return (
     <Popover open={open} onOpenChange={changeOpen}>
       <PopoverTrigger asChild>
         <button
+          ref={triggerRef}
           type="button"
           aria-label={value === "todas" ? "Filtrar por região" : `Filtrar por região: ${value}`}
           className="flex h-11 min-w-0 items-center justify-between gap-2 rounded-lg border border-border bg-background px-2.5 text-left text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:text-sm lg:h-12 lg:w-56 lg:rounded-xl lg:px-4"
@@ -113,7 +122,20 @@ function PortfolioRegionFilter({
           <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
         </button>
       </PopoverTrigger>
-      <PopoverContent align="start" aria-label="Escolher região do portfólio" className="w-80 max-w-[calc(100vw-2rem)] p-0 motion-reduce:animate-none">
+      <PopoverContent
+        align="start"
+        aria-label="Escolher região do portfólio"
+        onEscapeKeyDown={(event) => {
+          event.preventDefault();
+          closeAndRestoreFocus();
+        }}
+        onCloseAutoFocus={(event) => {
+          if (!restoreFocus.current) return;
+          event.preventDefault();
+          restoreFocus.current = false;
+          triggerRef.current?.focus({ preventScroll: true });
+        }}
+        className="w-80 max-w-[calc(100vw-2rem)] p-0 motion-reduce:animate-none">
         <Command shouldFilter={false} label="Buscar região">
           <CommandInput value={query} onValueChange={setQuery} aria-label="Buscar região" placeholder="Digite cidade ou bairro..." className="min-h-11" />
           <CommandList>
