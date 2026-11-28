@@ -504,7 +504,7 @@ if (invokedAsScript) {
       options.routeTreeDiff = gitDiff(
         "diff", "--unified=0", base, head, "--", "src/routeTree.gen.ts",
       );
-      options.dynamicPortfolioRouteDiff = gitDiff(
+      options.dynamicPortfolioRouteDiff = process.env.DYNAMIC_PORTFOLIO_ROUTE_DIFF || gitDiff(
         "diff", "--unified=3", base, head, "--", "src/routes/portfolio.$slug.tsx",
       );
     } catch {

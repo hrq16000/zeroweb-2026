@@ -103,6 +103,8 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             git fetch --no-tags --depth=1 origin "$PR_BASE_SHA" "$PR_HEAD_SHA" >/dev/null 2>&1 || true
             FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
+            DYNAMIC_PORTFOLIO_ROUTE_DIFF="$(git diff --unified=3 "$PR_BASE_SHA" "$PR_HEAD_SHA" -- 'src/routes/portfolio.$slug.tsx' || true)"
+            export DYNAMIC_PORTFOLIO_ROUTE_DIFF
             ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
@@ -214,6 +216,8 @@ jobs:
 
           git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          DYNAMIC_PORTFOLIO_ROUTE_DIFF="$(git diff --unified=3 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx' || true)"
+          export DYNAMIC_PORTFOLIO_ROUTE_DIFF
           RUN=false
           FRAMEWORK_COMPAT=false
           VERCEL_MCP_GUARD_ONLY=false
