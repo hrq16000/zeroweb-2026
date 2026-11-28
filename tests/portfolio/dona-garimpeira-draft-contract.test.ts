@@ -30,7 +30,7 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).toBe("draft");
     expect(project?.clientKey).toBe(slug);
-    // O loader exige registro indexável, mas não consulta dynamic_forms.
+    // A rota fica disponível somente em revisão; SEO e atendimento permanecem fail-closed.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
@@ -45,6 +45,10 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     expect(route).toContain("return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }");
     expect(route).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
     expect(route).not.toContain("if (!available) throw notFound()");
+    const page = read("src/components/site/DonaGarimpeiraBrechoPage.tsx");
+    expect(page).toContain('data-review-mode="true"');
+    expect(page).toContain("Atendimento em revisão");
+    expect(page).not.toContain("DonaGarimpeiraOfflineFunnel");
     const clients = parse("src/config/portfolio-clients.json");
     expect(clients.find((entry: { slug: string }) => entry.slug === slug)).toBeUndefined();
     const active = parse("src/config/portfolio-project-manifests.json").projects[slug];

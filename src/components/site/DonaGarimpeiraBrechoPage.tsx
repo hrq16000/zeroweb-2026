@@ -15,7 +15,7 @@ import {
   ShoppingBag,
   X,
 } from "lucide-react";
-import { DonaGarimpeiraOfflineFunnel, type DonaGarimpeiraInterest } from "./DonaGarimpeiraOfflineFunnel";
+
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
@@ -28,7 +28,7 @@ import "./dona-garimpeira-brecho.css";
  */
 const SLUG = "dona-garimpeira-brecho";
 const INSTAGRAM = "https://www.instagram.com/donagarimpeirasjp/";
-export type GarimpeiraInterest = DonaGarimpeiraInterest;
+export type GarimpeiraInterest = "comprar" | "vender" | "doar";
 const PreviewInterestContext = createContext<((interest: GarimpeiraInterest) => void) | null>(null);
 
 type Category = "todos" | "feminino" | "masculino" | "infantil";
@@ -135,13 +135,17 @@ function InterestCta({
   className?: string;
 }) {
   const openFunnel = useContext(PreviewInterestContext);
+  const disabled = !openFunnel;
   return <button
     type="button"
+    disabled={disabled}
+    aria-disabled={disabled}
+    title={disabled ? "Atendimento em revisão" : undefined}
     data-testid="dona-garimpeira-funnel-cta"
     data-placement={placement}
     className={className}
     onClick={() => openFunnel?.(interest)}
-  >{children}</button>;
+  >{disabled ? "Atendimento em revisão" : children}</button>;
 }
 
 function RealGallery() {
@@ -279,10 +283,18 @@ function RealGallery() {
 }
 
 export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInterest?: (interest: GarimpeiraInterest) => void } = {}) {
-  const [offlineInterest, setOfflineInterest] = useState<GarimpeiraInterest | null>(null);
   return (
-    <PreviewInterestContext.Provider value={onPreviewInterest ?? setOfflineInterest}>
+    <PreviewInterestContext.Provider value={onPreviewInterest ?? null}>
     <PortfolioCompositionRoot composition={composition}>
+      {!onPreviewInterest && (
+        <aside
+          className="mx-auto w-full border-b border-[#d8c18a] bg-[#f8edce] px-4 py-3 text-center text-sm font-medium text-[#5b4422]"
+          role="status"
+          data-review-mode="true"
+        >
+          Demonstração em revisão. Identidade visual, informações comerciais e atendimento aguardam validação da responsável. Não envie dados pessoais nem faça pedidos por esta página.
+        </aside>
+      )}
       <main className="dg-site" id="inicio">
         <header className="dg-header">
           <a className="dg-wordmark" href="#inicio" aria-label="Dona Garimpeira — início">dona<span>garimpeira</span><span className="dg-wordmark-star" aria-hidden="true">✳</span></a>
@@ -399,12 +411,6 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
           </div>
         </footer>
       </main>
-      {!onPreviewInterest && (
-        <DonaGarimpeiraOfflineFunnel
-          interest={offlineInterest}
-          onClose={() => setOfflineInterest(null)}
-        />
-      )}
     </PortfolioCompositionRoot>
     </PreviewInterestContext.Provider>
   );

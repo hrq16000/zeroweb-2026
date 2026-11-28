@@ -515,11 +515,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
     // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
     if (loaderData?.slug === "dona-garimpeira-brecho") {
       return createDonaGarimpeiraSeo({
-        published: true,
-        funnelVerified: true,
-        ownerApproved: true,
+        published: false,
+        funnelVerified: false,
+        ownerApproved: false,
         mediaApproved: false,
-        approvedWithoutSocialImage: true,
+        approvedWithoutSocialImage: false,
         approvedSocialImage: null,
       });
     }

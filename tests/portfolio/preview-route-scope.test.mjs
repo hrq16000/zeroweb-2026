@@ -13,6 +13,7 @@ const previewChanges = [
   ".lighthouserc.cjs",
   ".github/workflows/lighthouse.yml",
   ".github/workflows/portfolio-gates.yml",
+  ".github/workflows/lighthouse.yml",
   "tests/portfolio/preview-route-scope.test.mjs",
 ];
 
@@ -37,4 +38,62 @@ test("escopo de prévia requer componente e CSS exclusivos", () => {
 
 test("arquivo de outro cliente/serviço invalida a classificação", () => {
   assert.equal(previewOnlyScope([...previewChanges, "src/routes/servicos.index.tsx"]), null);
+});
+
+const premiumHomePortfolioChanges = [
+  "docs/portfolio/drafts/dona-garimpeira-brecho-manifest-v4.json",
+  "docs/reports/CROSS_PROJECT_PREMIUM_EXPERIENCE_R3_2026-11-27.md",
+  "scripts/playwright-portfolio-funnels.mjs",
+  "scripts/resolve-visual-regression-scope.mjs",
+  "src/components/site/AngelMixBrechoPage.tsx",
+  "src/components/site/DonaGarimpeiraBrechoPage.tsx",
+  "src/components/site/FeaturedServices.tsx",
+  "src/components/site/HomeExperienceV2.css",
+  "src/components/site/HomeExperienceV2.tsx",
+  "src/components/site/ProjetosNoAr.tsx",
+  "src/config/portfolio-cover-status.json",
+  "src/config/portfolio-project-dates.json",
+  "src/lib/home-project-selection.ts",
+  "src/lib/portfolio-admin.ts",
+  "src/routes/index.tsx",
+  "src/routes/portfolio.$slug.tsx",
+  "tests/home/home-showcase.test.ts",
+  "tests/portfolio/dona-garimpeira-draft-contract.test.ts",
+  "tests/portfolio/dona-garimpeira-seo-prepublish.test.ts",
+  "tests/portfolio/preview-route-scope.test.mjs",
+  ".lighthouserc.cjs",
+  ".github/workflows/portfolio-gates.yml",
+];
+
+const donaScopedRouteDiff = [
+  'diff --git a/src/routes/portfolio.$slug.tsx b/src/routes/portfolio.$slug.tsx',
+  ' if (loaderData?.slug === "dona-garimpeira-brecho") {',
+  '-        published: true,',
+  '+        published: false,',
+  '-        funnelVerified: true,',
+  '+        funnelVerified: false,',
+  '-        ownerApproved: true,',
+  '+        ownerApproved: false,',
+  '-        approvedWithoutSocialImage: true,',
+  '+        approvedWithoutSocialImage: false,',
+].join("\n");
+
+test("home premium + páginas Angel Mix e Dona usam escopo visual/LHCI explícito", () => {
+  assert.deepEqual(
+    resolveVisualRegressionScope(premiumHomePortfolioChanges, [], {
+      dynamicPortfolioRouteDiff: donaScopedRouteDiff,
+    }),
+    ["home", "angel-mix-brecho", "dona-garimpeira-brecho"],
+  );
+});
+
+test("qualquer componente compartilhado adicional mantém o gate global", () => {
+  assert.deepEqual(
+    resolveVisualRegressionScope(
+      [...premiumHomePortfolioChanges, "src/components/site/SharedHeader.tsx"],
+      [],
+      { dynamicPortfolioRouteDiff: donaScopedRouteDiff },
+    ),
+    [],
+  );
 });

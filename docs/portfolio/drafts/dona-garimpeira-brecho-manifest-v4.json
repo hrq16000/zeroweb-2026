@@ -39,7 +39,7 @@
       "seoPrepublishTests": "tests/portfolio/dona-garimpeira-seo-prepublish.test.ts",
       "mediaProvenance": "docs/portfolio/media-plans/dona-garimpeira-brecho.json"
     },
-    "notes": "DRAFT: composição e metadados SEO individual preparados mas não publicados; gates de mídia, rota, funil e indexação não aprovados."
+    "notes": "DRAFT: rota disponível somente em modo de revisão pública, noindex e sem funil ativo; identidade, dados comerciais, mídia e gates de indexação aguardam aprovação."
   },
   "contentFacts": {
     "ownSourcedContent": true,
@@ -51,9 +51,9 @@
   },
   "blockers": [
     "PRIVATE_FUNNEL_NOT_READY: persistência do lead e destino server-only precisam de configuração e teste",
-    "AUTHORIAL_REGISTERED_BUT_URL_NOT_PUBLISHED: sem clientKey/catalog/prototype, rota mantém 404",
+    "PUBLIC_REVIEW_MODE_NOINDEX: rota pública de revisão sem indexação e sem atendimento ativo até aprovação explícita",
     "MANAGED_EDITOR_RBAC_NOT_READY: Google OAuth/tenant/auditoria ainda não construídos",
-    "SEO_DRAFT_NOT_WIRED_TO_HEAD: candidato com noindex fail-closed, mídia/capa e readiness ainda bloqueados"
+    "SEO_REVIEW_MODE_NOINDEX: metadados fail-closed sem canonical, schema ou indexação até aprovação"
   ],
   "warnings": [
     "Google Business Profile informado como criado mas não visível, verificação em processamento",
@@ -82,7 +82,7 @@
   ],
   "visualQa": {
     "status": "NOT_EXECUTED",
-    "notes": "Sem rota publicada; validar mobile, desktop, E2E, a11y e anti-template após integração."
+    "notes": "Rota pública de revisão noindex; validar mobile, desktop, E2E, acessibilidade e anti-template antes de promover."
   },
   "notes": {
     "enrichment": "docs/portfolio/enrichment/dona-garimpeira-brecho.json",
@@ -90,5 +90,5 @@
     "brief": "docs/portfolio/briefs/dona-garimpeira-brecho.md",
     "qualityMatrix": "docs/portfolio/quality-matrix/dona-garimpeira-brecho.json"
   },
-  "lastUpdatedAt": "2026-11-02"
+  "lastUpdatedAt": "2026-11-27"
 }
