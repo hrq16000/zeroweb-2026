@@ -166,6 +166,7 @@ export function previewOnlyScope(files) {
     ".lighthouserc.cjs",
     ".github/workflows/lighthouse.yml",
     ".github/workflows/portfolio-gates.yml",
+  ".github/workflows/lighthouse.yml",
     "tests/portfolio/preview-route-scope.test.mjs",
   ]);
   if (!names.every((name) => permitted.has(name))) return null;

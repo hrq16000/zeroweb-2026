@@ -13,6 +13,7 @@ const previewChanges = [
   ".lighthouserc.cjs",
   ".github/workflows/lighthouse.yml",
   ".github/workflows/portfolio-gates.yml",
+  ".github/workflows/lighthouse.yml",
   "tests/portfolio/preview-route-scope.test.mjs",
 ];
 
