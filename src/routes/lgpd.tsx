@@ -6,7 +6,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 const TITLE = "Central LGPD — Exercer direitos sobre seus dados | 0WEB";
 const DESCRIPTION =
   "Solicite acesso, correção, exclusão ou portabilidade dos seus dados pessoais tratados pela 0WEB. Atendimento em até 15 dias, conforme a Lei 13.709/2018.";
-const URL = "https://0web.com.br/lgpd";
+const URL = "https://www.0web.com.br/lgpd";
 
 export const Route = createFileRoute("/lgpd")({
   head: () => ({

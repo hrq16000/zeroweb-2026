@@ -6,7 +6,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
 const TITLE = "Google Ads para advogados | Marketing jurídico 0WEB";
 const DESCRIPTION = "Gestão de Google Ads para advogados e escritórios: campanhas de pesquisa, orçamento controlado, relatórios e publicidade jurídica responsável.";
-const URL = "https://0web.com.br/marketing-juridico";
+const URL = "https://www.0web.com.br/marketing-juridico";
 const intent = { purpose: "diagnosis", source: "marketing-juridico", pagePath: "/marketing-juridico", placement: "hero" } as const;
 
 export const Route = createFileRoute("/marketing-juridico")({
@@ -21,11 +21,11 @@ export const Route = createFileRoute("/marketing-juridico")({
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "0WEB" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { property: "og:image", content: "https://www.0web.com.br/og-default.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
-      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:image", content: "https://www.0web.com.br/og-default.jpg" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [{
@@ -33,9 +33,9 @@ export const Route = createFileRoute("/marketing-juridico")({
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@graph": [
-          { "@type": "Service", "@id": URL + "#service", name: "Gestão de Google Ads para advogados", description: DESCRIPTION, url: URL, serviceType: "Marketing digital", areaServed: "BR", provider: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br/" } },
+          { "@type": "Service", "@id": URL + "#service", name: "Gestão de Google Ads para advogados", description: DESCRIPTION, url: URL, serviceType: "Marketing digital", areaServed: "BR", provider: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br/" } },
           { "@type": "BreadcrumbList", itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
             { "@type": "ListItem", position: 2, name: "Marketing jurídico", item: URL },
           ] },
         ],

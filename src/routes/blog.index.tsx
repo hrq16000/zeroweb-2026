@@ -21,17 +21,17 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://0web.com.br/blog" },
-      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { property: "og:url", content: "https://www.0web.com.br/blog" },
+      { property: "og:image", content: "https://www.0web.com.br/og-default.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:image", content: "https://www.0web.com.br/og-default.jpg" },
       { name: "robots", content: "max-image-preview:large, max-snippet:-1" },
     ],
     links: [
-      { rel: "canonical", href: "https://0web.com.br/blog" },
-      { rel: "alternate", type: "application/rss+xml", title: "Blog 0WEB", href: "https://0web.com.br/rss.xml" },
+      { rel: "canonical", href: "https://www.0web.com.br/blog" },
+      { rel: "alternate", type: "application/rss+xml", title: "Blog 0WEB", href: "https://www.0web.com.br/rss.xml" },
     ],
     scripts: [
       {
@@ -42,22 +42,22 @@ export const Route = createFileRoute("/blog/")({
             {
               "@type": "Blog",
               name: "Blog 0WEB",
-              url: "https://0web.com.br/blog",
+              url: "https://www.0web.com.br/blog",
               inLanguage: "pt-BR",
-              publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+              publisher: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
               blogPost: posts.map((p) => ({
                 "@type": "BlogPosting",
                 headline: p.title,
                 description: p.excerpt,
                 datePublished: p.date,
                 articleSection: p.category,
-                url: `https://0web.com.br/blog/${p.slug}`,
+                url: `https://www.0web.com.br/blog/${p.slug}`,
               })),
             },
             {
               "@type": "CollectionPage",
-              "@id": "https://0web.com.br/blog#collection",
-              url: "https://0web.com.br/blog",
+              "@id": "https://www.0web.com.br/blog#collection",
+              url: "https://www.0web.com.br/blog",
               name: TITLE,
               description: DESC,
               inLanguage: "pt-BR",
@@ -65,8 +65,8 @@ export const Route = createFileRoute("/blog/")({
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-                { "@type": "ListItem", position: 2, name: "Blog", item: "https://0web.com.br/blog" },
+                { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+                { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.0web.com.br/blog" },
               ],
             },
             {
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/blog/")({
               itemListElement: posts.map((p, i) => ({
                 "@type": "ListItem",
                 position: i + 1,
-                url: `https://0web.com.br/blog/${p.slug}`,
+                url: `https://www.0web.com.br/blog/${p.slug}`,
                 name: p.title,
               })),
             },

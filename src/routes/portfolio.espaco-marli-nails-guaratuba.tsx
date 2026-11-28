@@ -6,10 +6,10 @@ import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 
 const slug = "espaco-marli-nails-guaratuba";
-const url = "https://0web.com.br/portfolio/espaco-marli-nails-guaratuba";
+const url = "https://www.0web.com.br/portfolio/espaco-marli-nails-guaratuba";
 const title = "Espaço Marli Nails Designer | Manicure em Guaratuba – PR";
 const description = "Conheça o Espaço Marli Nails Designer, em Coroados, Guaratuba (PR). Veja a localização e solicite informações sobre manicure, pedicure e horários disponíveis.";
-const social = "https://0web.com.br/images/espaco-marli-nails-guaratuba/social-source-og.jpg";
+const social = "https://www.0web.com.br/images/espaco-marli-nails-guaratuba/social-source-og.jpg";
 
 /** Composição inédita. Infraestrutura compartilhada; ritmo e arte próprios. */
 export const composition: PortfolioComposition = {

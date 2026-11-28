@@ -30,10 +30,10 @@ export const Route = createFileRoute("/mapa-do-site")({
         property: "og:description",
         content: "Índice completo de páginas, serviços e seções do 0WEB.",
       },
-      { property: "og:url", content: "https://0web.com.br/mapa-do-site" },
+      { property: "og:url", content: "https://www.0web.com.br/mapa-do-site" },
       { name: "robots", content: "index,follow" },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/mapa-do-site" }],
+    links: [{ rel: "canonical", href: "https://www.0web.com.br/mapa-do-site" }],
   }),
   errorComponent: () => (
     <div className="container mx-auto px-4 py-12 max-w-5xl">

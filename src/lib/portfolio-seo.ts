@@ -4,7 +4,7 @@
  */
 import type { PortfolioPlace, PortfolioSegment } from "@/lib/portfolio-clusters";
 
-export const SITE_URL = "https://0web.com.br";
+export const SITE_URL = "https://www.0web.com.br";
 
 export function organizationNode() {
   return {

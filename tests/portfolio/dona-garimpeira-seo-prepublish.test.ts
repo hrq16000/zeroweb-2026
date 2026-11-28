@@ -41,7 +41,7 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
       expect(seo.meta).toContainEqual({
         name: "robots", content: "noindex,nofollow,noarchive",
       });
-      expect(seo.links).toEqual([]);
+      expect(seo.links).toEqual([{ rel: "canonical", href: DONA_GARIMPEIRA_SEO.canonical }]);
       expect(seo.scripts).toEqual([]);
     }
   });
@@ -98,19 +98,19 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(store).not.toHaveProperty("offers");
   });
 
-  test("composição indexável usa funil offline sem bloquear rota pelo Cloud", () => {
+  test("composição permanece acessível e noindex enquanto falta aprovação comercial", () => {
     const visual = read("src/components/portfolio/composition/registry.ts");
     const server = read("src/config/portfolio-authorial-compositions.ts");
     expect(visual).toContain('"dona-garimpeira-brecho": lazy(');
     expect(server).toContain('"dona-garimpeira-brecho"');
     const prototypes = read("src/lib/portfolio-site-registry.ts");
     expect(prototypes).toContain('slug: "dona-garimpeira-brecho"');
-    expect(prototypes).toMatch(/slug: "dona-garimpeira-brecho"[^\n]*indexable: true/);
+    expect(prototypes).toMatch(/slug: "dona-garimpeira-brecho"[^\n]*indexable: false/);
     const loader = read("src/routes/portfolio.$slug.tsx");
     expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain("return createDonaGarimpeiraSeo({");
-    expect(loader).toContain("approvedWithoutSocialImage: true");
+    expect(loader).toContain("approvedWithoutSocialImage: false");
     expect(loader).not.toContain('if (!available) throw notFound()');
     expect(loader).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
     expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }');

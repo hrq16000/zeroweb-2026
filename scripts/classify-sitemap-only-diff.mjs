@@ -45,8 +45,8 @@ const RUNTIME_SITEMAP_FILES = new Set([
 // Indexabilidade, sitemap HTTP, build, hidratação e testes continuam obrigatórios.
 const VERIFIED_MARKETPLACE_XML_BLOBS = Object.freeze({
   "src/routes/sitemap-marketplace[.]xml.ts": "1df200b03171a98a463b1b1b71d177078f3cf1a0",
-  "scripts/check-sitemap-runtime-no-keys.mjs": "8dd44ab7d9b6dc38c6f7702f162d5112323147e4",
-  "scripts/sitemap-inventory-diff-policy.mjs": "3bba5c39cf7f71510f772f954778bb93f1396a40",
+  "scripts/check-sitemap-runtime-no-keys.mjs": "f071c7ba65c9d810d3453efffb9e7e570eadfdfd",
+  "scripts/sitemap-inventory-diff-policy.mjs": "b8485a1a1e6bebb89a6635a6584a7f1692c04699",
 });
 const VERIFIED_MARKETPLACE_XML_FILES = new Set([
   ...Object.keys(VERIFIED_MARKETPLACE_XML_BLOBS),

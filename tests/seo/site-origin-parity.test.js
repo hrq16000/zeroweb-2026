@@ -5,7 +5,7 @@ import {
   runSiteOriginAudit,
 } from "../../scripts/audit-site-origin-parity.mjs";
 
-const officialBase = "https://0web.com.br";
+const officialBase = "https://www.0web.com.br";
 const vercelBase = "https://zeroweb-2026.vercel.app";
 const make = (paths) => paths.map((p) => officialBase + p);
 const inventory = (urls, base = officialBase) => ({

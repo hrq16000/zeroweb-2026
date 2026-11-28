@@ -136,7 +136,7 @@ if (marketplace.includes("${ORIGIN}/marketplace")) {
 requirePattern(
   gmbPath,
   gmb,
-  /name:\s*"Serviços",\s*item:\s*"https:\/\/0web\.com\.br\/servicos"/,
+  /name:\s*"Serviços",\s*item:\s*"https:\/\/www\.0web\.com\.br\/servicos"/,
   "breadcrumb de Google Meu Negócio não aponta para /servicos",
 );
 

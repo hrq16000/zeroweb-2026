@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { classifySitemapInventoryDelta } from "../../scripts/sitemap-inventory-diff-policy.mjs";
 
-const urls = (paths) => paths.map((p) => "https://0web.com.br" + p);
+const urls = (paths) => paths.map((p) => "https://www.0web.com.br" + p);
 
 describe("inventario sitemap de producao vs preview", () => {
   it("nao acusa divergencia para as mesmas URLs canonicas", () => {
@@ -41,7 +41,7 @@ describe("inventario sitemap de producao vs preview", () => {
   it("bloqueia hostname temporario e URLs invalidas, mesmo com mesmos caminhos", () => {
     const report = classifySitemapInventoryDelta(
       urls(["/blog/mapa", "/portfolio/centro-mega"]),
-      ["https://preview.example.com/blog/mapa", "file:///etc/passwd", "not a url", "https://0web.com.br/portfolio/centro-mega"],
+      ["https://preview.example.com/blog/mapa", "file:///etc/passwd", "not a url", "https://www.0web.com.br/portfolio/centro-mega"],
     );
     expect(report.disappeared).toEqual([]);
     expect(report.nonCanonical).toEqual(["https://preview.example.com/blog/mapa"]);

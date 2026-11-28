@@ -1,7 +1,7 @@
 // Sprint 5 — shared sitemap helpers.
 import type {} from "@tanstack/react-start";
 
-const DEFAULT_BASE_URL = "https://0web.com.br";
+const DEFAULT_BASE_URL = "https://www.0web.com.br";
 
 // Always return the canonical production domain — sitemaps must advertise
 // the indexable host, never the preview/staging origin the request came from.

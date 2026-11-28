@@ -9,13 +9,13 @@ import path from "node:path";
  * feedback inside the unit-test loop. Only enforces invariants that
  * must hold across every release:
  *   1. __root.tsx never declares a canonical (router concatenates links).
- *   2. Any canonical literal href present uses https://0web.com.br (no www / http).
+ *   2. Any canonical literal href present uses https://www.0web.com.br (no apex / http).
  *   3. Dynamic blog/categoria leaves never hardcode a literal URL that
  *      would collapse all params to the same canonical.
  */
 
 const ROUTES_DIR = path.resolve(import.meta.dir, "../routes");
-const CANONICAL_HOST = "https://0web.com.br";
+const CANONICAL_HOST = "https://www.0web.com.br";
 
 function readRoute(name: string): string {
   return readFileSync(path.join(ROUTES_DIR, name), "utf8");
@@ -72,7 +72,7 @@ describe("canonical dedup — route files", () => {
     expect(extractCanonicals(root)).toEqual([]);
   });
 
-  test("every literal canonical href uses https://0web.com.br (no www, no http)", () => {
+  test("every literal canonical href uses https://www.0web.com.br (no apex, no http)", () => {
     const files = readdirSync(ROUTES_DIR).filter(
       (f) => f.endsWith(".tsx") && !f.startsWith("_authenticated"),
     );
@@ -81,7 +81,7 @@ describe("canonical dedup — route files", () => {
       for (const href of extractCanonicals(readRoute(f))) {
         // Only check literals (string / template), not variable references.
         if (!/^["'`]/.test(href)) continue;
-        if (href.includes("www.0web")) offenders.push(`${f}: ${href}`);
+        if (href.includes("https://0web.com.br")) offenders.push(`${f}: ${href}`);
         if (href.includes("http://0web")) offenders.push(`${f}: ${href}`);
         // Must reference the canonical host literally OR via interpolation.
         const ok = href.includes(CANONICAL_HOST) || href.includes("${");

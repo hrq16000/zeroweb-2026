@@ -6,8 +6,8 @@ import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 
 const slug = "cantinho-da-tia-mari";
-const url = "https://0web.com.br/portfolio/cantinho-da-tia-mari";
-const social = "https://0web.com.br/images/cantinho-da-tia-mari/social-og.svg";
+const url = "https://www.0web.com.br/portfolio/cantinho-da-tia-mari";
+const social = "https://www.0web.com.br/images/cantinho-da-tia-mari/social-og.svg";
 const title = "Cantinho da Tia Mari no Jardim Itália | Berçário e Cuidados Infantis";
 const description = "Cantinho da Tia Mari em São José dos Pinhais: conheça os serviços anunciados de berçário, horários estendidos e leva e busca escolar. Portfólio demonstrativo 0WEB.";
 

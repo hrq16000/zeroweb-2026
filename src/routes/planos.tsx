@@ -6,7 +6,7 @@ import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { Check, Sparkles } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
-const URL = "https://0web.com.br/planos";
+const URL = "https://www.0web.com.br/planos";
 const TITLE = "Planos e Preços · Sites, SEO, Tráfego e Automações · 0WEB";
 const DESC =
   "Conheça os planos da 0WEB para sites, SEO, tráfego pago, automações com IA e gestão de redes sociais. Pacotes mensais transparentes para empresas que querem crescer.";
@@ -74,12 +74,12 @@ export const Route = createFileRoute("/planos")({
       { property: "og:url", content: URL },
       { property: "og:site_name", content: "0WEB" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { property: "og:image", content: "https://www.0web.com.br/og-default.jpg" },
       { property: "og:image:alt", content: "Planos 0WEB" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:image", content: "https://www.0web.com.br/og-default.jpg" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
@@ -109,7 +109,7 @@ export const Route = createFileRoute("/planos")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
             { "@type": "ListItem", position: 2, name: "Planos", item: URL },
           ],
         }),

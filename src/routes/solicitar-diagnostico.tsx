@@ -5,7 +5,7 @@ import { FunnelRunner } from "@/components/funnel/FunnelRunner";
 import { getPublicFunnel } from "@/lib/dynamic-funnel.functions";
 
 const SLUG = "diagnostico-0web";
-const URL_PAGE = "https://0web.com.br/solicitar-diagnostico";
+const URL_PAGE = "https://www.0web.com.br/solicitar-diagnostico";
 const TITLE = "Solicitar Diagnóstico Digital Gratuito · 0WEB";
 const DESC =
   "Responda algumas perguntas rápidas e receba um diagnóstico personalizado de marketing digital, SEO local e WhatsApp para a sua empresa.";
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/solicitar-diagnostico")({
           description: DESC,
           url: URL_PAGE,
           inLanguage: "pt-BR",
-          isPartOf: { "@type": "WebSite", name: "0WEB", url: "https://0web.com.br" },
+          isPartOf: { "@type": "WebSite", name: "0WEB", url: "https://www.0web.com.br" },
         }),
       },
     ],

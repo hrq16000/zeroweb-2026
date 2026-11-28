@@ -30,7 +30,7 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const project = catalog.find((item: { slug: string }) => item.slug === slug);
     expect(project?.status).toBe("draft");
     expect(project?.clientKey).toBe(slug);
-    // O loader exige registro indexável, mas não consulta dynamic_forms.
+    // O loader exige apenas o registro da rota; indexable controla robots e sitemap, não a disponibilidade HTTP.
     const authorial = read("src/config/portfolio-authorial-compositions.ts");
     expect(authorial).toContain(`"${slug}"`);
     const registry = read("src/components/portfolio/composition/registry.ts");
@@ -38,9 +38,9 @@ describe("Dona Garimpeira draft lifecycle — fail closed", () => {
     const prototypes = read("src/lib/portfolio-site-registry.ts");
     expect(prototypes).toContain(`slug: "${slug}"`);
     expect(prototypes).toContain(`slug: "${slug}", vertical: "comercios"`);
-    expect(prototypes).toMatch(new RegExp(`slug: "${slug}"[^\\n]*indexable: true`));
+    expect(prototypes).toMatch(new RegExp(`slug: "${slug}"[^\\n]*indexable: false`));
     const route = read("src/routes/portfolio.$slug.tsx");
-    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound()');
+    expect(route).toContain('if (params.slug === "dona-garimpeira-brecho" && !site) throw notFound()');
     expect(route).toContain('if (params.slug === "dona-garimpeira-brecho") {');
     expect(route).toContain("return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }");
     expect(route).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');

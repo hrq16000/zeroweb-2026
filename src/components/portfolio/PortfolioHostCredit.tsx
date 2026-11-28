@@ -11,7 +11,7 @@ export function PortfolioHostCredit({ className, linkClassName, locale }: Portfo
     <p className={className} data-portfolio-host-credit>
       {spanish ? "Sitio desarrollado por " : "Site desenvolvido por "}
       <a
-        href="https://0web.com.br"
+        href="https://www.0web.com.br"
         className={linkClassName}
         aria-label={spanish ? "Visitar el sitio de 0WEB, desarrolladora de este sitio" : "Acessar o site da 0WEB, desenvolvedora deste site"}
       >

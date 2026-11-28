@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { resolveSitemapChildFetchUrl } from "../../scripts/sitemap-audit-origin.mjs";
 
 describe("auditoria HTTP de sitemap por ambiente", () => {
-  const canonical = "https://0web.com.br/sitemap-portfolio.xml";
+  const canonical = "https://www.0web.com.br/sitemap-portfolio.xml";
 
   it("não mistura preview localhost e sitemap de produção", () => {
     expect(resolveSitemapChildFetchUrl(canonical, "http://127.0.0.1:18080")).toBe(
@@ -11,12 +11,12 @@ describe("auditoria HTTP de sitemap por ambiente", () => {
   });
 
   it("lê o domínio real quando o alvo da auditoria é produção", () => {
-    expect(resolveSitemapChildFetchUrl(canonical, "https://0web.com.br")).toBe(canonical);
+    expect(resolveSitemapChildFetchUrl(canonical, "https://www.0web.com.br")).toBe(canonical);
   });
 
   it("preserva caminho, encoding e query da URL filha", () => {
     expect(resolveSitemapChildFetchUrl(
-      "https://0web.com.br/sitemap-portfolio.xml?modo=1",
+      "https://www.0web.com.br/sitemap-portfolio.xml?modo=1",
       "https://preview.example.test/",
     )).toBe("https://preview.example.test/sitemap-portfolio.xml?modo=1");
   });

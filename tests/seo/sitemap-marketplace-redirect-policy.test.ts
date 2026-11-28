@@ -2,8 +2,8 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { classifySitemapInventoryDelta } from "../../scripts/sitemap-inventory-diff-policy.mjs";
 
-const canonical = "https://0web.com.br/servicos/marketplace";
-const oldRedirect = "https://0web.com.br/marketplace";
+const canonical = "https://www.0web.com.br/servicos/marketplace";
+const oldRedirect = "https://www.0web.com.br/marketplace";
 
 describe("Inventário SEO: redirecionamento canônico comprovado", () => {
   test("reconhece apenas a retirada da origem 301 com destino canônico preservado", () => {
@@ -24,7 +24,7 @@ describe("Inventário SEO: redirecionamento canônico comprovado", () => {
 
   test("continua bloqueando retirada de qualquer outra URL estática", () => {
     const delta = classifySitemapInventoryDelta(
-      [oldRedirect, canonical, "https://0web.com.br/contato"],
+      [oldRedirect, canonical, "https://www.0web.com.br/contato"],
       [canonical],
     );
     expect(delta.missingProtected).toEqual(["/contato"]);

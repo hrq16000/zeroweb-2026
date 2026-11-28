@@ -6,10 +6,10 @@ import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 
 const slug = "toop-assados";
-const url = "https://0web.com.br/portfolio/toop-assados";
+const url = "https://www.0web.com.br/portfolio/toop-assados";
 const title = "Toop Assados em Curitiba | Estudo de site e cardápio 0WEB";
 const description = "Portfólio demonstrativo da 0WEB para Toop Assados no Xaxim, Curitiba: costela na brasa, frango recheado e exemplo de experiência de encomenda. Página não oficial.";
-const social = "https://0web.com.br/images/toop-assados/social-og.svg";
+const social = "https://www.0web.com.br/images/toop-assados/social-og.svg";
 
 export const composition: PortfolioComposition = {
   slug, motionIntensity: "BALANCED",
@@ -87,7 +87,7 @@ export const Route = createFileRoute("/portfolio/toop-assados")({
           "@type": "WebPage",
           "@id": url + "#webpage",
           url, name: title, description, inLanguage: "pt-BR",
-          publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+          publisher: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
           about: {
             "@type": "Restaurant",
             name: "Toop Assados",

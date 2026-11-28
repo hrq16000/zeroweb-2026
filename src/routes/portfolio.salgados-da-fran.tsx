@@ -6,11 +6,11 @@ import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 
 const slug = "salgados-da-fran";
-const url = "https://0web.com.br/portfolio/salgados-da-fran";
+const url = "https://www.0web.com.br/portfolio/salgados-da-fran";
 const title = "Salgados da Fran | Encomendas em São José dos Pinhais";
 const description = "Salgados da Fran em Águas Belas, São José dos Pinhais: veja uma demonstração de apresentação digital e consulte opções de salgados por encomenda.";
 // JPEG derivado em prebuild a partir da fonte SVG; fonte canônica permanece imutável.
-const social = "https://0web.com.br/images/salgados-da-fran/social-og-og.jpg";
+const social = "https://www.0web.com.br/images/salgados-da-fran/social-og-og.jpg";
 
 export const composition: PortfolioComposition = {
   slug,

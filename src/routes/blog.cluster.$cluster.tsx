@@ -16,7 +16,7 @@ export const Route = createFileRoute("/blog/cluster/$cluster")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Hub não encontrado · 0WEB" }] };
     const { cluster } = loaderData;
-    const url = `https://0web.com.br/blog/cluster/${params.cluster}`;
+    const url = `https://www.0web.com.br/blog/cluster/${params.cluster}`;
     const title = `${cluster.title} — Guia completo, conteúdos e serviços · 0WEB`;
     return {
       meta: [
@@ -47,8 +47,8 @@ export const Route = createFileRoute("/blog/cluster/$cluster")({
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://0web.com.br/blog" },
+                  { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+                  { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.0web.com.br/blog" },
                   { "@type": "ListItem", position: 3, name: cluster.title, item: url },
                 ],
               },

@@ -56,10 +56,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://0web.com.br/" },
+      { property: "og:url", content: "https://www.0web.com.br/" },
       { property: "og:site_name", content: "0WEB" },
       { property: "og:locale", content: "pt_BR" },
-      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { property: "og:image", content: "https://www.0web.com.br/og-default.jpg" },
       {
         property: "og:image:alt",
         content: "0WEB — Sites otimizados para anúncios, IA e marketing digital",
@@ -70,13 +70,13 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:image", content: "https://www.0web.com.br/og-default.jpg" },
       {
         name: "twitter:image:alt",
         content: "0WEB — Sites otimizados para anúncios, IA e marketing digital",
       },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/" }],
+    links: [{ rel: "canonical", href: "https://www.0web.com.br/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -85,10 +85,10 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://0web.com.br/#org",
+              "@id": "https://www.0web.com.br/#org",
               name: "0WEB",
-              url: "https://0web.com.br",
-              logo: "https://0web.com.br/favicon.ico",
+              url: "https://www.0web.com.br",
+              logo: "https://www.0web.com.br/favicon.ico",
               slogan: "Tecnologia que gera crescimento",
               taxID: "41.723.708/0001-58",
               foundingDate: "2006",
@@ -96,17 +96,17 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "WebSite",
-              "@id": "https://0web.com.br/#website",
+              "@id": "https://www.0web.com.br/#website",
               name: "0WEB",
-              url: "https://0web.com.br",
+              url: "https://www.0web.com.br",
               inLanguage: "pt-BR",
-              publisher: { "@id": "https://0web.com.br/#org" },
+              publisher: { "@id": "https://www.0web.com.br/#org" },
               potentialAction: [
                 {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://0web.com.br/portfolio?q={search_term_string}",
+                    urlTemplate: "https://www.0web.com.br/portfolio?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -114,7 +114,7 @@ export const Route = createFileRoute("/")({
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://0web.com.br/servicos?q={search_term_string}",
+                    urlTemplate: "https://www.0web.com.br/servicos?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -122,35 +122,35 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "ItemList",
-              "@id": "https://0web.com.br/#home-paths",
+              "@id": "https://www.0web.com.br/#home-paths",
               name: "Principais caminhos da 0WEB",
               itemListElement: [
                 {
                   "@type": "ListItem",
                   position: 1,
                   name: "Serviços e soluções digitais",
-                  url: "https://0web.com.br/servicos",
+                  url: "https://www.0web.com.br/servicos",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "Projetos publicados",
-                  url: "https://0web.com.br/portfolio",
+                  url: "https://www.0web.com.br/portfolio",
                 },
               ],
             },
             {
               "@type": "WebPage",
-              "@id": "https://0web.com.br/#webpage",
-              url: "https://0web.com.br/",
+              "@id": "https://www.0web.com.br/#webpage",
+              url: "https://www.0web.com.br/",
               name: TITLE,
               description: DESC,
-              isPartOf: { "@id": "https://0web.com.br/#website" },
+              isPartOf: { "@id": "https://www.0web.com.br/#website" },
               inLanguage: "pt-BR",
             },
             {
               "@type": "FAQPage",
-              "@id": "https://0web.com.br/#contact-faq",
+              "@id": "https://www.0web.com.br/#contact-faq",
               mainEntity: [
                 {
                   "@type": "Question",
@@ -177,7 +177,7 @@ export const Route = createFileRoute("/")({
                   "@type": "ListItem",
                   position: 1,
                   name: "Início",
-                  item: "https://0web.com.br/",
+                  item: "https://www.0web.com.br/",
                 },
               ],
             },

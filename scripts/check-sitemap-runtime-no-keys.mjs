@@ -5,8 +5,8 @@
  */
 const base = (process.env.E2E_BASE_URL || "http://127.0.0.1:8080").replace(/\/$/, "");
 const cases = [
-  ["/sitemap-institucional.xml", "https://0web.com.br/criacao-de-site-institucional"],
-  ["/sitemap-marketplace.xml", "https://0web.com.br/solicitar-orcamento"],
+  ["/sitemap-institucional.xml", "https://www.0web.com.br/criacao-de-site-institucional"],
+  ["/sitemap-marketplace.xml", "https://www.0web.com.br/solicitar-orcamento"],
 ];
 for (const [path, requiredUrl] of cases) {
   const response = await fetch(base + path, { redirect: "manual" });
@@ -28,10 +28,10 @@ for (const [path, requiredUrl] of cases) {
     throw new Error("Sem fonte de publicação, capitais sem prova não podem ser indexadas");
   }
   if (path === "/sitemap-marketplace.xml") {
-    if (urls.includes("https://0web.com.br/servicos/marketplace")) {
+    if (urls.includes("https://www.0web.com.br/servicos/marketplace")) {
       throw new Error("URL canônica do marketplace já consta de outro sitemap; não duplicar");
     }
-    if (urls.some((u) => u === "https://0web.com.br/marketplace" || u.startsWith("https://0web.com.br/categoria/"))) {
+    if (urls.some((u) => u === "https://www.0web.com.br/marketplace" || u.startsWith("https://www.0web.com.br/categoria/"))) {
       throw new Error("Sitemap não pode divulgar redirects ou categorias sem comprovação de indexabilidade");
     }
     if (urls.length !== 1) {

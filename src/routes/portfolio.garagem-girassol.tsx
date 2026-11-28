@@ -6,10 +6,10 @@ import { graph, breadcrumbNode, organizationNode } from "@/lib/portfolio-seo";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 
 const slug = "garagem-girassol";
-const url = "https://0web.com.br/portfolio/garagem-girassol";
+const url = "https://www.0web.com.br/portfolio/garagem-girassol";
 const title = "Garagem & Girassol | Espetinhos e crepe suíço em São José dos Pinhais";
 const description = "Conheça a Garagem & Girassol, na Rua Quirino Zagonel, 988, em São José dos Pinhais–PR. Espetinhos, crepe suíço, morango e uva com nata. Consulte as opções.";
-const social = "https://0web.com.br/images/garagem-girassol/social-og.jpg";
+const social = "https://www.0web.com.br/images/garagem-girassol/social-og.jpg";
 const composition: PortfolioComposition = {
   slug, motionIntensity: "SUBTLE",
   renderCta: ({ children, placement }) => <a href="#sabores" data-cta-placement={placement}>{children}</a>,

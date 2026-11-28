@@ -8,7 +8,7 @@ import { absUrl } from "@/lib/seo";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
 import { ProductActionGate } from "@/components/site/ProductActionGate";
-const URL = "https://0web.com.br/servicos/trafego-pago-local";
+const URL = "https://www.0web.com.br/servicos/trafego-pago-local";
 const TITLE = "Tráfego Pago para Negócios Locais a partir de R$499/mês · 0WEB";
 const DESC = "Tráfego pago estratégico para negócios locais: anúncios no Instagram, Facebook e Google que geram mensagens, ligações e vendas reais. Sem contrato, sem fidelidade, planos a partir de R$499/mês.";
 
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/servicos/trafego-pago-local")({
           name: "Tráfego Pago para Negócios Locais",
           description: DESC,
           url: URL,
-          provider: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br", logo: "https://0web.com.br/logo.png" },
+          provider: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br", logo: "https://www.0web.com.br/logo.png" },
           areaServed: { "@type": "Country", name: "Brasil" },
           serviceType: "Gestão de Tráfego Pago",
 
@@ -78,8 +78,8 @@ export const Route = createFileRoute("/servicos/trafego-pago-local")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/servicos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://www.0web.com.br/servicos" },
             { "@type": "ListItem", position: 3, name: "Tráfego Pago Local", item: URL },
           ],
         }),

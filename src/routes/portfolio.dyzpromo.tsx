@@ -5,8 +5,8 @@ import { DyzPromoPage } from "@/components/site/DyzPromoPage";
 const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
 const DESC =
   "Divulgação, panfletagem, promotores e ações promocionais da D.Y.Z Promo em Curitiba e região metropolitana.";
-const URL = "https://0web.com.br/portfolio/dyzpromo";
-const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
+const URL = "https://www.0web.com.br/portfolio/dyzpromo";
+const SOCIAL_IMAGE = "https://www.0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
 // Favicons são recursos do navegador: evitar acesso cross-origin ao próprio domínio.
 // Canonical e imagens sociais permanecem absolutos para SEO e compartilhamento.
 // O PNG 180x180 ja existente cobre favicon e touch, reduzindo ~188 KB para ~27 KB.

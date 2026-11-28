@@ -1,11 +1,22 @@
 // Centralized SEO helpers, shared dictionaries and JSON-LD builders.
 // Sprint 3 — technical SEO foundation.
 
-export const ORIGIN = "https://0web.com.br";
+export const ORIGIN = "https://www.0web.com.br";
 
 export function absUrl(path: string): string {
   if (!path) return ORIGIN + "/";
-  if (/^https?:\/\//i.test(path)) return path;
+  if (/^https?:\/\//i.test(path)) {
+    try {
+      const url = new URL(path);
+      if (url.hostname.toLowerCase() === "0web.com.br" || url.hostname.toLowerCase() === "www.0web.com.br") {
+        url.protocol = "https:";
+        url.hostname = "www.0web.com.br";
+      }
+      return url.toString();
+    } catch {
+      return path;
+    }
+  }
   return ORIGIN + (path.startsWith("/") ? path : "/" + path);
 }
 

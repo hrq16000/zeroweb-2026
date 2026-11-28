@@ -57,7 +57,7 @@ describe("Infinito Spa — funil chileno", () => {
       mode: "booking",
       locale: "es-CL",
       funnelContext: context,
-      pageUrl: "https://0web.com.br/portfolio/infinito-spa",
+      pageUrl: "https://www.0web.com.br/portfolio/infinito-spa",
       contactName: "Camila",
       contactPhone: "56912345678",
       answers: {
@@ -137,7 +137,7 @@ describe("Infinito Spa — HTTP redirect", () => {
     const key = "PORTFOLIO_WHATSAPP_INFINITO_SPA";
     const original = process.env[key];
     const request = new Request(
-      "https://0web.com.br/r/whatsapp/portfolio-infinito-spa?message=Hola%00%20%0ARoze",
+      "https://www.0web.com.br/r/whatsapp/portfolio-infinito-spa?message=Hola%00%20%0ARoze",
     );
     try {
       process.env[key] = "56200000000"; // synthetic fixture; never contact this number

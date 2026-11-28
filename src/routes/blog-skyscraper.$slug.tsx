@@ -14,8 +14,8 @@ export const Route = createFileRoute("/blog-skyscraper/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Artigo não encontrado · 0WEB" }] };
     const { rendered, article } = loaderData;
-    const url = `https://0web.com.br/blog-skyscraper/${params.slug}`;
-    const image = "https://0web.com.br/og-default.jpg";
+    const url = `https://www.0web.com.br/blog-skyscraper/${params.slug}`;
+    const image = "https://www.0web.com.br/og-default.jpg";
     return {
       meta: [
         { title: `${rendered.title} · 0WEB` },
@@ -48,11 +48,11 @@ export const Route = createFileRoute("/blog-skyscraper/$slug")({
             keywords: article.targetKeyword,
             image,
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
-            author: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            author: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
             publisher: {
               "@type": "Organization",
               name: "0WEB",
-              logo: { "@type": "ImageObject", url: "https://0web.com.br/favicon.ico" },
+              logo: { "@type": "ImageObject", url: "https://www.0web.com.br/favicon.ico" },
             },
             datePublished: new Date().toISOString(),
             dateModified: new Date().toISOString(),
@@ -64,13 +64,13 @@ export const Route = createFileRoute("/blog-skyscraper/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Blog", item: "https://0web.com.br/blog" },
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.0web.com.br/blog" },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Skyscraper",
-                item: "https://0web.com.br/blog-skyscraper",
+                item: "https://www.0web.com.br/blog-skyscraper",
               },
               { "@type": "ListItem", position: 4, name: rendered.title, item: url },
             ],

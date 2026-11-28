@@ -4,8 +4,8 @@ import { PanificadoraDoceCoracaoSantoAntonioPage } from "@/components/site/Panif
 import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 
 const slug = "panificadora-doce-coracao-santo-antonio";
-const url = "https://0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio";
-const image = "https://0web.com.br/images/panificadora-doce-coracao-santo-antonio/social-og.png";
+const url = "https://www.0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio";
+const image = "https://www.0web.com.br/images/panificadora-doce-coracao-santo-antonio/social-og.png";
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Panificadora%20Doce%20Cora%C3%A7%C3%A3o%20Santo%20Ant%C3%B4nio%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais&query_place_id=ChIJK4CTr0b33JQRF5lemSGL8yA";
 const title = "Panificadora Doce Coração | Padaria Santo Antônio, SJP · Portfólio 0WEB";
 const description = "Conheça a Panificadora Doce Coração no Santo Antônio, São José dos Pinhais: endereço, pães, bolos, salgados e doces. Site demonstrativo criado pela 0WEB.";
@@ -65,8 +65,8 @@ export const Route = createFileRoute("/portfolio/panificadora-doce-coracao-santo
           description,
           url,
           inLanguage: "pt-BR",
-          isPartOf: { "@id": "https://0web.com.br/#website" },
-          publisher: { "@id": "https://0web.com.br/#organization" },
+          isPartOf: { "@id": "https://www.0web.com.br/#website" },
+          publisher: { "@id": "https://www.0web.com.br/#organization" },
           mainEntity: { "@id": url + "#business" },
           primaryImageOfPage: { "@type": "ImageObject", url: image, caption: "Ilustração editorial original demonstrativa; não é fotografia da loja." },
           about: [

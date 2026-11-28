@@ -2276,7 +2276,9 @@
     "location": "Rua Loanda, 60 · Boneca do Iguaçu · São José dos Pinhais — PR",
     "badge": "Projeto real",
     "metrics": "Segunda a domingo · 9h às 18h",
-    "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento."
+    "summary": "Dona Garimpeira é um brechó de roupas e acessórios femininos, masculinos e infantis em São José dos Pinhais. Consulte peças, saiba como vender ou doar pelo funil de atendimento.",
+    "live": true,
+    "indexable": false
   },
   {
     "slug": "agropet-filt",
@@ -2341,7 +2343,7 @@
     "segment": "restaurantes",
     "projectType": "landing",
     "status": "draft",
-    "live": false,
+    "live": true,
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
@@ -2356,7 +2358,8 @@
     "image": "/images/salgados-da-fran/social-og.svg",
     "fallbackImage": "/images/salgados-da-fran/marca.svg",
     "metrics": "Consulta de encomenda pelo funil",
-    "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial."
+    "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial.",
+    "indexable": false
   },
   {
     "slug": "panificadora-doce-coracao-santo-antonio",
@@ -2365,7 +2368,7 @@
     "segment": "comercios",
     "projectType": "landing",
     "status": "draft",
-    "live": false,
+    "live": true,
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
@@ -2385,7 +2388,8 @@
     "fallbackImage": "/images/panificadora-doce-coracao-santo-antonio/social-og.png",
     "imageFocalPoint": "center",
     "metrics": "Endereço confirmado, rotas e página autoral otimizada",
-    "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado."
+    "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado.",
+    "indexable": false
   },
   {
     "slug": "infinito-spa",
@@ -2422,7 +2426,7 @@
     "segment": "beleza",
     "projectType": "landing",
     "status": "draft",
-    "live": false,
+    "live": true,
     "city": "Guaratuba",
     "state": "PR",
     "tags": [
@@ -2449,7 +2453,7 @@
     "segment": "comercios",
     "projectType": "landing",
     "status": "draft",
-    "live": false,
+    "live": true,
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
@@ -2484,7 +2488,7 @@
       "curitiba",
       "almoço"
     ],
-    "live": false,
+    "live": true,
     "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
     "location": "Xaxim · Curitiba — PR",
     "badge": "Demonstração 0WEB · parametrização pendente",

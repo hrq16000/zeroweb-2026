@@ -8,9 +8,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { classifySitemapInventoryDelta } from "./sitemap-inventory-diff-policy.mjs";
 
-const OFFICIAL = "https://0web.com.br";
+const OFFICIAL = "https://www.0web.com.br";
 const VERCEL = "https://zeroweb-2026.vercel.app";
-const canonical = "https://0web.com.br";
+const canonical = "https://www.0web.com.br";
 
 const urlsOf = (xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => m[1].trim());
 

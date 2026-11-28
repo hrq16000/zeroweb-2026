@@ -6,8 +6,8 @@ import { breadcrumbNode, graph, organizationNode } from "@/lib/portfolio-seo";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 
 const slug = "bpl-locacoes-de-brinquedos";
-const url = "https://0web.com.br/portfolio/bpl-locacoes-de-brinquedos";
-const image = "https://0web.com.br/images/bpl-locacoes-de-brinquedos/social-og.svg";
+const url = "https://www.0web.com.br/portfolio/bpl-locacoes-de-brinquedos";
+const image = "https://www.0web.com.br/images/bpl-locacoes-de-brinquedos/social-og.svg";
 const title = "BPL Locações de Brinquedos | Cama Elástica e Piscina de Bolinhas em São José dos Pinhais";
 const description = "Conheça o portfólio demonstrativo da BPL Locações de Brinquedos, com cama elástica e piscina de bolinhas anunciadas em São José dos Pinhais e região. Criação 0WEB.";
 

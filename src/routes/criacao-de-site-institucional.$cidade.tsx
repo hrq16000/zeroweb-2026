@@ -13,7 +13,7 @@ import { LocalPagePixel, trackLocalCta } from "@/components/site/LocalPagePixel"
 import { getCapital, relatedCapitais, type Capital } from "@/lib/capitais";
 import { getLocalPageOverride, type LocalPageOverride } from "@/lib/local-pages.functions";
 
-const BASE = "https://0web.com.br/criacao-de-site-institucional";
+const BASE = "https://www.0web.com.br/criacao-de-site-institucional";
 
 function faqFor(c: Capital) {
   return [
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
             provider: {
               "@type": "Organization",
               name: "0WEB",
-              url: "https://0web.com.br",
+              url: "https://www.0web.com.br",
               areaServed: { "@type": "Country", name: "Brasil" },
             },
           }),
@@ -116,7 +116,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
               addressRegion: c.uf,
               addressCountry: "BR",
             },
-            parentOrganization: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            parentOrganization: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
             availableLanguage: ["pt-BR"],
           }),
         },
@@ -138,7 +138,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
               { "@type": "ListItem", position: 2, name: "Criação de site institucional", item: BASE },
               { "@type": "ListItem", position: 3, name: c.name, item: url },
             ],

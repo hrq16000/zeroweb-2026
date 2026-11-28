@@ -10,7 +10,7 @@
 export function resolveSitemapChildFetchUrl(
   childLocation,
   auditBase,
-  canonicalOrigin = "https://0web.com.br",
+  canonicalOrigin = "https://www.0web.com.br",
 ) {
   const audit = new URL(auditBase);
   const canonical = new URL(canonicalOrigin);
