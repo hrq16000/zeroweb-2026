@@ -4,11 +4,13 @@ const route = readFileSync("src/routes/portfolio.leticia-reiche.tsx","utf8");
 const preview = readFileSync("src/routes/portfolio-preview.leticia-reiche.tsx","utf8");
 const page = readFileSync("src/components/site/LeticiaReichePreviewPage.tsx","utf8");
 const overrides = JSON.parse(readFileSync("src/config/portfolio-global-config.json","utf8"));
-describe("Letícia Reiche — rota indexável demonstrativa isolada",()=>{
-  test("canonical e robots próprios, sem schema LocalBusiness inventado",()=>{
+describe("Letícia Reiche — rota demonstrativa pública em revisão noindex",()=>{
+  test("noindex e sem canonical ou structured data enquanto autorização está pendente",()=>{
     expect(route).toContain('createFileRoute("/portfolio/leticia-reiche")');
     expect(route).toContain('https://0web.com.br/portfolio/leticia-reiche');
-    expect(route).toContain('index,follow,max-image-preview:large');
+    expect(route).toContain('noindex,nofollow,noarchive,noimageindex');
+    expect(route).not.toContain('rel: "canonical"');
+    expect(route).not.toContain('application/ld+json');
     expect(route).not.toContain('"@type": "LocalBusiness"');
     expect(route).toContain("não é o site oficial");
   });
