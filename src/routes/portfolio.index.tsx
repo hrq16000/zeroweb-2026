@@ -65,7 +65,7 @@ import {
 const TITLE = "Portfólio & Vitrine de Sites · Projetos Reais Criados pela 0WEB";
 const DESC =
   "Explore nossa galeria de sites, landing pages de alta conversão e sistemas desenvolvidos pela 0WEB para negócios locais, clínicas, beleza e serviços em todo o Brasil.";
-const URL = "https://0web.com.br/portfolio";
+const URL = "https://www.0web.com.br/portfolio";
 const NATIONAL_GUIDE_PLACES = PORTFOLIO_PLACES.filter((place) =>
   ["São José dos Pinhais", "Curitiba", "Araucária", "Belo Horizonte", "Pinhais"].includes(
     place.city,
@@ -369,9 +369,9 @@ export const Route = createFileRoute("/portfolio/")({
       { property: "og:description", content: DESC_Q },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
-      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { property: "og:image", content: "https://www.0web.com.br/og-default.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:image", content: "https://www.0web.com.br/og-default.jpg" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
@@ -401,7 +401,7 @@ export const Route = createFileRoute("/portfolio/")({
           itemListNode(
             `${URL}#projetos`,
             "Projetos publicados pela 0WEB",
-            PUBLIC_PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
+            PUBLIC_PORTFOLIO_ITEMS.map((i) => ({ url: `https://www.0web.com.br${i.slug}`, name: i.title })),
           ),
           breadcrumbNode([
             { name: "Início", path: "/" },

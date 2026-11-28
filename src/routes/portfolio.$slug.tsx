@@ -30,11 +30,9 @@ import {
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
   const isInfinitoSpa = project.slug === "infinito-spa";
-  const url = project.canonicalUrl;
+  const url = absUrl(project.canonicalUrl);
   const social = project.socialImage
-    ? project.socialImage.startsWith("http")
-      ? project.socialImage
-      : absUrl(project.socialImage)
+    ? absUrl(project.socialImage)
     : absUrl("/og-default.jpg");
   const icon = project.logoUrl ? absUrl(project.logoUrl) : social;
   return {
@@ -477,9 +475,9 @@ const CarecasInfotecPage = lazy(() =>
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params, location }) => {
     const site = findPortfolioPrototype(params.slug);
-    // Dona Garimpeira tem atendimento client-side independente do banco.
+    // A existência no registry controla a rota; indexable controla apenas SEO.
     // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
-    if (params.slug === "dona-garimpeira-brecho" && !site?.indexable) throw notFound();
+    if (params.slug === "dona-garimpeira-brecho" && !site) throw notFound();
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) {
@@ -512,14 +510,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
     return { vertical, slug: params.slug, overrides, managed: null, visualFixture: visualFixtureRequested && Boolean(overrides) };
   },
   head: ({ loaderData }) => {
-    // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
+    // Rota de revisão acessível, mas sem autorização comercial e funil verificado.
     if (loaderData?.slug === "dona-garimpeira-brecho") {
       return createDonaGarimpeiraSeo({
-        published: true,
-        funnelVerified: true,
-        ownerApproved: true,
+        published: false,
+        funnelVerified: false,
+        ownerApproved: false,
         mediaApproved: false,
-        approvedWithoutSocialImage: true,
+        approvedWithoutSocialImage: false,
         approvedSocialImage: null,
       });
     }
@@ -1464,7 +1462,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 function PortfolioPrototypePage() {
   const { vertical, slug, overrides, managed } = Route.useLoaderData();
   const effective = applyPortfolioRuntime(
-    { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
+    { slug, title: "", description: "", canonicalUrl: `https://www.0web.com.br/portfolio/${slug}`, socialImage: "" },
     overrides,
   );
   // Composição autoral (padrão para projetos novos) ou Blueprint legado dos

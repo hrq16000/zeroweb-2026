@@ -92,7 +92,7 @@ function expectedCanonicalSitemapSource(before) {
   if (typeof before !== "string") return null;
   const anchor = 'import type {} from "@tanstack/react-start";';
   const old = [
-    '        const host = request.headers.get("host") ?? "0web.com.br";',
+    '        const host = request.headers.get("host") ?? "www.0web.com.br";',
     '        const proto = request.headers.get("x-forwarded-proto") ?? "https";',
     '        const base = ' + String.fromCharCode(96) +
       "$" + "{proto}://$" + "{host}" + String.fromCharCode(96) + ";",

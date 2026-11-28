@@ -22,6 +22,7 @@ type CatalogItem = {
   slug: string;
   status?: string;
   live?: boolean;
+  indexable?: boolean;
 };
 
 const APPROVED_STATUSES = new Set(["approved", "published"]);
@@ -76,7 +77,7 @@ export function buildApprovedPortfolioEntries(
     const override = runtime.get(slug);
     if (!item && !site) return Boolean(override?.published);
     const approved = item
-      ? APPROVED_STATUSES.has(item.status ?? "") && item.live !== false
+      ? APPROVED_STATUSES.has(item.status ?? "") && item.live !== false && item.indexable !== false
       : Boolean(site?.indexable);
     return approved && (!override || override.published);
   });
@@ -128,7 +129,7 @@ export async function getApprovedPortfolioSitemapEntries(): Promise<SitemapEntry
 }
 
 /** URL canônica do sitemap dinâmico, usada pelo GSC e pelo IndexNow. */
-export const PORTFOLIO_SITEMAP_URL = "https://0web.com.br/sitemap-portfolio.xml";
+export const PORTFOLIO_SITEMAP_URL = "https://www.0web.com.br/sitemap-portfolio.xml";
 
 /**
  * Reenvia o sitemap e as URLs alteradas após um lote ser aprovado/publicado.
@@ -140,14 +141,14 @@ export async function syncPortfolioSitemapAndIndexing(
   changedSlugs: readonly string[] = [],
 ) {
   const entries = await getApprovedPortfolioSitemapEntries();
-  const approvedUrls = entries.map((entry) => `https://0web.com.br${entry.path}`);
+  const approvedUrls = entries.map((entry) => `https://www.0web.com.br${entry.path}`);
   const requested = new Set(changedSlugs);
   const changedUrls = requested.size
     ? approvedUrls.filter((url) =>
         [...requested].some((slug) => url.endsWith(`/portfolio/${slug}`)),
       )
-    : approvedUrls.filter((url) => url !== "https://0web.com.br/portfolio");
-  const indexNowUrls = [...new Set(["https://0web.com.br/portfolio", ...changedUrls])];
+    : approvedUrls.filter((url) => url !== "https://www.0web.com.br/portfolio");
+  const indexNowUrls = [...new Set(["https://www.0web.com.br/portfolio", ...changedUrls])];
 
   const watchRows = approvedUrls.map((url) => ({
     url,
@@ -191,7 +192,7 @@ export async function syncPortfolioSitemapAndIndexing(
     .from("gsc_sync_log")
     .insert({
       kind: "portfolio-sitemap",
-      site_url: "https://0web.com.br",
+      site_url: "https://www.0web.com.br",
       status: gsc.status,
       rows_count: approvedUrls.length,
       error_message: gsc.error ?? null,

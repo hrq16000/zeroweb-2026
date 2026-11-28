@@ -7,7 +7,7 @@
  */
 export const DONA_GARIMPEIRA_SEO = {
   slug: "dona-garimpeira-brecho",
-  canonical: "https://0web.com.br/portfolio/dona-garimpeira-brecho",
+  canonical: "https://www.0web.com.br/portfolio/dona-garimpeira-brecho",
   title: "Dona Garimpeira | Brechó no Boneca do Iguaçu, São José dos Pinhais",
   description:
     "Conheça a Dona Garimpeira, brechó em São José dos Pinhais. Roupas e acessórios de segunda mão. Visite a loja, consulte peças, venda ou doe roupas.",
@@ -63,7 +63,7 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
     { name: "robots", content: robots },
   ];
   if (!ready) {
-    return { ready: false as const, meta: baseMeta, links: [], scripts: [] };
+    return { ready: false as const, meta: baseMeta, links: [{ rel: "canonical", href: s.canonical }], scripts: [] };
   }
 
   // Sem imagens oficiais, não produzir OG:image nem afirmar mídia inexistente.
@@ -114,8 +114,8 @@ export function createDonaGarimpeiraSeo(state: DonaGarimpeiraSeoState) {
         "@type": "BreadcrumbList",
         "@id": s.canonical + "#breadcrumb",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "0WEB", item: "https://0web.com.br/" },
-          { "@type": "ListItem", position: 2, name: "Portfólio", item: "https://0web.com.br/portfolio" },
+          { "@type": "ListItem", position: 1, name: "0WEB", item: "https://www.0web.com.br/" },
+          { "@type": "ListItem", position: 2, name: "Portfólio", item: "https://www.0web.com.br/portfolio" },
           { "@type": "ListItem", position: 3, name: s.business, item: s.canonical },
         ],
       },

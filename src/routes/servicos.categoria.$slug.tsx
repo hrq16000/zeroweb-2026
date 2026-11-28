@@ -10,7 +10,7 @@ import {
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { WorkProcess } from "@/components/site/WorkProcess";
 
-const ORIGIN = "https://0web.com.br";
+const ORIGIN = "https://www.0web.com.br";
 
 export const Route = createFileRoute("/servicos/categoria/$slug")({
   loader: async ({ params }) => {

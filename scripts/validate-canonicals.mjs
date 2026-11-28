@@ -6,10 +6,10 @@
  *  - __root.tsx NUNCA define `<link rel="canonical">` (router concatena links e
  *    duplica em todas as rotas — bug TanStack/router#6719).
  *  - Cada rota leaf que define canonical o faz uma única vez por arquivo.
- *  - O canonical é uma URL absoluta começando com https://0web.com.br (ou,
+ *  - O canonical é uma URL absoluta começando com https://www.0web.com.br (ou,
  *    quando a rota tem `$param`, é interpolado dinamicamente — aceitamos
- *    template strings que comecem com https://0web.com.br).
- *  - Nenhum canonical aponta para http://, www.0web.com.br ou termina com
+ *    template strings que comecem com https://www.0web.com.br).
+ *  - Nenhum canonical aponta para http://, o domínio raiz ou termina com
  *    `/` (exceto a raiz "/"), já que o middleware redireciona para o canônico.
  *  - Rotas dinâmicas com `params` reais usam template literal (não literal
  *    estático), evitando todas apontarem para o mesmo URL.
@@ -27,7 +27,7 @@ if (process.env.SKIP_CANONICAL_CHECK === "1") {
 }
 
 const ROUTES_DIR = path.resolve(process.cwd(), "src/routes");
-const CANONICAL_HOST = "https://0web.com.br";
+const CANONICAL_HOST = "https://www.0web.com.br";
 
 /** Recursive list of .tsx files under src/routes. */
 function walk(dir) {

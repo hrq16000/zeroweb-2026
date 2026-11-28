@@ -13,10 +13,10 @@ for (const { path, required } of cases) {
   }
   if (!/<urlset\b/.test(xml)) throw new Error(path + ": faltando urlset");
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  if (urls.length < 2 || !urls.includes("https://0web.com.br" + required)) {
+  if (urls.length < 2 || !urls.includes("https://www.0web.com.br" + required)) {
     throw new Error(path + ": entradas editoriais permanentes ausentes");
   }
-  if (urls.some((url) => !url.startsWith("https://0web.com.br/"))) {
+  if (urls.some((url) => !url.startsWith("https://www.0web.com.br/"))) {
     throw new Error(path + ": URL nao canonica detectada no sitemap");
   }
   if (new Set(urls).size !== urls.length) throw new Error(path + ": URLs duplicadas");

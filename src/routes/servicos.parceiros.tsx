@@ -19,9 +19,9 @@ export const Route = createFileRoute("/servicos/parceiros")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "https://0web.com.br/servicos/parceiros" },
+      { property: "og:url", content: "https://www.0web.com.br/servicos/parceiros" },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/servicos/parceiros" }],
+    links: [{ rel: "canonical", href: "https://www.0web.com.br/servicos/parceiros" }],
   }),
   component: ParceirosPage,
 });

@@ -31,8 +31,8 @@ export const Route = createFileRoute("/blog/$slug")({
     const seoTitle = override?.title ?? post.title;
     const seoDescription = override?.description ?? post.excerpt;
     const wordCount = post.content.split(/\s+/).filter(Boolean).length;
-    const url = `https://0web.com.br/blog/${params.slug}`;
-    const image = post.cover ? `https://0web.com.br${post.cover}` : "https://0web.com.br/og-default.jpg";
+    const url = `https://www.0web.com.br/blog/${params.slug}`;
+    const image = post.cover ? `https://www.0web.com.br${post.cover}` : "https://www.0web.com.br/og-default.jpg";
     return {
       meta: [
         { title: `${seoTitle} · Blog 0WEB` },
@@ -73,11 +73,11 @@ export const Route = createFileRoute("/blog/$slug")({
             wordCount,
             inLanguage: "pt-BR",
             image,
-            author: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            author: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
             publisher: {
               "@type": "Organization",
               name: "0WEB",
-              logo: { "@type": "ImageObject", url: "https://0web.com.br/favicon.ico" },
+              logo: { "@type": "ImageObject", url: "https://www.0web.com.br/favicon.ico" },
             },
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
             keywords: post.category,
@@ -89,9 +89,9 @@ export const Route = createFileRoute("/blog/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Blog", item: "https://0web.com.br/blog" },
-              { "@type": "ListItem", position: 3, name: post.category, item: `https://0web.com.br/blog?cat=${encodeURIComponent(post.category)}` },
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.0web.com.br/blog" },
+              { "@type": "ListItem", position: 3, name: post.category, item: `https://www.0web.com.br/blog?cat=${encodeURIComponent(post.category)}` },
               { "@type": "ListItem", position: 4, name: post.title, item: url },
             ],
           }),

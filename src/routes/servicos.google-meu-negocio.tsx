@@ -17,7 +17,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
 const DESC =
   "A 0WEB configura e otimiza o Google Meu Negócio para sua empresa aparecer no Maps, gerar confiança e atrair clientes. Planos a partir de R$247/mês.";
-const URL = "https://0web.com.br/servicos/google-meu-negocio";
+const URL = "https://www.0web.com.br/servicos/google-meu-negocio";
 
 const GMB_UNICO_PRODUCT = {
   slug: "google-meu-negocio",
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
           provider: {
             "@type": "Organization",
             name: "0WEB Marketing Digital",
-            url: "https://0web.com.br",
+            url: "https://www.0web.com.br",
           },
           areaServed: "BR",
           description: DESC,
@@ -111,8 +111,8 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/servicos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://www.0web.com.br/servicos" },
             { "@type": "ListItem", position: 3, name: "Google Meu Negócio", item: URL },
           ],
         }),

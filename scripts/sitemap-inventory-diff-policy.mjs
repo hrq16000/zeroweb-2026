@@ -6,7 +6,7 @@
  * Páginas locais e categorias sao dependentes de publicação dinâmica; sua
  * ausência no preview gera PENDENCIA VISIVEL, nao uma aprovação de remoção.
  */
-const CANONICAL = "https://0web.com.br";
+const CANONICAL = "https://www.0web.com.br";
 // Redirecionamento 301 comprovado em src/routes/marketplace.tsx.
 // Só classifica como correção se o destino canônico existia antes e permanece depois.
 const KNOWN_CANONICAL_REDIRECTS = new Map([["/marketplace", "/servicos/marketplace"]]);

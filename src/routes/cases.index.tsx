@@ -6,7 +6,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { ArrowRight, TrendingUp } from "lucide-react";
 
-const URL = "https://0web.com.br/cases";
+const URL = "https://www.0web.com.br/cases";
 const TITLE = "Cases de Sucesso · Resultados Reais em SEO, Tráfego e IA · 0WEB";
 const DESC =
   "Conheça cases reais de clientes 0WEB: crescimento de tráfego orgânico, redução de CPL, automação de vendas e implementação de IA. Resultados mensuráveis.";
@@ -64,7 +64,7 @@ export const Route = createFileRoute("/cases/")({
           itemListElement: cases.map((c, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url: `https://0web.com.br/cases/${c.slug}`,
+            url: `https://www.0web.com.br/cases/${c.slug}`,
             name: c.title,
           })),
         }),
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/cases/")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
             { "@type": "ListItem", position: 2, name: "Cases", item: URL },
           ],
         }),

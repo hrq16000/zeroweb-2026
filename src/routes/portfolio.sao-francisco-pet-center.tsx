@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SaoFranciscoPetCenterPage } from "@/components/site/SaoFranciscoPetCenterPage";
 
-const url = "https://0web.com.br/portfolio/sao-francisco-pet-center";
+const url = "https://www.0web.com.br/portfolio/sao-francisco-pet-center";
 const title = "São Francisco Pet Center | Projeto 0WEB em São José dos Pinhais";
 const description = "Projeto demonstrativo de site para o São Francisco Pet Center no Bom Jesus, São José dos Pinhais, criado pela 0WEB. Não é o site oficial do estabelecimento.";
 const socialImage = "https://images.unsplash.com/photo-1657318216069-399acfda68d1?auto=format&fit=crop&w=1200&h=630&q=85";
@@ -44,9 +44,9 @@ export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
             description,
             inLanguage: "pt-BR",
             about: { "@id": url + "#business" },
-            isPartOf: { "@type": "WebSite", url: "https://0web.com.br", name: "0WEB" },
-            creator: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-            publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            isPartOf: { "@type": "WebSite", url: "https://www.0web.com.br", name: "0WEB" },
+            creator: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
+            publisher: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
             genre: "Portfólio demonstrativo de criação de sites; não é o site oficial da empresa",
           },
           {
@@ -75,8 +75,8 @@ export const Route = createFileRoute("/portfolio/sao-francisco-pet-center")({
           {
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "0WEB", item: "https://0web.com.br" },
-              { "@type": "ListItem", position: 2, name: "Portfólio", item: "https://0web.com.br/portfolio" },
+              { "@type": "ListItem", position: 1, name: "0WEB", item: "https://www.0web.com.br" },
+              { "@type": "ListItem", position: 2, name: "Portfólio", item: "https://www.0web.com.br/portfolio" },
               { "@type": "ListItem", position: 3, name: "São Francisco Pet Center", item: url },
             ],
           },

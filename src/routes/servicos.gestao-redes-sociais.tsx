@@ -16,7 +16,7 @@ import { AddToCartButton } from "@/components/site/AddToCartButton";
 const TITLE = "Gestão de Redes Sociais · 0WEB · Planos a partir de R$149,99/mês";
 const DESC =
   "Sua marca ativa todos os dias no Instagram, Facebook, TikTok e LinkedIn. Calendário editorial, design profissional, reels, copywriting e relatórios reais. Planos a partir de R$149,99/mês.";
-const URL = "https://0web.com.br/servicos/gestao-redes-sociais";
+const URL = "https://www.0web.com.br/servicos/gestao-redes-sociais";
 
 // Fotografias editoriais ilustrativas do Unsplash; não documentam a equipe 0WEB.
 const HERO_IMG =
@@ -197,7 +197,7 @@ export const Route = createFileRoute("/servicos/gestao-redes-sociais")({
           name: "Gestão de Redes Sociais",
           serviceType: "Gestão de Redes Sociais",
           url: URL,
-          provider: { "@type": "Organization", name: "0WEB Marketing Digital", url: "https://0web.com.br" },
+          provider: { "@type": "Organization", name: "0WEB Marketing Digital", url: "https://www.0web.com.br" },
           areaServed: "BR",
           description: DESC,
 
@@ -221,8 +221,8 @@ export const Route = createFileRoute("/servicos/gestao-redes-sociais")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/servicos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://www.0web.com.br/servicos" },
             { "@type": "ListItem", position: 3, name: "Gestão de Redes Sociais", item: URL },
           ],
         }),

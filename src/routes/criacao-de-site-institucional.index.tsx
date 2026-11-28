@@ -11,7 +11,7 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import { capitaisPorRegiao } from "@/lib/capitais";
 
-const CANONICAL = "https://0web.com.br/criacao-de-site-institucional";
+const CANONICAL = "https://www.0web.com.br/criacao-de-site-institucional";
 const TITLE = "Criação de Site Institucional | Sites Profissionais e Otimizados para Conversão";
 const DESCRIPTION =
   "Transforme sua presença digital com um site institucional moderno, responsivo e focado em resultados. Agende seu diagnóstico gratuito e descubra como crescer online.";
@@ -100,7 +100,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/")({
           description: DESCRIPTION,
           url: CANONICAL,
           areaServed: { "@type": "Country", name: "Brasil" },
-          provider: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+          provider: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
         }),
       },
       {
@@ -121,8 +121,8 @@ export const Route = createFileRoute("/criacao-de-site-institucional/")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/servicos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://www.0web.com.br/servicos" },
             { "@type": "ListItem", position: 3, name: "Criação de site institucional", item: CANONICAL },
           ],
         }),

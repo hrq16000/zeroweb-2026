@@ -4,9 +4,9 @@ import { RenataBeautyView } from "@/components/site/RenataBeautyView";
 
 const TITLE = "Renata Beauty Studio · Cílios, unhas e sobrancelhas";
 const DESC = "Conheça os procedimentos, o espaço e as condições especiais do Renata Beauty Studio no Boneca do Iguaçu.";
-const URL = "https://0web.com.br/portfolio/renata-beauty";
-const SOCIAL_IMAGE = "https://0web.com.br/images/renata-beauty-promo.webp";
-const ICON = "https://0web.com.br/images/renata-beauty-icon.webp";
+const URL = "https://www.0web.com.br/portfolio/renata-beauty";
+const SOCIAL_IMAGE = "https://www.0web.com.br/images/renata-beauty-promo.webp";
+const ICON = "https://www.0web.com.br/images/renata-beauty-icon.webp";
 
 export const Route = createFileRoute("/portfolio/renata-beauty")({
   head: () => ({

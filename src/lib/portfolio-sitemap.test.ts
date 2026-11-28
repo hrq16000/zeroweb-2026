@@ -56,3 +56,17 @@ test("sitemap e meta robots concordam mesmo com published=true em rascunho/impor
   expect(buildApprovedPortfolioEntries([managed]).map((entry) => entry.path))
     .not.toContain("/portfolio/managed-qa-lifecycle");
 });
+test("os sete rascunhos em revisão comercial permanecem fora do sitemap", () => {
+  const paths = buildApprovedPortfolioEntries().map((entry) => entry.path);
+  for (const slug of [
+    "dona-garimpeira-brecho",
+    "infinito-spa",
+    "espaco-marli-nails-guaratuba",
+    "bpl-locacoes-de-brinquedos",
+    "toop-assados",
+    "panificadora-doce-coracao-santo-antonio",
+    "salgados-da-fran",
+  ]) {
+    expect(paths).not.toContain(`/portfolio/${slug}`);
+  }
+});

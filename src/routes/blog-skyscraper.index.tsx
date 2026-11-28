@@ -13,9 +13,9 @@ export const Route = createFileRoute("/blog-skyscraper/")({
           "24 guias skyscraper sobre marketing digital, redes sociais, gráfica e soluções web — versão sênior do que está top-3 hoje no Google.",
       },
       { property: "og:title", content: "Skyscraper · 24 guias definitivos · 0WEB" },
-      { property: "og:url", content: "https://0web.com.br/blog-skyscraper" },
+      { property: "og:url", content: "https://www.0web.com.br/blog-skyscraper" },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/blog-skyscraper" }],
+    links: [{ rel: "canonical", href: "https://www.0web.com.br/blog-skyscraper" }],
   }),
   component: Index,
 });

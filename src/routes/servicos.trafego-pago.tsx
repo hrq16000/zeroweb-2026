@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { IntentLanding, buildHead } from "@/components/site/IntentLanding";
 
-const URL = "https://0web.com.br/servicos/trafego-pago";
+const URL = "https://www.0web.com.br/servicos/trafego-pago";
 const TITLE = "Tráfego Pago — Google Ads e Meta Ads · 0WEB";
 const DESC = "Campanhas de mídia paga com CPA otimizado e atribuição completa. Leads previsíveis todos os dias.";
 

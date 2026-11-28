@@ -125,10 +125,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://0web.com.br/#org",
+              "@id": "https://www.0web.com.br/#org",
               name: "0WEB",
-              url: "https://0web.com.br",
-              logo: "https://0web.com.br/favicon.ico",
+              url: "https://www.0web.com.br",
+              logo: "https://www.0web.com.br/favicon.ico",
               taxID: "41.723.708/0001-58",
               areaServed: { "@type": "Country", name: "Brasil" },
               sameAs: [
@@ -138,17 +138,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://0web.com.br/#website",
-              url: "https://0web.com.br",
+              "@id": "https://www.0web.com.br/#website",
+              url: "https://www.0web.com.br",
               name: "0WEB",
               inLanguage: "pt-BR",
-              publisher: { "@id": "https://0web.com.br/#org" },
+              publisher: { "@id": "https://www.0web.com.br/#org" },
               potentialAction: [
                 {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://0web.com.br/portfolio?q={search_term_string}",
+                    urlTemplate: "https://www.0web.com.br/portfolio?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -156,7 +156,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://0web.com.br/servicos?q={search_term_string}",
+                    urlTemplate: "https://www.0web.com.br/servicos?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },

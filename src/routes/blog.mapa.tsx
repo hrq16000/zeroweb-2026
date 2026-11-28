@@ -15,9 +15,9 @@ export const Route = createFileRoute("/blog/mapa")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "https://0web.com.br/blog/mapa" },
+      { property: "og:url", content: "https://www.0web.com.br/blog/mapa" },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/blog/mapa" }],
+    links: [{ rel: "canonical", href: "https://www.0web.com.br/blog/mapa" }],
   }),
   component: TopicMap,
 });

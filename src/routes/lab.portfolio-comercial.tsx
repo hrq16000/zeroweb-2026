@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ArrowUpRight, BarChart3, BriefcaseBusiness, CheckCircle2, Clock3, Layers3, MessageCircle, ShieldCheck, Sparkles, Users2, Workflow } from "lucide-react";
 
-const URL = "https://0web.com.br/lab/portfolio-comercial";
+const URL = "https://www.0web.com.br/lab/portfolio-comercial";
 const TITLE = "Laboratório Comercial 0WEB — Protótipo visual de CRM e jornadas B2B";
 const DESC = "Demonstração autoral de interface de CRM e qualificação B2B feita pela 0WEB. Sem instalação, dados reais, clientes atendidos ou vínculo oficial com as referências estudadas.";
 
@@ -134,7 +134,7 @@ export const Route = createFileRoute("/lab/portfolio-comercial")({
     scripts:[{ type:"application/ld+json", children: JSON.stringify({
       "@context":"https://schema.org","@type":"CreativeWork",name:TITLE,url:URL,
       description:DESC,creativeWorkStatus:"Demonstração visual não funcional",
-      creator:{"@type":"Organization",name:"0WEB",url:"https://0web.com.br"},
+      creator:{"@type":"Organization",name:"0WEB",url:"https://www.0web.com.br"},
     }) }],
   }),
   component: ConceptPage,

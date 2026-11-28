@@ -29,16 +29,16 @@ describe("shouldSkipCanonical", () => {
 });
 
 describe("computeCanonicalRedirect — host/proto normalization (308)", () => {
-  test("redirects www → apex with 308", () => {
+  test("redirects apex → www with 308", () => {
     const d = computeCanonicalRedirect({
       method: "GET",
-      url: "https://www.0web.com.br/blog",
+      url: "https://0web.com.br/blog",
       forwardedProto: "https",
       redirects: empty,
     });
     expect(d).not.toBeNull();
     expect(d!.status).toBe(308);
-    expect(d!.location).toBe("https://0web.com.br/blog");
+    expect(d!.location).toBe("https://www.0web.com.br/blog");
     expect(d!.source).toBe("host");
   });
 
@@ -51,7 +51,7 @@ describe("computeCanonicalRedirect — host/proto normalization (308)", () => {
     });
     expect(d).not.toBeNull();
     expect(d!.status).toBe(308);
-    expect(d!.location).toBe("https://0web.com.br/sobre");
+    expect(d!.location).toBe("https://www.0web.com.br/sobre");
   });
 
   test("does not force https on preview hosts", () => {
@@ -74,14 +74,14 @@ describe("computeCanonicalRedirect — trailing slash (308)", () => {
       redirects: empty,
     });
     expect(d!.status).toBe(308);
-    expect(d!.location).toBe("https://0web.com.br/blog");
+    expect(d!.location).toBe("https://www.0web.com.br/blog");
   });
 
   test("does not strip root", () => {
     expect(
       computeCanonicalRedirect({
         method: "GET",
-        url: "https://0web.com.br/",
+        url: "https://www.0web.com.br/",
         forwardedProto: "https",
         redirects: empty,
       }),
@@ -95,7 +95,7 @@ describe("computeCanonicalRedirect — trailing slash (308)", () => {
       forwardedProto: "https",
       redirects: empty,
     });
-    expect(d!.location).toBe("https://0web.com.br/blog?utm_source=x");
+    expect(d!.location).toBe("https://www.0web.com.br/blog?utm_source=x");
   });
 });
 
@@ -110,7 +110,7 @@ describe("computeCanonicalRedirect — custom redirects table", () => {
     });
     expect(d).not.toBeNull();
     expect(d!.status).toBe(301);
-    expect(d!.location).toBe("https://0web.com.br/portfolio/jkl-decor");
+    expect(d!.location).toBe("https://www.0web.com.br/portfolio/jkl-decor");
     expect(d!.source).toBe("custom");
   });
 
@@ -126,7 +126,7 @@ describe("computeCanonicalRedirect — custom redirects table", () => {
     });
     expect(d!.status).toBe(301);
     expect(d!.location).toBe(
-      "https://0web.com.br/portfolio/jkl-decor?utm_source=legacy",
+      "https://www.0web.com.br/portfolio/jkl-decor?utm_source=legacy",
     );
   });
 
@@ -139,7 +139,7 @@ describe("computeCanonicalRedirect — custom redirects table", () => {
       redirects: map,
     });
     expect(d!.status).toBe(301);
-    expect(d!.location).toBe("https://0web.com.br/novo");
+    expect(d!.location).toBe("https://www.0web.com.br/novo");
     expect(d!.source).toBe("custom");
   });
 
@@ -176,7 +176,7 @@ describe("computeCanonicalRedirect — custom redirects table", () => {
       redirects: map,
     });
     expect(d!.status).toBe(301);
-    expect(d!.location).toBe("https://0web.com.br/novo");
+    expect(d!.location).toBe("https://www.0web.com.br/novo");
   });
 });
 
@@ -196,7 +196,7 @@ describe("computeCanonicalRedirect — pass-through cases", () => {
     expect(
       computeCanonicalRedirect({
         method: "GET",
-        url: "https://0web.com.br/blog",
+        url: "https://www.0web.com.br/blog",
         forwardedProto: "https",
         redirects: empty,
       }),

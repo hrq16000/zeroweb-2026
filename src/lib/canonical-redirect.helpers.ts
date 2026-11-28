@@ -5,7 +5,7 @@
  * spinning up the Worker runtime or hitting Supabase.
  */
 
-export const CANONICAL_HOST = "0web.com.br";
+export const CANONICAL_HOST = "www.0web.com.br";
 
 export const PROTECTED_CANONICAL_REDIRECTS = new Map<string, { to: string; status: number }>([
   ["/portfolio/jkl-marcenaria", { to: "/portfolio/jkl-decor", status: 301 }],
@@ -61,27 +61,27 @@ export function computeCanonicalRedirect(
   const url = new URL(input.url);
   if (shouldSkipCanonical(url.pathname)) return null;
 
-  // 1) Host normalization
-  let host = url.host;
-  let proto = (input.forwardedProto ?? url.protocol.replace(":", "")) || "http";
+  // 1) Host normalization. Vercel redirects apex -> www; the app must agree.
+  let host = url.host.toLowerCase();
+  let proto = (input.forwardedProto ?? url.protocol.replace(":", "")).toLowerCase() || "http";
   let needsRedirect = false;
   let source: CanonicalDecision["source"] = "trailing-slash";
+  const hostname = host.replace(/:\d+$/, "");
+  const isProdHost = hostname === "0web.com.br" || hostname === CANONICAL_HOST;
 
-  if (host.startsWith("www.")) {
-    host = host.slice(4);
-    needsRedirect = true;
-    source = "host";
-  }
-  const isProdHost = host === CANONICAL_HOST || host === `www.${CANONICAL_HOST}`;
-  if (isProdHost && host !== CANONICAL_HOST) {
-    host = CANONICAL_HOST;
-    needsRedirect = true;
-    source = "host";
-  }
-  if (isProdHost && proto !== "https") {
-    proto = "https";
-    needsRedirect = true;
-    source = "https";
+  if (isProdHost) {
+    if (hostname !== CANONICAL_HOST) {
+      host = CANONICAL_HOST;
+      needsRedirect = true;
+      source = "host";
+    } else {
+      host = CANONICAL_HOST;
+    }
+    if (proto !== "https") {
+      proto = "https";
+      needsRedirect = true;
+      if (source === "trailing-slash") source = "https";
+    }
   }
 
   // 2) Trailing slash

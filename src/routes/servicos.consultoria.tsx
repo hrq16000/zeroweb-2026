@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { IntentLanding, buildHead } from "@/components/site/IntentLanding";
 
-const URL = "https://0web.com.br/servicos/consultoria";
+const URL = "https://www.0web.com.br/servicos/consultoria";
 const TITLE = "Consultoria de Marketing e Crescimento · 0WEB";
 const DESC = "Diagnóstico, planejamento e acompanhamento estratégico para escalar canais digitais.";
 

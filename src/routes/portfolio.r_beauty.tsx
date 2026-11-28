@@ -4,9 +4,9 @@ import { RBeautyEditorialView } from "@/components/site/RBeautyEditorialView";
 
 const TITLE = "R_Beauty Haute Studio · Cílios, unhas e sobrancelhas";
 const DESC = "Conheça os procedimentos de cílios, unhas, sobrancelhas e autocuidado do R_Beauty Haute Studio no Boneca do Iguaçu.";
-const URL = "https://0web.com.br/portfolio/r_beauty";
-const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-cilios.jpg";
-const ICON = "https://0web.com.br/images/r-beauty-icon.webp";
+const URL = "https://www.0web.com.br/portfolio/r_beauty";
+const SOCIAL_IMAGE = "https://www.0web.com.br/images/r-beauty-cilios.jpg";
+const ICON = "https://www.0web.com.br/images/r-beauty-icon.webp";
 
 export const Route = createFileRoute("/portfolio/r_beauty")({
   head: () => ({

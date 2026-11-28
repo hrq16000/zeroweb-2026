@@ -30,8 +30,8 @@ export const Route = createFileRoute("/cases/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const c = loaderData.case;
-    const url = `https://0web.com.br/cases/${c.slug}`;
-    const image = c.cover?.startsWith("http") ? c.cover : `https://0web.com.br${c.cover ?? ""}`;
+    const url = `https://www.0web.com.br/cases/${c.slug}`;
+    const image = c.cover?.startsWith("http") ? c.cover : `https://www.0web.com.br${c.cover ?? ""}`;
     return {
       meta: [
         { title: c.seo.title },
@@ -59,15 +59,15 @@ export const Route = createFileRoute("/cases/$slug")({
                 headline: c.seo.title,
                 description: c.seo.description,
                 image,
-                author: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-                publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+                author: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
+                publisher: { "@type": "Organization", name: "0WEB", url: "https://www.0web.com.br" },
                 mainEntityOfPage: url,
               },
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-                  { "@type": "ListItem", position: 2, name: "Cases", item: "https://0web.com.br/#cases" },
+                  { "@type": "ListItem", position: 1, name: "Início", item: "https://www.0web.com.br/" },
+                  { "@type": "ListItem", position: 2, name: "Cases", item: "https://www.0web.com.br/#cases" },
                   { "@type": "ListItem", position: 3, name: c.brand, item: url },
                 ],
               },
