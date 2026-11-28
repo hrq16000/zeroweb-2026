@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Toquinho de Gente Brechó Adulto e Infantil
@@ -62,7 +62,7 @@ export function ToquinhoDeGenteBrechoPage() {
         </div>
 
         {/* mural de recados: assinatura do projeto */}
-        <section className="mx-auto w-[min(94%,70rem)] py-10 md:py-16">
+        <MotionFirstPaint><section className="mx-auto w-[min(94%,70rem)] py-10 md:py-16">
           <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
             <ManagedText
               field="heroHeadline"
@@ -165,7 +165,7 @@ export function ToquinhoDeGenteBrechoPage() {
             Garimpar também pode ser uma forma de cuidar do planeta — e de fazer
             uma peça durar mais de uma história.
           </p>
-        </section>
+        </section></MotionFirstPaint>
       </main>
       </MotionScope>
 

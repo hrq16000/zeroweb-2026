@@ -1,21 +1,16 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Check,
   ChevronLeft,
   ChevronRight,
-  Clock3,
   Gift,
   Heart,
-  Instagram,
-  MapPin,
   Recycle,
   Shirt,
   ShoppingBag,
   X,
 } from "lucide-react";
-import { DonaGarimpeiraOfflineFunnel, type DonaGarimpeiraInterest } from "./DonaGarimpeiraOfflineFunnel";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
@@ -27,9 +22,7 @@ import "./dona-garimpeira-brecho.css";
  * configuração privada do destino, o manifesto v4 e os gates do projeto.
  */
 const SLUG = "dona-garimpeira-brecho";
-const INSTAGRAM = "https://www.instagram.com/donagarimpeirasjp/";
-export type GarimpeiraInterest = DonaGarimpeiraInterest;
-const PreviewInterestContext = createContext<((interest: GarimpeiraInterest) => void) | null>(null);
+export type GarimpeiraInterest = "comprar" | "vender" | "doar";
 
 type Category = "todos" | "feminino" | "masculino" | "infantil";
 type GalleryItem = {
@@ -80,16 +73,16 @@ export const composition: PortfolioComposition = {
     mediaNarrative:
       "Apenas fotos oficiais e autorizadas, com proporções editoriais e procedência por permalink.",
     proofNarrative:
-      "Endereço, horário informado e processos reais de compra e doação; sem avaliações ou métricas fabricadas.",
+      "Nenhum endereço, horário, política comercial ou prova operacional é divulgado sem confirmação da responsável.",
     conversionNarrative:
-      "Comprar, vender e doar chegam ao mesmo funil identificado por intenção, sem contato direto de WhatsApp.",
+      "As três intenções aparecem apenas como estudo de jornada; formulários e encaminhamentos permanecem desativados.",
     motionNarrative:
       "Movimento leve de etiquetas e transições fotográficas; redução de movimento desliga os efeitos.",
     signatureMoments: [
       "Título que funciona como um pôster de brechó, com selo editorial.",
       "Três caminhos comerciais em uma fita de etiquetas numeradas.",
       "Vitrine de acervo real com zoom contextual, filtros e procedência preservada.",
-      "Endereço transformado em convite editorial à visita.",
+      "Aviso claro de que a visita e o atendimento ainda não estão ativos.",
     ],
     compositionFingerprint: {
       heroGeometry: "full-bleed editorial poster with type-led monumental center and offset collectible stamp",
@@ -115,12 +108,11 @@ export const composition: PortfolioComposition = {
 };
 
 const FAQS: [string, string][] = [
-  ["Posso vender minhas roupas à Dona Garimpeira?", "Sim. A loja avalia presencialmente roupas usadas em excelente estado e, quando aprovadas, pode pagar na hora em Pix ou dinheiro."],
-  ["Posso levar roupas para doação?", "Sim. A loja recebe doações presencialmente, conforme as condições de recebimento confirmadas com a equipe. Não há promessa de destinação beneficente."],
-  ["É possível reservar uma peça?", "Sim, pelo WhatsApp, após confirmação da disponibilidade. O prazo é combinado individualmente e a retirada e o pagamento acontecem na loja."],
-  ["A vitrine mostra tudo que está à venda agora?", "Não. As fotografias são referências do estilo do brechó e não representam estoque em tempo real."],
-  ["Como posso pagar na loja?", "A Dona Garimpeira aceita Pix, dinheiro, cartão de débito e cartão de crédito."],
-  ["A loja abre aos domingos?", "Segundo informações fornecidas pela responsável, o atendimento habitual é de segunda a domingo, das 9h às 18h. Feriados podem ter horários especiais."],
+  ["Este é o site oficial?", "Não. Esta é uma demonstração conceitual criada pela 0WEB e aguarda aprovação da responsável."],
+  ["Posso comprar, vender ou doar por aqui?", "Não. Os três caminhos são apenas exemplos visuais; nenhum pedido, avaliação ou doação é recebido nesta versão."],
+  ["Há peças disponíveis no estoque?", "Nenhum estoque ou fotografia de peças foi publicado. A galeria permanece vazia até autorização de uso das imagens."],
+  ["Onde fica a loja e qual é o horário?", "Endereço, localidade, CEP e horários foram retirados desta demonstração até confirmação escrita da responsável."],
+  ["Como entro em contato?", "WhatsApp, Instagram, formulário e demais encaminhamentos estão desativados nesta versão."],
 ];
 
 function InterestCta({
@@ -134,14 +126,11 @@ function InterestCta({
   children: ReactNode;
   className?: string;
 }) {
-  const openFunnel = useContext(PreviewInterestContext);
-  return <button
-    type="button"
-    data-testid="dona-garimpeira-funnel-cta"
-    data-placement={placement}
-    className={className}
-    onClick={() => openFunnel?.(interest)}
-  >{children}</button>;
+  return (
+    <button type="button" data-testid="dona-garimpeira-funnel-cta" data-intent={interest} data-placement={placement} className={className} disabled aria-disabled="true" title="Fluxo indisponível até a aprovação comercial.">
+      {children}
+    </button>
+  );
 }
 
 function RealGallery() {
@@ -247,17 +236,15 @@ function RealGallery() {
             <span aria-hidden="true">✳</span>
             <div>
               <strong>Novas histórias estão chegando.</strong>
-              <p>Estamos organizando as fotografias reais do acervo da Dona Garimpeira. Enquanto isso, acompanhe as novidades no perfil oficial.</p>
-              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">
-                Conhecer o Instagram oficial <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
+              <p>A galeria foi omitida porque ainda não há fotografias autorizadas para uso nesta demonstração. Nenhuma imagem de terceiros foi utilizada.</p>
+              <span className="dg-footer-contact">Sem canal de atendimento ativo</span>
             </div>
           </div>
         )}
         <p className="dg-gallery-note">
           {GALLERY_ITEMS.length > 0
             ? "As fotos reais do acervo não indicam disponibilidade ou preço em tempo real. Consulte pelo atendimento."
-            : "A galeria será publicada quando as fotografias oficiais forem verificadas. Consulte peças pelo atendimento."}
+            : "Galeria e estoque não estão ativos nesta demonstração; nenhuma consulta de peças é recebida."}
         </p>
         <InterestCta interest="comprar" placement="galeria">Consultar uma peça <ArrowUpRight size={17} aria-hidden="true" /></InterestCta>
       </div>
@@ -278,31 +265,28 @@ function RealGallery() {
   );
 }
 
-export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInterest?: (interest: GarimpeiraInterest) => void } = {}) {
-  const [offlineInterest, setOfflineInterest] = useState<GarimpeiraInterest | null>(null);
+export function DonaGarimpeiraBrechoPage() {
   return (
-    <PreviewInterestContext.Provider value={onPreviewInterest ?? setOfflineInterest}>
     <PortfolioCompositionRoot composition={composition}>
       <main className="dg-site" id="inicio">
+        <div className="dg-demo-disclosure" role="status">Demonstração conceitual 0WEB · não é site oficial. Identidade, endereço, horários, estoque e regras aguardam aprovação da responsável. Nenhum formulário ou contato está ativo.</div>
         <header className="dg-header">
           <a className="dg-wordmark" href="#inicio" aria-label="Dona Garimpeira — início">dona<span>garimpeira</span><span className="dg-wordmark-star" aria-hidden="true">✳</span></a>
           <nav aria-label="Navegação Dona Garimpeira">
             <a href="#caminhos">Como funciona</a>
             <a href="#garimpos">Garimpos</a>
-            <a href="#visite">Visite a loja</a>
+            <a href="#visite">Informações</a>
           </nav>
-          <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial da Dona Garimpeira">
-            <Instagram size={20} aria-hidden="true" />
-          </a>
+          <span className="dg-footer-contact">Sem canal de atendimento ativo</span>
         </header>
 
         <section className="dg-hero" aria-labelledby="dg-hero-title">
-          <div className="dg-hero-topline"><span>BRECHÓ · SÃO JOSÉ DOS PINHAIS</span><span>MODA QUE GANHA NOVA VIDA</span></div>
+          <div className="dg-hero-topline"><span>CONCEITO DE BRECHÓ · LOCALIDADE A CONFIRMAR</span><span>MODA QUE GANHA NOVA VIDA</span></div>
           <div className="dg-hero-content">
             <p className="dg-hero-kicker"><span aria-hidden="true">✳</span> Bem-vinda ao seu próximo achado.</p>
             <h1 id="dg-hero-title">Todo estilo<br />merece uma<br /><em>segunda história.</em></h1>
             <div className="dg-hero-bottom">
-              <p>Roupas e acessórios de segunda mão, encontros inesperados e boas histórias. Um brechó de verdade, pertinho de você.</p>
+              <p>Proposta visual de uma experiência de brechó. Identidade, serviços, localidade e operação aguardam aprovação da responsável.</p>
               <a className="dg-scroll-link" href="#caminhos">Descubra como funciona <ArrowDownRight size={21} aria-hidden="true" /></a>
             </div>
           </div>
@@ -321,21 +305,21 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
                 <span className="dg-journey-no">01 / GARIMPAR</span>
                 <ShoppingBag size={32} aria-hidden="true" />
                 <h3>Vem<br />garimpar.</h3>
-                <p>Encontre roupas e acessórios femininos, masculinos e infantis. A compra acontece na loja física.</p>
+                <p>Fluxo ilustrativo de compra. Estoque, preços, formas de pagamento e disponibilidade não estão confirmados.</p>
                 <InterestCta interest="comprar" placement="comprar" className="dg-tag-action">Quero conhecer <ArrowUpRight size={18}/></InterestCta>
               </article>
               <article className="dg-journey dg-journey-sell">
                 <span className="dg-journey-no">02 / DESAPEGAR</span>
                 <Shirt size={32} aria-hidden="true" />
                 <h3>Desapegue<br />com carinho.</h3>
-                <p>Compramos roupas usadas em excelente estado após avaliação presencial. Peças aprovadas podem ser pagas na hora.</p>
+                <p>Fluxo ilustrativo de venda. Critérios de avaliação, recebimento e pagamento aguardam confirmação escrita.</p>
                 <InterestCta interest="vender" placement="vender" className="dg-tag-action">Quero vender <ArrowUpRight size={18}/></InterestCta>
               </article>
               <article className="dg-journey dg-journey-donate">
                 <span className="dg-journey-no">03 / COMPARTILHAR</span>
                 <Gift size={32} aria-hidden="true" />
                 <h3>Doe uma<br />nova chance.</h3>
-                <p>Recebemos doações de peças em excelente estado, conforme avaliação e condições de recebimento combinadas com a loja.</p>
+                <p>Fluxo ilustrativo de doação. Condições de recebimento e destinação não foram aprovadas nem anunciadas.</p>
                 <InterestCta interest="doar" placement="doar" className="dg-tag-action">Quero doar <ArrowUpRight size={18}/></InterestCta>
               </article>
             </div>
@@ -349,13 +333,13 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
             <div className="dg-how-lead">
               <p className="dg-eyebrow dg-eyebrow-light">Pequenos combinados</p>
               <h2 id="dg-how-title">Garimpo bom<br /><em>é com clareza.</em></h2>
-              <p>Uma loja de bairro feita de encontros, oportunidades e peças que continuam contando histórias.</p>
+              <p>As informações operacionais permanecem ocultas até a confirmação escrita da responsável pelo negócio.</p>
               <Recycle size={68} strokeWidth={1.2} aria-hidden="true" />
             </div>
             <div className="dg-how-notes">
-              <div><span>01</span><div><h3>Escolha pessoalmente</h3><p>A venda e o pagamento acontecem na loja física. Aceitamos Pix, dinheiro, débito e crédito.</p></div></div>
-              <div><span>02</span><div><h3>Quer reservar?</h3><p>Envie foto, print ou descrição pelo atendimento. Confirmamos a disponibilidade e combinamos o prazo individualmente.</p></div></div>
-              <div><span>03</span><div><h3>Vai vender ou doar?</h3><p>Traga suas roupas em excelente estado para avaliação ou recebimento presencial, no horário da loja.</p></div></div>
+              <div><span>01</span><div><h3>Escolha pessoalmente</h3><p>Preços, estoque e formas de pagamento não são divulgados nesta demonstração.</p></div></div>
+              <div><span>02</span><div><h3>Quer reservar?</h3><p>Não há formulário, WhatsApp, reserva ou encaminhamento de pedidos ativo nesta versão.</p></div></div>
+              <div><span>03</span><div><h3>Vai vender ou doar?</h3><p>Critérios de avaliação, recebimento e horários dependem de confirmação da responsável.</p></div></div>
             </div>
           </div>
         </section>
@@ -363,17 +347,14 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
         <section className="dg-visit" id="visite" aria-labelledby="dg-visit-title">
           <div className="dg-wrap dg-visit-layout">
             <div>
-              <p className="dg-eyebrow">A gente te espera</p>
-              <h2 id="dg-visit-title">Seu próximo achado<br /><em>tem endereço.</em></h2>
-              <p className="dg-visit-street">Rua Loanda,<br /><strong>60.</strong></p>
-              <p className="dg-visit-address"><MapPin size={19} aria-hidden="true" /> Boneca do Iguaçu · São José dos Pinhais · PR<br />CEP 83040-170</p>
+              <p className="dg-eyebrow">Informações ainda não confirmadas</p>
+              <h2 id="dg-visit-title">Endereço e horários<br /><em>aguardam aprovação.</em></h2>
+              <p className="dg-visit-address">Localidade, endereço, CEP, horários, acessibilidade e visita presencial não são divulgados nesta demonstração.</p>
             </div>
             <div className="dg-visit-side">
               <span className="dg-visit-star" aria-hidden="true">✳</span>
-              <p><Clock3 size={19} aria-hidden="true" /> Segunda a domingo, das 9h às 18h.<br /><small>Horário informado pela responsável. Confirme antes de visitar, especialmente em feriados.</small></p>
-              <p><Check size={19} aria-hidden="true" /> Entrada acessível para cadeira de rodas, conforme informação da responsável.</p>
-              <p>Venda presencial · Reserva consultada pelo atendimento</p>
-              <InterestCta interest="comprar" placement="visita">Falar sobre minha visita <ArrowUpRight size={17} aria-hidden="true" /></InterestCta>
+              <p>Atendimento, agenda, contato e visita permanecem desativados até confirmação escrita da responsável.</p>
+              <InterestCta interest="comprar" placement="visita">Visita indisponível nesta demonstração <ArrowUpRight size={17} aria-hidden="true" /></InterestCta>
             </div>
           </div>
         </section>
@@ -394,18 +375,11 @@ export function DonaGarimpeiraBrechoPage({ onPreviewInterest }: { onPreviewInter
         <footer className="dg-footer">
           <div className="dg-wrap">
             <span className="dg-footer-name">dona garimpeira <span aria-hidden="true">✳</span></span>
-            <p>Brechó de roupas e acessórios · São José dos Pinhais — PR</p>
-            <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><Instagram size={17} aria-hidden="true" /> @donagarimpeirasjp <ArrowUpRight size={15} aria-hidden="true" /></a>
+            <p>Conceito visual 0WEB · não é site oficial · localidade a confirmar</p>
+            <span className="dg-footer-contact">Sem canal de atendimento ativo</span>
           </div>
         </footer>
       </main>
-      {!onPreviewInterest && (
-        <DonaGarimpeiraOfflineFunnel
-          interest={offlineInterest}
-          onClose={() => setOfflineInterest(null)}
-        />
-      )}
     </PortfolioCompositionRoot>
-    </PreviewInterestContext.Provider>
   );
 }

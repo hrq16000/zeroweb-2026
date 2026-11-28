@@ -2,7 +2,7 @@
   "slug": "dona-garimpeira-brecho",
   "clientKey": "dona-garimpeira-brecho",
   "operationalContact": {
-    "whatsapp": "5541995523363"
+    "whatsapp": null
   },
   "provenance": {
     "source": "CLIENT_SUPPLIED",
@@ -17,5 +17,8 @@
     "lead persistido no dynamic_form_leads e token exclusivo verificados por E2E",
     "readiness e mídia real aprovados"
   ],
-  "lastUpdatedAt": "2026-11-03"
+  "lastUpdatedAt": "2026-11-03",
+  "status": "WITHHELD_PENDING_CLIENT_APPROVAL",
+  "publicContactEnabled": false,
+  "notes": "Contato fornecido anteriormente foi retirado do registro público e não é usado. Reativar somente após autorização escrita e homologação do canal."
 }

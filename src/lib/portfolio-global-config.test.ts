@@ -1,3 +1,5 @@
+import hostedFormRegistry from "@/config/portfolio-hosted-form-registry.json";
+import portfolioClients from "@/config/portfolio-clients.json";
 import { describe, expect, it } from "bun:test";
 import {
   listPortfolioClients,
@@ -5,12 +7,24 @@ import {
   resolvePortfolioStandards,
 } from "./portfolio-global-config";
 
+const directLeadFormKeys = new Set(
+  (portfolioClients as Array<{ clientKey: string; funnelVariant?: string }>)
+    .filter((client) => client.funnelVariant === "direct_lead_form")
+    .map((client) => client.clientKey),
+);
+
 describe("padrões globais de /portfolio/:slug", () => {
   it("aplica os elementos essenciais a todos os projetos registrados", () => {
     for (const client of listPortfolioClients()) {
       const standards = resolvePortfolioStandards(client.slug);
       expect(standards.shareButton.enabled).toBe(true);
-      expect(standards.contactFloating.enabled).toBe(true);
+      // Formulários hospedados verificados e formulários diretos próprios
+      // substituem o CTA flutuante genérico, sem desligar a captação da página.
+      const hosted = (hostedFormRegistry.forms as Record<string, { status: string } | undefined>)[client.clientKey];
+      const usesDedicatedLeadForm = directLeadFormKeys.has(client.clientKey);
+      expect(standards.contactFloating.enabled).toBe(
+        hosted?.status === "verified" || usesDedicatedLeadForm ? false : true,
+      );
       expect(standards.contactFloating.behavior).toBe("funnel-modal");
       expect(standards.footer.enabled).toBe(true);
       expect(standards.footer.hostCredit).toBe(true);

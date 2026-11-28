@@ -1,60 +1,24 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
-
-const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
-const json = (path: string) => JSON.parse(read(path));
-const slug = "dona-garimpeira-brecho";
-
-describe("Dona Garimpeira — funil offline público, formulário Cloud ainda rascunho", () => {
-  test("the contact belongs to exactly the intended future portfolio", () => {
-    const contacts = json("src/config/portfolio-whatsapp.json").contacts;
-    const reserved = json("docs/portfolio/drafts/dona-garimpeira-brecho-contact.json");
-    const ledger = json("src/config/portfolio-funnel-destinations.json").entries;
-    expect(contacts[slug]).toEqual({ whatsapp: "5541995523363" });
-    expect(reserved.operationalContact.whatsapp).toBe("5541995523363");
-    expect(reserved.provenance.status).toBe("CONFIGURED_UNVERIFIED");
-    expect(reserved.stage).toBe("draft");
-    expect(ledger[slug].status).toBe("CONFIGURED_UNVERIFIED");
-    expect(ledger[slug].source).toBe("CLIENT_SUPPLIED");
-    expect(ledger[slug].verifiedAt).toBeUndefined();
-    expect(Object.entries(contacts).filter(([, entry]) =>
-      (entry as { whatsapp: string | null }).whatsapp === "5541995523363",
-    )).toEqual([[slug, { whatsapp: "5541995523363" }]]);
+const read = (path: string) => readFileSync(path, "utf8");
+describe("Dona Garimpeira — handoff comercial desativado R13", () => {
+  it("não mantém WhatsApp, telefone, destino ou formulário ativos", () => {
+    const whatsapp = JSON.parse(read("src/config/portfolio-whatsapp.json"));
+    const destinations = JSON.parse(read("src/config/portfolio-funnel-destinations.json")).entries["dona-garimpeira-brecho"];
+    const contact = JSON.parse(read("docs/portfolio/drafts/dona-garimpeira-brecho-contact.json"));
+    const contract = JSON.parse(read("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-contract.json"));
+    expect(whatsapp.contacts["dona-garimpeira-brecho"]?.whatsapp ?? null).toBeNull();
+    expect(destinations.enabled).toBe(false);
+    expect(destinations.destination ?? null).toBeNull();
+    expect(contact.publicContactEnabled).toBe(false);
+    expect(contract.formEnabled).toBe(false);
+    expect(contract.contactEnabled).toBe(false);
+    expect(contract.whatsapp_config.enabled).toBe(false);
+    expect(contract.whatsapp_config.number).toBeNull();
   });
-
-  test("catálogo público sem ativar formulário legado do banco", () => {
-    const keys = read("src/lib/portfolio-client-keys.ts");
-    const catalog = json("src/config/portfolio-catalog.json");
-    const manifest = json("src/config/portfolio-project-manifests.json");
-    expect(keys).toContain(`"${slug}"`);
-    expect(catalog.some((x: { slug: string; status: string }) => x.slug === slug && x.status === "draft")).toBe(true);
-    expect(manifest.projects[slug]).toBeUndefined();
-    const form = json("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-contract.json");
-    expect(form.slug).toBe(`funnel-${slug}`);
-    expect(form.status).toBe("draft");
-    expect(form.publicationAllowed).toBe(false);
-    expect(form.whatsapp_config.enabled).toBe(false);
-  });
-
-  test("the three intents are captured without promising inventory", () => {
-    const form = json("docs/portfolio/drafts/dona-garimpeira-brecho-funnel-contract.json");
-    const interest = form.questions.find((q: { key: string }) => q.key === "interesse");
-    expect(interest.required).toBe(true);
-    expect(interest.options.map((x: { value: string }) => x.value)).toEqual(["comprar", "vender", "doar"]);
-    expect(form.questions.find((q: { key: string }) => q.key === "whatsapp").required).toBe(true);
-    expect(form.questions.find((q: { key: string }) => q.key === "nome").required).toBe(true);
-    expect(form.questions.find((q: { key: string }) => q.key === "privacidade").required).toBe(true);
-    expect(form.description).toContain("confirma reservas");
-  });
-
-  test("existing server implementation stores the lead before trying token redirect", () => {
-    const source = read("src/lib/dynamic-funnel.functions.ts");
-    const insertLead = source.indexOf('.from("dynamic_form_leads")\n      .insert(');
-    const createToken = source.indexOf("await createWhatsAppRedirectToken({");
-    expect(insertLead).toBeGreaterThan(-1);
-    expect(createToken).toBeGreaterThan(insertLead);
-    expect(source).toContain('.eq("status", "published")');
-    // This is a source-contract check, NOT evidence of database writes/E2E.
+  it("os CTAs são apenas controles desativados, sem envio ou coleta", () => {
+    const page = read("src/components/site/DonaGarimpeiraBrechoPage.tsx");
+    expect(page).toContain('disabled aria-disabled="true"');
+    expect(page).not.toMatch(/DonaGarimpeiraOfflineFunnel|PreviewInterestContext|onPreviewInterest|href=\{INSTAGRAM\}/);
   });
 });

@@ -1,0 +1,155 @@
+{
+  "slug": "salgados-da-fran",
+  "researchDate": "2026-11-23",
+  "researchStage": "entity-discovery",
+  "proposalStatus": "DEMONSTRATIVE_NOT_OFFICIAL",
+  "identity": {
+    "displayName": "Salgados da Fran",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "neighborhood": "Águas Belas",
+    "verifiedWhatsApp": "5541995896344",
+    "note": "Same phone on operator-supplied card and Google Maps business listing; do not expose in frontend bundle."
+  },
+  "sources": [
+    {
+      "type": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "detail": "Photographed printed card, 2026-11-23",
+      "status": "verified_for_name_whatsapp_city"
+    },
+    {
+      "type": "GOOGLE",
+      "detail": "Google Maps listing Salgados da fran; matching phone and neighborhood Águas Belas",
+      "placeId": "ChIJubrp0KXx3JQRFdrzTLPMi3o",
+      "status": "matched_identity"
+    },
+    {
+      "type": "PUBLIC_WEB",
+      "url": "https://www.ceasa.pr.gov.br/sites/ceasa/arquivos_restritos/files/documento/2025-12/rede_credenciada_refeicao.pdf",
+      "status": "conflicting_unlinked",
+      "note": "Similar brand appears but number differs; do not link CNPJ/address without verification"
+    }
+  ],
+  "researchLedger": {
+    "googleMaps": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false
+    },
+    "businessPhotos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "reviews": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "note": "Do not publish rating without reading primary reviews"
+    },
+    "telephone": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true
+    }
+  },
+  "facts": [
+    {
+      "field": "businessName",
+      "value": "Salgados da Fran",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "verified"
+    },
+    {
+      "field": "encomendas",
+      "value": "Encomendas",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "advertised"
+    },
+    {
+      "field": "municipio",
+      "value": "São José dos Pinhais PR",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE+GOOGLE",
+      "status": "verified"
+    },
+    {
+      "field": "neighborhood",
+      "value": "Águas Belas",
+      "sourceType": "GOOGLE",
+      "status": "matched"
+    },
+    {
+      "field": "whatsapp",
+      "value": "5541995896344",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE+GOOGLE",
+      "status": "verified"
+    }
+  ],
+  "unverified": [
+    "Menu/products",
+    "prices",
+    "delivery",
+    "pickup address",
+    "business hours",
+    "official social profiles",
+    "authorization to present as official"
+  ],
+  "seo": {
+    "targetCanonical": "https://0web.com.br/portfolio/salgados-da-fran",
+    "indexationVerified": false,
+    "gscSubmitted": false,
+    "published": false
+  }
+}

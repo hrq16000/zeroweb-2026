@@ -1398,6 +1398,197 @@
           "notePlaceholder": "Ex.: interesse em carro automático ou moto automática."
         }
       }
+    },
+    "agropet-filt": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe Agropet Filt",
+        "label": "Consultar produtos",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": [
+            "Rações",
+            "Artigos para aves",
+            "Acessórios e petiscos",
+            "Banho e tosa",
+            "Artigos de pesca",
+            "Jardinagem"
+          ],
+          "experienceOptions": [
+            "Cão",
+            "Ave",
+            "Gato",
+            "Outro animal",
+            "Outros artigos"
+          ],
+          "periodOptions": [
+            "Vou até a loja",
+            "Quero consultar possibilidades de entrega",
+            "Quero informações antes"
+          ],
+          "timingOptions": [
+            "Hoje",
+            "Esta semana",
+            "Ainda estou pesquisando"
+          ],
+          "stepTitles": {
+            "service": "O que você procura?",
+            "experience": "Para qual necessidade?",
+            "period": "Como prefere continuar?",
+            "timing": "Quando precisa?",
+            "note": "Detalhe o item ou serviço"
+          },
+          "notePlaceholder": "Espécie, porte, marca desejada ou o que precisa confirmar. Sem garantia de estoque."
+        },
+        "enabled": false
+      },
+      "footer": {
+        "variant": "dark"
+      }
+    },
+    "cantinho-da-tia-mari": {
+      "shareButton": {
+        "position": "bottom-right"
+      },
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consultar vagas",
+        "recipientName": "o Cantinho da Tia Mari",
+        "studioName": "Cantinho da Tia Mari"
+      },
+      "footer": {
+        "variant": "light"
+      }
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "contactFloating": {
+        "enabled": false
+      }
+    },
+    "infinito-spa": {
+      "shareButton": {
+        "position": "top-right",
+        "variant": "dark",
+        "label": "Compartir"
+      },
+      "contactFloating": {
+        "enabled": false,
+        "position": "bottom-right",
+        "theme": "gold",
+        "label": "Consultar disponibilidad",
+        "recipientName": "Roze",
+        "studioName": "Infinito Spa",
+        "mode": "booking",
+        "quizConfig": {
+          "locale": "es-CL",
+          "services": [
+            "Consulta sobre masajes y masoterapia",
+            "Quiero orientación antes de elegir",
+            "Consultar disponibilidad"
+          ],
+          "experienceOptions": [
+            "Es mi primera consulta",
+            "Ya he recibido masoterapia",
+            "Prefiero conversar antes"
+          ],
+          "periodOptions": [
+            "Mañana",
+            "Tarde",
+            "Horario flexible",
+            "A convenir"
+          ],
+          "timingOptions": [
+            "Esta semana",
+            "Próximos días",
+            "Más adelante",
+            "A convenir"
+          ],
+          "stepTitles": {
+            "service": "¿Qué te gustaría consultar?",
+            "experience": "¿Has recibido masoterapia antes?",
+            "period": "¿Qué horario te acomoda?",
+            "timing": "¿Cuándo te gustaría coordinar?",
+            "note": "Cuéntanos un poco más"
+          },
+          "stepSubtitles": {
+            "service": "Elige el motivo principal de tu consulta.",
+            "experience": "Así podremos orientar mejor la conversación.",
+            "period": "La disponibilidad se confirma directamente con Roze.",
+            "timing": "Indica cuándo te gustaría conversar.",
+            "note": "Deja cualquier detalle o preferencia que debamos conocer."
+          },
+          "notePlaceholder": "Cuéntanos qué necesitas. Las modalidades y la disponibilidad se confirman directamente con Roze.",
+          "requireContactDetails": true
+        }
+      },
+      "footer": {
+        "enabled": true,
+        "hostCredit": true,
+        "showYear": true,
+        "variant": "dark"
+      }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "contactFloating": {
+        "enabled": false,
+        "theme": "pink",
+        "label": "Consulta 0WEB",
+        "recipientName": "0WEB",
+        "studioName": "Espaço Marli Nails Designer"
+      }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a BPL",
+        "label": "Consultar locação",
+        "mode": "proposal",
+        "quizConfig": {
+          "services": [
+            "Cama elástica",
+            "Piscina de bolinhas",
+            "Ambos os brinquedos",
+            "Tenho uma dúvida"
+          ],
+          "experienceOptions": [
+            "Aniversário infantil",
+            "Festa em família",
+            "Evento escolar",
+            "Outra comemoração"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Noite",
+            "Horário a definir"
+          ],
+          "timingOptions": [
+            "Nos próximos 7 dias",
+            "Neste mês",
+            "No mês que vem",
+            "Ainda estou planejando"
+          ],
+          "stepTitles": {
+            "service": "Qual brinquedo procura?",
+            "experience": "Qual será a ocasião?",
+            "period": "Em qual período?",
+            "timing": "Para quando precisa?"
+          },
+          "notePlaceholder": "Ex.: data do evento, cidade, espaço disponível e idade das crianças."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
+    },
+    "toop-assados": {
+      "contactFloating": {
+        "enabled": false
+      },
+      "footer": {
+        "variant": "dark"
+      }
     }
   }
 }

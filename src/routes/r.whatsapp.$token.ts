@@ -17,6 +17,10 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
     handlers: {
       GET: async ({ params, request }) => {
         const token = String(params.token ?? "").trim();
+        if (token === "portfolio-infinito-spa") {
+          const { handleInfinitoSpaWhatsAppRedirect } = await import("@/lib/infinito-spa-whatsapp.server");
+          return handleInfinitoSpaWhatsAppRedirect(request);
+        }
         if (!/^[a-f0-9]{16,64}$/.test(token)) {
           return new Response("Invalid token", { status: 400 });
         }
@@ -113,7 +117,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { data: lead } = await (supabaseAdmin as any)
             .from("dynamic_form_leads")
-            .select("id, form_id, answers_json, metadata_json")
+            .select("id, form_id, answers_json, metadata_json, contact_name, contact_phone")
             .eq("id", resolved.row.lead_id)
             .maybeSingle();
           if (!lead) {
@@ -262,16 +266,18 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             (PORTFOLIO_FUNNEL_INTENTS as readonly string[]).includes(meta.funnel_intent)
               ? meta.funnel_intent
               : null;
-          const portfolioFunnel =
+          const basePortfolioFunnel =
             typeof meta.client_key === "string" && meta.client_key
-              ? metadataIntent
-                ? buildPortfolioFunnelContextForIntent(
-                    meta.client_key,
-                    metadataIntent as (typeof PORTFOLIO_FUNNEL_INTENTS)[number],
-                    typeof meta.studio_name === "string" ? meta.studio_name : "a empresa",
-                  )
-                : resolvePortfolioFunnelContext(meta.client_key)
+              ? resolvePortfolioFunnelContext(meta.client_key)
               : null;
+          const portfolioFunnel =
+            basePortfolioFunnel && metadataIntent && metadataIntent !== basePortfolioFunnel.intent
+              ? buildPortfolioFunnelContextForIntent(
+                  meta.client_key as string,
+                  metadataIntent as (typeof PORTFOLIO_FUNNEL_INTENTS)[number],
+                  typeof meta.studio_name === "string" ? meta.studio_name : "a empresa",
+                )
+              : basePortfolioFunnel;
           const quizAnswers = (lead.answers_json ?? {}) as Record<string, unknown>;
           const isPortfolioQuizLead =
             meta.source === "portfolio_client" &&
@@ -288,6 +294,8 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               proposalKind: meta.proposal_kind === "campaign" ? "campaign" : "service",
               pageUrl: pageUrl ?? "",
               location: typeof meta.preview_location === "string" ? meta.preview_location : "",
+              contactName: typeof lead.contact_name === "string" ? lead.contact_name : undefined,
+              contactPhone: typeof lead.contact_phone === "string" ? lead.contact_phone : undefined,
               answers: {
                 service: String(quizAnswers.service ?? ""),
                 experience: String(quizAnswers.experience ?? ""),
@@ -296,6 +304,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
                 note: String(quizAnswers.note ?? ""),
               },
               funnelContext: portfolioFunnel ?? undefined,
+              locale: meta.locale === "es-CL" ? "es-CL" : "pt-BR",
             });
           } else {
             finalMessage = buildWhatsAppLeadMessage({

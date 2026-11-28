@@ -1020,6 +1020,9 @@
     "centro-mega": {
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
+      "excludeFromAdminGallery": [
+        "social.png"
+      ],
       "proof": {
         "eyebrow": "Centro Mega · Store Concept",
         "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
@@ -1027,7 +1030,7 @@
         "ctaLabel": "Explorar a loja",
         "ctaHref": "#vitrine"
       },
-      "socialVersion": "9e729e85"
+      "socialVersion": "8ca0e369"
     },
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",
@@ -1196,6 +1199,117 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "e6783dbb"
+    },
+    "agropet-filt": {
+      "icon": "/images/agropet-filt/logo.svg",
+      "socialImage": "/images/agropet-filt/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Agropet Filt · Vargem Grande, Pinhais",
+        "title": "Do bico ao focinho. Tudo por perto.",
+        "description": "Rações, artigos para aves, acessórios, pesca, jardinagem e banho e tosa divulgados. Consulte a disponibilidade.",
+        "ctaLabel": "Consultar produtos",
+        "ctaHref": "#encontre"
+      },
+      "socialVersion": "8c010fca"
+    },
+    "cantinho-da-tia-mari": {
+      "icon": "/images/cantinho-da-tia-mari/logo.svg",
+      "socialImage": "/images/cantinho-da-tia-mari/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Cantinho da Tia Mari · Jardim Itália, SJP",
+        "title": "Um cantinho de carinho para cada descoberta.",
+        "description": "Conheça fotos reais e serviços anunciados no panfleto. A página é uma demonstração 0WEB; confirme vagas e horários diretamente.",
+        "ctaLabel": "Consultar informações",
+        "ctaHref": "#cuidados"
+      },
+      "socialVersion": "9ea8c269"
+    },
+    "salgados-da-fran": {
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Salgados da Fran · São José dos Pinhais",
+        "title": "Sua ocasião merece uma encomenda bem combinada.",
+        "description": "Consulte o cardápio, a quantidade, os valores e os próximos passos pelo formulário da demonstração.",
+        "ctaLabel": "Consultar uma encomenda",
+        "ctaHref": "#encomendas"
+      },
+      "sourceSvg": "/images/salgados-da-fran/social-og.svg",
+      "socialVersion": "386d1b3b"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
+      "proof": {
+        "eyebrow": "Panificadora Doce Coração · Santo Antônio, SJP",
+        "title": "Uma padaria de bairro merece ser encontrada.",
+        "description": "Criação editorial demonstrativa da 0WEB com endereço público, categorias de pães, bolos, doces e salgados e rota para o estabelecimento. Não é um site oficial da padaria.",
+        "ctaLabel": "Encontrar a padaria",
+        "ctaHref": "#localizacao"
+      },
+      "socialVersion": "03daa28a"
+    },
+    "infinito-spa": {
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "proof": {
+        "enabled": false,
+        "eyebrow": "Información inicial",
+        "title": "Información basada en el diagnóstico inicial",
+        "description": "No se muestran reseñas, valoraciones ni resultados porque todavía no fueron aportados o verificados.",
+        "ctaLabel": "Consultar disponibilidad",
+        "ctaHref": "#consulta"
+      }
+    },
+    "espaco-marli-nails-guaratuba": {
+      "icon": "/images/espaco-marli-nails-guaratuba/logo.svg",
+      "socialImage": "/images/espaco-marli-nails-guaratuba/social-source-og.jpg",
+      "socialVersion": "7db1cdb8",
+      "proof": {
+        "eyebrow": "Demonstração 0WEB · Guaratuba",
+        "title": "Espaço Marli Nails Designer no Coroados.",
+        "description": "Localização pública e consulta de informações. Agenda, valores e serviços detalhados dependem de confirmação.",
+        "ctaLabel": "Consultar atendimento",
+        "ctaHref": "#consulta"
+      }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+      "socialVersion": "c55da662",
+      "proof": {
+        "eyebrow": "BPL · São José dos Pinhais e região",
+        "title": "Mais brincadeira para os momentos da sua festa.",
+        "description": "Conceito demonstrativo para cama elástica e piscina de bolinhas anunciadas no panfleto da BPL; sem reserva ou atendimento oficial pelo portal.",
+        "ctaLabel": "Consultar opções",
+        "ctaHref": "#consulta"
+      }
+    },
+    "toop-assados": {
+      "icon": "/images/toop-assados/icon.svg",
+      "socialImage": "/images/toop-assados/social-og-og.jpg",
+      "socialVersion": "6bb9a8f8",
+      "proof": {
+        "eyebrow": "Fonte: panfleto fornecido à 0WEB",
+        "title": "Uma proposta de cardápio digital demonstrativo.",
+        "description": "O material de referência cita costela e frango recheado no Xaxim, Curitiba. Preços e condições comerciais permanecem sem confirmação.",
+        "ctaLabel": "Conhecer a simulação",
+        "ctaHref": "#simulacao"
+      }
+    },
+    "garagem-girassol": {
+      "icon": "/images/garagem-girassol/logo.svg",
+      "socialImage": "/images/garagem-girassol/social-og.jpg",
+      "heroImage": "/images/garagem-girassol/fachada.webp",
+      "proof": {
+        "eyebrow": "Garagem & Girassol · São José dos Pinhais",
+        "title": "Espetinhos, crepe suíço e sobremesas com nata",
+        "description": "Explore as opções anunciadas na Garagem & Girassol e consulte o cardápio, sabores, valores e disponibilidade.",
+        "ctaLabel": "Consultar cardápio",
+        "ctaHref": "#sabores"
+      },
+      "socialVersion": "1726f91d"
     }
   }
 }

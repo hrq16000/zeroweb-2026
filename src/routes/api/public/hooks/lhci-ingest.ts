@@ -1,66 +1,21 @@
-// Ingest LHCI results. HMAC verification: X-Signature: sha256=<hex of HMAC(body, secret)>.
-// Secret stored in app_settings (lhci.hmac_secret) or process.env.LHCI_HMAC_SECRET.
-// Legacy fallback: X-Ingest-Token (deprecated; logs a warning).
+// Public receiver: verify the raw-body signature before privileged access.
 import { createFileRoute } from "@tanstack/react-router";
-import { z } from "zod";
-import { createHmac, timingSafeEqual } from "node:crypto";
-
-const Body = z.object({
-  environment: z.enum(["dev", "staging", "prod"]).default("prod"),
-  url: z.string().url(),
-  commit_sha: z.string().max(80).nullable().optional(),
-  branch: z.string().max(120).nullable().optional(),
-  performance: z.number().min(0).max(1).nullable().optional(),
-  seo: z.number().min(0).max(1).nullable().optional(),
-  accessibility: z.number().min(0).max(1).nullable().optional(),
-  best_practices: z.number().min(0).max(1).nullable().optional(),
-  lcp_ms: z.number().nullable().optional(),
-  cls: z.number().nullable().optional(),
-  tbt_ms: z.number().nullable().optional(),
-  fcp_ms: z.number().nullable().optional(),
-  logs: z.any().optional(),
-  raw: z.any().optional(),
-});
-
-function safeEqHex(a: string, b: string) {
-  try {
-    const ab = Buffer.from(a, "hex");
-    const bb = Buffer.from(b, "hex");
-    if (ab.length !== bb.length) return false;
-    return timingSafeEqual(ab, bb);
-  } catch {
-    return false;
-  }
-}
+import { evaluateLhci } from "@/lib/lhci-evaluation.mjs";
 
 export const Route = createFileRoute("/api/public/hooks/lhci-ingest")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+        const { lighthouseReceiptSchema, validLighthouseSignature, lighthouseReceiptKey, readLighthouseBody } = await import("@/lib/lhci-receipts.server");
         const { getSettingValue } = await import("@/lib/settings.functions");
-
-        const raw = await request.text();
-
-        const secret =
-          (await getSettingValue("lhci.hmac_secret")) || process.env.LHCI_HMAC_SECRET;
-        const sigHeader = request.headers.get("x-signature") || "";
-        const tokenHeader = request.headers.get("x-ingest-token") || "";
-        const expectedToken =
-          (await getSettingValue("lhci.ingest_token")) || process.env.LHCI_INGEST_TOKEN;
-
-        let authed = false;
-        if (secret) {
-          const expected = "sha256=" + createHmac("sha256", secret).update(raw).digest("hex");
-          const [, expHex] = expected.split("=");
-          const [, gotHex] = sigHeader.split("=");
-          if (expHex && gotHex && safeEqHex(expHex, gotHex)) authed = true;
-        }
-        if (!authed && expectedToken && tokenHeader && tokenHeader === expectedToken) {
-          // Legacy token path; still allowed when HMAC secret not configured or fallback.
-          authed = true;
-        }
-        if (!authed) return new Response("Unauthorized", { status: 401 });
+        if (Number(request.headers.get("content-length")) > 65536) return new Response("Payload too large", { status: 413 });
+        let raw: string | null;
+        try { raw = await readLighthouseBody(request); }
+        catch { return new Response("Invalid request body", { status: 400 }); }
+        if (raw === null) return new Response("Payload too large", { status: 413 });
+        const secret = process.env["LHCI_HMAC_SECRET"];
+        if (!secret) return new Response("Receiving key not configured", { status: 503 });
+        if (!validLighthouseSignature(raw, request.headers.get("x-signature") ?? "", secret)) return new Response("Unauthorized", { status: 401 });
 
         let payload: unknown;
         try {
@@ -68,7 +23,7 @@ export const Route = createFileRoute("/api/public/hooks/lhci-ingest")({
         } catch {
           return new Response("Invalid JSON", { status: 400 });
         }
-        const parsed = Body.safeParse(payload);
+        const parsed = lighthouseReceiptSchema.safeParse(payload);
         if (!parsed.success) {
           return Response.json({ error: parsed.error.flatten() }, { status: 400 });
         }
@@ -78,28 +33,31 @@ export const Route = createFileRoute("/api/public/hooks/lhci-ingest")({
         const seoMin = Number((await getSettingValue(`lhci.${env}.min_seo`)) ?? 0.95);
         const lcpMax = Number((await getSettingValue(`lhci.${env}.max_lcp_ms`)) ?? 2500);
         const clsMax = Number((await getSettingValue(`lhci.${env}.max_cls`)) ?? 0.1);
-
-        const failed: string[] = [];
-        if (parsed.data.performance != null && parsed.data.performance < perfMin)
-          failed.push(`performance<${perfMin}`);
-        if (parsed.data.seo != null && parsed.data.seo < seoMin) failed.push(`seo<${seoMin}`);
-        if (parsed.data.lcp_ms != null && parsed.data.lcp_ms > lcpMax)
-          failed.push(`lcp>${lcpMax}`);
-        if (parsed.data.cls != null && parsed.data.cls > clsMax) failed.push(`cls>${clsMax}`);
-        const status = failed.length ? "failed" : "passed";
-
+        const { status, failed, missing } = evaluateLhci(parsed.data, {
+          performance: perfMin, seo: seoMin, lcp_ms: lcpMax, cls: clsMax,
+        });
+        const reasons = [...failed, ...missing.map((metric) => `missing:${metric}`)];
+        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+        const ingestion_key = lighthouseReceiptKey(parsed.data);
         const { data, error } = await supabaseAdmin
           .from("lhci_runs")
           .insert({
             ...parsed.data,
+            ingestion_key,
+            logs: { ...parsed.data.logs, transport: "signed-webhook", measured_at: parsed.data.measured_at },
             status,
-            decision_reason: failed.length ? `Limites: ${failed.join(", ")}` : null,
+            decision_reason: reasons.length ? `Medição: ${reasons.join(", ")}` : null,
           })
           .select("id")
           .single();
-        if (error) return new Response(error.message, { status: 500 });
+        if (error?.code === "23505") {
+          const { data: existing, error: readError } = await supabaseAdmin.from("lhci_runs").select("id,status").eq("ingestion_key", ingestion_key).single();
+          if (readError) return new Response("Receipt lookup failed", { status: 500 });
+          return Response.json({ ok: true, id: existing.id, status: existing.status, duplicate: true });
+        }
+        if (error) return new Response("Receipt storage failed", { status: 500 });
 
-        return Response.json({ ok: true, id: data?.id, status, failedThresholds: failed });
+        return Response.json({ ok: true, id: data?.id, status, failedThresholds: failed, missingMetrics: missing });
       },
     },
   },

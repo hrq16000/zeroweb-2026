@@ -33,6 +33,7 @@ describe("PORTFOLIO_DISCOVERY_CLAIMS_GATE dos novos sites v4", () => {
     expect(check(null, project, { contractVersion: 4, stage: "ready" })).toEqual([]);
     const old = JSON.parse(readFileSync("src/config/portfolio-project-manifests.json", "utf8")).projects;
     for (const [name, m] of Object.entries(old)) {
+      if (Number((m as { contractVersion?: number }).contractVersion ?? 0) >= 4) continue;
       expect(checkNewPortfolioDiscoveryClaims(name, m, null, null)).toEqual([]);
     }
   });

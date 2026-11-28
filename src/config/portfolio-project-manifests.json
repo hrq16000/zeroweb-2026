@@ -721,6 +721,1565 @@
         "noBrandTest": "PASS",
         "notes": "NO-BRAND PASS contra Autoescola Aptos, ADHONEP Curitiba, Centro Mega e JKL Decor. Browser/runtime confirmou a composição autoral e o fluxo visual da Arildo em desktop/mobile no portfolio-gates 36085703801."
       }
+    },
+    "agropet-filt": {
+      "slug": "agropet-filt",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "complete"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (SEO, canonical, structured data)",
+            "docs/portfolio/briefs/agropet-filt.md (conceito editorial autoral)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/agropet-filt.json (endereço, Place ID, fontes públicas pesquisadas)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx (Pinhais/Vargem Grande e PostalAddress)",
+            "Fontes ondepet e Locais do Brasil verificadas 2026-11-04"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/agropet-filt/* (identidade editorial própria, sem alegar fotos reais)",
+            "docs/portfolio/media-plans/agropet-filt.json (roles de mídia e lacunas explicitadas)"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json (termos da marca/segmento/localidade)",
+            "src/lib/portfolio-site-registry.ts (entidade navegável)"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.agropet-filt.tsx: canonical, robots index,follow, OG e PetStore JSON-LD",
+            "src/config/portfolio-catalog.json: published live true",
+            "src/lib/portfolio-site-registry.ts: indexable true",
+            "src/config/portfolio-hosted-form-registry.json: verified consented intake, prova de gravação via Jotform 04/11/2026"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "pet shop e aviário",
+        "layoutFamily": "local-de-bairro",
+        "heroFamily": "split-editorial",
+        "sectionRhythm": "modular-grid",
+        "proofStyle": "local-seal",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "floating-persistent",
+        "motionProfile": "pet-editorial-balanced"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-04",
+        "notes": "Mosaico de produtos e guia de decisão divergem da referência Realeza e de outros portfólios, sem copiar layout."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric 53/47 pet editorial poster with original dog and bird illustration",
+        "headerTreatment": "pet mark, local wordmark and three anchor navigation",
+        "sectionGraph": "poster→product-marquee→six-category-mosaic→pet-choice-guide→local-badge→illustrated-location→faq",
+        "contentOrder": [
+          "proposta",
+          "categorias",
+          "guia",
+          "bairro",
+          "endereco",
+          "dúvidas"
+        ],
+        "gridTopology": "six colored merch tiles, split dark guide, asymmetric editorial local ending",
+        "mediaDistribution": "original illustrative vector hero with category icons and disclosure map",
+        "backgroundRhythm": "lime→cream→forest→warm paper→sage→forest",
+        "proofPlacement": "public address and confirmed category sources next to local and catalog sections",
+        "ctaDistribution": "hero/category/guide/footer lead-only consultation",
+        "navigationPattern": "section anchors and contextual dialog",
+        "motionSignature": "subtle vector float and card lift, reduced-motion off",
+        "closingStructure": "large editorial closing phrase and footer credit",
+        "roleGraph": [
+          "pet discovery",
+          "category navigation",
+          "guided inquiry",
+          "local trust",
+          "visit information"
+        ],
+        "mediaCadence": [
+          "vector hero",
+          "colored icon mosaic",
+          "type-led guide",
+          "illustrative map"
+        ],
+        "interactionLoci": [
+          "six category choices",
+          "guide toggles",
+          "three-step inquiry"
+        ],
+        "decisionAidPlacement": [
+          "guide before contact",
+          "interest set before contact data"
+        ],
+        "densityRhythm": [
+          "high-impact",
+          "grid",
+          "focused guide",
+          "local close"
+        ],
+        "mobileCompositionStrategy": "single-column hero, two-column category grid, consent-first submit"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Endereço público na Rua Monteiro Lobato 160 em Pinhais",
+          "Aviário, rações e outras categorias publicadas em diretórios, sujeitos a atualização"
+        ],
+        "sources": [
+          "https://ondepet.com/pet-shops/pinhais/aviario-agropet-filt/",
+          "https://www.locaisdobrasil.com.br/encontre/pet-shop-perto-de-mim-em-pinhais-pr?pagina=6"
+        ]
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-04",
+        "reviewer": "0WEB delegated visual agent",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "arildo-madeiras",
+          "dona-garimpeira-brecho"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/41868845709/artifacts/13344216473#1440.png"
+        },
+        "notes": "Playwright E2E PASS 390/1440 on 2026-11-04; SVG pet+bird, six category mosaic and decision tool unlike lumber commerce or brecho editorial. Screenshot real and visually inspected by agent."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-04",
+        "evidence": "GitHub Actions 41868845709: Playwright 390/1440 com HTTP 200, canonical e modal; e2e Jotform standalone de gravação/leitura 04/11/2026."
+      },
+      "blockers": [],
+      "warnings": [
+        "Ausência de fotos reais da loja; imagens editoriais vetoriais originais",
+        "Horário informado em diretórios, sujeito a confirmação",
+        "Canal WhatsApp comercial não confirmado, formulário hospedado em vez de redirecionamento",
+        "Fotos reais da loja não disponíveis; identidade editorial autoral",
+        "Registro das consultas permanece no Jotform, não no painel CRM Supabase da 0WEB"
+      ],
+      "ownerRequired": [
+        "Confirmar WhatsApp oficial, caso queira ativar redirecionamento pós-lead",
+        "Fornecer fotos da fachada e produtos para substituir ilustrações onde fizer sentido",
+        "Confirmar horário e disponibilidade do banho e tosa"
+      ],
+      "searchQa": [
+        {
+          "query": "Agropet Filt",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "aviário em Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "rações Vargem Grande",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        },
+        {
+          "query": "banho e tosa Pinhais",
+          "expect": "must_find",
+          "slug": "agropet-filt"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-04",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": true,
+        "evidence": "E2E navegador e Jotform persistidos; sem dados pessoais reais de clientes"
+      }
+    },
+    "cantinho-da-tia-mari": {
+      "slug": "cantinho-da-tia-mari",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "in_progress"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (canonical, page-specific SEO/JSON-LD)",
+            "src/components/site/CantinhoTiaMariPage.tsx (independent visual composition)"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/cantinho-da-tia-mari.json (business name and address on photographed leaflet)"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (Jardim Itália address and local map)"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/cantinho-da-tia-mari/fachada.webp (photo from public flyer)",
+            "public/images/cantinho-da-tia-mari/{acolhimento,copa,sala}.webp (genuine printed interior photos)",
+            "docs/portfolio/media-plans/cantinho-da-tia-mari.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts",
+            "src/config/portfolio-catalog.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "src/routes/portfolio.cantinho-da-tia-mari.tsx (robots index,follow, self-canonical, social OG and LocalBusiness schema)",
+            "src/lib/portfolio-site-registry.ts indexable true",
+            "src/config/portfolio-catalog.json status published"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "cuidados infantis",
+        "layoutFamily": "playful-photo-led",
+        "heroFamily": "off-axis-facade-photo",
+        "sectionRhythm": "editorial-intents-evidence",
+        "proofStyle": "source-disclosed-leaflet",
+        "mediaNarrative": "real-printed-photography",
+        "ctaStyle": "persisted-hosted-intake",
+        "motionProfile": "gentle-editorial-reduced-motion"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB development",
+        "notes": "Rainbow daycare brand, authentic printed photo with rotated framing, three care paths and night schedule contrasted against pet retail and carpentry; requires real browser screenshot to complete perceptual review."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "asymmetric split 54/46 yellow-sun lilac-page authentic-building-angle",
+        "headerTreatment": "rainbow stamp small multicolor daycare wordmark",
+        "sectionGraph": "photo-angle-hero→violet-values-ticker→three-care-pastels→printed-photos-mosaic→violet-hours-stage→local-map→parents-faq→rose-close",
+        "contentOrder": [
+          "proposta do estabelecimento",
+          "serviços anunciados",
+          "ambientes reais",
+          "horários",
+          "localização",
+          "perguntas e consulta"
+        ],
+        "gridTopology": "split hero, three independent service panels, asymmetric intro and photo 2x2, two-up dark hours, map duo, FAQ split",
+        "mediaDistribution": "facade print photo hero, three authentic leaflet photo crops, brand-led social OG",
+        "backgroundRhythm": "lilac→dark purple strip→cream→warm yellow cream→dark violet→white→lilac→pink",
+        "proofPlacement": "source disclosure in hero/gallery and factual notes near FAQ",
+        "ctaDistribution": "hero, each service panel, gallery, hours, closing and floating",
+        "navigationPattern": "brand header, four anchors, funnel modal and standard external 0WEB popup",
+        "motionSignature": "subtle CTA lift, inclined photo, low-motion reveals",
+        "closingStructure": "centered pink manifesto with demonstrative booking consultation",
+        "roleGraph": [
+          "business introduction",
+          "service intent",
+          "physical evidence",
+          "hours",
+          "local wayfinding",
+          "privacy-conscious consultation"
+        ],
+        "mediaCadence": [
+          "real facade",
+          "care icon cards",
+          "three real interior crops",
+          "map"
+        ],
+        "interactionLoci": [
+          "intent inquiry",
+          "floating form",
+          "FAQ",
+          "directions"
+        ],
+        "decisionAidPlacement": [
+          "service cards",
+          "schedule before inquiry",
+          "modal intro and privacy reminder"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "compact",
+          "airy",
+          "evidence-led",
+          "contrast",
+          "plain",
+          "quiet"
+        ],
+        "mobileCompositionStrategy": "single-column hero, service stack, 2-column gallery, modal inset and floating CTA"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Cantinho da Tia Mari no Jardim Itália, São José dos Pinhais",
+          "Material impresso anuncia berçário, leva e busca em escola/CMEI, horários 06:30–20:00 seg-sex e 07:30–17:00 sábado (não verificados)"
+        ],
+        "sources": [
+          "Material público fotografado pelo operador e fornecido em 2026-11-06",
+          "docs/portfolio/enrichment/cantinho-da-tia-mari.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-06",
+        "reviewer": "0WEB screenshot visual inspection",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "agropet-filt",
+          "arildo-madeiras"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#390.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/42314376793/artifacts/13549494572#1440.png"
+        },
+        "notes": "Capturas reais e visualmente revisadas na rodada 06/11/2026. Header, foto inclinada, paleta, mosaico e faixa de horários distintivos. Playwright PASS 390/1440; canonical, robots, modal Jotform, fotos reais, no overflow e sem JS errors."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-06",
+        "evidence": "GitHub Actions run 42314376793, artifact 13549494572; Playwright 390/1440 PASS, screenshot visual review performed."
+      },
+      "blockers": [],
+      "warnings": [
+        "Horários, berçário e transporte são alegações em panfleto, ainda não verificados independentemente",
+        "Prospecção 0WEB, não site oficial nem cadastro de matrícula",
+        "Instagram não confirmado; 6 publicações reais não aplicável até confirmação",
+        "Fotos reais recortadas de panfleto com baixa resolução; melhores originais desejáveis",
+        "Respostas persistem no Jotform e não no CRM Supabase"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo comercial com a unidade antes de trocar rótulo de demonstração por oficial",
+        "Confirmar horários, licenciamento e disponibilidade atual de vagas",
+        "Enviar fotos originais em alta resolução quando disponíveis"
+      ],
+      "searchQa": [
+        {
+          "query": "Cantinho da Tia Mari",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "berçário Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "leva e busca escolar Jardim Itália",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        },
+        {
+          "query": "cuidados infantis São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "cantinho-da-tia-mari"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-06",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": true,
+        "evidence": "Run 42314376793 PASS with real mobile and desktop screenshots and Jotform synthetic persistence proof 6698178419376778545."
+      }
+    },
+    "salgados-da-fran": {
+      "slug": "salgados-da-fran",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "complete",
+        "publish": "not_started"
+      },
+      "compositionContract": 2,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.salgados-da-fran.tsx",
+            "src/components/site/SalgadosDaFranPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Google Maps listing name/phone, Águas Belas"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/salgados-da-fran/social-og.svg",
+            "docs/portfolio/media-plans/salgados-da-fran.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "robots noindex until readiness and real QA"
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "salgados",
+        "layoutFamily": "central-editorial-poster",
+        "heroFamily": "mascot-poster-centered",
+        "sectionRhythm": "bold-poster-to-process",
+        "proofStyle": "public-card-with-disclosure",
+        "mediaNarrative": "brand-vector-no-product-photos",
+        "ctaStyle": "persisted-client-quiz",
+        "motionProfile": "editorial-subtle"
+      },
+      "structuralOriginalityReview": {
+        "approved": false,
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB preliminary source review",
+        "notes": "Requires real Chromium screenshots and perceptual review against similar food portfolios."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "stacked vertical centered poster with three mascots",
+        "headerTreatment": "compact dark logo",
+        "sectionGraph": "charcoal-poster→cream-process→charcoal-faq→white-location→yellow-cta",
+        "contentOrder": [
+          "brand",
+          "order process",
+          "FAQ",
+          "location",
+          "conversion"
+        ],
+        "gridTopology": "vertical hero, three ticket cards, two-col FAQ, no hero split",
+        "mediaDistribution": "vector mascot / vector OG",
+        "backgroundRhythm": "charcoal-cream-charcoal-white-yellow",
+        "proofPlacement": "demo disclosure above header and FAQ",
+        "ctaDistribution": "header/hero/process/final",
+        "navigationPattern": "anchors and client quiz",
+        "motionSignature": "motion-safe lift",
+        "closingStructure": "yellow stamp",
+        "roleGraph": [
+          "identity",
+          "guide",
+          "faq",
+          "local",
+          "conversion"
+        ],
+        "mediaCadence": [
+          "vector",
+          "icons",
+          "map"
+        ],
+        "interactionLoci": [
+          "quiz",
+          "details",
+          "maps"
+        ],
+        "decisionAidPlacement": [
+          "process",
+          "faq"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "air",
+          "compact",
+          "quiet",
+          "bold"
+        ],
+        "mobileCompositionStrategy": "single column 390px"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Salgados da Fran: encomendas publicadas no cartão do negócio",
+          "WhatsApp confirmado no cartão do negócio; SJP no cartão",
+          "Google Maps resolved matching name/phone in Águas Belas"
+        ],
+        "sources": [
+          "Imagem original enviada em conversa 2026-11-23",
+          "docs/portfolio/enrichment/salgados-da-fran.json"
+        ]
+      },
+      "perceptualReview": {
+        "status": "PASS",
+        "reviewedAt": "2026-11-25",
+        "reviewer": "0WEB visual QA",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "mimo-salgados-doces",
+          "manu-pasteis"
+        ],
+        "screenshots": {
+          "390": "run:45673988778/artifact:15051042418/salgados-da-fran-390.png",
+          "768": "run:45673988778/artifact:15051042418/salgados-da-fran-768.png",
+          "1440": "run:45673988778/artifact:15051042418/salgados-da-fran-1440.png"
+        },
+        "notes": "Revisão manual do Chromium: 9 capturas reais, 390/768/1440, zero overflow horizontal e zero erros de browser. NO-BRAND mantém silhueta vertical central com pôster/mascote, cartões de encomenda, FAQ em duas colunas e encerramento próprio; distinta das composições de Mimo Salgados Doces e Manu Pastéis. Identidade amarelo/grafite preservada. Evidência: run 45673988778, artifact 15051042418."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-25",
+        "evidence": "Chromium 390/768/1440 + NO-BRAND: run 45673988778, artifact 15051042418; 9 screenshots, 0 failures, 0 overflow, 0 browser errors."
+      },
+      "blockers": [
+        "Visual QA Chromium 390/768/1440 pendente",
+        "Readiness gate do projeto não executado",
+        "Não publicado, não indexável até revisão"
+      ],
+      "warnings": [
+        "Amostra demonstrativa sem representação oficial da empresa",
+        "Cardápio, preço, entrega, disponibilidade, horários e mídias reais não comprovados"
+      ],
+      "ownerRequired": [
+        "Confirmar vínculo com empresa para remover aviso demonstrativo",
+        "Confirmar cardápio e fotografias oficiais"
+      ],
+      "searchQa": [
+        {
+          "query": "Salgados da Fran",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        },
+        {
+          "query": "salgados por encomenda Águas Belas",
+          "expect": "must_find",
+          "slug": "salgados-da-fran"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-23"
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx: canonical, OG, HTML metadata, local schema"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json: Google Place ID e homônimo desambiguado"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Endereço e bairro na página, schema Bakery e discovery; src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "Hero SVG, capa PNG/OG PNG, logo autoral e fotografia não atribuída; assets no media-plan, imagens carregadas em Chromium 390/768/1440: https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json: aliases, categorias, produtos, localização completa; rota contém Google Maps Place ID, Instagram e Bakery schema."
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Estado deliberado de demonstração: catálogo draft/live=false, robots noindex,nofollow e fora do sitemap até aprovação comercial explícita e confirmação dos canais oficiais. Canonical próprio preservado; indexação Google não afirmada."
+          ]
+        }
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "alimentacao-padaria",
+        "layoutFamily": "editorial-premium",
+        "heroFamily": "proof-first",
+        "sectionRhythm": "airy-editorial",
+        "proofStyle": "why-they-search",
+        "mediaNarrative": "media-timeline",
+        "ctaStyle": "next-step-block",
+        "motionProfile": "warm-stamp-subtle"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-23",
+        "notes": "Estrutura real da página e comparativos NO-BRAND Agropet/Cantinho nas capturas de https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501; sem skeleton compartilhado perceptível."
+      },
+      "compositionContract": 2,
+      "compositionFingerprint": {
+        "heroGeometry": "oversized editorial masthead illustration seal offset right",
+        "headerTreatment": "tiny neighborhood newspaper masthead",
+        "sectionGraph": "paper cover→bread ticker→moment selector→food typology→burgundy address ticket→social source card→FAQ→editorial close",
+        "contentOrder": [
+          "orientação",
+          "ritmo",
+          "ocasião",
+          "categorias",
+          "localização",
+          "redes",
+          "dúvidas",
+          "contato"
+        ],
+        "gridTopology": "asymmetric cover, horizontal moments, typographic categories, full-width locator",
+        "mediaDistribution": "custom SVG cover, graphic category icons, map directions, own social poster",
+        "backgroundRhythm": "cream→burgundy ticker→mustard→paper→burgundy→cream social→rose→cream",
+        "proofPlacement": "address adjacent to map with research date",
+        "ctaDistribution": "hero route plus inquiry, locator directions, Instagram reference, closing business inquiry",
+        "navigationPattern": "local sticky anchors and maps, no institutional header",
+        "motionSignature": "short stamp plus icon micro lift and reduced motion static",
+        "closingStructure": "typographic note with demonstrative disclosure",
+        "roleGraph": [
+          "entity orientation",
+          "occasion guidance",
+          "category discovery",
+          "wayfinding",
+          "FAQ",
+          "consultation"
+        ],
+        "mediaCadence": [
+          "editorial illustration",
+          "kinetic ticker",
+          "graphic menu",
+          "map direction",
+          "social art",
+          "text FAQ"
+        ],
+        "interactionLoci": [
+          "moment anchors",
+          "map",
+          "Instagram",
+          "FAQ",
+          "funnel"
+        ],
+        "decisionAidPlacement": [
+          "occasion strip",
+          "hours caveat near address"
+        ],
+        "densityRhythm": [
+          "airy",
+          "compact",
+          "medium",
+          "high contrast",
+          "quiet"
+        ],
+        "mobileCompositionStrategy": "text precedes art, moment controls wrap, map ticket full width"
+      },
+      "perceptualReview": {
+        "status": "REVIEWED",
+        "reviewedAt": "2026-11-23",
+        "reviewer": "0WEB / revisão visual ChatGPT de screenshots Chromium reais",
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
+        "screenshots": {
+          "390": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#390.png",
+          "768": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#768.png",
+          "1440": "https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501#1440.png"
+        },
+        "notes": "Capturas NO-BRAND 390 e 1440 avaliadas lado a lado: Doce Coração usa abertura editorial tipográfica, faixa horizontal de pães, três cartões de ocasião, tipologia em quatro categorias, endereço em ticket bordô e pôster social inclinado. Cantinho usa hero fotográfico, cartões infantis e outra hierarquia; Agropet usa pôster pet, mosaico 2x3 e fluxo próprio. Diferenciação comprovada sem nomes, cores ou imagens."
+      },
+      "contentFacts": {
+        "ownSourcedContent": true
+      },
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "pending"
+      },
+      "blockers": [
+        "Aprovação comercial explícita, identidade oficial e destino de atendimento da padaria não comprovados. O Jotform atual recebe dados na 0WEB e não os encaminha automaticamente à padaria; manter draft/noindex até confirmação."
+      ],
+      "warnings": [
+        "Fotografias reais e postagens oficiais permanecem indisponíveis sem licença; a mídia usada é original e declaradamente editorial.",
+        "Jotform recebe dados na 0WEB e não os encaminha automaticamente à padaria.",
+        "Indexação pelo Google não verificada. Publicação e sitemap dependem do merge e do domínio Production READY."
+      ],
+      "ownerRequired": [
+        "Validar a identidade e fotografias de uso autorizado se desejar tornar o site oficial.",
+        "Confirmar perfil social e canais de atendimento oficiais."
+      ],
+      "searchQa": [
+        {
+          "query": "Panificadora Doce Coração Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "padaria no Santo Antônio São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "pães e salgados Santo Antônio",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "Rua Desembargador James Portugal Macedo",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        },
+        {
+          "query": "bolos e doces São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "panificadora-doce-coracao-santo-antonio"
+        }
+      ],
+      "visualQa": {
+        "status": "PASS",
+        "checkedAt": "2026-11-23",
+        "evidence": "GitHub Actions https://github.com/hrq16000/zeroweb-2026/actions/runs/45219685146/artifacts/14839134501: Chromium real HTTP 200 preview, SEO draft, sem overflow ou erro JS, 390/768/1440 PASS, 4 CTAs Radix, Escape/fechar, iframe Jotform renderizado com form visível e NO-BRAND revisado."
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json",
+        "mediaPlan": "docs/portfolio/media-plans/panificadora-doce-coracao-santo-antonio.json"
+      },
+      "lastUpdatedAt": "2026-11-26"
+    },
+    "infinito-spa": {
+      "slug": "infinito-spa",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "compositionContract": 0,
+      "individualSiteContract": {
+        "version": 1,
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "Dedicated route and authored composition"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "Owner-supplied intake; public homonyms rejected"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Santiago, Chile; home address omitted"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "Original SVG brand art; real photos pending"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "Catalog, discovery aliases and site registry"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Unique canonical; intentional noindex until client approval"
+          ]
+        },
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md"
+      },
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "masoterapia y bienestar",
+        "layoutFamily": "editorial-premium",
+        "heroFamily": "cinematic-fullbleed",
+        "sectionRhythm": "alternating-contrast",
+        "proofStyle": "service-timeline",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "floating-persistent",
+        "motionProfile": "gentle-editorial-reduced-motion"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-11-25",
+        "reviewer": "0WEB development",
+        "notes": "Firma estructural propia; revisión perceptual pendiente. compositionContract permanece 0."
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Infinito Spa es la marca informada por la profesional.",
+          "Roze ofrece masajes/masoterapia en Santiago.",
+          "La atención se coordina en un espacio privado de Santiago; la dirección exacta no se publica.",
+          "El objetivo declarado es atraer nuevos clientes."
+        ],
+        "sources": [
+          "Intake 0WEB 2026-11-25",
+          "Conversación WhatsApp compartida por el operador"
+        ]
+      },
+      "visualQa": {
+        "status": "BLOCKED_ENVIRONMENT",
+        "checkedAt": "2026-11-25",
+        "evidence": "Pendiente de capturas Playwright 390/768/1440 y revisión perceptual."
+      },
+      "blockers": [
+        "QA visual y revisión perceptual pendientes.",
+        "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación.",
+        "Persistencia de leads y handoff comercial aún no comprobados en el entorno operativo nativo de 0WEB."
+      ],
+      "warnings": [
+        "Homónimos públicos no asociados.",
+        "No se suministraron logo, fotos, comuna, modalidades específicas, precios, horarios ni credenciales.",
+        "No se muestran reseñas ni resultados no verificados.",
+        "No se publica teléfono, correo ni dirección residencial; el WhatsApp comercial permanece solo en configuración server-side."
+      ],
+      "ownerRequired": [
+        "Confirmar modalidades, duración, precios y disponibilidad.",
+        "Enviar fotos reales y aprobar identidad conceptual.",
+        "Aprobar publicación oficial e indexable."
+      ],
+      "searchQa": [
+        {
+          "query": "Infinito Spa masajes Santiago Chile",
+          "expect": "must_not_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "masoterapia Santiago de Chile",
+          "expect": "must_not_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "masajes en Santiago",
+          "expect": "must_not_find",
+          "slug": "infinito-spa"
+        },
+        {
+          "query": "Infinito Spa Santiago",
+          "expect": "must_not_find",
+          "slug": "infinito-spa"
+        }
+      ],
+      "lastUpdatedAt": "2026-11-26",
+      "qaPreparation": {
+        "targetCompositionContract": 2,
+        "completed": false,
+        "evidence": "La promoción exige capturas reales, no-brand test y revisión visual."
+      },
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "creativeBriefFile": "docs/portfolio/briefs/infinito-spa.md"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "slug": "espaco-marli-nails-guaratuba",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "in_progress",
+        "discovery": "complete",
+        "blueprint": "in_progress",
+        "seo": "in_progress",
+        "funnel": "complete",
+        "cover": "in_progress",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "compositionContract": 0,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "not_started"
+        },
+        "evidence": {
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/espaco-marli-nails-guaratuba.json: Place ID, endereço e homônimo desambiguado"
+          ]
+        }
+      },
+      "blockers": [
+        "QA específica Chromium 390/768/1440, reduced-motion e SEO ainda não executados; formulário Jotform demonstrativo recebeu submissão sintética.",
+        "Fotos reais não licenciadas; WhatsApp comercial não validado e não utilizado (formulário demonstrativo Jotform da 0WEB).",
+        "Revisão perceptual NO-BRAND TEST e autorização comercial pendentes.",
+        "Promover compositionContract para 2 e indexabilidade apenas com evidência real da rodada 3."
+      ],
+      "warnings": [
+        "Lead-only whatsapp:null, sem encaminhamento de outro cliente.",
+        "Demonstração independente, não site oficial.",
+        "Captação Jotform individual verificada por submissão sintética: registro no Jotform da 0WEB, não entrega à profissional nem reserva."
+      ],
+      "ownerRequired": [
+        "Confirmar WhatsApp operacional e autorização para receber leads.",
+        "Fornecer/autorizar fotos de trabalhos ou aprovar uso de arte conceitual.",
+        "Validar serviços, horários, preços, marca e publicação comercial."
+      ],
+      "searchQa": [
+        {
+          "query": "Espaço Marli Nails Designer",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "manicure Coroados Guaratuba",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "pedicure Guaratuba PR",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "Av. Alvorada do Sul 786",
+          "expect": "must_find",
+          "slug": "espaco-marli-nails-guaratuba",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        }
+      ],
+      "lastUpdatedAt": "2026-11-22",
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": "Browser, funil real e revisão de responsive pendentes; não presumir PASS.",
+        "evaluatedAt": "2026-11-22"
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/espaco-marli-nails-guaratuba.json",
+        "mediaPlan": "docs/portfolio/media-plans/espaco-marli-nails-guaratuba.json",
+        "brief": "docs/portfolio/briefs/espaco-marli-nails-guaratuba.md"
+      },
+      "publicationException": {
+        "date": "2026-11-26",
+        "mode": "public-demonstrative-landing",
+        "ownerDirective": true,
+        "indexable": false,
+        "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+      }
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "compositionContract": 2,
+      "stage": "design",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "in_progress",
+        "evidence": "complete",
+        "media": "in_progress",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "in_progress",
+        "seo": "in_progress",
+        "funnel": "in_progress",
+        "cover": "in_progress",
+        "qa": "in_progress",
+        "publish": "not_started"
+      },
+      "blockers": [
+        "CI_AND_READINESS_NOT_YET_VERIFIED",
+        "FUNNEL_DELIVERY_NOT_VERIFIED",
+        "PRODUCTION_BUILD_FIX_541_PENDING",
+        "NEW_NO_BRAND_ARTIFACT_INDEPENDENT_REVIEW_PENDING",
+        "ENTITY_RESEARCH_TARGETS_PENDING",
+        "COVER_CATALOG_REVIEW_PENDING"
+      ],
+      "warnings": [
+        "Fonte única: panfleto fotografado; presença web/Google não confirmada independentemente.",
+        "SVG editorial ilustrativo não é fotografia dos brinquedos reais.",
+        "Não há vínculo oficial com a empresa comprovado e o contato permanece demonstrativo."
+      ],
+      "ownerRequired": [
+        "Confirmar interesse em usar a demonstração e autorização de fotos/logo originais",
+        "Confirmar destino e operação do funil de atendimento"
+      ],
+      "searchQa": [
+        {
+          "query": "BPL Locações de Brinquedos",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "cama elástica São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "piscina de bolinhas São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "bpl-locacoes-de-brinquedos",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        }
+      ],
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "São José dos Pinhais e região constam no panfleto; sem endereço inventado"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Pendente validação antes de promover catálogo/robots/sitemap"
+          ]
+        }
+      },
+      "notes": {
+        "brief": "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md",
+        "enrichment": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
+        "mediaPlan": "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
+      },
+      "lastUpdatedAt": "2026-11-24",
+      "visualQa": {
+        "status": "PASS",
+        "notes": "QA automatizado do draft: run 45434035986 / job 138586849775 / artifact 14940177606, 390/768/1440 SSR, assets, abertura/fechamento de modal, reduced motion e overflow. Não comprova entrega real do lead nem revisão perceptual independente do novo artifact."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "left huge joyful headline on royal-blue parade stage beside yellow rotated graphic card",
+        "headerTreatment": "compact white parade identity with three text anchors and bright yellow bottom edge",
+        "sectionGraph": "parade-stage→dual-attraction-display→night-blue-promises→sunshine-planning-checklist→ice-blue-faq→yellow-finale",
+        "contentOrder": [
+          "proposta de diversão",
+          "equipamentos anunciados",
+          "diferenciais",
+          "preparação da consulta",
+          "perguntas",
+          "demonstração"
+        ],
+        "gridTopology": "asymmetric hero split, twin attraction halves, triple promise band, planning split card, FAQ split, centered closing",
+        "mediaDistribution": "editorial trampoline SVG hero, individual SVG attraction cards, graphic shapes throughout",
+        "backgroundRhythm": "royal-blue→cream→midnight-navy→warm-white→ice-blue→saturated-yellow",
+        "proofPlacement": "attributed promises in dark stage, caveat under descriptions, source label in final section",
+        "ctaDistribution": "hero, each attraction card, final invitation and floating isolated funnel",
+        "navigationPattern": "logo anchor and three simple content anchors, no copied client nav",
+        "motionSignature": "gentle transform lift on action and static layered graphics with reduced motion support",
+        "closingStructure": "yellow-wide festival poster with transparent demo disclosure and funnel entry",
+        "roleGraph": [
+          "orientation:party-stage",
+          "selection:two-equipment-panels",
+          "trust:source-attributed-promises",
+          "decision:party-checklist",
+          "objections:faq",
+          "conversion:demo-close"
+        ],
+        "mediaCadence": [
+          "trampoline editorial graphic",
+          "two illustration cards",
+          "icon-led promises",
+          "text checklist",
+          "typographic finish"
+        ],
+        "interactionLoci": [
+          "inquiry modal",
+          "section navigation",
+          "native faq accordion"
+        ],
+        "decisionAidPlacement": [
+          "equipment distinction",
+          "date location age checklist before inquiry"
+        ],
+        "densityRhythm": [
+          "expressive",
+          "visual",
+          "compact",
+          "airy",
+          "informative",
+          "high-energy"
+        ],
+        "mobileCompositionStrategy": "stack hero and two cards with 44px targets; no horizontal scroll or aggressive motion"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "sources": [
+          "OWNER_SUPPLIED_PUBLIC_EVIDENCE"
+        ],
+        "claimsAttribution": "Somente tipos de brinquedo e localidade do panfleto, com alegações comerciais atribuídas; sem afirmações de preço, disponibilidade ou empresa oficial.",
+        "evidence": [
+          "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
+          "docs/portfolio/briefs/bpl-locacoes-de-brinquedos.md"
+        ]
+      },
+      "perceptualReview": {
+        "screenshots": {
+          "390": "seo-reports/bpl-visual/390.png · run 45132954644 / artifact 14798228779",
+          "768": "seo-reports/bpl-visual/768.png · run 45132954644 / artifact 14798228779",
+          "1440": "seo-reports/bpl-visual/1440.png · run 45132954644 / artifact 14798228779"
+        },
+        "comparedWith": [
+          "cantinho-da-tia-mari",
+          "agropet-filt"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "Revisão das capturas reais NO-BRAND de 390/1440 da execução 45132954644: composição distinta de Cantinho e Agropet na hierarquia, grades, topologia, narrativa e encerramento. Sobreposição de FAB mobile constatada nas capturas; corrigida nesta alteração, exigindo QA nova antes de READY."
+      },
+      "publicationException": {
+        "date": "2026-11-26",
+        "mode": "public-demonstrative-landing",
+        "ownerDirective": true,
+        "indexable": false,
+        "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+      }
+    },
+    "toop-assados": {
+      "slug": "toop-assados",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "design",
+      "compositionContract": 2,
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "in_progress",
+        "funnel": "complete",
+        "cover": "in_progress",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "in_progress",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "in_progress",
+          "PORTFOLIO_INDEXABILITY_GATE": "in_progress"
+        },
+        "evidence": {}
+      },
+      "blockers": [
+        "Homologação visual real em 390/768/1440 e 3 baselines versionadas pendentes",
+        "Gates de publicação e Lighthouse específicos pendentes",
+        "Fotos oficiais, preços atuais, horário e canal oficial dependem de confirmação; versão só pode ser demonstração não oficial"
+      ],
+      "warnings": [
+        "Formulário Jotform isolado é de simulação, com uma submissão sintética persistida; não atende clientes reais",
+        "Redes sociais e ficha Google da Toop no Xaxim não resolvidas com segurança"
+      ],
+      "ownerRequired": [
+        "Confirmar propriedade/nome, endereço, valores e condições vigentes",
+        "Autorizar fotografias reais, se disponíveis",
+        "Confirmar destino operacional do restaurante se desejar receber pedidos reais"
+      ],
+      "searchQa": [
+        {
+          "query": "Toop Assados Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "costela assada Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "frango recheado Xaxim Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        },
+        {
+          "query": "assados para almoço Curitiba",
+          "expect": "must_find",
+          "slug": "toop-assados",
+          "verifiedAt": "2026-11-07",
+          "publicationException": {
+            "date": "2026-11-26",
+            "mode": "public-demonstrative-landing",
+            "ownerDirective": true,
+            "indexable": false,
+            "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+          }
+        }
+      ],
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": "assados locais",
+        "layoutFamily": "editorial-cardapio",
+        "heroFamily": "tipografico-com-prato-ilustrado",
+        "sectionRhythm": "faixas-de-menu",
+        "proofStyle": "transparencia-de-fonte",
+        "mediaNarrative": "desenho-de-prato",
+        "ctaStyle": "simulador-de-interesse",
+        "motionProfile": "quiet-grill-editorial"
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "notes": "Comparação perceptual NO-BRAND aprovada em 390 e 1440 contra Your Brutus Burguer. A composição de menu editorial ilustrado, ledgers de pratos, simulador e fechamento local mantém estrutura própria; não é skin swap."
+      },
+      "compositionFingerprint": {
+        "heroGeometry": "large type-left and semicircle editorial plate-right",
+        "headerTreatment": "compact restaurant wordmark and three semantic anchors",
+        "sectionGraph": "grill-poster→two-dish-specification-ledger→interactive-order-demo→neighborhood-reference→nonofficial-close",
+        "contentOrder": [
+          "decisão rápida",
+          "pratos anunciados",
+          "simulação",
+          "contexto local",
+          "limites"
+        ],
+        "gridTopology": "split asymmetrical hero + paired dish ledgers + summary utility",
+        "mediaDistribution": "handmade SVG food illustration and own SVG brand marks",
+        "backgroundRhythm": "warm kraft→cream→charcoal→warm paper",
+        "proofPlacement": "historic pricing and disclaimer beside every dish",
+        "ctaDistribution": "hero anchor, dish selection, hosted demonstration form",
+        "navigationPattern": "three anchors with wordmark",
+        "motionSignature": "short menu card elevation, reduced-motion static",
+        "closingStructure": "restrained location evidence and no-official-affiliation notice",
+        "roleGraph": [
+          "brand discovery",
+          "dish selection",
+          "non-transactional order simulation",
+          "local evidence"
+        ],
+        "mediaCadence": [
+          "illustrated plate",
+          "typographic food ledgers",
+          "interactive summary",
+          "local note"
+        ],
+        "interactionLoci": [
+          "two dish toggles",
+          "quantity selection",
+          "single hosted form"
+        ],
+        "decisionAidPlacement": [
+          "dish comparison in first scroll",
+          "quantity simulator before hosted form"
+        ],
+        "densityRhythm": [
+          "hero monumental",
+          "editorial ledgers",
+          "utility card",
+          "calm close"
+        ],
+        "mobileCompositionStrategy": "stacked hero and tactile dish controls for 390px, no overflow"
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "sources": [
+          "USER_SUPPLIED_FLYER_PHOTOS_2026-11-07"
+        ],
+        "claimsAttribution": "Toda menção a valores e itens é histórica e explicitamente sujeita a confirmação."
+      },
+      "visualQa": {
+        "status": "PASS",
+        "notes": "Capturas reais 390/768/1440 e revisão perceptual NO-BRAND 390/1440 aprovadas; evidências preservadas no artefato GitHub Actions run 45133834586. QA funcional e overflow sem falhas; sem regravar baselines.",
+        "evaluatedAt": "2026-11-25"
+      },
+      "notes": {
+        "brief": "docs/portfolio/briefs/toop-assados.md",
+        "enrichment": "docs/portfolio/enrichment/toop-assados.json",
+        "mediaPlan": "docs/portfolio/media-plans/toop-assados.json",
+        "funnel": "Formulário Jotform demonstrativo com teste sintético único em 23/11/2026; não é encomenda oficial."
+      },
+      "lastUpdatedAt": "2026-11-23",
+      "perceptualReview": {
+        "screenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-1440.png"
+        },
+        "noBrandScreenshots": {
+          "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-390.png",
+          "1440": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-no-brand-1440.png"
+        },
+        "noBrandTest": "PASS",
+        "comparedWith": [
+          "your-brutus-burguer"
+        ],
+        "reviewedAt": "2026-11-25",
+        "reviewer": "Codex visual review",
+        "notes": "Revisão real das capturas 390/768/1440 e das duas capturas NO-BRAND. Toop mantém painel editorial claro, prato ilustrado, dois ledgers de escolha, simulador escuro e encerramento local; Your Brutus permanece com hero escuro, bloco de mídia próprio, seção de catálogo e grade de cards. Removidos nome, texto, imagens e saturação, as silhuetas, a geometria e o ritmo continuam claramente distintos. Nenhuma baseline foi alterada."
+      },
+      "publicationException": {
+        "date": "2026-11-26",
+        "mode": "public-demonstrative-landing",
+        "ownerDirective": true,
+        "indexable": false,
+        "followUp": "Parametrize the client funnel and re-evaluate content, authorization, and indexability."
+      }
+    },
+    "garagem-girassol": {
+      "slug": "garagem-girassol",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "in_progress",
+        "cover": "complete",
+        "qa": "in_progress",
+        "publish": "in_progress"
+      },
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "complete",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "complete",
+          "PORTFOLIO_INDEXABILITY_GATE": "complete"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio.garagem-girassol.tsx",
+            "src/components/site/GaragemGirassolPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/garagem-girassol.json"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "Endereço informado pelo operador e link Maps na página"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "public/images/garagem-girassol/fachada.webp",
+            "public/images/garagem-girassol/crepe-suico.webp",
+            "public/images/garagem-girassol/sobremesas.webp"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "src/config/portfolio-discovery.json",
+            "src/lib/portfolio-site-registry.ts",
+            "src/config/portfolio-catalog.json"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "Rota com canonical, robots index,follow e catálogo indexável; verificação de produção pendente até deploy"
+          ]
+        }
+      },
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": "QA runtime pendente; publicação inicial explicitamente solicitada pelo operador.",
+        "evaluatedAt": null
+      },
+      "searchQa": [
+        {
+          "query": "Garagem & Girassol",
+          "expect": "must_find"
+        },
+        {
+          "query": "espetinhos",
+          "expect": "must_find"
+        },
+        {
+          "query": "crepe suíço",
+          "expect": "must_find"
+        },
+        {
+          "query": "São José dos Pinhais",
+          "expect": "must_find"
+        }
+      ],
+      "warnings": [
+        "Publicação inicial solicitada em uma única rodada; não declarar QA runtime ou entrega WhatsApp confirmada."
+      ],
+      "ownerRequired": [
+        "Mais fotos, cardápio, valores e horários quando disponíveis."
+      ],
+      "blockers": [],
+      "lastUpdatedAt": "2026-11-26",
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/garagem-girassol.json",
+        "mediaPlan": "docs/portfolio/media-plans/garagem-girassol.json"
+      }
     }
   }
 }

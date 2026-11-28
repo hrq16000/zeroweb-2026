@@ -4,14 +4,14 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal } from "@/components/motion";
 
 /**
  * Site exclusivo de D’Lara Pizzaria, Esfiharia e Hamburgueria (/portfolio/dlara-pizzaria).
  *
  * Direção autoral: forno à noite. Fundo carvão, hero centralizado com a
  * imagem em disco (referência à pizza) e três colunas verticais separadas por
- * fios de brasa — uma para cada frente da casa. Leitura simétrica e noturna.
+ * fios de brasa — uma para cada frente da casa. Leitura editorial e noturna.
  *
  * Identidade do cliente é soberana: nada de Header/Footer/copy da 0WEB.
  * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.
@@ -20,16 +20,19 @@ const frentes = [
   {
     icon: Pizza,
     nome: "Pizzaria",
+    escolha: "Pizza",
     texto: "Massa aberta na casa e assada no forno, do clássico ao mais pedido da noite.",
   },
   {
     icon: CookingPot,
     nome: "Esfiharia",
+    escolha: "Esfiha",
     texto: "Esfihas abertas e fechadas, para acompanhar a mesa ou dividir a rodada.",
   },
   {
     icon: Sandwich,
     nome: "Hamburgueria",
+    escolha: "Lanche",
     texto: "Lanches montados na chapa quando a vontade é de algo rápido e reforçado.",
   },
 ] as const;
@@ -48,52 +51,37 @@ export function DlaraPizzariaPage() {
       }
     >
       <main>
-        <section className="mx-auto flex max-w-4xl flex-col items-center px-5 pb-14 pt-14 text-center md:pt-20">
-          <span className="rounded-full border border-[var(--dl-ember)]/50 px-4 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-[var(--dl-ember)]">
-            Jardim Itália · São José dos Pinhais
-          </span>
+        <MotionFirstPaint>
+          <section className="mx-auto grid max-w-6xl items-center gap-9 px-5 pb-14 pt-10 md:grid-cols-[1.08fr_.92fr] md:gap-12 md:py-20">
+            <div className="min-w-0">
+              <span className="inline-block border-l-2 border-[var(--dl-ember)] pl-3 text-[0.68rem] font-bold uppercase tracking-[0.24em] text-[var(--dl-ember)]">
+                Jardim Itália · São José dos Pinhais
+              </span>
+              <h1 className="mt-7 max-w-[15ch] font-display text-[clamp(2.5rem,5.6vw,5.4rem)] font-black leading-[.98] tracking-[-.05em]">
+                <ManagedText field="heroHeadline" fallback={"Pizzas, esfihas e lanches para pedir sem complicação."} />
+              </h1>
+              <p className="mt-5 max-w-[46ch] text-base leading-relaxed text-[var(--dl-light)]/80 md:text-lg">
+                <ManagedText field="heroSubheadline" fallback={"Presença digital de D’Lara: três cozinhas na mesma casa, reunidas em um caminho simples de pedido."} />
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <FunnelCTAButton clientKey="dlara-pizzaria" companySlug="dlara-pizzaria" formSlug="funnel-dlara-pizzaria" location="dlara-pizzaria_hero"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--dl-ember)] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-[var(--dl-night)] motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--dl-light)]">
+                  <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
+                </FunnelCTAButton>
+                <a href="#dl-frentes" className="inline-flex min-h-12 items-center text-sm font-bold text-[var(--dl-light)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Escolher cozinha</a>
+              </div>
+            </div>
+            <figure className="relative mx-auto w-full max-w-[420px] md:max-w-none">
+              <div className="pointer-events-none absolute inset-4 rounded-full bg-[var(--dl-ember)]/15 blur-3xl" aria-hidden="true" />
+              <div className="relative rounded-full border border-[var(--dl-ember)]/30 p-3 sm:p-5">
+                <PortfolioImage src="/images/dlara-pizzaria/capa-og.jpg" alt="D’Lara Pizzaria, Esfiharia e Hamburgueria" priority width={1200} height={630}
+                  sizes="(min-width: 768px) 48vw, 90vw" className="relative aspect-square w-full rounded-full border-2 border-[var(--dl-ember)]/70 object-cover" managedField="heroImageUrl" />
+              </div>
+              <figcaption className="mt-4 flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[var(--dl-light)]/75"><span className="h-px w-9 bg-[var(--dl-ember)]" aria-hidden="true" /> Três cozinhas · uma casa <span className="h-px w-9 bg-[var(--dl-ember)]" aria-hidden="true" /></figcaption>
+            </figure>
+          </section>
 
-          <div className="relative mt-9 w-full max-w-md">
-            <div className="absolute inset-0 -z-0 rounded-full bg-[var(--dl-ember)]/20 blur-2xl" aria-hidden />
-            <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-full">
-            <PortfolioImage
-              src="/images/dlara-pizzaria/capa-og.jpg"
-              alt="D’Lara Pizzaria, Esfiharia e Hamburgueria"
-              priority
-              width={1200}
-              height={630}
-              className="relative aspect-square w-full rounded-full border-[6px] border-[var(--dl-ember)]/70 object-cover"
-              managedField="heroImageUrl"
-            />
-            </MotionImageReveal>
-          </div>
-
-          <MotionReveal as="h1" variant="scale" intensity="BALANCED" className="mt-10 font-display text-[2.1rem] font-black leading-[1.02] tracking-tight md:text-[3.6rem]">
-            <ManagedText
-              field="heroHeadline"
-              fallback={"Pizzas, esfihas e lanches para pedir sem complica\u00e7\u00e3o."}
-            />
-          </MotionReveal>
-          <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--dl-light)]/70 md:text-lg">
-            <ManagedText
-              field="heroSubheadline"
-              fallback={
-                "Presen\u00e7a digital de D\u2019Lara: tr\u00eas cozinhas na mesma casa, reunidas em um caminho simples de pedido."
-              }
-            />
-          </p>
-
-          <FunnelCTAButton
-            clientKey="dlara-pizzaria"
-            companySlug="dlara-pizzaria"
-            formSlug="funnel-dlara-pizzaria"
-            location="dlara-pizzaria_hero"
-            className="mt-9 inline-flex items-center rounded-full bg-[var(--dl-ember)] px-9 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[var(--dl-night)]"
-          >
-            <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
-          </FunnelCTAButton>
-        </section>
-
+        {/* The first kitchen row can sit above the fold on desktop. Do not gate its text on IntersectionObserver. */}
         <section
           aria-labelledby="dl-frentes"
           className="border-y border-[var(--dl-ember)]/25 bg-[var(--dl-light)]/[0.03]"
@@ -102,15 +90,18 @@ export function DlaraPizzariaPage() {
             As três cozinhas da casa
           </h2>
           <div className="mx-auto grid max-w-5xl divide-y divide-[var(--dl-ember)]/20 px-5 md:grid-cols-3 md:divide-x md:divide-y-0">
-            {frentes.map(({ icon: Icon, nome, texto }, i) => (
-              <MotionReveal key={nome} variant="up" intensity="BALANCED" delay={i * 120} className="group/frente px-0 py-9 text-center md:px-8">
-                <Icon className="mx-auto h-7 w-7 text-[var(--dl-basil)] transition-transform duration-500 group-hover/frente:rotate-12" aria-hidden />
+            {frentes.map(({ icon: Icon, nome, texto, escolha }, i) => (
+              <MotionReveal key={nome} variant="up" intensity="BALANCED" className="group/frente px-0 py-8 text-left md:px-7">
+                <div className="flex items-center justify-between"><span className="font-mono text-xs tracking-widest text-[var(--dl-ember)]">0{i + 1}</span><Icon className="h-7 w-7 text-[var(--dl-ember)]" aria-hidden /></div>
                 <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-[0.2em]">{nome}</h3>
-                <p className="mx-auto mt-3 max-w-[30ch] text-sm leading-relaxed text-[var(--dl-light)]/65">{texto}</p>
+                <p className="mt-3 max-w-[35ch] text-sm leading-relaxed text-[var(--dl-light)]/75">{texto}</p>
+                <FunnelCTAButton clientKey="dlara-pizzaria" companySlug="dlara-pizzaria" formSlug="funnel-dlara-pizzaria" location={`dlara-pizzaria_cozinha-${i+1}`}
+                  context={{ categoria: escolha }} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-[var(--dl-ember)] hover:underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Consultar {escolha.toLowerCase()}</FunnelCTAButton>
               </MotionReveal>
             ))}
           </div>
         </section>
+        </MotionFirstPaint>
 
         <aside id="escolha-rapida" className="mx-auto max-w-5xl px-5 pt-14">
           <div className="border-y border-[var(--dl-ember)]/25 py-7">

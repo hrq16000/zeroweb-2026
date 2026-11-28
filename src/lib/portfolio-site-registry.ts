@@ -11,8 +11,13 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  { slug: "garagem-girassol", vertical: "restaurantes", siteName: "Garagem & Girassol · São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "salgados-da-fran", vertical: "restaurantes", siteName: "Salgados da Fran · Águas Belas, São José dos Pinhais", kind: "prototype", indexable: false },
+  { slug: "panificadora-doce-coracao-santo-antonio", vertical: "comercios", siteName: "Panificadora Doce Coração · Santo Antônio, São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "cantinho-da-tia-mari", vertical: "comercios", siteName: "Cantinho da Tia Mari · Jardim Itália, São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "agropet-filt", vertical: "comercios", siteName: "Aviário Agropet Filt · Pinhais — PR", kind: "prototype", indexable: true },
   { slug: "arildo-madeiras", vertical: "comercios", siteName: "Arildo Madeiras · Pinhais — PR", kind: "prototype", indexable: true },
-  { slug: "dona-garimpeira-brecho", vertical: "comercios", siteName: "Dona Garimpeira · Brechó em São José dos Pinhais — PR", kind: "prototype", indexable: true },
+  { slug: "dona-garimpeira-brecho", vertical: "comercios", siteName: "Dona Garimpeira · Brechó em São José dos Pinhais — PR", kind: "prototype", indexable: false },
   { slug: "autoescola-aptos", vertical: "prestadores-de-servicos", siteName: "Autoescola APTOS · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "cris-presentes-colonia-rio-grande", vertical: "comercios", siteName: "Cris Presentes · Colônia Rio Grande · São José dos Pinhais", kind: "prototype", indexable: true },
   {
@@ -625,6 +630,10 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  { slug: "infinito-spa", vertical: "beleza", siteName: "Infinito Spa — Masajes y masoterapia en Santiago, Chile", kind: "prototype", indexable: false },
+  { slug: "espaco-marli-nails-guaratuba", vertical: "beleza", siteName: "Espaço Marli Nails Designer · Guaratuba (demonstração)", kind: "prototype", indexable: false },
+  { slug: "bpl-locacoes-de-brinquedos", vertical: "comercios", siteName: "BPL Locações de Brinquedos · São José dos Pinhais — PR", kind: "prototype", indexable: false },
+  { slug: "toop-assados", vertical: "restaurantes", siteName: "Toop Assados · Xaxim, Curitiba (demonstração)", kind: "prototype", indexable: false },
 ];
 
 export function findPortfolioPrototype(slug: string) {

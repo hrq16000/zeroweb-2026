@@ -3,6 +3,8 @@
  * Preparação de vários portfólios em DRAFT, reutilizando o scaffold oficial.
  * Não faz scraping, não compõe sites, não inventa dados, não publica.
  * Sem --execute é sempre dry run. Tamanho padrão por rodada: 10, máximo 25.
+ * --next retoma automaticamente o primeiro registro ainda sem scaffold, com base
+ * nos slugs já registrados em portfolio-clients.json (sem considerar publicação).
  */
 import { readFileSync, appendFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
@@ -68,20 +70,44 @@ export function prepareBatch(raw, { offset = 0, limit = 10 } = {}) {
   return { total: records.length, offset, count: Math.min(limit, records.length - offset), records: records.slice(offset, offset + limit) };
 }
 
+/** Localiza o próximo scaffold pendente sem escrever arquivos ou avançar status. */
+export function nextPendingOffset(raw, existingSlugs) {
+  // Valida TODA a fila antes de operar, inclusive entradas fora da janela atual.
+  prepareBatch(raw, { offset: 0, limit: 1 });
+  const offset = raw.findIndex((item) => {
+    const slug = typeof item.slug === "string" && item.slug.trim()
+      ? item.slug.trim() : slugify(item.name);
+    return !existingSlugs.has(slug);
+  });
+  return offset < 0 ? null : offset;
+}
+
 async function main(argv) {
   const get = (flag) => {
     const pos = argv.indexOf(flag);
     return pos < 0 ? null : argv[pos + 1];
   };
   const file = get("--input");
-  if (!file) throw new Error("Uso: --input /caminho/empresas.json [--offset 0] [--limit 10] [--execute] [--json]");
+  if (!file) throw new Error("Uso: --input /caminho/empresas.json [--offset 0 | --next] [--limit 10] [--execute] [--json]");
+  if (argv.includes("--next") && get("--offset") !== null) {
+    throw new Error("Use --next OU --offset, nunca ambos.");
+  }
   const raw = JSON.parse(readFileSync(resolve(process.cwd(), file), "utf8"));
-  const offset = validNumber(get("--offset"), 0, 0, MAX_QUEUE);
-  const limit = validNumber(get("--limit"), 10, 1, MAX_BATCH);
-  const plan = prepareBatch(raw, { offset, limit });
   const existing = new Set(
     JSON.parse(readFileSync(resolve(ROOT, "src/config/portfolio-clients.json"), "utf8")).map((x) => x.slug),
   );
+  const limit = validNumber(get("--limit"), 10, 1, MAX_BATCH);
+  const offset = argv.includes("--next")
+    ? nextPendingOffset(raw, existing)
+    : validNumber(get("--offset"), 0, 0, MAX_QUEUE);
+  if (offset === null) {
+    const summary = { totalQueue: raw.length, offset: null, processed: 0, created: 0,
+      nextOffset: null, pendingScaffolds: 0, execute: argv.includes("--execute") };
+    if (argv.includes("--json")) console.log(JSON.stringify({ summary, results: [] }, null, 2));
+    else console.log("[portfolio-batch-scaffold] Fila inteira já possui scaffold. " + JSON.stringify(summary));
+    return;
+  }
+  const plan = prepareBatch(raw, { offset, limit });
   const results = plan.records.map((x) => ({
     ...x,
     stage: existing.has(x.slug) ? "EXISTING_UNCHANGED" : "DRAFT_PLANNED",
@@ -117,13 +143,23 @@ async function main(argv) {
       created.push(item.slug);
     }
   }
-  const summary = { totalQueue: plan.total, offset: plan.offset, processed: plan.count, created: created.length, execute };
+  const completedSlugs = new Set([...existing, ...created]);
+  const nextOffset = nextPendingOffset(raw, completedSlugs);
+  const pendingScaffolds = raw.filter((item) => {
+    const slug = typeof item.slug === "string" && item.slug.trim()
+      ? item.slug.trim() : slugify(item.name);
+    return !completedSlugs.has(slug);
+  }).length;
+  const summary = { totalQueue: plan.total, offset: plan.offset, processed: plan.count,
+    created: created.length, nextOffset, pendingScaffolds, execute };
   if (argv.includes("--json")) console.log(JSON.stringify({ summary, results }, null, 2));
   else {
     console.log("[portfolio-batch-scaffold] " + JSON.stringify(summary));
     for (const x of results) console.log("  " + x.slug + " — " + x.stage + " — " + x.location);
     console.log("Próximo: R1 pesquisa e identidade -> brief/arte autoral -> mídia/QA -> gates -> publicação em lote.");
     if (!execute) console.log("Nenhum arquivo alterado. Use --execute apenas após revisar a fila.");
+    if (nextOffset !== null) console.log("Retomar: --next (primeiro pendente na posição " + nextOffset + ").");
+    else console.log("Todos os itens possuem scaffold; isso NÃO significa que estão publicados.");
   }
 }
 

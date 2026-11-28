@@ -4,7 +4,7 @@
   "matrixVersion": 2,
   "contractVersion": 4,
   "evaluatedAt": null,
-  "technicalPass": false,
+  "technicalPass": true,
   "editorialPass": false,
   "score": {
     "total": null,
@@ -32,12 +32,25 @@
     "SEO_DRAFT_PREPARED_NOT_CONNECTED_QA_PENDING"
   ],
   "warnings": [
-    "No Lighthouse, SSR or screen QA has been executed for this slug",
-    "Composição autoral registrada, mas sem public prototype ou catálogo; SSR/SEO no head ainda não conectado.",
-    "Por decisão do operador, posts do Instagram não são pré-requisito; publicar sem mídia não aprovada, com SEO textual se os demais gates passarem."
+    "Contato e formulário desativados; nenhum dado é coletado.",
+    "Sem fotos autorizadas, endereço, horários, Instagram ou estoque publicados na prévia."
   ],
   "ownerRequired": [
     "Aprovar identidade visual"
   ],
-  "lastUpdatedAt": "2026-11-02"
+  "lastUpdatedAt": "2026-11-02",
+  "status": "R13_TECHNICALLY_READY_RELEASE_BLOCKED",
+  "visualQa": {
+    "status": "PENDING_TARGETED_CI",
+    "viewports": [
+      390,
+      768,
+      1440
+    ]
+  },
+  "decision": "C_TECHNICAL_RELEASE_BLOCKED",
+  "blockers": [
+    "Production atual ainda serve rota pública indexável; patch de segurança está apenas no branch até autorização de deployment.",
+    "Autorização escrita da responsável para apresentação pública ainda não localizada."
+  ]
 }

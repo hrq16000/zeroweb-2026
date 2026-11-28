@@ -36,7 +36,8 @@ const gmbPath = "src/routes/servicos.google-meu-negocio.tsx";
 const architecturePath = "docs/PORTAL_ARCHITECTURE.md";
 const cartPath = "src/lib/cart.ts";
 const cartDrawerPath = "src/components/site/CartDrawer.tsx";
-const checkoutPath = "src/routes/checkout.tsx";
+const checkoutRoutePath = "src/routes/checkout.tsx";
+const checkoutPath = "src/components/route-pages/CheckoutPage.tsx";
 const thankYouRoutePath = "src/routes/obrigado.tsx";
 const orderRoutePath = "src/routes/pedido.$id.tsx";
 const robotsPath = "public/robots.txt";
@@ -68,6 +69,7 @@ const gmb = source(gmbPath);
 const architecture = source(architecturePath);
 const cart = source(cartPath);
 const cartDrawer = source(cartDrawerPath);
+const checkoutRoute = source(checkoutRoutePath);
 const checkout = source(checkoutPath);
 const thankYouRoute = source(thankYouRoutePath);
 const orderRoute = source(orderRoutePath);
@@ -177,7 +179,7 @@ if (/aria-label="Aumentar"|aria-label="Diminuir"/.test(cartDrawer)) {
 }
 
 for (const [path, text] of [
-  [checkoutPath, checkout],
+  [checkoutRoutePath, checkoutRoute],
   [thankYouRoutePath, thankYouRoute],
   [orderRoutePath, orderRoute],
 ]) {
@@ -192,6 +194,11 @@ if (/^Disallow:\s*\/(?:checkout|obrigado|pedido\/)/m.test(robots)) {
   errors.push(`${robotsPath}: robots.txt voltou a bloquear rota transacional antes do crawler ler o noindex`);
 }
 
+requirePattern(checkoutRoutePath, checkoutRoute, /component:\s*lazyRouteComponent\(\(\)\s*=>\s*import\("@\/components\/route-pages\/CheckoutPage"\),\s*"CheckoutPage"\)/, "rota de checkout não aponta para o componente protegido");
+requirePattern(checkoutRoutePath, checkoutRoute, /ssr:\s*false/, "rota de checkout perdeu o limite de SSR");
+if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkoutRoute)) {
+  errors.push(`${checkoutRoutePath}: rota voltou a expor contato direto`);
+}
 if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkout)) {
   errors.push(`${checkoutPath}: checkout voltou a expor contato direto`);
 }

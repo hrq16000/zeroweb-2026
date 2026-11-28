@@ -59,6 +59,12 @@ jobs:
           RUN=false
           MODE=full
           FRAMEWORK_COMPAT=false
+          VERCEL_MCP_GUARD_ONLY=false
+          if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$BASE" "$HEAD" || true)" = "vercel-mcp-only" ]; then
+            RUN=true
+            MODE=portfolio
+            VERCEL_MCP_GUARD_ONLY=true
+          fi
 
           if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
             RUN=true
@@ -133,6 +139,11 @@ jobs:
             # diversificado, com os mesmos thresholds absolutos do gate global.
             ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
             SHARDS='[0]'
+          elif [[ "$ONLY" == preview-* ]]; then
+            # Prévia nova: testa o próprio mini-site. Não mede 100 páginas
+            # que esta branch não alterou. Performance/A11y mantêm os limites.
+            MODE=preview
+            SHARDS='[0]'
           elif [ -n "$ONLY" ]; then
             MODE=portfolio
             SHARDS='[0]'
@@ -178,6 +189,15 @@ jobs:
             ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
 
+          # Alteracao exclusiva do plugin MCP no build da Vercel: seis canarios
+          # de Performance/SEO com os mesmos thresholds absolutos do gate.
+          if [ "$VERCEL_MCP_GUARD_ONLY" = true ]; then
+            RUN=true
+            MODE=portfolio
+            ONLY="cris-presentes-colonia-rio-grande,pastelaria-route-66,woodhouse-hamburgueres,acai-total-araucaria,ecommerce-on,maximos-cabeleireiros"
+            SHARDS='[0]'
+          fi
+
           echo "run=$RUN" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
@@ -213,11 +233,22 @@ jobs:
           LHCI_SHARD_COUNT: 4
           LHCI_SCOPE: ${{ needs.scope.outputs.mode }}
           LHCI_ONLY: ${{ needs.scope.outputs.only }}
+          VERCEL: "1"
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Emitir diagnostico LHCI (nao bloqueante)
         if: always()
         run: node scripts/report-lhci-diagnostics.mjs
+
+      - name: Enviar todas as medições ao painel (inclusive reprovadas)
+        if: always() && hashFiles('.lighthouseci/lhr-*.json') != ''
+        env:
+          LHCI_HMAC_SECRET: ${{ secrets.LHCI_HMAC_SECRET }}
+          LHCI_INGEST_URL: https://0web.com.br/api/public/hooks/lhci-ingest
+          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
+          LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
+          LHCI_SHARD_INDEX: ${{ matrix.shard }}
+        run: node scripts/send-lhci-receipts.mjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
         if: always()

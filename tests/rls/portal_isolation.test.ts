@@ -5,22 +5,21 @@
  * it must never call process.exit() and terminate unrelated tests.
  */
 import { test } from "bun:test";
-import { createClient } from "@supabase/supabase-js";
+import { assertDenied, assertHidden, rlsClient, rlsEnvironment, RLS_TEST_TIMEOUT_MS } from "./helpers";
 
-const URL = process.env["SUPABASE_URL"] || process.env["VITE_SUPABASE_URL"];
-const ANON =
-  process.env["SUPABASE_PUBLISHABLE_KEY"] || process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
-const SRK = process.env["SUPABASE_SERVICE_ROLE_KEY"];
-const HAS_RLS_ENV = Boolean(URL && ANON && SRK);
+const environment = rlsEnvironment();
+const HAS_RLS_ENV = environment !== null;
 
 const rlsTest = HAS_RLS_ENV ? test : test.skip;
 
 rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
-  const admin = createClient(URL!, SRK!, { auth: { persistSession: false } });
+  if (!environment) throw new Error("RLS_BLOCKED_MISSING_SECRET");
+  const { url, publishableKey, serviceKey } = environment;
+  const admin = rlsClient(url, serviceKey);
   const stamp = Date.now();
   const emailA = `rls-a-${stamp}@example.com`;
   const emailB = `rls-b-${stamp}@example.com`;
-  const password = "Rls-Test!123";
+  const password = crypto.randomUUID();
 
   let uidA: string | undefined;
   let uidB: string | undefined;
@@ -41,7 +40,8 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
       email_confirm: true,
     });
     if (ea) throw new Error(`create user A: ${ea.message}`);
-    uidA = ua.user!.id;
+    if (!ua.user) throw new Error("create user A returned no user");
+    uidA = ua.user.id;
 
     const { data: ub, error: eb } = await admin.auth.admin.createUser({
       email: emailB,
@@ -49,7 +49,8 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
       email_confirm: true,
     });
     if (eb) throw new Error(`create user B: ${eb.message}`);
-    uidB = ub.user!.id;
+    if (!ub.user) throw new Error("create user B returned no user");
+    uidB = ub.user.id;
 
     const { data: portals, error: ep } = await admin
       .from("portals")
@@ -59,8 +60,11 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
       ])
       .select("id, slug");
     if (ep) throw new Error(`insert portals: ${ep.message}`);
-    pA = portals![0].id;
-    pB = portals![1].id;
+    const portalA = portals?.find((row) => row.slug === `t-a-${stamp}`);
+    const portalB = portals?.find((row) => row.slug === `t-b-${stamp}`);
+    if (!portalA || !portalB) throw new Error("insert portals returned incomplete fixtures");
+    pA = portalA.id;
+    pB = portalB.id;
 
     const { error: memberError } = await admin.from("portal_members").insert([
       { user_id: uidA, portal_id: pA, role: "portal_admin" },
@@ -80,7 +84,7 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
     ]);
     if (eventSeedError) throw new Error(`seed analytics_events: ${eventSeedError.message}`);
 
-    const clientA = createClient(URL!, ANON!, { auth: { persistSession: false } });
+    const clientA = rlsClient(url, publishableKey);
     const { error: signA } = await clientA.auth.signInWithPassword({ email: emailA, password });
     if (signA) {
       if (/Email logins are disabled|email_provider_disabled/i.test(signA.message)) {
@@ -92,34 +96,39 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
       throw new Error(`sign-in A: ${signA.message}`);
     }
 
-    const { data: leadsSeen } = await clientA
+    const ownLeads = await clientA.from("lead_submissions").select("id").eq("portal_id", pA);
+    ensure(!ownLeads.error && ownLeads.data?.length === 1, "user A lê seu próprio lead");
+    const leadsSeen = await clientA
       .from("lead_submissions")
       .select("id, portal_id")
       .eq("portal_id", pB);
-    ensure((leadsSeen?.length ?? 0) === 0, "user A não lê leads do portal B", leadsSeen);
+    assertHidden(leadsSeen, "user A não lê leads do portal B");
 
-    const { data: eventsSeen } = await clientA
+    const eventsSeen = await clientA
       .from("analytics_events")
       .select("id")
       .eq("portal_id", pB);
-    ensure((eventsSeen?.length ?? 0) === 0, "user A não lê eventos do portal B", eventsSeen);
+    assertHidden(eventsSeen, "user A não lê eventos do portal B");
 
     const { error: writeBError } = await clientA
       .from("lead_submissions")
       .insert({ portal_id: pB, name: "x", email: "x@x.com", source: "form" });
-    ensure(Boolean(writeBError), "user A não escreve leads no portal B");
+    assertDenied(writeBError, "user A não escreve leads no portal B");
 
-    const clientB = createClient(URL!, ANON!, { auth: { persistSession: false } });
+    const clientB = rlsClient(url, publishableKey);
     const { error: signB } = await clientB.auth.signInWithPassword({ email: emailB, password });
     if (signB) throw new Error(`sign-in B: ${signB.message}`);
 
-    const { data: leadsB } = await clientB
+    const ownLeadsB = await clientB.from("lead_submissions").select("id").eq("portal_id", pB);
+    ensure(!ownLeadsB.error && ownLeadsB.data?.length === 1, "user B lê seu próprio lead");
+    const leadsB = await clientB
       .from("lead_submissions")
       .select("id")
       .eq("portal_id", pA);
-    ensure((leadsB?.length ?? 0) === 0, "user B não lê leads do portal A", leadsB);
+    assertHidden(leadsB, "user B não lê leads do portal A");
 
-    const { error: trackingSeedError } = await admin.from("visitantes_rastreio").upsert(
+    // Each run uses unique fixture hashes; no assumed (ip_hash,day) constraint.
+    const { error: trackingSeedError } = await admin.from("visitantes_rastreio").insert(
       [
         {
           ip_hash: `hash-a-${stamp}`,
@@ -134,19 +143,14 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
           path: "/b",
         },
       ],
-      { onConflict: "ip_hash,day" },
     );
     if (trackingSeedError) throw new Error(`seed visitantes_rastreio: ${trackingSeedError.message}`);
 
-    const { data: trackingB } = await clientA
+    const trackingB = await clientA
       .from("visitantes_rastreio")
       .select("id")
       .eq("portal_id", pB);
-    ensure(
-      (trackingB?.length ?? 0) === 0,
-      "user A não lê visitantes_rastreio do portal B",
-      trackingB,
-    );
+    assertHidden(trackingB, "user A não lê visitantes_rastreio do portal B");
   } finally {
     await admin
       .from("visitantes_rastreio")
@@ -154,19 +158,20 @@ rlsTest("RLS multi-tenant — isolamento entre portais", async () => {
       .in("ip_hash", [`hash-a-${stamp}`, `hash-b-${stamp}`]);
 
     if (pA || pB) {
-      await admin.from("lead_submissions").delete().in("portal_id", [pA, pB].filter(Boolean));
-      await admin.from("analytics_events").delete().in("portal_id", [pA, pB].filter(Boolean));
+      const portalIds = [pA, pB].filter((id): id is string => typeof id === "string");
+      await admin.from("lead_submissions").delete().in("portal_id", portalIds);
+      await admin.from("analytics_events").delete().in("portal_id", portalIds);
     }
     if (uidA || uidB) {
-      await admin.from("portal_members").delete().in("user_id", [uidA, uidB].filter(Boolean));
+      await admin.from("portal_members").delete().in("user_id", [uidA, uidB].filter((id): id is string => typeof id === "string"));
     }
     if (pA || pB) {
-      await admin.from("portals").delete().in("id", [pA, pB].filter(Boolean));
+      await admin.from("portals").delete().in("id", [pA, pB].filter((id): id is string => typeof id === "string"));
     }
     if (uidA) await admin.auth.admin.deleteUser(uidA);
     if (uidB) await admin.auth.admin.deleteUser(uidB);
   }
-});
+}, RLS_TEST_TIMEOUT_MS);
 
 if (!HAS_RLS_ENV) {
   console.log(

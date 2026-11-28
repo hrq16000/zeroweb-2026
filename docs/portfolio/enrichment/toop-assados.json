@@ -1,0 +1,161 @@
+{
+  "slug": "toop-assados",
+  "lastResearchAt": "2026-11-07",
+  "lastVerifiedAt": "2026-11-07",
+  "entity": {
+    "resolutionStatus": "UNRESOLVED",
+    "unresolvedJustification": "Há folheto atribuído à Toop Assados em Curitiba, mas nenhuma ficha oficial inequívoca ou titularidade foi confirmada."
+  },
+  "business": {
+    "name": "Toop Assados",
+    "locality": "Xaxim, Curitiba - PR",
+    "officialWebsite": null,
+    "officialSocial": null,
+    "whatsappVerified": false
+  },
+  "identity": {
+    "businessName": {
+      "value": "Toop Assados",
+      "source": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07"
+    },
+    "locality": {
+      "value": "Xaxim, Curitiba - PR",
+      "source": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07"
+    },
+    "advertisedProducts": {
+      "value": [
+        "costela assada na brasa",
+        "frango recheado com aipim"
+      ],
+      "source": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07"
+    }
+  },
+  "researchLedger": {
+    "googleMaps": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "Nenhuma correspondência oficial segura."
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "businessPhotos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    }
+  },
+  "facts": [
+    {
+      "field": "name",
+      "value": "Toop Assados",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07",
+      "status": "from_flyer"
+    },
+    {
+      "field": "address",
+      "value": "Rua Omar Raimundo Pichet, 1217 — Xaxim, Curitiba/PR",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "low",
+      "verifiedAt": "2026-11-07",
+      "status": "unverified_cadastral_spelling"
+    },
+    {
+      "field": "combo_price",
+      "value": "59,99",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07",
+      "status": "historical_not_current"
+    },
+    {
+      "field": "ribs_price",
+      "value": "69,99",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": "medium",
+      "verifiedAt": "2026-11-07",
+      "status": "historical_not_current"
+    }
+  ],
+  "media": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "graphicMedia": [
+      "public/images/toop-assados/logo.svg",
+      "public/images/toop-assados/capa-card.svg",
+      "public/images/toop-assados/social-og.svg"
+    ],
+    "missingMedia": [
+      "fachada real",
+      "assados reais",
+      "logotipo original"
+    ]
+  },
+  "providerCalls": [
+    {
+      "provider": "public_search_and_user_flyer",
+      "time": "2026-11-07",
+      "result": "Folheto fotografado e buscas públicas sem correspondência oficial inequívoca"
+    }
+  ],
+  "social": {
+    "instagram": {
+      "status": "unresolved",
+      "latestSix": "not_applicable_until_account_verified"
+    }
+  },
+  "notes": {
+    "homonym": "Top Assados e Cia em Tietê/SP não deve ser associado à Toop Assados de Curitiba.",
+    "retailChannel": "Formulário é demonstrativo, não encomenda real."
+  }
+}

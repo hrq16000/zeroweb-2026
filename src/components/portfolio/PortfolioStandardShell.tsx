@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "@/styles/portfolio-lcp-overrides.css";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioContactFloating } from "@/components/portfolio/PortfolioContactFloating";
@@ -36,6 +37,8 @@ type Props = {
   quizConfigOverride?: PortfolioQuizConfig;
   /** Contexto factual opcional para o grafo universal de SEO (Managed/runtime). */
   seoContextOverride?: PortfolioSeoContextOverride;
+  localeOverride?: "es-CL";
+  seoNetworkEnabled?: boolean;
 };
 
 /**
@@ -58,6 +61,8 @@ export function PortfolioStandardShell({
   funnelIntentOverride,
   quizConfigOverride,
   seoContextOverride,
+  localeOverride,
+  seoNetworkEnabled = true,
 }: Props) {
   // Older dedicated routes still pass this flag. Footer ownership is now
   // centralized so the client footer can never appear above the About block.
@@ -70,11 +75,12 @@ export function PortfolioStandardShell({
 
   return (
     // overflow-x-clip: reveals horizontais em curso não podem gerar scroll lateral no mobile.
-    <div className="portfolio-standard-shell overflow-x-clip">
+    <div className="portfolio-standard-shell overflow-x-clip" data-portfolio-slug={slug}>
       <PortfolioVitals slug={slug} />
       <PortfolioView slug={slug} />
       {standards.shareButton.enabled ? (
         <PortfolioShareButton
+          locale={localeOverride}
           position={standards.shareButton.position}
           variant={standards.shareButton.variant}
           label={standards.shareButton.label}
@@ -101,14 +107,15 @@ export function PortfolioStandardShell({
         {children}
       </div>
 
-      <PortfolioSeoNetwork slug={slug} context={seoContextOverride} />
+      {seoNetworkEnabled ? <PortfolioSeoNetwork slug={slug} context={seoContextOverride} /> : null}
 
-      <PortfolioConversionNarrative slug={slug} />
+      <PortfolioConversionNarrative slug={slug} locale={localeOverride} />
 
-      {clientKey && proof ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
+      {clientKey && proof && (proof as { enabled?: boolean }).enabled !== false ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
 
       {standards.footer.enabled ? (
         <PortfolioStandardFooter
+          locale={localeOverride}
           siteName={siteName}
           variant={standards.footer.variant}
           showYear={standards.footer.showYear}
@@ -133,7 +140,7 @@ export function PortfolioStandardShell({
         />
       ) : null}
 
-      <PortfolioBackToTop />
+      <PortfolioBackToTop locale={localeOverride} />
 
       {/* Camada externa da hospedagem: obrigatória, com guard de instância única. */}
       <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />

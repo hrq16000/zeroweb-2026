@@ -29,6 +29,7 @@ import {
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
+  const isInfinitoSpa = project.slug === "infinito-spa";
   const url = project.canonicalUrl;
   const social = project.socialImage
     ? project.socialImage.startsWith("http")
@@ -46,7 +47,7 @@ function managedHead(project: ManagedProject) {
       { property: "og:description", content: project.seoDescription },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "pt_BR" },
+      { property: "og:locale", content: isInfinitoSpa ? "es_CL" : "pt_BR" },
       { property: "og:site_name", content: project.displayName },
       { property: "og:image", content: social },
       { property: "og:image:secure_url", content: social },
@@ -61,7 +62,7 @@ function managedHead(project: ManagedProject) {
     ],
     links: [
       { rel: "canonical", href: url },
-      { rel: "alternate", hrefLang: "pt-BR", href: url },
+      { rel: "alternate", hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR", href: url },
       { rel: "alternate", hrefLang: "x-default", href: url },
       { rel: "icon", href: icon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
@@ -474,7 +475,7 @@ const CarecasInfotecPage = lazy(() =>
 );
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: async ({ params }) => {
+  loader: async ({ params, location }) => {
     const site = findPortfolioPrototype(params.slug);
     // Dona Garimpeira tem atendimento client-side independente do banco.
     // O catálogo controla a rota, sem solicitar dynamic_forms no servidor.
@@ -491,21 +492,24 @@ export const Route = createFileRoute("/portfolio/$slug")({
         managed = null;
       }
       if (!managed) throw notFound();
-      return { vertical: undefined, slug: params.slug, overrides: null, managed };
+      return { vertical: undefined, slug: params.slug, overrides: null, managed, visualFixture: false };
     }
     // Nenhum acesso ao Lovable Cloud é necessário para renderizar o brechó.
     if (params.slug === "dona-garimpeira-brecho") {
-      return { vertical, slug: params.slug, overrides: null, managed: null };
+      return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false };
     }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
+    const visualFixtureRequested =
+      process.env.PORTFOLIO_RUNTIME_VISUAL_FIXTURES === "1" &&
+      new URLSearchParams(location.searchStr ?? "").get("0web_visual_fixture") === "v1";
     let overrides: PortfolioRuntimeOverrides | null = null;
     try {
-      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug } });
+      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug, visualFixture: visualFixtureRequested } });
     } catch {
       overrides = null;
     }
-    return { vertical, slug: params.slug, overrides, managed: null };
+    return { vertical, slug: params.slug, overrides, managed: null, visualFixture: visualFixtureRequested && Boolean(overrides) };
   },
   head: ({ loaderData }) => {
     // O loader confirmou a rota registrada. Funil offline concluído no WhatsApp do cliente.
@@ -525,8 +529,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const catalogSeo = loaderData?.slug
       ? resolvePortfolioSeoDescriptor(loaderData.slug)
       : null;
-    const title =
-      (loaderData?.slug ? portfolioUniversalSeoTitle(loaderData.slug) : null) ??
+    const isInfinitoSpa = loaderData?.slug === "infinito-spa";
+    const title = isInfinitoSpa
+      ? "Infinito Spa | Masajes y masoterapia en Santiago, Chile"
+      : (loaderData?.slug ? portfolioUniversalSeoTitle(loaderData.slug) : null) ??
       prototype?.siteName ??
       loaderData?.vertical?.name ??
       "Projeto de presença digital";
@@ -601,7 +607,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJklDecor = loaderData?.slug === "jkl-decor";
     const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
     const isArildoMadeiras = loaderData?.slug === "arildo-madeiras";
-    const description = isArildoMadeiras
+    const description = isInfinitoSpa
+      ? "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta modalidades, duración y disponibilidad directamente con Roze antes de coordinar tu sesión."
+      : isArildoMadeiras
       ? "Arildo Madeiras em Pinhais: atacado e varejo de madeiras brutas e beneficiadas, portas, janelas, forros, móveis rústicos e Madeira de Cambará, com orçamento pelo funil."
       : isAutoescolaAptos
       ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
@@ -824,6 +832,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         canonicalUrl: url,
         socialImage,
         logoUrl: icon,
+        lifecycle: prototype?.indexable === false ? "draft" : "published",
+        published: prototype?.indexable !== false,
+        indexable: prototype?.indexable !== false,
       },
       loaderData?.overrides ?? null,
     );
@@ -840,7 +851,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isArildoMadeiras
+          content: eff.keywords ?? (isInfinitoSpa
+            ? "Infinito Spa Santiago, masajes Santiago de Chile, masoterapia Santiago, consulta de masajes, bienestar y sesiones con coordinación previa"
+            : isArildoMadeiras
             ? "Arildo Madeiras, madeireira Pinhais, madeiras em Pinhais, madeira para construção, madeiras brutas, madeiras beneficiadas, portas, janelas, forros, Madeira de Cambará, móveis rústicos, Weissópolis"
             : isCentroMega
             ? "Centro Mega, celulares São José dos Pinhais, smartphones SJP, acessórios para celular, Centro Mega Outlet, tênis outlet, bonés, calçados, loja virtual, Instagram Centro Mega, Facebook Centro Mega"
@@ -945,8 +958,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:description", content: eff.description },
         { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
-        { property: "og:locale", content: "pt_BR" },
-        { property: "og:site_name", content: eff.title },
+        { property: "og:locale", content: isInfinitoSpa ? "es_CL" : "pt_BR" },
+        { property: "og:site_name", content: isInfinitoSpa ? "Infinito Spa" : eff.title },
         { property: "og:image", content: effSocial },
         { property: "og:image:secure_url", content: effSocial },
         { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
@@ -961,7 +974,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ],
       links: [
         { rel: "canonical", href: eff.canonicalUrl },
-        { rel: "alternate", hrefLang: "pt-BR", href: eff.canonicalUrl },
+        { rel: "alternate", hrefLang: isInfinitoSpa ? "es-CL" : "pt-BR", href: eff.canonicalUrl },
         { rel: "alternate", hrefLang: "x-default", href: eff.canonicalUrl },
         { rel: "icon", href: effIcon.replace(/^https:\/\/0web\.com\.br(?=\/)/i, "") },
         { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
@@ -982,6 +995,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
               type: "application/ld+json",
               children: graph([
                 organizationNode(),
+                ...(isInfinitoSpa ? [{ "@type": "Service", "@id": `${url}#infinito-spa-service`, name: "Masajes y masoterapia", serviceType: "Masoterapia", provider: { "@type": "Organization", name: "Infinito Spa" }, areaServed: { "@type": "City", name: "Santiago", containedInPlace: { "@type": "Country", name: "Chile" } }, description: "Consulta de modalidades y coordinación de sesiones; detalles sujetos a confirmación directa." }] : []),
                 ...(isBtb
                   ? [
                       {
@@ -1038,7 +1052,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           ],
                         },
                       ]
-                    : [
+                    : isInfinitoSpa ? [] : [
                       {
                         ...serviceNode({
                           slug: vertical.slug,
@@ -1459,7 +1473,7 @@ function PortfolioPrototypePage() {
   if (BlueprintPage) {
     return (
       <PortfolioRuntimeProvider value={effective}>
-        <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
+        <PortfolioStandardShell slug={slug} includePlatformFooter={false} {...(slug === "infinito-spa" ? { siteNameOverride: "Infinito Spa", contactModeOverride: "booking", contactLabelOverride: "Consultar disponibilidad", localeOverride: "es-CL" as const, seoNetworkEnabled: false } : {})}>
           <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
             <BlueprintPage />
           </Suspense>

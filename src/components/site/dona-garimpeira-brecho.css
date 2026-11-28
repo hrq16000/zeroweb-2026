@@ -165,3 +165,9 @@
 @media (prefers-reduced-motion: reduce) {
  .dg-site *, .dg-site *::before, .dg-site *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
+
+
+/* R13 — demo disclosure and disabled handoffs. */
+.dg-demo-disclosure{position:relative;z-index:3;padding:12px 20px;background:#efe6d4;color:#243b30;font-size:12px;line-height:1.5;text-align:center;letter-spacing:.02em}
+.dg-header-status,.dg-footer-contact{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:inherit}
+.dg-cta:disabled,.dg-cta[aria-disabled="true"]{cursor:not-allowed;opacity:.54;filter:saturate(.5);pointer-events:none}

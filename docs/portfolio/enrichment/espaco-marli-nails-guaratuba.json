@@ -1,0 +1,218 @@
+{
+  "slug": "espaco-marli-nails-guaratuba",
+  "lastResearchAt": "2026-11-22",
+  "status": "RESEARCH_ONLY_NOT_PUBLISHED",
+  "entity": {
+    "resolutionStatus": "RESOLVED",
+    "resolutionBasis": "GOOGLE_PLACES_AND_PUBLIC_DIRECTORY",
+    "google": {
+      "placeId": "ChIJuzW7mov725QRyC56TUDUl50",
+      "status": "resolved"
+    },
+    "notes": "O estabelecimento na Avenida Alvorada do Sul, 786 corresponde ao Google Place ID identificado. Um cadastro distinto 'Marli Nails' em Rua São Mateus do Sul, 673 aparece em outro diretório; não unir nem reutilizar telefone/endereço deste outro registro. Contrato de readiness usa o estado canônico RESOLVED; homônimo é registrado separadamente em disambiguationStatus.",
+    "disambiguationStatus": "CONFIRMED_DIFFERENT_ADDRESS"
+  },
+  "researchLedger": {
+    "ownerEvidence": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "source": "Tabela fornecida pelo operador em 22/11/2026; row Espaço Marli Nails designer",
+      "note": "A foto miniatura googleusercontent é apenas um indício de mídia, sem licença verificada."
+    },
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "provider": "Google business result",
+      "placeId": "ChIJuzW7mov725QRyC56TUDUl50",
+      "note": "Identidade, endereço, telefone e rating/reviewCount no momento da consulta; usar atribuição e frescor se publicados."
+    },
+    "publicDirectories": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "note": "Glow Royal lista o estabelecimento para manicure/pedicure/nails design, mas categorias de diretório não comprovam menu contratado."
+    },
+    "officialWebsite": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "note": "Sem domínio próprio atribuível encontrado; não afirmar inexistência absoluta."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "note": "Pesquisas por nome, município e telefone sem identificador oficial confiável."
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "note": "Nenhum perfil oficial inequívoco encontrado."
+    },
+    "photos": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "note": "A tabela do operador inclui URL de miniatura do Google, mas não há autorização de reutilização, licença ou identificação suficiente do conteúdo. Não copiar, baixar, hospedar ou usar como fotos dos trabalhos até autorização."
+    },
+    "videos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "note": "Não atribuir vídeos de terceiros."
+    }
+  },
+  "identity": {
+    "name": "Espaço Marli Nails designer",
+    "category": "Nail salon / manicure",
+    "address": "Av. Alvorada do Sul, 786, Coroados, Guaratuba, PR, 83280-000, Brasil",
+    "locality": "Guaratuba",
+    "neighborhood": "Coroados",
+    "state": "PR",
+    "country": "BR",
+    "phonePublicEvidence": "+55 41 98752-6711",
+    "phoneUsageRule": "Somente configuração privada do resolvedor/funil individual após validação de que o número recebe WhatsApp; jamais expor wa.me, tel: ou número operacional no bundle."
+  },
+  "reviews": {
+    "rating": 4.9,
+    "reviewCount": 11,
+    "asOf": "2026-11-22",
+    "source": "GOOGLE_BUSINESS",
+    "publicationRule": "Dados dinâmicos com data/fonte e atribuição, sem fabricar depoimentos e sem hard-code em schema de review."
+  },
+  "services": {
+    "observed": [
+      "Manicure",
+      "Pedicure"
+    ],
+    "directoryCategoryUnconfirmedAsMenu": [
+      "Nail design",
+      "Nail art",
+      "Alongamento de unhas"
+    ],
+    "publicationRule": "Serviços detalhados, valores, técnicas e disponibilidade dependem de confirmação; não importar categorias de diretórios como lista de serviços oficiais."
+  },
+  "sources": [
+    {
+      "type": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "reference": "Tabela enviada em 22/11/2026, linha 'Espaço Marli Nails designer'",
+      "purpose": "Contato, nota e ausência de website na pesquisa inicial"
+    },
+    {
+      "type": "GOOGLE_BUSINESS",
+      "reference": "Place ID ChIJuzW7mov725QRyC56TUDUl50",
+      "purpose": "Resolução de entidade, localização, rating, reviews e telefone"
+    },
+    {
+      "type": "PUBLIC_DIRECTORY",
+      "url": "https://glowroyal.com.br/manicure/pr/guaratuba",
+      "purpose": "Listagem externa e endereço"
+    },
+    {
+      "type": "PUBLIC_DIRECTORY",
+      "url": "https://glowroyal.com.br/pedicure/pr/guaratuba",
+      "purpose": "Listagem externa e endereço"
+    },
+    {
+      "type": "PUBLIC_DIRECTORY",
+      "url": "https://glowroyal.com.br/nails-design/pr/guaratuba",
+      "purpose": "Listagem por categoria, não prova de cardápio"
+    },
+    {
+      "type": "PUBLIC_DIRECTORY_CONFLICT",
+      "url": "https://guiapinzon.com.br/pr/guaratuba/manicure-em-guaratuba",
+      "purpose": "Registro homônimo/semelhante com endereço diferente; não mesclar"
+    }
+  ],
+  "media": {
+    "assets": [],
+    "plan": [
+      {
+        "purpose": "HERO_MEDIA",
+        "status": "BLOCKED_RIGHTS",
+        "action": "Solicitar imagem autoral real do trabalho/ambiente e permissão; alternativa provisória: arte contextual original identificada como ilustração."
+      },
+      {
+        "purpose": "GALLERY",
+        "status": "BLOCKED_RIGHTS",
+        "action": "Somente trabalhos autorizados e atribuídos."
+      },
+      {
+        "purpose": "COVER_AND_OG_MEDIA",
+        "status": "DESIGN_PENDING",
+        "action": "Composição visual autoral própria sem fotografia falsa do estúdio; coerente com a landing."
+      }
+    ]
+  },
+  "seoDraft": {
+    "desiredPath": "/portfolio/espaco-marli-nails-guaratuba",
+    "title": "Espaço Marli Nails Designer | Manicure em Guaratuba – PR",
+    "description": "Conheça o Espaço Marli Nails Designer em Coroados, Guaratuba (PR). Saiba como encontrar o estúdio e solicite informações e horários pelo canal de atendimento.",
+    "targetIntents": [
+      "manicure em Coroados Guaratuba",
+      "Espaço Marli Nails designer Guaratuba",
+      "manicure em Guaratuba PR"
+    ],
+    "robotsWhileDraft": "noindex,nofollow",
+    "publication": "index,follow apenas após conteúdo, prova, mídia, funil, SEO, readiness e aprovação; nunca prometer posição ou indexação efetiva"
+  },
+  "conversion": {
+    "intent": "agendamento",
+    "transport": "0WEB_FUNNEL_ONLY",
+    "clientKey": "espaco-marli-nails-guaratuba",
+    "whatsappState": "PHONE_PUBLIC_NOT_WHATSAPP_VERIFIED",
+    "fallback": "lead-only sem enviar a outro cliente até o destino oficial ser validado e configurado em ambiente privado",
+    "note": "Funil deve preservar lead antes de redirecionar e ter fluxo acessível em 390/768/1440."
+  },
+  "unverified": [
+    "Instagram oficial",
+    "Facebook oficial",
+    "site próprio",
+    "autorização de fotos de trabalhos",
+    "logo e identidade visual oficial",
+    "cardápio de técnicas",
+    "preços e pagamentos",
+    "horários e política de agendamento",
+    "uso do número público como WhatsApp",
+    "localização exata da entrada do estúdio",
+    "aceite comercial da dona para publicar como site oficial"
+  ],
+  "conflicts": [
+    "Diretório GuiaPinzon contém registro 'Marli Nails' na Rua São Mateus do Sul, 673, não comprovado como mesma empresa. A ficha alvo é na Av. Alvorada do Sul, 786."
+  ]
+}

@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Search,
+  Shuffle,
   PackageCheck,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
@@ -27,14 +28,16 @@ import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { portfolioCityHubs } from "@/lib/portfolio-places";
-import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import portfolioCatalogStandalone from "@/config/portfolio-catalog-standalone.json";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
+import { isPublicPortfolioCatalogItem } from "@/lib/portfolio-public-catalog";
+import { parseCatalogSort, sortCatalog } from "@/lib/portfolio-catalog-sort";
 import { trackEvent } from "@/lib/analytics";
 import { MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
 import {
@@ -83,9 +86,10 @@ const SEGMENT_LABELS: Record<string, string> = {
 
 // A navegação nasce exclusivamente dos segmentos efetivamente cadastrados no
 // catálogo canônico; nenhum ramo aparece apenas como hipótese editorial.
+const PUBLIC_CATALOG_SOURCE = portfolioCatalog.filter(isPublicPortfolioCatalogItem);
 const CATEGORIES = [
   { id: "todos", label: "Todos os Projetos" },
-  ...Array.from(new Set(portfolioCatalog.map((item) => item.segment)))
+  ...Array.from(new Set(PUBLIC_CATALOG_SOURCE.map((item) => item.segment)))
     .sort((a, b) => (SEGMENT_LABELS[a] ?? a).localeCompare(SEGMENT_LABELS[b] ?? b, "pt-BR"))
     .map((id) => ({ id, label: SEGMENT_LABELS[id] ?? id.replace(/-/g, " ") })),
 ];
@@ -309,6 +313,20 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
   } as PortfolioItem;
 });
 
+// Rotas de revisão continuam acessíveis diretamente, mas não entram na vitrine pública.
+const PUBLIC_PORTFOLIO_ITEMS = PORTFOLIO_ITEMS.filter(isPublicPortfolioCatalogItem);
+
+// Projetos com rota própria publicada que ainda não constam no catálogo
+// canônico. Entram na vitrine e na busca sem alterar o registro canônico.
+const STANDALONE_ITEMS = (portfolioCatalogStandalone as unknown as CatalogItem[])
+  .filter((item) => !portfolioCatalog.some((canonical) => canonical.slug === item.slug))
+  .map(
+    (item) =>
+      ({ ...item, id: item.slug, slug: `/portfolio/${item.slug}`, category: item.segment }) as PortfolioItem,
+  );
+const PUBLIC_STANDALONE_ITEMS = STANDALONE_ITEMS.filter(isPublicPortfolioCatalogItem);
+
+
 type PortfolioSearch = {
   segment?: string;
   ramo?: string;
@@ -383,7 +401,7 @@ export const Route = createFileRoute("/portfolio/")({
           itemListNode(
             `${URL}#projetos`,
             "Projetos publicados pela 0WEB",
-            PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
+            PUBLIC_PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
           ),
           breadcrumbNode([
             { name: "Início", path: "/" },
@@ -405,7 +423,8 @@ function PortfolioPage() {
   const { managed } = Route.useLoaderData();
   const catalogItems = useMemo<PortfolioItem[]>(
     () => [
-      ...PORTFOLIO_ITEMS,
+      ...PUBLIC_PORTFOLIO_ITEMS,
+      ...PUBLIC_STANDALONE_ITEMS,
       ...managed.map((project) => ({
         slug: `/portfolio/${project.slug}`,
         clientKey: project.clientKey,
@@ -434,12 +453,12 @@ function PortfolioPage() {
         .sort((a, b) => a.title.localeCompare(b.title, "pt-BR")),
     [catalogItems],
   );
-  const [sort, setSort] = useState(routeSearch.sort ?? "recent");
+  const [sort, setSort] = useState(() => parseCatalogSort(routeSearch.sort));
+  const [shuffleSeed, setShuffleSeed] = useState(1);
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
   const [region, setRegion] = useState("todas");
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [visitorCity, setVisitorCity] = useState<string | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
   const deferredSearch = useDeferredValue(search);
   const availableRegions = useMemo(
@@ -454,58 +473,28 @@ function PortfolioPage() {
     [catalogItems],
   );
 
-  useEffect(() => {
-    let active = true;
-    void getIpGeo().then((geo) => {
-      if (active && geo?.city) setVisitorCity(geo.city);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const filteredItems = useMemo(() => {
+  const { filteredItems, outsideFilterCount } = useMemo(() => {
     const query = deferredSearch.trim();
-    const city = visitorCity
-      ?.normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase("pt-BR");
-    const locationScore = (location?: string) =>
-      city &&
-      location
-        ?.normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLocaleLowerCase("pt-BR")
-        .includes(city)
-        ? 1
-        : 0;
+    const matchesFilters = (item: PortfolioItem) =>
+      (activeCategory === "todos" || item.category === activeCategory) &&
+      (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
+      (projectType === "todos" || item.projectType === projectType) &&
+      (region === "todas" || item.location === region);
 
-    const recencyById = new Map(catalogItems.map((item, index) => [item.id, index]));
-    const base = catalogItems.filter(
-      (item) =>
-        (activeCategory === "todos" || item.category === activeCategory) &&
-        (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
-        (projectType === "todos" || item.projectType === projectType) &&
-        (region === "todas" || item.location === region),
-    );
-
-    // Busca por intenção: "lanche", "pastel", "pedreiro" etc. encontram o
-    // projeto certo mesmo sem a palavra exata. A ordem por relevância só vale
-    // quando há busca; sem busca mantemos a ordenação escolhida.
-    const found = searchItems(query, base);
-    if (query && sort !== "az") return found;
-
-    return [...found].sort((a, b) => {
-      if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
-      const proximity = locationScore(b.location) - locationScore(a.location);
-      if (proximity !== 0) return proximity;
-
-      // O catálogo canônico é append-only: o último registro publicado é o
-      // mais recente. Sem este desempate, a tela dizia “Mais recentes”, mas
-      // preservava a ordem antiga e escondia clientes novos atrás do load-more.
-      return (recencyById.get(b.id) ?? -1) - (recencyById.get(a.id) ?? -1);
-    });
-  }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
+    // Busca por intenção ("lanche", "pedreiro"...) percorre somente itens
+    // explicitamente publicados; projetos em revisão não entram em resultados.
+    const found = searchItems(query, catalogItems);
+    const inside = found.filter(matchesFilters);
+    const outside = query ? found.filter((item) => !matchesFilters(item)) : [];
+    const order = (list: PortfolioItem[]) =>
+      // Com busca e ordenação padrão, vale a relevância; uma ordenação
+      // escolhida explicitamente é respeitada.
+      query && sort === "recent" ? list : sortCatalog(list, sort, { seed: shuffleSeed });
+    return {
+      filteredItems: [...order(inside), ...order(outside)],
+      outsideFilterCount: outside.length,
+    };
+  }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, shuffleSeed, sort]);
 
   // Mede quem chega ao portfólio por busca ("pastel", "lanche", ...). Espera o
   // usuário parar de digitar para não contar termos incompletos.
@@ -533,7 +522,7 @@ function PortfolioPage() {
       `${window.location.pathname}${params.toString() ? `?${params}` : ""}`,
     );
     setVisibleCount(12);
-  }, [activeBranch, activeCategory, search, sort, projectType, region]);
+  }, [activeBranch, activeCategory, search, sort, shuffleSeed, projectType, region]);
 
   useEffect(() => {
     const target = loadMoreRef.current;
@@ -641,12 +630,24 @@ function PortfolioPage() {
           </div>
         </section></MotionChoreo>
 
+        {/* Laboratório editorial: fora do catálogo de clientes, indicadores e sitemap. */}
+        <section aria-labelledby="portfolio-lab-title" className="border-b border-border bg-[#11261c] px-4 py-8 text-[#e7f5e9]">
+          <div className="mx-auto grid max-w-[1500px] items-center gap-6 md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[.18em] text-[#c6f3a1]">Laboratório 0WEB · Conceito demonstrativo</p>
+              <h2 id="portfolio-lab-title" className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">Como seria um CRM visual feito para cada jornada comercial?</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#b9cbbf]">Conheça um protótipo de pipeline e qualificação B2B com dados fictícios. Referências: DeskcommCRM, padrões comerciais MEGAX e pesquisa de agentes especializados. Sem CRM instalado.</p>
+            </div>
+            <a href="/lab/portfolio-comercial" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#c6f3a1] px-6 py-3 text-sm font-extrabold text-[#183120] hover:bg-[#d8fac5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6f3a1]">Explorar conceito visual <ArrowRight className="h-4 w-4" aria-hidden="true"/></a>
+          </div>
+        </section>
+
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="bg-background px-4 py-8 sm:py-10">
           <div className="mx-auto max-w-[1500px] space-y-8">
             <div className="sticky top-16 z-30 rounded-2xl border border-border bg-card/95 p-2.5 shadow-soft backdrop-blur-md sm:p-3 lg:top-20">
-              <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-3">
-                <label className="relative min-w-0 flex-1 lg:flex-[2]">
+              <div className="flex flex-col gap-2 lg:gap-3">
+                <label className="relative block min-w-0">
                   <Search
                     className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground lg:left-4"
                     aria-hidden="true"
@@ -654,12 +655,12 @@ function PortfolioPage() {
                   <input
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Busque por negócio, serviço, cidade ou bairro"
+                    placeholder="Busque por negócio, serviço ou cidade"
                     aria-label="Buscar projetos do portfólio"
                     className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 lg:h-12 lg:rounded-xl lg:pl-11 lg:pr-4 lg:text-base"
                   />
                 </label>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:flex lg:items-center lg:gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:flex lg:flex-wrap lg:items-center lg:gap-3">
                   <select
                     aria-label="Filtrar por segmento"
                     value={activeCategory}
@@ -687,7 +688,7 @@ function PortfolioPage() {
                     aria-label="Filtrar por região"
                     value={region}
                     onChange={(e) => setRegion(e.target.value)}
-                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-48 lg:rounded-xl lg:px-4"
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:w-56 lg:rounded-xl lg:px-4"
                   >
                     <option value="todas">Todas as regiões</option>
                     {availableRegions.map((location) => (
@@ -699,12 +700,28 @@ function PortfolioPage() {
                   <select
                     aria-label="Ordenar projetos"
                     value={sort}
-                    onChange={(e) => setSort(e.target.value)}
+                    onChange={(e) => {
+                      const next = parseCatalogSort(e.target.value);
+                      if (next === "random") setShuffleSeed(Math.floor(Math.random() * 2 ** 31) + 1);
+                      setSort(next);
+                    }}
                     className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:rounded-xl lg:px-4"
                   >
-                    <option value="recent">Mais recentes</option>
+                    <option value="recent">Mais recentes (criação)</option>
+                    <option value="oldest">Mais antigos (criação)</option>
+                    <option value="updated">Atualizados recentemente</option>
                     <option value="az">Nome (A–Z)</option>
+                    <option value="random">Ordem aleatória</option>
                   </select>
+                  {sort === "random" ? (
+                    <button
+                      type="button"
+                      onClick={() => setShuffleSeed(Math.floor(Math.random() * 2 ** 31) + 1)}
+                      className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-border px-2.5 text-xs font-semibold text-foreground hover:bg-muted sm:h-10 sm:text-sm lg:h-12 lg:rounded-xl lg:px-4"
+                    >
+                      <Shuffle className="h-4 w-4" aria-hidden="true" /> Embaralhar
+                    </button>
+                  ) : null}
                   {hasActiveFilters ? (
                     <button
                       type="button"
@@ -729,13 +746,16 @@ function PortfolioPage() {
             </div>
 
             <MotionSwap
-              swapKey={`${deferredSearch}|${activeCategory}|${activeBranch}|${projectType}|${region}|${sort}`}
+              swapKey={`${deferredSearch}|${activeCategory}|${activeBranch}|${projectType}|${region}|${sort}|${shuffleSeed}`}
               variant="up"
             >
               <div>
                 <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
                   {filteredItems.length}{" "}
                   {filteredItems.length === 1 ? "projeto encontrado" : "projetos encontrados"}
+                  {outsideFilterCount > 0
+                    ? ` · ${outsideFilterCount} fora dos filtros selecionados, ao final da lista`
+                    : ""}
                 </p>
 
 
