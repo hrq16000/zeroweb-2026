@@ -241,7 +241,7 @@ function premiumHomePortfolioScope(files, options = {}) {
   if (
     changedLines.length !== 8 ||
     changedLines.some((line) =>
-      !/^[+-]\\s*(?:published|funnelVerified|ownerApproved|approvedWithoutSocialImage):/.test(line),
+      !/^[+-]\s*(?:published|funnelVerified|ownerApproved|approvedWithoutSocialImage):/.test(line),
     )
   ) return null;
 

@@ -75,7 +75,7 @@ const donaScopedRouteDiff = [
   '+        ownerApproved: false,',
   '-        approvedWithoutSocialImage: true,',
   '+        approvedWithoutSocialImage: false,',
-].join("\\n");
+].join("\n");
 
 test("home premium + páginas Angel Mix e Dona usam escopo visual/LHCI explícito", () => {
   assert.deepEqual(
