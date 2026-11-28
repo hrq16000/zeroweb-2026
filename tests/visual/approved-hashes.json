@@ -82,29 +82,29 @@
     }
   },
   "portfolio-index": {
-    "reason": "Baseline atual do índice /portfolio revisada manualmente em desktop, tablet e mobile durante a rodada do diretório crawlable. A aprovação é por hash exato de pixels e não altera o limite global de 2%.",
-    "reviewedAt": "2026-09-30",
+    "reason": "Vitrine R9 revisada nos três viewports no artefato do head fa8c9bf (run 46169471881, digest conferido). O CI seguinte (run 46173090367, artefato 15274592065, sha256:e132abf0aacf9048a5a0b1a880369f007b617de44f3005b891b62f209e748591, head 867057b) repetiu o hash desktop a9307392dc875c86754de35f8e97700ff95fbe40819dfda7a1f90925050ae36a da primeira revisão. Dois renders desktop revisados têm 158 pixels com variação cromática de até 21 e 0% acima da tolerância de 30; tablet/mobile idênticos. Somente a baseline desktop do índice foi atualizada com o PNG exato do último artefato (SHA-256 3c64addde401c4dcc35bc2a3cb76235e82c69f308b12e58f3c4c393707ea0e95). A aprovação por hash exato abaixo conserva a variante anterior. O script e o limite de 2% de regressão seguem inalterados, assim como todas as outras baselines.",
+    "reviewedAt": "2026-11-28",
     "evidence": {
-      "runId": 36662219703,
-      "artifactId": 11074887625,
-      "artifactDigest": "sha256:586ead47ab9d660274c5f120b1eea2f445ecfe20dfd84f1fee062952bac180d6",
-      "headSha": "b1708e3fa58e066c71e8a0f99560bbf061b16a64"
+      "runId": 46169471881,
+      "artifactId": 15273690741,
+      "artifactDigest": "sha256:0583dd7ae84930142366e5c182ef47c3971ce99332e6d38ed5bde836b30ab65e",
+      "headSha": "fa8c9bf50314828421b44bfeb10cd71dfde1dd50"
     },
     "viewports": {
       "desktop": {
         "width": 1280,
         "height": 900,
-        "pixelSha256": "965843ebbb7f330462d8f0a5dc3c8136e304ed7a234df0d5de8cc07669d80e43"
+        "pixelSha256": "d55db10f037be9fe496f06c67bbb768dbe5efd98d37f23330c0460e8a5d8bfbf"
       },
       "tablet": {
         "width": 834,
         "height": 1112,
-        "pixelSha256": "7b523ae2484889a7fa1ef7f6a9b8841b6d7f071c2b83462e663c97371e9899cb"
+        "pixelSha256": "444d63b0c344eab6f61bb6f41634fbaf4adaa23e61085d3b06cfd25b2db63d23"
       },
       "mobile": {
         "width": 393,
         "height": 852,
-        "pixelSha256": "443922f9081b12d711e143f800c38350bb369b419f599299992b7191916adc6f"
+        "pixelSha256": "d1c5f79b0961f068fc8a61fa4cdb9c82c87c5104be56d8131a8279749d8c2538"
       }
     }
   },

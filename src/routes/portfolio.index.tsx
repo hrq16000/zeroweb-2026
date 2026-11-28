@@ -12,6 +12,7 @@ import {
   Phone,
   ShieldCheck,
   X,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Search,
@@ -19,6 +20,8 @@ import {
   PackageCheck,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
+import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -35,11 +38,11 @@ import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions"
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
-import { searchItems } from "@/lib/portfolio-search";
+import { normalizeText, searchItems } from "@/lib/portfolio-search";
 import { isPublicPortfolioCatalogItem } from "@/lib/portfolio-public-catalog";
 import { parseCatalogSort, sortCatalog } from "@/lib/portfolio-catalog-sort";
 import { trackEvent } from "@/lib/analytics";
-import { MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
+import { MotionChoreo, MotionFirstPaint, MotionOverlay, MotionReveal, MotionScope, MotionSwap } from "@/components/motion";
 import {
   trackPortfolioSearch,
   trackPortfolioSearchClick,
@@ -61,6 +64,104 @@ import {
   organizationNode,
   serviceNode,
 } from "@/lib/portfolio-seo";
+
+const LIMIT = 24;
+const ALL = "Todas as regiões";
+
+function PortfolioRegionFilter({
+  regions,
+  value,
+  onChange,
+}: {
+  regions: string[];
+  value: string;
+  onChange: (region: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const restoreFocus = useRef(false);
+  const terms = normalizeText(query).split(" ").filter(Boolean);
+  const normalized = normalizeText(query);
+  const matches = useMemo(() => {
+    const tokens = normalized.split(" ").filter(Boolean);
+    return regions
+      .map((label) => ({ label, key: normalizeText(label) }))
+      .filter(({ key }) => tokens.every((token) => key.includes(token)))
+      .sort((a, b) =>
+        Number(b.key.startsWith(normalized)) - Number(a.key.startsWith(normalized)),
+      )
+      .map(({ label }) => label);
+  }, [regions, normalized]);
+  const showAll = terms.every((term) => normalizeText(ALL).includes(term));
+  const changeOpen = (next: boolean) => {
+    setOpen(next);
+    if (!next) setQuery("");
+  };
+  const closeAndRestoreFocus = () => {
+    restoreFocus.current = true;
+    changeOpen(false);
+    // Escape must restore focus even while the closing animation is running.
+    requestAnimationFrame(() => triggerRef.current?.focus({ preventScroll: true }));
+  };
+  const select = (region: string) => {
+    onChange(region);
+    closeAndRestoreFocus();
+  };
+
+  return (
+    <Popover open={open} onOpenChange={changeOpen}>
+      <PopoverTrigger asChild>
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-label={value === "todas" ? "Filtrar por região" : `Filtrar por região: ${value}`}
+          className="flex h-11 min-w-0 items-center justify-between gap-2 rounded-lg border border-border bg-background px-2.5 text-left text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 sm:text-sm lg:h-12 lg:w-56 lg:rounded-xl lg:px-4"
+        >
+          <span className="min-w-0 truncate">{value === "todas" ? ALL : value}</span>
+          <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent
+        align="start"
+        aria-label="Escolher região do portfólio"
+        onEscapeKeyDown={(event) => {
+          event.preventDefault();
+          closeAndRestoreFocus();
+        }}
+        onCloseAutoFocus={(event) => {
+          if (!restoreFocus.current) return;
+          event.preventDefault();
+          restoreFocus.current = false;
+          triggerRef.current?.focus({ preventScroll: true });
+        }}
+        className="w-80 max-w-[calc(100vw-2rem)] p-0 motion-reduce:animate-none">
+        <Command shouldFilter={false} label="Buscar região">
+          <CommandInput value={query} onValueChange={setQuery} aria-label="Buscar região" placeholder="Digite cidade ou bairro..." className="min-h-11" />
+          <CommandList>
+            <CommandEmpty>Nenhuma região encontrada.</CommandEmpty>
+            {showAll && (
+              <CommandItem value="todas" onSelect={() => select("todas")} className="min-h-11 gap-2">
+                <CheckCircle2 className={`h-4 w-4 shrink-0 text-primary ${value === "todas" ? "opacity-100" : "opacity-0"}`} aria-hidden="true" />
+                <span>{ALL}{value === "todas" && <span className="sr-only"> — filtro atual</span>}</span>
+              </CommandItem>
+            )}
+            {matches.slice(0, LIMIT).map((location) => (
+              <CommandItem key={location} value={location} onSelect={() => select(location)} className="min-h-11 gap-2">
+                <CheckCircle2 className={`h-4 w-4 shrink-0 text-primary ${value === location ? "opacity-100" : "opacity-0"}`} aria-hidden="true" />
+                <span className="min-w-0 whitespace-normal break-words">{location}{value === location && <span className="sr-only"> — filtro atual</span>}</span>
+              </CommandItem>
+            ))}
+          </CommandList>
+          <p aria-live="polite" className="border-t px-3 py-2 text-xs text-muted-foreground">
+            {matches.length > LIMIT ? `${LIMIT} de ${matches.length} locais. Digite para refinar.` : `${matches.length} ${matches.length === 1 ? "local disponível" : "locais disponíveis"}.`}
+          </p>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
 
 const TITLE = "Portfólio & Vitrine de Sites · Projetos Reais Criados pela 0WEB";
 const DESC =
@@ -479,7 +580,7 @@ function PortfolioPage() {
       (activeCategory === "todos" || item.category === activeCategory) &&
       (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
       (projectType === "todos" || item.projectType === projectType) &&
-      (region === "todas" || item.location === region);
+      (region === "todas" || item.location?.trim() === region);
 
     // Busca por intenção ("lanche", "pedreiro"...) percorre somente itens
     // explicitamente publicados; projetos em revisão não entram em resultados.
@@ -602,7 +703,8 @@ function PortfolioPage() {
         </div>
 
         {/* Cabeçalho editorial da galeria */}
-        <MotionChoreo surface="catalog-showcase" role="header"><section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
+        {/* Evita alterar a árvore SSR com reduced-motion; o primeiro conteúdo nunca depende de animação. */}
+        <MotionFirstPaint><MotionChoreo surface="catalog-showcase" role="header"><section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
           <div className="mx-auto max-w-[1500px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-3">
@@ -613,8 +715,7 @@ function PortfolioPage() {
                   Sites reais para conhecer, comparar e divulgar.
                 </h1>
                 <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-                  Explore negócios por segmento e região. Cada projeto reúne presença digital e
-                  divulgação própria.
+                  Explore negócios por segmento e região. Projetos demonstrativos são identificados; não equivalem ao site oficial de cada negócio.
                 </p>
               </div>
               <FunnelCTAButton
@@ -624,11 +725,11 @@ function PortfolioPage() {
             </div>
 
             <div className="mt-6 grid max-w-3xl grid-cols-3 gap-2 sm:gap-3" aria-label="Resumo do catálogo">
-              {[[String(portfolioCatalog.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["100%", "com CTA e presença"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
+              {[[String(catalogItems.length), "projetos na vitrine"], [String(new Set(catalogItems.map((item) => item.category)).size), "segmentos na vitrine"], [String(availableRegions.length), "locais na vitrine"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
             </div>
 
           </div>
-        </section></MotionChoreo>
+        </section></MotionChoreo></MotionFirstPaint>
 
         {/* Laboratório editorial: fora do catálogo de clientes, indicadores e sitemap. */}
         <section aria-labelledby="portfolio-lab-title" className="border-b border-border bg-[#11261c] px-4 py-8 text-[#e7f5e9]">
@@ -684,19 +785,7 @@ function PortfolioPage() {
                     <option value="catalog">Catálogos</option>
                     <option value="institutional">Institucionais</option>
                   </select>
-                  <select
-                    aria-label="Filtrar por região"
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
-                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:w-56 lg:rounded-xl lg:px-4"
-                  >
-                    <option value="todas">Todas as regiões</option>
-                    {availableRegions.map((location) => (
-                      <option key={location} value={location}>
-                        {location}
-                      </option>
-                    ))}
-                  </select>
+                  <PortfolioRegionFilter regions={availableRegions} value={region} onChange={setRegion} />
                   <select
                     aria-label="Ordenar projetos"
                     value={sort}
@@ -1056,7 +1145,8 @@ function PortfolioPage() {
                 </div>
               </section>
             )}
-            <MotionChoreo surface="catalog-showcase" role="silo"><section aria-labelledby="silo-title" className="space-y-6">
+            {/* Reveals verticais mantêm a mesma estrutura no SSR e no cliente. */}
+            <MotionReveal variant="up" intensity="SUBTLE"><section aria-labelledby="silo-title" className="space-y-6">
               <h2 id="silo-title" className="text-2xl sm:text-3xl font-bold text-foreground">
                 Criação de sites por segmento e bairro
               </h2>
@@ -1080,9 +1170,9 @@ function PortfolioPage() {
                   </div>
                 ))}
               </div>
-            </section></MotionChoreo>
+            </section></MotionReveal>
 
-            <MotionChoreo surface="catalog-showcase" role="places"><section className="mt-12" aria-labelledby="portfolio-por-local">
+            <MotionReveal variant="up" intensity="SUBTLE"><section className="mt-12" aria-labelledby="portfolio-por-local">
               <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
                 Projetos por cidade e bairro
               </h2>
@@ -1110,7 +1200,7 @@ function PortfolioPage() {
                   </Link>
                 </li>
               </ul>
-            </section></MotionChoreo>
+            </section></MotionReveal>
 
             <InternalLinkCluster
               links={portfolioClusterLinks({ segmentSlug: "beleza-estetica", limit: 10 })}
