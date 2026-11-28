@@ -156,7 +156,9 @@ jobs:
             fi
           fi
           # "home" é uma rota visual válida, mas não é um slug de funil de portfólio.
-          E2E_ONLY="$(printf '%s\\n' "$ONLY" | tr ',' '\\n' | grep -v '^home          echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
+          E2E_ONLY="$(printf '%s\\n' "$ONLY" | tr ',' '\\n' | grep -v '^home$' | paste -sd, -)"
+          echo "only=$E2E_ONLY" >> "$GITHUB_OUTPUT"
+          echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "admin_images_only=$ADMIN_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${E2E_ONLY:-global}"
           echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
