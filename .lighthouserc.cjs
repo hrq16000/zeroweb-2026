@@ -40,9 +40,11 @@ const DEMO_ONLY =
   LIGHTHOUSE_SCOPE === "portfolio" &&
   LIGHTHOUSE_ONLY.length > 0 &&
   LIGHTHOUSE_ONLY.every((slug) => /^[a-z0-9-]+$/.test(slug) && draftPortfolioSlugs.has(slug));
-const selectedPortfolioSlugs = LIGHTHOUSE_ONLY.filter(
-  (slug) => DEMO_ONLY || !draftPortfolioSlugs.has(slug),
-);
+const INCLUDE_SCOPED_HOME =
+  LIGHTHOUSE_SCOPE === "portfolio" && LIGHTHOUSE_ONLY.includes("home");
+const selectedPortfolioSlugs = LIGHTHOUSE_ONLY
+  .filter((slug) => slug !== "home")
+  .filter((slug) => DEMO_ONLY || !draftPortfolioSlugs.has(slug));
 
 const regionalUrls =
   LIGHTHOUSE_SCOPE === "regional" && shardIndex === 0
@@ -65,6 +67,9 @@ const serviceUrls = LIGHTHOUSE_SCOPE === "services" && shardIndex === 0
 const previewUrls = PREVIEW_ONLY && shardIndex === 0
   ? LIGHTHOUSE_ONLY.filter((name) => /^preview-[a-z0-9-]+$/.test(name))
       .map((name) => `${TARGET_URL}/portfolio-preview/${name.slice(8)}`)
+  : [];
+const scopedHomeUrls = INCLUDE_SCOPED_HOME && shardIndex === 0
+  ? [`${TARGET_URL}/`]
   : [];
 const portfolioIndexOnly = LIGHTHOUSE_ONLY.includes("portfolio-index");
 const individualPortfolioOnly = selectedPortfolioSlugs.filter((slug) => slug !== "portfolio-index");
@@ -95,7 +100,7 @@ const commonUrls =
 module.exports = {
   ci: {
     collect: {
-      url: [...previewUrls, ...regionalUrls, ...serviceUrls, ...commonUrls, ...portfolioUrls],
+      url: [...previewUrls, ...regionalUrls, ...serviceUrls, ...scopedHomeUrls, ...commonUrls, ...portfolioUrls],
       ...(USE_LOCAL_SERVER
         ? {
             // PR e push em main medem o artefato do próprio commit.

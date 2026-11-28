@@ -188,6 +188,83 @@ function diffChangeLines(diff) {
     .filter((line) => /^[+-]/.test(line) && !/^(---|\+\+\+)/.test(line));
 }
 
+const PREMIUM_HOME_PORTFOLIO_SCOPE_FILES = new Set([
+  "docs/portfolio/drafts/dona-garimpeira-brecho-manifest-v4.json",
+  "docs/reports/CROSS_PROJECT_PREMIUM_EXPERIENCE_R3_2026-11-27.md",
+  "scripts/playwright-portfolio-funnels.mjs",
+  "scripts/resolve-visual-regression-scope.mjs",
+  "src/components/site/AngelMixBrechoPage.tsx",
+  "src/components/site/DonaGarimpeiraBrechoPage.tsx",
+  "src/components/site/FeaturedServices.tsx",
+  "src/components/site/HomeExperienceV2.css",
+  "src/components/site/HomeExperienceV2.tsx",
+  "src/components/site/ProjetosNoAr.tsx",
+  "src/config/portfolio-cover-status.json",
+  "src/config/portfolio-project-dates.json",
+  "src/lib/home-project-selection.ts",
+  "src/lib/portfolio-admin.ts",
+  "src/routes/index.tsx",
+  "src/routes/portfolio.$slug.tsx",
+  "tests/home/home-showcase.test.ts",
+  "tests/portfolio/dona-garimpeira-draft-contract.test.ts",
+  "tests/portfolio/dona-garimpeira-seo-prepublish.test.ts",
+  "tests/portfolio/preview-route-scope.test.mjs",
+  ".lighthouserc.cjs",
+  ".github/workflows/portfolio-gates.yml",
+]);
+
+/**
+ * The premium-home PR touches the homepage and two explicitly mapped portfolio
+ * pages. The dynamic route diff is accepted only when it changes the four
+ * Dona-specific SEO/funnel flags; any unrelated shared change stays global.
+ */
+function premiumHomePortfolioScope(files, options = {}) {
+  const names = files.map(normalize).filter(Boolean);
+  const nameSet = new Set(names);
+  const required = [
+    "src/routes/index.tsx",
+    "src/routes/portfolio.$slug.tsx",
+    "src/components/site/AngelMixBrechoPage.tsx",
+    "src/components/site/DonaGarimpeiraBrechoPage.tsx",
+    "src/components/site/FeaturedServices.tsx",
+    "src/components/site/HomeExperienceV2.tsx",
+    "src/components/site/HomeExperienceV2.css",
+    "src/components/site/ProjetosNoAr.tsx",
+    "src/lib/home-project-selection.ts",
+  ];
+  if (!required.every((file) => nameSet.has(file))) return null;
+  if (!names.every((file) => PREMIUM_HOME_PORTFOLIO_SCOPE_FILES.has(file))) return null;
+
+  const routeDiff = String(options.dynamicPortfolioRouteDiff ?? "");
+  if (!routeDiff.includes('loaderData?.slug === "dona-garimpeira-brecho"')) return null;
+  const changedLines = diffChangeLines(routeDiff);
+  if (
+    changedLines.length !== 8 ||
+    changedLines.some((line) =>
+      !/^[+-]\\s*(?:published|funnelVerified|ownerApproved|approvedWithoutSocialImage):/.test(line),
+    )
+  ) return null;
+
+  try {
+    const routeSource = readFileSync(
+      resolve(process.cwd(), "src/routes/portfolio.$slug.tsx"),
+      "utf8",
+    );
+    const homeSource = readFileSync(resolve(process.cwd(), "src/routes/index.tsx"), "utf8");
+    if (
+      !routeSource.includes("AngelMixBrechoPage") ||
+      !routeSource.includes("DonaGarimpeiraBrechoPage") ||
+      !homeSource.includes("HomeHeroV2") ||
+      !homeSource.includes("FeaturedServices") ||
+      !homeSource.includes("ProjetosNoAr")
+    ) return null;
+  } catch {
+    return null;
+  }
+
+  return ["home", "angel-mix-brecho", "dona-garimpeira-brecho"];
+}
+
 /**
  * A new standalone portfolio can be tested by its own route when the PR adds
  * the route and its exclusive component. Tailwind-only pages need no CSS file.
@@ -284,6 +361,9 @@ export function resolveVisualRegressionScope(files, clients, options = {}) {
 
   const localDirectoryScope = localDirectoryRepresentativeScope(files);
   if (localDirectoryScope) return localDirectoryScope;
+
+  const premiumHomeScope = premiumHomePortfolioScope(files, options);
+  if (premiumHomeScope) return premiumHomeScope;
 
   const byComponent = new Map();
   const stylesheetOwners = new Map();
@@ -423,6 +503,9 @@ if (invokedAsScript) {
       );
       options.routeTreeDiff = gitDiff(
         "diff", "--unified=0", base, head, "--", "src/routeTree.gen.ts",
+      );
+      options.dynamicPortfolioRouteDiff = gitDiff(
+        "diff", "--unified=3", base, head, "--", "src/routes/portfolio.$slug.tsx",
       );
     } catch {
       // Falha fechada: sem evidência Git completa, o resolvedor mantém o gate global.

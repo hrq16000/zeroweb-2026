@@ -155,7 +155,221 @@ jobs:
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
           fi
-          echo "only=$ONLY" >> "$GITHUB_OUTPUT"
+          # "home" é uma rota visual válida, mas não é um slug de funil de portfólio.
+          E2E_ONLY="$(printf '%s\\n' "$ONLY" | tr ',' '\\n' | grep -v '^home          echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
+          echo "admin_images_only=$ADMIN_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
+          echo "escopo E2E: ${E2E_ONLY:-global}"
+          echo "exclusivo imagens-servicos=$SERVICE_IMAGES_ONLY"
+
+      - name: Pop-up único em /portfolio/$slug
+        env:
+          POPUP_CONCURRENCY: 4
+          POPUP_SLUGS: ${{ steps.e2e-scope.outputs.only }}
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
+
+      - name: Funis individuais de portfólio
+        env:
+          E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
+          # Dois contextos independentes; o gate de PR nunca grava leads externos.
+          E2E_CONCURRENCY: 2
+          E2E_DRY_RUN: "1"
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+
+      - name: Prévias de link e ícones (headless)
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
+
+      - name: Ícones do <head> (status, content-type, dimensões)
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:head-icons
+
+      - name: Indexabilidade do build ("depois") e diff
+        env:
+          INDEXABILITY_STRICT: "1"
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:indexability -- --label=after
+
+      - name: Acessibilidade (axe-core)
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:a11y
+
+      - name: Detectar impacto visual da mudança
+        id: visual-scope
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          RUN=false
+          FRAMEWORK_COMPAT=false
+          VERCEL_MCP_GUARD_ONLY=false
+          if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$BASE" "$HEAD" || true)" = "vercel-mcp-only" ]; then
+            RUN=true
+            VERCEL_MCP_GUARD_ONLY=true
+          fi
+
+          if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
+            RUN=true
+            FRAMEWORK_COMPAT=true
+          fi
+
+          # Troca isolada de OG social + cache-bust não altera o DOM visível.
+          # Esses casos continuam cobertos pelos gates de link preview/head e
+          # não devem disparar regressão visual/Lighthouse de todos os projetos.
+          SOCIAL_PREVIEW_ONLY=true
+          if [ -z "$FILES" ]; then
+            SOCIAL_PREVIEW_ONLY=false
+          fi
+          while IFS= read -r FILE; do
+            case "$FILE" in
+              public/images/*/social-og.jpg|src/config/portfolio-assets.json|src/config/portfolio-admin-seed.json) ;;
+              *) SOCIAL_PREVIEW_ONLY=false ;;
+            esac
+          done < <(printf '%s\n' "$FILES")
+
+          if [ "$SOCIAL_PREVIEW_ONLY" = true ]; then
+            CONFIG_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- src/config/portfolio-assets.json src/config/portfolio-admin-seed.json \
+              | grep -E '^[+-]' \
+              | grep -Ev '^(---|\+\+\+)' \
+              | grep -Ev '^[+-][[:space:]]*"socialVersion":' || true)"
+            if [ -n "$CONFIG_DIFF" ]; then
+              SOCIAL_PREVIEW_ONLY=false
+            fi
+          fi
+
+          # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
+          # gate completo. O registry de WhatsApp e código server-only não.
+          if [ "$SOCIAL_PREVIEW_ONLY" != true ] && printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
+            RUN=true
+          fi
+
+          # Rotas normalmente afetam UI. A rota dinâmica de portfolio é tratada
+          # à parte porque esta PR altera somente metadata do <head>.
+          if printf '%s\n' "$FILES" | grep -E '^src/routes/' | grep -Fvx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            RUN=true
+          fi
+
+          if printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:|@type.*WebPage|@id.*url|^[+-][[:space:]]*url,?$|name: (project\.seoTitle|title),?$|description: (project\.seoDescription|description),?$|^[+-][[:space:]]*description,?$|inLanguage: "pt-BR"|isPartOf:|^[+-][[:space:]]*[{}],?$' || true)"
+            if [ -n "$ROUTE_DIFF" ]; then
+              RUN=true
+            fi
+          fi
+
+          # Alteração comprovadamente exclusiva de XML não modifica a UI.
+          # A função verifica o diff inteiro; escopo incerto mantém gate global.
+          if [ "$(node scripts/classify-sitemap-only-diff.mjs "$BASE" "$HEAD" || true)" = "sitemap-only" ]; then
+            RUN=false
+          fi
+
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+
+          # Quando a mudança visual está restrita a componentes/ativos de
+          # portfolios individuais registrados, limita a comparação a esses
+          # slugs. Qualquer arquivo visual compartilhado mantém escopo global.
+          VISUAL_ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
+          if [ "$FRAMEWORK_COMPAT" = true ]; then
+            # O upgrade de framework é validado em páginas visualmente estáveis.
+            # O limiar continua 2%; mudanças visuais reais continuam usando o
+            # escopo normal por slug ou o global.
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Guard MCP: canarios representativos sem mexer no limite de 2%.
+          # O classificador somente aceita o diff exato do plugin para Vercel.
+          if [ "$VERCEL_MCP_GUARD_ONLY" = true ]; then
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Main permanece global para todo diff visual; guard MCP nao altera DOM.
+          if [ "${{ github.event_name }}" != "pull_request" ] && [ "$VERCEL_MCP_GUARD_ONLY" != true ]; then
+            VISUAL_ONLY=""
+          fi
+          echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
+          echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
+
+      - name: Capturar baseline visual Production (somente leitura)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 552 && steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          E2E_BASE_URL: https://www.0web.com.br
+          # Mídias administradas são validadas em Production antes da máscara visual; a lista também é coberta por teste estático.
+          VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_BASELINE_DIR: seo-reports/visual-production-baseline
+          VISUAL_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+          VISUAL_READ_ONLY: "1"
+        run: bun run test:visual:update
+
+      - name: Regressão visual (Production + baselines históricas)
+        if: steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
+          VISUAL_PRODUCTION_COMPARE: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 552 }}
+          VISUAL_PRODUCTION_ROUTES: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_PRODUCTION_BASELINE_DIR: seo-reports/visual-production-baseline
+          PORTFOLIO_RUNTIME_VISUAL_FIXTURES: "1"
+          VISUAL_PRODUCTION_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+        run: |
+          if [ "$VISUAL_PRODUCTION_COMPARE" = "true" ]; then
+            node scripts/ci-with-prod-preview.mjs -- bash -c '
+              VISUAL_ONLY="$VISUAL_PRODUCTION_ROUTES" VISUAL_BASELINE_DIR="$VISUAL_PRODUCTION_BASELINE_DIR" VISUAL_VIEWPORTS="$VISUAL_PRODUCTION_VIEWPORTS" bun run test:visual &&
+              VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual && node scripts/playwright-portfolio-runtime-visual-fixtures.mjs
+            '
+          else
+            node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+          fi
+
+      - name: Regressão visual (prévia isolada com noindex e disclosure)
+        if: steps.visual-scope.outputs.run == 'true' && startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
+          VERCEL_ENV: preview
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+
+      - name: Evidência visual hero Lolipa (desktop, tablet e mobile)
+        if: github.event_name == 'pull_request' && contains(steps.visual-scope.outputs.only, 'lolipa-arte-em-festas')
+        run: node scripts/ci-with-prod-preview.mjs -- node scripts/verify-lolipa-hero.mjs
+
+      - name: Relatório comparativo consolidado
+        if: always()
+        run: bun run audit:report
+
+      - name: Upload evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-gates-evidence
+          path: |
+            seo-reports/a11y-report.json
+            seo-reports/link-preview-report.json
+            seo-reports/visual
+            seo-reports/visual-production-baseline
+            seo-reports/visual-fixtures
+            seo-reports/popup-shots
+            seo-reports/source-privacy-report.md
+            seo-reports/head-icons-report.json
+            seo-reports/indexability-*.json
+            seo-reports/indexability-diff.md
+            seo-reports/ci-audit-summary.md
+            seo-reports/portfolio-funnels-e2e.json
+            seo-reports/portfolio-funnels-e2e.html
+            public/audit
+            seo-reports/client-privacy-report.json
+          if-no-files-found: ignore
+ | paste -sd, -)"
+          echo "only=$E2E_ONLY" >> "$GITHUB_OUTPUT"
           echo "services_only=$SERVICE_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "admin_images_only=$ADMIN_IMAGES_ONLY" >> "$GITHUB_OUTPUT"
           echo "escopo E2E: ${ONLY:-global}"
