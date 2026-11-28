@@ -251,13 +251,14 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
   };
 
   const conformance = evaluateConformance(base);
-  // A aprovação técnica/comercial vem dos registries, não de um override
-  // administrativo antigo. Os demais campos continuam seguindo banco > seed.
-  const holds = seed.blocking.filter(
-    (code) => code === "PORTFOLIO_TECHNICAL_PASS_REQUIRED" ||
-      code === "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+  // Os dados editáveis podem resolver pendências de mídia/conteúdo, mas não
+  // podem substituir a avaliação técnica ou autorização comercial versionada.
+  // Uma linha anterior no banco jamais reativa um projeto em hold.
+  const holds = (seed.blocking ?? []).filter((code) =>
+    code === "PORTFOLIO_TECHNICAL_PASS_REQUIRED" ||
+    code === "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
   );
-  if (holds.length > 0) {
+  if (holds.length) {
     return {
       ...base,
       published: false,
