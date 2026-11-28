@@ -1,0 +1,47 @@
+{
+  "slug": "garagem-girassol",
+  "sections": [
+    {
+      "section": "hero",
+      "asset": "public/images/garagem-girassol/fachada.webp",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "crepe",
+      "asset": "public/images/garagem-girassol/crepe-suico.webp",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "sobremesas",
+      "asset": "public/images/garagem-girassol/sobremesas.webp",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "local",
+      "asset": "public/images/garagem-girassol/placa.webp",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "capa",
+      "asset": "public/images/garagem-girassol/capa.webp",
+      "sourceType": "BRAND_COMPOSITION",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "social",
+      "asset": "public/images/garagem-girassol/social-og.jpg",
+      "sourceType": "BRAND_COMPOSITION",
+      "status": "COMPLETE"
+    }
+  ],
+  "cover": {
+    "approved": true,
+    "strategy": "HYBRID",
+    "asset": "public/images/garagem-girassol/capa.webp",
+    "notes": "Capa autoral em composição editorial com placa fotografada."
+  }
+}

@@ -29,7 +29,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1429.9099999999999,
-    "cls": 0.000053,
+    "cls": 5.3e-05,
     "tbt": 0
   },
   {
@@ -40,7 +40,7 @@
     "accessibility": 0.95,
     "bestPractices": 0.96,
     "lcp": 2144.214,
-    "cls": 0.000096,
+    "cls": 9.6e-05,
     "tbt": 0
   },
   {
@@ -51,7 +51,7 @@
     "accessibility": 0.98,
     "bestPractices": 1,
     "lcp": 3702.9790000000003,
-    "cls": 0.000049,
+    "cls": 4.9e-05,
     "tbt": 0
   },
   {
@@ -62,7 +62,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1047.5590000000002,
-    "cls": 0.000053,
+    "cls": 5.3e-05,
     "tbt": 0
   },
   {
@@ -84,7 +84,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1315.8480000000002,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -117,7 +117,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1312.218,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -150,7 +150,7 @@
     "accessibility": 0.95,
     "bestPractices": 1,
     "lcp": 1390.3784999999998,
-    "cls": 0.000049,
+    "cls": 4.9e-05,
     "tbt": 26
   },
   {
@@ -172,7 +172,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 3252.005500000001,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -205,7 +205,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1604.0339999999999,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -238,7 +238,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1626.6019999999999,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -293,7 +293,7 @@
     "accessibility": 0.98,
     "bestPractices": 1,
     "lcp": 3068.867,
-    "cls": 0.000049,
+    "cls": 4.9e-05,
     "tbt": 0
   },
   {
@@ -447,7 +447,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1408.4519999999998,
-    "cls": 0.000053,
+    "cls": 5.3e-05,
     "tbt": 0
   },
   {
@@ -458,7 +458,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1397.8719999999998,
-    "cls": 0.000053,
+    "cls": 5.3e-05,
     "tbt": 0
   },
   {
@@ -480,7 +480,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1357.255,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -491,7 +491,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1419.6410000000003,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -513,7 +513,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 3324.0724999999993,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -535,7 +535,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1444.6550000000002,
-    "cls": 0.000053,
+    "cls": 5.3e-05,
     "tbt": 0
   },
   {
@@ -546,7 +546,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 3266.6775000000007,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -557,7 +557,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1393.4955,
-    "cls": 0.000035,
+    "cls": 3.5e-05,
     "tbt": 0
   },
   {
@@ -568,7 +568,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1595.9379999999996,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -579,7 +579,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1298.822,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -590,7 +590,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1584.0360000000003,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -601,7 +601,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1325.247,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -612,7 +612,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 3320.002999999999,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -623,7 +623,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 3318.387499999999,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -634,7 +634,7 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1556.027,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 0
   },
   {
@@ -645,7 +645,295 @@
     "accessibility": 0.96,
     "bestPractices": 1,
     "lcp": 1540.0435000000002,
-    "cls": 0.000023,
+    "cls": 2.3e-05,
     "tbt": 17
+  },
+  {
+    "url": "https://0web.com.br/portfolio/angel-mix-brecho",
+    "route": "/portfolio/angel-mix-brecho",
+    "measuredAt": "2026-11-24T07:29:58.908Z",
+    "performance": 0.84,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2008.933,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/angel-mix-brecho",
+    "route": "/portfolio/angel-mix-brecho",
+    "measuredAt": "2026-11-24T07:30:29.901Z",
+    "performance": 0.8,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2617.869,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/auto-socorro-dentinho",
+    "route": "/portfolio/auto-socorro-dentinho",
+    "measuredAt": "2026-11-24T07:30:58.250Z",
+    "performance": 0.87,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1991.7150000000006,
+    "cls": 0.000345,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/auto-socorro-dentinho",
+    "route": "/portfolio/auto-socorro-dentinho",
+    "measuredAt": "2026-11-24T07:31:26.355Z",
+    "performance": 0.91,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1545.314,
+    "cls": 0.000345,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/centro-mega",
+    "route": "/portfolio/centro-mega",
+    "measuredAt": "2026-11-24T07:31:53.796Z",
+    "performance": 0.82,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 0.96,
+    "lcp": 2344.8119999999994,
+    "cls": 4e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/centro-mega",
+    "route": "/portfolio/centro-mega",
+    "measuredAt": "2026-11-24T07:33:19.366Z",
+    "performance": 0.77,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2064.5539999999996,
+    "cls": 0,
+    "tbt": 1
+  },
+  {
+    "url": "https://0web.com.br/portfolio/dlara-pizzaria",
+    "route": "/portfolio/dlara-pizzaria",
+    "measuredAt": "2026-11-24T07:34:56.778Z",
+    "performance": 0.9,
+    "seo": 1,
+    "accessibility": 1,
+    "bestPractices": 1,
+    "lcp": 1445.601,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/dlara-pizzaria",
+    "route": "/portfolio/dlara-pizzaria",
+    "measuredAt": "2026-11-24T07:35:23.797Z",
+    "performance": 0.91,
+    "seo": 1,
+    "accessibility": 1,
+    "bestPractices": 1,
+    "lcp": 1402.1545,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/embalar-embalagens",
+    "route": "/portfolio/embalar-embalagens",
+    "measuredAt": "2026-11-24T07:35:49.115Z",
+    "performance": 0.85,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1975.6340000000005,
+    "cls": 2.2e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/embalar-embalagens",
+    "route": "/portfolio/embalar-embalagens",
+    "measuredAt": "2026-11-24T07:36:23.574Z",
+    "performance": 0.87,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2007.3229999999996,
+    "cls": 2.2e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/mania-de-limpeza",
+    "route": "/portfolio/mania-de-limpeza",
+    "measuredAt": "2026-11-24T07:37:02.586Z",
+    "performance": 0.87,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1826.6595000000007,
+    "cls": 0.000173,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/mania-de-limpeza",
+    "route": "/portfolio/mania-de-limpeza",
+    "measuredAt": "2026-11-24T07:37:32.400Z",
+    "performance": 0.85,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1813.302,
+    "cls": 6.1e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/marmitaria-dom-diego",
+    "route": "/portfolio/marmitaria-dom-diego",
+    "measuredAt": "2026-11-24T07:38:00.767Z",
+    "performance": 0.79,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2622.536,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/marmitaria-dom-diego",
+    "route": "/portfolio/marmitaria-dom-diego",
+    "measuredAt": "2026-11-24T07:38:27.718Z",
+    "performance": 0.84,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2435.2924999999996,
+    "cls": 2.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/paulo-mestre-de-obras",
+    "route": "/portfolio/paulo-mestre-de-obras",
+    "measuredAt": "2026-11-24T07:38:51.784Z",
+    "performance": 0.88,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1846.0265000000004,
+    "cls": 0.000108,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/paulo-mestre-de-obras",
+    "route": "/portfolio/paulo-mestre-de-obras",
+    "measuredAt": "2026-11-24T07:39:21.285Z",
+    "performance": 0.88,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1919.2695000000003,
+    "cls": 0.000108,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/refrigeracao-maresia",
+    "route": "/portfolio/refrigeracao-maresia",
+    "measuredAt": "2026-11-24T07:39:51.337Z",
+    "performance": 0.89,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1611.5755,
+    "cls": 0.000134,
+    "tbt": 6
+  },
+  {
+    "url": "https://0web.com.br/portfolio/refrigeracao-maresia",
+    "route": "/portfolio/refrigeracao-maresia",
+    "measuredAt": "2026-11-24T07:40:18.728Z",
+    "performance": 0.89,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1605.8165000000004,
+    "cls": 0.000134,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/your-brutus-burguer",
+    "route": "/portfolio/your-brutus-burguer",
+    "measuredAt": "2026-11-24T07:40:45.900Z",
+    "performance": 0.89,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1675.7890000000002,
+    "cls": 9.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/your-brutus-burguer",
+    "route": "/portfolio/your-brutus-burguer",
+    "measuredAt": "2026-11-24T07:41:14.402Z",
+    "performance": 0.91,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1587.364,
+    "cls": 9.8e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/carecas-infotec",
+    "route": "/portfolio/carecas-infotec",
+    "measuredAt": "2026-11-24T07:46:42.704Z",
+    "performance": 0.81,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 2326.2455,
+    "cls": 0,
+    "tbt": 22
+  },
+  {
+    "url": "https://0web.com.br/portfolio/carecas-infotec",
+    "route": "/portfolio/carecas-infotec",
+    "measuredAt": "2026-11-24T07:47:24.533Z",
+    "performance": 0.9,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1429.6565,
+    "cls": 4.1e-05,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/jkl-decor",
+    "route": "/portfolio/jkl-decor",
+    "measuredAt": "2026-11-24T07:48:02.109Z",
+    "performance": 0.93,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1627.2080000000003,
+    "cls": 0,
+    "tbt": 0
+  },
+  {
+    "url": "https://0web.com.br/portfolio/jkl-decor",
+    "route": "/portfolio/jkl-decor",
+    "measuredAt": "2026-11-24T07:48:37.234Z",
+    "performance": 0.88,
+    "seo": 1,
+    "accessibility": 0.96,
+    "bestPractices": 1,
+    "lcp": 1836.9460000000004,
+    "cls": 0,
+    "tbt": 0
   }
 ]

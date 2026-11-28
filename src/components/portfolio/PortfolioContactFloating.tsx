@@ -79,7 +79,7 @@ export function PortfolioContactFloating({
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />
       <span className="hidden sm:inline">{label}</span>
-      <span className="sm:hidden">Contato</span>
+      <span className="sm:hidden">{label}</span>
     </PortfolioCTAQuiz>
   );
 }

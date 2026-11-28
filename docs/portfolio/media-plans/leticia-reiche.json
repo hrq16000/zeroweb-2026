@@ -1,6 +1,6 @@
 {
   "slug": "leticia-reiche",
-  "status": "R2_PREVIEW_ASSETS_CREATED_NOT_PUBLICATION_APPROVED",
+  "status": "R13_PREVIEW_ONLY_TECHNICALLY_COMPLETE_AWAITING_CLIENT",
   "sections": [
     {
       "section": "hero",
@@ -22,7 +22,7 @@
       "requiredMediaRole": "REAL_WORK_PHOTOS",
       "sourceType": "MISSING_MEDIA",
       "asset": null,
-      "status": "AWAITING_AUTHENTIC_MEDIA",
+      "status": "OMITTED_NO_AUTHORIZED_PHOTOS",
       "resolution": "Omit gallery until verified; no fictional procedures"
     },
     {
@@ -30,7 +30,7 @@
       "requiredMediaRole": "CAMPAIGN_GRAPHIC",
       "sourceType": "USER_FLYER_REFERENCE",
       "asset": null,
-      "status": "RIGHTS_AND_FRESHNESS_PENDING",
+      "status": "NOT_PUBLISHED_PENDING_PROFESSIONAL_CONFIRMATION",
       "resolution": "Use authorial dated announcement; avoid copying flyer image"
     },
     {
@@ -38,7 +38,7 @@
       "requiredMediaRole": "BRAND_LED_COVER",
       "sourceType": "ORIGINAL_GRAPHIC_SVG",
       "asset": "public/images/leticia-reiche/capa-card.svg",
-      "status": "CREATED_PREVIEW",
+      "status": "AUTHORIAL_PREVIEW_ONLY",
       "resolution": "Review with catalog preview before publication"
     },
     {
@@ -46,7 +46,7 @@
       "requiredMediaRole": "SOCIAL_OG_IMAGE",
       "sourceType": "ORIGINAL_GRAPHIC_SVG",
       "asset": "public/images/leticia-reiche/social-og.svg",
-      "status": "CREATED_PREVIEW",
+      "status": "AUTHORIAL_PREVIEW_ONLY",
       "resolution": "Rasterize to JPG/PNG 1200x630 for public launch"
     }
   ],
@@ -54,15 +54,15 @@
     "approved": false,
     "asset": "public/images/leticia-reiche/capa-card.svg",
     "strategy": "EDITORIAL_BRAND_LED",
-    "status": "PENDING_VISUAL_QA"
+    "status": "AUTHORIAL_PREVIEW_ONLY"
   },
   "heroMedia": {
     "asset": "public/images/leticia-reiche/editorial.svg",
     "kind": "ORIGINAL_SVG_ILLUSTRATION",
     "notDocumentary": true,
-    "status": "CREATED_PREVIEW"
+    "status": "AUTHORIAL_PREVIEW_ONLY"
   },
-  "disclosure": "Nenhuma foto de mãos/unhas é apresentada como serviço de Letícia sem prova. O flyer enviado é referência cromática, não fonte licenciada de fotografia de procedimentos. Prévia protegida por VERCEL_ENV=preview; em produção loader devolve notFound. Capa SVG e OG ainda requerem avaliação visual em runtime e versão raster final. R4 form hosted: sem disponibilidade/agenda real e sem confirmação de atendimento; coleta apenas após ação voluntária dentro do iframe.",
+  "disclosure": "Conceito autoral 0WEB, não é site oficial nem identidade aprovada. Nome, serviços e localidade aguardam confirmação. Sem fotos reais, formulário, contato ou indexação.",
   "logo": {
     "asset": "public/images/leticia-reiche/logo.svg",
     "sourceType": "ORIGINAL_EDITORIAL_MONOGRAM",
@@ -72,13 +72,14 @@
     "component": "src/components/site/LeticiaReichePreviewPage.tsx",
     "style": "src/components/site/leticia-reiche.css",
     "previewRoute": "src/routes/portfolio-preview.leticia-reiche.tsx",
-    "mode": "PREVIEW_ONLY_HOSTED_JOTFORM",
+    "mode": "PREVIEW_ONLY_NO_FORM",
     "publicRouteCreated": false,
-    "formEnabled": true,
-    "robots": "noindex,nofollow",
-    "privacy": "0WEB demonstrativo com consentimento explícito no formulário hospedado; os envios são recebidos na conta da 0WEB.",
-    "formProvider": "JOTFORM",
-    "formUrl": "https://form.jotform.com/263111116816044",
-    "formNotes": "Formulário de demonstração, incorporado à rota de preview por consentimento e carregado após clique; sem API Supabase, slot ou redirect WhatsApp. Sem publicação oficial."
+    "formEnabled": false,
+    "robots": "noindex,nofollow,noarchive,noimageindex",
+    "privacy": "Nenhum dado é coletado; formulário, iframe, WhatsApp e agenda desativados.",
+    "formProvider": null,
+    "formUrl": null,
+    "formNotes": "Formulário de demonstração, incorporado à rota de preview por consentimento e carregado após clique; sem API Supabase, slot ou redirect WhatsApp. Sem publicação oficial.",
+    "canonical": "https://0web.com.br/portfolio-preview/leticia-reiche"
   }
 }

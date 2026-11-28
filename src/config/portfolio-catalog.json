@@ -2541,11 +2541,13 @@
       "Rio de Janeiro"
     ],
     "subtitle": "Demonstração de presença digital para manicure e pedicure",
-    "location": "Belford Roxo — RJ",
-    "badge": "Portfólio demonstrativo em revisão",
+    "location": "Belford Roxo — RJ (informado no briefing; não verificado)",
+    "badge": "Demonstração restrita",
     "image": "/images/leticia-reiche/social-og.svg",
     "fallbackImage": "/images/leticia-reiche/logo.svg",
-    "metrics": "Demonstração 0WEB",
-    "summary": "Projeto demonstrativo 0WEB baseado no material fornecido para Letícia Reiche. Não é o site oficial, não confirma disponibilidade e não realiza reservas ou pagamentos."
+    "metrics": "Sem formulário · sem contato · sem indexação",
+    "summary": "Conceito visual autoral 0WEB, baseado em briefing ainda não confirmado. Não é site oficial e não recebe solicitações.",
+    "indexable": false,
+    "cityVerified": false
   }
 ]

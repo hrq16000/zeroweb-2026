@@ -1,0 +1,55 @@
+{
+  "slug": "toop-assados",
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "CONTEXTUAL_BRAND_ART",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "src/components/site/ToopAssadosPreviewPage.tsx#FirePlateIllustration",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "pratos",
+      "requiredMediaRole": "MENU_COMPARISON",
+      "sourceType": "GRAPHIC_MEDIA",
+      "asset": "src/components/site/ToopAssadosPreviewPage.tsx#dishes",
+      "status": "COMPLETE"
+    },
+    {
+      "section": "localizacao",
+      "requiredMediaRole": "WAYFINDING",
+      "sourceType": "MISSING_MEDIA",
+      "asset": null,
+      "status": "PENDING_OWNER_MEDIA",
+      "resolution": "change-layout"
+    },
+    {
+      "section": "identidade-real",
+      "requiredMediaRole": "REAL_BUSINESS_PHOTOS",
+      "sourceType": "MISSING_MEDIA",
+      "asset": null,
+      "status": "PENDING_OWNER_MEDIA",
+      "resolution": "change-layout"
+    },
+    {
+      "section": "social-preview",
+      "requiredMediaRole": "OG_MEDIA",
+      "sourceType": "BRAND_COMPOSITION",
+      "asset": "public/images/toop-assados/social-og.svg",
+      "status": "COMPLETE"
+    }
+  ],
+  "cover": {
+    "approved": false,
+    "strategy": "BRAND_LED",
+    "asset": "public/images/toop-assados/capa-card.svg",
+    "evidence": "SVG original entregue nesta branch; revisão perceptual de 390/768/1440 pendente."
+  },
+  "heroMedia": {
+    "asset": "src/components/site/ToopAssadosPreviewPage.tsx#FirePlateIllustration",
+    "kind": "GRAPHIC_MEDIA",
+    "quality": "EDITORIAL",
+    "notDocumentary": true
+  },
+  "notes": "Sem fotografias oficiais com direitos de uso confirmados. Identidade e imagens apenas ilustrativas."
+}

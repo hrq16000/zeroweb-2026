@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title">
+<title id="title">Capa conceitual Panificadora Doce Coração em Santo Antônio</title>
+<rect width="1200" height="750" fill="#FFF5DA"/>
+<path d="M785 0h415v750H710c90-214 157-480 75-750Z" fill="#F7C756"/>
+<circle cx="975" cy="337" r="236" fill="#631B2F"/>
+<circle cx="975" cy="337" r="209" fill="none" stroke="#F7C756" stroke-width="3" stroke-dasharray="5 13"/>
+<path d="M975 483C858 397 818 348 845 278c20-53 81-63 130-8 49-55 110-45 130 8 27 70-13 119-130 205Z" fill="#F7C756"/>
+<g fill="none" stroke="#631B2F" stroke-width="14" stroke-linecap="round"><path d="M921 315c21-16 42-14 54 12 12-26 33-28 54-12"/><path d="M929 375c27-18 61-18 92 0"/></g>
+<text x="66" y="95" font-family="Arial,sans-serif" font-weight="bold" font-size="25" letter-spacing="6" fill="#631B2F">SANTO ANTÔNIO  ·  SÃO JOSÉ DOS PINHAIS</text>
+<text x="65" y="273" font-family="Georgia,serif" font-weight="bold" font-size="112" letter-spacing="-7" fill="#631B2F">Panificadora</text>
+<text x="65" y="402" font-family="Georgia,serif" font-weight="bold" font-size="128" letter-spacing="-9" fill="#631B2F">Doce Coração</text>
+<path d="M65 450h590" stroke="#631B2F" stroke-width="4"/>
+<text x="67" y="502" font-family="Arial,sans-serif" font-size="27" fill="#631B2F">Pães, salgados, bolos e doces.</text>
+<text x="67" y="547" font-family="Arial,sans-serif" font-size="27" fill="#631B2F">Um endereço para encontrar no bairro.</text>
+<rect x="65" y="625" width="580" height="68" fill="#631B2F"/>
+<text x="88" y="669" font-family="Arial,sans-serif" font-weight="bold" font-size="21" letter-spacing="2" fill="#FFF5DA">APRESENTAÇÃO DEMONSTRATIVA 0WEB</text>
+</svg>

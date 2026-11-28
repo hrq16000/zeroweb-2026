@@ -48,7 +48,7 @@ export function ReuseHouseBrechoPage() {
         {
           "--rh-paper": "oklch(0.96 0.015 130)",
           "--rh-deep": "oklch(0.24 0.03 165)",
-          "--rh-moss": "oklch(0.55 0.13 150)",
+          "--rh-moss": "#216c3a",
           "--rh-line": "oklch(0.24 0.03 165 / 0.25)",
         } as React.CSSProperties
       }
@@ -84,9 +84,9 @@ export function ReuseHouseBrechoPage() {
 
         {/* índice tabular com linhas pontilhadas — leitura de ficha, não de cards */}
         <section className="pt-10 md:pt-14">
-          <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-deep)]/55">
+          <h2 className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-deep)]/75">
             Índice do garimpo
-          </p>
+          </h2>
           <MotionStagger as="div" variant="left" className="mt-5" step={110}>
             {indice.map((item) => (
               <div

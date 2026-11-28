@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { listForms, listLeads, updateLeadStage, bulkUpdateLeads } from "@/lib/dynamic-funnel-admin.functions";
 import { toast } from "sonner";
+import { leadTracking } from "@/lib/funnel-tracking";
 
 const STAGES = [
   { v: "novo", label: "Novo", cls: "bg-blue-500/15 text-blue-700 dark:text-blue-400" },
@@ -17,12 +18,17 @@ const STAGES = [
 type Stage = typeof STAGES[number]["v"];
 
 export const Route = createFileRoute("/_authenticated/app/funis/leads")({
+  validateSearch: (search: Record<string, unknown>): { formId?: string } => typeof search["formId"] === "string" ? { formId: search["formId"] } : {},
+  head: () => ({ meta: [{ title: "Leads dos funis · 0WEB" }, { name: "description", content: "Protocolos, status e histórico de leads por funil e data." }, { property: "og:title", content: "Leads dos funis · 0WEB" }, { property: "og:description", content: "Acompanhamento administrativo de solicitações." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex,nofollow" }] }),
   component: LeadsDashboard,
 });
 
 type Lead = Awaited<ReturnType<typeof listLeads>>[number];
 
 function LeadsDashboard() {
+  const { formId } = Route.useSearch();
+  const [error, setError] = useState("");
+  const [hasMore, setHasMore] = useState(false);
   const fetchForms = useServerFn(listForms);
   const fetchLeads = useServerFn(listLeads);
   const setStage = useServerFn(updateLeadStage);
@@ -32,23 +38,24 @@ function LeadsDashboard() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [filters, setFilters] = useState<{ form_id: string; status: string; stage: string; from: string; to: string; q: string }>({ form_id: "", status: "all", stage: "", from: "", to: "", q: "" });
+  const [filters, setFilters] = useState<{ form_id: string; status: string; stage: string; from: string; to: string; q: string }>({ form_id: formId ?? "", status: "all", stage: "", from: "", to: "", q: "" });
 
-  const refresh = async () => {
+  const refresh = async (append = false) => {
     setLoading(true);
     setSelected(new Set());
+    setError("");
     try {
-      const f: any = { ...filters, limit: 200 };
+      const f: any = { ...filters, limit: 200, offset: append ? rows.length : 0 };
       if (!f.form_id) delete f.form_id;
-      if (!f.from) delete f.from; if (!f.to) delete f.to; if (!f.q) delete f.q; delete f.stage;
+      if (!f.from) delete f.from; if (!f.to) delete f.to; if (!f.q) delete f.q; if (!f.stage) delete f.stage;
       let data = await fetchLeads({ data: f });
-      if (filters.stage) data = data.filter((r: any) => r.pipeline_stage === filters.stage);
-      setRows(data);
-    } catch (e) { toast.error(e instanceof Error ? e.message : "Erro"); }
+      setRows(append ? [...rows, ...data] : data);
+      setHasMore(data.length === 200);
+    } catch (e) { setError(e instanceof Error ? e.message : "Não foi possível carregar os leads."); }
     finally { setLoading(false); }
   };
 
-  useEffect(() => { void fetchForms().then(setForms); /* eslint-disable-next-line */ }, []);
+  useEffect(() => { void fetchForms().then(setForms).catch(e => setError(e.message)); /* eslint-disable-next-line */ }, []);
   useEffect(() => { void refresh(); /* eslint-disable-next-line */ }, []);
 
   const stats = useMemo(() => ({
@@ -59,14 +66,14 @@ function LeadsDashboard() {
 
   const exportCsv = () => {
     if (rows.length === 0) { toast.error("Nada para exportar"); return; }
-    const headers = ["id","data","funil","nome","email","telefone","status","cidade","estado","pais","utm_source","utm_medium","utm_campaign","page_url","referrer","respostas"];
+    const headers = ["protocolo","jotform","id","data","funil","nome","email","telefone","status","cidade","estado","pais","utm_source","utm_medium","utm_campaign","page_url","referrer","respostas"];
     const escape = (v: any) => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const lines = [headers.join(",")];
     for (const r of rows) {
       const m = (r.metadata_json ?? {}) as Record<string, any>;
       const utm = (m.utm ?? {}) as Record<string, string>;
       lines.push([
-        r.id, r.created_at, r.form?.name ?? r.form_id,
+        leadTracking(r.metadata_json).protocol ?? "", leadTracking(r.metadata_json).jotform ?? "", r.id, r.created_at, r.form?.name ?? r.form_id,
         r.contact_name ?? "", r.contact_email ?? "", r.contact_phone ?? "",
         r.whatsapp_alert_status ?? "", m.city ?? "", m.region ?? "", m.country ?? "",
         utm.utm_source ?? "", utm.utm_medium ?? "", utm.utm_campaign ?? "",
@@ -95,35 +102,37 @@ function LeadsDashboard() {
           <Link to="/app/funis/pipeline/regras" className="inline-flex items-center gap-2 text-sm rounded-md border border-border px-3 py-2 hover:bg-muted">
             Regras do pipeline
           </Link>
-          <Button variant="outline" onClick={refresh} disabled={loading}><RefreshCcw className="w-4 h-4 mr-2" /> Atualizar</Button>
+          <Button variant="outline" onClick={() => void refresh()} disabled={loading}><RefreshCcw className="w-4 h-4 mr-2" /> Atualizar</Button>
           <Button onClick={exportCsv}><Download className="w-4 h-4 mr-2" /> Exportar CSV</Button>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-4 grid sm:grid-cols-6 gap-3">
-        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" value={filters.form_id} onChange={(e) => setFilters({ ...filters, form_id: e.target.value })}>
+      <div className="border-y border-border py-4 grid sm:grid-cols-6 gap-3">
+        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" aria-label="Funil" value={filters.form_id} onChange={(e) => setFilters({ ...filters, form_id: e.target.value })}>
           <option value="">Todos os funis</option>
           {forms.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}
         </select>
-        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" value={filters.stage} onChange={(e) => setFilters({ ...filters, stage: e.target.value })}>
+        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" aria-label="Estágio" value={filters.stage} onChange={(e) => setFilters({ ...filters, stage: e.target.value })}>
           <option value="">Todos estágios</option>
           {STAGES.map((s) => <option key={s.v} value={s.v}>{s.label}</option>)}
         </select>
-        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" value={filters.status} onChange={(e) => setFilters({ ...filters, status: e.target.value })}>
+        <select className="h-9 rounded-md border border-input bg-transparent px-3 text-sm" aria-label="Status WhatsApp" value={filters.status} onChange={(e) => setFilters({ ...filters, status: e.target.value })}>
           <option value="all">Todos status WA</option>
           <option value="sent">Alerta enviado</option>
           <option value="failed">Alerta falhou</option>
           <option value="pending">Pendente</option>
           <option value="disabled">Sem alerta</option>
         </select>
-        <Input type="date" value={filters.from} onChange={(e) => setFilters({ ...filters, from: e.target.value })} />
-        <Input type="date" value={filters.to} onChange={(e) => setFilters({ ...filters, to: e.target.value })} />
-        <Input placeholder="Buscar nome/e-mail/telefone" value={filters.q} onChange={(e) => setFilters({ ...filters, q: e.target.value })} />
+        <Input aria-label="Data inicial" type="date" value={filters.from} onChange={(e) => setFilters({ ...filters, from: e.target.value })} />
+        <Input aria-label="Data final" type="date" value={filters.to} onChange={(e) => setFilters({ ...filters, to: e.target.value })} />
+        <Input aria-label="Buscar contato" placeholder="Buscar nome/e-mail/telefone" value={filters.q} onChange={(e) => setFilters({ ...filters, q: e.target.value })} />
         <div className="sm:col-span-6 flex justify-end">
-          <Button size="sm" onClick={refresh}><Filter className="w-4 h-4 mr-2" /> Aplicar</Button>
+          <Button size="sm" onClick={() => void refresh()}><Filter className="w-4 h-4 mr-2" /> Aplicar</Button>
         </div>
       </div>
 
+      {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
+      {filters.form_id && <Button asChild variant="outline"><Link to="/app/funis/$id/history" params={{ id: filters.form_id }}>Histórico e destino do funil</Link></Button>}
       {selected.size > 0 && (
         <div className="rounded-xl border border-primary/40 bg-primary/5 p-3 flex items-center gap-3 flex-wrap">
           <span className="text-sm font-medium">{selected.size} selecionado(s)</span>
@@ -142,7 +151,7 @@ function LeadsDashboard() {
         </div>
       )}
 
-      <div className="rounded-2xl border border-border bg-card overflow-hidden">
+      <div className="border border-border rounded-lg overflow-x-auto">
         {loading ? (
           <div className="p-8 text-center text-sm text-muted-foreground">Carregando…</div>
         ) : rows.length === 0 ? (
@@ -157,7 +166,9 @@ function LeadsDashboard() {
                     onChange={(e) => setSelected(e.target.checked ? new Set(rows.map((r) => r.id)) : new Set())} />
                 </th>
                 <th className="text-left p-3">Data</th>
+                <th className="text-left p-3">Protocolo</th>
                 <th className="text-left p-3">Contato</th>
+                <th className="text-left p-3">Jotform</th>
                 <th className="text-left p-3">Score</th>
                 <th className="text-left p-3">Tags</th>
                 <th className="text-left p-3">Estágio</th>
@@ -185,12 +196,14 @@ function LeadsDashboard() {
                       </td>
                       <td className="p-3 whitespace-nowrap text-xs">
                         <div>{new Date(r.created_at).toLocaleDateString("pt-BR")}</div>
-                        <div className="text-muted-foreground">{r.form?.name ?? "—"}</div>
+                        <div className="text-muted-foreground">{r.form ? <Link to="/app/funis/$id/history" params={{id:r.form_id}} className="underline">{r.form.name}</Link> : "—"}</div>
                       </td>
+                      <td className="p-3 font-mono text-xs">{leadTracking(r.metadata_json).protocol ?? r.id}</td>
                       <td className="p-3">
                         <div className="font-medium">{r.contact_name ?? "—"}</div>
                         <div className="text-xs text-muted-foreground">{r.contact_email ?? ""} {r.contact_phone ? `· ${r.contact_phone}` : ""}</div>
                       </td>
+                      <td className="p-3 text-xs max-w-48 break-words">{leadTracking(r.metadata_json).jotform ?? "—"}</td>
                       <td className="p-3">
                         <div className={`inline-flex items-center gap-1 font-bold ${intentCls}`}>
                           {intent === "hot" && <Flame className="w-3.5 h-3.5" />}
@@ -220,13 +233,13 @@ function LeadsDashboard() {
                       </td>
                       <td className="p-3"><StatusBadge status={r.whatsapp_alert_status ?? "disabled"} /></td>
                       <td className="p-3 text-right">
-                        <button className="text-xs text-primary hover:underline" onClick={() => setOpen(open === r.id ? null : r.id)}>
+                        <Button variant="ghost" size="sm" onClick={() => setOpen(open === r.id ? null : r.id)}>
                           {open === r.id ? "Fechar" : "Detalhes"}
-                        </button>
+                        </Button>
                       </td>
                     </tr>
                     {open === r.id && (
-                      <tr className="bg-muted/20"><td colSpan={8} className="p-4">
+                      <tr className="bg-muted/20"><td colSpan={10} className="p-4">
                         <div className="grid md:grid-cols-3 gap-4">
                           <div>
                             <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">Respostas</h4>
@@ -254,6 +267,7 @@ function LeadsDashboard() {
           </table>
         )}
       </div>
+      {hasMore && <Button variant="outline" disabled={loading} onClick={() => void refresh(true)}>Carregar mais leads</Button>}
     </div>
   );
 }

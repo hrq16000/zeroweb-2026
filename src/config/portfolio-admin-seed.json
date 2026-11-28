@@ -10,14 +10,18 @@
     "SEO": "PORTFOLIO_SEO_MISSING",
     "POPUP": "PORTFOLIO_POPUP_MISSING",
     "SHARE": "PORTFOLIO_SHARE_COPY_MISSING",
-    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING"
+    "COMPONENT": "PORTFOLIO_COMPONENT_MISSING",
+    "TECHNICAL": "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+    "APPROVAL": "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
   },
   "blocking": [
+    "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
     "PORTFOLIO_COMPONENT_MISSING",
     "PORTFOLIO_CTA_MISSING",
     "PORTFOLIO_LOGO_MISSING",
     "PORTFOLIO_SEO_MISSING",
-    "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+    "PORTFOLIO_SOCIAL_IMAGE_MISSING",
+    "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
   ],
   "projects": [
     {
@@ -491,6 +495,43 @@
       "blocking": []
     },
     {
+      "slug": "bpl-locacoes-de-brinquedos",
+      "clientKey": "bpl-locacoes-de-brinquedos",
+      "title": "BPL Locações de Brinquedos",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Proposta demonstrativa de presença digital para BPL Locações de Brinquedos: cama elástica e piscina de bolinhas divulgadas para São José dos Pinhais e região, sem alegar disponibilidade ou preço. Proposta demonstrativa independente da 0WEB; não é o canal oficial da empresa.",
+      "subtitle": "Cama elástica e piscina de bolinhas para festas",
+      "image": "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+      "icon": "/images/bpl-locacoes-de-brinquedos/logo.svg",
+      "socialImage": "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+      "socialVersion": "c55da662",
+      "componentFile": "src/components/site/BplLocacoesBrinquedosPage.tsx",
+      "routeFile": "src/routes/portfolio.bpl-locacoes-de-brinquedos.tsx",
+      "assetsDir": "public/images/bpl-locacoes-de-brinquedos",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/bpl-locacoes-de-brinquedos/ballpit.svg",
+        "/images/bpl-locacoes-de-brinquedos/logo.svg",
+        "/images/bpl-locacoes-de-brinquedos/social-og-og.jpg",
+        "/images/bpl-locacoes-de-brinquedos/social-og.svg",
+        "/images/bpl-locacoes-de-brinquedos/trampoline.svg"
+      ],
+      "shareCopy": "🎉 A BPL Locações de Brinquedos anuncia cama elástica e piscina de bolinhas para comemorações em São José dos Pinhais e região.\n\nA 0WEB criou uma proposta demonstrativa de apresentação digital inspirada no panfleto da marca, com catálogo visual, perguntas frequentes e consulta de informações. A página não é o site oficial da empresa; valores e disponibilidade dependem de confirmação.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/bpl-locacoes-de-brinquedos\n\n#BPLLocacoes #CamaElastica #PiscinaDeBolinhas #SaoJoseDosPinhais #0WEB",
+      "published": false,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
+    },
+    {
       "slug": "brecho-sao-francisco",
       "clientKey": "brecho-sao-francisco",
       "title": "Brechó São Francisco",
@@ -742,7 +783,7 @@
       "image": "/images/centro-mega/hero.png",
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "socialVersion": "9e729e85",
+      "socialVersion": "8ca0e369",
       "componentFile": "src/components/site/CentroMegaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/centro-mega",
@@ -753,8 +794,7 @@
       "gallery": [
         "/images/centro-mega/hero.png",
         "/images/centro-mega/logo.png",
-        "/images/centro-mega/social-og.jpg",
-        "/images/centro-mega/social.png"
+        "/images/centro-mega/social-og.jpg"
       ],
       "shareCopy": "📱✨ A Centro Mega está com loja virtual ativa!\n\nCelulares, acessórios, moda e oportunidades de outlet agora aparecem em uma vitrine organizada, com produtos com mídia, conteúdo social oficial, busca, categorias e seleção de itens.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/centro-mega\n\n🛍️ Explore a loja, monte sua seleção e consulte disponibilidade pelo próprio site.\n\n#CentroMega #LojaVirtual #Celulares #Outlet #SaoJoseDosPinhais #0WEB",
       "published": true,
@@ -1014,9 +1054,13 @@
       ],
       "shareCopy": "♻️ Conheça a Dona Garimpeira! Um brechó de roupas e acessórios femininos, masculinos e infantis na Rua Loanda, 60, Boneca do Iguaçu, São José dos Pinhais — PR. Atendimento habitual de segunda a domingo, das 9h às 18h.\n\nQuer comprar uma peça, vender roupas em bom estado ou fazer uma doação? Acesse o portfólio, escolha sua intenção e preencha o atendimento que prepara uma mensagem para o WhatsApp da loja. Disponibilidade e avaliação são confirmadas pela equipe.\n\nhttps://0web.com.br/portfolio/dona-garimpeira-brecho\n\n#DonaGarimpeira #Brecho #SaoJoseDosPinhais #ModaCircular #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "dona-lucy-salgados",
@@ -1393,6 +1437,39 @@
       "blocking": []
     },
     {
+      "slug": "espaco-marli-nails-guaratuba",
+      "clientKey": "espaco-marli-nails-guaratuba",
+      "title": "Espaço Marli Nails Designer",
+      "segment": "beleza",
+      "city": "Guaratuba",
+      "state": "PR",
+      "summary": "Proposta demonstrativa independente da 0WEB para o Espaço Marli Nails Designer, em Coroados, Guaratuba. Apresentação de localização e consulta sobre manicure e pedicure, sem inventar preços, técnicas, horários ou fotos. Proposta demonstrativa independente da 0WEB; não é o canal oficial do estabelecimento.",
+      "subtitle": "Manicure e pedicure em Coroados · proposta independente",
+      "image": "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+      "icon": "/images/espaco-marli-nails-guaratuba/logo.svg",
+      "socialImage": "/images/espaco-marli-nails-guaratuba/social-source-og.jpg",
+      "socialVersion": "7db1cdb8",
+      "componentFile": "src/components/site/EspacoMarliNailsGuaratubaPage.tsx",
+      "routeFile": "src/routes/portfolio.espaco-marli-nails-guaratuba.tsx",
+      "assetsDir": "public/images/espaco-marli-nails-guaratuba",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/espaco-marli-nails-guaratuba/capa-card.svg",
+        "/images/espaco-marli-nails-guaratuba/hero.svg",
+        "/images/espaco-marli-nails-guaratuba/logo.svg",
+        "/images/espaco-marli-nails-guaratuba/social-source-og.jpg",
+        "/images/espaco-marli-nails-guaratuba/social-source.svg"
+      ],
+      "shareCopy": "💅 A 0WEB preparou uma demonstração independente para o Espaço Marli Nails Designer, no bairro Coroados, em Guaratuba (PR).\n\nA proposta mostra como encontrar o estúdio e consultar informações sobre manicure e pedicure. Horários, valores e detalhes dos serviços precisam ser confirmados com a profissional.\n\nhttps://0web.com.br/portfolio/espaco-marli-nails-guaratuba\n\nTrata-se de uma proposta da 0WEB, não do site oficial do estabelecimento.\n\n#EspacoMarliNails #ManicureGuaratuba #Coroados #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "estrutura-nacional",
       "clientKey": "estrutura-nacional",
       "title": "EN — Estrutura Nacional",
@@ -1485,6 +1562,41 @@
         "/images/galileu-locacao-brinquedos/vitrine.png"
       ],
       "shareCopy": "🎉 A Galileu Locação de Brinquedos está com presença digital nova!\n\nTobogã inflável, cama elástica, piscina de bolinhas e outras atrações agora estão reunidos em uma página para planejar festas e eventos.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/galileu-locacao-brinquedos\n\n✨ Garanta alegria e diversão para a sua comemoração.\n\n#GalileuLocacao #BrinquedosParaFestas #TobogaInflavel #CamaElastica #SaoJoseDosPinhais #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "garagem-girassol",
+      "clientKey": "garagem-girassol",
+      "title": "Garagem & Girassol",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Garagem & Girassol em São José dos Pinhais — espetinhos, crepe suíço, morango com nata e uva com nata anunciados nas placas reais. Conheça as opções, consulte o cardápio e encontre a Rua Quirino Zagonel, 988. Apresentação demonstrativa 0WEB.",
+      "subtitle": "Espetinhos e crepe suíço em São José dos Pinhais",
+      "image": "/images/garagem-girassol/capa.webp",
+      "icon": "/images/garagem-girassol/logo.svg",
+      "socialImage": "/images/garagem-girassol/social-og.jpg",
+      "socialVersion": "1726f91d",
+      "componentFile": "src/components/site/GaragemGirassolPage.tsx",
+      "routeFile": "src/routes/portfolio.garagem-girassol.tsx",
+      "assetsDir": "public/images/garagem-girassol",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/garagem-girassol/capa.webp",
+        "/images/garagem-girassol/crepe-suico.webp",
+        "/images/garagem-girassol/fachada.webp",
+        "/images/garagem-girassol/logo.svg",
+        "/images/garagem-girassol/placa.webp",
+        "/images/garagem-girassol/sobremesas.webp",
+        "/images/garagem-girassol/social-og.jpg"
+      ],
+      "shareCopy": "🌻 Conheça a Garagem & Girassol em São José dos Pinhais/PR.\n\nEspetinhos, crepe suíço, morango e uva com nata. Confira as fotos reais da sinalização, endereço e consulta de opções. Rua Quirino Zagonel, 988.\n\nhttps://0web.com.br/portfolio/garagem-girassol\n\n#GaragemGirassol #Espetinhos #CrepeSuico #SaoJoseDosPinhais #0WEB",
       "published": true,
       "status": "COMPLETE",
       "issues": [],
@@ -1678,6 +1790,49 @@
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
+    },
+    {
+      "slug": "infinito-spa",
+      "clientKey": "infinito-spa",
+      "title": "Infinito Spa",
+      "segment": "beleza",
+      "city": "Santiago",
+      "state": "Chile",
+      "summary": "Infinito Spa ofrece masajes y masoterapia en Santiago, Chile. Consulta directamente con Roze las modalidades, duración y disponibilidad antes de coordinar tu sesión.",
+      "subtitle": "Masajes y masoterapia · Santiago, Chile",
+      "image": "/images/infinito-spa/capa-card.svg",
+      "icon": "/images/infinito-spa/logo.svg",
+      "socialImage": "/images/infinito-spa/social-og.jpg",
+      "socialVersion": "a09a457e",
+      "componentFile": "src/components/site/InfinitoSpaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/infinito-spa",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/infinito-spa/capa-card.jpg",
+        "/images/infinito-spa/capa-card.svg",
+        "/images/infinito-spa/capa.svg",
+        "/images/infinito-spa/detail.svg",
+        "/images/infinito-spa/hero-orbit.svg",
+        "/images/infinito-spa/logo.svg",
+        "/images/infinito-spa/mark.svg",
+        "/images/infinito-spa/social-og.jpg",
+        "/images/infinito-spa/social.svg"
+      ],
+      "shareCopy": "🌿 Infinito Spa ofrece masajes y masoterapia en Santiago, Chile.\n\nConsulta con Roze las modalidades, duración y disponibilidad para coordinar una sesión con atención previa.\n\n🌐 Conoce Infinito Spa:\nhttps://0web.com.br/portfolio/infinito-spa\n\n#InfinitoSpa #MasajesSantiago #Masoterapia #Bienestar #0WEB",
+      "published": false,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+      ]
     },
     {
       "slug": "jc-revestimentos",
@@ -2401,6 +2556,40 @@
       "blocking": []
     },
     {
+      "slug": "panificadora-doce-coracao-santo-antonio",
+      "clientKey": "panificadora-doce-coracao-santo-antonio",
+      "title": "Panificadora Doce Coração",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Conceito de site demonstrativo 0WEB para a Panificadora Doce Coração do Santo Antônio, em São José dos Pinhais. Conteúdo original sobre pães, salgados, bolos e doces, endereço verificado, FAQ, ilustrações editoriais e dados estruturados. Sem vínculo oficial confirmado.",
+      "subtitle": "Uma padaria do Santo Antônio apresentada com identidade editorial e SEO local",
+      "image": "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+      "icon": "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+      "socialImage": "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
+      "socialVersion": "03daa28a",
+      "componentFile": "src/components/site/PanificadoraDoceCoracaoSantoAntonioPage.tsx",
+      "routeFile": "src/routes/portfolio.panificadora-doce-coracao-santo-antonio.tsx",
+      "assetsDir": "public/images/panificadora-doce-coracao-santo-antonio",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/panificadora-doce-coracao-santo-antonio/capa.png",
+        "/images/panificadora-doce-coracao-santo-antonio/capa.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/hero-ilustracao.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/logo.svg",
+        "/images/panificadora-doce-coracao-santo-antonio/social-og-og.jpg",
+        "/images/panificadora-doce-coracao-santo-antonio/social-og.png"
+      ],
+      "shareCopy": "🥖 Uma padaria do Santo Antônio também merece uma presença digital feita com carinho.\n\nA 0WEB desenvolveu este portfólio demonstrativo da Panificadora Doce Coração com identidade gráfica original, categorias de pães, bolos, salgados e doces, informações públicas, localização em São José dos Pinhais e caminhos de consulta. O projeto é independente; não é o site oficial da padaria.\n\n🌐 Veja o conceito de criação de sites pela 0WEB/WebRealce:\nhttps://0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio\n\n#DoceCoracao #PadariaSantoAntonio #SaoJoseDosPinhais #CriacaoDeSites #WebRealce #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "papelemi-personalizados",
       "clientKey": "papelemi-personalizados",
       "title": "PapeLemi Papelaria Personalizada",
@@ -2918,6 +3107,37 @@
       "blocking": []
     },
     {
+      "slug": "salgados-da-fran",
+      "clientKey": "salgados-da-fran",
+      "title": "Salgados da Fran",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Demonstração de presença digital para Salgados da Fran, com informações do cartão público, referência local e formulário de consulta; não é canal oficial.",
+      "subtitle": "Salgados por encomenda em São José dos Pinhais",
+      "image": "/images/salgados-da-fran/social-og.svg",
+      "icon": "/images/salgados-da-fran/marca.svg",
+      "socialImage": "/images/salgados-da-fran/social-og-og.jpg",
+      "socialVersion": "386d1b3b",
+      "componentFile": "src/components/site/SalgadosDaFranPage.tsx",
+      "routeFile": "src/routes/portfolio.salgados-da-fran.tsx",
+      "assetsDir": "public/images/salgados-da-fran",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/salgados-da-fran/marca.svg",
+        "/images/salgados-da-fran/social-og-og.jpg",
+        "/images/salgados-da-fran/social-og.svg"
+      ],
+      "shareCopy": "🥟 Salgados da Fran, em São José dos Pinhais — PR: conheça a proposta demonstrativa de presença digital criada pela 0WEB a partir da identidade do cartão de encomendas da marca.\n\nSaiba como consultar opções de salgados, informar data, ocasião e quantidade e solicitar condições atuais. Cardápio, preços, entrega e disponibilidade não foram confirmados; esta não é uma página oficial do estabelecimento.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/salgados-da-fran\n\n#SalgadosDaFran #SalgadosPorEncomenda #SaoJoseDosPinhais #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "santos-montador-de-moveis",
       "clientKey": "santos-montador-de-moveis",
       "title": "Santos Montador de Móveis",
@@ -3179,6 +3399,39 @@
       ],
       "shareCopy": "🎨 A Ton & Cor ganhou uma presença digital para apresentar seus serviços com clareza.\n\nPintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos para cuidar do seu espaço.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/ton-e-cor\n\n🛠️ Veja os serviços e organize as informações para solicitar um orçamento.\n\nProjeto digital desenvolvido pela 0WEB.\n\n#TonECor #PinturaResidencial #PequenasReformas #Alvenaria #Hidraulica #Reparos #0WEB",
       "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "toop-assados",
+      "clientKey": "toop-assados",
+      "title": "Toop Assados",
+      "segment": "restaurantes",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Estudo de presença digital para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba. Proposta independente da 0WEB, sem encomendas oficiais. Proposta demonstrativa independente da 0WEB; não é o canal oficial do restaurante.",
+      "subtitle": "Costela na brasa e frango recheado — estudo demonstrativo",
+      "image": "/images/toop-assados/capa-card.svg",
+      "icon": "/images/toop-assados/icon.svg",
+      "socialImage": "/images/toop-assados/social-og-og.jpg",
+      "socialVersion": "6bb9a8f8",
+      "componentFile": "src/components/site/ToopAssadosPreviewPage.tsx",
+      "routeFile": "src/routes/portfolio.toop-assados.tsx",
+      "assetsDir": "public/images/toop-assados",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/toop-assados/capa-card.svg",
+        "/images/toop-assados/icon.svg",
+        "/images/toop-assados/logo.svg",
+        "/images/toop-assados/social-og-og.jpg",
+        "/images/toop-assados/social-og.svg"
+      ],
+      "shareCopy": "🍖 A 0WEB preparou uma demonstração independente para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba.\n\nO projeto mostra uma nova experiência digital, com apresentação dos pratos e formulário de simulação. Não é o site oficial do estabelecimento; preços e pedidos precisam de confirmação pela empresa.\n\nhttps://0web.com.br/portfolio/toop-assados\n\n#ToopAssados #AssadosCuritiba #PortfolioDemonstrativo #0WEB",
+      "published": false,
       "status": "COMPLETE",
       "issues": [],
       "blocking": []

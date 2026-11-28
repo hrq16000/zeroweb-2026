@@ -151,6 +151,19 @@ describe("escopo seguro da regressão visual", () => {
     )).toEqual([]);
   });
 
+  test("mídias administradas usam baseline Production com validação de carregamento", () => {
+    const workflow = readFileSync(".github/workflows/portfolio-gates.yml", "utf8");
+    const capture = workflow.split("Capturar baseline visual Production")[1]?.split("Regressão visual (Production")[0] ?? "";
+    const routesLine = workflow.match(/VISUAL_PRODUCTION_ROUTES: ([^\r\n]+)/)?.[1] ?? "";
+    const productionRoutes = routesLine.split(",").map((slug) => slug.trim());
+    for (const slug of ["refrigeracao-maresia", "studio-de-cilios", "lk-alvenaria", "paulo-mestre-de-obras"]) {
+      expect(capture).toContain(slug);
+      expect(productionRoutes).toContain(slug);
+    }
+    expect(capture).toContain('VISUAL_READ_ONLY: "1"');
+    expect(workflow).toContain('VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual');
+  });
+
   test("mantém escopo global para componente compartilhado", () => {
     expect(
       resolveVisualRegressionScope(
@@ -181,7 +194,9 @@ describe("escopo seguro da regressão visual", () => {
     }
     expect(generator).toContain("for (const width of [480, upperWidth])");
     expect(generator).toContain('["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName) ? 640 : 800');
-    expect(page).toContain("const upperWidth = imageName");
+    expect(page).toContain("const upperWidth =");
+    expect(page).toContain('imageName && ["acao-semaforo", "entrega-residencial", "bandeira-centro"].includes(imageName)');
+    expect(page).toContain("${imageName}-${upperWidth}.webp ${upperWidth}w");
     expect(generator).toContain("converted[0] >= converted[1]");
     expect(page).toContain("srcSet={srcSet}");
     expect(page).toContain("detail: { src, alt }");
@@ -199,4 +214,88 @@ describe("escopo seguro da regressão visual", () => {
     const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
     expect(size).toBeLessThan(40_000);
   });
+
+  test("nova página autoral com rota e registry estritamente aditivos usa o próprio slug", () => {
+    const slug = "salgados-da-fran";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const component = "src/components/site/SalgadosDaFranPage.tsx";
+    const registrationFiles = [
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/config/portfolio-clients.json",
+      "src/config/portfolio-catalog.json",
+      "public/images/salgados-da-fran/marca.svg",
+      "tests/portfolio/visual-regression-scope.test.ts",
+      "scripts/resolve-visual-regression-scope.mjs",
+    ];
+    const registrationClients = [
+      ...clients,
+      { slug, componentFile: component },
+    ];
+    const options = {
+      addedFiles: new Set([route, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage").then((m) => ({ default: m.SalgadosDaFranPage }))),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "+  '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope(registrationFiles, registrationClients, options)).toEqual([slug]);
+  });
+
+  test("registro não aditivo ou alteração de componente compartilhado mantém gate global", () => {
+    const slug = "salgados-da-fran";
+    const route = "src/routes/portfolio." + slug + ".tsx";
+    const component = "src/components/site/SalgadosDaFranPage.tsx";
+    const registrationClients = [...clients, { slug, componentFile: component }];
+    const options = {
+      addedFiles: new Set([route, component]),
+      compositionRegistryDiff: [
+        "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+        '-  "cliente-existente": lazy(() => import("@/components/site/ExistingPage")),',
+        '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage")),',
+        "",
+      ].join("\n"),
+      routeTreeDiff: [
+        "diff --git a/src/routeTree.gen.ts b/src/routeTree.gen.ts",
+        "+  '/portfolio/salgados-da-fran': typeof PortfolioSalgadosDaFranRoute",
+        "",
+      ].join("\n"),
+    };
+    expect(resolveVisualRegressionScope([
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+    ], registrationClients, options)).toEqual([]);
+    options.compositionRegistryDiff = [
+      "diff --git a/src/components/portfolio/composition/registry.ts b/src/components/portfolio/composition/registry.ts",
+      '+  "salgados-da-fran": lazy(() => import("@/components/site/SalgadosDaFranPage")),',
+      "",
+    ].join("\n");
+    expect(resolveVisualRegressionScope([
+      route,
+      component,
+      "src/components/portfolio/composition/registry.ts",
+      "src/routeTree.gen.ts",
+      "src/components/portfolio/PortfolioStandardShell.tsx",
+    ], registrationClients, options)).toEqual([]);
+  });
+
+  test("CLI resolve os diffs reais do PR e falha fechado sem evidência", () => {
+    const resolver = readFileSync("scripts/resolve-visual-regression-scope.mjs", "utf8");
+    expect(resolver).toContain("process.env.PR_BASE_SHA");
+    expect(resolver).toContain("process.env.PR_HEAD_SHA");
+    expect(resolver).toContain('"--diff-filter=A"');
+    expect(resolver).toContain('"src/components/portfolio/composition/registry.ts"');
+    expect(resolver).toContain('"src/routeTree.gen.ts"');
+  });
+
 });

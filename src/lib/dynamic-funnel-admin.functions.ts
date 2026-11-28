@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { nextFilterDay } from "./funnel-tracking";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 // ------- helpers -------
@@ -250,8 +251,10 @@ export const deleteCondition = createServerFn({ method: "POST" })
 const leadsFilterSchema = z.object({
   form_id: z.string().uuid().optional(),
   status: z.enum(["all","sent","failed","pending","disabled"]).default("all"),
-  from: z.string().max(40).optional(),
-  to: z.string().max(40).optional(),
+  from: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  to: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  offset: z.number().int().min(0).default(0),
+  stage: z.enum(["novo","contatado","qualificado","perdido","ganho"]).optional(),
   q: z.string().max(120).optional(),
   limit: z.number().int().min(1).max(500).default(100),
 });
@@ -264,13 +267,14 @@ export const listLeads = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     let q = supabaseAdmin.from("dynamic_form_leads")
       .select("id, form_id, answers_json, metadata_json, contact_name, contact_email, contact_phone, whatsapp_alert_status, whatsapp_user_url, score, score_breakdown, tags, intent_level, pipeline_stage, assigned_to, created_at")
-      .order("created_at", { ascending: false }).limit(data.limit);
+      .order("created_at", { ascending: false }).range(data.offset, data.offset + data.limit - 1);
     if (data.form_id) q = q.eq("form_id", data.form_id);
     if (data.status !== "all") q = q.eq("whatsapp_alert_status", data.status);
+    if (data.stage) q = q.eq("pipeline_stage", data.stage);
     if (data.from) q = q.gte("created_at", new Date(data.from).toISOString());
-    if (data.to) q = q.lte("created_at", new Date(data.to).toISOString());
+    if (data.to) q = q.lt("created_at", nextFilterDay(data.to));
     if (data.q) {
-      const term = `%${data.q}%`;
+      const term = `%${data.q.replace(/[,%()]/g, " ")}%`;
       q = q.or(`contact_name.ilike.${term},contact_email.ilike.${term},contact_phone.ilike.${term}`);
     }
     const { data: rows, error } = await q;

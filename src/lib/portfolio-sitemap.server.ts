@@ -26,6 +26,27 @@ type CatalogItem = {
 
 const APPROVED_STATUSES = new Set(["approved", "published"]);
 
+/**
+ * Igualar a inclusão no sitemap à regra indexable do runtime:
+ * published=true não basta para lifecycle draft/imported/archived.
+ * Estados nulos/legados seguem o fallback do runtime (published=true).
+ */
+export type PortfolioSitemapSettingsRow = PortfolioSitemapOverride & {
+  lifecycle_status?: string | null;
+};
+
+export function normalizePortfolioSitemapOverride(
+  row: PortfolioSitemapSettingsRow,
+): PortfolioSitemapOverride {
+  const lifecycle = String(row.lifecycle_status ?? "").trim();
+  return {
+    slug: row.slug,
+    published: Boolean(row.published) && !["draft", "imported", "archived"].includes(lifecycle),
+    updated_at: row.updated_at,
+    project_kind: row.project_kind,
+  };
+}
+
 /** Projetos autorais indexáveis da 0WEB que NÃO se passam por clientes oficiais.
  * Separados do catálogo comercial para preservar governança de clientes.
  */
@@ -95,12 +116,7 @@ export async function getPublishedPortfolioOverrides(): Promise<PortfolioSitemap
       .select("slug,published,updated_at,project_kind,lifecycle_status")
       .limit(1000);
     if (error) throw new Error(error.message);
-    return ((data ?? []) as Array<PortfolioSitemapOverride & { lifecycle_status?: string }>).map(
-      (row) => ({
-        ...row,
-        published: Boolean(row.published) && row.lifecycle_status !== "archived",
-      }),
-    );
+    return ((data ?? []) as PortfolioSitemapSettingsRow[]).map(normalizePortfolioSitemapOverride);
   } catch (error) {
     console.warn("[portfolio-sitemap] runtime overrides unavailable; using catalog", error);
     return [];

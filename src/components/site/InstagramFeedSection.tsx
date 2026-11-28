@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ExternalLink, Instagram } from "lucide-react";
 
 const INSTAGRAM_USERNAME = "renatabeautystudiio";
@@ -12,6 +13,7 @@ export function InstagramFeedSection({
   variant = "renata",
 }: InstagramFeedSectionProps) {
   const editorial = variant === "editorial";
+  const [feedLoaded, setFeedLoaded] = useState(false);
 
   return (
     <section
@@ -51,15 +53,34 @@ export function InstagramFeedSection({
               : "border-pink-500/30 shadow-pink-950/40"
           }`}
         >
-          <iframe
-            src={INSTAGRAM_EMBED_URL}
-            title="Publicações recentes do Instagram da Renata Beauty Studio"
-            className="block h-[640px] w-full sm:h-[720px]"
-            loading="lazy"
-            scrolling="no"
-            referrerPolicy="strict-origin-when-cross-origin"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
-          />
+          {feedLoaded ? (
+            <iframe
+              id={`instagram-feed-embed-${variant}`}
+              src={INSTAGRAM_EMBED_URL}
+              title="Publicações recentes do Instagram da Renata Beauty Studio"
+              className="block h-[640px] w-full sm:h-[720px]"
+              loading="lazy"
+              scrolling="no"
+              referrerPolicy="strict-origin-when-cross-origin"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+            />
+          ) : (
+            <div className="grid h-[640px] place-items-center px-6 text-center text-neutral-900 sm:h-[720px]">
+              <div className="max-w-sm">
+                <Instagram className={`mx-auto h-8 w-8 ${editorial ? "text-[#D4AF37]" : "text-pink-500"}`} aria-hidden="true" />
+                <p className="mt-4 text-sm leading-relaxed">
+                  O feed é carregado somente quando você solicitar, sem abrir o Instagram em segundo plano.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFeedLoaded(true)}
+                  className={`mt-5 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold text-white ${editorial ? "bg-[#171315] hover:bg-black" : "bg-pink-600 hover:bg-pink-700"}`}
+                >
+                  Carregar publicações
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="mt-6 text-center">

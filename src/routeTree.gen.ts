@@ -132,8 +132,8 @@ import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
 import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfolio-preview.agropet-filt'
-import { Route as PortfolioPreviewLeticiaReicheRouteImport } from './routes/portfolio-preview.leticia-reiche'
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
+import { Route as PortfolioPreviewLeticiaReicheRouteImport } from './routes/portfolio-preview.leticia-reiche'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
@@ -142,7 +142,6 @@ import { Route as PortfolioCantinhoDaTiaMariRouteImport } from './routes/portfol
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
 import { Route as PortfolioEspacoMarliNailsGuaratubaRouteImport } from './routes/portfolio.espaco-marli-nails-guaratuba'
 import { Route as PortfolioGaragemGirassolRouteImport } from './routes/portfolio.garagem-girassol'
-import { Route as PortfolioLeticiaReicheRouteImport } from './routes/portfolio.leticia-reiche'
 import { Route as PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport } from './routes/portfolio.panificadora-doce-coracao-santo-antonio'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
@@ -914,13 +913,8 @@ const PortfolioPreviewAgropetFiltRoute =
     path: '/portfolio-preview/agropet-filt',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioPreviewLeticiaReicheRoute =
-  PortfolioPreviewLeticiaReicheRouteImport.update({
-    id: '/portfolio-preview/leticia-reiche',
-    path: '/portfolio-preview/leticia-reiche',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const PortfolioPreviewDonaGarimpeiraBrechoRoute =
+const PortfolioPreviewLeticiaReicheRoute =
   PortfolioPreviewDonaGarimpeiraBrechoRouteImport.update({
     id: '/portfolio-preview/dona-garimpeira-brecho',
     path: '/portfolio-preview/dona-garimpeira-brecho',
@@ -970,11 +964,6 @@ const PortfolioGaragemGirassolRoute =
     path: '/portfolio/garagem-girassol',
     getParentRoute: () => rootRouteImport,
   } as any)
-const PortfolioLeticiaReicheRoute = PortfolioLeticiaReicheRouteImport.update({
-  id: '/portfolio/leticia-reiche',
-  path: '/portfolio/leticia-reiche',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PortfolioPanificadoraDoceCoracaoSantoAntonioRoute =
   PortfolioPanificadoraDoceCoracaoSantoAntonioRouteImport.update({
     id: '/portfolio/panificadora-doce-coracao-santo-antonio',
@@ -1890,8 +1879,8 @@ export interface FileRoutesByFullPath {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
-  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -1899,7 +1888,6 @@ export interface FileRoutesByFullPath {
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
-  '/portfolio/leticia-reiche': typeof PortfolioLeticiaReicheRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2163,8 +2151,8 @@ export interface FileRoutesByTo {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
-  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -2172,7 +2160,6 @@ export interface FileRoutesByTo {
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
-  '/portfolio/leticia-reiche': typeof PortfolioLeticiaReicheRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -2440,8 +2427,8 @@ export interface FileRoutesById {
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
-  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -2449,7 +2436,6 @@ export interface FileRoutesById {
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/espaco-marli-nails-guaratuba': typeof PortfolioEspacoMarliNailsGuaratubaRoute
   '/portfolio/garagem-girassol': typeof PortfolioGaragemGirassolRoute
-  '/portfolio/leticia-reiche': typeof PortfolioLeticiaReicheRoute
   '/portfolio/panificadora-doce-coracao-santo-antonio': typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
@@ -3534,8 +3520,8 @@ export interface RootRouteChildren {
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
   PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
-  PortfolioPreviewLeticiaReicheRoute: typeof PortfolioPreviewLeticiaReicheRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  PortfolioPreviewLeticiaReicheRoute: typeof PortfolioPreviewLeticiaReicheRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioBplLocacoesDeBrinquedosRoute: typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -3543,7 +3529,6 @@ export interface RootRouteChildren {
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioEspacoMarliNailsGuaratubaRoute: typeof PortfolioEspacoMarliNailsGuaratubaRoute
   PortfolioGaragemGirassolRoute: typeof PortfolioGaragemGirassolRoute
-  PortfolioLeticiaReicheRoute: typeof PortfolioLeticiaReicheRoute
   PortfolioPanificadoraDoceCoracaoSantoAntonioRoute: typeof PortfolioPanificadoraDoceCoracaoSantoAntonioRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
@@ -4457,18 +4442,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioPreviewAgropetFiltRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio-preview/leticia-reiche': {
-      id: '/portfolio-preview/leticia-reiche'
-      path: '/portfolio-preview/leticia-reiche'
-      fullPath: '/portfolio-preview/leticia-reiche'
-      preLoaderRoute: typeof PortfolioPreviewLeticiaReicheRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/portfolio-preview/dona-garimpeira-brecho': {
       id: '/portfolio-preview/dona-garimpeira-brecho'
       path: '/portfolio-preview/dona-garimpeira-brecho'
       fullPath: '/portfolio-preview/dona-garimpeira-brecho'
       preLoaderRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-preview/leticia-reiche': {
+      id: '/portfolio-preview/leticia-reiche'
+      path: '/portfolio-preview/leticia-reiche'
+      fullPath: '/portfolio-preview/leticia-reiche'
+      preLoaderRoute: typeof PortfolioPreviewLeticiaReicheRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
@@ -4525,13 +4510,6 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/garagem-girassol'
       fullPath: '/portfolio/garagem-girassol'
       preLoaderRoute: typeof PortfolioGaragemGirassolRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio/leticia-reiche': {
-      id: '/portfolio/leticia-reiche'
-      path: '/portfolio/leticia-reiche'
-      fullPath: '/portfolio/leticia-reiche'
-      preLoaderRoute: typeof PortfolioLeticiaReicheRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/panificadora-doce-coracao-santo-antonio': {
@@ -5998,9 +5976,10 @@ const rootRouteChildren: RootRouteChildren = {
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
   PortfolioPreviewAgropetFiltRoute: PortfolioPreviewAgropetFiltRoute,
-  PortfolioPreviewLeticiaReicheRoute: PortfolioPreviewLeticiaReicheRoute,
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
+  PortfolioPreviewLeticiaReicheRoute:
+    PortfolioPreviewLeticiaReicheRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioBplLocacoesDeBrinquedosRoute: PortfolioBplLocacoesDeBrinquedosRoute,
@@ -6009,7 +5988,6 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioEspacoMarliNailsGuaratubaRoute:
     PortfolioEspacoMarliNailsGuaratubaRoute,
   PortfolioGaragemGirassolRoute: PortfolioGaragemGirassolRoute,
-  PortfolioLeticiaReicheRoute: PortfolioLeticiaReicheRoute,
   PortfolioPanificadoraDoceCoracaoSantoAntonioRoute:
     PortfolioPanificadoraDoceCoracaoSantoAntonioRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,

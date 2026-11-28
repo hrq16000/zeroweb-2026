@@ -4,6 +4,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { recordSensitiveAudit } from "@/lib/sensitive-audit.functions";
+import { persistCrmHistoryAtomic } from "@/lib/crm-history-atomic";
 
 const STATUSES = [
   "novo",
@@ -25,6 +26,8 @@ const STATUS_ALIAS: Record<string, CrmStatus> = {
   qualified: "qualificado",
   won: "fechado",
   lost: "perdido",
+  // Etapa usada pela central da Dona Garimpeira; no CRM geral segue em atendimento.
+  respondido: "em_atendimento",
 };
 function normStatus(s: string | null | undefined): CrmStatus {
   if (!s) return "novo";
@@ -196,29 +199,21 @@ export const addLeadHistory = createServerFn({ method: "POST" })
       .object({
         lead_id: z.string().uuid(),
         kind: z.enum(["note", "contact", "action"]),
-        note: z.string().min(1).max(5000),
+        note: z.string().trim().min(1).max(5000),
         actor: z.string().max(120).optional(),
       })
       .parse(i),
   )
   .handler(async ({ data, context }) => {
     const userId = (context as { userId: string }).userId;
-    await assertAdmin(userId);
+    const { requireAdmin } = await import("@/lib/admin-access.server");
+    await requireAdmin(context.supabase, userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const [{ error: e1 }, { error: e2 }] = await Promise.all([
-      supabaseAdmin.from("lead_history").insert({
-        lead_id: data.lead_id,
-        kind: data.kind,
-        note: data.note,
-        actor: data.actor ?? "admin",
-      }),
-      supabaseAdmin
-        .from("lead_submissions")
-        .update({ last_interaction: new Date().toISOString() })
-        .eq("id", data.lead_id),
-    ]);
-    if (e1) throw new Error(e1.message);
-    if (e2) throw new Error(e2.message);
+    // Narrow the very large generated client type without changing its runtime
+    // behavior; PostgreSQL accepts an actual null portal, not a fake string.
+    const reader = context.supabase as unknown as Parameters<typeof persistCrmHistoryAtomic>[0];
+    const writer = supabaseAdmin as unknown as Parameters<typeof persistCrmHistoryAtomic>[1];
+    await persistCrmHistoryAtomic(reader, writer, { ...data, actor: userId });
     await recordSensitiveAudit({
       actorId: userId,
       action: "sensitive.write",

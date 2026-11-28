@@ -1,0 +1,39 @@
+/* Critical first paint: keep hero and page content visible before motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-theme-dyz #inicio,
+  .portfolio-theme-renata #inicio,
+  .portfolio-theme-rbeauty #inicio,
+  .portfolio-theme-prototype #inicio,
+  .portfolio-theme-emporio #inicio,
+  .portfolio-theme-paraiso #inicio,
+  .portfolio-theme-rj #inicio {
+    animation: none;
+  }
+}
+
+.portfolio-theme-dyz main,
+.portfolio-theme-rbeauty main,
+.portfolio-theme-angel-mix main,
+.portfolio-theme-maximos main,
+[data-blueprint="moreira-auto-mecanica"] main {
+  animation: none;
+}
+
+/* These routes had a measured LCP render delay dominated by the global
+   page-reveal animation. Keep the shared motion system intact, but let the
+   first meaningful paint happen immediately on the affected portfolios. */
+.portfolio-standard-shell[data-portfolio-slug="marmitaria-dom-diego"] main,
+.portfolio-standard-shell[data-portfolio-slug="toquinho-de-gente-brecho"] main,
+[data-portfolio-slug="papelemi-personalizados"] main,
+.portfolio-standard-shell[data-portfolio-slug="autoescola-aptos"] main,
+.portfolio-standard-shell[data-portfolio-slug="manu-pasteis"] main,
+.portfolio-standard-shell[data-portfolio-slug="thays-camilla"] main,
+.portfolio-standard-shell[data-portfolio-slug="jc-revestimentos"] main,
+.portfolio-standard-shell[data-portfolio-slug="beto-pasteis"] main {
+  animation: none;
+}
+[data-portfolio-slug="arildo-madeiras"],
+[data-portfolio-slug="embalar-embalagens"] main,
+[data-portfolio-slug="your-brutus-burguer"] main {
+  animation: none;
+}

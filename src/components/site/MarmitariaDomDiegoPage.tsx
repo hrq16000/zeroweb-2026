@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import {
+import { MotionFirstPaint,
   MotionImageReveal,
   MotionReveal,
   MotionScope,
@@ -103,7 +103,7 @@ export function MarmitariaDomDiegoPage() {
       <MotionScope intensity="SUBTLE">
       <main>
         {/* faixa fotográfica larga com o nome aplicado */}
-        <section className="relative">
+        <MotionFirstPaint><section className="relative">
           <MotionImageReveal direction="left">
             <PortfolioImage
               src="/images/marmitaria-dom-diego/capa.png"
@@ -136,10 +136,11 @@ export function MarmitariaDomDiegoPage() {
               </MotionReveal>
             </div>
           </div>
-        </section>
+        </section></MotionFirstPaint>
 
 
         {/* cardápio em linhas com pontilhado */}
+        <MotionFirstPaint>
         <section aria-labelledby="dd-cardapio" className="mx-auto max-w-5xl px-5 py-12 md:py-16">
           <div className="flex flex-wrap items-baseline justify-between gap-4 border-b-2 border-[var(--dd-ink)]/20 pb-4">
             <h2
@@ -209,6 +210,7 @@ export function MarmitariaDomDiegoPage() {
             </div>
           </MotionReveal>
         </section>
+        </MotionFirstPaint>
       </main>
       </MotionScope>
 

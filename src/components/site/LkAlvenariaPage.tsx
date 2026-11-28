@@ -42,7 +42,7 @@ export function LkAlvenariaPage() {
   return (
 
     <MotionScope intensity="BALANCED">
-    <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
+    <div data-portfolio-slug="lk-alvenaria" className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
       <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><PortfolioImage src="/images/lk-alvenaria/perfil.png" alt="LK Alvenaria" width={40} height={40} className="h-7 w-7 rounded-full object-cover" managedField="logoUrl" />LK <span className="text-[#ff7900]">Alvenaria</span></a>
@@ -64,12 +64,12 @@ export function LkAlvenariaPage() {
               <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
             </MotionReveal>
             {heroImage ? (
-              <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" fetchPriority="high" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
+              <img data-portfolio-managed-field="heroImageUrl" src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" fetchPriority="high" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
           </div>
 
           <div className="mx-auto -mt-12 max-w-5xl px-5 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
               <p className="text-base leading-8 text-[#4a3a2c]">
                 <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
               </p>

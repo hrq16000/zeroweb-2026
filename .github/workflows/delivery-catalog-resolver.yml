@@ -1,0 +1,32 @@
+name: Delivery Catalog Resolver
+
+on:
+  pull_request:
+    paths:
+      - "src/lib/delivery/catalog-resolver.mjs"
+      - "tests/delivery/catalog-resolver.test.mjs"
+      - ".github/workflows/delivery-catalog-resolver.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/lib/delivery/catalog-resolver.mjs"
+      - "tests/delivery/catalog-resolver.test.mjs"
+      - ".github/workflows/delivery-catalog-resolver.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  catalog-resolver:
+    name: Validate store-scoped catalog selections (not server integration)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax check
+        run: node --check src/lib/delivery/catalog-resolver.mjs
+      - name: Catalog domain unit tests
+        run: node --test tests/delivery/catalog-resolver.test.mjs

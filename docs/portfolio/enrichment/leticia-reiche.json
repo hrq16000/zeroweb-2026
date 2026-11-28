@@ -1,7 +1,7 @@
 {
   "slug": "leticia-reiche",
   "lastResearchAt": "2026-11-07",
-  "stage": "R1_ENTITY_EVIDENCE",
+  "stage": "PREVIEW_ONLY_AWAITING_CLIENT_APPROVAL",
   "entity": {
     "displayName": "Letícia Reiche",
     "tradeDescription": "Manicure & Pedicure",
@@ -12,24 +12,37 @@
     "name": {
       "value": "Letícia Reiche",
       "sourceType": "USER_SUPPLIED_ARTWORK",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "source": "USER_SUPPLIED_ARTWORK",
+      "verifiedAt": null,
+      "verificationStatus": "UNVERIFIED_PENDING_PROFESSIONAL_CONFIRMATION"
     },
     "category": {
       "value": "Manicure & Pedicure",
       "sourceType": "USER_SUPPLIED_ARTWORK",
-      "confidence": "HIGH"
+      "confidence": "HIGH",
+      "source": "USER_SUPPLIED_ARTWORK",
+      "verifiedAt": null,
+      "verificationStatus": "UNVERIFIED_PENDING_PROFESSIONAL_CONFIRMATION"
     },
     "city": {
       "value": "Belford Roxo",
       "state": "RJ",
       "sourceType": "OPERATOR_MESSAGE",
-      "confidence": "MEDIUM"
+      "confidence": "MEDIUM",
+      "source": "OPERATOR_MESSAGE",
+      "verifiedAt": null,
+      "verificationStatus": "UNVERIFIED_PENDING_PROFESSIONAL_CONFIRMATION"
     },
     "telephone": {
-      "value": "+55 21 99937-2351",
+      "value": null,
       "sourceType": "OPERATOR_MESSAGE",
       "confidence": "MEDIUM",
-      "confirmedAsWhatsapp": false
+      "confirmedAsWhatsapp": false,
+      "source": "OPERATOR_MESSAGE",
+      "verifiedAt": null,
+      "verificationStatus": "WITHHELD_UNVERIFIED",
+      "withheld": true
     },
     "address": null,
     "businessHours": null,
@@ -44,8 +57,10 @@
     "opensOn": "2026-11-09",
     "reservationDepositPercentage": 40,
     "expiresAt": null,
-    "validation": "PENDING_PROFESSIONAL_CONFIRMATION",
-    "notes": "Sinal de 40% referido na arte; não presumir gateway de pagamento, política de reembolso, preço final, disponibilidade de horários nem funcionamento contínuo após a campanha. Não prometer reserva confirmada sem slot real."
+    "validation": "NOT_PUBLISHED_PENDING_PROFESSIONAL_CONFIRMATION",
+    "notes": "Referência recebida em material de origem; não publicar condições, datas ou percentuais sem confirmação atual e autorização escrita.",
+    "published": false,
+    "verifiedAt": null
   },
   "services": [
     {
@@ -53,14 +68,20 @@
       "sourceType": "USER_SUPPLIED_ARTWORK",
       "status": "MARKETED_CATEGORY",
       "price": null,
-      "duration": null
+      "duration": null,
+      "source": "USER_SUPPLIED_ARTWORK",
+      "verifiedAt": null,
+      "verificationStatus": "UNVERIFIED_PENDING_PROFESSIONAL_CONFIRMATION"
     },
     {
       "name": "Pedicure",
       "sourceType": "USER_SUPPLIED_ARTWORK",
       "status": "MARKETED_CATEGORY",
       "price": null,
-      "duration": null
+      "duration": null,
+      "source": "USER_SUPPLIED_ARTWORK",
+      "verifiedAt": null,
+      "verificationStatus": "UNVERIFIED_PENDING_PROFESSIONAL_CONFIRMATION"
     }
   ],
   "researchLedger": {
@@ -200,6 +221,10 @@
     "noFabricatedEvidence": true,
     "noUnverifiedWhatsappRedirect": true,
     "leadSavedBeforeRedirect": true,
-    "indexOnOnlyAfterReadiness": true
+    "indexOnOnlyAfterReadiness": true,
+    "publicIndexing": false,
+    "formEnabled": false,
+    "whatsappEnabled": false,
+    "telephoneWithheld": true
   }
 }

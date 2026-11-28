@@ -1,0 +1,6 @@
+import {createFileRoute} from '@tanstack/react-router';
+import {queryOptions,useSuspenseQuery} from '@tanstack/react-query';
+import {getSupportAgentIdentity} from '@/lib/support-agents.functions';
+const options=queryOptions({queryKey:['agent-identity'],queryFn:()=>getSupportAgentIdentity()});
+export const Route=createFileRoute('/_authenticated/app/agent-profile')({head:()=>({meta:[{title:'Meu perfil de agente · 0WEB'},{name:'description',content:'Perfil e acesso da conta de agente.'},{property:'og:title',content:'Perfil do agente · 0WEB'},{property:'og:description',content:'Dados da conta de agente.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary'},{name:'robots',content:'noindex,nofollow'}]}),loader:({context})=>context.queryClient.ensureQueryData(options),component:Profile});
+function Profile(){const {data}=useSuspenseQuery(options);return <div className="space-y-5 max-w-3xl"><h1 className="font-display text-3xl font-bold">{data.display_name}</h1><p className="text-sm text-muted-foreground">Agente · Acesso ativo</p><h2 className="text-xl font-semibold">Perfil</h2><pre className="whitespace-pre-wrap break-words text-sm">{typeof data.preferences==='object'&&data.preferences&&!Array.isArray(data.preferences)?String(data.preferences['notes']??''):''}</pre></div>;}

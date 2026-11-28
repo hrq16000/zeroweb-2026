@@ -35,7 +35,6 @@ import {
   Inbox,
   MapPin,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { getMyProfile, listMyNotifications } from "@/lib/clientarea.functions";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -63,8 +62,11 @@ const CLIENT_NAV: NavItem[] = [
 
 const ADMIN_NAV: NavItem[] = [
   { to: "/app/admin", icon: Shield, label: "Painel admin" },
+  { to: "/app/publicacao", icon: Globe, label: "Publicação" },
   { to: "/app/paginas", icon: LayoutTemplate, label: "Páginas & Produtos" },
   { to: "/app/usuarios", icon: Users, label: "Usuários" },
+  { to: "/app/agentes", icon: Users, label: "Agentes" },
+  { to: "/app/funis/leads", icon: Inbox, label: "Leads dos funis" },
   { to: "/app/leads", icon: Inbox, label: "Leads unificados" },
   { to: "/app/leads-telefone", icon: Inbox, label: "Leads por telefone" },
   { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },
@@ -185,6 +187,7 @@ function AppShell() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      const { supabase } = await import("@/integrations/supabase/client");
       const { data } = await supabase.auth.getSession();
       if (cancelled || !data.session) return;
       try {
@@ -219,6 +222,7 @@ function AppShell() {
   );
 
   const signOut = async () => {
+    const { supabase } = await import("@/integrations/supabase/client");
     await supabase.auth.signOut();
     navigate({ to: "/auth", replace: true });
   };

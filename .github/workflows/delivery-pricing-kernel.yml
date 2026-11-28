@@ -1,0 +1,34 @@
+name: Delivery Pricing Kernel
+
+on:
+  pull_request:
+    paths:
+      - "src/lib/delivery/pricing.mjs"
+      - "tests/delivery/pricing-engine.test.mjs"
+      - "docs/delivery/PRICE_CALCULATION_FIXTURES.v1.json"
+      - ".github/workflows/delivery-pricing-kernel.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/lib/delivery/pricing.mjs"
+      - "tests/delivery/pricing-engine.test.mjs"
+      - "docs/delivery/PRICE_CALCULATION_FIXTURES.v1.json"
+      - ".github/workflows/delivery-pricing-kernel.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  price-kernel:
+    name: Price kernel fixture tests (no checkout activation)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check pricing module syntax
+        run: node --check src/lib/delivery/pricing.mjs
+      - name: Verify real arithmetic against R3 fixtures
+        run: node --test tests/delivery/pricing-engine.test.mjs

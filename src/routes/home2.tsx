@@ -6,8 +6,7 @@
  * alterar `/`, menu global ou sitemap. A rota segue `noindex,nofollow` enquanto
  * estiver em comparação visual.
  */
-import { createFileRoute } from "@tanstack/react-router";
-import { Home2PersonalityExperience } from "@/components/site/Home2PersonalityExperience";
+import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 
 const TITLE = "0WEB · Protótipo editorial da home (home2)";
 const DESC =
@@ -25,5 +24,5 @@ export const Route = createFileRoute("/home2")({
       { property: "og:type", content: "website" },
     ],
   }),
-  component: Home2PersonalityExperience,
+  component: lazyRouteComponent(() => import("@/components/site/Home2PersonalityExperience"), "Home2PersonalityExperience"),
 });

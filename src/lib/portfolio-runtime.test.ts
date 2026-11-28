@@ -24,6 +24,28 @@ describe("resolver de runtime do portfólio", () => {
     expect(eff.overriddenFields).toEqual([]);
   });
 
+  it("registry não indexável mantém noindex mesmo sem override ou com override publicado", () => {
+    const draftBase: PortfolioRuntimeBase = {
+      ...base,
+      lifecycle: "draft",
+      published: false,
+      indexable: false,
+    };
+    const withoutOverride = applyPortfolioRuntime(draftBase, null);
+    expect(withoutOverride.lifecycle).toBe("draft");
+    expect(withoutOverride.published).toBe(false);
+    expect(withoutOverride.indexable).toBe(false);
+    expect(withoutOverride.robots).toBe("noindex,nofollow");
+
+    const publishedOverride = sanitizePortfolioRuntimeRow("paulo-mestre-de-obras", {
+      lifecycle_status: "published",
+      published: true,
+    });
+    const protectedByRegistry = applyPortfolioRuntime(draftBase, publishedOverride);
+    expect(protectedByRegistry.indexable).toBe(false);
+    expect(protectedByRegistry.robots).toBe("noindex,nofollow");
+  });
+
   it("override do banco tem precedência sobre o registry", () => {
     const ov = sanitizePortfolioRuntimeRow("paulo-mestre-de-obras", {
       seo_title: "Novo título administrado",

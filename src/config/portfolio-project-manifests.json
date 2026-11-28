@@ -2285,21 +2285,22 @@
       "slug": "leticia-reiche",
       "lifecycleContract": 1,
       "contractVersion": 4,
-      "stage": "design",
+      "stage": "ready",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
         "entityResolution": "in_progress",
         "evidence": "complete",
-        "media": "in_progress",
+        "media": "complete",
         "mediaPlan": "complete",
         "content": "complete",
         "discovery": "not_started",
         "blueprint": "complete",
-        "seo": "in_progress",
-        "funnel": "in_progress",
-        "cover": "in_progress",
-        "qa": "in_progress",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "pending",
         "publish": "pending"
       },
       "compositionContract": 0,
@@ -2309,75 +2310,70 @@
         "gates": {
           "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
           "PORTFOLIO_ENTITY_GATE": "in_progress",
-          "PORTFOLIO_LOCAL_SEO_GATE": "in_progress",
-          "PORTFOLIO_MEDIA_RICHNESS_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
           "PORTFOLIO_DISCOVERY_GRAPH_GATE": "not_started",
-          "PORTFOLIO_INDEXABILITY_GATE": "not_started"
+          "PORTFOLIO_INDEXABILITY_GATE": "blocked_client_approval"
         },
         "evidence": {
           "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
-            "src/routes/portfolio.leticia-reiche.tsx",
+            "src/routes/portfolio-preview.leticia-reiche.tsx",
             "src/components/site/LeticiaReichePreviewPage.tsx"
           ],
           "PORTFOLIO_ENTITY_GATE": [
-            "Material/flyer fornecido pelo operador; identidade comercial oficial não verificada"
+            "docs/portfolio/enrichment/leticia-reiche.json — fontes e verifiedAt registrados; telefone withheld"
           ],
           "PORTFOLIO_LOCAL_SEO_GATE": [
-            "Belford Roxo/RJ conforme material fornecido; sem endereço de rua publicado"
+            "canonical preview + noindex; localidade não publicada como fato confirmado"
           ],
           "PORTFOLIO_MEDIA_RICHNESS_GATE": [
-            "SVGs editoriais próprios; fotos reais de trabalhos não fornecidas nem autorizadas"
+            "SVGs autorais; galeria omitida por ausência de mídia autorizada"
           ],
           "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
-            "Não ativado enquanto a página permanecer em revisão/noindex"
+            "desativado até autorização comercial"
           ],
           "PORTFOLIO_INDEXABILITY_GATE": [
-            "robots noindex,nofollow,noarchive,noimageindex; sem canonical, schema ou inclusão no sitemap"
+            "catálogo draft/live=false/indexable=false; somente rota Preview protegida"
           ]
         }
       },
       "contentFacts": {
         "ownSourcedContent": true,
         "facts": [
-          "Serviços de manicure e pedicure descritos no material fornecido.",
-          "Localidade Belford Roxo/RJ indicada no material recebido.",
-          "Condição de sinal de 40% citada apenas como informação histórica do anúncio e sujeita a confirmação; sem pagamento ou reserva na página.",
-          "Formulário Jotform é demonstração da 0WEB e não canal oficial da profissional."
+          "Nome, categorias e localidade são referências recebidas no briefing e não foram verificadas independentemente.",
+          "Nenhum preço, horário, endereço, campanha, disponibilidade ou canal oficial é divulgado.",
+          "Nenhum formulário, WhatsApp ou coleta de dados está ativo."
         ],
         "sources": [
           "docs/portfolio/briefs/leticia-reiche.md",
-          "docs/portfolio/enrichment/leticia-reiche.json",
-          "PR #512: teste sintético Jotform verificado"
+          "docs/portfolio/enrichment/leticia-reiche.json"
         ]
       },
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "checkedAt": "2026-11-27",
-        "evidence": "Capturas manuais e revisão perceptual 390/768/1440 ainda não comprovadas no HEAD atual."
+        "status": "PENDING_TARGETED_CI",
+        "checkedAt": "2026-11-28",
+        "viewports": [
+          390,
+          768,
+          1440
+        ],
+        "evidence": "Aguardando execução do workflow direcionado R13; não declarar PASS antes do run."
       },
       "perceptualReview": {
-        "status": "PENDING",
-        "notes": "Não declarar aprovação visual sem capturas reais e comparação NO-BRAND."
+        "status": "PENDING_TARGETED_CI",
+        "notes": "A aprovação visual será registrada somente após capturas Chromium reais em 390, 768 e 1440 px."
       },
       "blockers": [
-        "CLIENT_APPROVAL_PENDING: autorização explícita para publicação oficial e uso comercial ainda não comprovada.",
-        "ENTITY_IDENTITY_UNVERIFIED: material fornecido não confirma perfil comercial oficial.",
-        "WHATSAPP_NOT_CONFIRMED: telefone profissional permanece null; não inventar destino.",
-        "MEDIA_RICHNESS_PENDING: fotos reais de trabalhos e autorização de uso não disponíveis.",
-        "VISUAL_QA_PENDING: Chromium 390/768/1440 e revisão NO-BRAND pendentes.",
-        "SEO_INDEXABILITY_BLOCKED: manter noindex até aprovação explícita e validação da identidade."
+        "CLIENT_APPROVAL_PENDING: autorização escrita para uso público do nome, identidade conceitual e informações do briefing; sem isso a rota permanece somente em Preview e noindex."
       ],
       "warnings": [
-        "Página pública apenas como demonstração 0WEB, não site oficial da profissional.",
-        "Formulário Jotform é demonstrativo, exige consentimento e recebe dados na conta da 0WEB; não encaminha à profissional.",
-        "Nenhuma reserva, disponibilidade ou pagamento é confirmado pela página.",
-        "A informação de sinal de 40% é histórica do material recebido e deve ser confirmada antes de qualquer uso comercial."
+        "Demonstração autoral 0WEB; não é site oficial nem marca aprovada.",
+        "Telefone removido/withheld; WhatsApp e encaminhamento desativados.",
+        "Jotform, iframe, agenda, preços, disponibilidade, reserva e pagamento não estão ativos.",
+        "Referência sazonal de Natal/2026 não é publicada sem confirmação atual."
       ],
       "ownerRequired": [
-        "Confirmar nome/identidade comercial e serviços oferecidos.",
-        "Autorizar expressamente a publicação e o uso do nome/marca.",
-        "Confirmar canal oficial de atendimento e WhatsApp, se houver.",
-        "Aprovar fotografias reais, preços, horários, disponibilidade e condições comerciais."
+        "A profissional deve aprovar por escrito o uso público do nome, identidade conceitual e informações do briefing."
       ],
       "searchQa": [
         {
@@ -2392,19 +2388,22 @@
         }
       ],
       "publicationException": {
-        "date": "2026-11-27",
-        "mode": "public-demonstrative-landing",
+        "date": "2026-11-28",
+        "mode": "preview-only",
         "ownerDirective": true,
+        "authorizedPublicPresentation": false,
         "indexable": false,
-        "followUp": "Manter rótulo demonstrativo e noindex até autorização comercial, identidade e canais oficiais confirmados; depois executar QA visual e reavaliar os gates SEO."
+        "followUp": "Após aprovação escrita, abrir revisão comercial específica; só então decidir eventual publicação e indexação."
       },
-      "lastUpdatedAt": "2026-11-27",
-      "routeFile": "src/routes/portfolio.leticia-reiche.tsx",
+      "lastUpdatedAt": "2026-11-28",
+      "routeFile": "src/routes/portfolio-preview.leticia-reiche.tsx",
       "creativeBriefFile": "docs/portfolio/briefs/leticia-reiche.md",
       "notes": {
         "enrichment": "docs/portfolio/enrichment/leticia-reiche.json",
-        "mediaPlan": "docs/portfolio/media-plans/leticia-reiche.json"
-      }
+        "mediaPlan": "docs/portfolio/media-plans/leticia-reiche.json",
+        "decision": "B — tecnicamente concluído, aguardando somente aprovação escrita da profissional."
+      },
+      "decision": "B_TECHNICALLY_COMPLETE_AWAITING_CLIENT"
     }
   }
 }

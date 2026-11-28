@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Valida isolamento, recursos obrigatórios e privacidade dos sites de clientes. */
-import { existsSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, readFileSync, statSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
 const root = process.cwd();
@@ -59,6 +59,40 @@ const publicContactPatterns = [
   [/(?<!\d)(?:\+?55\s*)?\(?\d{2}\)?\s*9\d{4}[-\s]?\d{4}(?!\d)/, "telefone celular"],
 ];
 
+function hasImportedDirectLeadFormContract(component, componentPath, clientKey) {
+  const importPattern = /import\s*\{\s*([^}]+)\}\s*from\s*["']([^"']+)["']/g;
+  for (const match of component.matchAll(importPattern)) {
+    const importedNames = match[1]
+      .split(",")
+      .map((name) => name.trim().split(/\s+as\s+/)[0]);
+    const leadFormName = importedNames.find(
+      (name) => /LeadForm$/.test(name) && component.includes(name),
+    );
+    if (!leadFormName) continue;
+
+    const importBase = match[2].startsWith("@/")
+      ? resolve(root, "src", match[2].slice(2))
+      : resolve(dirname(componentPath), match[2]);
+    const candidates = [
+      importBase,
+      ...[".tsx", ".ts", ".jsx", ".js"].map((extension) => importBase + extension),
+      resolve(importBase, "index.tsx"),
+    ];
+    const formPath = candidates.find((candidate) => existsSync(candidate) && statSync(candidate).isFile());
+    if (!formPath) continue;
+
+    const formSource = readFileSync(formPath, "utf8");
+    if (
+      formSource.includes("submitPublicLead") &&
+      formSource.includes('clientKey: "' + clientKey + '"') &&
+      formSource.includes('source: "portfolio:' + clientKey + '"')
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 for (const client of clients) {
   const label = client.clientKey || "cliente-sem-chave";
   if (!client.clientKey || keys.has(client.clientKey))
@@ -108,8 +142,16 @@ for (const client of clients) {
     if (!pattern.test(route)) errors.push(`${label}: ${requirement} ausente`);
   }
 
-  if (!component.includes(`clientKey="${client.clientKey}"`) &&
-      !new RegExp(`clientKey:\\s*["\x27\\x60]${client.clientKey}["\x27\\x60]`).test(component) && !component.includes(`data-client-key="${client.clientKey}"`)) {
+  const hasExplicitClientKey =
+    component.includes(`clientKey="${client.clientKey}"`) ||
+    new RegExp(`clientKey:\\s*["\\x27\\x60]${client.clientKey}["\\x27\\x60]`).test(component) ||
+    component.includes(`data-client-key="${client.clientKey}"`);
+  const hasImportedDirectLeadForm = hasImportedDirectLeadFormContract(
+    component,
+    componentPath,
+    client.clientKey,
+  );
+  if (!hasExplicitClientKey && !hasImportedDirectLeadForm) {
     errors.push(`${label}: CTA sem clientKey explícita`);
   }
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {

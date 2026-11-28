@@ -25,6 +25,8 @@ export type BlueprintRevealVariant =
 export type BlueprintSectionMotion = {
   intensity?: BlueprintMotionIntensity;
   reveal?: BlueprintRevealVariant;
+  /** Mantém o conteúdo crítico da primeira dobra visível antes da hidratação. */
+  firstPaint?: boolean;
   /** Atraso incremental entre itens da seção, em ms. */
   stagger?: number;
   /**

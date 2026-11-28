@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
@@ -143,7 +143,7 @@ export function AutoSocorroDentinhoPage() {
         </header>
 
         <main id="inicio">
-          <section className="relative isolate min-h-[680px] overflow-hidden bg-[#091525] text-white">
+          <MotionFirstPaint><section className="relative isolate min-h-[680px] overflow-hidden bg-[#091525] text-white">
             <PortfolioImage
               priority
               managedField="heroImageUrl"
@@ -186,7 +186,7 @@ export function AutoSocorroDentinhoPage() {
                 </p>
               </div>
             </div>
-          </section>
+          </section></MotionFirstPaint>
 
           <section id="servicos" className="bg-[#f3f0ea] px-5 py-20 sm:py-28">
             <div className="mx-auto max-w-7xl">

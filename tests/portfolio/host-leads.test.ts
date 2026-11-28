@@ -5,6 +5,8 @@ import {
   isHostLeadStatus,
   maskPhoneForDisplay,
   normalizeBrazilPhone,
+  normalizeChilePhone,
+  toWhatsAppPhoneDigits,
   sanitizeField,
   HOST_CAPTURE_FUNNEL_SLUG,
 } from "@/lib/portfolio-host-leads";
@@ -35,6 +37,30 @@ describe("normalizeBrazilPhone", () => {
     expect(normalizeBrazilPhone("123").ok).toBe(false);
     expect(normalizeBrazilPhone("41897452053").ok).toBe(false);
     expect(normalizeBrazilPhone("").ok).toBe(false);
+  });
+});
+
+describe("normalizeChilePhone", () => {
+  it("aceita DDI 56 e celular local chileno", () => {
+    expect(normalizeChilePhone("+56 9 1234 5678")).toMatchObject({
+      ok: true,
+      digits: "56912345678",
+      e164: "56912345678",
+    });
+    expect(normalizeChilePhone("9 1234 5678").ok && normalizeChilePhone("9 1234 5678").digits)
+      .toBe("56912345678");
+  });
+
+  it("aceita linha fixa de Santiago e rejeita números brasileiros", () => {
+    expect(normalizeChilePhone("+56 2 1234 5678").ok && normalizeChilePhone("+56 2 1234 5678").digits)
+      .toBe("56212345678");
+    expect(normalizeChilePhone("(41) 99999-0000").ok).toBe(false);
+  });
+
+  it("preserva DDI 56 no WhatsApp e só prefixa 55 para números brasileiros locais", () => {
+    expect(toWhatsAppPhoneDigits("56912345678")).toBe("56912345678");
+    expect(toWhatsAppPhoneDigits("56212345678")).toBe("56212345678");
+    expect(toWhatsAppPhoneDigits("41997452053")).toBe("5541997452053");
   });
 });
 

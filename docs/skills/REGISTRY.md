@@ -11,13 +11,14 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 `.agents/skills/0web-skill-discovery/SKILL.md` e consulte
 `src/config/skill-marketplace-catalog.json` + `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
-Última revisão: 2026-09-21.
+Última revisão (novas ferramentas externas): 2026-11-09. Inventário pré-existente preservado.
 
 ## Locais (fonte de verdade)
 
 | Name | Path | Status | Category | Triggers | Source | License | Security review |
 |---|---|---|---|---|---|---|---|
 | `0web-skill-router` | `.agents/skills/0web-skill-router` | APPROVED_GLOBAL | orquestração | qualquer tarefa não trivial | autoral 0WEB | interna | N/A |
+| `0web-curated-github-adoption` | `.agents/skills/0web-curated-github-adoption` | APPROVED_GLOBAL (protocolo local, sem executáveis) | triagem de ferramentas externas / UI / segurança / automação | pedido de adoção GitHub ou avaliação de ferramenta externa | autoral 0WEB, referências primárias inspecionadas em 2026-11-09 | interna | sem scripts, sem rede, sem hooks |
 | `0web-skill-discovery` | `.agents/skills/0web-skill-discovery` | APPROVED_GLOBAL | descoberta | tarefa substancial, nova skill | autoral 0WEB | interna | N/A |
 | `0web-portfolio-autonomous-pipeline` | `.agents/skills/0web-portfolio-autonomous-pipeline` | APPROVED_GLOBAL | portfolio / research / content orchestration | intake por nome + localização, enrichment autônomo, composição factual R2 | autoral 0WEB | interna | N/A |
 | `0web-experience-design-max` | `.agents/skills/0web-experience-design-max` | APPROVED_GLOBAL | experience design / UI UX / motion / layout | toda UI material, landing, portfolio, redesign | autoral 0WEB com princípios revisados de fontes externas | interna | sem scripts externos |
@@ -35,6 +36,12 @@ Nenhuma skill local executa scripts externos, rede ou lê segredos.
 | Skill / repo | Status | Decisão |
 |---|---|---|
 | `morluto/rea` — REA (Reverse Engineer Anything) | REFERENCE_ONLY / SECURITY_REVIEW_REQUIRED para executar | MIT; CLI + MCP para análise local de sites, JavaScript e binários. Usar apenas como investigação complementar, mediante escopo autorizado, ambiente isolado e revisão integral de scripts/dependências antes de instalar. Não adicionar ao build/runtime/CI. Fonte: https://github.com/morluto/rea @ `99db80a13e369885e7de99417475c25380446081`; protocolo: `docs/skills/REA_RESEARCH_ADOPTION.md`. |
+| `Nutlope/hallmark`, `pbakaus/impeccable`, `Leonxlnx/taste-skill` | APPROVED_GLOBAL (princípios somente) / SECURITY_REVIEW_REQUIRED para executáveis | Aplicação orientada por `.agents/skills/0web-curated-github-adoption/SKILL.md`. Sobreposição com QA existente; instalar CLIs ou hooks somente após revisão. Impeccable live/apply não é aprovado por padrão. Fontes e limites: `docs/skills/GITHUB_TOOL_TRIAGE_2026-11-09.md`. |
+| `cloudflare/security-audit-skill` | APPROVED_GLOBAL (método somente) / SECURITY_REVIEW_REQUIRED para execução | Usar investigação com cobertura + validação independente; sem auditoria multiagente automática, sem alegar revisão completa. |
+| `storytold/craft-anything` | REFERENCE_ONLY / SECURITY_REVIEW_REQUIRED para execução | Pesquisa clean-room autorizada, mas não é sandbox de sistema; não clonar marca/código proprietário nem instalar no CI/runtime. |
+| `heygen-com/hyperframes`, `remotion-dev/remotion`, `mutonby/openshorts` | APPROVED_CONDITIONAL (piloto FUTURO em mídia isolada) | Nenhum runtime de vídeo adicionado ao portal; Remotion exige revisão de licença comercial. |
+| `thedotmack/claude-mem`, `akitaonrails/ai-memory` | SECURITY_REVIEW_REQUIRED | Hooks, persistência e acesso a dados/segredos impedem instalação padrão; privilegiar logs explícitos de PR. |
+| `tashfeenahmed/freellmapi` | REFERENCE_ONLY / REJECTED como backend de produção | O README limita a experimentação pessoal; nenhum roteamento de clientes ou segredos para provedores gratuitos sem contratos e aprovação. |
 | `nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2` | APPROVED_GLOBAL (princípios/design intelligence) | MIT. Forte em a11y, touch, performance, layout, tipografia, motion, forms e stack guidance. O repositório amplo contém scripts/subprocessos e integrações; princípios revisados foram internalizados, distribuição completa não roda automaticamente. |
 | Dexa Experience Design | APPROVED_GLOBAL (processo/repertório) | Estratégia digital, UX/UI, websites, produto, design system, motion e Design Ops como disciplina integrada. Não copiar layout, marca ou assets. |
 | LobeHub Skills Marketplace / `@lobehub/market-cli` | APPROVED_GLOBAL (discovery) | A instrução anexada pelo responsável foi revisada. Search/install são mecanismos de setup do agente. `skills search` é permitido em ambiente apropriado; `skills install` exige revisão prévia e nunca roda em build/runtime. |

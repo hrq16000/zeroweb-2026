@@ -10,6 +10,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { aggregateLighthouse } from "../src/lib/lhci-evaluation.mjs";
 
 const R = "seo-reports";
 const PUB = path.join("public", "audit");
@@ -88,7 +89,14 @@ for (const r of after?.routes ?? []) {
 for (const run of lighthouse) {
   if (!run.route) continue;
   const row = touch(run.route);
-  row.lighthouse = run;
+  row.lighthouseRuns ??= [];
+  row.lighthouseRuns.push(run);
+}
+for (const row of routes.values()) {
+  if (!row.lighthouseRuns?.length) continue;
+  row.lighthouse = aggregateLighthouse(row.lighthouseRuns);
+  row.problems.push(...row.lighthouse.problems);
+  delete row.lighthouseRuns;
 }
 for (const finding of a11y?.violations ?? a11y?.results ?? []) {
   const route = finding.route ?? finding.url;

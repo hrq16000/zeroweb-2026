@@ -196,3 +196,8 @@
 .lr-request-paper .lr-hosted-form > p {font-size:12px!important;color:#765566!important;margin:12px 0;}
 .lr-hosted-form iframe {display:block;width:100%;max-width:100%;border:0;min-height:640px;background:#fff;}
 @media(max-width:760px) {.lr-hosted-form{padding:12px 8px;} .lr-hosted-form iframe{height:790px;}}
+
+
+/* R13 — actions remain visibly unavailable until written client approval. */
+.lr-button:disabled,.lr-button[aria-disabled="true"]{cursor:not-allowed;opacity:.56;filter:saturate(.55);box-shadow:none;transform:none}
+.lr-button:disabled:hover,.lr-button[aria-disabled="true"]:hover{transform:none}

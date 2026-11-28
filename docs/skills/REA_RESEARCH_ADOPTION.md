@@ -39,7 +39,7 @@ node --test tests/reference-observation.test.mjs
 node scripts/reference-observation.mjs https://0web.com.br/portfolio
 ```
 
-A coleta não executa ações de usuário, não envia formulários, não grava cookies, não observa tráfego de outras origens e bloqueia métodos diferentes de GET/HEAD. Também bloqueia domínios fora da allowlist, parâmetros de query e fragmentos. **A captura real em navegador deve ser executada antes de usar o resultado como evidência:** os testes unitários validam restrições e não provam que o relatório foi produzido contra produção.
+A coleta não executa ações de usuário, não envia formulários, não grava cookies, não observa tráfego de outras origens e bloqueia métodos diferentes de GET/HEAD. A URL inicial e os redirecionamentos são restritos à home, /portfolio, /servicos e páginas individuais públicas dos respectivos catálogos; /auth, /admin, /api e outras rotas não podem ser pontos de observação. O workflow de homologação registra home, /portfolio e /servicos no mesmo job e gera um JSON separado por rota, com escopo fixo e sem execução automática em produção. Também bloqueia domínios fora da allowlist, parâmetros de query e fragmentos. **A captura real em navegador deve ser executada antes de usar o resultado como evidência:** os testes unitários validam restrições e não provam que o relatório foi produzido contra produção.
 
 Limitações: recursos de terceiros bloqueados podem causar renderização incompleta; presença de CTA não prova persistência de lead; presença de canonical não comprova indexação pelo Google. O relatório gerado é somente a linha de base `OBSERVED_LIMITED` para comparação futura com evidências do REA, cuja instalação segue pendente de revisão de segurança específica. Não copiar dados/ativos de terceiros.
 

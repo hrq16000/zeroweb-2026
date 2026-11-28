@@ -18,13 +18,15 @@ export const Route = createFileRoute("/portfolio-preview/leticia-reiche")({
     return null;
   },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://0web.com.br/portfolio-preview/leticia-reiche" }],
     meta: [
-      { title: "Letícia Reiche | Prévia de portfólio — 0WEB" },
-      { name: "description", content: "Estudo visual para Letícia Reiche — Manicure e Pedicure em Belford Roxo, RJ. Prévia editorial, sem agenda ativa ou contato comercial." },
+      { title: "Letícia Reiche | Conceito não oficial — prévia 0WEB" },
+      { name: "description", content: "Conceito visual 0WEB baseado em briefing não confirmado. Não é site oficial. Prévia restrita, sem formulário, contato, agenda ou coleta de dados." },
       { name: "robots", content: "noindex,nofollow,noarchive,noimageindex" },
-      { property: "og:title", content: "Letícia Reiche — estudo de identidade e portfólio | 0WEB" },
-      { property: "og:description", content: "Conceito de portfólio ainda não publicado comercialmente, sem agendamento online." },
+      { property: "og:title", content: "Letícia Reiche — conceito visual não oficial | 0WEB" },
+      { property: "og:description", content: "Demonstração restrita da 0WEB; identidade e informações aguardam aprovação da profissional." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://0web.com.br/portfolio-preview/leticia-reiche" },
       { property: "og:image", content: "https://0web.com.br/images/leticia-reiche/social-og.svg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

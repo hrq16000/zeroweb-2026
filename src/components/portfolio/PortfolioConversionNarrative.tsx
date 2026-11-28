@@ -2,6 +2,7 @@ import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { resolvePortfolioClientKey } from "@/lib/portfolio-global-config";
 import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
+import { resolvePortfolioStandards } from "@/lib/portfolio-global-config";
 
 type Item = {
   slug: string;
@@ -14,7 +15,8 @@ type Item = {
 };
 const catalog = portfolioCatalog as Item[];
 
-export function PortfolioConversionNarrative({ slug }: { slug: string }) {
+export function PortfolioConversionNarrative({ slug, locale }: { slug: string; locale?: "es-CL" }) {
+  const spanish = locale === "es-CL";
   const item = catalog.find((entry) => entry.slug === slug);
   const clientKey = resolvePortfolioClientKey(slug);
   if (!item || !clientKey) return null;
@@ -23,6 +25,8 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
     item.summary ?? item.subtitle ?? `Conheça os serviços de ${item.title} em ${item.city}.`;
   // Estrutura padronizada, mensagem e ação próprias de cada negócio.
   const funnel = resolvePortfolioFunnelContext(slug);
+  const standards = resolvePortfolioStandards(slug);
+  const recipientName = standards.contactFloating.recipientName || item.title;
   const narrative = {
     title: funnel.nextStepTitle,
     step: funnel.nextStepBody,
@@ -37,18 +41,18 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">
-            Sobre o projeto
+            {spanish ? "Sobre la propuesta" : "Sobre o projeto"}
           </p>
           <h2 id={`about-${slug}`} className="mt-3 font-display text-3xl font-bold text-foreground">
             {narrative.title}
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">{description}</p>
           <p className="mt-4 text-sm font-semibold text-foreground">
-            Atendimento em {item.city} — {item.state}.
+            {spanish ? `Atención en ${item.city} — ${item.state}.` : `Atendimento em ${item.city} — ${item.state}.`}
           </p>
         </div>
         <div className="rounded-2xl border border-border bg-background p-6">
-          <h3 className="font-display text-xl font-bold text-foreground">Como começar</h3>
+          <h3 className="font-display text-xl font-bold text-foreground">{spanish ? "Cómo comenzar" : "Como começar"}</h3>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{narrative.step}</p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {services.map((service) => (
@@ -60,16 +64,26 @@ export function PortfolioConversionNarrative({ slug }: { slug: string }) {
               </li>
             ))}
           </ul>
-          <PortfolioCTAQuiz
-            clientKey={clientKey}
-            studioName={item.title}
-            recipientName={item.title}
-            theme={narrative.theme}
-            mode={funnel.quizMode}
-            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {narrative.cta}
-          </PortfolioCTAQuiz>
+          {slug === "infinito-spa" ? (
+            <a
+              href="#consulta"
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {narrative.cta}
+            </a>
+          ) : (
+            <PortfolioCTAQuiz
+              clientKey={clientKey}
+              studioName={item.title}
+              recipientName={recipientName}
+              theme={narrative.theme}
+              mode={funnel.quizMode}
+              quizConfig={standards.contactFloating.quizConfig}
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg border border-current px-5 py-3 text-sm font-bold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {narrative.cta}
+            </PortfolioCTAQuiz>
+          )}
         </div>
       </div>
     </section>

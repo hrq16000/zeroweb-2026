@@ -11,6 +11,8 @@
  *    histórico auditável.
  */
 import seedFile from "@/config/portfolio-admin-seed.json";
+import { containsPublicContact, isSafeAssetPath, UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-public-safety";
+export { containsPublicContact, isSafeAssetPath, UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-public-safety";
 
 export type ConformanceCode =
   | "PORTFOLIO_BRAND_MISSING"
@@ -21,7 +23,9 @@ export type ConformanceCode =
   | "PORTFOLIO_SEO_MISSING"
   | "PORTFOLIO_POPUP_MISSING"
   | "PORTFOLIO_SHARE_COPY_MISSING"
-  | "PORTFOLIO_COMPONENT_MISSING";
+  | "PORTFOLIO_COMPONENT_MISSING"
+  | "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+  | "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED";
 
 export type ConformanceStatus = "COMPLETE" | "PARTIAL" | "LEGACY";
 
@@ -246,7 +250,27 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
     imported: Boolean(db),
   };
 
-  return { ...base, conformance: evaluateConformance(base) };
+  const conformance = evaluateConformance(base);
+  // Os dados editáveis podem resolver pendências de mídia/conteúdo, mas não
+  // podem substituir a avaliação técnica ou autorização comercial versionada.
+  // Uma linha anterior no banco jamais reativa um projeto em hold.
+  const holds = (seed.blocking ?? []).filter((code) =>
+    code === "PORTFOLIO_TECHNICAL_PASS_REQUIRED" ||
+    code === "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED",
+  );
+  if (holds.length) {
+    return {
+      ...base,
+      published: false,
+      lifecycleStatus: base.lifecycleStatus === "archived" ? "archived" : "draft",
+      conformance: {
+        status: "LEGACY",
+        issues: [...new Set([...conformance.issues, ...holds])],
+        blocking: [...new Set([...conformance.blocking, ...holds])],
+      },
+    };
+  }
+  return { ...base, conformance };
 }
 
 /** Diferenças entre o seed dos registries e o que está gravado no banco. */
@@ -264,17 +288,4 @@ export function diffAgainstSeed(seed: SeedProject, merged: MergedProject): strin
   return diffs;
 }
 
-export const UPLOAD_PUBLIC_PREFIX = "/api/public/portfolio-asset";
 
-const SAFE_ASSET = /^\/(images|api\/public\/portfolio-asset)\/[A-Za-z0-9/_.-]+$/;
-
-/** Aceita apenas caminhos internos de asset — bloqueia URL externa e javascript:. */
-export function isSafeAssetPath(value: string): boolean {
-  if (!value) return true;
-  return SAFE_ASSET.test(value);
-}
-
-/** Contatos operacionais nunca podem ser gravados por telas administrativas. */
-export function containsPublicContact(value: string): boolean {
-  return /(wa\.me|api\.whatsapp\.com|whatsapp\.com\/send|tel:\+?\d|mailto:)/i.test(value);
-}

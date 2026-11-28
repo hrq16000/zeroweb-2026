@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowDownRight, ArrowRight, CalendarDays, Check, Clock3, Heart, MapPin, Sparkles } from "lucide-react";
+import { ArrowDownRight, ArrowRight, Check, Clock3, Heart, MapPin, Sparkles } from "lucide-react";
 import "./leticia-reiche.css";
 
 type Care = "Manicure" | "Pedicure";
@@ -14,29 +14,21 @@ const careOptions: { name: Care; eyebrow: string; description: string; number: s
   {
     name: "Pedicure",
     eyebrow: "Cuidado com os pés",
-    description: "Atenção e cuidado para os pés. Confirme as opções de atendimento diretamente no agendamento.",
+    description: "Categoria ilustrativa do briefing; detalhes e disponibilidade aguardam confirmação da profissional.",
     number: "02",
   },
 ];
 
-/**
- * R2: prévia visual independente da profissional, sem coleta nem redirect.
- * R4 usa formulário hospedado com gravação do próprio provedor, carregado
- * sob demanda e restrito à rota de prévia protegida até homologação.
- * A página pública só pode ser promovida após gates, identidade e consentimento.
- */
-export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
+/** Preview-only editorial concept. No official identity, form, contact or booking is activated. */
+export function LeticiaReichePreviewPage() {
   const [selectedCare, setSelectedCare] = useState<Care>("Manicure");
-  const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode={mode === "live" ? "demonstration" : "hosted-form-preview"}>
+    <div className="lr" data-portfolio-client="leticia-reiche" data-page-mode="preview-only">
       <a className="lr-skip" href="#cuidados">Pular para os serviços</a>
       <div className="lr-preview-notice" role="status">
         <span className="lr-preview-dot" aria-hidden="true" />
-        {mode === "live"
-          ? "PORTFÓLIO DEMONSTRATIVO 0WEB · Não é o site oficial da profissional"
-          : "Prévia de portfólio 0WEB · identidade e condições sujeitas a confirmação"}
+        Demonstração visual 0WEB · não é site oficial. Identidade, serviços e localidade aguardam confirmação da profissional. Nenhum formulário ou contato está ativo.
       </div>
 
       <header className="lr-header" id="inicio">
@@ -46,7 +38,7 @@ export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview
         </a>
         <nav className="lr-nav" aria-label="Navegação da prévia">
           <a href="#cuidados">Cuidados</a>
-          <a href="#natal">Natal 2026</a>
+          <a href="#processo">Como funciona</a>
           <a href="#solicitar">Como agendar</a>
         </nav>
         <a className="lr-header-action" href="#cuidados">Ver cuidados <ArrowRight size={17} aria-hidden="true" /></a>
@@ -54,17 +46,16 @@ export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview
 
       <main>
         <section className="lr-stage" aria-labelledby="lr-stage-title">
-          <div className="lr-vertical-note" aria-hidden="true">BELEZA EM CADA DETALHE / BELFORD ROXO — RJ</div>
+          <div className="lr-vertical-note" aria-hidden="true">CONCEITO VISUAL 0WEB / REGIÃO A CONFIRMAR</div>
           <div className="lr-stage-copy">
             <p className="lr-kicker"><span className="lr-star" aria-hidden="true">✳</span> UMA PAUSA PARA VOCÊ</p>
             <h1 id="lr-stage-title">O cuidado <i>começa</i> nos pequenos detalhes<span className="lr-title-period">.</span></h1>
             <p className="lr-stage-intro">
-              Manicure e pedicure em Belford Roxo. Descubra uma proposta de cuidado delicado
-              e solicite informações sobre o atendimento da Letícia Reiche.
+              Conceito visual 0WEB para uma proposta de manicure e pedicure. Nome, serviços e região foram recebidos no briefing e aguardam confirmação da profissional.
             </p>
             <div className="lr-stage-actions">
               <a className="lr-button lr-button-primary" href="#cuidados">Conheça os cuidados <ArrowRight size={19} aria-hidden="true" /></a>
-              <a className="lr-text-link" href="#solicitar">Como funciona o pedido <ArrowDownRight size={19} aria-hidden="true" /></a>
+              <a className="lr-text-link" href="#solicitar">Limites desta demonstração <ArrowDownRight size={19} aria-hidden="true" /></a>
             </div>
             <div className="lr-stage-stamp"><Heart size={17} aria-hidden="true" /> O seu momento merece atenção.</div>
           </div>
@@ -107,77 +98,38 @@ export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview
           </div>
           <div className="lr-care-summary" aria-live="polite">
             <span><Check size={18} aria-hidden="true" /> Selecionado: <strong>{selectedCare}</strong></span>
-            <a href="#solicitar">Saiba como solicitar um horário <ArrowRight size={16} aria-hidden="true" /></a>
+            <a href="#solicitar">Entenda os limites da prévia <ArrowRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
 
-        <section className="lr-season" id="natal" aria-labelledby="lr-season-title">
-          <div className="lr-season-ornament" aria-hidden="true">✦</div>
-          <div className="lr-season-head">
-            <p className="lr-eyebrow">ESPECIAL DE FIM DE ANO · 2026</p>
-            <h2 id="lr-season-title">Dezembro merece <em>seu brilho.</em></h2>
-            <p>De acordo com o anúncio recebido, a agenda de Natal tem abertura anunciada para 9 de novembro de 2026.</p>
-          </div>
-          <div className="lr-season-cards">
-            <div className="lr-date-badge"><CalendarDays size={27} aria-hidden="true" /><small>INÍCIO ANUNCIADO</small><strong>09<span>/</span>11<span>/</span>2026</strong><span>segunda-feira</span></div>
-            <div className="lr-deposit-card"><small>SINAL INFORMADO NO ANÚNCIO</small><strong>40<sup>%</sup></strong><p>O material recebido informa sinal de 40% do valor do procedimento para agendamentos da campanha. Condições e disponibilidade devem ser confirmadas antes de qualquer pagamento.</p></div>
-          </div>
-          <p className="lr-campaign-caveat">Campanha sazonal apresentada como referência do anúncio de 2026. A página não processa pagamentos nem garante vagas.</p>
-        </section>
-
-        <section className="lr-steps" aria-labelledby="lr-steps-title">
+        <section className="lr-steps" id="processo" aria-labelledby="lr-steps-title">
           <div className="lr-steps-head">
             <span className="lr-round-icon"><Clock3 size={26} aria-hidden="true" /></span>
-            <p className="lr-eyebrow">SEM CONFUSÃO NA HORA DE AGENDAR</p>
-            <h2 id="lr-steps-title">O caminho até <em>seu horário.</em></h2>
+            <p className="lr-eyebrow">COMO ESTA PRÉVIA FUNCIONA</p>
+            <h2 id="lr-steps-title">Uma proposta visual, <em>sem atendimento ativo.</em></h2>
           </div>
           <ol className="lr-steps-list">
-            <li><span>01</span><div><strong>Escolha seu cuidado</strong><p>Manicure ou pedicure — detalhes adicionais podem ser informados na solicitação.</p></div></li>
-            <li><span>02</span><div><strong>Informe sua preferência</strong><p>Na versão funcional, você indicará período e data desejados em um formulário individual.</p></div></li>
-            <li><span>03</span><div><strong>Aguarde a confirmação</strong><p>A escolha não reserva um horário automaticamente. A profissional precisará confirmar a disponibilidade.</p></div></li>
+            <li><span>01</span><div><strong>Conheça o conceito</strong><p>As categorias exibidas são referências recebidas no briefing, ainda sujeitas à confirmação da profissional.</p></div></li>
+            <li><span>02</span><div><strong>Confira os limites</strong><p>Preços, duração, endereço, horários, disponibilidade e agenda não são publicados nesta demonstração.</p></div></li>
+            <li><span>03</span><div><strong>Aguarde a aprovação</strong><p>O atendimento só poderá ser ativado depois da autorização escrita da profissional e da validação do canal oficial.</p></div></li>
           </ol>
         </section>
 
         <section className="lr-request" id="solicitar" aria-labelledby="lr-request-title">
           <div className="lr-request-paper">
-            <div className="lr-request-line"><MapPin size={17} aria-hidden="true" /><span>Belford Roxo · Rio de Janeiro</span><span className="lr-request-line-end">ATENDIMENTO A CONFIRMAR</span></div>
-            <p className="lr-eyebrow">UM HORÁRIO PARA CHAMAR DE SEU</p>
-            <h2 id="lr-request-title">Seu próximo cuidado <em>começa aqui.</em></h2>
-            <p>Você selecionou <strong>{selectedCare.toLowerCase()}</strong>. A solicitação real de agendamento será habilitada quando o canal de retorno e a persistência de leads estiverem validados.</p>
+            <div className="lr-request-line"><MapPin size={17} aria-hidden="true" /><span>Localidade informada no briefing · a confirmar</span><span className="lr-request-line-end">PRÉVIA RESTRITA</span></div>
+            <p className="lr-eyebrow">DEMONSTRAÇÃO SEM ATENDIMENTO ATIVO</p>
+            <h2 id="lr-request-title">Esta prévia não recebe <em>solicitações.</em></h2>
+            <p>Você selecionou <${selectedCare.toLowerCase()}>. Esta demonstração não coleta dados, não reserva horários e não encaminha mensagens à profissional.</p>
             <div className="lr-request-privacy">
-              <strong>Antes de enviar</strong>
-              <p>Este é um formulário de demonstração da 0WEB, não um canal oficial confirmado da profissional. A solicitação será recebida pela 0WEB para avaliação e eventual encaminhamento autorizado. Nenhuma reserva ou cobrança é feita aqui.</p>
-              <p>Você pode informar o serviço desejado e o melhor dia no formulário. O envio só acontece depois de seu consentimento e da confirmação no próprio formulário.</p>
+              <strong>O que permanece desativado</strong>
+              <p>Formulário, WhatsApp, agenda, preços e disponibilidade só poderão ser apresentados depois da confirmação escrita da profissional.</p>
             </div>
-            {!formOpen ? (
-              <button
-                type="button"
-                className="lr-button lr-button-primary"
-                aria-controls="lr-hosted-form"
-                aria-expanded="false"
-                onClick={() => setFormOpen(true)}
-              >
-                Abrir formulário de solicitação <ArrowRight size={20} aria-hidden="true" />
-              </button>
-            ) : (
-              <div id="lr-hosted-form" className="lr-hosted-form" data-funnel-provider="jotform" data-client-key="leticia-reiche">
-                <div className="lr-hosted-form-heading">
-                  <h3>Solicitação de atendimento · Demonstração 0WEB</h3>
-                  <button type="button" onClick={() => setFormOpen(false)} aria-label="Fechar formulário">Fechar</button>
-                </div>
-                <p>Seu serviço selecionado nesta página foi <strong>{selectedCare.toLowerCase()}</strong>. Confirme a opção no formulário abaixo.</p>
-                <iframe
-                  title="Formulário de solicitação de atendimento da demonstração Letícia Reiche"
-                  src="https://form.jotform.com/263111116816044"
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  width="100%"
-                  height="760"
-                />
-              </div>
-            )}
-            <p id="lr-request-status" className="lr-request-helper">
-              Nenhum horário é reservado ao abrir o formulário. A confirmação exige retorno da profissional; não envie comprovantes ou faça pagamentos.
+            <button type="button" className="lr-button lr-button-primary" disabled aria-disabled="true" title="Atendimento indisponível até a aprovação comercial.">
+              Agendamento indisponível nesta demonstração <ArrowRight size={20} aria-hidden="true" />
+            </button>
+            <p id="lr-request-status" className="lr-request-helper" role="status">
+              Nenhum dado é coletado. Nenhuma mensagem é enviada. Nenhum horário é reservado.
             </p>
           </div>
           <div className="lr-request-signature" aria-hidden="true">L<span>♡</span>R</div>
@@ -185,7 +137,7 @@ export function LeticiaReichePreviewPage({ mode = "preview" }: { mode?: "preview
       </main>
 
       <div className="lr-bottom-note">
-        <span>CONCEITO EDITORIAL · NÃO É UMA GALERIA DE TRABALHOS</span>
+        <span>DEMONSTRAÇÃO 0WEB · NÃO É SITE OFICIAL</span>
         <a href="https://0web.com.br" target="_blank" rel="noopener noreferrer">Demonstração criada pela 0WEB <ArrowRight size={14} aria-hidden="true" /></a>
       </div>
     </div>

@@ -9,6 +9,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      visual_only:
+        description: "Escopo único de prévia: preview-leticia-reiche ou preview-dona-garimpeira-brecho"
+        required: false
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
@@ -16,6 +21,7 @@ concurrency:
 
 jobs:
   static-gates:
+    if: github.event_name != 'workflow_dispatch' || inputs.visual_only == ''
     name: Testes, tipos e validadores estáticos
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -59,6 +65,7 @@ jobs:
         run: bun run check:portfolio-originality:enforce
 
   runtime-gates:
+    if: github.event_name != 'workflow_dispatch' || inputs.visual_only == ''
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -76,6 +83,8 @@ jobs:
         run: bunx playwright install --with-deps chromium
 
       - name: Build
+        env:
+          VERCEL: "1"
         run: bun run build
 
       - name: Sitemaps XML sem service-role key (HTTP real)
@@ -103,6 +112,9 @@ jobs:
             FILES="$(git diff --name-only "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)"
             ONLY="$(printf '%s\n' "$FILES" | node scripts/resolve-visual-regression-scope.mjs)"
             if [ "$(node scripts/resolve-framework-compat-scope.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "framework" ]; then
+              ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+            fi
+            if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$PR_BASE_SHA" "$PR_HEAD_SHA" || true)" = "vercel-mcp-only" ]; then
               ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
             fi
 
@@ -160,23 +172,15 @@ jobs:
         env:
           POPUP_CONCURRENCY: 4
           POPUP_SLUGS: ${{ steps.e2e-scope.outputs.only }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
         env:
           E2E_ONLY_SLUGS: ${{ steps.e2e-scope.outputs.only }}
-          # Dois contextos independentes: preserva todos os slugs x viewports,
-          # mas reduz o gargalo serial de 192 cenarios na verificacao global.
+          # Dois contextos independentes; o gate de PR nunca grava leads externos.
           E2E_CONCURRENCY: 2
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: |
-          if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
-            node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
-          else
-            echo "SUPABASE_SERVICE_ROLE_KEY não está configurada no GitHub; executando o gate E2E sem escrita externa."
-            E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
-          fi
+          E2E_DRY_RUN: "1"
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
 
       - name: Prévias de link e ícones (headless)
         run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
@@ -217,6 +221,11 @@ jobs:
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
           FRAMEWORK_COMPAT=false
+          VERCEL_MCP_GUARD_ONLY=false
+          if [ "$(node scripts/classify-vercel-mcp-only-diff.mjs "$BASE" "$HEAD" || true)" = "vercel-mcp-only" ]; then
+            RUN=true
+            VERCEL_MCP_GUARD_ONLY=true
+          fi
 
           if [ "$(node scripts/resolve-framework-compat-scope.mjs "$BASE" "$HEAD" || true)" = "framework" ]; then
             RUN=true
@@ -287,18 +296,47 @@ jobs:
           if [ "${{ steps.e2e-scope.outputs.services_only }}" = "true" ] || [ "${{ steps.e2e-scope.outputs.admin_images_only }}" = "true" ]; then
             VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
           fi
-          # Main sempre verifica o universo completo; escopo por slug só no PR.
-          if [ "${{ github.event_name }}" != "pull_request" ]; then
+          # Guard MCP: canarios representativos sem mexer no limite de 2%.
+          # O classificador somente aceita o diff exato do plugin para Vercel.
+          if [ "$VERCEL_MCP_GUARD_ONLY" = true ]; then
+            VISUAL_ONLY="rm-fretes,aguia-sul-sinalizacao,btb-construcao,clinica-integrada,dlara-pizzaria,premium-envelopamentos"
+          fi
+          # Main permanece global para todo diff visual; guard MCP nao altera DOM.
+          if [ "${{ github.event_name }}" != "pull_request" ] && [ "$VERCEL_MCP_GUARD_ONLY" != true ]; then
             VISUAL_ONLY=""
           fi
           echo "only=$VISUAL_ONLY" >> "$GITHUB_OUTPUT"
           echo "impacto visual: $RUN · escopo: ${VISUAL_ONLY:-global}"
 
-      - name: Regressão visual (home + portfólios, 3 viewports)
+      - name: Capturar baseline visual Production (somente leitura)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 552 && steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
+        env:
+          E2E_BASE_URL: https://www.0web.com.br
+          # Mídias administradas são validadas em Production antes da máscara visual; a lista também é coberta por teste estático.
+          VISUAL_ONLY: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_BASELINE_DIR: seo-reports/visual-production-baseline
+          VISUAL_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+          VISUAL_READ_ONLY: "1"
+        run: bun run test:visual:update
+
+      - name: Regressão visual (Production + baselines históricas)
         if: steps.visual-scope.outputs.run == 'true' && !startsWith(steps.visual-scope.outputs.only, 'preview-')
         env:
           VISUAL_ONLY: ${{ steps.visual-scope.outputs.only }}
-        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+          VISUAL_PRODUCTION_COMPARE: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 552 }}
+          VISUAL_PRODUCTION_ROUTES: home,mp-festas-eventos,lucas-arruma-maquina-lavar,espaco-cih-luh,diego-montador-moveis,eletrovale-eletromecanica,eletro-solucoes-eficazes,confeitaria-chyrley,no-brilho-higienizacao,ecommerce-on,portfolio-index,dyzpromo,r_beauty,acai-total-araucaria,studio-de-cilios,refrigeracao-maresia,lk-alvenaria,paulo-mestre-de-obras
+          VISUAL_PRODUCTION_BASELINE_DIR: seo-reports/visual-production-baseline
+          PORTFOLIO_RUNTIME_VISUAL_FIXTURES: "1"
+          VISUAL_PRODUCTION_VIEWPORTS: desktop:1440x900,tablet:768x1024,mobile:390x844
+        run: |
+          if [ "$VISUAL_PRODUCTION_COMPARE" = "true" ]; then
+            node scripts/ci-with-prod-preview.mjs -- bash -c '
+              VISUAL_ONLY="$VISUAL_PRODUCTION_ROUTES" VISUAL_BASELINE_DIR="$VISUAL_PRODUCTION_BASELINE_DIR" VISUAL_VIEWPORTS="$VISUAL_PRODUCTION_VIEWPORTS" bun run test:visual &&
+              VISUAL_SKIP="$VISUAL_PRODUCTION_ROUTES" bun run test:visual && node scripts/playwright-portfolio-runtime-visual-fixtures.mjs
+            '
+          else
+            node scripts/ci-with-prod-preview.mjs -- bun run test:visual
+          fi
 
       - name: Regressão visual (prévia isolada com noindex e disclosure)
         if: steps.visual-scope.outputs.run == 'true' && startsWith(steps.visual-scope.outputs.only, 'preview-')
@@ -324,6 +362,8 @@ jobs:
             seo-reports/a11y-report.json
             seo-reports/link-preview-report.json
             seo-reports/visual
+            seo-reports/visual-production-baseline
+            seo-reports/visual-fixtures
             seo-reports/popup-shots
             seo-reports/source-privacy-report.md
             seo-reports/head-icons-report.json
@@ -334,4 +374,58 @@ jobs:
             seo-reports/portfolio-funnels-e2e.html
             public/audit
             seo-reports/client-privacy-report.json
+          if-no-files-found: ignore
+
+  targeted-visual-qa:
+    name: "QA visual direcionado — ${{ inputs.visual_only }}"
+    if: github.event_name == 'workflow_dispatch' && inputs.visual_only != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+      - name: Instalar Chromium
+        run: bunx playwright install --with-deps chromium
+      - name: Executar contratos específicos do portfólio
+        env:
+          VISUAL_ONLY: ${{ inputs.visual_only }}
+        run: |
+          case "$VISUAL_ONLY" in
+            preview-leticia-reiche)
+              bun test tests/portfolio/leticia-reiche-seo-route.test.ts tests/portfolio/leticia-reiche-hosted-form.test.ts
+              ;;
+            preview-dona-garimpeira-brecho)
+              bun test tests/portfolio/dona-garimpeira-draft-contract.test.ts tests/portfolio/dona-garimpeira-funnel-onboarding.test.ts
+              ;;
+            *)
+              echo "Escopo visual não permitido: $VISUAL_ONLY"
+              exit 1
+              ;;
+          esac
+      - name: Build local de Preview (sem deployment)
+        env:
+          VERCEL: "1"
+          VERCEL_ENV: "preview"
+        run: bun run build
+      - name: Capturar e comparar em 390, 768 e 1440 px
+        env:
+          VERCEL_ENV: "preview"
+          VISUAL_ONLY: ${{ inputs.visual_only }}
+          VISUAL_VIEWPORTS: "desktop:1440x900,tablet:768x1024,mobile:390x844"
+          VISUAL_BASELINE_DIR: "seo-reports/visual-r13"
+        run: node scripts/ci-with-prod-preview.mjs -- bash -lc "bun run test:visual:update && bun run test:visual"
+      - name: Anexar evidências visuais
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-r13-${{ inputs.visual_only }}
+          path: |
+            seo-reports/visual-r13/**
+            playwright-report/**
           if-no-files-found: ignore

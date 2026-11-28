@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
+import { MotionFirstPaint, MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -49,6 +49,7 @@ export function WoodhouseHamburgueresPage() {
       }
     >
       <main className="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <MotionFirstPaint>
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-12">
           {/* comanda: assinatura do projeto */}
           <section className="min-w-0 rounded-lg border border-[var(--wh-amber)]/35 bg-[var(--wh-wood)]/20 p-6 md:p-9">
@@ -194,6 +195,7 @@ export function WoodhouseHamburgueresPage() {
             </p>
           </aside>
         </div>
+        </MotionFirstPaint>
       </main>
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
