@@ -1,23 +1,4 @@
-import { useState } from "react";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-
-type Dish = "frango" | "costela";
-const dishes = {
-  frango: {
-    label: "Supercombo de frango",
-    caption: "Frango recheado com aipim, porção de maionese, batatas assadas e refrigerante de 2 litros.",
-    price: "R$ 59,99",
-    number: "01",
-    note: "Composição e preço informados no panfleto; validade não confirmada.",
-  },
-  costela: {
-    label: "Costela na brasa",
-    caption: "Costela assada. O folheto anuncia porção de maionese grátis na compra de 1 kg.",
-    price: "R$ 69,99",
-    number: "02",
-    note: "Preço, unidade/peso e condição promocional ainda precisam de confirmação.",
-  },
-} as const;
 
 function FirePlateIllustration() {
   return (
@@ -45,202 +26,80 @@ function FirePlateIllustration() {
   );
 }
 
-export function ToopAssadosPreviewPage({ mode = "preview" }: { mode?: "preview" | "live" }) {
-  const isLive = mode === "live";
-  const [dish, setDish] = useState<Dish>("frango");
-  const [quantity, setQuantity] = useState(1);
-  const [showSummary, setShowSummary] = useState(false);
-  const chosen = dishes[dish];
-
-  function selectDish(next: Dish) {
-    setDish(next);
-    setShowSummary(false);
-  }
-
+export function ToopAssadosPreviewPage() {
   return (
-    <div className="min-h-screen bg-[#F5EBDD] text-[#2E221B]" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      <style>{`
-        .toop-headline { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.055em; }
-        .toop-grain { background-image: radial-gradient(#683C2517 1px, transparent 1px); background-size: 11px 11px; }
-        .toop-marquee { letter-spacing: .2em; }
-        @media (prefers-reduced-motion: no-preference) {
-          .toop-card { transition: transform 180ms ease, border-color 180ms ease; }
-          .toop-card:hover { transform: translateY(-3px); }
-        }
-      `}</style>
-      <div className="bg-[#302117] px-4 py-3 text-center text-xs font-semibold tracking-wide text-[#FFE5C2]" role="note">
-        {isLive ? "PORTFÓLIO DEMONSTRATIVO 0WEB · Não é o atendimento oficial do restaurante" : "CONCEITO NÃO OFICIAL DA 0WEB · Prévia visual · Não recebe pedidos ou dados pessoais"}
-      </div>
-
-      <header className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-6 sm:px-8 md:pr-40 lg:pr-8">
-        <a href="#inicio" className="flex items-center gap-3 text-[#6D331F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-          <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-current text-lg font-black" aria-hidden="true">T</span>
-          <span className="text-xl font-black tracking-[-.04em]">TOOP <span className="font-normal">ASSADOS</span></span>
-        </a>
-        <nav aria-label="Navegação da proposta" className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
-          <a href="#assados" className="hover:underline">Assados</a>
-          <a href="#simulacao" className="hover:underline">Como pedir</a>
-          <a href="#localizacao" className="hover:underline">Localização</a>
+    <main className="min-h-screen bg-[#211b18] text-[#fff6e8]">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6 sm:px-8">
+        <a href="#inicio" className="text-sm font-black uppercase tracking-[0.28em] text-[#f5c27c]">TOOP ASSADOS</a>
+        <nav className="hidden items-center gap-7 text-sm text-[#e6d6c4] sm:flex">
+          <a href="#sobre" className="transition hover:text-[#f5c27c]">Sobre</a>
+          <a href="#localizacao" className="transition hover:text-[#f5c27c]">Localização</a>
         </nav>
+        <a href="#localizacao" className="rounded-full border border-[#f5c27c]/60 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#f5c27c] transition hover:bg-[#f5c27c] hover:text-[#211b18]">Ver informações</a>
       </header>
 
-      <main id="inicio">
-        <section className="toop-grain overflow-hidden border-y-2 border-[#6D331F]/20 bg-[#EACDA6]">
-          <div className="mx-auto grid max-w-6xl items-center gap-6 px-5 pb-12 pt-11 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:py-16">
-            <div>
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#7B4028] px-4 py-2 text-xs font-black uppercase tracking-[.14em]">
-                <span className="h-2 w-2 rounded-full bg-[#A73D21]" /> Xaxim · Curitiba
-              </div>
-              <h1 className="toop-headline max-w-[580px] text-[clamp(3.6rem,7vw,7.3rem)] font-black leading-[.9]">
-                Da brasa <em className="text-[#A54526]">para a sua</em> mesa.
-              </h1>
-              <p className="mt-7 max-w-lg text-lg leading-relaxed">
-                Uma proposta de página para descobrir os assados, conferir os acompanhamentos e organizar sua intenção de encomenda.
-              </p>
-              <a href="#assados" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#342219] px-8 py-3 font-bold text-[#FFF4E3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                Conhecer os assados <span aria-hidden="true" className="ml-3">↓</span>
-              </a>
-            </div>
-            <div className="relative mx-auto w-full max-w-[630px]">
-              <div className="relative aspect-[1.12] overflow-hidden rounded-[42%_42%_12%_12%] border-[10px] border-[#633421] bg-[radial-gradient(circle_at_65%_24%,#C86531_0%,#6A321D_42%,#2A1C17_95%)] shadow-[0_20px_60px_#4B281F55]">
-                <FirePlateIllustration />
-                <p className="absolute bottom-4 left-4 rounded-md bg-[#FFF3E1]/95 px-3 py-2 text-xs font-semibold text-[#533323]">
-                  Ilustração conceitual · não é foto dos produtos
-                </p>
-              </div>
-              <div className="absolute -right-2 top-5 grid h-20 w-20 rotate-12 place-items-center rounded-full bg-[#F7D77B] text-center text-xs font-black uppercase leading-tight text-[#523020] shadow-lg sm:h-28 sm:w-28 sm:text-sm">
-                Especial
-                <br />da brasa
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="assados" className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
-            <div>
-              <p className="toop-marquee text-xs font-black uppercase text-[#A04D2F]">Cardápio em destaque</p>
-              <h2 className="toop-headline mt-3 text-5xl font-bold leading-none sm:text-6xl">O que vai à mesa?</h2>
-            </div>
-            <p className="max-w-sm text-sm leading-relaxed text-[#665648]">
-              Valores encontrados em um panfleto sem data. Não representam ofertas atuais confirmadas.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {(Object.entries(dishes) as [Dish, (typeof dishes)[Dish]][]).map(([id, item]) => (
-              <article key={id} className={`toop-card flex flex-col justify-between rounded-[1.6rem] border-2 p-7 sm:p-9 ${dish === id ? "border-[#A54526] bg-[#FFF8ED]" : "border-[#D5BDA5] bg-[#EFE1CE]"}`}>
-                <div>
-                  <div className="mb-7 flex items-center justify-between">
-                    <span className="text-sm font-bold tracking-[.16em] text-[#9A593B]">PRATO {item.number}</span>
-                    <span className="rounded-full bg-[#48291B] px-4 py-1 text-xs font-bold text-[#FFF1D9]">FOLHETO</span>
-                  </div>
-                  <h3 className="toop-headline max-w-sm text-4xl font-bold leading-[1.02] sm:text-5xl">{item.label}</h3>
-                  <p className="mt-5 min-h-20 text-base leading-relaxed">{item.caption}</p>
-                  <p className="mt-5 text-xs leading-relaxed text-[#745E4D]">{item.note}</p>
-                </div>
-                <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-[#6D331F]/20 pt-6">
-                  <div>
-                    <span className="block text-xs font-bold uppercase tracking-widest text-[#80644F]">Anunciado no folheto</span>
-                    <strong className="toop-headline text-4xl font-bold text-[#9B4227]">{item.price}</strong>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => { selectDish(id); document.getElementById("simulacao")?.scrollIntoView({ behavior: "auto" }); }}
-                    aria-label={`Simular interesse em ${item.label}`}
-                    className="min-h-12 rounded-full bg-[#332018] px-6 py-3 text-sm font-bold text-[#FFF8ED] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
-                  >
-                    Simular escolha
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="simulacao" className="bg-[#302117] px-5 py-16 text-[#FFF1DB] sm:px-8">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr]">
-            <div>
-              <p className="toop-marquee text-xs font-bold uppercase text-[#F7BA75]">Experiência de encomenda</p>
-              <h2 className="toop-headline mt-4 text-5xl font-bold leading-none sm:text-6xl">Escolha sem complicar.</h2>
-              <p className="mt-6 max-w-lg leading-relaxed text-[#E0C6AA]">
-                Na versão contratada, o visitante poderá informar o assado, quantidade e preferência de retirada. O estabelecimento confirmará preço, disponibilidade e horário.
-              </p>
-              <p className="mt-5 text-sm text-[#D8BBA0]">Esta simulação não solicita nome, telefone ou endereço, não armazena dados e não envia pedidos.</p>
-            </div>
-            <div className="rounded-[1.6rem] bg-[#F9EDDB] p-6 text-[#302117] sm:p-9">
-              <h3 className="text-lg font-black">Simulador de escolha <span className="ml-2 text-xs font-normal text-[#775C48]">sem envio</span></h3>
-              <fieldset className="mt-6">
-                <legend className="mb-3 text-sm font-bold">Qual assado você escolheria?</legend>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {(Object.entries(dishes) as [Dish, (typeof dishes)[Dish]][]).map(([id, item]) => (
-                    <label key={id} className={`flex min-h-16 cursor-pointer items-center gap-3 rounded-xl border-2 p-3 text-sm font-bold ${dish === id ? "border-[#A54526] bg-white" : "border-[#D4BEA8]"}`}>
-                      <input type="radio" name="toop-dish" checked={dish === id} onChange={() => selectDish(id)} className="h-5 w-5 accent-[#A54526]" />
-                      {item.label}
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-                <label htmlFor="toop-quantity" className="text-sm font-bold">Quantidade de itens</label>
-                <select
-                  id="toop-quantity"
-                  value={quantity}
-                  onChange={(event) => { setQuantity(Number(event.target.value)); setShowSummary(false); }}
-                  className="min-h-12 rounded-xl border-2 border-[#B7987B] bg-white px-4 text-base"
-                >
-                  {[1, 2, 3, 4, 5].map((value) => <option key={value} value={value}>{value}</option>)}
-                </select>
-              </div>
-              <button type="button" onClick={() => setShowSummary(true)} className="mt-6 min-h-12 w-full rounded-full bg-[#9E452A] px-5 py-3 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                Visualizar resumo demonstrativo
-              </button>
-              {showSummary && (
-                <div className="mt-5 rounded-2xl border-2 border-[#C5A686] bg-white p-5" role="status" aria-live="polite">
-                  <p className="font-black">Sua seleção de exemplo</p>
-                  <p className="mt-2">{quantity} × {chosen.label}</p>
-                  <p className="mt-2 text-sm text-[#705742]">O valor anunciado no folheto não foi validado e não é aplicado nesta simulação.</p>
-                  <p className="mt-3 text-sm font-bold">Nenhum pedido foi realizado.</p>
-                  {isLive && (
-                    <a href="https://form.jotform.com/263260727590056" target="_blank" rel="noopener noreferrer" data-funnel-provider="jotform" data-client-key="toop-assados" className="mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A54526] px-6 py-3 text-sm font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                      Abrir formulário de demonstração
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        <section id="localizacao" className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1fr_.8fr] md:items-center">
+      <section id="inicio" className="relative isolate overflow-hidden border-y border-[#f5c27c]/15">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_75%_30%,rgba(192,94,45,.24),transparent_38%),linear-gradient(120deg,#211b18,#30221b_55%,#1a1715)]" />
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1.05fr_.95fr] md:py-24">
           <div>
-            <p className="toop-marquee text-xs font-black uppercase text-[#A04D2F]">Um negócio do Xaxim</p>
-            <h2 className="toop-headline mt-3 text-5xl font-bold leading-none sm:text-6xl">Perto da sua mesa.</h2>
-            <p className="mt-6 max-w-xl leading-relaxed">
-              O panfleto indica atendimento na Rua Omar Raimundo Pichet, 1217, bairro Xaxim, Curitiba/PR. O endereço e sua grafia cadastral ainda precisam ser confirmados pelo estabelecimento.
-            </p>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.32em] text-[#f5c27c]">Apresentação estática · Xaxim, Curitiba</p>
+            <h1 className="max-w-2xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl">Toop Assados</h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#e6d6c4]">Uma página de apresentação baseada no material recebido. Cardápio, preços, horários e disponibilidade não estão confirmados nesta publicação.</p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="#localizacao" className="rounded-full bg-[#f5c27c] px-6 py-3 text-sm font-black text-[#211b18] transition hover:-translate-y-0.5">Ver localização</a>
+              <a href="#sobre" className="rounded-full border border-white/25 px-6 py-3 text-sm font-bold text-white transition hover:border-[#f5c27c] hover:text-[#f5c27c]">Sobre a apresentação</a>
+            </div>
           </div>
-          <aside className="rounded-[1.6rem] border-2 border-[#A77A58] bg-[#E8D0AC] p-7">
-            <p className="text-xs font-black uppercase tracking-widest text-[#865036]">Antes de encomendar</p>
-            <ul className="mt-5 space-y-4 text-sm leading-relaxed">
-              <li>✓ Confirme o preço vigente e a composição do combo.</li>
-              <li>✓ Consulte a disponibilidade e o horário de retirada.</li>
-              <li>✓ Verifique se existe serviço de entrega.</li>
-            </ul>
-            <p className="mt-7 border-t border-[#A77A58] pt-5 text-xs text-[#664F40]">
-              Prévia criada de forma independente pela 0WEB para apresentação comercial. Não é um canal oficial da Toop Assados.
-            </p>
-          </aside>
-        </section>
-      </main>
-      <footer className="bg-[#261811] px-5 py-7 text-center text-xs leading-relaxed text-[#EACDA6]">
-        <span className="block">Estudo independente de presença digital · Sem pedidos, pagamentos, avaliações ou atendimento operacional oficial.</span>
-        <PortfolioHostCredit className="mt-2 text-[#EACDA6]" linkClassName="underline underline-offset-4" />
+          <figure className="mx-auto w-full max-w-[420px]">
+            <div className="rounded-[2rem] border border-[#f5c27c]/20 bg-[#30221b]/80 p-5 shadow-2xl shadow-black/30">
+              <FirePlateIllustration />
+            </div>
+            <figcaption className="mt-4 text-center text-xs leading-5 text-[#c9b7a4]">Ilustração editorial da 0WEB — não é fotografia do estabelecimento</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="sobre" className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-8 md:grid-cols-2 md:py-20">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#f5c27c]">Sobre</p>
+          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">Uma presença digital clara, sem promessas não confirmadas</h2>
+        </div>
+        <div className="space-y-4 text-sm leading-7 text-[#e6d6c4]">
+          <p>O nome Toop Assados e a referência à região do Xaxim foram preservados do material recebido. Não há fotografias reais do estabelecimento disponíveis nesta versão do repositório.</p>
+          <p>Por isso, não exibimos imagens de terceiros, cardápio, preços, promoções ou simulação de pedidos.</p>
+        </div>
+      </section>
+
+      <section id="localizacao" className="border-y border-[#f5c27c]/15 bg-[#2a211c]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-8 md:grid-cols-[.8fr_1.2fr] md:py-20">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#f5c27c]">Localização</p>
+            <h2 className="mt-4 text-3xl font-black">Referência informada no material</h2>
+          </div>
+          <div className="rounded-[1.5rem] border border-white/10 bg-[#211b18] p-6">
+            <p className="text-lg font-semibold text-white">Rua Omar Raimundo Pichet, 1217 · Xaxim · Curitiba/PR</p>
+            <p className="mt-3 text-sm leading-6 text-[#c9b7a4]">Endereço reproduzido do material recebido, ainda sem confirmação independente. Confirme a referência e o funcionamento antes de se deslocar.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Omar%20Raimundo%20Pichet%2C%201217%2C%20Xaxim%2C%20Curitiba%2C%20PR" target="_blank" rel="noreferrer" className="mt-6 inline-flex rounded-full border border-[#f5c27c]/60 px-5 py-3 text-sm font-bold text-[#f5c27c] transition hover:bg-[#f5c27c] hover:text-[#211b18]">Pesquisar endereço no mapa</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+        <div className="rounded-[1.5rem] border border-[#f5c27c]/20 bg-[#30221b] p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#f5c27c]">Aviso importante</p>
+          <h2 className="mt-3 text-2xl font-black">Esta página não recebe pedidos</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[#e6d6c4]">Não há formulário, carrinho, envio de pedido ou confirmação de encomenda. Cardápio, valores, horários e canais de atendimento permanecem pendentes de confirmação comercial.</p>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 px-5 py-8 text-center text-xs text-[#a99682]">
+        <p>Apresentação demonstrativa · Informações sujeitas a confirmação</p>
+        <PortfolioHostCredit />
       </footer>
-    </div>
+    </main>
   );
 }
 
-
 export function ToopAssadosLivePage() {
-  return <ToopAssadosPreviewPage mode="live" />;
+  return <ToopAssadosPreviewPage />;
 }

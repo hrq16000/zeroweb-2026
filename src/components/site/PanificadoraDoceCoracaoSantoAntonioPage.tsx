@@ -1,5 +1,4 @@
 import { ArrowRight, ArrowUpRight, Clock3, ExternalLink, Heart, Instagram, MapPin, MessageCircle, Navigation, Search, Sparkles, X } from "lucide-react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
 import type { ReactNode } from "react";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -53,7 +52,7 @@ const questions = [
   },
   {
     question: "Como consultar informações desta padaria?",
-    answer: "O formulário demonstrativo registra o interesse na 0WEB pelo Jotform, sem envio automático à padaria. Não confirma compras, encomendas ou disponibilidade. Para falar diretamente com o estabelecimento, consulte seus canais públicos.",
+    answer: "Esta página é uma apresentação estática. Não recebe pedidos nem encaminha dados à padaria; confirme cardápio, valores e disponibilidade diretamente pelos canais oficiais do estabelecimento.",
   },
   {
     question: "Onde encontro as publicações do Instagram e Facebook?",
@@ -66,89 +65,11 @@ const questions = [
 ] as const;
 
 
-const consultationFormUrl = "https://form.jotform.com/263264367955065";
 
 /** Formulário 0WEB hospedado; nenhum dado é enviado automaticamente à padaria. */
-function HostedConsultaButton({ children, className }: { children: ReactNode; className?: string }) {
-  return (
-    <DialogPrimitive.Root>
-      <DialogPrimitive.Trigger asChild>
-        <button type="button" data-testid="doce-coracao-consulta-trigger" data-funnel-provider-trigger="jotform" data-funnel-client="panificadora-doce-coracao-santo-antonio" className={className}>{children}</button>
-      </DialogPrimitive.Trigger>
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-[110] bg-[#341624]/80 backdrop-blur-sm" />
-        <DialogPrimitive.Content
-          className="fixed inset-x-3 top-1/2 z-[111] mx-auto flex h-[min(92dvh,820px)] max-w-2xl -translate-y-1/2 flex-col overflow-hidden rounded-2xl bg-[#fff9f0] text-[#3c1c27] shadow-2xl sm:inset-x-6"
-          aria-describedby="dc-consulta-description"
-        >
-          <div className="flex items-start justify-between gap-4 border-b border-[#e7d9cf] px-5 py-4">
-            <div>
-              <DialogPrimitive.Title className="text-lg font-bold">Consulta demonstrativa · Doce Coração</DialogPrimitive.Title>
-              <DialogPrimitive.Description id="dc-consulta-description" className="mt-1 text-sm">
-                Formulário da 0WEB. Não é canal oficial da padaria nem confirma encomendas.
-              </DialogPrimitive.Description>
-            </div>
-            <DialogPrimitive.Close className="shrink-0 rounded-full border border-[#d6bdb1] p-2" aria-label="Fechar formulário">
-              <X size={20} aria-hidden="true" />
-            </DialogPrimitive.Close>
-          </div>
-          <iframe data-funnel-provider="jotform" data-client-key="panificadora-doce-coracao-santo-antonio"
-            src={consultationFormUrl} title="Formulário demonstrativo — Panificadora Doce Coração"
-            className="min-h-0 w-full flex-1 border-0" loading="eager"
-            referrerPolicy="strict-origin-when-cross-origin" />
-          <div className="border-t border-[#e7d9cf] px-5 py-3 text-center text-xs">
-            <p>As respostas ficam na 0WEB (Jotform); não são enviadas à padaria.</p>
-            <p className="mt-2">Não carregou? <a href={consultationFormUrl} target="_blank"
-              rel="noopener noreferrer" className="underline">Abrir formulário em outra aba</a>.</p>
-          </div>
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
-  );
+function StaticInfoLink({ children, className }: { children: ReactNode; className?: string }) {
+  return <a href="#localizacao" className={className}>{children}</a>;
 }
-
-export const composition: PortfolioComposition = {
-  slug,
-  motionIntensity: "BALANCED",
-  renderCta: ({ children, className }: CtaRenderOptions) => (
-    <HostedConsultaButton>{children}</HostedConsultaButton>
-  ),
-  afterContent: <PortfolioHostCredit />,
-  brief: {
-    businessPersonality: "Calorosa, direta, de bairro, afetiva e objetiva.",
-    creativeConcept: "Do forno para o caminho de casa: caderno editorial de padaria de bairro.",
-    visualMetaphor: "Papel de embrulho e carimbo circular, com coração contínuo e ilustrações editoriais de panificação.",
-    spatialLanguage: "Colunas editoriais assimétricas, círculos de marca e etiquetas de prateleira.",
-    heroConcept: "Capa de jornal creme com grande título vinho e ilustração original à direita.",
-    navigationConcept: "Masthead compacta, navegação por âncoras e mapa externo.",
-    contentRhythm: "Capa → fita cinética → momentos do dia → categorias → endereço → redes e prova de origem → perguntas → fechamento editorial.",
-    mediaNarrative: "Logo, capa e OG autorais com ilustrações vetoriais conceituais; sem fotografias falsamente documentais.",
-    proofNarrative: "Localização e categorias informadas com fonte e data, sem depoimentos ou avaliações inventadas.",
-    conversionNarrative: "Rota como ação local principal; formulário demonstrativo isolado registra consultas na 0WEB via Jotform, sem envio automático à padaria.",
-    motionNarrative: "Carimbo com micro movimento e links expressivos, sempre respeitando movimento reduzido.",
-    signatureMoments: ["Carimbo editorial de bairro", "Navegação por três ocasiões", "Etiqueta de endereço em alto contraste"],
-    compositionFingerprint: {
-      heroGeometry: "oversized editorial masthead illustration seal offset right",
-      headerTreatment: "tiny neighborhood newspaper masthead",
-      sectionGraph: "paper cover→bread ticker→moment selector→food typology→burgundy address ticket→social source card→FAQ→editorial close",
-      contentOrder: ["orientação", "ritmo", "ocasião", "categorias", "localização", "redes", "dúvidas", "contato"],
-      gridTopology: "asymmetric cover, horizontal moments, typographic categories, full-width locator",
-      mediaDistribution: "custom SVG cover, graphic category icons, map directions, own social poster",
-      backgroundRhythm: "cream→burgundy ticker→mustard→paper→burgundy→cream social→rose→cream",
-      proofPlacement: "address adjacent to map with research date",
-      ctaDistribution: "hero route plus inquiry, locator directions, Instagram reference, closing business inquiry",
-      navigationPattern: "local sticky anchors and maps, no institutional header",
-      motionSignature: "short stamp + icon micro-lift / reduced motion static",
-      closingStructure: "typographic note with demonstrative disclosure",
-      roleGraph: ["entity orientation", "occasion guidance", "category discovery", "wayfinding", "FAQ", "consultation"],
-      mediaCadence: ["editorial illustration", "kinetic ticker", "graphic menu", "map direction", "social art", "text FAQ"],
-      interactionLoci: ["moment anchors", "map", "Instagram", "FAQ", "funnel"],
-      decisionAidPlacement: ["occasion strip", "hours caveat near address"],
-      densityRhythm: ["airy", "compact", "medium", "high contrast", "quiet"],
-      mobileCompositionStrategy: "text precedes art, moment controls wrap, map ticket full width",
-    },
-  },
-};
 
 export function PanificadoraDoceCoracaoSantoAntonioPage() {
   return (
@@ -180,9 +101,9 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
                 <a className="dc-button-primary" href={mapUrl} target="_blank" rel="noopener noreferrer">
                   <Navigation size={18} aria-hidden="true" /> Encontrar a padaria <ArrowUpRight size={18} aria-hidden="true" />
                 </a>
-                <HostedConsultaButton className="dc-button-outline dc-button-warm">
-                  <MessageCircle size={18} aria-hidden="true" /> Abrir consulta demonstrativa
-                </HostedConsultaButton>
+                <StaticInfoLink className="dc-button-outline dc-button-warm">
+                  <MessageCircle size={18} aria-hidden="true" /> Ver localização
+                </StaticInfoLink>
                 <a className="dc-button-quiet" href="#sabores">Conhecer os sabores <ArrowRight size={17} aria-hidden="true" /></a>
               </div>
               <p className="dc-proof-note">Apresentação editorial demonstrativa 0WEB · Informações públicas, não site oficial da padaria.</p>
@@ -224,7 +145,7 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               ))}
             </div>
             <p className="dc-availability"><Clock3 size={18} aria-hidden="true" /> Os produtos podem variar diariamente. Para cardápio, encomendas, preços e estoque, confirme diretamente com a padaria.</p>
-            <div className="mt-6 flex justify-start"><HostedConsultaButton className="dc-button-outline dc-button-warm"><MessageCircle size={18} aria-hidden="true" /> Registrar consulta demonstrativa</HostedConsultaButton></div>
+            <div className="mt-6 flex justify-start"><StaticInfoLink className="dc-button-outline dc-button-warm"><MessageCircle size={18} aria-hidden="true" /> Ver localização</StaticInfoLink></div>
           </section>
 
           <section id="localizacao" className="dc-location" aria-labelledby="dc-location-title">
@@ -233,9 +154,9 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
               <span className="dc-address-label"><MapPin size={19} aria-hidden="true" /> Endereço identificado na ficha pública</span>
               <address>Rua Desembargador<br />James Portugal Macedo, <strong>290</strong><span>Santo Antônio · São José dos Pinhais — PR<br />CEP 83020-620</span></address>
               <a href={mapUrl} className="dc-directions" target="_blank" rel="noopener noreferrer">Abrir localização no Google Maps <ArrowUpRight size={18} aria-hidden="true" /></a>
-              <HostedConsultaButton className="dc-location-whatsapp">
+              <StaticInfoLink className="dc-button-outline dc-button-warm">
                 <MessageCircle size={18} aria-hidden="true" /> Consultar produtos na 0WEB
-              </HostedConsultaButton>
+              </StaticInfoLink>
               <p className="dc-location-caveat">Consulte o horário de abertura atualizado antes de sair, especialmente aos domingos e feriados.</p>
             </div>
           </section>
@@ -273,10 +194,10 @@ export function PanificadoraDoceCoracaoSantoAntonioPage() {
           <section className="dc-final" aria-labelledby="dc-final-title">
             <div className="dc-final-heading"><span className="dc-section-label">Um pedacinho do bairro na internet</span><h2 id="dc-final-title">O que é local merece ser <em>encontrado.</em></h2></div>
             <div className="dc-final-actions">
-              <p>Esta presença é uma demonstração editorial de <a href="/portfolio">criação de sites da 0WEB / WebRealce</a>, não o site oficial da empresa. O formulário demonstrativo registra a consulta na 0WEB via Jotform; as respostas não são enviadas à padaria. Preços, estoque, horários e encomendas devem ser confirmados diretamente com o estabelecimento.</p>
+              <p>Esta presença é uma demonstração editorial de <a href="/portfolio">criação de sites da 0WEB</a>, não o site oficial da empresa. Esta página não recebe pedidos ou consultas e não encaminha dados à padaria. Preços, estoque, horários e encomendas devem ser confirmados diretamente com o estabelecimento.</p>
               <div className="dc-final-buttons">
                 <a className="dc-button-primary" href={mapUrl} target="_blank" rel="noopener noreferrer"><Search size={18} aria-hidden="true" /> Consultar no Google <ArrowUpRight size={17} aria-hidden="true" /></a>
-                <HostedConsultaButton className="dc-button-outline">Abrir formulário demonstrativo <MessageCircle size={18} aria-hidden="true" /></HostedConsultaButton>
+                <StaticInfoLink className="dc-button-outline">Ver localização <MessageCircle size={18} aria-hidden="true" /></StaticInfoLink>
               </div>
               <p className="dc-final-small">As informações foram verificadas em 19/11/2026 em <a href={mapUrl} target="_blank" rel="noopener noreferrer">Google Maps</a> e <a href="https://restaurantguru.com/Doce-Coracao-Sao-Jose-dos-Pinhais" target="_blank" rel="noopener noreferrer">Restaurant Guru</a>. Dados variáveis devem ser confirmados na origem.</p>
             </div>

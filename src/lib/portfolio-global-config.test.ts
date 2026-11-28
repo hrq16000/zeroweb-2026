@@ -7,6 +7,15 @@ import {
   resolvePortfolioStandards,
 } from "./portfolio-global-config";
 
+const staticNoContactSlugs = new Set([
+  "infinito-spa",
+  "espaco-marli-nails-guaratuba",
+  "bpl-locacoes-de-brinquedos",
+  "toop-assados",
+  "panificadora-doce-coracao-santo-antonio",
+  "salgados-da-fran",
+]);
+
 const directLeadFormKeys = new Set(
   (portfolioClients as Array<{ clientKey: string; funnelVariant?: string }>)
     .filter((client) => client.funnelVariant === "direct_lead_form")
@@ -23,7 +32,7 @@ describe("padrões globais de /portfolio/:slug", () => {
       const hosted = (hostedFormRegistry.forms as Record<string, { status: string } | undefined>)[client.clientKey];
       const usesDedicatedLeadForm = directLeadFormKeys.has(client.clientKey);
       expect(standards.contactFloating.enabled).toBe(
-        hosted?.status === "verified" || usesDedicatedLeadForm ? false : true,
+        hosted?.status === "verified" || usesDedicatedLeadForm || staticNoContactSlugs.has(client.clientKey) ? false : true,
       );
       expect(standards.contactFloating.behavior).toBe("funnel-modal");
       expect(standards.footer.enabled).toBe(true);

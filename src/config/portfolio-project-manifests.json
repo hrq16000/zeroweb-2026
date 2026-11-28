@@ -1145,9 +1145,9 @@
         "discovery": "complete",
         "blueprint": "complete",
         "seo": "in_progress",
-        "funnel": "in_progress",
+        "funnel": "not_started",
         "cover": "in_progress",
-        "qa": "complete",
+        "qa": "in_progress",
         "publish": "not_started"
       },
       "compositionContract": 2,
@@ -1255,9 +1255,9 @@
       "contentFacts": {
         "ownSourcedContent": true,
         "facts": [
-          "Salgados da Fran: encomendas publicadas no cartão do negócio",
-          "WhatsApp confirmado no cartão do negócio; SJP no cartão",
-          "Google Maps resolved matching name/phone in Águas Belas"
+          "O material recebido menciona encomendas e a região de Águas Belas/São José dos Pinhais.",
+          "O telefone citado no material não foi validado como WhatsApp; nenhum link de WhatsApp é exibido.",
+          "Cardápio, preços, entrega e disponibilidade não são exibidos até confirmação."
         ],
         "sources": [
           "Imagem original enviada em conversa 2026-11-23",
@@ -1286,31 +1286,27 @@
         "evidence": "Chromium 390/768/1440 + NO-BRAND: run 45673988778, artifact 15051042418; 9 screenshots, 0 failures, 0 overflow, 0 browser errors."
       },
       "blockers": [
-        "Visual QA Chromium 390/768/1440 pendente",
-        "Readiness gate do projeto não executado",
-        "Não publicado, não indexável até revisão"
-      ],
-      "warnings": [
-        "Amostra demonstrativa sem representação oficial da empresa",
-        "Cardápio, preço, entrega, disponibilidade, horários e mídias reais não comprovados"
+        "Quiz de consulta removido; esta página não recebe pedidos nem simula encomendas.",
+        "Cardápio, preços, disponibilidade e canal oficial de pedidos não confirmados.",
+        "Vínculo comercial e aprovação para indexação pendentes."
       ],
       "ownerRequired": [
-        "Confirmar vínculo com empresa para remover aviso demonstrativo",
-        "Confirmar cardápio e fotografias oficiais"
+        "Confirmar canal de pedidos, cardápio, preços, disponibilidade e condições de entrega/retirada.",
+        "Confirmar vínculo comercial e autorizar fotografias e indexação."
       ],
       "searchQa": [
         {
           "query": "Salgados da Fran",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "salgados-da-fran"
         },
         {
           "query": "salgados por encomenda Águas Belas",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "salgados-da-fran"
         }
       ],
-      "lastUpdatedAt": "2026-11-23"
+      "lastUpdatedAt": "2026-11-28"
     },
     "panificadora-doce-coracao-santo-antonio": {
       "slug": "panificadora-doce-coracao-santo-antonio",
@@ -1455,47 +1451,44 @@
         "blueprint": "complete",
         "composition": "complete",
         "seo": "complete",
-        "funnel": "complete",
+        "funnel": "not_started",
         "cover": "complete",
-        "qa": "complete",
+        "qa": "in_progress",
         "publish": "pending"
       },
       "blockers": [
-        "Aprovação comercial explícita, identidade oficial e destino de atendimento da padaria não comprovados. O Jotform atual recebe dados na 0WEB e não os encaminha automaticamente à padaria; manter draft/noindex até confirmação."
-      ],
-      "warnings": [
-        "Fotografias reais e postagens oficiais permanecem indisponíveis sem licença; a mídia usada é original e declaradamente editorial.",
-        "Jotform recebe dados na 0WEB e não os encaminha automaticamente à padaria.",
-        "Indexação pelo Google não verificada. Publicação e sitemap dependem do merge e do domínio Production READY."
+        "Jotform recebe submissão sintética na conta 0WEB, mas não encaminha dados à padaria; removido da página pública.",
+        "Destino operacional de pedidos, identidade oficial e aprovação comercial ainda não confirmados.",
+        "Manter página estática/noindex até validar o canal de atendimento."
       ],
       "ownerRequired": [
-        "Validar a identidade e fotografias de uso autorizado se desejar tornar o site oficial.",
-        "Confirmar perfil social e canais de atendimento oficiais."
+        "Definir e testar o destino real das encomendas; confirmar quem recebe as submissões.",
+        "Validar identidade, fotos, canais oficiais e aprovação comercial."
       ],
       "searchQa": [
         {
           "query": "Panificadora Doce Coração Santo Antônio",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "panificadora-doce-coracao-santo-antonio"
         },
         {
           "query": "padaria no Santo Antônio São José dos Pinhais",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "panificadora-doce-coracao-santo-antonio"
         },
         {
           "query": "pães e salgados Santo Antônio",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "panificadora-doce-coracao-santo-antonio"
         },
         {
           "query": "Rua Desembargador James Portugal Macedo",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "panificadora-doce-coracao-santo-antonio"
         },
         {
           "query": "bolos e doces São José dos Pinhais",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "panificadora-doce-coracao-santo-antonio"
         }
       ],
@@ -1508,7 +1501,7 @@
         "enrichment": "docs/portfolio/enrichment/panificadora-doce-coracao-santo-antonio.json",
         "mediaPlan": "docs/portfolio/media-plans/panificadora-doce-coracao-santo-antonio.json"
       },
-      "lastUpdatedAt": "2026-11-26"
+      "lastUpdatedAt": "2026-11-28"
     },
     "infinito-spa": {
       "slug": "infinito-spa",
@@ -1526,7 +1519,7 @@
         "discovery": "complete",
         "blueprint": "complete",
         "seo": "complete",
-        "funnel": "complete",
+        "funnel": "not_started",
         "cover": "complete",
         "qa": "in_progress",
         "publish": "in_progress"
@@ -1600,20 +1593,18 @@
         "evidence": "Pendiente de capturas Playwright 390/768/1440 y revisión perceptual."
       },
       "blockers": [
-        "QA visual y revisión perceptual pendientes.",
-        "Aprobación de Roze necesaria antes de retirar el rótulo demostrativo y activar indexación.",
-        "Persistencia de leads y handoff comercial aún no comprobados en el entorno operativo nativo de 0WEB."
+        "Persistência em public.lead_submissions não foi confirmada no banco Production; a migration e o código existem, mas a conexão Supabase 0WEB não está disponível para leitura.",
+        "Handoff WhatsApp retorna HTTP 503; nenhum canal de atendimento foi validado.",
+        "Revisão e aprovação comercial de Roze pendentes; manter página estática e noindex."
       ],
       "warnings": [
-        "Homónimos públicos no asociados.",
-        "No se suministraron logo, fotos, comuna, modalidades específicas, precios, horarios ni credenciales.",
-        "No se muestran reseñas ni resultados no verificados.",
-        "No se publica teléfono, correo ni dirección residencial; el WhatsApp comercial permanece solo en configuración server-side."
+        "Formulário em espanhol removido da página pública até confirmação de persistência.",
+        "Não publicar telefone, endereço privado, preços ou modalidades não confirmadas.",
+        "A rota de WhatsApp não deve ser usada enquanto retornar 503."
       ],
       "ownerRequired": [
-        "Confirmar modalidades, duración, precios y disponibilidad.",
-        "Enviar fotos reales y aprobar identidad conceptual.",
-        "Aprobar publicación oficial e indexable."
+        "Confirmar persistência em produção e um canal oficial de atendimento.",
+        "Confirmar modalidades, duração, valores, disponibilidade e aprovar a apresentação."
       ],
       "searchQa": [
         {
@@ -1637,7 +1628,7 @@
           "slug": "infinito-spa"
         }
       ],
-      "lastUpdatedAt": "2026-11-26",
+      "lastUpdatedAt": "2026-11-28",
       "qaPreparation": {
         "targetCompositionContract": 2,
         "completed": false,
@@ -1662,9 +1653,9 @@
         "discovery": "complete",
         "blueprint": "in_progress",
         "seo": "in_progress",
-        "funnel": "complete",
+        "funnel": "not_started",
         "cover": "in_progress",
-        "qa": "not_started",
+        "qa": "in_progress",
         "publish": "not_started"
       },
       "compositionContract": 0,
@@ -1686,25 +1677,22 @@
         }
       },
       "blockers": [
-        "QA específica Chromium 390/768/1440, reduced-motion e SEO ainda não executados; formulário Jotform demonstrativo recebeu submissão sintética.",
-        "Fotos reais não licenciadas; WhatsApp comercial não validado e não utilizado (formulário demonstrativo Jotform da 0WEB).",
-        "Revisão perceptual NO-BRAND TEST e autorização comercial pendentes.",
-        "Promover compositionContract para 2 e indexabilidade apenas com evidência real da rodada 3."
+        "Formulário Jotform demonstrativo removido da página pública; a submissão sintética não é encaminhada à profissional nem reserva horário.",
+        "Canal oficial de atendimento, serviços detalhados, valores, horários e autorização comercial pendentes.",
+        "Fotos reais autorizadas não disponíveis; manter apenas arte editorial identificada."
       ],
       "warnings": [
-        "Lead-only whatsapp:null, sem encaminhamento de outro cliente.",
-        "Demonstração independente, não site oficial.",
-        "Captação Jotform individual verificada por submissão sintética: registro no Jotform da 0WEB, não entrega à profissional nem reserva."
+        "Página estática, sem formulário, sem reserva e sem WhatsApp comercial.",
+        "Ficha pública identifica manicure e pedicure; demais detalhes devem ser confirmados."
       ],
       "ownerRequired": [
-        "Confirmar WhatsApp operacional e autorização para receber leads.",
-        "Fornecer/autorizar fotos de trabalhos ou aprovar uso de arte conceitual.",
-        "Validar serviços, horários, preços, marca e publicação comercial."
+        "Confirmar canal oficial, serviços, horários, valores e identidade comercial.",
+        "Fornecer ou autorizar fotografias reais e aprovar a publicação oficial."
       ],
       "searchQa": [
         {
           "query": "Espaço Marli Nails Designer",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "espaco-marli-nails-guaratuba",
           "publicationException": {
             "date": "2026-11-26",
@@ -1716,7 +1704,7 @@
         },
         {
           "query": "manicure Coroados Guaratuba",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "espaco-marli-nails-guaratuba",
           "publicationException": {
             "date": "2026-11-26",
@@ -1728,7 +1716,7 @@
         },
         {
           "query": "pedicure Guaratuba PR",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "espaco-marli-nails-guaratuba",
           "publicationException": {
             "date": "2026-11-26",
@@ -1740,7 +1728,7 @@
         },
         {
           "query": "Av. Alvorada do Sul 786",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "espaco-marli-nails-guaratuba",
           "publicationException": {
             "date": "2026-11-26",
@@ -1751,7 +1739,7 @@
           }
         }
       ],
-      "lastUpdatedAt": "2026-11-22",
+      "lastUpdatedAt": "2026-11-28",
       "visualQa": {
         "status": "NOT_EXECUTED",
         "notes": "Browser, funil real e revisão de responsive pendentes; não presumir PASS.",
@@ -1788,32 +1776,24 @@
         "blueprint": "complete",
         "composition": "in_progress",
         "seo": "in_progress",
-        "funnel": "in_progress",
+        "funnel": "not_started",
         "cover": "in_progress",
         "qa": "in_progress",
         "publish": "not_started"
       },
       "blockers": [
-        "CI_AND_READINESS_NOT_YET_VERIFIED",
-        "FUNNEL_DELIVERY_NOT_VERIFIED",
-        "PRODUCTION_BUILD_FIX_541_PENDING",
-        "NEW_NO_BRAND_ARTIFACT_INDEPENDENT_REVIEW_PENDING",
-        "ENTITY_RESEARCH_TARGETS_PENDING",
-        "COVER_CATALOG_REVIEW_PENDING"
-      ],
-      "warnings": [
-        "Fonte única: panfleto fotografado; presença web/Google não confirmada independentemente.",
-        "SVG editorial ilustrativo não é fotografia dos brinquedos reais.",
-        "Não há vínculo oficial com a empresa comprovado e o contato permanece demonstrativo."
+        "Pesquisa pública não encontrou fonte independente verificável da BPL; a informação disponível permanece restrita ao panfleto fornecido.",
+        "Contato oficial, vínculo comercial, fotos reais e condições de locação não confirmados.",
+        "Manter página estática/noindex; não publicar formulário, preço ou disponibilidade."
       ],
       "ownerRequired": [
-        "Confirmar interesse em usar a demonstração e autorização de fotos/logo originais",
-        "Confirmar destino e operação do funil de atendimento"
+        "Fornecer fonte oficial verificável, contato comercial, endereço e condições atuais.",
+        "Autorizar fotos reais, vínculo comercial e eventual formulário operacional."
       ],
       "searchQa": [
         {
           "query": "BPL Locações de Brinquedos",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "bpl-locacoes-de-brinquedos",
           "publicationException": {
             "date": "2026-11-26",
@@ -1825,7 +1805,7 @@
         },
         {
           "query": "cama elástica São José dos Pinhais",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "bpl-locacoes-de-brinquedos",
           "publicationException": {
             "date": "2026-11-26",
@@ -1837,7 +1817,7 @@
         },
         {
           "query": "piscina de bolinhas São José dos Pinhais",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "bpl-locacoes-de-brinquedos",
           "publicationException": {
             "date": "2026-11-26",
@@ -1885,7 +1865,7 @@
         "enrichment": "docs/portfolio/enrichment/bpl-locacoes-de-brinquedos.json",
         "mediaPlan": "docs/portfolio/media-plans/bpl-locacoes-de-brinquedos.json"
       },
-      "lastUpdatedAt": "2026-11-24",
+      "lastUpdatedAt": "2026-11-28",
       "visualQa": {
         "status": "PASS",
         "notes": "QA automatizado do draft: run 45434035986 / job 138586849775 / artifact 14940177606, 390/768/1440 SSR, assets, abertura/fechamento de modal, reduced motion e overflow. Não comprova entrega real do lead nem revisão perceptual independente do novo artifact."
@@ -1993,9 +1973,9 @@
         "discovery": "complete",
         "blueprint": "complete",
         "seo": "in_progress",
-        "funnel": "complete",
+        "funnel": "not_started",
         "cover": "in_progress",
-        "qa": "not_started",
+        "qa": "in_progress",
         "publish": "not_started"
       },
       "individualSiteContract": {
@@ -2012,23 +1992,18 @@
         "evidence": {}
       },
       "blockers": [
-        "Homologação visual real em 390/768/1440 e 3 baselines versionadas pendentes",
-        "Gates de publicação e Lighthouse específicos pendentes",
-        "Fotos oficiais, preços atuais, horário e canal oficial dependem de confirmação; versão só pode ser demonstração não oficial"
-      ],
-      "warnings": [
-        "Formulário Jotform isolado é de simulação, com uma submissão sintética persistida; não atende clientes reais",
-        "Redes sociais e ficha Google da Toop no Xaxim não resolvidas com segurança"
+        "Formulário/simulador de pedidos removido; nenhuma encomenda é recebida nesta página.",
+        "Não há fotografias reais do estabelecimento no repositório; o cardápio e os preços do material antigo não foram publicados.",
+        "Endereço, horários, canal oficial e autorização comercial pendentes."
       ],
       "ownerRequired": [
-        "Confirmar propriedade/nome, endereço, valores e condições vigentes",
-        "Autorizar fotografias reais, se disponíveis",
-        "Confirmar destino operacional do restaurante se desejar receber pedidos reais"
+        "Confirmar endereço, cardápio, preços, horários e canal oficial de pedidos.",
+        "Fornecer fotografias reais e aprovar a apresentação comercial."
       ],
       "searchQa": [
         {
           "query": "Toop Assados Xaxim Curitiba",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "toop-assados",
           "verifiedAt": "2026-11-07",
           "publicationException": {
@@ -2041,7 +2016,7 @@
         },
         {
           "query": "costela assada Xaxim Curitiba",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "toop-assados",
           "verifiedAt": "2026-11-07",
           "publicationException": {
@@ -2054,7 +2029,7 @@
         },
         {
           "query": "frango recheado Xaxim Curitiba",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "toop-assados",
           "verifiedAt": "2026-11-07",
           "publicationException": {
@@ -2067,7 +2042,7 @@
         },
         {
           "query": "assados para almoço Curitiba",
-          "expect": "must_find",
+          "expect": "must_not_find",
           "slug": "toop-assados",
           "verifiedAt": "2026-11-07",
           "publicationException": {
@@ -2147,7 +2122,12 @@
         "sources": [
           "USER_SUPPLIED_FLYER_PHOTOS_2026-11-07"
         ],
-        "claimsAttribution": "Toda menção a valores e itens é histórica e explicitamente sujeita a confirmação."
+        "claimsAttribution": "Toda menção a valores e itens é histórica e explicitamente sujeita a confirmação.",
+        "facts": [
+          "O nome Toop Assados e a referência ao Xaxim/Curitiba constam no material fornecido.",
+          "Não há fotos reais do estabelecimento disponíveis no repositório.",
+          "Cardápio, preços e horários não são exibidos até confirmação atual."
+        ]
       },
       "visualQa": {
         "status": "PASS",
@@ -2160,7 +2140,7 @@
         "mediaPlan": "docs/portfolio/media-plans/toop-assados.json",
         "funnel": "Formulário Jotform demonstrativo com teste sintético único em 23/11/2026; não é encomenda oficial."
       },
-      "lastUpdatedAt": "2026-11-23",
+      "lastUpdatedAt": "2026-11-28",
       "perceptualReview": {
         "screenshots": {
           "390": "run:45133834586 artifact:toop-assados-real-390-768-1440-no-brand file:seo-reports/toop-assados-visual/toop-390.png",

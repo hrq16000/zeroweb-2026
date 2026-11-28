@@ -1,27 +1,13 @@
 import { ArrowRight, ClipboardList, MapPin, MessageCircleQuestion, PartyPopper, Sparkles } from "lucide-react";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-
-const quiz = {
-  proposalKind: "service" as const,
-  services: ["Quero conhecer os salgados disponíveis", "Quero fazer uma encomenda", "Quero consultar quantidade e valores"],
-  experienceOptions: ["Para casa ou família", "Aniversário ou comemoração", "Reunião ou encontro", "Outra ocasião"],
-  periodOptions: ["Gostaria de combinar retirada", "Gostaria de consultar entrega", "Preciso saber as opções"],
-  timingOptions: ["Nesta semana", "Nas próximas semanas", "Ainda estou planejando"],
-  stepTitles: { service: "Como podemos ajudar?", experience: "Qual é a ocasião?", period: "Como imagina receber?", timing: "Quando será?" },
-  stepSubtitles: { service: "Selecione o motivo da consulta; o cardápio será confirmado pelo atendimento.", period: "Entrega e retirada dependem de confirmação." },
-  notePlaceholder: "Informe data, quantidade aproximada, preferências e suas dúvidas sobre o cardápio."
-};
 
 function CTA({ children, variant = "gold" }: { children: React.ReactNode; variant?: "gold" | "outline" }) {
   return (
-    <PortfolioCTAQuiz clientKey="salgados-da-fran" studioName="Salgados da Fran"
-      recipientName="a Fran" theme="gold" mode="proposal" quizConfig={quiz}
-      className={variant === "gold"
-        ? "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f6e52b] px-6 py-3 font-black text-[#20252b] shadow-lg transition motion-safe:hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f6e52b]"
-        : "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-[#20252b] px-6 py-3 font-black text-[#20252b] transition motion-safe:hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#20252b]"}>
+    <a href="#local" className={variant === "gold"
+      ? "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f6e52b] px-6 py-3 font-black text-[#20252b] shadow-lg transition motion-safe:hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f6e52b]"
+      : "inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-[#20252b] px-6 py-3 font-black text-[#20252b] transition motion-safe:hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#20252b]"}>
       {children}<ArrowRight aria-hidden="true" className="h-4 w-4" />
-    </PortfolioCTAQuiz>
+    </a>
   );
 }
 
@@ -38,7 +24,7 @@ export function SalgadosDaFranPage() {
             <span className="text-xl font-black tracking-tight">Salgados <span className="text-[#f6e52b]">da Fran</span></span>
           </a>
           <nav aria-label="Navegação Salgados da Fran" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
-            <a href="#encomendas" className="rounded-md py-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">Como encomendar</a>
+            <a href="#encomendas" className="rounded-md py-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">Informações</a>
             <a href="#duvidas" className="rounded-md py-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">Dúvidas</a>
             <a href="#local" className="rounded-md py-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">Local</a>
           </nav>
@@ -54,7 +40,7 @@ export function SalgadosDaFranPage() {
             </span>
             <img src="/images/salgados-da-fran/marca.svg" alt="Três salgadinhos ilustrados da identidade Salgados da Fran" width="240" height="240" loading="eager" fetchPriority="high" decoding="async"
               className="my-7 h-40 w-40 drop-shadow-[0_18px_28px_rgba(0,0,0,.18)] sm:h-52 sm:w-52" />
-            <p className="text-sm font-extrabold uppercase tracking-[0.3em] text-[#e9a46c]">Encomendas</p>
+            <p className="text-sm font-extrabold uppercase tracking-[0.3em] text-[#e9a46c]">Apresentação estática</p>
             <h1 className="mt-3 max-w-4xl text-balance text-5xl font-black leading-[1.03] tracking-[-0.055em] sm:text-7xl lg:text-[6.3rem]">
               O seu momento. <span className="block text-[#f6e52b]">Os salgados da Fran.</span>
             </h1>
@@ -63,13 +49,13 @@ export function SalgadosDaFranPage() {
               Os sabores, valores e condições são confirmados no atendimento.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-              <CTA>Consultar uma encomenda</CTA>
-              <a href="#encomendas" className="inline-flex min-h-12 items-center rounded-full border border-white/50 px-6 py-3 font-semibold text-white hover:bg-white/10">Entender como pedir</a>
+              <CTA>Ver localização</CTA>
+              <a href="#encomendas" className="inline-flex min-h-12 items-center rounded-full border border-white/50 px-6 py-3 font-semibold text-white hover:bg-white/10">Ver informações</a>
             </div>
           </div>
         </section>
         <section id="encomendas" className="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#a65c2e]">Seu pedido começa aqui</p>
+          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#a65c2e]">Informações a confirmar antes de pedir</p>
           <h2 className="mt-3 max-w-3xl text-balance text-4xl font-black tracking-tight sm:text-5xl">
             Três informações para começar a conversa.
           </h2>
@@ -85,7 +71,7 @@ export function SalgadosDaFranPage() {
               </article>
             ))}
           </div>
-          <div className="mt-9"><CTA variant="outline">Consultar opções e valores</CTA></div>
+          <div className="mt-9"><CTA variant="outline">Ver localização</CTA></div>
         </section>
         <section id="duvidas" className="bg-[#262b30] px-5 py-20 text-white sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
@@ -95,7 +81,7 @@ export function SalgadosDaFranPage() {
             </div>
             <div className="space-y-3">
               {[
-                ["A Fran aceita encomendas?", "Sim. O cartão divulgado pela Salgados da Fran informa encomendas e um contato de atendimento."],
+                ["A Fran aceita encomendas?", "O material recebido menciona encomendas, mas esta página não recebe pedidos e o canal oficial de atendimento ainda não foi validado."],
                 ["Quais sabores e tamanhos estão disponíveis?", "A lista atualizada não consta do material recebido. Peça as opções e as quantidades ao atendimento."],
                 ["Quanto custa e com que antecedência pedir?", "Preços, antecedência e disponibilidade precisam ser confirmados no momento da consulta."],
                 ["Tem entrega ou retirada?", "Essas condições não foram confirmadas. Consulte a possibilidade e a área atendida antes de fechar o pedido."]
@@ -123,8 +109,8 @@ export function SalgadosDaFranPage() {
           <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
             <p className="text-sm font-extrabold uppercase tracking-[0.24em]">Salgados da Fran</p>
             <h2 className="mt-4 max-w-4xl text-balance text-4xl font-black leading-tight tracking-tight sm:text-6xl">Vai ter um momento especial? Comece pela encomenda.</h2>
-            <p className="mt-5 max-w-2xl text-base leading-7">Diga o que procura e confira as condições atuais pelo formulário de consulta.</p>
-            <div className="mt-8"><CTA variant="outline">Quero consultar a Fran</CTA></div>
+            <p className="mt-5 max-w-2xl text-base leading-7">Esta página é uma apresentação estática. Não recebe pedidos, não simula encomendas e não encaminha dados à Fran.</p>
+            <div className="mt-8"><CTA variant="outline">Ver localização</CTA></div>
           </div>
         </section>
       </main>

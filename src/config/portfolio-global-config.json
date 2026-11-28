@@ -1576,7 +1576,8 @@
             "timing": "Para quando precisa?"
           },
           "notePlaceholder": "Ex.: data do evento, cidade, espaço disponível e idade das crianças."
-        }
+        },
+        "enabled": false
       },
       "footer": {
         "variant": "dark"
@@ -1588,6 +1589,11 @@
       },
       "footer": {
         "variant": "dark"
+      }
+    },
+    "salgados-da-fran": {
+      "contactFloating": {
+        "enabled": false
       }
     }
   }
