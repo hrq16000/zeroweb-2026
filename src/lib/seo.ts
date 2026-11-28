@@ -5,7 +5,7 @@ export const ORIGIN = "https://www.0web.com.br";
 
 export function absUrl(path: string): string {
   if (!path) return ORIGIN + "/";
-  if (/^https?:\\/\\//i.test(path)) {
+  if (/^https?:\/\//i.test(path)) {
     try {
       const url = new URL(path);
       if (url.hostname.toLowerCase() === "0web.com.br" || url.hostname.toLowerCase() === "www.0web.com.br") {

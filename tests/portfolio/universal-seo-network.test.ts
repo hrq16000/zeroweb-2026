@@ -115,7 +115,7 @@ describe("SEO universal dos portfolios", () => {
       expect(graph.some((node: any) => node["@type"] === "BreadcrumbList")).toBe(true);
 
       const webpage = graph.find((node: any) => node["@type"] === "WebPage") as any;
-      expect(webpage?.url).toBe(`https://0web.com.br/portfolio/${item.slug}`);
+      expect(webpage?.url).toBe(`https://www.0web.com.br/portfolio/${item.slug}`);
       expect(webpage?.inLanguage).toBe("pt-BR");
       expect(webpage?.mainEntity?.["@id"]).toContain("#entity");
     }
