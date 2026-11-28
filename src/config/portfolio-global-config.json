@@ -1595,11 +1595,6 @@
       "contactFloating": {
         "enabled": false
       }
-    },
-    "dona-garimpeira-brecho": {
-      "contactFloating": {
-        "enabled": false
-      }
     }
   }
 }
