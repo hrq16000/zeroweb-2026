@@ -14,6 +14,7 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type CSSProperties,
   type ElementType,
   type ReactNode,
@@ -61,22 +62,30 @@ export function useMotionIntensity(): MotionIntensity {
   return useContext(IntensityContext);
 }
 
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+function subscribeReducedMotion(onChange: () => void) {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return () => {};
+  const media = window.matchMedia(REDUCED_MOTION_QUERY);
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+}
+function getReducedMotionSnapshot() {
+  return typeof window !== "undefined" && typeof window.matchMedia === "function"
+    ? window.matchMedia(REDUCED_MOTION_QUERY).matches
+    : false;
+}
+const getReducedMotionServerSnapshot = () => false;
+
 export function usePrefersReducedMotion(): boolean {
-  // Lê a preferência já no primeiro render do cliente: esperar o efeito deixava
-  // um frame de conteúdo oculto para quem pediu movimento reduzido.
-  const [reduced, setReduced] = useState(() =>
-    typeof window !== "undefined" && typeof window.matchMedia === "function"
-      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      : false,
+  // A primeira hidratação precisa reproduzir a árvore SSR (reveal horizontal,
+  // máscara e texto têm wrappers diferentes). O snapshot do navegador é
+  // aplicado logo após hidratar; até lá, as primitives mantêm conteúdo visível.
+  // Em renderizações exclusivamente client-side a preferência é lida de imediato.
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
   );
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-  return reduced;
 }
 
 /** Observa a entrada na viewport uma única vez (thresholds do contrato global). */
