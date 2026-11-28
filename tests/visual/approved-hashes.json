@@ -82,7 +82,7 @@
     }
   },
   "portfolio-index": {
-    "reason": "Vitrine R9 revisada nos três viewports no artefato do head fa8c9bf, com digest conferido. Comparação desktop com a captura anteriormente aprovada (run 46116357689) apresentou 0% de pixels acima da tolerância cromática existente; diferença apenas no hash exato. Tablet e mobile mantiveram hashes idênticos. Aprovação exclusiva do índice, por hash exato dos pixels revisados; qualquer outra captura permanece sujeita ao limite de 2%.",
+    "reason": "Vitrine R9 revisada nos três viewports no artefato do head fa8c9bf (run 46169471881, digest conferido). O CI seguinte (run 46173090367, artefato 15274592065, sha256:e132abf0aacf9048a5a0b1a880369f007b617de44f3005b891b62f209e748591, head 867057b) repetiu o hash desktop a9307392dc875c86754de35f8e97700ff95fbe40819dfda7a1f90925050ae36a da primeira revisão. Dois renders desktop revisados têm 158 pixels com variação cromática de até 21 e 0% acima da tolerância de 30; tablet/mobile idênticos. Somente a baseline desktop do índice foi atualizada com o PNG exato do último artefato (SHA-256 3c64addde401c4dcc35bc2a3cb76235e82c69f308b12e58f3c4c393707ea0e95). A aprovação por hash exato abaixo conserva a variante anterior. O script e o limite de 2% de regressão seguem inalterados, assim como todas as outras baselines.",
     "reviewedAt": "2026-11-28",
     "evidence": {
       "runId": 46169471881,
