@@ -22,7 +22,7 @@ describe("Sitemap marketplace: somente URL canônica e perfis indexáveis", () =
   test("não promove categoria antes de haver perfis ativos", () => {
     expect(categoryPage).toContain("const indexable = Boolean(category) && total > 0");
     expect(categoryPage).toContain('"noindex, follow"');
-    expect(smoke).toContain('urls.includes("https://0web.com.br/servicos/marketplace")');
-    expect(smoke).toContain('u.startsWith("https://0web.com.br/categoria/")');
+    expect(smoke).toContain('urls.includes("https://www.0web.com.br/servicos/marketplace")');
+    expect(smoke).toContain('u.startsWith("https://www.0web.com.br/categoria/")');
   });
 });

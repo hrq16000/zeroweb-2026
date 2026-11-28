@@ -209,8 +209,8 @@ describe("escopo seguro da regressão visual", () => {
     expect(route).toContain('const ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
     expect(route).toContain('{ rel: "icon", type: "image/png", href: ICON }');
     expect(route).toContain('const TOUCH_ICON = "/images/dyzpromo/logo-dyz-promo-touch.png"');
-    expect(route).toContain('const URL = "https://0web.com.br/portfolio/dyzpromo"');
-    expect(route).toContain('const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg');
+    expect(route).toContain('const URL = "https://www.0web.com.br/portfolio/dyzpromo"');
+    expect(route).toContain('const SOCIAL_IMAGE = "https://www.0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg');
     const size = statSync("public/images/dyzpromo/logo-dyz-promo-touch.png").size;
     expect(size).toBeLessThan(40_000);
   });

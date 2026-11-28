@@ -525,10 +525,12 @@
       "published": false,
       "status": "LEGACY",
       "issues": [
-        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
       ],
       "blocking": [
-        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
       ]
     },
     {
@@ -1056,10 +1058,12 @@
       "published": false,
       "status": "LEGACY",
       "issues": [
-        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
       ],
       "blocking": [
-        "PORTFOLIO_TECHNICAL_PASS_REQUIRED"
+        "PORTFOLIO_TECHNICAL_PASS_REQUIRED",
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
       ]
     },
     {
@@ -1465,9 +1469,13 @@
       ],
       "shareCopy": "💅 A 0WEB preparou uma demonstração independente para o Espaço Marli Nails Designer, no bairro Coroados, em Guaratuba (PR).\n\nA proposta mostra como encontrar o estúdio e consultar informações sobre manicure e pedicure. Horários, valores e detalhes dos serviços precisam ser confirmados com a profissional.\n\nhttps://0web.com.br/portfolio/espaco-marli-nails-guaratuba\n\nTrata-se de uma proposta da 0WEB, não do site oficial do estabelecimento.\n\n#EspacoMarliNails #ManicureGuaratuba #Coroados #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ]
     },
     {
       "slug": "estrutura-nacional",
@@ -2585,9 +2593,13 @@
       ],
       "shareCopy": "🥖 Uma padaria do Santo Antônio também merece uma presença digital feita com carinho.\n\nA 0WEB desenvolveu este portfólio demonstrativo da Panificadora Doce Coração com identidade gráfica original, categorias de pães, bolos, salgados e doces, informações públicas, localização em São José dos Pinhais e caminhos de consulta. O projeto é independente; não é o site oficial da padaria.\n\n🌐 Veja o conceito de criação de sites pela 0WEB/WebRealce:\nhttps://0web.com.br/portfolio/panificadora-doce-coracao-santo-antonio\n\n#DoceCoracao #PadariaSantoAntonio #SaoJoseDosPinhais #CriacaoDeSites #WebRealce #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ]
     },
     {
       "slug": "papelemi-personalizados",
@@ -3133,9 +3145,13 @@
       ],
       "shareCopy": "🥟 Salgados da Fran, em São José dos Pinhais — PR: conheça a proposta demonstrativa de presença digital criada pela 0WEB a partir da identidade do cartão de encomendas da marca.\n\nSaiba como consultar opções de salgados, informar data, ocasião e quantidade e solicitar condições atuais. Cardápio, preços, entrega e disponibilidade não foram confirmados; esta não é uma página oficial do estabelecimento.\n\n🌐 Conheça o conceito:\nhttps://0web.com.br/portfolio/salgados-da-fran\n\n#SalgadosDaFran #SalgadosPorEncomenda #SaoJoseDosPinhais #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ]
     },
     {
       "slug": "santos-montador-de-moveis",
@@ -3432,9 +3448,13 @@
       ],
       "shareCopy": "🍖 A 0WEB preparou uma demonstração independente para Toop Assados, com referência ao panfleto de costela e frango recheado no bairro Xaxim, Curitiba.\n\nO projeto mostra uma nova experiência digital, com apresentação dos pratos e formulário de simulação. Não é o site oficial do estabelecimento; preços e pedidos precisam de confirmação pela empresa.\n\nhttps://0web.com.br/portfolio/toop-assados\n\n#ToopAssados #AssadosCuritiba #PortfolioDemonstrativo #0WEB",
       "published": false,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ],
+      "blocking": [
+        "PORTFOLIO_COMMERCIAL_APPROVAL_REQUIRED"
+      ]
     },
     {
       "slug": "toquinho-de-gente-brecho",
