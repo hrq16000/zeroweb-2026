@@ -17,13 +17,15 @@ describe("portfolio WhatsApp data", () => {
     expect(resolveVersionedPortfolioWhatsApp("agropet-filt")).toBeNull();
   });
 
-  it("preserva os destinos antigos e acrescenta Dona Garimpeira, Fran e Doce Coração", () => {
+  it("preserva destinos comprovados e mantém Fran e Doce Coração sem encaminhamento", () => {
     const keys = getVersionedPortfolioWhatsAppClientKeys();
-    expect(keys).toHaveLength(73);
-    expect(keys.filter((key) => !["dona-garimpeira-brecho", "salgados-da-fran", "panificadora-doce-coracao-santo-antonio"].includes(key))).toHaveLength(70);
+    expect(keys).toHaveLength(71);
+    expect(keys.filter((key) => key !== "dona-garimpeira-brecho")).toHaveLength(70);
     expect(new Set(keys).size).toBe(keys.length);
-    expect(resolveVersionedPortfolioWhatsApp("salgados-da-fran")).toBe("5541995896344");
-    expect(resolveVersionedPortfolioWhatsApp("panificadora-doce-coracao-santo-antonio")).toBe("5541991363912");
+    expect(resolveVersionedPortfolioWhatsApp("salgados-da-fran")).toBeNull();
+    expect(keys).not.toContain("salgados-da-fran");
+    expect(resolveVersionedPortfolioWhatsApp("panificadora-doce-coracao-santo-antonio")).toBeNull();
+    expect(keys).not.toContain("panificadora-doce-coracao-santo-antonio");
     expect(resolveVersionedPortfolioWhatsApp("dona-garimpeira-brecho")).toBe("5541995523363");
     expect(resolveVersionedPortfolioWhatsApp("cliente-inexistente")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
