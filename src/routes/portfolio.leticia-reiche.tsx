@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { LeticiaReichePreviewPage } from "@/components/site/LeticiaReichePreviewPage";
-import { graph, organizationNode, breadcrumbNode } from "@/lib/portfolio-seo";
 
-/** Candidate for production; PR Draft until public-page readiness is approved. */
+/** Public review route; noindex until explicit client approval and current visual/SEO readiness. */
 const slug = "leticia-reiche";
 const url = "https://0web.com.br/portfolio/leticia-reiche";
 const title = "Letícia Reiche | Manicure e Pedicure em Belford Roxo — Demonstração 0WEB";
@@ -15,7 +14,7 @@ export const Route = createFileRoute("/portfolio/leticia-reiche")({
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
+      { name: "robots", content: "noindex,nofollow,noarchive,noimageindex" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -30,37 +29,15 @@ export const Route = createFileRoute("/portfolio/leticia-reiche")({
       { name: "twitter:image", content: socialImage },
     ],
     links: [
-      { rel: "canonical", href: url },
       { rel: "icon", type: "image/svg+xml", href: "/images/leticia-reiche/logo.svg" },
     ],
-    scripts: [{
-      type: "application/ld+json",
-      children: graph([
-        organizationNode(),
-        {
-          "@type": "WebPage",
-          "@id": url + "#webpage",
-          url,
-          name: title,
-          description,
-          inLanguage: "pt-BR",
-          genre: "Portfólio demonstrativo; não é o site oficial da profissional",
-          publisher: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
-          about: { "@type": "Thing", name: "Letícia Reiche — Manicure e Pedicure" },
-        },
-        breadcrumbNode([
-          { name: "0WEB", path: "/" },
-          { name: "Portfólio", path: "/portfolio" },
-          { name: "Letícia Reiche — Demonstração", path: "/portfolio/leticia-reiche" },
-        ]),
-      ]),
-    }],
+
   }),
   component: LeticiaReichePublic,
 });
 
 function LeticiaReichePublic() {
-  return <PortfolioStandardShell slug={slug} funnelIntentOverride="agendamento">
+  return <PortfolioStandardShell slug={slug} funnelIntentOverride="agendamento" seoNetworkEnabled={false}>
     <LeticiaReichePreviewPage mode="live" />
   </PortfolioStandardShell>;
 }
