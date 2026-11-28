@@ -9,6 +9,7 @@ const title = "Letícia Reiche | Manicure e Pedicure em Belford Roxo — Demonst
 const description = "Projeto demonstrativo 0WEB para Letícia Reiche, manicure e pedicure em Belford Roxo/RJ. Consulte cuidados e solicite informações, sem reserva automática. Não é o site oficial.";
 const socialImage = "https://0web.com.br/images/leticia-reiche/social-og.svg";
 
+// Public route is review-only: never index or present as official until client approval and QA are confirmed.
 export const Route = createFileRoute("/portfolio/leticia-reiche")({
   head: () => ({
     meta: [
