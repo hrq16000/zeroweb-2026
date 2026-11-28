@@ -1,84 +1,27 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowRight, CalendarDays, Check, ChevronRight, MapPin, Navigation, Sparkles, X } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowRight, ChevronRight, MapPin, Navigation, Sparkles } from "lucide-react";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { MotionReveal } from "@/components/motion";
 
-/** Formulário individual hospedado na mesma conta Jotform usada em outras demos da 0WEB. */
-const FORM = "https://form.jotform.com/263257363729062";
-
-function CTA({children, onOpen}: {children: ReactNode; onOpen: () => void}) {
-  return <button type="button" data-funnel-cta="portfolio" data-funnel-client="espaco-marli-nails-guaratuba" data-funnel-provider-trigger="jotform" onClick={onOpen}
-    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
-    {children}
-  </button>;
+function CTA({ children }: { children: ReactNode }) {
+  return <a href="#localizacao" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#542638] px-6 py-3 font-semibold text-white shadow-lg shadow-[#542638]/15 transition-colors motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#7d3b56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bb7690]">
+    {children}<ArrowRight className="h-4 w-4" />
+  </a>;
 }
 
 const options = [
-  {label:"Manicure", detail:"Consulte opções para as mãos e disponibilidade."},
-  {label:"Pedicure", detail:"Peça informações sobre cuidados com os pés."},
-  {label:"Quero consultar os cuidados disponíveis", detail:"Ainda tem dúvidas? Conte o que procura."}
+  { label: "Manicure", detail: "Serviço identificado na ficha pública. Detalhes e disponibilidade precisam ser confirmados." },
+  { label: "Pedicure", detail: "Serviço identificado na ficha pública. Detalhes e disponibilidade precisam ser confirmados." },
 ];
 
 const faq = [
-  {q:"A solicitação já reserva um horário?", a:"Não. O formulário demonstrativo é recebido pela 0WEB, não pela profissional, e não confirma agendamento."},
-  {q:"Como consultar serviços e preços?", a:"A ficha pública associa o estabelecimento à manicure e pedicure. Técnicas, valores e duração precisam ser confirmados diretamente."},
-  {q:"Qual é o endereço informado?", a:"Av. Alvorada do Sul, 786, Coroados, Guaratuba, PR. Confirme a referência antes de se deslocar."}
+  { q: "Esta página permite agendar?", a: "Não. Esta apresentação é estática; não recebe solicitações nem confirma agendamentos." },
+  { q: "Como confirmar serviços e valores?", a: "A ficha pública identifica manicure e pedicure. Técnicas, valores, duração e disponibilidade precisam ser confirmados com o estabelecimento por um canal oficial." },
+  { q: "Qual é o endereço informado?", a: "Av. Alvorada do Sul, 786, Coroados, Guaratuba, PR. Confirme a referência antes de se deslocar." },
 ];
 
 export function EspacoMarliNailsGuaratubaPage() {
-  const [selected, setSelected] = useState("Manicure");
-  const [open, setOpen] = useState(false);
-  const [nearFooter, setNearFooter] = useState(false);
-  const dialogRef = useRef<HTMLDivElement>(null);
-  const priorFocus = useRef<HTMLElement | null>(null);
-
-  const show = () => {
-    if (typeof window === "undefined") return;
-    priorFocus.current = document.activeElement as HTMLElement;
-    window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open"));
-    setOpen(true);
-  };
-  const hide = () => {
-    setOpen(false);
-    window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-close"));
-    priorFocus.current?.focus();
-  };
-
-  useEffect(() => {
-    if (!open) return;
-    const priorOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const focusables = () => Array.from(
-      dialogRef.current?.querySelectorAll<HTMLElement>('button, a[href], iframe, [tabindex]:not([tabindex="-1"])') ?? []
-    );
-    focusables()[0]?.focus();
-    const onKeydown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") { event.preventDefault(); hide(); return; }
-      if (event.key !== "Tab") return;
-      const items = focusables();
-      if (!items.length) return;
-      const first = items[0], last = items[items.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault(); last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault(); first.focus();
-      }
-    };
-    document.addEventListener("keydown", onKeydown, true);
-    return () => {
-      document.body.style.overflow = priorOverflow;
-      document.removeEventListener("keydown", onKeydown, true);
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const footer = document.querySelector("[data-portfolio-canonical-footer]");
-    if (!footer || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), {threshold: 0.1});
-    observer.observe(footer);
-    return () => observer.disconnect();
-  }, []);
   return <div className="min-h-dvh overflow-x-clip bg-[#fffaf4] text-[#542638]">
     <div className="bg-[#542638] px-4 py-2 text-center text-xs leading-5 text-white">Proposta demonstrativa independente da 0WEB · Não é o site oficial do estabelecimento.</div>
     <header className="sticky top-0 z-30 border-b border-[#542638]/10 bg-[#fffaf4]/95 px-5 py-3 backdrop-blur-md md:px-10">
@@ -92,8 +35,8 @@ export function EspacoMarliNailsGuaratubaPage() {
           <a href="#localizacao" className="hover:text-[#b4758c]">Localização</a>
           <a href="#duvidas" className="hover:text-[#b4758c]">Dúvidas</a>
         </nav>
-        <div className="hidden sm:block"><CTA onOpen={show}>Consultar horário <ArrowRight size={16} aria-hidden="true"/></CTA></div>
-        <a href="#consulta" className="inline-flex min-h-11 items-center rounded-full border border-[#542638]/30 px-4 text-sm font-semibold sm:hidden">Consultar <ChevronRight size={16} aria-hidden="true"/></a>
+        <div className="hidden sm:block"><CTA>Ver localização <ArrowRight size={16} aria-hidden="true"/></CTA></div>
+        <a href="#localizacao" className="inline-flex min-h-11 items-center rounded-full border border-[#542638]/30 px-4 text-sm font-semibold sm:hidden">Consultar <ChevronRight size={16} aria-hidden="true"/></a>
       </div>
     </header>
     <main id="inicio">
@@ -107,7 +50,7 @@ export function EspacoMarliNailsGuaratubaPage() {
             </MotionReveal>
             <p id="marli-heading" className="mt-8 max-w-xl text-lg leading-8 text-[#77586a]">Uma apresentação do Espaço Marli Nails Designer em Guaratuba, com localização e consulta de informações sobre manicure e pedicure.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CTA onOpen={show}>Solicitar informações <ArrowRight size={17} aria-hidden="true"/></CTA>
+              <CTA>Ver localização <ArrowRight size={17} aria-hidden="true"/></CTA>
               <a className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[#542638]/25 px-6 py-3 font-semibold hover:bg-[#f6e8ec]" href="#localizacao">Onde fica <MapPin size={17} aria-hidden="true"/></a>
             </div>
             <p className="mt-10 border-t border-[#542638]/15 pt-5 text-xs uppercase tracking-[.15em] text-[#986b80]">Identidade visual conceitual · Agenda e valores a confirmar</p>
@@ -131,19 +74,17 @@ export function EspacoMarliNailsGuaratubaPage() {
           </div>
           <p className="mb-7 max-w-2xl text-sm leading-7 text-[#f2d7e0]">As opções organizam sua solicitação. Elas não constituem tabela oficial de técnicas, preços ou disponibilidade.</p>
           <div className="grid gap-3 md:grid-cols-3">
-            {options.map((option,i) => {
-              const active = selected === option.label;
-              return <button type="button" key={option.label} onClick={() => setSelected(option.label)} aria-pressed={active}
-                className={"min-h-44 rounded-[1.5rem] border p-6 text-left transition-colors motion-safe:transition-transform motion-safe:duration-300 md:motion-safe:hover:[transform:translateY(-4px)_rotateX(2deg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white " + (active ? "border-[#f6d1dd] bg-[#fff8f1] text-[#542638]" : "border-white/20 bg-white/[.07] text-white hover:bg-white/[.14]")}>
-                <span className="flex justify-between text-xs tracking-[.2em]"><span>0{i + 1}</span>{active ? <Check size={16} aria-hidden="true"/> : null}</span>
-                <strong className="mt-6 block font-serif text-2xl font-normal">{option.label}</strong>
-                <span className="mt-3 block text-sm leading-6 opacity-80">{option.detail}</span>
-              </button>;
-            })}
+            {options.map((option, i) => (
+              <article key={option.label} className="min-h-44 rounded-[1.75rem] border border-[#d7c9b7] bg-white p-5 shadow-sm">
+                <span className="text-xs font-bold tracking-[.2em] text-[#9b8066]">0{i + 1}</span>
+                <h3 className="mt-5 text-lg font-semibold text-[#34271f]">{option.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#6e5a4b]">{option.detail}</p>
+              </article>
+            ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-white/20 bg-[#3f1d2c] p-6">
-            <p className="max-w-lg text-sm leading-6">Sua escolha: <strong>{selected}</strong>. No formulário da 0WEB, confirme essa preferência. Nenhum horário é reservado automaticamente.</p>
-            <CTA onOpen={show}>Consultar esta opção <ArrowRight size={17} aria-hidden="true"/></CTA>
+            <p className="max-w-lg text-sm leading-6">Informação importante: <strong>Manicure e pedicure aparecem na ficha pública; detalhes e disponibilidade precisam ser confirmados.</strong>. No formulário da 0WEB, confirme essa preferência. Nenhum horário é reservado automaticamente.</p>
+            <CTA>Consultar esta opção <ArrowRight size={17} aria-hidden="true"/></CTA>
           </div>
         </div>
       </section>
@@ -211,46 +152,13 @@ export function EspacoMarliNailsGuaratubaPage() {
             <h2 id="marli-consulta" className="font-serif text-4xl leading-tight sm:text-6xl">Seu próximo cuidado começa com uma <em className="font-normal text-[#edc4d3]">conversa.</em></h2>
             <p className="mt-6 max-w-xl leading-7 text-[#efd6e1]">Envie sua consulta demonstrativa à 0WEB. Ela fica registrada no nosso formulário, sem envio ao estabelecimento e sem confirmação de horário.</p>
           </div>
-          <div className="lg:justify-self-end"><CTA onOpen={show}>Fazer solicitação <ArrowRight size={17} aria-hidden="true"/></CTA></div>
+          <div className="lg:justify-self-end"><CTA>Fazer solicitação <ArrowRight size={17} aria-hidden="true"/></CTA></div>
         </div>
         <p className="mx-auto mt-12 max-w-7xl border-t border-white/20 pt-6 text-xs leading-6 text-[#e3c0cf]">Portfólio demonstrativo independente da 0WEB. Não substitui a confirmação de serviços, valores e agenda com a profissional.</p>
       </section>
     </main>
     <footer className="sr-only"><PortfolioHostCredit/></footer>
 
-    {!nearFooter && <button type="button" data-funnel-provider-trigger="jotform" data-funnel-client="espaco-marli-nails-guaratuba" onClick={show} aria-label="Abrir formulário de consulta demonstrativa da 0WEB"
-      className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#542638] px-5 py-3 text-sm font-bold text-white shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b4758c]">
-      <CalendarDays size={18} aria-hidden="true"/> Consulta 0WEB
-    </button>}
 
-    {open && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2d1722]/80 p-3 backdrop-blur-sm"
-      onMouseDown={event => { if (event.target === event.currentTarget) hide(); }}>
-      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="marli-inquiry-title"
-        className="flex h-[min(94dvh,850px)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-[#fffaf4] shadow-2xl">
-        <div className="flex items-start justify-between gap-4 border-b border-[#542638]/15 px-5 py-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[.15em] text-[#a66682]">Formulário demonstrativo · 0WEB</p>
-            <h2 id="marli-inquiry-title" className="mt-1 font-serif text-xl font-bold text-[#542638]">Consultar informações</h2>
-            <p className="mt-1 text-xs leading-5 text-[#77586a]">A consulta é recebida pela 0WEB, não pelo estabelecimento. Não é agendamento.</p>
-          </div>
-          <button type="button" onClick={hide} aria-label="Fechar formulário"
-            className="shrink-0 rounded-full bg-[#f1dce4] p-3 text-[#542638] focus-visible:outline-2 focus-visible:outline-offset-2">
-            <X size={20} aria-hidden="true"/>
-          </button>
-        </div>
-        <iframe data-funnel-provider="jotform" data-client-key="espaco-marli-nails-guaratuba" title="Consulta demonstrativa à 0WEB — Espaço Marli Nails"
-          src={FORM} className="min-h-0 w-full flex-1 border-0" loading="eager"
-          referrerPolicy="strict-origin-when-cross-origin"/>
-        <div className="border-t border-[#542638]/15 px-5 py-3 text-center text-xs leading-5 text-[#77586a]">
-          <p>As respostas são armazenadas no formulário individual da 0WEB. Nenhum pedido é enviado à profissional.</p>
-          <p className="mt-2">Não carregou?{" "}
-            <a href={FORM} target="_blank" rel="noopener noreferrer"
-              className="font-semibold text-[#542638] underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2">
-              Abrir a consulta em nova aba
-            </a>.
-          </p>
-        </div>
-      </div>
-    </div>}
   </div>;
 }
