@@ -53,7 +53,7 @@ export function PortfolioRegionFilter({
         </button>
       </PopoverTrigger>
       <PopoverContent align="start" aria-label="Escolher região do portfólio" className="w-80 max-w-[calc(100vw-2rem)] p-0 motion-reduce:animate-none">
-        <Command shouldFilter={false} label="Opções de região">
+        <Command shouldFilter={false} label="Buscar região">
           <CommandInput value={query} onValueChange={setQuery} aria-label="Buscar região" placeholder="Digite cidade ou bairro..." className="min-h-11" />
           <CommandList>
             <CommandEmpty>Nenhuma região encontrada.</CommandEmpty>
