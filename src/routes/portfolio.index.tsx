@@ -19,6 +19,7 @@ import {
   PackageCheck,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
+import { PortfolioRegionFilter } from "@/components/site/PortfolioRegionFilter";
 import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
@@ -479,7 +480,7 @@ function PortfolioPage() {
       (activeCategory === "todos" || item.category === activeCategory) &&
       (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
       (projectType === "todos" || item.projectType === projectType) &&
-      (region === "todas" || item.location === region);
+      (region === "todas" || item.location?.trim() === region);
 
     // Busca por intenção ("lanche", "pedreiro"...) percorre somente itens
     // explicitamente publicados; projetos em revisão não entram em resultados.
@@ -613,8 +614,7 @@ function PortfolioPage() {
                   Sites reais para conhecer, comparar e divulgar.
                 </h1>
                 <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-                  Explore negócios por segmento e região. Cada projeto reúne presença digital e
-                  divulgação própria.
+                  Explore negócios por segmento e região. Projetos demonstrativos são identificados; não equivalem ao site oficial de cada negócio.
                 </p>
               </div>
               <FunnelCTAButton
@@ -624,7 +624,7 @@ function PortfolioPage() {
             </div>
 
             <div className="mt-6 grid max-w-3xl grid-cols-3 gap-2 sm:gap-3" aria-label="Resumo do catálogo">
-              {[[String(portfolioCatalog.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["100%", "com CTA e presença"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
+              {[[String(catalogItems.length), "projetos na vitrine"], [String(new Set(catalogItems.map((item) => item.category)).size), "segmentos na vitrine"], [String(availableRegions.length), "locais na vitrine"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
             </div>
 
           </div>
@@ -684,19 +684,7 @@ function PortfolioPage() {
                     <option value="catalog">Catálogos</option>
                     <option value="institutional">Institucionais</option>
                   </select>
-                  <select
-                    aria-label="Filtrar por região"
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
-                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:w-56 lg:rounded-xl lg:px-4"
-                  >
-                    <option value="todas">Todas as regiões</option>
-                    {availableRegions.map((location) => (
-                      <option key={location} value={location}>
-                        {location}
-                      </option>
-                    ))}
-                  </select>
+                  <PortfolioRegionFilter regions={availableRegions} value={region} onChange={setRegion} />
                   <select
                     aria-label="Ordenar projetos"
                     value={sort}
