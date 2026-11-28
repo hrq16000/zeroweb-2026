@@ -98,7 +98,7 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(store).not.toHaveProperty("offers");
   });
 
-  test("composição indexável usa funil offline sem bloquear rota pelo Cloud", () => {
+  test("rota pública fica em revisão noindex enquanto os gates permanecem pendentes", () => {
     const visual = read("src/components/portfolio/composition/registry.ts");
     const server = read("src/config/portfolio-authorial-compositions.ts");
     expect(visual).toContain('"dona-garimpeira-brecho": lazy(');
@@ -110,7 +110,10 @@ describe("Dona Garimpeira — SEO preparado, sem indexação prematura", () => {
     expect(loader).toContain('if (params.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain('if (loaderData?.slug === "dona-garimpeira-brecho")');
     expect(loader).toContain("return createDonaGarimpeiraSeo({");
-    expect(loader).toContain("approvedWithoutSocialImage: true");
+    expect(loader).toContain("published: false");
+    expect(loader).toContain("funnelVerified: false");
+    expect(loader).toContain("ownerApproved: false");
+    expect(loader).toContain("approvedWithoutSocialImage: false");
     expect(loader).not.toContain('if (!available) throw notFound()');
     expect(loader).not.toContain('getPublicFunnel({ data: { slug: "funnel-dona-garimpeira-brecho" } })');
     expect(loader).toContain('return { vertical, slug: params.slug, overrides: null, managed: null, visualFixture: false }');
