@@ -9,6 +9,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      visual_only:
+        description: "Escopo único de prévia: preview-leticia-reiche ou preview-dona-garimpeira-brecho"
+        required: false
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
@@ -16,6 +21,7 @@ concurrency:
 
 jobs:
   static-gates:
+    if: github.event_name != 'workflow_dispatch' || inputs.visual_only == ''
     name: Testes, tipos e validadores estáticos
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -59,6 +65,7 @@ jobs:
         run: bun run check:portfolio-originality:enforce
 
   runtime-gates:
+    if: github.event_name != 'workflow_dispatch' || inputs.visual_only == ''
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -367,4 +374,58 @@ jobs:
             seo-reports/portfolio-funnels-e2e.html
             public/audit
             seo-reports/client-privacy-report.json
+          if-no-files-found: ignore
+
+  targeted-visual-qa:
+    name: "QA visual direcionado — ${{ inputs.visual_only }}"
+    if: github.event_name == 'workflow_dispatch' && inputs.visual_only != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+      - name: Instalar Chromium
+        run: bunx playwright install --with-deps chromium
+      - name: Executar contratos específicos do portfólio
+        env:
+          VISUAL_ONLY: ${{ inputs.visual_only }}
+        run: |
+          case "$VISUAL_ONLY" in
+            preview-leticia-reiche)
+              bun test tests/portfolio/leticia-reiche-seo-route.test.ts tests/portfolio/leticia-reiche-hosted-form.test.ts
+              ;;
+            preview-dona-garimpeira-brecho)
+              bun test tests/portfolio/dona-garimpeira-draft-contract.test.ts tests/portfolio/dona-garimpeira-funnel-onboarding.test.ts
+              ;;
+            *)
+              echo "Escopo visual não permitido: $VISUAL_ONLY"
+              exit 1
+              ;;
+          esac
+      - name: Build local de Preview (sem deployment)
+        env:
+          VERCEL: "1"
+          VERCEL_ENV: "preview"
+        run: bun run build
+      - name: Capturar e comparar em 390, 768 e 1440 px
+        env:
+          VERCEL_ENV: "preview"
+          VISUAL_ONLY: ${{ inputs.visual_only }}
+          VISUAL_VIEWPORTS: "desktop:1440x900,tablet:768x1024,mobile:390x844"
+          VISUAL_BASELINE_DIR: "seo-reports/visual-r13"
+        run: node scripts/ci-with-prod-preview.mjs -- bash -lc "bun run test:visual:update && bun run test:visual"
+      - name: Anexar evidências visuais
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-r13-${{ inputs.visual_only }}
+          path: |
+            seo-reports/visual-r13/**
+            playwright-report/**
           if-no-files-found: ignore

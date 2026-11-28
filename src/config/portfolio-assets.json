@@ -1310,6 +1310,10 @@
         "ctaHref": "#sabores"
       },
       "socialVersion": "1726f91d"
+    },
+    "leticia-reiche": {
+      "icon": "/images/leticia-reiche/logo.svg",
+      "socialImage": "/images/leticia-reiche/social-og.svg"
     }
   }
 }

@@ -2523,5 +2523,31 @@
     "metrics": "Consulta de cardápio",
     "summary": "Garagem & Girassol em São José dos Pinhais — espetinhos, crepe suíço, morango com nata e uva com nata anunciados nas placas reais. Conheça as opções, consulte o cardápio e encontre a Rua Quirino Zagonel, 988. Apresentação demonstrativa 0WEB.",
     "publishedAt": "2026-11-26"
+  },
+  {
+    "slug": "leticia-reiche",
+    "clientKey": "leticia-reiche",
+    "title": "Letícia Reiche — Manicure e Pedicure",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "draft",
+    "live": false,
+    "city": "Belford Roxo",
+    "state": "RJ",
+    "tags": [
+      "manicure",
+      "pedicure",
+      "Belford Roxo",
+      "Rio de Janeiro"
+    ],
+    "subtitle": "Demonstração de presença digital para manicure e pedicure",
+    "location": "Belford Roxo — RJ (informado no briefing; não verificado)",
+    "badge": "Demonstração restrita",
+    "image": "/images/leticia-reiche/social-og.svg",
+    "fallbackImage": "/images/leticia-reiche/logo.svg",
+    "metrics": "Sem formulário · sem contato · sem indexação",
+    "summary": "Conceito visual autoral 0WEB, baseado em briefing ainda não confirmado. Não é site oficial e não recebe solicitações.",
+    "indexable": false,
+    "cityVerified": false
   }
 ]

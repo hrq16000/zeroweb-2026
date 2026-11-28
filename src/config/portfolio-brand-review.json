@@ -321,6 +321,25 @@
       "authored": true,
       "logo": "/images/infinito-spa/mark.svg",
       "notes": "Identidad conceptual original creada por 0WEB; no debe presentarse como logotipo oficial hasta la confirmación de Roze."
+    },
+    "leticia-reiche": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "PENDING_CLIENT_APPROVAL",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/leticia-reiche/logo.svg",
+      "direction": {
+        "concept": "Monograma editorial LR e ilustração de esmalte — conceito visual autoral 0WEB, não marca oficial.",
+        "personality": "delicada, editorial e acolhedora; hipótese visual ainda não aprovada",
+        "shapeLanguage": "monograma geométrico com traço curvo e composição editorial",
+        "typography": "serif editorial combinada com sans-serif de leitura",
+        "colors": [
+          "#4A162D",
+          "#B56A83",
+          "#F7E9E9"
+        ]
+      },
+      "notes": "Identidade criada pela 0WEB para demonstração. Não é marca oficial nem foi aprovada pela profissional. authored=true protege os SVGs autorais contra sobrescrita automática."
     }
   }
 }

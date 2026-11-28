@@ -133,6 +133,7 @@ import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.inde
 import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
 import { Route as PortfolioPreviewAgropetFiltRouteImport } from './routes/portfolio-preview.agropet-filt'
 import { Route as PortfolioPreviewDonaGarimpeiraBrechoRouteImport } from './routes/portfolio-preview.dona-garimpeira-brecho'
+import { Route as PortfolioPreviewLeticiaReicheRouteImport } from './routes/portfolio-preview.leticia-reiche'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioAgropetFiltRouteImport } from './routes/portfolio.agropet-filt'
@@ -913,6 +914,7 @@ const PortfolioPreviewAgropetFiltRoute =
     getParentRoute: () => rootRouteImport,
   } as any)
 const PortfolioPreviewDonaGarimpeiraBrechoRoute =
+const PortfolioPreviewLeticiaReicheRoute =
   PortfolioPreviewDonaGarimpeiraBrechoRouteImport.update({
     id: '/portfolio-preview/dona-garimpeira-brecho',
     path: '/portfolio-preview/dona-garimpeira-brecho',
@@ -1878,6 +1880,7 @@ export interface FileRoutesByFullPath {
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -2149,6 +2152,7 @@ export interface FileRoutesByTo {
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -2424,6 +2428,7 @@ export interface FileRoutesById {
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio-preview/agropet-filt': typeof PortfolioPreviewAgropetFiltRoute
   '/portfolio-preview/dona-garimpeira-brecho': typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  '/portfolio-preview/leticia-reiche': typeof PortfolioPreviewLeticiaReicheRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/agropet-filt': typeof PortfolioAgropetFiltRoute
   '/portfolio/bpl-locacoes-de-brinquedos': typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -3516,6 +3521,7 @@ export interface RootRouteChildren {
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
   PortfolioPreviewAgropetFiltRoute: typeof PortfolioPreviewAgropetFiltRoute
   PortfolioPreviewDonaGarimpeiraBrechoRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRoute
+  PortfolioPreviewLeticiaReicheRoute: typeof PortfolioPreviewLeticiaReicheRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioAgropetFiltRoute: typeof PortfolioAgropetFiltRoute
   PortfolioBplLocacoesDeBrinquedosRoute: typeof PortfolioBplLocacoesDeBrinquedosRoute
@@ -4441,6 +4447,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio-preview/dona-garimpeira-brecho'
       fullPath: '/portfolio-preview/dona-garimpeira-brecho'
       preLoaderRoute: typeof PortfolioPreviewDonaGarimpeiraBrechoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-preview/leticia-reiche': {
+      id: '/portfolio-preview/leticia-reiche'
+      path: '/portfolio-preview/leticia-reiche'
+      fullPath: '/portfolio-preview/leticia-reiche'
+      preLoaderRoute: typeof PortfolioPreviewLeticiaReicheRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
@@ -5965,6 +5978,8 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioPreviewAgropetFiltRoute: PortfolioPreviewAgropetFiltRoute,
   PortfolioPreviewDonaGarimpeiraBrechoRoute:
     PortfolioPreviewDonaGarimpeiraBrechoRoute,
+  PortfolioPreviewLeticiaReicheRoute:
+    PortfolioPreviewLeticiaReicheRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioAgropetFiltRoute: PortfolioAgropetFiltRoute,
   PortfolioBplLocacoesDeBrinquedosRoute: PortfolioBplLocacoesDeBrinquedosRoute,

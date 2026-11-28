@@ -2280,6 +2280,130 @@
         "enrichment": "docs/portfolio/enrichment/garagem-girassol.json",
         "mediaPlan": "docs/portfolio/media-plans/garagem-girassol.json"
       }
+    },
+    "leticia-reiche": {
+      "slug": "leticia-reiche",
+      "lifecycleContract": 1,
+      "contractVersion": 4,
+      "stage": "ready",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "in_progress",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "not_started",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "pending",
+        "publish": "pending"
+      },
+      "compositionContract": 0,
+      "individualSiteContract": {
+        "version": 1,
+        "standard": "docs/PORTFOLIO_INDIVIDUAL_SITE_SEO_STANDARD.md",
+        "gates": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": "complete",
+          "PORTFOLIO_ENTITY_GATE": "in_progress",
+          "PORTFOLIO_LOCAL_SEO_GATE": "complete",
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": "complete",
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": "not_started",
+          "PORTFOLIO_INDEXABILITY_GATE": "blocked_client_approval"
+        },
+        "evidence": {
+          "PORTFOLIO_INDIVIDUAL_SITE_GATE": [
+            "src/routes/portfolio-preview.leticia-reiche.tsx",
+            "src/components/site/LeticiaReichePreviewPage.tsx"
+          ],
+          "PORTFOLIO_ENTITY_GATE": [
+            "docs/portfolio/enrichment/leticia-reiche.json — fontes e verifiedAt registrados; telefone withheld"
+          ],
+          "PORTFOLIO_LOCAL_SEO_GATE": [
+            "canonical preview + noindex; localidade não publicada como fato confirmado"
+          ],
+          "PORTFOLIO_MEDIA_RICHNESS_GATE": [
+            "SVGs autorais; galeria omitida por ausência de mídia autorizada"
+          ],
+          "PORTFOLIO_DISCOVERY_GRAPH_GATE": [
+            "desativado até autorização comercial"
+          ],
+          "PORTFOLIO_INDEXABILITY_GATE": [
+            "catálogo draft/live=false/indexable=false; somente rota Preview protegida"
+          ]
+        }
+      },
+      "contentFacts": {
+        "ownSourcedContent": true,
+        "facts": [
+          "Nome, categorias e localidade são referências recebidas no briefing e não foram verificadas independentemente.",
+          "Nenhum preço, horário, endereço, campanha, disponibilidade ou canal oficial é divulgado.",
+          "Nenhum formulário, WhatsApp ou coleta de dados está ativo."
+        ],
+        "sources": [
+          "docs/portfolio/briefs/leticia-reiche.md",
+          "docs/portfolio/enrichment/leticia-reiche.json"
+        ]
+      },
+      "visualQa": {
+        "status": "PENDING_TARGETED_CI",
+        "checkedAt": "2026-11-28",
+        "viewports": [
+          390,
+          768,
+          1440
+        ],
+        "evidence": "Aguardando execução do workflow direcionado R13; não declarar PASS antes do run."
+      },
+      "perceptualReview": {
+        "status": "PENDING_TARGETED_CI",
+        "notes": "A aprovação visual será registrada somente após capturas Chromium reais em 390, 768 e 1440 px."
+      },
+      "blockers": [
+        "CLIENT_APPROVAL_PENDING: autorização escrita para uso público do nome, identidade conceitual e informações do briefing; sem isso a rota permanece somente em Preview e noindex."
+      ],
+      "warnings": [
+        "Demonstração autoral 0WEB; não é site oficial nem marca aprovada.",
+        "Telefone removido/withheld; WhatsApp e encaminhamento desativados.",
+        "Jotform, iframe, agenda, preços, disponibilidade, reserva e pagamento não estão ativos.",
+        "Referência sazonal de Natal/2026 não é publicada sem confirmação atual."
+      ],
+      "ownerRequired": [
+        "A profissional deve aprovar por escrito o uso público do nome, identidade conceitual e informações do briefing."
+      ],
+      "searchQa": [
+        {
+          "query": "Letícia Reiche manicure Belford Roxo",
+          "expect": "must_not_find",
+          "slug": "leticia-reiche"
+        },
+        {
+          "query": "manicure e pedicure Belford Roxo",
+          "expect": "must_not_find",
+          "slug": "leticia-reiche"
+        }
+      ],
+      "publicationException": {
+        "date": "2026-11-28",
+        "mode": "preview-only",
+        "ownerDirective": true,
+        "authorizedPublicPresentation": false,
+        "indexable": false,
+        "followUp": "Após aprovação escrita, abrir revisão comercial específica; só então decidir eventual publicação e indexação."
+      },
+      "lastUpdatedAt": "2026-11-28",
+      "routeFile": "src/routes/portfolio-preview.leticia-reiche.tsx",
+      "creativeBriefFile": "docs/portfolio/briefs/leticia-reiche.md",
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/leticia-reiche.json",
+        "mediaPlan": "docs/portfolio/media-plans/leticia-reiche.json",
+        "decision": "B — tecnicamente concluído, aguardando somente aprovação escrita da profissional."
+      },
+      "decision": "B_TECHNICALLY_COMPLETE_AWAITING_CLIENT"
     }
   }
 }
