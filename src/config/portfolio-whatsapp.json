@@ -11,9 +11,6 @@
     "ag-electrical-services": {
       "whatsapp": "5541999164815"
     },
-    "agropet-filt": {
-      "whatsapp": null
-    },
     "aguia-sul-sinalizacao": {
       "whatsapp": "5541992111698"
     },
@@ -23,9 +20,6 @@
     "angel-mix-brecho": {
       "whatsapp": null
     },
-    "arildo-madeiras": {
-      "whatsapp": "5541991671593"
-    },
     "artesanatos-darleia-oliveira": {
       "whatsapp": null
     },
@@ -34,9 +28,6 @@
     },
     "auto-socorro-dentinho": {
       "whatsapp": null
-    },
-    "autoescola-aptos": {
-      "whatsapp": "5541991453627"
     },
     "beto-pasteis": {
       "whatsapp": "554133830640"
@@ -53,17 +44,11 @@
     "btb-construcao": {
       "whatsapp": "5541999706634"
     },
-    "cantinho-da-tia-mari": {
-      "whatsapp": null
-    },
     "carecas-infotec": {
       "whatsapp": "5541995072700"
     },
     "casa-nativa": {
       "whatsapp": null
-    },
-    "catharine-lima-studio": {
-      "whatsapp": "5541998884095"
     },
     "centro-mega": {
       "whatsapp": "5541998589419"
@@ -77,9 +62,6 @@
     "confeitaria-sabor-da-realeza": {
       "whatsapp": "5541998667462"
     },
-    "cris-presentes-colonia-rio-grande": {
-      "whatsapp": "5541996879299"
-    },
     "denise-gomes-psicologa": {
       "whatsapp": "5541987150129"
     },
@@ -88,9 +70,6 @@
     },
     "dlara-pizzaria": {
       "whatsapp": "5541996403509"
-    },
-    "dona-garimpeira-brecho": {
-      "whatsapp": "5541995523363"
     },
     "dona-lucy-salgados": {
       "whatsapp": "5541991328020"
@@ -162,9 +141,6 @@
       "whatsapp": "5541997032663"
     },
     "kitutes-na-mesa": {
-      "whatsapp": null
-    },
-    "leticia-reiche": {
       "whatsapp": null
     },
     "liz-moraes-nail-designer": {
@@ -301,6 +277,51 @@
     },
     "your_brutus_burguer": {
       "whatsapp": "5541996413317"
+    },
+    "catharine-lima-studio": {
+      "whatsapp": "5541998884095"
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "whatsapp": "5541996879299"
+    },
+    "autoescola-aptos": {
+      "whatsapp": "5541991453627"
+    },
+    "arildo-madeiras": {
+      "whatsapp": "5541991671593"
+    },
+    "dona-garimpeira-brecho": {
+      "whatsapp": "5541995523363"
+    },
+    "agropet-filt": {
+      "whatsapp": null
+    },
+    "cantinho-da-tia-mari": {
+      "whatsapp": null
+    },
+    "salgados-da-fran": {
+      "whatsapp": null
+    },
+    "panificadora-doce-coracao-santo-antonio": {
+      "whatsapp": null
+    },
+    "infinito-spa": {
+      "whatsapp": "env:PORTFOLIO_WHATSAPP_INFINITO_SPA"
+    },
+    "espaco-marli-nails-guaratuba": {
+      "whatsapp": null
+    },
+    "bpl-locacoes-de-brinquedos": {
+      "whatsapp": null
+    },
+    "toop-assados": {
+      "whatsapp": null
+    },
+    "garagem-girassol": {
+      "whatsapp": "env:PORTFOLIO_WHATSAPP_GARAGEM_GIRASSOL"
+    },
+    "leticia-reiche": {
+      "whatsapp": null
     }
   }
 }
